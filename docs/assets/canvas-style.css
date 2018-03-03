@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans|Zilla+Slab');
+
+div.wrapper {
+  max-width: 90%;
+}
+
+:root {
+  --content: rgb(0,0,0,0.7);
+  --title: rgb(0,0,0,0.9);
+  --background: rgb(0,0,0,0.1);
+  --green: rgb(43,109,18,0.7);
+  --blue: rgb(46,65,114,0.8)
+}
+html {
+  height: 100%;
+}
+body {
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 16px;
+  /* color: var(--content); */
+  position: relative;
+  padding-bottom: 70px;
+  min-height: 100%;
+}
+header h1 {
+  font-family: 'Zilla Slab', serif;
+  color: var(--title);
+}
+.container {
+  width: 90%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  margin: auto;
+}
+.container section {
+  border: 1px solid #eaeaea;
+  padding: 5px;
+}
+.container section header {
+  font-size: 1.1em;
+}
+ul li {
+  font-size: 0.9em;
+  margin-bottom: 10px;
+  line-height: 1.2em;
+  color: var(--content);
+}
+.problem {
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+.key-metrics {
+  grid-row-start: 2;
+  grid-row-end: 3;
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+.container section.resources-required {
+  grid-row-start: 3;
+  grid-row-end: 4;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  border-left: 2px var(--green) solid;
+  border-top: 2px var(--green) solid;
+  border-bottom: 2px var(--green) solid;
+}
+.container section.unique-value {
+  grid-row-start: 1;
+  grid-row-end: 2;
+  grid-column-start: 3;
+  grid-column-end: 6;
+  border-left: 3px var(--blue) dashed;
+}
+.container section.user-profiles {
+  grid-row-start: 2;
+  grid-row-end: 3;
+  grid-column-start: 3;
+  grid-column-end: 5;
+  border-left: 3px var(--blue) dashed;
+}
+.user-channels {
+  grid-row-start: 2;
+  grid-row-end: 3;
+  grid-column-start: 5;
+  grid-column-end: 6;
+}
+.container section.contributor-profiles {
+  grid-row-start: 3;
+  grid-row-end: 4;
+  grid-column-start: 3;
+  grid-column-end: 5;
+  border-right: 2px var(--green) solid;
+  border-top: 2px var(--green) solid;
+  border-bottom: 2px var(--green) solid;
+  border-left: 3px var(--blue) dashed;
+}
+.contributor-channels {
+  grid-row-start: 3;
+  grid-row-end: 4;
+  grid-column-start: 5;
+  grid-column-end: 6;
+}
+.grid_footer {
+  width: 90%;
+  margin: 20px auto;
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  font-family: 'Zilla Slab', serif;
+  font-size: 1.2em;
+}
+.grid_footer div {
+  text-align: center;
+  color: var(--blue);
+}
+footer {
+  margin-top: 50px;
+  background-color: var(--background);
+  color: var(--content);
+  font-size: 0.8em;
+  padding: 10px;
+  width: 100%;
+  height: 121px;
+  position: absolute;
+  bottom: 0;
+}
