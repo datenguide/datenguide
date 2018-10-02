@@ -5,9 +5,9 @@ class: solution
 layout: page
 # You can change next part to add your ideas
 item:
-  - A website where journalists can find information and tutorials to understand and use tools to protect their privacy
-  - Each day simple step-by-step tutorial to learn how to use different tools
-  - Specific section for countries to be specific about tools and threats
+  - Teach journalists about public statistics
+  - Provide an alternative data portal – an easy-to-use website that clearly and concisely presents the data, makes it comparable, and explains it
+  - Provide an API and machine-readable data formats for using public statistics in data-driven journalism
 ---
 
 Long description of the solution

@@ -5,8 +5,8 @@ class: user-profiles
 layout: page
 # You can change next part to add your ideas
 item:
-  - Research journalists
-  - Human right activists
+  - "Traditional" journalists
+  - Data journalists
 
 ---
 

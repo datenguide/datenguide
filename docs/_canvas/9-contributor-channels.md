@@ -6,9 +6,8 @@ layout: page
 # You can change next part to add your ideas
 item:
   - Github
-  - Forum with discussion
+  - Social media
   - Event participation
-
 ---
 
 Long description if needed

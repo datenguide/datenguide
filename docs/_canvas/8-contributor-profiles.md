@@ -5,11 +5,10 @@ class: contributor-profiles
 layout: page
 # You can change next part to add your ideas
 item:
-  - Privacy activists
+  - Civic technologists
+  - Web developers
   - UX designers
-  - Facilitators
-  - Local privacy specialists
-
+  - data journalists
 ---
 
 Long description if needed

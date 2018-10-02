@@ -5,8 +5,7 @@ class: unique-value
 layout: page
 # You can change next part to add your ideas
 item:
-  - A place where journalists can find information and examples on how to manage their privacy and their sources privacy with easy step-by-step tutorials.
-
+  - A place where journalists can learn about using public statistics and access the statistics they need for their work
 ---
 
 Long description of the Unique Value Proposition

@@ -8,7 +8,6 @@ item:
   - Social media
   - Website and partners websites
   - Events participation
-
 ---
 
 Long description if needed
