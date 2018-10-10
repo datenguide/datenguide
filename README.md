@@ -29,6 +29,6 @@ This is where Datenguide comes in. We are working on a modern, easy-to-use data 
 
 ### More about this project
 
-Datenguide participates in the [Mozilla Open Leaders](https://foundation.mozilla.org/en/opportunity/mozilla-open-leaders/) program. See the Open Canvas for more background on the project.
+Datenguide participates in the [Mozilla Open Leaders](https://foundation.mozilla.org/en/opportunity/mozilla-open-leaders/) program. See our [open canvas](https://datenguide.github.io/datenguide/open_canvas/) for background information on the project.
 
-The content in `docs` folder is built using the Jekyll static site generator. It uses a project structure borrowed from [deimidis/privacy-journalists](https://github.com/deimidis/privacy-journalists), a collection of privacy related tutorials for journalists.
+The open canvas, which can be found in this repo's [`docs`](https://github.com/datenguide/datenguide/blob/master/docs/) folder is built using the Jekyll static site generator. It uses a project structure borrowed from [deimidis/privacy-journalists](https://github.com/deimidis/privacy-journalists), a collection of privacy related tutorials for journalists, published under [Mozilla Public License](https://github.com/datenguide/datenguide/blob/master/docs/LICENSE).
