@@ -13,6 +13,10 @@ Datenguide consists of two main components:
 - [datenguide-backend](https://github.com/datenguide/datenguide-backend), which collects data sets from where they are officially published and provides a [GraphQL API](https://graphql.org/) for accessing them
 - [datenguide-frontend](https://github.com/datenguide/datenguide-frontend), which has everything that's needed for generating a website based on that data
 
+### License
+
+Datenguide is an open data project built on open source software. The documentation in this repository is published under a [Creative Commons Attribution 4.0 International License (CC By 4.0)](https://creativecommons.org/licenses/by/4.0/). The Datenguide source code is published under a [MIT License](https://github.com/datenguide/datenguide-frontend/blob/master/LICENSE). The official statistics used in the Datenguide project are licensed under [Data Licence Germany – Attribution – Version 2.0 (dl-de/by-2-0)](https://www.govdata.de/en/dl-de/by-2-0), the official German open data license, by the [statistical offices of Germany](https://www.regionalstatistik.de/).
+
 ### Background: Official statistics in Germany
 
 Official statistics are statistics published by government agencies and other public bodies, usually about economic, environmental, and societal topics. Official statistics are commonly used by policy makers and public administrators but are also an important tool for journalists and civil society initiatives.
