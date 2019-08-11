@@ -1,5 +1,8 @@
 _site
 .sass-cache
 .jekyll-metadata
+.next
+dist
 docs/vendor
 docs/.bundle
+node_modules

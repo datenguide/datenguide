@@ -1,0 +1,31 @@
+{
+  "name": "datenguide",
+  "version": "1.0.0",
+  "description": "Datenguide is your guide to understanding and using German official statistics. We work on an easy-to-use data portal and on learning materials around data published by the German statistics offices.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/datenguide/datenguide.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/datenguide/datenguide/issues"
+  },
+  "homepage": "https://github.com/datenguide/datenguide#readme",
+  "dependencies": {
+    "next": "^9.0.3",
+    "next-mdx-enhanced": "^2.0.0",
+    "react": "^16.9.0",
+    "react-dom": "^16.8.6"
+  }
+}
