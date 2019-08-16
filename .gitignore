@@ -2,6 +2,7 @@ _site
 .sass-cache
 .jekyll-metadata
 .next
+.mdx-data
 dist
 docs/vendor
 docs/.bundle
