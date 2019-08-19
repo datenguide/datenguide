@@ -3,20 +3,19 @@ import { withRouter } from 'next/router';
 import fetch from 'isomorphic-unfetch';
 import RegionLayout from '../../layouts/Region'
 
-const Region = ({ id, name }) => {
+const Region = ({ slug, id, name }) => {
     return (
         <RegionLayout>
             <Link href="/region/ahrweiler">      
                 <a>ahrweiler</a>
             </Link>
-            <h1>{name} / {id}</h1>
-            {/* <Markdown /> */}
+            <h1>{name} / {id} / {slug}</h1>
         </RegionLayout>)
 };
   
 Region.getInitialProps = async function(context) {
-    const { id } = context.query;
-    const res = await fetch(`http://localhost:3000/api/region/${id}`);
+    const { slug } = context.query;
+    const res = await fetch(`http://localhost:3000/api/region/${slug}`);
     const data = await res.json();
 
     return data;

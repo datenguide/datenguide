@@ -2,9 +2,9 @@ import Header from '../components/Header';
 import fetch from 'isomorphic-unfetch';
 import Link from 'next/link';
 
-const RegionLink = ({ name, id }) => (
+const RegionLink = ({ name, slug }) => (
   <li>
-    <Link href="/region/[id]" as={`/region/${id}`}>      
+    <Link href="/region/[slug]" as={`/region/${slug}`}>      
         <a>{name}</a>
     </Link>
   </li>
@@ -14,9 +14,9 @@ const Home = ({ regions }) => {
     return (
         <div>
             <h1>Regions</h1>
-            {Object.keys(regions).map(key => (
-                <ul key={key}>
-                    <RegionLink name={regions[key]} id={key} />
+            {regions.map(({ name, id, slug }) => (
+                <ul key={id}>
+                    <RegionLink name={name} slug={slug} />
                 </ul>
             ))}
         </div>

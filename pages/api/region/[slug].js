@@ -1,4 +1,4 @@
-const data = require('../../data/ags.json')
+const data = require('../../../data/ags.json')
 const slugify = require('@sindresorhus/slugify');
 
 const districts = Object.keys(data)
@@ -9,6 +9,8 @@ const districts = Object.keys(data)
         slug: slugify(data[id]) 
     }))
 
-export default (req, res) => {    
-    res.status(200).json(districts)
+export default (req, res) => {
+    const { query: { slug } } = req
+    const result = districts.find((region) => region.slug === slug)
+    res.status(200).json(result)
 }
