@@ -1,22 +1,34 @@
 import Header from '../components/Header';
+import fetch from 'isomorphic-unfetch';
 import Link from 'next/link';
 
-const RegionLink = props => (
+const RegionLink = ({ name, id }) => (
   <li>
-    <Link href="/region/[id]" as={`/region/${props.id}`}>      
-        <a>{props.id}</a>
+    <Link href="/region/[id]" as={`/region/${id}`}>      
+        <a>{name}</a>
     </Link>
   </li>
 );
-export default function Blog() {
-  return (
-    <div>
-      <h1>My Blog</h1>
-      <ul>
-        <RegionLink id="hello-nextjs" />
-        <RegionLink id="learn-nextjs" />
-        <RegionLink id="deploy-nextjs" />
-      </ul>
-    </div>
-  );
+
+const Home = ({ regions }) => {
+    return (
+        <div>
+            <h1>Regions</h1>
+            {Object.keys(regions).map(key => (
+                <ul key={key}>
+                    <RegionLink name={regions[key]} id={key} />
+                </ul>
+            ))}
+        </div>
+    );
 }
+  
+Home.getInitialProps = async function(context) {
+    const { id } = context.query;
+    const res = await fetch(`http://localhost:3000/api/regions`);
+    const regions = await res.json();
+
+    return { regions };
+};
+
+export default Home

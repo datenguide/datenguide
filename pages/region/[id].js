@@ -1,16 +1,25 @@
-import dynamic from 'next/dynamic'
-import { useRouter } from 'next/router'
-import Layout from '../../layouts/Region'
+import Link from 'next/link';
+import { withRouter } from 'next/router';
+import fetch from 'isomorphic-unfetch';
+import RegionLayout from '../../layouts/Region'
 
-export default function Post() {
-  const { query } = useRouter()
+const Region = ({ id, name }) => {
+    return (
+        <RegionLayout>
+            <Link href="/region/ahrweiler">      
+                <a>ahrweiler</a>
+            </Link>
+            <h1>{name} / {id}</h1>
+            {/* <Markdown /> */}
+        </RegionLayout>)
+};
+  
+Region.getInitialProps = async function(context) {
+    const { id } = context.query;
+    const res = await fetch(`http://localhost:3000/api/region/${id}`);
+    const data = await res.json();
 
-  const component = query.id && import(`../../regions/${query.id}.md`)
-  const RegionContent = component && dynamic(() => component)
-  component &&
-    component.then(response => {
-      console.log(response.frontmatter)
-    })
+    return data;
+};
 
-  return <Layout>{RegionContent && <RegionContent />}</Layout>
-}
+export default withRouter(Region);
