@@ -24,8 +24,7 @@ const Home = ({ regions }) => {
 }
   
 Home.getInitialProps = async function(context) {
-    const { id } = context.query;
-    const res = await fetch(`http://localhost:3000/api/regions`);
+    const res = await fetch(`http://localhost:3000/api/region?nuts=3`);
     const regions = await res.json();
 
     return { regions };
