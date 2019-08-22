@@ -9,7 +9,9 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "test": "healthier && prettier --check '**/*.{js,json,css}'",
+    "format": "prettier --write '**/*.{js,json,css,yml}'"
   },
   "repository": {
     "type": "git",
@@ -32,5 +34,41 @@
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "stringify-object": "^3.3.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.2",
+    "eslint": "^6.2.1",
+    "eslint-config-healthier": "^3.0.0",
+    "eslint-config-standard": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.14.3",
+    "healthier": "^3.0.0",
+    "prettier": "^1.18.2",
+    "standard": "^14.0.0"
+  },
+  "prettier": {
+    "tabWidth": 2,
+    "semi": false,
+    "singleQuote": true
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "rules": {
+      "react/prop-types": 0,
+      "no-console": [
+        "error",
+        {
+          "allow": [
+            "warn",
+            "error"
+          ]
+        }
+      ]
+    },
+    "extends": [
+      "standard-react"
+    ]
   }
 }
