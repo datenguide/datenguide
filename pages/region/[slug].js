@@ -1,19 +1,51 @@
 import React from 'react'
-import Link from 'next/link'
 import fetch from 'isomorphic-unfetch'
+import { useQuery } from 'graphql-hooks'
 
-import withData from '../../lib/apollo'
 import RegionLayout from '../../layouts/Region'
 
+export const allPostsQuery = `
+  query region($id: String!) {
+    region(id: $id) {
+      id
+      name
+      WAHL09(year: 2017, PART04: [CDU, SPD, AFD, FDP, DIELINKE, B90_GRUENE]) {
+        year
+        value
+        PART04
+      }
+    }
+  }
+`
+
 const Region = ({ slug, id, name }) => {
+  const { loading, error, data } = useQuery(allPostsQuery, {
+    variables: { id }
+  })
+
+  if (error) return <div>Error loading posts.</div>
+  if (loading) return <div>Loading</div>
+
+  const { WAHL09 } = data.region
+
   return (
     <RegionLayout>
-      <Link href="/region/ahrweiler">
-        <a>ahrweiler</a>
-      </Link>
       <h1>
         {name} / {id} / {slug}
       </h1>
+
+      <h3>Election results (2017)</h3>
+
+      <table>
+        <tbody>
+          {WAHL09.map(({ PART04: name, value }) => (
+            <tr key={name}>
+              <th>{name}</th>
+              <td>{value} votes</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </RegionLayout>
   )
 }
@@ -26,4 +58,4 @@ Region.getInitialProps = async function(context) {
   return data
 }
 
-export default withData(Region)
+export default Region
