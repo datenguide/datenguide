@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 const RegionLink = ({ name, slug }) => (
   <li>
-    <Link href='/region/[slug]' as={`/region/${slug}`}>
+    <Link href="/region/[slug]" as={`/region/${slug}`}>
       <a>{name}</a>
     </Link>
   </li>

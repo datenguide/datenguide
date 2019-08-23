@@ -2,16 +2,15 @@
   "name": "datenguide",
   "version": "1.0.0",
   "description": "Datenguide is your guide to understanding and using German official statistics. We work on an easy-to-use data portal and on learning materials around data published by the German statistics offices.",
-  "main": "index.js",
   "directories": {
     "doc": "docs"
   },
   "scripts": {
-    "dev": "next",
-    "build": "next build",
-    "start": "next start",
-    "test": "healthier && prettier --check '**/*.{js,json,css}'",
-    "format": "prettier --write '**/*.{js,json,css,yml}'"
+    "dev": "next src",
+    "build": "next build src",
+    "start": "next start src",
+    "test": "healthier && prettier --check 'src/**/*.{js,json,css}'",
+    "format": "prettier --write 'src/**/*.{js,json,css,yml}'"
   },
   "repository": {
     "type": "git",
@@ -54,12 +53,17 @@
   "prettier": {
     "tabWidth": 2,
     "semi": false,
-    "singleQuote": true
+    "singleQuote": true,
+    "jsxSingleQuote": false
   },
   "eslintConfig": {
     "parser": "babel-eslint",
     "rules": {
       "react/prop-types": 0,
+      "jsx-quotes": [
+        "error",
+        "prefer-double"
+      ],
       "no-console": [
         "error",
         {
