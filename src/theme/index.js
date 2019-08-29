@@ -40,6 +40,12 @@ const theme = createMuiTheme({
     background: {
       default: '#fff'
     }
+  },
+
+  props: {
+    MuiButtonBase: {
+      disableRipple: true // No more ripple, on the whole application 💣!
+    }
   }
 })
 
