@@ -10,6 +10,7 @@ const NUTS_TO_AGS = {
 const getRegions = nutsLevel =>
   Object.keys(data)
     .filter(id => id.length === NUTS_TO_AGS[nutsLevel])
+    .filter(id => id !== 'DG')
     .map(id => ({
       name: data[id],
       id,
