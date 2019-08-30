@@ -1,7 +1,7 @@
 const path = require('path')
 const withFonts = require('next-fonts')
 const withMDX = require('@zeit/next-mdx')({
-  extension: /\.md?$/
+  extension: /\.mdx?$/
 })
 
 module.exports = withMDX(
@@ -9,7 +9,7 @@ module.exports = withMDX(
     pageExtensions: ['js', 'jsx', 'mdx', 'md'],
     webpack(config, options) {
       config.module.rules.push({
-        test: /\.md?$/,
+        test: /\.mdx?$/,
         use: [path.join(__dirname, './lib/frontmatter-loader')]
       })
       return config
