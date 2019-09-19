@@ -1,11 +1,12 @@
 import React from 'react'
-import Header from '../components/Header'
+import DefaultLayout from '../layouts/Default'
 
-export default function About() {
+const About = () => {
   return (
-    <div>
-      <Header />
+    <DefaultLayout>
       <p>This is the about page</p>
-    </div>
+    </DefaultLayout>
   )
 }
+
+export default About

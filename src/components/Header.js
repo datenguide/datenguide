@@ -42,6 +42,16 @@ export default function ButtonAppBar() {
             Home
           </Button>
         </Link>
+        <Link href="/detail">
+          <Button component="a" color="inherit">
+            Detail
+          </Button>
+        </Link>
+        <Link href="/about">
+          <Button component="a" color="inherit">
+            About
+          </Button>
+        </Link>
       </Toolbar>
     </AppBar>
   )
