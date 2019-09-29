@@ -59,7 +59,7 @@ const ValueAttributeSelect = ({
           options={options}
           onChange={onChange}
           input={<Input id="select-multiple-checkbox" />}
-          renderValue={value => `Selected: ${value.length}`}
+          renderValue={value => `Ausgewählt: ${value.length}`}
           MenuProps={MenuProps}
         >
           {options.map(option => {

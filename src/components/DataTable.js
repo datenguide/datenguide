@@ -93,10 +93,12 @@ const DataTable = ({ filterSelection = {} }) => {
   ].concat(
     (filterSelection &&
       filterSelection.args &&
-      filterSelection.args.map(a => ({
-        headerName: a.label,
-        field: a.value
-      }))) ||
+      filterSelection.args
+        .filter(a => a.selected.length !== 0)
+        .map(a => ({
+          headerName: a.label,
+          field: a.value
+        }))) ||
       []
   )
 
