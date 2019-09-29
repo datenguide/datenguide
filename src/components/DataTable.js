@@ -9,16 +9,17 @@ import Paper from '@material-ui/core/Paper'
 import pt from 'prop-types'
 
 import gql from 'graphql-tag'
+import { print } from 'graphql'
 import { ClientContext } from 'graphql-hooks'
 
 const getQuery = ({ statistic, attribute, args }) => {
   const statisticsExpression = `statistics: [R${statistic}]`
 
-  const valueAttributeArgumentsExpression = args.map(arg =>
-    arg.values.length > 0
-      ? `${arg.value}:[${arg.values.map(a => a.value).join(',')}]`
+  const valueAttributeArgumentsExpression = args.map(arg => {
+    return arg.selected.length > 0
+      ? `${arg.value}:[${arg.selected.join(',')}]`
       : ''
-  )
+  })
 
   const argumentsExpression = `(${valueAttributeArgumentsExpression
     .concat(statisticsExpression)
@@ -39,6 +40,7 @@ const getQuery = ({ statistic, attribute, args }) => {
         }
     }
 `
+
   return gql`
     ${query}
   `
@@ -67,7 +69,8 @@ const DataTable = ({ filterSelection = {} }) => {
   useEffect(() => {
     const fetchData = async () => {
       const query = getQuery(filterSelection)
-      const { data } = await client.request({ query })
+      // TODO omg, client does not support gql AST
+      const { data } = await client.request({ query: print(query) })
       setData(data)
     }
 
@@ -91,7 +94,7 @@ const DataTable = ({ filterSelection = {} }) => {
     (filterSelection &&
       filterSelection.args &&
       filterSelection.args.map(a => ({
-        headerName: a.name,
+        headerName: a.label,
         field: a.value
       }))) ||
       []

@@ -21,7 +21,7 @@ const getFilterSelection = (statistic, args) => {
   return {
     statistic: sourceStatistic,
     attribute,
-    args: args.selected
+    args
   }
 }
 
@@ -33,13 +33,9 @@ const useStyles = makeStyles(theme => ({
 
 const Detail = () => {
   const classes = useStyles()
-  const [filterSelection, setFilterSelection] = useState({})
+  const [filterSelection, setFilterSelection] = useState(null)
   const [statistic, setStatistic] = useState([])
   const [args, setArgs] = useState([])
-
-  console.log('filterelection', filterSelection)
-  console.log('statistic', statistic)
-  console.log('args', args)
 
   useEffect(() => {
     const attribute =
@@ -87,7 +83,7 @@ const Detail = () => {
               />
             )
           })}
-          {/*<DataTable filterSelection={filterSelection} />*/}
+          <DataTable filterSelection={filterSelection} />
         </Grid>
       </Grid>
     </DefaultLayout>
