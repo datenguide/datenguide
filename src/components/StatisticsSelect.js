@@ -182,24 +182,17 @@ const Placeholder = props => {
 
 Placeholder.propTypes = {
   children: PropTypes.node,
-  innerProps: PropTypes.object,
   selectProps: PropTypes.object.isRequired
 }
 
-const SingleValue = props => {
-  return (
-    <Typography
-      className={props.selectProps.classes.singleValue}
-      {...props.innerProps}
-    >
-      {props.children}
-    </Typography>
-  )
-}
+const SingleValue = props => (
+  <Typography className={props.selectProps.classes.singleValue}>
+    {props.children}
+  </Typography>
+)
 
 SingleValue.propTypes = {
   children: PropTypes.node,
-  innerProps: PropTypes.any.isRequired,
   selectProps: PropTypes.object.isRequired
 }
 

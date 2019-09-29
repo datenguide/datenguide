@@ -40,6 +40,7 @@
     "graphql-tag": "^2.10.1",
     "gray-matter": "^4.0.2",
     "isomorphic-unfetch": "^3.0.0",
+    "lodash": "^4.17.15",
     "next": "^9.0.3",
     "next-fonts": "^0.18.0",
     "path": "^0.12.7",

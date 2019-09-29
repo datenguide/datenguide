@@ -1,40 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
+import _ from 'lodash'
 
 import Grid from '@material-ui/core/Grid'
 
-import DefaultLayout from '../layouts/Default'
-import DataTable from '../components/DataTable'
-import RegionSelectTree from '../components/RegionSelectTree'
-import StatisticsSelect from '../components/StatisticsSelect'
-
-import schema from '../data/schema.json'
-import ValueAttributeSelect from '../components/ValueAttributeSelect'
-
-// TODO move to server API and get rid of these transformations
-const getArgValues = values =>
-  values.map(v => ({
-    value: v.value,
-    label: v.name
-  }))
-
-// TODO move to server API and get rid of these transformations
-const getArgs = attribute => {
-  const attributeSchema = schema[attribute]
-  return attributeSchema
-    ? Object.keys(attributeSchema.args).reduce((acc, curr) => {
-        const value = attributeSchema.args[curr]
-        const option = {
-          value: curr,
-          label: value.name,
-          description: value.description,
-          values: getArgValues(attributeSchema.args[curr].values)
-        }
-        acc.push(option)
-        return acc
-      }, [])
-    : []
-}
+import getAttributeArgs from '../../lib/schema'
+import DefaultLayout from '../../layouts/Default'
+import DataTable from '../../components/DataTable'
+import RegionSelectTree from '../../components/RegionSelectTree'
+import StatisticsSelect from '../../components/StatisticsSelect'
+import ValueAttributeSelect from '../../components/ValueAttributeSelect'
 
 const getFilterSelection = (statistic, args) => {
   if (statistic.length !== 1) {
@@ -42,17 +17,11 @@ const getFilterSelection = (statistic, args) => {
   }
   const sourceStatistic = statistic[0].value.substr(0, 5)
   const attribute = statistic[0].value.substr(5)
-  const selectedArgs = args
-    .map(arg => ({
-      value: arg.value,
-      values: arg.values.filter(v => v.checked === 'on')
-    }))
-    .filter(arg => arg.values.length > 0)
 
   return {
     statistic: sourceStatistic,
     attribute,
-    args: selectedArgs
+    args: args.selected
   }
 }
 
@@ -68,10 +37,15 @@ const Detail = () => {
   const [statistic, setStatistic] = useState([])
   const [args, setArgs] = useState([])
 
+  console.log('filterelection', filterSelection)
+  console.log('statistic', statistic)
+  console.log('args', args)
+
   useEffect(() => {
     const attribute =
       statistic.length === 1 ? statistic[0].value.substr(5) : null
-    setArgs(getArgs(attribute))
+    const attributeArgs = getAttributeArgs(attribute)
+    setArgs(attributeArgs.map(arg => ({ ...arg, selected: [] })))
   }, [statistic])
 
   useEffect(() => {
@@ -80,6 +54,13 @@ const Detail = () => {
 
   const handleStatisticSelectionChange = value => {
     setStatistic([value])
+  }
+
+  const handleValueAttributeChange = index => event => {
+    // TODO this is just a temporary solution, implement proper state management
+    const newArgs = _.cloneDeep(args)
+    newArgs[index].selected = event.target.value
+    setArgs(newArgs)
   }
 
   return (
@@ -95,10 +76,18 @@ const Detail = () => {
             onSelectionChange={handleStatisticSelectionChange}
             value={statistic}
           />
-          {args.map(arg => (
-            <ValueAttributeSelect />
-          ))}
-          <DataTable filterSelection={filterSelection} />
+          {args.map((arg, index) => {
+            return (
+              <ValueAttributeSelect
+                key={arg.label}
+                label={arg.label}
+                value={arg.selected}
+                options={arg.values}
+                onChange={handleValueAttributeChange(index)}
+              />
+            )
+          })}
+          {/*<DataTable filterSelection={filterSelection} />*/}
         </Grid>
       </Grid>
     </DefaultLayout>

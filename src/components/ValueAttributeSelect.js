@@ -30,68 +30,58 @@ const MenuProps = {
   PaperProps: {
     style: {
       maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-      width: 250
+      width: '250px'
     }
   }
 }
 
-const names = [
-  'Oliver Hansen',
-  'Van Henry',
-  'April Tucker',
-  'Ralph Hubbard',
-  'Omar Alexander',
-  'Carlos Abbott',
-  'Miriam Wagner',
-  'Bradley Wilkerson',
-  'Virginia Andrews',
-  'Kelly Snyder'
-]
-
 const ValueAttributeSelect = ({
   label,
+  value,
   options,
-  onOptionsChange,
-  onSelectAll,
-  onReset
+  onChange
+  // onSelectAll,
+  // onReset
 }) => {
   const classes = useStyles()
-  const [personName, setPersonName] = React.useState([])
-
-  function handleChange(event) {
-    setPersonName(event.target.value)
-  }
-
+  
+  console.log('value', value);
+  
+  
+  
   return (
     <div className={classes.root}>
       <FormControl className={classes.formControl}>
-        <InputLabel htmlFor="select-multiple-checkbox">Tag</InputLabel>
+        <InputLabel htmlFor="select-multiple-checkbox">{label}</InputLabel>
         <Select
           multiple
-          value={personName}
-          onChange={handleChange}
+          value={value}
+          options={options}
+          onChange={onChange}
           input={<Input id="select-multiple-checkbox" />}
-          renderValue={selected => `Selected: ${selected.length}`}
+          renderValue={value => `Selected: ${value.length}`}
           MenuProps={MenuProps}
         >
-          {names.map(name => (
-            <MenuItem key={name} value={name}>
-              <Checkbox checked={personName.indexOf(name) > -1} />
-              <ListItemText primary={name} />
-            </MenuItem>
-          ))}
+          {options.map(option => {
+            return (
+              <MenuItem key={option.label} value={option.value}>
+                <Checkbox checked={value.includes(option.value)} />
+                <ListItemText primary={option.label} />
+              </MenuItem>
+            )
+          })}
         </Select>
       </FormControl>
     </div>
   )
 }
 
-ValueAttributeFilter.propTypes = {
+ValueAttributeSelect.propTypes = {
   label: PropTypes.string.isRequired,
   options: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
-  onOptionsChange: PropTypes.func.isRequired,
-  onSelectAll: PropTypes.func.isRequired,
-  onReset: PropTypes.func.isRequired
+  onChange: PropTypes.func.isRequired,
+  // onSelectAll: PropTypes.func.isRequired,
+  // onReset: PropTypes.func.isRequired
 }
 
 export default ValueAttributeSelect
