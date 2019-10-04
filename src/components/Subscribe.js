@@ -13,12 +13,45 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1,
     backgroundColor: '#c3e5f1',
     paddingTop: theme.spacing(2),
-    paddingBottom: theme.spacing(2),
-    backgroundImage: `url(${background})`,
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: '470px auto',
-    backgroundPosition: '105% bottom',
-    borderBottom: '1px solid #44707f'
+    paddingBottom: theme.spacing(5),
+
+    [theme.breakpoints.up('md')]: {
+      backgroundImage: `url(${background})`,
+      backgroundRepeat: 'no-repeat',
+      backgroundSize: '560px auto',
+      backgroundPosition: '110% bottom',
+      borderBottom: '1px solid #44707f'
+    },
+
+    [theme.breakpoints.up('xl')]: {
+      backgroundSize: '560px auto',
+      backgroundPosition: '85% bottom'
+    }
+  },
+
+  title: {
+    fontSize: '3rem',
+    marginBottom: theme.spacing(2),
+    color: theme.palette.secondary.dark
+  },
+
+  intro: {
+    fontSize: '1.5rem',
+    marginTop: '0',
+    marginBottom: theme.spacing(2),
+
+    '& b': {
+      color: theme.palette.secondary.dark
+    },
+
+    [theme.breakpoints.up('md')]: {
+      maxWidth: '720px'
+    }
+  },
+
+  form: {
+    display: 'block',
+    marginTop: theme.spacing(3)
   },
 
   emailInput: {
@@ -40,7 +73,11 @@ const useStyles = makeStyles(theme => ({
 
   terms: {
     display: 'block',
-    marginTop: theme.spacing(2)
+    marginTop: theme.spacing(2),
+
+    [theme.breakpoints.up('md')]: {
+      maxWidth: '60%'
+    }
   }
 }))
 
@@ -50,10 +87,21 @@ export default function Subscribe() {
     <section className={classes.root}>
       <Container fixed>
         <Box my={4}>
-          <h1>Statistiken für alle!</h1>
+          <h1 className={classes.title}>Statistiken für alle</h1>
+
+          <p className={classes.intro}>
+            Der Datenguide macht die amtliche Statistik zugänglicher für alle.
+            Wir arbeiten an einer digitale Plattform, die regionale Statiken
+            klar und prägnant darstellt, vergleichbar macht und erklärt.
+          </p>
+
+          <p className={classes.intro}>
+            <b>🚧 Der Datenguide ist noch in Arbeit.</b> Wenn du zu den ersten
+            Nutzer:innen gehören willst, melde dich für unseren Newsletter an.
+          </p>
 
           <form
-            className="newsletter"
+            className={classes.form}
             action="https://datengui.us17.list-manage.com/subscribe/post?u=4b79a045e2fce403d887f9147&amp;id=19233695e7"
             method="post"
             id="mc-embedded-subscribe-form"
