@@ -6,12 +6,19 @@ import Box from '@material-ui/core/Box'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 
+import background from '../assets/hero_city.svg'
+
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
     backgroundColor: '#c3e5f1',
     paddingTop: theme.spacing(2),
-    paddingBottom: theme.spacing(2)
+    paddingBottom: theme.spacing(2),
+    backgroundImage: `url(${background})`,
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: '470px auto',
+    backgroundPosition: '105% bottom',
+    borderBottom: '1px solid #44707f'
   },
 
   emailInput: {
