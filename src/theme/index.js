@@ -32,6 +32,11 @@ const theme = createMuiTheme({
           color: BLUE
         }
       }
+    },
+    MuiToolbar: {
+      root: {
+        background: WHITE
+      }
     }
   },
 
