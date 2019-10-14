@@ -4,12 +4,12 @@ import _ from 'lodash'
 
 import Grid from '@material-ui/core/Grid'
 
-import getAttributeArgs from '../../lib/schema'
-import DefaultLayout from '../../layouts/Default'
-import DataTable from '../../components/DataTable'
-import RegionSelectTree from '../../components/RegionSelectTree'
-import StatisticsSelect from '../../components/StatisticsSelect'
-import ValueAttributeSelect from '../../components/ValueAttributeSelect'
+import getAttributeArgs from '../lib/schema'
+import DefaultLayout from '../layouts/Default'
+import DataTable from '../components/DataTable'
+import RegionSelectTree from '../components/RegionSelectTree'
+import StatisticsSelect from '../components/StatisticsSelect'
+import ValueAttributeSelect from '../components/ValueAttributeSelect'
 
 const getFilterSelection = (statistic, args) => {
   if (statistic.length !== 1) {
@@ -27,7 +27,8 @@ const getFilterSelection = (statistic, args) => {
 
 const useStyles = makeStyles(theme => ({
   root: {
-    flexGrow: 1
+    flexGrow: 1,
+    padding: '0 80px'
   }
 }))
 

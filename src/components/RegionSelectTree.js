@@ -9,6 +9,7 @@ import KeyboardArrowRightOutlinedIcon from '@material-ui/icons/KeyboardArrowRigh
 import KeyboardArrowDownOutlinedIcon from '@material-ui/icons/KeyboardArrowDownOutlined'
 
 import names from '../data/ags.json'
+import { makeStyles } from '@material-ui/styles'
 
 // TODO move to server
 const getNuts = (nuts, prefix = null) => {
@@ -47,9 +48,18 @@ const nodes = getNuts(1).map(nuts1Region => {
   }
 })
 
+const useStyles = makeStyles({
+  '@global': {
+    '.rct-collapse': {
+      width: '30px'
+    }
+  }
+})
+
 const RegionSelectTree = () => {
   const [checked, setChecked] = useState([])
   const [expanded, setExpanded] = useState([])
+  useStyles()
 
   return (
     <CheckboxTree
