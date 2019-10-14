@@ -52,7 +52,11 @@ const useStyles = makeStyles({
   '@global': {
     '.rct-collapse': {
       width: '30px'
-    }
+    },
+    '.MuiSvgIcon-root': {
+      height: '20px',
+      margin: 0
+    },
   }
 })
 
