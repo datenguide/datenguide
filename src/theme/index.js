@@ -3,9 +3,14 @@ import { red } from '@material-ui/core/colors'
 
 import { plex } from './fonts'
 
+const RED = '#f26c6f'
+const BLUE = '#01627c'
+const WHITE = '#fff'
+
 // Create a theme instance.
 const theme = createMuiTheme({
   typography: {
+    fontSize: 16,
     fontFamily: [
       plex.name,
       '-apple-system',
@@ -22,23 +27,26 @@ const theme = createMuiTheme({
   overrides: {
     MuiCssBaseline: {
       '@global': {
-        '@font-face': plex.fontFace
+        '@font-face': plex.fontFace,
+        a: {
+          color: BLUE
+        }
       }
     }
   },
 
   palette: {
     primary: {
-      main: '#556cd6'
+      main: RED
     },
     secondary: {
-      main: '#19857b'
+      main: BLUE
     },
     error: {
       main: red.A400
     },
     background: {
-      default: '#fff'
+      default: WHITE
     }
   },
 
