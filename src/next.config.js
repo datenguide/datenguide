@@ -8,22 +8,24 @@ const withMDX = require('@zeit/next-mdx')({
 
 module.exports = withCSS(
   withMDX(
-    withImages(withFonts({
-      pageExtensions: ['js', 'jsx', 'mdx', 'md'],
-      webpack(config, options) {
-        config.module.rules.push({
-          test: /\.mdx?$/,
-          use: [path.join(__dirname, './lib/frontmatter-loader')]
-        })
+    withImages(
+      withFonts({
+        pageExtensions: ['js', 'jsx', 'mdx', 'md'],
+        webpack(config, options) {
+          config.module.rules.push({
+            test: /\.mdx?$/,
+            use: [path.join(__dirname, './lib/frontmatter-loader')]
+          })
 
-        // svg loader
-        config.module.rules.push({
-          test: /\.svg$/,
-          use: ['@svgr/webpack']
-        })
+          // svg loader
+          config.module.rules.push({
+            test: /\.svg$/,
+            use: ['@svgr/webpack']
+          })
 
-        return config
-      }
-    })
+          return config
+        }
+      })
+    )
   )
 )
