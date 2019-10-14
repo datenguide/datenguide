@@ -33,6 +33,11 @@ const theme = createMuiTheme({
         }
       }
     },
+    MuiButton: {
+      root: {
+        fontWeight: 'bold'
+      }
+    },
     MuiToolbar: {
       root: {
         background: WHITE

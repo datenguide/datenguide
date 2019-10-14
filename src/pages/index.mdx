@@ -1,14 +1,35 @@
 ---
 title: 'Über Dateinguide'
 lang: 'de'
+intro:
+  - title: Statistiken für alle
+    text: Wir entwickeln eine einfach zu bedienende Website, die amtliche Statistiken zugänglich macht, in Kontext setzt, visualisiert und erklärt.
+    slug: statistics
+  - title: Daten für Profis
+    text: Wir stellen eine Datenschnittstelle (API) und zur Verfügung, über die Datenjournalist:innen und Entwickler:innen direkt auf die Daten der Regionalstatistik zugreifen können.
+    slug: api
+  - title: Data Literacy
+    text: Wir bauen Wissen über die amtliche Statistik auf und geben es weiter. Wir organisieren Workshops und Hackathons bei denen wir gemeinsam mit statistischen Daten arbeiten.
+    slug: literacy
 ---
 
 import DefaultLayout from '../layouts/Default'
 import Subscribe from '../components/Subscribe'
+import Intro from '../components/Intro'
 
 <DefaultLayout>
 
 <Subscribe />
+
+<Intro features={frontmatter.intro}>
+
+### Über Datenguide
+
+Die Statistischen Ämter sammeln kontinuierlich Daten und erstellen Statistiken zu allen Bereichen der Gesellschaft. Der Datenguide soll diese _amtliche Statistik_ zugänglich für alle machen. Wir entwickeln digitale Tools, die euch helfen, die amtliche Statistik zu verstehen und sinnvoll einzusetzen.
+
+Der Datenguide ist noch in Arbeit aber einige technische Komponenten sind bereits verwendbar. Profis können schon jetzt die Beta-Version unserer [Datenschnittstelle](https://github.com/datenguide/datenguide-api) nutzen und auf [Github](https://github.com/datenguide/datenguide) die weitere Entwicklung verfolgen. In den nächsten Wochen werden wir eine Beta-Version des Datenportals für erste Nutzer\*innen öffnen.
+
+</Intro>
 
 <div>{frontmatter.title}</div>
 
