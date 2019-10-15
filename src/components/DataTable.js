@@ -49,7 +49,11 @@ const DataTable = ({ filterSelection = {} }) => {
       setData(data)
     }
 
-    if (filterSelection && filterSelection.statistic) {
+    if (
+      filterSelection &&
+      filterSelection.statistic &&
+      filterSelection.regions
+    ) {
       fetchData()
     } else {
       setData(null)

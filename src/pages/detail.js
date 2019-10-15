@@ -11,15 +11,16 @@ import RegionSelectTree from '../components/RegionSelectTree'
 import StatisticsSelect from '../components/StatisticsSelect'
 import ValueAttributeSelect from '../components/ValueAttributeSelect'
 
-const getFilterSelection = (statistic, args) => {
-  if (statistic.length !== 1) {
+const getFilterSelection = (regions, statisticAndAttribute, args) => {
+  if (statisticAndAttribute.length !== 1) {
     return null
   }
-  const sourceStatistic = statistic[0].value.substr(0, 5)
-  const attribute = statistic[0].value.substr(5)
+  const statistic = statisticAndAttribute[0].value.substr(0, 5)
+  const attribute = statisticAndAttribute[0].value.substr(5)
 
   return {
-    statistic: sourceStatistic,
+    regions,
+    statistic,
     attribute,
     args
   }
@@ -37,6 +38,7 @@ const Detail = () => {
   const [filterSelection, setFilterSelection] = useState(null)
   const [statistic, setStatistic] = useState([])
   const [args, setArgs] = useState([])
+  const [regions, setRegions] = useState([])
 
   useEffect(() => {
     const attribute =
@@ -46,8 +48,8 @@ const Detail = () => {
   }, [statistic])
 
   useEffect(() => {
-    setFilterSelection(getFilterSelection(statistic, args))
-  }, [statistic, args])
+    setFilterSelection(getFilterSelection(regions, statistic, args))
+  }, [statistic, args, regions])
 
   const handleStatisticSelectionChange = value => {
     setStatistic([value])
@@ -60,12 +62,19 @@ const Detail = () => {
     setArgs(newArgs)
   }
 
+  const handleRegionSelectionChange = newRegions => {
+    setRegions(newRegions)
+  }
+
   return (
     <DefaultLayout>
       <Grid container spacing={3} className={classes.root}>
         <Grid item xs={4}>
           <h2>Regionen</h2>
-          <RegionSelectTree />
+          <RegionSelectTree
+            checked={regions}
+            onChecked={handleRegionSelectionChange}
+          />
         </Grid>
         <Grid item xs={8}>
           <h2>Statistiken und Merkmale</h2>

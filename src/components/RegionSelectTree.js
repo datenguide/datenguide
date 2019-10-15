@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 import CheckboxTree from 'react-checkbox-tree'
 
 import 'react-checkbox-tree/lib/react-checkbox-tree.css'
@@ -56,12 +57,11 @@ const useStyles = makeStyles({
     '.MuiSvgIcon-root': {
       height: '20px',
       margin: 0
-    },
+    }
   }
 })
 
-const RegionSelectTree = () => {
-  const [checked, setChecked] = useState([])
+const RegionSelectTree = ({ checked, onChecked }) => {
   const [expanded, setExpanded] = useState([])
   useStyles()
 
@@ -70,7 +70,7 @@ const RegionSelectTree = () => {
       nodes={nodes}
       checked={checked}
       expanded={expanded}
-      onCheck={setChecked}
+      onCheck={onChecked}
       onExpand={setExpanded}
       showNodeIcon={false}
       noCascade
@@ -88,6 +88,11 @@ const RegionSelectTree = () => {
       }}
     />
   )
+}
+
+RegionSelectTree.propTypes = {
+  checked: PropTypes.array.isRequired,
+  onChecked: PropTypes.func.isRequired
 }
 
 export default RegionSelectTree

@@ -1,7 +1,6 @@
 import gql from 'graphql-tag'
 
-
-const getQuery = ({ statistic, attribute, args }) => {
+const getQuery = ({ regions, statistic, attribute, args }) => {
   const statisticsExpression = `statistics: [R${statistic}]`
 
   const valueAttributeArgumentsExpression = args.map(arg => {
@@ -18,7 +17,7 @@ const getQuery = ({ statistic, attribute, args }) => {
 
   const query = `
     {
-        region(id: "13") {
+        region(id: "${regions[0]}") {
             id
             name
             ${attribute}${argumentsExpression}{
