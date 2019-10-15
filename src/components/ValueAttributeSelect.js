@@ -45,10 +45,6 @@ const ValueAttributeSelect = ({
 }) => {
   const classes = useStyles()
   
-  console.log('value', value);
-  
-  
-  
   return (
     <div className={classes.root}>
       <FormControl className={classes.formControl}>

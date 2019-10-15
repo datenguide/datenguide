@@ -1,0 +1,4290 @@
+{
+  "AENW01": [
+    {
+      "title_de": "Erhebung der Abfallentsorgung",
+      "valid_from": "2000-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "32111"
+    }
+  ],
+  "AENW02": [
+    {
+      "title_de": "Erhebung der Abfallentsorgung",
+      "valid_from": "2000-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "32111"
+    }
+  ],
+  "AENW03": [
+    {
+      "title_de": "Erhebung der Abfallentsorgung",
+      "valid_from": "2000-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "32111"
+    }
+  ],
+  "AENW04": [
+    {
+      "title_de": "Erhebung der Abfallentsorgung",
+      "valid_from": "2000-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "32111"
+    }
+  ],
+  "AENW05": [
+    {
+      "title_de": "Erhebung der Abfallentsorgung",
+      "valid_from": "2000-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "32111"
+    }
+  ],
+  "AENW06": [
+    {
+      "title_de": "Erhebung der Abfallentsorgung",
+      "valid_from": "2000-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "32111"
+    }
+  ],
+  "AEW001": [
+    {
+      "title_de": "Erhebung der Abfallentsorgung",
+      "valid_from": "2000-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "32111"
+    }
+  ],
+  "AEW002": [
+    {
+      "title_de": "Erhebung der Abfallentsorgung",
+      "valid_from": "2000-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "32111"
+    }
+  ],
+  "AEW003": [
+    {
+      "title_de": "Erhebung der Abfallentsorgung",
+      "valid_from": "2000-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "32111"
+    }
+  ],
+  "AEW006": [
+    {
+      "title_de": "Erhebung der gef\u00e4hrlichen Abf\u00e4lle",
+      "valid_from": "2001-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "32151"
+    }
+  ],
+  "AEW007": [
+    {
+      "title_de": "Erhebung der gef\u00e4hrlichen Abf\u00e4lle",
+      "valid_from": "2001-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "32151"
+    }
+  ],
+  "AEW008": [
+    {
+      "title_de": "Erhebung der Abfallentsorgung",
+      "valid_from": "2000-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "32111"
+    }
+  ],
+  "AEW009": [
+    {
+      "title_de": "Erhebung der \u00f6ffentl.-rechtl. Abfallentsorgung",
+      "valid_from": "2007-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "32121"
+    }
+  ],
+  "AEW010": [
+    {
+      "title_de": "Erhebung der Abfallentsorgung",
+      "valid_from": "2000-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "32111"
+    }
+  ],
+  "AEWN09": [
+    {
+      "title_de": "Erhebung der Abfallentsorgung",
+      "valid_from": "2000-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "32111"
+    }
+  ],
+  "AI_Z01": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI_Z02": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI_Z03": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI_Z04": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI_Z05": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI_Z06": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI_Z07": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI_Z08": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI_Z09": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI_Z10": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI_Z11": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI_Z12": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI_Z13": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI_Z14": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI_Z15": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI_Z16": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI_Z17": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI_Z18": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI_Z19": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0101": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0102": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0103": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0104": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0105": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0106": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0107": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0108": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0109": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0110": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0111": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0112": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0201": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0202": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0203": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0204": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0205": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0206": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0207": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0208": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0209": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0210": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0211": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0212": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0213": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0214": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0215": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0216": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0217": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0301": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0302": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0303": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0304": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0305": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0306": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0307": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0308": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0309": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0310": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0311": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0312": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0401": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0402": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0501": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0502": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0503": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0504": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0505": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0506": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0601": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0602": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0603": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0604": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0605": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0606": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0701": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0702": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0703": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0704": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0705": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0706": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0707": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0708": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0709": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0710": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0711": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0712": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0713": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0801": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0802": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0803": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0804": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0805": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0806": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0807": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0808": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0809": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0901": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0902": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0903": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI0904": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI1001": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI1002": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI1101": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI1201": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI1202": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI1301": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI1302": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI1303": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI1304": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI1305": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI1401": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI1402": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI1403": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI1404": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI1405": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI1501": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI1601": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI1602": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI1701": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI1702": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI1703": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI1704": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI1705": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI1706": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI1707": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI1708": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI1709": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI1710": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI1711": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI1712": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI1801": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI1901": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI1902": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI1903": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI1904": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI1905": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI1906": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI1907": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI1908": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI2001": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI2101": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI2102": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI2103": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI2104": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI2105": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI2106": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI2107": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI2201": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI2202": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI2203": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI2204": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI2205": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI2301": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI2302": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "AI2401": [
+    {
+      "title_de": "Regionalatlas Deutschland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99910"
+    }
+  ],
+  "ARBST1": [
+    {
+      "title_de": "Verarbeitendes Gewerbe - Jahre bis 2008 mit WZ93",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "4211A"
+    }
+  ],
+  "ARBST2": [
+    {
+      "title_de": "Verarbeitendes Gewerbe - Jahre bis 2008 mit WZ93",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "4211A"
+    }
+  ],
+  "AUSNW1": [
+    {
+      "title_de": "Viertelj\u00e4hrliche Kassenergebnisse, Sektor Kommunen",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "71517"
+    }
+  ],
+  "AUSNW2": [
+    {
+      "title_de": "Viertelj\u00e4hrliche Kassenergebnisse, Sektor Kommunen",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "71517"
+    }
+  ],
+  "AUSNW3": [
+    {
+      "title_de": "Viertelj\u00e4hrliche Kassenergebnisse, Sektor Kommunen",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "71517"
+    }
+  ],
+  "AUSNW4": [
+    {
+      "title_de": "Viertelj\u00e4hrliche Kassenergebnisse, Sektor Kommunen",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "71517"
+    }
+  ],
+  "BAU001": [
+    {
+      "title_de": "Statistik der Kaufwerte f\u00fcr Bauland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "61511"
+    }
+  ],
+  "BAU002": [
+    {
+      "title_de": "Statistik der Kaufwerte f\u00fcr Bauland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "61511"
+    }
+  ],
+  "BAU003": [
+    {
+      "title_de": "Statistik der Kaufwerte f\u00fcr Bauland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "61511"
+    }
+  ],
+  "BAU004": [
+    {
+      "title_de": "Statistik der Kaufwerte f\u00fcr Bauland",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "61511"
+    }
+  ],
+  "BAU009": [
+    {
+      "title_de": "Fortschreib. d. Wohngeb\u00e4ude- u. Wohnungsbestandes",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "31231"
+    }
+  ],
+  "BAU015": [
+    {
+      "title_de": "Statistik der Baufertigstellungen",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "31121"
+    },
+    {
+      "title_de": "Statistik der Baugenehmigungen",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "31111"
+    }
+  ],
+  "BAU016": [
+    {
+      "title_de": "Statistik der Baufertigstellungen",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "31121"
+    },
+    {
+      "title_de": "Statistik der Baugenehmigungen",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "31111"
+    }
+  ],
+  "BAU017": [
+    {
+      "title_de": "Statistik der Baugenehmigungen",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "31111"
+    }
+  ],
+  "BAU018": [
+    {
+      "title_de": "Statistik der Baugenehmigungen",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "31111"
+    }
+  ],
+  "BAUNW9": [
+    {
+      "title_de": "Fortschreib. d. Wohngeb\u00e4ude- u. Wohnungsbestandes",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "31231"
+    }
+  ],
+  "BES003": [
+    {
+      "title_de": "Personalstandstatistik des \u00f6ffentlichen Dienstes",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "74111"
+    }
+  ],
+  "BETR01": [
+    {
+      "title_de": "Erg\u00e4nzungserhebung im Bauhauptgewerbe",
+      "valid_from": "1995-06-30T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "44231"
+    },
+    {
+      "title_de": "Erhebung d. nicht\u00f6ff. Wasservers. u.Abwasserents.",
+      "valid_from": "2007-12-31T00:00:00",
+      "periodicity": "DREIJAEHRLICH",
+      "name": "32221"
+    },
+    {
+      "title_de": "Investitionserhebung im Verarbeitenden Gewerbe",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "42231"
+    },
+    {
+      "title_de": "Unternehmensregister-System (URS)",
+      "valid_from": "2000-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "52111"
+    },
+    {
+      "title_de": "Verarbeitendes Gewerbe - Jahre ab 2009 mit WZ 2008",
+      "valid_from": "2009-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "42111"
+    },
+    {
+      "title_de": "Verarbeitendes Gewerbe - Jahre bis 2008 mit WZ93",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "4211A"
+    },
+    {
+      "title_de": "Wasserversorg./ Abwasserbeseit. im Verarb. Gewerbe",
+      "valid_from": "1998-12-31T00:00:00",
+      "periodicity": "DREIJAEHRLICH",
+      "name": "32231"
+    }
+  ],
+  "BETR08": [
+    {
+      "title_de": "Allgemeine Agrarstrukturerhebung (bis 2007)",
+      "valid_from": "1999-05-31T00:00:00",
+      "periodicity": "ZWEIJAEHRLICH",
+      "name": "41120"
+    }
+  ],
+  "BETR09": [
+    {
+      "title_de": "Allgemeine Agrarstrukturerhebung (bis 2007)",
+      "valid_from": "1999-05-31T00:00:00",
+      "periodicity": "ZWEIJAEHRLICH",
+      "name": "41120"
+    }
+  ],
+  "BEV001": [
+    {
+      "title_de": "Statistik der Geburten",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "12612"
+    }
+  ],
+  "BEV002": [
+    {
+      "title_de": "Statistik der Sterbef\u00e4lle",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "12613"
+    }
+  ],
+  "BEV003": [
+    {
+      "title_de": "Statistik der Eheschlie\u00dfungen",
+      "valid_from": "1987-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "12611"
+    }
+  ],
+  "BEV004": [
+    {
+      "title_de": "Statistik rechtskr\u00e4ftiger Urteile in Ehesachen",
+      "valid_from": "1980-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "12631"
+    }
+  ],
+  "BEV008": [
+    {
+      "title_de": "Einb\u00fcrgerungsstatistik",
+      "valid_from": "2000-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "12511"
+    }
+  ],
+  "BEV016": [
+    {
+      "title_de": "Erhebung der \u00f6ffentlichen Abwasserentsorgung",
+      "valid_from": "1998-12-31T00:00:00",
+      "periodicity": "DREIJAEHRLICH",
+      "name": "32212"
+    }
+  ],
+  "BEV028": [
+    {
+      "title_de": "Fortschreibung des Bev\u00f6lkerungsstandes",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "12411"
+    }
+  ],
+  "BEV081": [
+    {
+      "title_de": "Wanderungsstatistik",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "12711"
+    }
+  ],
+  "BEV082": [
+    {
+      "title_de": "Wanderungsstatistik",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "12711"
+    }
+  ],
+  "BEV083": [
+    {
+      "title_de": "Wanderungsstatistik",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "12711"
+    }
+  ],
+  "BEV084": [
+    {
+      "title_de": "Wanderungsstatistik",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "12711"
+    }
+  ],
+  "BEV085": [
+    {
+      "title_de": "Wanderungsstatistik",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "12711"
+    }
+  ],
+  "BEV086": [
+    {
+      "title_de": "Wanderungsstatistik",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "12711"
+    }
+  ],
+  "BEV215": [
+    {
+      "title_de": "Fortschreibung des Bev\u00f6lkerungsstandes",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "12411"
+    }
+  ],
+  "BEV216": [
+    {
+      "title_de": "Fortschreibung des Bev\u00f6lkerungsstandes",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "12411"
+    }
+  ],
+  "BEV519": [
+    {
+      "title_de": "Fortschreibung des Bev\u00f6lkerungsstandes",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "12411"
+    }
+  ],
+  "BEVMK3": [
+    {
+      "title_de": "Statistik rechtskr\u00e4ftiger Urteile in Ehesachen",
+      "valid_from": "1980-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "12631"
+    }
+  ],
+  "BEVST6": [
+    {
+      "title_de": "Fortschreibung des Bev\u00f6lkerungsstandes",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "12411"
+    }
+  ],
+  "BEVSTD": [
+    {
+      "title_de": "Erhebung der \u00f6ffentlichen Wasserversorgung",
+      "valid_from": "1998-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "32211"
+    },
+    {
+      "title_de": "Fortschreibung des Bev\u00f6lkerungsstandes",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "12411"
+    }
+  ],
+  "BEVZ15": [
+    {
+      "title_de": "Zensus 2011",
+      "valid_from": "2011-05-09T00:00:00",
+      "periodicity": "EINMALIG",
+      "name": "12111"
+    }
+  ],
+  "BEVZ20": [
+    {
+      "title_de": "Zensus 2011",
+      "valid_from": "2011-05-09T00:00:00",
+      "periodicity": "EINMALIG",
+      "name": "12111"
+    }
+  ],
+  "BEVZ21": [
+    {
+      "title_de": "Zensus 2011",
+      "valid_from": "2011-05-09T00:00:00",
+      "periodicity": "EINMALIG",
+      "name": "12111"
+    }
+  ],
+  "BEVZ22": [
+    {
+      "title_de": "Zensus 2011",
+      "valid_from": "2011-05-09T00:00:00",
+      "periodicity": "EINMALIG",
+      "name": "12111"
+    }
+  ],
+  "BIL003": [
+    {
+      "title_de": "Statistik der allgemein bildenden Schulen",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "21111"
+    }
+  ],
+  "BIL004": [
+    {
+      "title_de": "Statistik der beruflichen Schulen",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "21121"
+    }
+  ],
+  "BIL013": [
+    {
+      "title_de": "Statistik der allgemein bildenden Schulen",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "21111"
+    }
+  ],
+  "BIL014": [
+    {
+      "title_de": "Statistik der beruflichen Schulen",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "21121"
+    }
+  ],
+  "BILABB": [
+    {
+      "title_de": "Statistik der beruflichen Schulen",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "21121"
+    }
+  ],
+  "BILABN": [
+    {
+      "title_de": "Statistik der beruflichen Schulen",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "21121"
+    }
+  ],
+  "BILABS": [
+    {
+      "title_de": "Statistik der allgemein bildenden Schulen",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "21111"
+    }
+  ],
+  "BIP802": [
+    {
+      "title_de": "VGR der L\u00e4nder: Entstehungsrechnung",
+      "valid_from": "1992-12-31T00:00:00",
+      "periodicity": "DREIJAEHRLICH",
+      "name": "82111"
+    }
+  ],
+  "BIP803": [
+    {
+      "title_de": "VGR der L\u00e4nder: Entstehungsrechnung",
+      "valid_from": "1992-12-31T00:00:00",
+      "periodicity": "DREIJAEHRLICH",
+      "name": "82111"
+    }
+  ],
+  "BIP804": [
+    {
+      "title_de": "VGR der L\u00e4nder: Entstehungsrechnung",
+      "valid_from": "1992-12-31T00:00:00",
+      "periodicity": "DREIJAEHRLICH",
+      "name": "82111"
+    }
+  ],
+  "BIPI02": [
+    {
+      "title_de": "VGR der L\u00e4nder: Entstehungsrechnung",
+      "valid_from": "1992-12-31T00:00:00",
+      "periodicity": "DREIJAEHRLICH",
+      "name": "82111"
+    }
+  ],
+  "BIPI03": [
+    {
+      "title_de": "VGR der L\u00e4nder: Entstehungsrechnung",
+      "valid_from": "1992-12-31T00:00:00",
+      "periodicity": "DREIJAEHRLICH",
+      "name": "82111"
+    }
+  ],
+  "BIPI04": [
+    {
+      "title_de": "VGR der L\u00e4nder: Entstehungsrechnung",
+      "valid_from": "1992-12-31T00:00:00",
+      "periodicity": "DREIJAEHRLICH",
+      "name": "82111"
+    }
+  ],
+  "BTR010": [
+    {
+      "title_de": "Agrarstrukturerhebung / Landwirtschaftsz\u00e4hlung",
+      "valid_from": "2010-01-01T00:00:00",
+      "periodicity": "ZEHNJAEHRLICH",
+      "name": "41141"
+    }
+  ],
+  "BTR011": [
+    {
+      "title_de": "Agrarstrukturerhebung / Landwirtschaftsz\u00e4hlung",
+      "valid_from": "2010-01-01T00:00:00",
+      "periodicity": "ZEHNJAEHRLICH",
+      "name": "41141"
+    }
+  ],
+  "BTR030": [
+    {
+      "title_de": "Agrarstrukturerhebung / Landwirtschaftsz\u00e4hlung",
+      "valid_from": "2010-01-01T00:00:00",
+      "periodicity": "ZEHNJAEHRLICH",
+      "name": "41141"
+    }
+  ],
+  "BTR034": [
+    {
+      "title_de": "Agrarstrukturerhebung / Landwirtschaftsz\u00e4hlung",
+      "valid_from": "2010-01-01T00:00:00",
+      "periodicity": "ZEHNJAEHRLICH",
+      "name": "41141"
+    }
+  ],
+  "BTR038": [
+    {
+      "title_de": "Agrarstrukturerhebung / Landwirtschaftsz\u00e4hlung",
+      "valid_from": "2010-01-01T00:00:00",
+      "periodicity": "ZEHNJAEHRLICH",
+      "name": "41141"
+    }
+  ],
+  "BWS005": [
+    {
+      "title_de": "VGR der L\u00e4nder: Entstehungsrechnung",
+      "valid_from": "1992-12-31T00:00:00",
+      "periodicity": "DREIJAEHRLICH",
+      "name": "82111"
+    }
+  ],
+  "BWSI05": [
+    {
+      "title_de": "VGR der L\u00e4nder: Entstehungsrechnung",
+      "valid_from": "1992-12-31T00:00:00",
+      "periodicity": "DREIJAEHRLICH",
+      "name": "82111"
+    }
+  ],
+  "DEDOM1": [
+    {
+      "title_de": "de-domains",
+      "valid_from": "2009-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "99221"
+    }
+  ],
+  "EGS001": [
+    {
+      "title_de": "Statistik der Empf\u00e4nger von Grundsicherung",
+      "valid_from": "2008-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "22151"
+    }
+  ],
+  "EGS002": [
+    {
+      "title_de": "Statistik der Empf\u00e4nger von Grundsicherung",
+      "valid_from": "2008-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "22151"
+    }
+  ],
+  "EINNW1": [
+    {
+      "title_de": "Viertelj\u00e4hrliche Kassenergebnisse, Sektor Kommunen",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "71517"
+    }
+  ],
+  "EINNW2": [
+    {
+      "title_de": "Viertelj\u00e4hrliche Kassenergebnisse, Sektor Kommunen",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "71517"
+    }
+  ],
+  "EKF002": [
+    {
+      "title_de": "Lohn- und Einkommensteuerstatistik",
+      "valid_from": "1992-12-31T00:00:00",
+      "periodicity": "DREIJAEHRLICH",
+      "name": "73111"
+    }
+  ],
+  "EKM006": [
+    {
+      "title_de": "VGR der L\u00e4nder: Umverteilungsrechnung",
+      "valid_from": "1992-12-31T00:00:00",
+      "periodicity": "DREIJAEHRLICH",
+      "name": "82411"
+    }
+  ],
+  "EKM014": [
+    {
+      "title_de": "VGR der L\u00e4nder: Umverteilungsrechnung",
+      "valid_from": "1992-12-31T00:00:00",
+      "periodicity": "DREIJAEHRLICH",
+      "name": "82411"
+    }
+  ],
+  "ENTGEL": [
+    {
+      "title_de": "Verarbeitendes Gewerbe - Jahre ab 2009 mit WZ 2008",
+      "valid_from": "2009-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "42111"
+    },
+    {
+      "title_de": "Verarbeitendes Gewerbe - Jahre bis 2008 mit WZ93",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "4211A"
+    }
+  ],
+  "ERT001": [
+    {
+      "title_de": "Ernte- und Betriebsberichterstattungen (EBE)",
+      "valid_from": "1999-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "41241"
+    }
+  ],
+  "ERW006": [
+    {
+      "title_de": "Arbeitsmarktstatistik der Bundesagentur f\u00fcr Arbeit",
+      "valid_from": "1996-01-01T00:00:00",
+      "periodicity": "VIERTELJAEHRLICH",
+      "name": "13211"
+    }
+  ],
+  "ERW009": [
+    {
+      "title_de": "Arbeitsmarktstatistik der Bundesagentur f\u00fcr Arbeit",
+      "valid_from": "1996-01-01T00:00:00",
+      "periodicity": "VIERTELJAEHRLICH",
+      "name": "13211"
+    }
+  ],
+  "ERW010": [
+    {
+      "title_de": "Arbeitsmarktstatistik der Bundesagentur f\u00fcr Arbeit",
+      "valid_from": "1996-01-01T00:00:00",
+      "periodicity": "VIERTELJAEHRLICH",
+      "name": "13211"
+    }
+  ],
+  "ERW012": [
+    {
+      "title_de": "Erg\u00e4nzungserhebung im Bauhauptgewerbe",
+      "valid_from": "1995-06-30T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "44231"
+    },
+    {
+      "title_de": "Insolvenzstatistik",
+      "valid_from": "2000-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "52411"
+    },
+    {
+      "title_de": "Investitionserhebung im Verarbeitenden Gewerbe",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "42231"
+    },
+    {
+      "title_de": "Verarbeitendes Gewerbe - Jahre ab 2009 mit WZ 2008",
+      "valid_from": "2009-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "42111"
+    },
+    {
+      "title_de": "Verarbeitendes Gewerbe - Jahre bis 2008 mit WZ93",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "4211A"
+    }
+  ],
+  "ERW032": [
+    {
+      "title_de": "Besch\u00e4ftigungsstatistik d Bundesagentur f Arbeit",
+      "valid_from": "1998-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "13111"
+    }
+  ],
+  "ERW033": [
+    {
+      "title_de": "Besch\u00e4ftigungsstatistik d Bundesagentur f Arbeit",
+      "valid_from": "1998-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "13111"
+    }
+  ],
+  "ERW038": [
+    {
+      "title_de": "Personalstandstatistik des \u00f6ffentlichen Dienstes",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "74111"
+    }
+  ],
+  "ERW039": [
+    {
+      "title_de": "Personalstandstatistik des \u00f6ffentlichen Dienstes",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "74111"
+    }
+  ],
+  "ERW040": [
+    {
+      "title_de": "Personalstandstatistik des \u00f6ffentlichen Dienstes",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "74111"
+    }
+  ],
+  "ERW046": [
+    {
+      "title_de": "Agrarstrukturerhebung / Landwirtschaftsz\u00e4hlung",
+      "valid_from": "2010-01-01T00:00:00",
+      "periodicity": "ZEHNJAEHRLICH",
+      "name": "41141"
+    }
+  ],
+  "ERW054": [
+    {
+      "title_de": "Personalstandstatistik des \u00f6ffentlichen Dienstes",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "74111"
+    }
+  ],
+  "ERW061": [
+    {
+      "title_de": "Erwerbst\u00e4tigenrechnung d.Bundes u.d.L\u00e4nder(WZ2008)",
+      "valid_from": "1996-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "13312"
+    }
+  ],
+  "ERW063": [
+    {
+      "title_de": "Erwerbst\u00e4tigenrechnung d.Bundes u.d.L\u00e4nder(WZ2008)",
+      "valid_from": "1996-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "13312"
+    }
+  ],
+  "ERWN06": [
+    {
+      "title_de": "Arbeitsmarktstatistik der Bundesagentur f\u00fcr Arbeit",
+      "valid_from": "1996-01-01T00:00:00",
+      "periodicity": "VIERTELJAEHRLICH",
+      "name": "13211"
+    }
+  ],
+  "ERWN09": [
+    {
+      "title_de": "Arbeitsmarktstatistik der Bundesagentur f\u00fcr Arbeit",
+      "valid_from": "1996-01-01T00:00:00",
+      "periodicity": "VIERTELJAEHRLICH",
+      "name": "13211"
+    }
+  ],
+  "ERWN10": [
+    {
+      "title_de": "Arbeitsmarktstatistik der Bundesagentur f\u00fcr Arbeit",
+      "valid_from": "1996-01-01T00:00:00",
+      "periodicity": "VIERTELJAEHRLICH",
+      "name": "13211"
+    }
+  ],
+  "ERWO06": [
+    {
+      "title_de": "Arbeitsmarktstatistik der Bundesagentur f\u00fcr Arbeit",
+      "valid_from": "1996-01-01T00:00:00",
+      "periodicity": "VIERTELJAEHRLICH",
+      "name": "13211"
+    }
+  ],
+  "ERWO09": [
+    {
+      "title_de": "Arbeitsmarktstatistik der Bundesagentur f\u00fcr Arbeit",
+      "valid_from": "1996-01-01T00:00:00",
+      "periodicity": "VIERTELJAEHRLICH",
+      "name": "13211"
+    }
+  ],
+  "ERWO10": [
+    {
+      "title_de": "Arbeitsmarktstatistik der Bundesagentur f\u00fcr Arbeit",
+      "valid_from": "1996-01-01T00:00:00",
+      "periodicity": "VIERTELJAEHRLICH",
+      "name": "13211"
+    }
+  ],
+  "ERWP06": [
+    {
+      "title_de": "Arbeitsmarktstatistik der Bundesagentur f\u00fcr Arbeit",
+      "valid_from": "1996-01-01T00:00:00",
+      "periodicity": "VIERTELJAEHRLICH",
+      "name": "13211"
+    }
+  ],
+  "ERWP09": [
+    {
+      "title_de": "Arbeitsmarktstatistik der Bundesagentur f\u00fcr Arbeit",
+      "valid_from": "1996-01-01T00:00:00",
+      "periodicity": "VIERTELJAEHRLICH",
+      "name": "13211"
+    }
+  ],
+  "ERWP10": [
+    {
+      "title_de": "Arbeitsmarktstatistik der Bundesagentur f\u00fcr Arbeit",
+      "valid_from": "1996-01-01T00:00:00",
+      "periodicity": "VIERTELJAEHRLICH",
+      "name": "13211"
+    }
+  ],
+  "ERWZ01": [
+    {
+      "title_de": "Zensus 2011",
+      "valid_from": "2011-05-09T00:00:00",
+      "periodicity": "EINMALIG",
+      "name": "12111"
+    }
+  ],
+  "ERWZ02": [
+    {
+      "title_de": "Zensus 2011",
+      "valid_from": "2011-05-09T00:00:00",
+      "periodicity": "EINMALIG",
+      "name": "12111"
+    }
+  ],
+  "ERWZ03": [
+    {
+      "title_de": "Zensus 2011",
+      "valid_from": "2011-05-09T00:00:00",
+      "periodicity": "EINMALIG",
+      "name": "12111"
+    }
+  ],
+  "ERWZ04": [
+    {
+      "title_de": "Zensus 2011",
+      "valid_from": "2011-05-09T00:00:00",
+      "periodicity": "EINMALIG",
+      "name": "12111"
+    }
+  ],
+  "ESGB12": [
+    {
+      "title_de": "Empf. v. Leist. n. d. 5. bis 9. Kapitel SGB XII",
+      "valid_from": "2000-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "22131"
+    }
+  ],
+  "ESGB1N": [
+    {
+      "title_de": "Empf. v. Leist. n. d. 5. bis 9. Kapitel SGB XII",
+      "valid_from": "2000-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "22131"
+    }
+  ],
+  "ESML01": [
+    {
+      "title_de": "Sozialberichterstattung in der amtlichen Statistik",
+      "valid_from": "2007-07-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "22811"
+    }
+  ],
+  "ETG009": [
+    {
+      "title_de": "Agrarstrukturerhebung / Landwirtschaftsz\u00e4hlung",
+      "valid_from": "2010-01-01T00:00:00",
+      "periodicity": "ZEHNJAEHRLICH",
+      "name": "41141"
+    }
+  ],
+  "FLC001": [
+    {
+      "title_de": "Statistik der Baufertigstellungen",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "31121"
+    },
+    {
+      "title_de": "Statistik der Baugenehmigungen",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "31111"
+    }
+  ],
+  "FLC002": [
+    {
+      "title_de": "Statistik der Baufertigstellungen",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "31121"
+    },
+    {
+      "title_de": "Statistik der Baugenehmigungen",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "31111"
+    }
+  ],
+  "FLC004": [
+    {
+      "title_de": "Agrarstrukturerhebung / Landwirtschaftsz\u00e4hlung",
+      "valid_from": "2010-01-01T00:00:00",
+      "periodicity": "ZEHNJAEHRLICH",
+      "name": "41141"
+    }
+  ],
+  "FLC005": [
+    {
+      "title_de": "Fl\u00e4chenerhebung nach Art der tats\u00e4chlichen Nutzung",
+      "valid_from": "1996-12-31T00:00:00",
+      "periodicity": "VIERJAEHRLICH",
+      "name": "33111"
+    }
+  ],
+  "FLC006": [
+    {
+      "title_de": "Feststellung des Gebietsstandes",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "11111"
+    }
+  ],
+  "FLC016": [
+    {
+      "title_de": "Statistik der Baufertigstellungen",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "31121"
+    },
+    {
+      "title_de": "Statistik der Baugenehmigungen",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "31111"
+    }
+  ],
+  "FLC017": [
+    {
+      "title_de": "Agrarstrukturerhebung / Landwirtschaftsz\u00e4hlung",
+      "valid_from": "2010-01-01T00:00:00",
+      "periodicity": "ZEHNJAEHRLICH",
+      "name": "41141"
+    },
+    {
+      "title_de": "Allgemeine Agrarstrukturerhebung (bis 2007)",
+      "valid_from": "1999-05-31T00:00:00",
+      "periodicity": "ZWEIJAEHRLICH",
+      "name": "41120"
+    }
+  ],
+  "FLC043": [
+    {
+      "title_de": "Agrarstrukturerhebung / Landwirtschaftsz\u00e4hlung",
+      "valid_from": "2010-01-01T00:00:00",
+      "periodicity": "ZEHNJAEHRLICH",
+      "name": "41141"
+    }
+  ],
+  "FLC047": [
+    {
+      "title_de": "Agrarstrukturerhebung / Landwirtschaftsz\u00e4hlung",
+      "valid_from": "2010-01-01T00:00:00",
+      "periodicity": "ZEHNJAEHRLICH",
+      "name": "41141"
+    }
+  ],
+  "FLC048": [
+    {
+      "title_de": "Agrarstrukturerhebung / Landwirtschaftsz\u00e4hlung",
+      "valid_from": "2010-01-01T00:00:00",
+      "periodicity": "ZEHNJAEHRLICH",
+      "name": "41141"
+    }
+  ],
+  "FLC049": [
+    {
+      "title_de": "Agrarstrukturerhebung / Landwirtschaftsz\u00e4hlung",
+      "valid_from": "2010-01-01T00:00:00",
+      "periodicity": "ZEHNJAEHRLICH",
+      "name": "41141"
+    }
+  ],
+  "FLCNW1": [
+    {
+      "title_de": "Fortschreib. d. Wohngeb\u00e4ude- u. Wohnungsbestandes",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "31231"
+    }
+  ],
+  "FLCNW9": [
+    {
+      "title_de": "Fortschreib. d. Wohngeb\u00e4ude- u. Wohnungsbestandes",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "31231"
+    }
+  ],
+  "FLCX05": [
+    {
+      "title_de": "Fl\u00e4chenerhebung nach Art der tats\u00e4chlichen Nutzung",
+      "valid_from": "1996-12-31T00:00:00",
+      "periodicity": "VIERJAEHRLICH",
+      "name": "33111"
+    }
+  ],
+  "FOR001": [
+    {
+      "title_de": "Insolvenzstatistik",
+      "valid_from": "2000-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "52411"
+    }
+  ],
+  "FOR002": [
+    {
+      "title_de": "Insolvenzstatistik",
+      "valid_from": "2000-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "52411"
+    }
+  ],
+  "FOR004": [
+    {
+      "title_de": "Insolvenzstatistik",
+      "valid_from": "2000-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "52411"
+    }
+  ],
+  "GAST01": [
+    {
+      "title_de": "Monatserhebung im Tourismus",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "45412"
+    }
+  ],
+  "GAST02": [
+    {
+      "title_de": "Monatserhebung im Tourismus",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "45412"
+    }
+  ],
+  "GAST03": [
+    {
+      "title_de": "Monatserhebung im Tourismus",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "45412"
+    }
+  ],
+  "GAST04": [
+    {
+      "title_de": "Monatserhebung im Tourismus",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "45412"
+    }
+  ],
+  "GEBWOR": [
+    {
+      "title_de": "Geb\u00e4ude- und Wohnungsz\u00e4hlung 2011 (Zensus)",
+      "valid_from": "2011-05-09T00:00:00",
+      "periodicity": "EINMALIG",
+      "name": "31211"
+    }
+  ],
+  "GEM001": [
+    {
+      "title_de": "Feststellung des Gebietsstandes",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "11111"
+    }
+  ],
+  "GES017": [
+    {
+      "title_de": "Grundd d. Vorsorge-o. Rehabilitationseinrichtungen",
+      "valid_from": "2004-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "23112"
+    },
+    {
+      "title_de": "Grunddaten der Krankenh\u00e4user",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "23111"
+    }
+  ],
+  "GES024": [
+    {
+      "title_de": "Grunddaten der Krankenh\u00e4user",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "23111"
+    }
+  ],
+  "GES027": [
+    {
+      "title_de": "Grunddaten der Krankenh\u00e4user",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "23111"
+    }
+  ],
+  "GES028": [
+    {
+      "title_de": "Grunddaten der Krankenh\u00e4user",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "23111"
+    }
+  ],
+  "GES029": [
+    {
+      "title_de": "Grunddaten der Krankenh\u00e4user",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "23111"
+    }
+  ],
+  "GES032": [
+    {
+      "title_de": "Grunddaten der Krankenh\u00e4user",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "23111"
+    }
+  ],
+  "GES033": [
+    {
+      "title_de": "Grunddaten der Krankenh\u00e4user",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "23111"
+    }
+  ],
+  "GES034": [
+    {
+      "title_de": "Grunddaten der Krankenh\u00e4user",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "23111"
+    }
+  ],
+  "GES035": [
+    {
+      "title_de": "Grundd d. Vorsorge-o. Rehabilitationseinrichtungen",
+      "valid_from": "2004-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "23112"
+    }
+  ],
+  "GES036": [
+    {
+      "title_de": "Grundd d. Vorsorge-o. Rehabilitationseinrichtungen",
+      "valid_from": "2004-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "23112"
+    }
+  ],
+  "GES037": [
+    {
+      "title_de": "Grundd d. Vorsorge-o. Rehabilitationseinrichtungen",
+      "valid_from": "2004-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "23112"
+    }
+  ],
+  "GES038": [
+    {
+      "title_de": "Grundd d. Vorsorge-o. Rehabilitationseinrichtungen",
+      "valid_from": "2004-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "23112"
+    }
+  ],
+  "GES041": [
+    {
+      "title_de": "Grundd d. Vorsorge-o. Rehabilitationseinrichtungen",
+      "valid_from": "2004-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "23112"
+    }
+  ],
+  "GES042": [
+    {
+      "title_de": "Grundd d. Vorsorge-o. Rehabilitationseinrichtungen",
+      "valid_from": "2004-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "23112"
+    }
+  ],
+  "GES043": [
+    {
+      "title_de": "Grundd d. Vorsorge-o. Rehabilitationseinrichtungen",
+      "valid_from": "2004-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "23112"
+    }
+  ],
+  "GES054": [
+    {
+      "title_de": "Grunddaten der Krankenh\u00e4user",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "23111"
+    }
+  ],
+  "GES059": [
+    {
+      "title_de": "Grunddaten der Krankenh\u00e4user",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "23111"
+    }
+  ],
+  "GES065": [
+    {
+      "title_de": "Grundd d. Vorsorge-o. Rehabilitationseinrichtungen",
+      "valid_from": "2004-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "23112"
+    }
+  ],
+  "GES068": [
+    {
+      "title_de": "Grundd d. Vorsorge-o. Rehabilitationseinrichtungen",
+      "valid_from": "2004-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "23112"
+    }
+  ],
+  "GESD01": [
+    {
+      "title_de": "Diagnosen der Krankenhauspatienten",
+      "valid_from": "1990-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "23131"
+    }
+  ],
+  "GEW001": [
+    {
+      "title_de": "Gewerbeanzeigenstatistik",
+      "valid_from": "1998-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "52311"
+    }
+  ],
+  "GEW002": [
+    {
+      "title_de": "Gewerbeanzeigenstatistik",
+      "valid_from": "1998-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "52311"
+    }
+  ],
+  "GEW003": [
+    {
+      "title_de": "Gewerbeanzeigenstatistik",
+      "valid_from": "1998-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "52311"
+    }
+  ],
+  "GEW011": [
+    {
+      "title_de": "Gewerbeanzeigenstatistik",
+      "valid_from": "1998-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "52311"
+    }
+  ],
+  "GEW013": [
+    {
+      "title_de": "Gewerbeanzeigenstatistik",
+      "valid_from": "1998-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "52311"
+    }
+  ],
+  "HWTP01": [
+    {
+      "title_de": "Handwerksz\u00e4hlung",
+      "valid_from": "2010-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "53111"
+    }
+  ],
+  "HWTP02": [
+    {
+      "title_de": "Handwerksz\u00e4hlung",
+      "valid_from": "2010-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "53111"
+    }
+  ],
+  "HWTP03": [
+    {
+      "title_de": "Handwerksz\u00e4hlung",
+      "valid_from": "2010-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "53111"
+    }
+  ],
+  "HWTP04": [
+    {
+      "title_de": "Handwerksz\u00e4hlung",
+      "valid_from": "2010-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "53111"
+    }
+  ],
+  "HWUM01": [
+    {
+      "title_de": "Handwerksz\u00e4hlung",
+      "valid_from": "2010-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "53111"
+    }
+  ],
+  "HWUM02": [
+    {
+      "title_de": "Handwerksz\u00e4hlung",
+      "valid_from": "2010-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "53111"
+    }
+  ],
+  "INV001": [
+    {
+      "title_de": "Investitionserhebung im Verarbeitenden Gewerbe",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "42231"
+    }
+  ],
+  "ISV001": [
+    {
+      "title_de": "Insolvenzstatistik",
+      "valid_from": "2000-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "52411"
+    }
+  ],
+  "ISV004": [
+    {
+      "title_de": "Insolvenzstatistik",
+      "valid_from": "2000-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "52411"
+    }
+  ],
+  "ISV006": [
+    {
+      "title_de": "Insolvenzstatistik",
+      "valid_from": "2000-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "52411"
+    }
+  ],
+  "ISV007": [
+    {
+      "title_de": "Insolvenzstatistik",
+      "valid_from": "2000-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "52411"
+    }
+  ],
+  "ISVNW1": [
+    {
+      "title_de": "Insolvenzstatistik",
+      "valid_from": "2000-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "52411"
+    }
+  ],
+  "KIN002": [
+    {
+      "title_de": "Statistik der Tageseinrichtungen f\u00fcr Kinder",
+      "valid_from": "1994-01-01T00:00:00",
+      "periodicity": "VIERJAEHRLICH",
+      "name": "22541"
+    }
+  ],
+  "KIN004": [
+    {
+      "title_de": "Statistik der Tageseinrichtungen f\u00fcr Kinder",
+      "valid_from": "1994-01-01T00:00:00",
+      "periodicity": "VIERJAEHRLICH",
+      "name": "22541"
+    }
+  ],
+  "KIND01": [
+    {
+      "title_de": "Statistik der \u00f6ffentlich gef\u00f6rderten Kindertagespflege",
+      "valid_from": "2007-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "22543"
+    }
+  ],
+  "KIND02": [
+    {
+      "title_de": "Statistik der \u00f6ffentlich gef\u00f6rderten Kindertagespflege",
+      "valid_from": "2007-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "22543"
+    }
+  ],
+  "KIND03": [
+    {
+      "title_de": "Statistik der \u00f6ffentlich gef\u00f6rderten Kindertagespflege",
+      "valid_from": "2007-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "22543"
+    }
+  ],
+  "KIND33": [
+    {
+      "title_de": "Statistik der \u00f6ffentlich gef\u00f6rderten Kindertagespflege",
+      "valid_from": "2007-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "22543"
+    }
+  ],
+  "KIND34": [
+    {
+      "title_de": "Statistik der \u00f6ffentlich gef\u00f6rderten Kindertagespflege",
+      "valid_from": "2007-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "22543"
+    }
+  ],
+  "KIND35": [
+    {
+      "title_de": "Statistik der \u00f6ffentlich gef\u00f6rderten Kindertagespflege",
+      "valid_from": "2007-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "22543"
+    }
+  ],
+  "KIND36": [
+    {
+      "title_de": "Statistik der \u00f6ffentlich gef\u00f6rderten Kindertagespflege",
+      "valid_from": "2007-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "22543"
+    }
+  ],
+  "KIND37": [
+    {
+      "title_de": "Statistik der \u00f6ffentlich gef\u00f6rderten Kindertagespflege",
+      "valid_from": "2007-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "22543"
+    }
+  ],
+  "KIND38": [
+    {
+      "title_de": "Statistik der \u00f6ffentlich gef\u00f6rderten Kindertagespflege",
+      "valid_from": "2007-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "22543"
+    }
+  ],
+  "LBZ001": [
+    {
+      "title_de": "Statistik zum Elterngeld",
+      "valid_from": "2015-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "22922"
+    }
+  ],
+  "LSNW01": [
+    {
+      "title_de": "Lohn- und Einkommensteuerstatistik",
+      "valid_from": "1992-12-31T00:00:00",
+      "periodicity": "DREIJAEHRLICH",
+      "name": "73111"
+    }
+  ],
+  "LSNW02": [
+    {
+      "title_de": "Lohn- und Einkommensteuerstatistik",
+      "valid_from": "1992-12-31T00:00:00",
+      "periodicity": "DREIJAEHRLICH",
+      "name": "73111"
+    }
+  ],
+  "LST009": [
+    {
+      "title_de": "Agrarstrukturerhebung / Landwirtschaftsz\u00e4hlung",
+      "valid_from": "2010-01-01T00:00:00",
+      "periodicity": "ZEHNJAEHRLICH",
+      "name": "41141"
+    }
+  ],
+  "PEN071": [
+    {
+      "title_de": "Besch\u00e4ftigungsstatistik d Bundesagentur f Arbeit",
+      "valid_from": "1998-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "13111"
+    }
+  ],
+  "PEN072": [
+    {
+      "title_de": "Besch\u00e4ftigungsstatistik d Bundesagentur f Arbeit",
+      "valid_from": "1998-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "13111"
+    }
+  ],
+  "PEN079": [
+    {
+      "title_de": "Besch\u00e4ftigungsstatistik d Bundesagentur f Arbeit",
+      "valid_from": "1998-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "13111"
+    }
+  ],
+  "PEN081": [
+    {
+      "title_de": "Besch\u00e4ftigungsstatistik d Bundesagentur f Arbeit",
+      "valid_from": "1998-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "13111"
+    }
+  ],
+  "PEN082": [
+    {
+      "title_de": "Besch\u00e4ftigungsstatistik d Bundesagentur f Arbeit",
+      "valid_from": "1998-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "13111"
+    }
+  ],
+  "PEN088": [
+    {
+      "title_de": "Besch\u00e4ftigungsstatistik d Bundesagentur f Arbeit",
+      "valid_from": "1998-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "13111"
+    }
+  ],
+  "PEN091": [
+    {
+      "title_de": "Besch\u00e4ftigungsstatistik d Bundesagentur f Arbeit",
+      "valid_from": "1998-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "13111"
+    }
+  ],
+  "PEN092": [
+    {
+      "title_de": "Besch\u00e4ftigungsstatistik d Bundesagentur f Arbeit",
+      "valid_from": "1998-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "13111"
+    }
+  ],
+  "PEN099": [
+    {
+      "title_de": "Besch\u00e4ftigungsstatistik d Bundesagentur f Arbeit",
+      "valid_from": "1998-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "13111"
+    }
+  ],
+  "PER005": [
+    {
+      "title_de": "Statistik der Einrichtungen der Jugendhilfe",
+      "valid_from": "1994-01-01T00:00:00",
+      "periodicity": "VIERJAEHRLICH",
+      "name": "22542"
+    },
+    {
+      "title_de": "Statistik der Tageseinrichtungen f\u00fcr Kinder",
+      "valid_from": "1994-01-01T00:00:00",
+      "periodicity": "VIERJAEHRLICH",
+      "name": "22541"
+    }
+  ],
+  "PER099": [
+    {
+      "title_de": "Sozialberichterstattung in der amtlichen Statistik",
+      "valid_from": "2007-07-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "22811"
+    }
+  ],
+  "PER100": [
+    {
+      "title_de": "Sozialberichterstattung in der amtlichen Statistik",
+      "valid_from": "2007-07-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "22811"
+    }
+  ],
+  "PERS01": [
+    {
+      "title_de": "Statistik der \u00f6ffentlich gef\u00f6rderten Kindertagespflege",
+      "valid_from": "2007-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "22543"
+    }
+  ],
+  "PERS02": [
+    {
+      "title_de": "Statistik der \u00f6ffentlich gef\u00f6rderten Kindertagespflege",
+      "valid_from": "2007-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "22543"
+    }
+  ],
+  "PFL001": [
+    {
+      "title_de": "Pflegestatistik (Pflegeeinricht./Pflegebed\u00fcrftige)",
+      "valid_from": "2003-12-31T00:00:00",
+      "periodicity": "ZWEIJAEHRLICH",
+      "name": "22411"
+    }
+  ],
+  "PFL003": [
+    {
+      "title_de": "Pflegestatistik (Pflegeeinricht./Pflegebed\u00fcrftige)",
+      "valid_from": "2003-12-31T00:00:00",
+      "periodicity": "ZWEIJAEHRLICH",
+      "name": "22411"
+    }
+  ],
+  "PFL004": [
+    {
+      "title_de": "Pflegestatistik (Pflegeeinricht./Pflegebed\u00fcrftige)",
+      "valid_from": "2003-12-31T00:00:00",
+      "periodicity": "ZWEIJAEHRLICH",
+      "name": "22411"
+    }
+  ],
+  "PFL005": [
+    {
+      "title_de": "Pflegestatistik (Pflegeeinricht./Pflegebed\u00fcrftige)",
+      "valid_from": "2003-12-31T00:00:00",
+      "periodicity": "ZWEIJAEHRLICH",
+      "name": "22411"
+    }
+  ],
+  "PFL006": [
+    {
+      "title_de": "Pflegestatistik (Pflegeeinricht./Pflegebed\u00fcrftige)",
+      "valid_from": "2003-12-31T00:00:00",
+      "periodicity": "ZWEIJAEHRLICH",
+      "name": "22411"
+    }
+  ],
+  "PFL007": [
+    {
+      "title_de": "Pflegestatistik (Pflegeeinricht./Pflegebed\u00fcrftige)",
+      "valid_from": "2003-12-31T00:00:00",
+      "periodicity": "ZWEIJAEHRLICH",
+      "name": "22411"
+    }
+  ],
+  "PFL008": [
+    {
+      "title_de": "Pflegestatistik (Pflegeeinricht./Pflegebed\u00fcrftige)",
+      "valid_from": "2003-12-31T00:00:00",
+      "periodicity": "ZWEIJAEHRLICH",
+      "name": "22411"
+    }
+  ],
+  "PFL009": [
+    {
+      "title_de": "Pflegestatistik (Pflegeeinricht./Pflegebed\u00fcrftige)",
+      "valid_from": "2003-12-31T00:00:00",
+      "periodicity": "ZWEIJAEHRLICH",
+      "name": "22411"
+    }
+  ],
+  "PFL010": [
+    {
+      "title_de": "Pflegestatistik (Pflegeeinricht./Pflegebed\u00fcrftige)",
+      "valid_from": "2003-12-31T00:00:00",
+      "periodicity": "ZWEIJAEHRLICH",
+      "name": "22411"
+    }
+  ],
+  "PFL011": [
+    {
+      "title_de": "Pflegestatistik (Pflegeeinricht./Pflegebed\u00fcrftige)",
+      "valid_from": "2003-12-31T00:00:00",
+      "periodicity": "ZWEIJAEHRLICH",
+      "name": "22411"
+    }
+  ],
+  "PFL012": [
+    {
+      "title_de": "Pflegestatistik (Pflegeeinricht./Pflegebed\u00fcrftige)",
+      "valid_from": "2003-12-31T00:00:00",
+      "periodicity": "ZWEIJAEHRLICH",
+      "name": "22411"
+    }
+  ],
+  "PFL013": [
+    {
+      "title_de": "Pflegestatistik (Pflegeeinricht./Pflegebed\u00fcrftige)",
+      "valid_from": "2003-12-31T00:00:00",
+      "periodicity": "ZWEIJAEHRLICH",
+      "name": "22411"
+    }
+  ],
+  "PFL014": [
+    {
+      "title_de": "Pflegestatistik (Pflegeeinricht./Pflegebed\u00fcrftige)",
+      "valid_from": "2003-12-31T00:00:00",
+      "periodicity": "ZWEIJAEHRLICH",
+      "name": "22411"
+    }
+  ],
+  "PFL016": [
+    {
+      "title_de": "Pflegestatistik (Pflegeeinricht./Pflegebed\u00fcrftige)",
+      "valid_from": "2003-12-31T00:00:00",
+      "periodicity": "ZWEIJAEHRLICH",
+      "name": "22411"
+    }
+  ],
+  "PFL017": [
+    {
+      "title_de": "Pflegestatistik (Pflegeeinricht./Pflegebed\u00fcrftige)",
+      "valid_from": "2003-12-31T00:00:00",
+      "periodicity": "ZWEIJAEHRLICH",
+      "name": "22411"
+    }
+  ],
+  "PFL018": [
+    {
+      "title_de": "Pflegestatistik (Pflegeeinricht./Pflegebed\u00fcrftige)",
+      "valid_from": "2003-12-31T00:00:00",
+      "periodicity": "ZWEIJAEHRLICH",
+      "name": "22411"
+    }
+  ],
+  "PFL019": [
+    {
+      "title_de": "Pflegestatistik (Pflegeeinricht./Pflegebed\u00fcrftige)",
+      "valid_from": "2003-12-31T00:00:00",
+      "periodicity": "ZWEIJAEHRLICH",
+      "name": "22411"
+    }
+  ],
+  "PFL020": [
+    {
+      "title_de": "Pflegestatistik (Pflegeeinricht./Pflegebed\u00fcrftige)",
+      "valid_from": "2003-12-31T00:00:00",
+      "periodicity": "ZWEIJAEHRLICH",
+      "name": "22411"
+    }
+  ],
+  "PFL021": [
+    {
+      "title_de": "Pflegestatistik (Pflegeeinricht./Pflegebed\u00fcrftige)",
+      "valid_from": "2003-12-31T00:00:00",
+      "periodicity": "ZWEIJAEHRLICH",
+      "name": "22411"
+    }
+  ],
+  "PFL022": [
+    {
+      "title_de": "Pflegestatistik (Pflegeeinricht./Pflegebed\u00fcrftige)",
+      "valid_from": "2003-12-31T00:00:00",
+      "periodicity": "ZWEIJAEHRLICH",
+      "name": "22411"
+    }
+  ],
+  "PFL023": [
+    {
+      "title_de": "Pflegestatistik (Pflegeeinricht./Pflegebed\u00fcrftige)",
+      "valid_from": "2003-12-31T00:00:00",
+      "periodicity": "ZWEIJAEHRLICH",
+      "name": "22411"
+    }
+  ],
+  "PFL024": [
+    {
+      "title_de": "Pflegestatistik (Pflegeeinricht./Pflegebed\u00fcrftige)",
+      "valid_from": "2003-12-31T00:00:00",
+      "periodicity": "ZWEIJAEHRLICH",
+      "name": "22411"
+    }
+  ],
+  "PHHZ20": [
+    {
+      "title_de": "Zensus 2011",
+      "valid_from": "2011-05-09T00:00:00",
+      "periodicity": "EINMALIG",
+      "name": "12111"
+    }
+  ],
+  "PLZ001": [
+    {
+      "title_de": "Statistik der Einrichtungen der Jugendhilfe",
+      "valid_from": "1994-01-01T00:00:00",
+      "periodicity": "VIERJAEHRLICH",
+      "name": "22542"
+    },
+    {
+      "title_de": "Statistik der Tageseinrichtungen f\u00fcr Kinder",
+      "valid_from": "1994-01-01T00:00:00",
+      "periodicity": "VIERJAEHRLICH",
+      "name": "22541"
+    }
+  ],
+  "PLZ005": [
+    {
+      "title_de": "Statistik der Tageseinrichtungen f\u00fcr Kinder",
+      "valid_from": "1994-01-01T00:00:00",
+      "periodicity": "VIERJAEHRLICH",
+      "name": "22541"
+    }
+  ],
+  "RLE001": [
+    {
+      "title_de": "Empf\u00e4nger von Asylbewerberregelleistungen",
+      "valid_from": "2000-03-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "22221"
+    }
+  ],
+  "RME009": [
+    {
+      "title_de": "Fortschreib. d. Wohngeb\u00e4ude- u. Wohnungsbestandes",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "31231"
+    }
+  ],
+  "RMENW9": [
+    {
+      "title_de": "Fortschreib. d. Wohngeb\u00e4ude- u. Wohnungsbestandes",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "31231"
+    }
+  ],
+  "RZVPB1": [
+    {
+      "title_de": "Statistik der Tageseinrichtungen f\u00fcr Kinder",
+      "valid_from": "1994-01-01T00:00:00",
+      "periodicity": "VIERJAEHRLICH",
+      "name": "22541"
+    }
+  ],
+  "SLD012": [
+    {
+      "title_de": "J\u00e4hrliche Schulden der Gemeinden/Gemeindeverb\u00e4nde",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "71327"
+    }
+  ],
+  "SLD013": [
+    {
+      "title_de": "J\u00e4hrliche Schulden der Gemeinden/Gemeindeverb\u00e4nde",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "71327"
+    }
+  ],
+  "SLNW01": [
+    {
+      "title_de": "J\u00e4hrliche Schulden der Gemeinden/Gemeindeverb\u00e4nde",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "71327"
+    }
+  ],
+  "SLNW02": [
+    {
+      "title_de": "J\u00e4hrliche Schulden der Gemeinden/Gemeindeverb\u00e4nde",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "71327"
+    }
+  ],
+  "SLNW03": [
+    {
+      "title_de": "J\u00e4hrliche Schulden der Gemeinden/Gemeindeverb\u00e4nde",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "71327"
+    }
+  ],
+  "SLNW04": [
+    {
+      "title_de": "J\u00e4hrliche Schulden der Gemeinden/Gemeindeverb\u00e4nde",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "71327"
+    }
+  ],
+  "SOZ001": [
+    {
+      "title_de": "Statistik d. Empf. v.lfd. Hilfe z. Lebensunterhalt",
+      "valid_from": "1998-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "22121"
+    }
+  ],
+  "SOZ004": [
+    {
+      "title_de": "Statistik der Einrichtungen der Jugendhilfe",
+      "valid_from": "1994-01-01T00:00:00",
+      "periodicity": "VIERJAEHRLICH",
+      "name": "22542"
+    }
+  ],
+  "SOZNW1": [
+    {
+      "title_de": "Statistik d. Empf. v.lfd. Hilfe z. Lebensunterhalt",
+      "valid_from": "1998-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "22121"
+    }
+  ],
+  "STENW1": [
+    {
+      "title_de": "Realsteuervergleich",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "71231"
+    }
+  ],
+  "STENW2": [
+    {
+      "title_de": "Realsteuervergleich",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "71231"
+    }
+  ],
+  "STENW3": [
+    {
+      "title_de": "Realsteuervergleich",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "71231"
+    }
+  ],
+  "STENW4": [
+    {
+      "title_de": "Realsteuervergleich",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "71231"
+    }
+  ],
+  "STENW5": [
+    {
+      "title_de": "Realsteuervergleich",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "71231"
+    }
+  ],
+  "STEU02": [
+    {
+      "title_de": "Realsteuervergleich",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "71231"
+    }
+  ],
+  "STEU03": [
+    {
+      "title_de": "Realsteuervergleich",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "71231"
+    }
+  ],
+  "STEU04": [
+    {
+      "title_de": "Realsteuervergleich",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "71231"
+    }
+  ],
+  "STEU05": [
+    {
+      "title_de": "Realsteuervergleich",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "71231"
+    }
+  ],
+  "STEU06": [
+    {
+      "title_de": "Realsteuervergleich",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "71231"
+    }
+  ],
+  "STEU07": [
+    {
+      "title_de": "Realsteuervergleich",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "71231"
+    }
+  ],
+  "STEU08": [
+    {
+      "title_de": "Realsteuervergleich",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "71231"
+    }
+  ],
+  "STEU09": [
+    {
+      "title_de": "Realsteuervergleich",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "71231"
+    }
+  ],
+  "STR007": [
+    {
+      "title_de": "Umsatzsteuerstatistik (Veranlagungen)",
+      "valid_from": "2007-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "73321"
+    },
+    {
+      "title_de": "Umsatzsteuerstatistik (Voranmeldungen)",
+      "valid_from": "2007-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "73311"
+    }
+  ],
+  "TIE001": [
+    {
+      "title_de": "Allgemeine Agrarstrukturerhebung (bis 2007)",
+      "valid_from": "1999-05-31T00:00:00",
+      "periodicity": "ZWEIJAEHRLICH",
+      "name": "41120"
+    }
+  ],
+  "TIE003": [
+    {
+      "title_de": "Agrarstrukturerhebung / Landwirtschaftsz\u00e4hlung",
+      "valid_from": "2010-01-01T00:00:00",
+      "periodicity": "ZEHNJAEHRLICH",
+      "name": "41141"
+    },
+    {
+      "title_de": "Erhebung \u00fcber die Rinderbest\u00e4nde",
+      "valid_from": "2000-05-03T00:00:00",
+      "periodicity": "HALBJAEHRLICH",
+      "name": "41312"
+    }
+  ],
+  "TIENW1": [
+    {
+      "title_de": "Allgemeine Agrarstrukturerhebung (bis 2007)",
+      "valid_from": "1999-05-31T00:00:00",
+      "periodicity": "ZWEIJAEHRLICH",
+      "name": "41120"
+    }
+  ],
+  "TRM001": [
+    {
+      "title_de": "Erhebung der \u00f6ffentlichen Abwasserentsorgung - Kl\u00e4rschlamm",
+      "valid_from": "2007-12-31T00:00:00",
+      "periodicity": "DREIJAEHRLICH",
+      "name": "32214"
+    }
+  ],
+  "TWA501": [
+    {
+      "title_de": "Erhebung der Wasser- und Abwasserentgelte",
+      "valid_from": "2007-01-01T00:00:00",
+      "periodicity": "VIERJAEHRLICH",
+      "name": "32271"
+    }
+  ],
+  "UMS002": [
+    {
+      "title_de": "Verarbeitendes Gewerbe - Jahre ab 2009 mit WZ 2008",
+      "valid_from": "2009-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "42111"
+    },
+    {
+      "title_de": "Verarbeitendes Gewerbe - Jahre bis 2008 mit WZ93",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "4211A"
+    }
+  ],
+  "UMS011": [
+    {
+      "title_de": "Erg\u00e4nzungserhebung im Bauhauptgewerbe",
+      "valid_from": "1995-06-30T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "44231"
+    }
+  ],
+  "UMS031": [
+    {
+      "title_de": "Umsatzsteuerstatistik (Veranlagungen)",
+      "valid_from": "2007-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "73321"
+    },
+    {
+      "title_de": "Umsatzsteuerstatistik (Voranmeldungen)",
+      "valid_from": "2007-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "73311"
+    }
+  ],
+  "UMSN3": [
+    {
+      "title_de": "Verarbeitendes Gewerbe - Jahre ab 2009 mit WZ 2008",
+      "valid_from": "2009-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "42111"
+    },
+    {
+      "title_de": "Verarbeitendes Gewerbe - Jahre bis 2008 mit WZ93",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "4211A"
+    }
+  ],
+  "UNT003": [
+    {
+      "title_de": "Unternehmensregister-System (URS)",
+      "valid_from": "2000-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "52111"
+    }
+  ],
+  "UNT019": [
+    {
+      "title_de": "Handwerksz\u00e4hlung",
+      "valid_from": "2010-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "53111"
+    }
+  ],
+  "VBR001": [
+    {
+      "title_de": "Jahreserh.\u00fcb.Energieverwend. i.Bergb.u.Verarb.Gew.",
+      "valid_from": "2003-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "43531"
+    },
+    {
+      "title_de": "Verarbeitendes Gewerbe - Jahre bis 2008 mit WZ93",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "4211A"
+    }
+  ],
+  "VBR005": [
+    {
+      "title_de": "Verarbeitendes Gewerbe - Jahre bis 2008 mit WZ93",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "4211A"
+    }
+  ],
+  "VBR012": [
+    {
+      "title_de": "Verarbeitendes Gewerbe - Jahre bis 2008 mit WZ93",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "4211A"
+    }
+  ],
+  "VBR017": [
+    {
+      "title_de": "Verarbeitendes Gewerbe - Jahre bis 2008 mit WZ93",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "4211A"
+    }
+  ],
+  "VBR020": [
+    {
+      "title_de": "Verarbeitendes Gewerbe - Jahre bis 2008 mit WZ93",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "4211A"
+    }
+  ],
+  "VER001": [
+    {
+      "title_de": "Statistik der Stra\u00dfenverkehrsunf\u00e4lle",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "46241"
+    }
+  ],
+  "VER002": [
+    {
+      "title_de": "Statistik der Stra\u00dfenverkehrsunf\u00e4lle",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "46241"
+    }
+  ],
+  "VER005": [
+    {
+      "title_de": "Statistik der Stra\u00dfenverkehrsunf\u00e4lle",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "46241"
+    }
+  ],
+  "VER006": [
+    {
+      "title_de": "Statistik der Stra\u00dfenverkehrsunf\u00e4lle",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "46241"
+    }
+  ],
+  "VER009": [
+    {
+      "title_de": "Statistik der Stra\u00dfenverkehrsunf\u00e4lle",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "46241"
+    }
+  ],
+  "VER012": [
+    {
+      "title_de": "Statistik des Kraftfahrzeug- und Anh\u00e4ngerbestandes",
+      "valid_from": "2002-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "46251"
+    }
+  ],
+  "VER019": [
+    {
+      "title_de": "Statistik der Stra\u00dfenverkehrsunf\u00e4lle",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "46241"
+    }
+  ],
+  "VIE003": [
+    {
+      "title_de": "Agrarstrukturerhebung / Landwirtschaftsz\u00e4hlung",
+      "valid_from": "2010-01-01T00:00:00",
+      "periodicity": "ZEHNJAEHRLICH",
+      "name": "41141"
+    }
+  ],
+  "VST003": [
+    {
+      "title_de": "Verarbeitendes Gewerbe - Jahre bis 2008 mit WZ93",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "4211A"
+    }
+  ],
+  "VSTNW3": [
+    {
+      "title_de": "Verarbeitendes Gewerbe - Jahre bis 2008 mit WZ93",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "4211A"
+    }
+  ],
+  "WAHL01": [
+    {
+      "title_de": "Allgemeine Bundestagswahlstatistik",
+      "valid_from": "1994-01-01T00:00:00",
+      "periodicity": "VIERJAEHRLICH",
+      "name": "14111"
+    },
+    {
+      "title_de": "Allgemeine Europawahlstatistik",
+      "valid_from": "1994-01-01T00:00:00",
+      "periodicity": "FUENFJAEHRLICH",
+      "name": "14211"
+    },
+    {
+      "title_de": "Landtagswahlen: Baden-W\u00fcrttemberg",
+      "valid_from": "1996-01-01T00:00:00",
+      "periodicity": "FUENFJAEHRLICH",
+      "name": "14338"
+    },
+    {
+      "title_de": "Landtagswahlen: Bayern",
+      "valid_from": "1994-01-01T00:00:00",
+      "periodicity": "VIERJAEHRLICH",
+      "name": "14339"
+    },
+    {
+      "title_de": "Landtagswahlen: Berlin",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "VIERJAEHRLICH",
+      "name": "14341"
+    },
+    {
+      "title_de": "Landtagswahlen: Brandenburg",
+      "valid_from": "1994-01-01T00:00:00",
+      "periodicity": "FUENFJAEHRLICH",
+      "name": "14342"
+    },
+    {
+      "title_de": "Landtagswahlen: Bremen",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "VIERJAEHRLICH",
+      "name": "14334"
+    },
+    {
+      "title_de": "Landtagswahlen: Hamburg",
+      "valid_from": "1997-01-01T00:00:00",
+      "periodicity": "VIERJAEHRLICH",
+      "name": "14332"
+    },
+    {
+      "title_de": "Landtagswahlen: Hessen",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "VIERJAEHRLICH",
+      "name": "14336"
+    },
+    {
+      "title_de": "Landtagswahlen: Mecklenburg-Vorpommern",
+      "valid_from": "1994-01-01T00:00:00",
+      "periodicity": "VIERJAEHRLICH",
+      "name": "14343"
+    },
+    {
+      "title_de": "Landtagswahlen: Niedersachsen",
+      "valid_from": "1994-01-01T00:00:00",
+      "periodicity": "VIERJAEHRLICH",
+      "name": "14333"
+    },
+    {
+      "title_de": "Landtagswahlen: Nordrhein-Westfalen",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "FUENFJAEHRLICH",
+      "name": "14335"
+    },
+    {
+      "title_de": "Landtagswahlen: Rheinland-Pfalz",
+      "valid_from": "1996-01-01T00:00:00",
+      "periodicity": "FUENFJAEHRLICH",
+      "name": "14337"
+    },
+    {
+      "title_de": "Landtagswahlen: Saarland",
+      "valid_from": "1994-01-01T00:00:00",
+      "periodicity": "FUENFJAEHRLICH",
+      "name": "14340"
+    },
+    {
+      "title_de": "Landtagswahlen: Sachsen",
+      "valid_from": "1994-01-01T00:00:00",
+      "periodicity": "FUENFJAEHRLICH",
+      "name": "14344"
+    },
+    {
+      "title_de": "Landtagswahlen: Sachsen-Anhalt",
+      "valid_from": "1998-01-01T00:00:00",
+      "periodicity": "VIERJAEHRLICH",
+      "name": "14345"
+    },
+    {
+      "title_de": "Landtagswahlen: Schleswig-Holstein",
+      "valid_from": "1996-01-01T00:00:00",
+      "periodicity": "VIERJAEHRLICH",
+      "name": "14331"
+    },
+    {
+      "title_de": "Landtagswahlen: Th\u00fcringen",
+      "valid_from": "1994-01-01T00:00:00",
+      "periodicity": "FUENFJAEHRLICH",
+      "name": "14346"
+    }
+  ],
+  "WAHL04": [
+    {
+      "title_de": "Allgemeine Europawahlstatistik",
+      "valid_from": "1994-01-01T00:00:00",
+      "periodicity": "FUENFJAEHRLICH",
+      "name": "14211"
+    },
+    {
+      "title_de": "Landtagswahlen: Baden-W\u00fcrttemberg",
+      "valid_from": "1996-01-01T00:00:00",
+      "periodicity": "FUENFJAEHRLICH",
+      "name": "14338"
+    },
+    {
+      "title_de": "Landtagswahlen: Bayern",
+      "valid_from": "1994-01-01T00:00:00",
+      "periodicity": "VIERJAEHRLICH",
+      "name": "14339"
+    },
+    {
+      "title_de": "Landtagswahlen: Berlin",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "VIERJAEHRLICH",
+      "name": "14341"
+    },
+    {
+      "title_de": "Landtagswahlen: Brandenburg",
+      "valid_from": "1994-01-01T00:00:00",
+      "periodicity": "FUENFJAEHRLICH",
+      "name": "14342"
+    },
+    {
+      "title_de": "Landtagswahlen: Bremen",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "VIERJAEHRLICH",
+      "name": "14334"
+    },
+    {
+      "title_de": "Landtagswahlen: Hamburg",
+      "valid_from": "1997-01-01T00:00:00",
+      "periodicity": "VIERJAEHRLICH",
+      "name": "14332"
+    },
+    {
+      "title_de": "Landtagswahlen: Hessen",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "VIERJAEHRLICH",
+      "name": "14336"
+    },
+    {
+      "title_de": "Landtagswahlen: Mecklenburg-Vorpommern",
+      "valid_from": "1994-01-01T00:00:00",
+      "periodicity": "VIERJAEHRLICH",
+      "name": "14343"
+    },
+    {
+      "title_de": "Landtagswahlen: Niedersachsen",
+      "valid_from": "1994-01-01T00:00:00",
+      "periodicity": "VIERJAEHRLICH",
+      "name": "14333"
+    },
+    {
+      "title_de": "Landtagswahlen: Nordrhein-Westfalen",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "FUENFJAEHRLICH",
+      "name": "14335"
+    },
+    {
+      "title_de": "Landtagswahlen: Rheinland-Pfalz",
+      "valid_from": "1996-01-01T00:00:00",
+      "periodicity": "FUENFJAEHRLICH",
+      "name": "14337"
+    },
+    {
+      "title_de": "Landtagswahlen: Saarland",
+      "valid_from": "1994-01-01T00:00:00",
+      "periodicity": "FUENFJAEHRLICH",
+      "name": "14340"
+    },
+    {
+      "title_de": "Landtagswahlen: Sachsen",
+      "valid_from": "1994-01-01T00:00:00",
+      "periodicity": "FUENFJAEHRLICH",
+      "name": "14344"
+    },
+    {
+      "title_de": "Landtagswahlen: Sachsen-Anhalt",
+      "valid_from": "1998-01-01T00:00:00",
+      "periodicity": "VIERJAEHRLICH",
+      "name": "14345"
+    },
+    {
+      "title_de": "Landtagswahlen: Schleswig-Holstein",
+      "valid_from": "1996-01-01T00:00:00",
+      "periodicity": "VIERJAEHRLICH",
+      "name": "14331"
+    },
+    {
+      "title_de": "Landtagswahlen: Th\u00fcringen",
+      "valid_from": "1994-01-01T00:00:00",
+      "periodicity": "FUENFJAEHRLICH",
+      "name": "14346"
+    }
+  ],
+  "WAHL09": [
+    {
+      "title_de": "Allgemeine Bundestagswahlstatistik",
+      "valid_from": "1994-01-01T00:00:00",
+      "periodicity": "VIERJAEHRLICH",
+      "name": "14111"
+    }
+  ],
+  "WAHLSR": [
+    {
+      "title_de": "Allgemeine Bundestagswahlstatistik",
+      "valid_from": "1994-01-01T00:00:00",
+      "periodicity": "VIERJAEHRLICH",
+      "name": "14111"
+    },
+    {
+      "title_de": "Allgemeine Europawahlstatistik",
+      "valid_from": "1994-01-01T00:00:00",
+      "periodicity": "FUENFJAEHRLICH",
+      "name": "14211"
+    },
+    {
+      "title_de": "Landtagswahlen: Baden-W\u00fcrttemberg",
+      "valid_from": "1996-01-01T00:00:00",
+      "periodicity": "FUENFJAEHRLICH",
+      "name": "14338"
+    },
+    {
+      "title_de": "Landtagswahlen: Bayern",
+      "valid_from": "1994-01-01T00:00:00",
+      "periodicity": "VIERJAEHRLICH",
+      "name": "14339"
+    },
+    {
+      "title_de": "Landtagswahlen: Berlin",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "VIERJAEHRLICH",
+      "name": "14341"
+    },
+    {
+      "title_de": "Landtagswahlen: Brandenburg",
+      "valid_from": "1994-01-01T00:00:00",
+      "periodicity": "FUENFJAEHRLICH",
+      "name": "14342"
+    },
+    {
+      "title_de": "Landtagswahlen: Bremen",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "VIERJAEHRLICH",
+      "name": "14334"
+    },
+    {
+      "title_de": "Landtagswahlen: Hamburg",
+      "valid_from": "1997-01-01T00:00:00",
+      "periodicity": "VIERJAEHRLICH",
+      "name": "14332"
+    },
+    {
+      "title_de": "Landtagswahlen: Hessen",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "VIERJAEHRLICH",
+      "name": "14336"
+    },
+    {
+      "title_de": "Landtagswahlen: Mecklenburg-Vorpommern",
+      "valid_from": "1994-01-01T00:00:00",
+      "periodicity": "VIERJAEHRLICH",
+      "name": "14343"
+    },
+    {
+      "title_de": "Landtagswahlen: Niedersachsen",
+      "valid_from": "1994-01-01T00:00:00",
+      "periodicity": "VIERJAEHRLICH",
+      "name": "14333"
+    },
+    {
+      "title_de": "Landtagswahlen: Nordrhein-Westfalen",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "FUENFJAEHRLICH",
+      "name": "14335"
+    },
+    {
+      "title_de": "Landtagswahlen: Rheinland-Pfalz",
+      "valid_from": "1996-01-01T00:00:00",
+      "periodicity": "FUENFJAEHRLICH",
+      "name": "14337"
+    },
+    {
+      "title_de": "Landtagswahlen: Saarland",
+      "valid_from": "1994-01-01T00:00:00",
+      "periodicity": "FUENFJAEHRLICH",
+      "name": "14340"
+    },
+    {
+      "title_de": "Landtagswahlen: Sachsen",
+      "valid_from": "1994-01-01T00:00:00",
+      "periodicity": "FUENFJAEHRLICH",
+      "name": "14344"
+    },
+    {
+      "title_de": "Landtagswahlen: Sachsen-Anhalt",
+      "valid_from": "1998-01-01T00:00:00",
+      "periodicity": "VIERJAEHRLICH",
+      "name": "14345"
+    },
+    {
+      "title_de": "Landtagswahlen: Schleswig-Holstein",
+      "valid_from": "1996-01-01T00:00:00",
+      "periodicity": "VIERJAEHRLICH",
+      "name": "14331"
+    },
+    {
+      "title_de": "Landtagswahlen: Th\u00fcringen",
+      "valid_from": "1994-01-01T00:00:00",
+      "periodicity": "FUENFJAEHRLICH",
+      "name": "14346"
+    }
+  ],
+  "WAS001": [
+    {
+      "title_de": "Erhebung d. nicht\u00f6ff. Wasservers. u.Abwasserents.",
+      "valid_from": "2007-12-31T00:00:00",
+      "periodicity": "DREIJAEHRLICH",
+      "name": "32221"
+    },
+    {
+      "title_de": "Wasserversorg./ Abwasserbeseit. im Verarb. Gewerbe",
+      "valid_from": "1998-12-31T00:00:00",
+      "periodicity": "DREIJAEHRLICH",
+      "name": "32231"
+    }
+  ],
+  "WAS002": [
+    {
+      "title_de": "Erhebung der \u00f6ffentlichen Wasserversorgung",
+      "valid_from": "1998-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "32211"
+    }
+  ],
+  "WAS003": [
+    {
+      "title_de": "Erhebung der \u00f6ffentlichen Wasserversorgung",
+      "valid_from": "1998-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "32211"
+    }
+  ],
+  "WAS004": [
+    {
+      "title_de": "Erhebung der \u00f6ffentlichen Wasserversorgung",
+      "valid_from": "1998-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "32211"
+    }
+  ],
+  "WAS005": [
+    {
+      "title_de": "Erhebung der \u00f6ffentlichen Wasserversorgung",
+      "valid_from": "1998-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "32211"
+    }
+  ],
+  "WAS006": [
+    {
+      "title_de": "Erhebung der \u00f6ffentlichen Wasserversorgung",
+      "valid_from": "1998-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "32211"
+    }
+  ],
+  "WAS007": [
+    {
+      "title_de": "Erhebung der \u00f6ffentlichen Wasserversorgung",
+      "valid_from": "1998-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "32211"
+    }
+  ],
+  "WAS008": [
+    {
+      "title_de": "Erhebung der \u00f6ffentlichen Wasserversorgung",
+      "valid_from": "1998-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "32211"
+    }
+  ],
+  "WASNW0": [
+    {
+      "title_de": "Erhebung der \u00f6ffentlichen Abwasserbehandlung",
+      "valid_from": "1998-12-31T00:00:00",
+      "periodicity": "DREIJAEHRLICH",
+      "name": "32213"
+    }
+  ],
+  "WASNW2": [
+    {
+      "title_de": "Erhebung d. nicht\u00f6ff. Wasservers. u.Abwasserents.",
+      "valid_from": "2007-12-31T00:00:00",
+      "periodicity": "DREIJAEHRLICH",
+      "name": "32221"
+    },
+    {
+      "title_de": "Wasserversorg./ Abwasserbeseit. im Verarb. Gewerbe",
+      "valid_from": "1998-12-31T00:00:00",
+      "periodicity": "DREIJAEHRLICH",
+      "name": "32231"
+    }
+  ],
+  "WASNW3": [
+    {
+      "title_de": "Erhebung d. nicht\u00f6ff. Wasservers. u.Abwasserents.",
+      "valid_from": "2007-12-31T00:00:00",
+      "periodicity": "DREIJAEHRLICH",
+      "name": "32221"
+    },
+    {
+      "title_de": "Wasserversorg./ Abwasserbeseit. im Verarb. Gewerbe",
+      "valid_from": "1998-12-31T00:00:00",
+      "periodicity": "DREIJAEHRLICH",
+      "name": "32231"
+    }
+  ],
+  "WASNW4": [
+    {
+      "title_de": "Erhebung der \u00f6ffentlichen Abwasserbehandlung",
+      "valid_from": "1998-12-31T00:00:00",
+      "periodicity": "DREIJAEHRLICH",
+      "name": "32213"
+    }
+  ],
+  "WASNW5": [
+    {
+      "title_de": "Erhebung der \u00f6ffentlichen Abwasserbehandlung",
+      "valid_from": "1998-12-31T00:00:00",
+      "periodicity": "DREIJAEHRLICH",
+      "name": "32213"
+    }
+  ],
+  "WASNW6": [
+    {
+      "title_de": "Erhebung der \u00f6ffentlichen Abwasserbehandlung",
+      "valid_from": "1998-12-31T00:00:00",
+      "periodicity": "DREIJAEHRLICH",
+      "name": "32213"
+    }
+  ],
+  "WASNW7": [
+    {
+      "title_de": "Erhebung der \u00f6ffentlichen Abwasserbehandlung",
+      "valid_from": "1998-12-31T00:00:00",
+      "periodicity": "DREIJAEHRLICH",
+      "name": "32213"
+    }
+  ],
+  "WASNW8": [
+    {
+      "title_de": "Erhebung der \u00f6ffentlichen Abwasserbehandlung",
+      "valid_from": "1998-12-31T00:00:00",
+      "periodicity": "DREIJAEHRLICH",
+      "name": "32213"
+    }
+  ],
+  "WASNW9": [
+    {
+      "title_de": "Erhebung der \u00f6ffentlichen Abwasserbehandlung",
+      "valid_from": "1998-12-31T00:00:00",
+      "periodicity": "DREIJAEHRLICH",
+      "name": "32213"
+    }
+  ],
+  "WGS001": [
+    {
+      "title_de": "Wohngeld zum 31.12.",
+      "valid_from": "2003-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "22311"
+    }
+  ],
+  "WGS003": [
+    {
+      "title_de": "Wohngeld zum 31.12.",
+      "valid_from": "2003-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "22311"
+    }
+  ],
+  "WGS011": [
+    {
+      "title_de": "Wohngeld zum 31.12.",
+      "valid_from": "2003-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "22311"
+    }
+  ],
+  "WGS031": [
+    {
+      "title_de": "Wohngeld zum 31.12.",
+      "valid_from": "2003-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "22311"
+    }
+  ],
+  "WOGWZ1": [
+    {
+      "title_de": "Geb\u00e4ude- und Wohnungsz\u00e4hlung 2011 (Zensus)",
+      "valid_from": "2011-05-09T00:00:00",
+      "periodicity": "EINMALIG",
+      "name": "31211"
+    }
+  ],
+  "WOH016": [
+    {
+      "title_de": "Statistik der Baufertigstellungen",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "31121"
+    },
+    {
+      "title_de": "Statistik der Baugenehmigungen",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "31111"
+    }
+  ],
+  "WOHN01": [
+    {
+      "title_de": "Fortschreib. d. Wohngeb\u00e4ude- u. Wohnungsbestandes",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "31231"
+    },
+    {
+      "title_de": "Statistik der Baufertigstellungen",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "31121"
+    },
+    {
+      "title_de": "Statistik der Baugenehmigungen",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "31111"
+    }
+  ],
+  "WOHN02": [
+    {
+      "title_de": "Statistik der Baufertigstellungen",
+      "valid_from": "1995-12-31T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "31121"
+    },
+    {
+      "title_de": "Statistik der Baugenehmigungen",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "31111"
+    }
+  ],
+  "WOHN03": [
+    {
+      "title_de": "Geb\u00e4ude- und Wohnungsz\u00e4hlung 2011 (Zensus)",
+      "valid_from": "2011-05-09T00:00:00",
+      "periodicity": "EINMALIG",
+      "name": "31211"
+    }
+  ],
+  "WOHN04": [
+    {
+      "title_de": "Statistik der Baugenehmigungen",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "31111"
+    }
+  ],
+  "WOHNGB": [
+    {
+      "title_de": "Geb\u00e4ude- und Wohnungsz\u00e4hlung 2011 (Zensus)",
+      "valid_from": "2011-05-09T00:00:00",
+      "periodicity": "EINMALIG",
+      "name": "31211"
+    }
+  ],
+  "WOHNY1": [
+    {
+      "title_de": "Fortschreib. d. Wohngeb\u00e4ude- u. Wohnungsbestandes",
+      "valid_from": "1995-01-01T00:00:00",
+      "periodicity": "JAEHRLICH",
+      "name": "31231"
+    }
+  ]
+}

@@ -1,4 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react'
+import pt from 'prop-types'
+import { print } from 'graphql'
+import { ClientContext } from 'graphql-hooks'
+
 import { makeStyles } from '@material-ui/core/styles'
 import Table from '@material-ui/core/Table'
 import TableBody from '@material-ui/core/TableBody'
@@ -6,45 +10,8 @@ import TableCell from '@material-ui/core/TableCell'
 import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
 import Paper from '@material-ui/core/Paper'
-import pt from 'prop-types'
 
-import gql from 'graphql-tag'
-import { print } from 'graphql'
-import { ClientContext } from 'graphql-hooks'
-
-const getQuery = ({ statistic, attribute, args }) => {
-  const statisticsExpression = `statistics: [R${statistic}]`
-
-  const valueAttributeArgumentsExpression = args.map(arg => {
-    return arg.selected.length > 0
-      ? `${arg.value}:[${arg.selected.join(',')}]`
-      : ''
-  })
-
-  const argumentsExpression = `(${valueAttributeArgumentsExpression
-    .concat(statisticsExpression)
-    .join(',')})`
-
-  const valueAttributeFieldSelections = args.map(arg => arg.value).join('\n')
-
-  const query = `
-    {
-        region(id: "13") {
-            id
-            name
-            ${attribute}${argumentsExpression}{
-                year
-                value
-                ${valueAttributeFieldSelections}
-            }
-        }
-    }
-`
-
-  return gql`
-    ${query}
-  `
-}
+import getQuery from '../lib/queryBuilder'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -69,7 +36,6 @@ const DataTable = ({ filterSelection = {} }) => {
   useEffect(() => {
     const fetchData = async () => {
       const query = getQuery(filterSelection)
-      // TODO omg, client does not support gql AST
       const { data } = await client.request({ query: print(query) })
       setData(data)
     }
