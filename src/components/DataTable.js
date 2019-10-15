@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import pt from 'prop-types'
+import PropTypes from 'prop-types'
 import { print } from 'graphql'
 import { ClientContext } from 'graphql-hooks'
 
@@ -152,7 +152,7 @@ const DataTable = ({ filterSelection = {} }) => {
 DataTable.propTypes = {
   // TODO
   // eslint-disable-next-line react/forbid-prop-types
-  filterSelection: pt.object
+  filterSelection: PropTypes.object
 }
 
 export default DataTable
