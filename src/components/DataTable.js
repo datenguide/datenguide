@@ -4,14 +4,20 @@ import { print } from 'graphql'
 import { ClientContext } from 'graphql-hooks'
 
 import { makeStyles } from '@material-ui/core/styles'
-import Table from '@material-ui/core/Table'
-import TableBody from '@material-ui/core/TableBody'
-import TableCell from '@material-ui/core/TableCell'
-import TableHead from '@material-ui/core/TableHead'
-import TableRow from '@material-ui/core/TableRow'
-import Paper from '@material-ui/core/Paper'
+import {
+  Paper,
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableRow,
+  TableFooter,
+  TablePagination
+} from '@material-ui/core'
 
 import getQuery from '../lib/queryBuilder'
+import convertToLongFormat from '../lib/tableDataConverter'
+import DataTablePaginationActions from './DataTablePaginationActions'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -31,7 +37,10 @@ const useStyles = makeStyles(theme => ({
 const DataTable = ({ filterSelection = {} }) => {
   const classes = useStyles()
   const client = useContext(ClientContext)
+
   const [data, setData] = useState([])
+  const [rowsPerPage, setRowsPerPage] = useState(10)
+  const [page, setPage] = useState(0)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -48,6 +57,14 @@ const DataTable = ({ filterSelection = {} }) => {
   }, [filterSelection])
 
   const columnDefs = [
+    {
+      headerName: 'Region ID',
+      field: 'regionId'
+    },
+    {
+      headerName: 'Region Name',
+      field: 'regionName'
+    },
     {
       headerName: 'Jahr',
       field: 'year'
@@ -69,7 +86,23 @@ const DataTable = ({ filterSelection = {} }) => {
   )
 
   const rowData =
-    (data && data.region && data.region[filterSelection.attribute]) || []
+    (filterSelection && convertToLongFormat(data, filterSelection.attribute)) ||
+    []
+
+  // TODO implement proper pagination
+  const currentPageRowData = rowData.slice(
+    page * rowsPerPage,
+    (page + 1) * rowsPerPage
+  )
+
+  const handleChangePage = (event, page) => {
+    setPage(page)
+  }
+  const handleChangeRowsPerPage = value => {
+    setRowsPerPage(value.target.value)
+  }
+  const labelDisplayedRows = ({ from, to, count }) =>
+    `${from}-${to} von ${count}`
 
   return (
     <div className={classes.root}>
@@ -83,7 +116,7 @@ const DataTable = ({ filterSelection = {} }) => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {rowData.map(row => (
+            {currentPageRowData.map(row => (
               <TableRow key={row.name}>
                 {columnDefs.map(def => (
                   <TableCell key={def.field}>{row[def.field]}</TableCell>
@@ -91,6 +124,25 @@ const DataTable = ({ filterSelection = {} }) => {
               </TableRow>
             ))}
           </TableBody>
+          <TableFooter>
+            <TableRow>
+              <TablePagination
+                rowsPerPageOptions={[5, 10, 25]}
+                colSpan={3}
+                count={rowData.length}
+                rowsPerPage={rowsPerPage}
+                page={page}
+                SelectProps={{
+                  inputProps: { 'aria-label': 'Zeilen pro Seite' },
+                  native: true
+                }}
+                labelDisplayedRows={labelDisplayedRows}
+                onChangePage={handleChangePage}
+                onChangeRowsPerPage={handleChangeRowsPerPage}
+                ActionsComponent={DataTablePaginationActions}
+              />
+            </TableRow>
+          </TableFooter>
         </Table>
       </Paper>
     </div>
