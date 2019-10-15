@@ -127,7 +127,7 @@ const DataTable = ({ filterSelection = {} }) => {
           <TableFooter>
             <TableRow>
               <TablePagination
-                rowsPerPageOptions={[5, 10, 25]}
+                rowsPerPageOptions={[10, 50, 100]}
                 colSpan={3}
                 count={rowData.length}
                 rowsPerPage={rowsPerPage}
