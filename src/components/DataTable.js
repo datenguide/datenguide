@@ -18,6 +18,7 @@ import {
 import getQuery from '../lib/queryBuilder'
 import convertToLongFormat from '../lib/tableDataConverter'
 import DataTablePaginationActions from './DataTablePaginationActions'
+import { extractAttribute } from '../lib/schema'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -34,7 +35,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const DataTable = ({ filterSelection = {} }) => {
+const DataTable = ({ regions, statisticAndAttribute, args }) => {
   const classes = useStyles()
   const client = useContext(ClientContext)
 
@@ -44,21 +45,18 @@ const DataTable = ({ filterSelection = {} }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const query = getQuery(filterSelection)
+      const query = getQuery(regions, statisticAndAttribute, args)
       const { data } = await client.request({ query: print(query) })
-      setData(data)
+      const rowData = convertToLongFormat(data, attribute) || []
+      setData(rowData)
     }
 
-    if (
-      filterSelection &&
-      filterSelection.statistic &&
-      filterSelection.regions
-    ) {
+    if (statisticAndAttribute && args && regions.length > 0) {
       fetchData()
     } else {
-      setData(null)
+      setData([])
     }
-  }, [filterSelection])
+  }, [regions, statisticAndAttribute, args])
 
   const columnDefs = [
     {
@@ -78,9 +76,8 @@ const DataTable = ({ filterSelection = {} }) => {
       field: 'value'
     }
   ].concat(
-    (filterSelection &&
-      filterSelection.args &&
-      filterSelection.args
+    (args &&
+      args
         .filter(a => a.selected.length !== 0)
         .map(a => ({
           headerName: a.label,
@@ -89,15 +86,11 @@ const DataTable = ({ filterSelection = {} }) => {
       []
   )
 
-  const rowData =
-    (filterSelection && convertToLongFormat(data, filterSelection.attribute)) ||
-    []
-
+  const attribute = extractAttribute(statisticAndAttribute)
+  
   // TODO implement proper pagination
-  const currentPageRowData = rowData.slice(
-    page * rowsPerPage,
-    (page + 1) * rowsPerPage
-  )
+  const currentPageRowData =
+    (data.slice(page * rowsPerPage, (page + 1) * rowsPerPage)) || []
 
   const handleChangePage = (event, page) => {
     setPage(page)
@@ -120,20 +113,22 @@ const DataTable = ({ filterSelection = {} }) => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {currentPageRowData.map(row => (
-              <TableRow key={row.name}>
-                {columnDefs.map(def => (
-                  <TableCell key={def.field}>{row[def.field]}</TableCell>
-                ))}
-              </TableRow>
-            ))}
+            {currentPageRowData.map((row, index) => {
+              return (
+                <TableRow key={index}>
+                  {columnDefs.map(def => (
+                    <TableCell key={def.field}>{row[def.field]}</TableCell>
+                  ))}
+                </TableRow>
+              )
+            })}
           </TableBody>
           <TableFooter>
             <TableRow>
               <TablePagination
                 rowsPerPageOptions={[10, 50, 100]}
                 colSpan={3}
-                count={rowData.length}
+                count={data.length}
                 rowsPerPage={rowsPerPage}
                 page={page}
                 SelectProps={{
@@ -154,9 +149,9 @@ const DataTable = ({ filterSelection = {} }) => {
 }
 
 DataTable.propTypes = {
-  // TODO
-  // eslint-disable-next-line react/forbid-prop-types
-  filterSelection: PropTypes.object
+  regions: PropTypes.arrayOf(PropTypes.string),
+  statisticAndAttribute: PropTypes.string,
+  args: PropTypes.array
 }
 
 export default DataTable

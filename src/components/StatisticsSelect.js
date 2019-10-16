@@ -132,7 +132,6 @@ Control.propTypes = {
 const Option = props => {
   return (
     <MenuItem
-      ref={props.innerRef}
       selected={props.isFocused}
       component="div"
       style={{
@@ -155,13 +154,6 @@ Option.propTypes = {
     onMouseOver: PropTypes.func.isRequired,
     tabIndex: PropTypes.number.isRequired
   }).isRequired,
-  innerRef: PropTypes.oneOfType([
-    PropTypes.oneOf([null]),
-    PropTypes.func,
-    PropTypes.shape({
-      current: PropTypes.any.isRequired
-    })
-  ]).isRequired,
   isFocused: PropTypes.bool.isRequired,
   isSelected: PropTypes.bool.isRequired
 }

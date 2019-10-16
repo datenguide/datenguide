@@ -1,23 +1,28 @@
 import gql from 'graphql-tag'
 
-const getQuery = ({ regions, statistic, attribute, args }) => {
+import { extractStatisticAndAttribute } from './schema'
+
+const getQuery = (regions, statisticAndAttribute, args ) => {
+  const { statistic, attribute} =  extractStatisticAndAttribute(statisticAndAttribute)
+
   const statisticsExpression = `statistics: [R${statistic}]`
 
-  const valueAttributeArgumentsExpression = args.map(arg => {
-    return arg.selected.length > 0
-      ? `${arg.value}:[${arg.selected.join(',')}]`
-      : ''
-  })
+  const selectedArgs = args.filter(arg => arg.selected.length > 0)
+
+  const valueAttributeArgumentsExpression = selectedArgs.map(
+    arg => `${arg.value}:[${arg.selected.join(',')}]`
+  )
 
   const argumentsExpression = `(${valueAttributeArgumentsExpression
     .concat(statisticsExpression)
     .join(',')})`
 
-  const valueAttributeFieldSelections = args.map(arg => arg.value).join('\n')
+  const valueAttributeFieldSelections = selectedArgs
+    .map(arg => arg.value)
+    .join('\n')
 
-  const query = `
-    {
-        region(id: "${regions[0]}") {
+  const regionToQuery = region => `
+   region_${region}: region(id: "${region}") {
             id
             name
             ${attribute}${argumentsExpression}{
@@ -26,6 +31,14 @@ const getQuery = ({ regions, statistic, attribute, args }) => {
                 ${valueAttributeFieldSelections}
             }
         }
+`
+
+  const regionsToQuery = regions =>
+    regions.map(region => regionToQuery(region)).join('\n')
+
+  const query = `
+    {
+       ${regionsToQuery(regions)}
     }
 `
 

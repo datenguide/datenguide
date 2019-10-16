@@ -4,27 +4,12 @@ import _ from 'lodash'
 
 import Grid from '@material-ui/core/Grid'
 
-import getAttributeArgs from '../lib/schema'
+import { getAttributeArgs, extractAttribute } from '../lib/schema'
 import DefaultLayout from '../layouts/Default'
 import DataTable from '../components/DataTable'
 import RegionSelectTree from '../components/RegionSelectTree'
 import StatisticsSelect from '../components/StatisticsSelect'
 import ValueAttributeSelect from '../components/ValueAttributeSelect'
-
-const getFilterSelection = (regions, statisticAndAttribute, args) => {
-  if (statisticAndAttribute.length !== 1) {
-    return null
-  }
-  const statistic = statisticAndAttribute[0].value.substr(0, 5)
-  const attribute = statisticAndAttribute[0].value.substr(5)
-
-  return {
-    regions,
-    statistic,
-    attribute,
-    args
-  }
-}
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -35,24 +20,18 @@ const useStyles = makeStyles(theme => ({
 
 const Detail = () => {
   const classes = useStyles()
-  const [filterSelection, setFilterSelection] = useState(null)
-  const [statistic, setStatistic] = useState([])
+  const [statisticAndAttribute, setStatisticAndAttribute] = useState(null)
   const [args, setArgs] = useState([])
   const [regions, setRegions] = useState([])
 
   useEffect(() => {
-    const attribute =
-      statistic.length === 1 ? statistic[0].value.substr(5) : null
+    const attribute = extractAttribute(statisticAndAttribute)
     const attributeArgs = getAttributeArgs(attribute)
     setArgs(attributeArgs.map(arg => ({ ...arg, selected: [] })))
-  }, [statistic])
-
-  useEffect(() => {
-    setFilterSelection(getFilterSelection(regions, statistic, args))
-  }, [statistic, args, regions])
+  }, [statisticAndAttribute])
 
   const handleStatisticSelectionChange = value => {
-    setStatistic([value])
+    setStatisticAndAttribute(value)
   }
 
   const handleValueAttributeChange = index => event => {
@@ -80,7 +59,7 @@ const Detail = () => {
           <h2>Statistiken und Merkmale</h2>
           <StatisticsSelect
             onSelectionChange={handleStatisticSelectionChange}
-            value={statistic}
+            value={statisticAndAttribute}
           />
           {args.map((arg, index) => {
             return (
@@ -93,7 +72,11 @@ const Detail = () => {
               />
             )
           })}
-          <DataTable filterSelection={filterSelection} />
+          <DataTable
+            regions={regions}
+            statisticAndAttribute={statisticAndAttribute}
+            args={args}
+          />
         </Grid>
       </Grid>
     </DefaultLayout>
