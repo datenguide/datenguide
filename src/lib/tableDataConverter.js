@@ -9,24 +9,19 @@ export const convertToLongFormat = (data, attribute) => {
 
   const regions = Object.keys(data)
 
-  console.log('data', data);
-
-  let reduce = regions.reduce((acc, curr) => {
+  return regions.reduce((acc, curr) => {
     const regionData = data[curr]
     const regionId = regionData.id
     const regionName = regionData.name
     return acc.concat(
-      regionData[attribute] && regionData[attribute].map(row => ({
-        regionId,
-        regionName,
-        ...row
-      }))
+      regionData[attribute] &&
+        regionData[attribute].map(row => ({
+          regionId,
+          regionName,
+          ...row
+        }))
     )
   }, [])
-  console.log('reduce', reduce);
-
-
-  return reduce
 }
 
 export default convertToLongFormat
