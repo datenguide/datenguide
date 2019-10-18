@@ -38,6 +38,7 @@
     "next-fonts": "^0.18.0",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
+    "react-responsive-embed": "^2.1.0",
     "stringify-object": "^3.3.0",
     "typeface-ibm-plex-sans": "^0.0.75"
   },

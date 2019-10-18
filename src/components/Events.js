@@ -11,17 +11,17 @@ const useStyles = makeStyles(theme => {
     container: {
       position: 'relative',
       backgroundColor: '#c3e5f1',
-      color: theme.palette.text.secondary,
+      color: theme.palette.secondary.main,
 
       '&::before': {
         [theme.breakpoints.up('md')]: {
           content: "''",
           position: 'absolute',
-          left: 0,
-          right: '50%',
+          right: 0,
+          left: '50%',
           top: 0,
           bottom: 0,
-          // opacity: 0.8,
+          opacity: 0.6,
           backgroundImage: `url(${background})`,
           backgroundSize: 'cover',
           backgroundPosition: `right 0`,
@@ -32,26 +32,23 @@ const useStyles = makeStyles(theme => {
 
     content: {
       paddingTop: theme.spacing(6),
-      paddingBottom: theme.spacing(6),
-
-      [theme.breakpoints.up('md')]: {
-        paddingLeft: theme.spacing(10)
-      }
+      paddingBottom: theme.spacing(6)
     },
 
     video: {
       paddingTop: theme.spacing(6),
       paddingBottom: theme.spacing(6),
       position: 'relative',
-      color: 'white',
-      textShadow: '0 0 5px black',
+      color: theme.palette.text.primary,
 
       [theme.breakpoints.up('md')]: {
-        paddingRight: theme.spacing(10)
-      },
+        paddingLeft: theme.spacing(10),
+        color: 'white',
+        textShadow: `0 0 15px ${theme.palette.secondary.dark}`,
 
-      '& a': {
-        color: 'white'
+        '& a': {
+          color: 'white'
+        }
       }
     },
 
@@ -59,6 +56,7 @@ const useStyles = makeStyles(theme => {
       margin: 0,
       padding: 0,
       listStyle: 'none',
+      color: theme.palette.text.secondary,
 
       '& li': {
         margin: 0,
@@ -74,8 +72,7 @@ const useStyles = makeStyles(theme => {
     },
 
     eventLink: {
-      textDecoration: 'none',
-      color: theme.palette.text.secondary
+      textDecoration: 'none'
     },
 
     attachments: {
@@ -144,9 +141,6 @@ export default function Events({ children, dates: { past, upcoming } }) {
       <Container fixed>
         <Grid container direction="row" justify="center" alignItems="top">
           <Grid item md={6}>
-            <section className={classes.video}>{children}</section>
-          </Grid>
-          <Grid item md={6}>
             <section className={classes.content}>
               <h3>Termine</h3>
               {upcoming && <Dates items={upcoming} />}
@@ -154,6 +148,9 @@ export default function Events({ children, dates: { past, upcoming } }) {
               <h3>Vergangene Termine</h3>
               {past && <Dates items={past} />}
             </section>
+          </Grid>
+          <Grid item md={6}>
+            <section className={classes.video}>{children}</section>
           </Grid>
         </Grid>
       </Container>
