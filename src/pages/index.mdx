@@ -11,11 +11,61 @@ intro:
   - title: Data Literacy
     text: Wir bauen Wissen über die amtliche Statistik auf und geben es weiter. Wir organisieren Workshops und Hackathons bei denen wir gemeinsam mit statistischen Daten arbeiten.
     slug: literacy
+events:
+  upcoming:
+    - title: Berlin Open Data Day 2019
+      date: 5. November 2019
+      url: https://app.mateforevents.com/r/boddy19
+      attachments:
+        - type: Anmeldung
+          url: https://app.mateforevents.com/r/boddy19
+  past:
+    - title: SciCAR
+      date: 9. September 2019
+      url: https://sched.co/SZWi
+      attachments:
+        - type: Slides
+          url: https://drive.google.com
+        - type: Notizen
+          url: https://drive.google.com
+    - title: Netzwerk Recherche Jahreskonferenz
+      date: 15. Juni 2019
+      url: https://sched.co/Lx3p
+      attachments:
+        - type: Slides
+          url: https://drive.google.com
+        - type: Notizen
+          url: https://drive.google.com
+    - title: 35c3 / Chaos Communication Congress
+      date: 30. Dezember 2018
+      url: https://media.ccc.de/v/35c3-32-datenguide-projektvorstellung-workshop
+      attachments:
+        - type: Slides
+          url: https://drive.google.com
+        - type: Video
+          url: https://drive.google.com
+    - title: OpenNews Unconference
+      date: 25. Oktober 2018
+      url: https://opennews.org/what/conferences/mozfest/
+      attachments:
+        - type: Slides
+          url: https://drive.google.com
+        - type: Notizen
+          url: https://drive.google.com
+    - title: re:publica
+      date: 4. März 2018
+      url: https://18.re-publica.com/de/session/statistik-alle-wir-hacken-statistische-bundesamt
+      attachments:
+        - type: Slides
+          url: https://drive.google.com
+        - type: Notizen
+          url: https://drive.google.com
 ---
 
 import DefaultLayout from '../layouts/Default'
 import Subscribe from '../components/Subscribe'
 import Intro from '../components/Intro'
+import Events from '../components/Events'
 
 <DefaultLayout>
 
@@ -30,6 +80,30 @@ Die Statistischen Ämter sammeln kontinuierlich Daten und erstellen Statistiken 
 Der Datenguide ist noch in Arbeit aber einige technische Komponenten sind bereits verwendbar. Profis können schon jetzt die Beta-Version unserer [Datenschnittstelle](https://github.com/datenguide/datenguide-api) nutzen und auf [Github](https://github.com/datenguide/datenguide) die weitere Entwicklung verfolgen. In den nächsten Wochen werden wir eine Beta-Version des Datenportals für erste Nutzer\*innen öffnen.
 
 </Intro>
+
+<Events dates={frontmatter.events}>
+
+### Datenguide beim 35C3
+
+Patricia und Simon präsentieren den Datenguide beim 35. Chaos Communication Congress. Hier erfahrt ihr alles über das Projekt und die Hintergründe. Von A wie Amtliche Statistik bis Z wie Zensus.
+
+<iframe
+  width="100%"
+  height="400"
+  src="https://media.ccc.de/v/35c3-32-datenguide-projektvorstellung-workshop/oembed"
+  frameBorder="0"
+  allowFullScreen
+/>
+
+<small>
+
+Video: [Talk auf der Wikipaka-Bühne](#) vom [C3VOD](#). [CC BY-SA 4.0](#).
+
+Foto: [Workshop bei der OpenNews Unconf](#) von [Eric Westra](#). [CC BY-NC 4.0](#).
+
+</small>
+
+</Events>
 
 <div>{frontmatter.title}</div>
 
