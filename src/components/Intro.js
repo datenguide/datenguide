@@ -11,15 +11,11 @@ import technologistIcon from '../assets/openmoji/technologist.svg'
 
 const useStyles = makeStyles(theme => ({
   container: {
-    paddingTop: theme.spacing(5),
-
-    [theme.breakpoints.up('lg')]: {
-      padding: theme.spacing(10)
-    }
+    paddingTop: theme.spacing(6)
   },
 
   main: {
-    paddingBottom: theme.spacing(5),
+    paddingBottom: theme.spacing(6),
 
     [theme.breakpoints.up('md')]: {
       fontSize: '1.2rem',
@@ -27,7 +23,7 @@ const useStyles = makeStyles(theme => ({
     },
 
     [theme.breakpoints.up('lg')]: {
-      paddingRight: theme.spacing(5)
+      paddingRight: theme.spacing(6)
     }
   },
 
@@ -36,7 +32,8 @@ const useStyles = makeStyles(theme => ({
     listStyle: 'none',
 
     [theme.breakpoints.up('lg')]: {
-      marginLeft: theme.spacing(5)
+      marginLeft: theme.spacing(6),
+      marginBottom: theme.spacing(3)
     },
 
     '& h3': {
@@ -45,10 +42,10 @@ const useStyles = makeStyles(theme => ({
 
     '& li': {
       position: 'relative',
-      marginBottom: theme.spacing(6),
       backgroundRepeat: 'no-repeat',
       backgroundSize: 'auto 7em',
-      paddingLeft: '8em'
+      paddingLeft: '8em',
+      paddingBottom: theme.spacing(6)
     }
   },
 

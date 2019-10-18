@@ -60,6 +60,16 @@ const theme = createMuiTheme({
     }
   },
 
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 960,
+      lg: 1200,
+      xl: 1920
+    }
+  },
+
   props: {
     MuiButtonBase: {
       disableRipple: true // No more ripple, on the whole application 💣!
