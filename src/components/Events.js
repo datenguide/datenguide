@@ -5,97 +5,105 @@ import Grid from '@material-ui/core/Grid'
 
 import background from '../assets/background_events.jpg'
 
-const useStyles = makeStyles(theme => {
-  console.log(theme)
-  return {
-    container: {
-      position: 'relative',
-      backgroundColor: '#c3e5f1',
-      color: theme.palette.secondary.main,
+const useStyles = makeStyles(theme => ({
+  container: {
+    position: 'relative',
+    backgroundColor: '#c3e5f1',
+    color: theme.palette.secondary.main,
 
-      '&::before': {
-        [theme.breakpoints.up('md')]: {
-          content: "''",
-          position: 'absolute',
-          right: 0,
-          left: '50%',
-          top: 0,
-          bottom: 0,
-          opacity: 0.6,
-          backgroundImage: `url(${background})`,
-          backgroundSize: 'cover',
-          backgroundPosition: `right 0`,
-          backgroundRepeat: 'no-repeat'
-        }
-      }
-    },
-
-    content: {
-      paddingTop: theme.spacing(6),
-      paddingBottom: theme.spacing(6)
-    },
-
-    video: {
-      paddingTop: theme.spacing(6),
-      paddingBottom: theme.spacing(6),
-      position: 'relative',
-      color: theme.palette.text.primary,
-
+    '&::before': {
       [theme.breakpoints.up('md')]: {
-        paddingLeft: theme.spacing(10),
-        color: 'white',
-        textShadow: `0 0 15px ${theme.palette.secondary.dark}`,
-
-        '& a': {
-          color: 'white'
-        }
-      }
-    },
-
-    dates: {
-      margin: 0,
-      padding: 0,
-      listStyle: 'none',
-      color: theme.palette.text.secondary,
-
-      '& li': {
-        margin: 0,
-        padding: 0,
-        paddingBottom: theme.spacing(2)
-      },
-
-      '& h4': {
-        margin: 0,
-        lineHeight: 1.2,
-        color: theme.palette.text.primary
-      }
-    },
-
-    eventLink: {
-      textDecoration: 'none'
-    },
-
-    attachments: {
-      display: 'inline',
-      margin: 0,
-      padding: 0,
-
-      '& li': {
-        display: 'inline-block',
-        margin: 0,
-        padding: 0
-      },
-
-      '& li::before': {
-        content: "' | '",
-        display: 'inline-block',
-        textDecoration: 'none',
-        paddingLeft: '0.3em',
-        paddingRight: '0.3em'
+        content: "''",
+        position: 'absolute',
+        right: 0,
+        left: '50%',
+        top: 0,
+        bottom: 0,
+        opacity: 0.6,
+        overflow: 'hidden',
+        backgroundImage: `url(${background})`,
+        backgroundSize: 'cover',
+        backgroundPosition: `right 0`,
+        backgroundRepeat: 'no-repeat'
       }
     }
+  },
+
+  content: {
+    paddingTop: theme.spacing(6),
+    paddingBottom: theme.spacing(6),
+
+    [theme.breakpoints.up('lg')]: {
+      paddingTop: theme.spacing(10),
+      paddingBottom: theme.spacing(10)
+    }
+  },
+
+  video: {
+    paddingTop: theme.spacing(6),
+    paddingBottom: theme.spacing(6),
+    position: 'relative',
+    color: theme.palette.text.primary,
+
+    [theme.breakpoints.up('md')]: {
+      paddingLeft: theme.spacing(10),
+      color: 'white',
+      textShadow: `0 0 15px ${theme.palette.secondary.dark}`,
+
+      '& a': {
+        color: 'white'
+      }
+    },
+
+    [theme.breakpoints.up('lg')]: {
+      paddingTop: theme.spacing(10),
+      paddingBottom: theme.spacing(10)
+    }
+  },
+
+  dates: {
+    margin: 0,
+    padding: 0,
+    listStyle: 'none',
+    color: theme.palette.text.secondary,
+
+    '& li': {
+      margin: 0,
+      padding: 0,
+      paddingBottom: theme.spacing(2)
+    },
+
+    '& h4': {
+      margin: 0,
+      lineHeight: 1.2,
+      color: theme.palette.text.primary
+    }
+  },
+
+  eventLink: {
+    textDecoration: 'none'
+  },
+
+  attachments: {
+    display: 'inline',
+    margin: 0,
+    padding: 0,
+
+    '& li': {
+      display: 'inline-block',
+      margin: 0,
+      padding: 0
+    },
+
+    '& li::before': {
+      content: "' | '",
+      display: 'inline-block',
+      textDecoration: 'none',
+      paddingLeft: '0.3em',
+      paddingRight: '0.3em'
+    }
   }
-})
+}))
 
 function Attachments({ items }) {
   const classes = useStyles()
