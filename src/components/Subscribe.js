@@ -12,8 +12,8 @@ const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
     backgroundColor: '#c3e5f1',
-    paddingTop: theme.spacing(2),
-    paddingBottom: theme.spacing(5),
+    paddingTop: theme.spacing(3),
+    paddingBottom: theme.spacing(6),
 
     [theme.breakpoints.up('md')]: {
       backgroundImage: `url(${background})`,
@@ -23,20 +23,29 @@ const useStyles = makeStyles(theme => ({
       borderBottom: '1px solid #44707f'
     },
 
+    [theme.breakpoints.up('lg')]: {
+      paddingTop: theme.spacing(3),
+      paddingBottom: theme.spacing(5)
+    },
+
     [theme.breakpoints.up('xl')]: {
       backgroundSize: '560px auto',
-      backgroundPosition: '85% bottom'
+      backgroundPosition: '85% bottom',
+      paddingTop: theme.spacing(6),
+      paddingBottom: theme.spacing(10)
     }
   },
 
   title: {
-    fontSize: '3rem',
     marginBottom: theme.spacing(2),
-    color: theme.palette.secondary.dark
+    color: theme.palette.secondary.dark,
+
+    [theme.breakpoints.up('md')]: {
+      fontSize: theme.typography.h4.fontSize
+    }
   },
 
   intro: {
-    fontSize: '1.5rem',
     marginTop: '0',
     marginBottom: theme.spacing(2),
 
@@ -45,17 +54,20 @@ const useStyles = makeStyles(theme => ({
     },
 
     [theme.breakpoints.up('md')]: {
-      maxWidth: '720px'
+      maxWidth: '720px',
+      fontSize: theme.typography.h6.fontSize
     }
   },
 
   form: {
-    display: 'block',
+    display: 'flex',
     marginTop: theme.spacing(3)
   },
 
   emailInput: {
-    width: 350,
+    [theme.breakpoints.up('sm')]: {
+      width: 350
+    },
 
     '& input': {
       borderRadius: '5px 5px 0 0',
@@ -67,7 +79,6 @@ const useStyles = makeStyles(theme => ({
     marginLeft: theme.spacing(2),
     paddingLeft: theme.spacing(3),
     height: '3.7rem',
-    fontWeight: 'bold',
     boxShadow: 'none'
   },
 
@@ -91,7 +102,7 @@ export default function Subscribe() {
 
           <p className={classes.intro}>
             Der Datenguide macht die amtliche Statistik zugänglicher für alle.
-            Wir arbeiten an einer digitale Plattform, die regionale Statiken
+            Wir arbeiten an einer digitalen Plattform, die regionale Statiken
             klar und prägnant darstellt, vergleichbar macht und erklärt.
           </p>
 
@@ -111,7 +122,7 @@ export default function Subscribe() {
             <TextField
               className={classes.emailInput}
               variant="filled"
-              label="Deine Email-Adresse"
+              label="Email-Adresse"
               type="email"
               id="email"
               name="EMAIL"
@@ -127,19 +138,18 @@ export default function Subscribe() {
             >
               Eintragen
             </Button>
-
-            <small className={classes.terms}>
-              Deine Email-Adressen wird von uns ausschliesslich zur Information
-              über den Datenguide genutzt und nicht an Dritte weitergegeben. Für
-              diesen Verteiler verwenden wir{' '}
-              <a href="http://mailchimp.com/">Mailchimp</a>.{' '}
-              <Link href="/info/datenschutz">
-                <a className={classes.termsLink}>
-                  Mehr zum Datenschutz bei Datenguide
-                </a>
-              </Link>
-            </small>
           </form>
+          <small className={classes.terms}>
+            Deine Email-Adressen wird von uns ausschliesslich zur Information
+            über den Datenguide genutzt und nicht an Dritte weitergegeben. Für
+            diesen Verteiler verwenden wir{' '}
+            <a href="http://mailchimp.com/">Mailchimp</a>.{' '}
+            <Link href="/info/datenschutz">
+              <a className={classes.termsLink}>
+                Mehr zum Datenschutz bei Datenguide
+              </a>
+            </Link>
+          </small>
         </Box>
       </Container>
     </section>

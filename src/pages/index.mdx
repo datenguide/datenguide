@@ -1,14 +1,107 @@
 ---
 title: 'Über Dateinguide'
 lang: 'de'
+intro:
+  - title: Statistiken für alle
+    text: Wir entwickeln eine einfach zu bedienende Website, die amtliche Statistiken zugänglich macht, in Kontext setzt, visualisiert und erklärt.
+    slug: statistics
+  - title: Daten für Profis
+    text: Wir stellen eine Datenschnittstelle (API) und zur Verfügung, über die Datenjournalist:innen und Entwickler:innen direkt auf die Daten der Regionalstatistik zugreifen können.
+    slug: api
+  - title: Data Literacy
+    text: Wir bauen Wissen über die amtliche Statistik auf und geben es weiter. Wir organisieren Workshops und Hackathons bei denen wir gemeinsam mit statistischen Daten arbeiten.
+    slug: literacy
+events:
+  upcoming:
+    - title: Berlin Open Data Day 2019
+      date: 5. November 2019
+      url: https://app.mateforevents.com/r/boddy19
+      attachments:
+        - type: Anmeldung
+          url: https://app.mateforevents.com/r/boddy19
+  past:
+    - title: SciCAR
+      date: 9. September 2019
+      url: https://sched.co/SZWi
+      attachments:
+        - type: Slides
+          url: https://drive.google.com
+        - type: Notizen
+          url: https://drive.google.com
+    - title: Netzwerk Recherche Jahreskonferenz
+      date: 15. Juni 2019
+      url: https://sched.co/Lx3p
+      attachments:
+        - type: Slides
+          url: https://drive.google.com
+        - type: Notizen
+          url: https://drive.google.com
+    - title: 35c3 / Chaos Communication Congress
+      date: 30. Dezember 2018
+      url: https://media.ccc.de/v/35c3-32-datenguide-projektvorstellung-workshop
+      attachments:
+        - type: Slides
+          url: https://drive.google.com
+        - type: Video
+          url: https://drive.google.com
+    - title: OpenNews Unconference
+      date: 25. Oktober 2018
+      url: https://opennews.org/what/conferences/mozfest/
+      attachments:
+        - type: Slides
+          url: https://drive.google.com
+        - type: Notizen
+          url: https://drive.google.com
+    - title: re:publica
+      date: 4. März 2018
+      url: https://18.re-publica.com/de/session/statistik-alle-wir-hacken-statistische-bundesamt
+      attachments:
+        - type: Slides
+          url: https://drive.google.com
+        - type: Notizen
+          url: https://drive.google.com
 ---
 
+import ResponsiveEmbed from 'react-responsive-embed'
 import DefaultLayout from '../layouts/Default'
 import Subscribe from '../components/Subscribe'
+import Intro from '../components/Intro'
+import Events from '../components/Events'
 
 <DefaultLayout>
 
 <Subscribe />
+
+<Intro features={frontmatter.intro}>
+
+### Über Datenguide
+
+Die Statistischen Ämter sammeln kontinuierlich Daten und erstellen Statistiken zu allen Bereichen der Gesellschaft. Der Datenguide soll diese _amtliche Statistik_ zugänglich für alle machen. Wir entwickeln digitale Tools, die euch helfen, die amtliche Statistik zu verstehen und sinnvoll einzusetzen.
+
+Der Datenguide ist noch in Arbeit aber einige technische Komponenten sind bereits verwendbar. Profis können schon jetzt die Beta-Version unserer [Datenschnittstelle](https://github.com/datenguide/datenguide-api) nutzen und auf [Github](https://github.com/datenguide/datenguide) die weitere Entwicklung verfolgen. In den nächsten Wochen werden wir eine Beta-Version des Datenportals für erste Nutzer\*innen öffnen.
+
+</Intro>
+
+<Events dates={frontmatter.events}>
+
+### Datenguide beim 35C3
+
+Patricia und Simon präsentieren den Datenguide beim 35. Chaos Communication Congress. Hier erfahrt ihr alles über das Projekt und die Hintergründe. Von A wie Amtliche Statistik bis Z wie Zensus.
+
+<ResponsiveEmbed
+  src="https://media.ccc.de/v/35c3-32-datenguide-projektvorstellung-workshop/oembed"
+  allowfullscreen
+/>
+
+<small>
+
+Video: [Talk in der Wikipaka WG, 35C3](https://media.ccc.de/c/35c3-wikipakawg) von [media.ccc.de](https://media.ccc.de).
+
+Foto: [Workshop bei der OpenNews Unconference](https://www.flickr.com/photos/mozfest/30709616947/in/album-72157702889161984/) von [Erik Westra](https://www.westraco.com/) (bearbeitet). Original unter [CC BY-NC 2.0](https://creativecommons.org/licenses/by-nc/2.0/).
+
+</small>
+
+</Events>
 
 <div>{frontmatter.title}</div>
 

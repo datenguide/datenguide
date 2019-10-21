@@ -53,6 +53,7 @@
     "react-checkbox-tree": "^1.5.1",
     "react-dom": "^16.10.2",
     "react-select": "^3.0.8",
+    "react-responsive-embed": "^2.1.0",
     "stringify-object": "^3.3.0",
     "typeface-ibm-plex-sans": "^0.0.75"
   },

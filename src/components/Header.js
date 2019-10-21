@@ -2,57 +2,67 @@ import React from 'react'
 import Link from 'next/link'
 import { makeStyles } from '@material-ui/core/styles'
 import AppBar from '@material-ui/core/AppBar'
-import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
-import IconButton from '@material-ui/core/IconButton'
-import MenuIcon from '@material-ui/icons/Menu'
+import Container from '@material-ui/core/Container'
 import Button from '@material-ui/core/Button'
 
+import logo from '../assets/logo.svg'
+
 const useStyles = makeStyles(theme => ({
-  root: {
-    flexGrow: 1
+  bar: {
+    paddingTop: theme.spacing(2),
+    paddingBottom: theme.spacing(2),
+    background: '#fff'
   },
+
+  container: {
+    display: 'flex',
+    justifyContent: 'space-between'
+  },
+
   menuButton: {
     marginRight: theme.spacing(2)
   },
-  title: {
-    flexGrow: 1,
-    fontWeight: 'bold'
+
+  homeLink: {
+    color: 'inherit',
+    textDecoration: 'none'
   },
+
+  logo: {
+    position: 'relative',
+    top: '0.15em',
+    height: '1.35em',
+    paddingLeft: '1.5em',
+    lineHeight: '1.35em',
+    fontWeight: 'bold',
+    textTransform: 'lowercase',
+    backgroundImage: `url(${logo})`,
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: '1.35em auto'
+  }
 }))
 
 export default function ButtonAppBar() {
   const classes = useStyles()
   return (
-    <AppBar position="static">
-      <Toolbar>
-        <IconButton
-          edge="start"
-          className={classes.menuButton}
-          color="inherit"
-          aria-label="menu"
-        >
-          <MenuIcon />
-        </IconButton>
-        <Typography variant="h6" component="h2" className={classes.title}>
-          Datenguide
-        </Typography>
+    <AppBar className={classes.bar} position="static">
+      <Container className={classes.container} fixed>
         <Link href="/">
-          <Button component="a" color="inherit">
-            Home
-          </Button>
+          <a className={classes.homeLink}>
+            <Typography className={classes.logo} variant="h6" component="h2">
+              Datenguide
+            </Typography>
+          </a>
         </Link>
-        <Link href="/detail">
-          <Button component="a" color="inherit">
-            Detail
-          </Button>
-        </Link>
-        <Link href="/about">
-          <Button component="a" color="inherit">
-            About
-          </Button>
-        </Link>
-      </Toolbar>
+        <div className={classes.controls}>
+          <Link href="/">
+            <Button component="a" color="inherit">
+              Home
+            </Button>
+          </Link>
+        </div>
+      </Container>
     </AppBar>
   )
 }

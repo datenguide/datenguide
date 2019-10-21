@@ -32,6 +32,16 @@ const theme = createMuiTheme({
           color: BLUE
         }
       }
+    },
+    MuiButton: {
+      root: {
+        fontWeight: 'bold'
+      }
+    },
+    MuiToolbar: {
+      root: {
+        background: WHITE
+      }
     }
   },
 
@@ -47,6 +57,16 @@ const theme = createMuiTheme({
     },
     background: {
       default: WHITE
+    }
+  },
+
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 960,
+      lg: 1200,
+      xl: 1920
     }
   },
 
