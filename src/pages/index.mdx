@@ -60,6 +60,31 @@ events:
           url: https://drive.google.com
         - type: Notizen
           url: https://drive.google.com
+tools:
+  - slug: graphql
+    title: GraphQL API
+    author:
+      name: Datenguide
+      url: https://datengui.de
+    desc: Über diese API kannst du mit einem Tool deiner Wahl auf die Daten der amtlichen Statistik zugreifen.
+    action: Zum Repository
+    url: https://github.com/datenguide/datenguide-api
+  - slug: rlang
+    author:
+      name: CorrelAid
+      url: https://correlaid.org
+    title: Datenguide für R
+    desc: Mit dem DatenguideR-Package kannst du direkt aus R auf die Daten der Datenguide-API zugreifen.
+    action: Zum Repository
+    url: https://github.com/CorrelAid/datenguideR
+  - slug: python
+    author:
+      name: CorrelAid
+      url: https://correlaid.org
+    title: Datenguide für Python
+    desc: Dieses Python-Package stellt Daten aus der Datenguide-API als Pandas DataFrames zur Verfügung.
+    action: Zum Repository
+    url: https://github.com/CorrelAid/datenguide-python
 ---
 
 import ResponsiveEmbed from 'react-responsive-embed'
@@ -67,6 +92,7 @@ import DefaultLayout from '../layouts/Default'
 import Subscribe from '../components/Subscribe'
 import Intro from '../components/Intro'
 import Events from '../components/Events'
+import Tools from '../components/Tools'
 
 <DefaultLayout>
 
@@ -102,6 +128,16 @@ Foto: [Workshop bei der OpenNews Unconference](https://www.flickr.com/photos/moz
 </small>
 
 </Events>
+
+<Tools features={frontmatter.tools}>
+
+## Open Data und Open Source
+
+Datenguide bietet direkten Zugriff auf Daten der amtlichen Statistik Deutschlands. Auf die Datenschnittstelle (API) könnt ihr über GraphQL zugreifen oder über Bibliotheken für Python und R, die von der [CorrelAid-Community](https://correlaid.org/) entwickelt werden. Die Software hinter Datenguide ist [Open Source](https://github.com/datenguide/datenguide).
+
+Die Datensätze, die über Datenguide zur Verfügung stehen, stammen aus der [Regionaldatenbank Deutschland](https://www.regionalstatistik.de/genesis/online/), einer Veröffentlichung der Statistischen Ämter des Bundes und der Länder. Die Daten können unter den Bedingungen der Datenlizenz Deutschland ([dl-de/by-2-0](https://www.govdata.de/en/dl-de/by-2-0)) frei verwendet werden.
+
+</Tools>
 
 <div>{frontmatter.title}</div>
 
