@@ -17,12 +17,6 @@ module.exports = withCSS(
             use: [path.join(__dirname, './lib/frontmatter-loader')]
           })
 
-          // svg loader
-          config.module.rules.push({
-            test: /\.svg$/,
-            use: ['@svgr/webpack']
-          })
-
           return config
         }
       })
