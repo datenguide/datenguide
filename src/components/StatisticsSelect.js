@@ -228,7 +228,7 @@ const components = {
   ValueContainer
 }
 
-const StatisticsSelect = ({ onSelectionChange }) => {
+const StatisticsSelect = ({ onSelectionChange, value }) => {
   const classes = useStyles()
   const theme = useTheme()
 
@@ -267,6 +267,7 @@ const StatisticsSelect = ({ onSelectionChange }) => {
           defaultOptions
           isSearchable
           onChange={onSelectionChange}
+          value={value}
         />
       </NoSsr>
     </div>

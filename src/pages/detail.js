@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react'
+import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core/styles'
 import _ from 'lodash'
 
 import Grid from '@material-ui/core/Grid'
+import Snackbar from '@material-ui/core/Snackbar'
+import CloseIcon from '@material-ui/icons/Close'
 
 import { getAttributeArgs, extractAttribute } from '../lib/schema'
 import DefaultLayout from '../layouts/Default'
@@ -18,11 +21,18 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const Detail = () => {
+const Detail = ({
+  initialStatisticAndAttribute,
+  initialRegions,
+  initialError
+}) => {
   const classes = useStyles()
-  const [statisticAndAttribute, setStatisticAndAttribute] = useState(null)
+  const [statisticAndAttribute, setStatisticAndAttribute] = useState(
+    initialStatisticAndAttribute
+  )
   const [args, setArgs] = useState([])
-  const [regions, setRegions] = useState([])
+  const [regions, setRegions] = useState(initialRegions)
+  const [error, setError] = useState(initialError)
 
   useEffect(() => {
     const attribute = extractAttribute(statisticAndAttribute)
@@ -79,8 +89,53 @@ const Detail = () => {
           />
         </Grid>
       </Grid>
+      <Snackbar
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'left'
+        }}
+        open={error !== null}
+        onClose={() => setError(null)}
+        autoHideDuration={6000}
+        message={<span>{error}</span>}
+      />
     </DefaultLayout>
   )
+}
+
+Detail.propTypes = {
+  initialStatisticAndAttribute: PropTypes.string.isRequired,
+  initialRegions: PropTypes.arrayOf(PropTypes.string).isRequired,
+  initialError: PropTypes.string
+}
+
+Detail.defaultProps = {
+  error: null
+}
+
+Detail.getInitialProps = async function({ query }) {
+  const initialRegions = query.regions ? query.regions.split(',') : []
+
+  let initialStatisticAndAttribute = null
+  let initialError = null
+  if (query.statistic && query.attribute) {
+    const result = await fetch(
+      `http://localhost:3000/api/statistics?filter=${query.statistic} ${query.attribute}`
+    )
+    const jsonResult = await result.json()
+    if (jsonResult.length === 1) {
+      initialStatisticAndAttribute = jsonResult[0]
+    } else {
+      initialError =
+        `Could not find statistic ${query.statistic} / attribute ${query.attribute}`
+    }
+  }
+
+  return {
+    initialStatisticAndAttribute,
+    initialRegions,
+    initialError
+  }
 }
 
 export default Detail
