@@ -5190,6 +5190,11 @@ mdast-util-to-hast@^3.0.0:
     unist-util-visit "^1.1.0"
     xtend "^4.0.1"
 
+mdi-material-ui@^6.8.0:
+  version "6.8.0"
+  resolved "https://registry.yarnpkg.com/mdi-material-ui/-/mdi-material-ui-6.8.0.tgz#6fe5c71a0594e09c1f78ab1a3f914d3eaba8bbfe"
+  integrity sha512-024ynyjuaz7VjrzRwojw9dtD1JlRr2J2lRU/PdaKG2jWGoOy1MfpJful+9w8xdJFhev3oRqJCtf5dDiYUDjNsQ==
+
 mdn-data@2.0.4:
   version "2.0.4"
   resolved "https://registry.npmjs.org/mdn-data/-/mdn-data-2.0.4.tgz#699b3c38ac6f1d728091a64650b65d388502fd5b"
