@@ -7,7 +7,7 @@ const NUTS_TO_AGS = {
   1: 2
 }
 
-const getRegions = nutsLevel =>
+export const getRegions = nutsLevel =>
   Object.keys(data)
     .filter(id => id.length === NUTS_TO_AGS[nutsLevel])
     .filter(id => id !== 'DG')
@@ -16,6 +16,9 @@ const getRegions = nutsLevel =>
       id,
       slug: slugify(data[id])
     }))
+
+export const findInvalidRegionIds = ids =>
+  ids.filter(id => data[id] === undefined)
 
 export default (req, res) => {
   const {

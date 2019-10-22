@@ -13,6 +13,7 @@ import DataTable from '../components/DataTable'
 import RegionSelectTree from '../components/RegionSelectTree'
 import StatisticsSelect from '../components/StatisticsSelect'
 import ValueAttributeSelect from '../components/ValueAttributeSelect'
+import { findInvalidRegionIds } from './api/region'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -104,20 +105,35 @@ const Detail = ({
 }
 
 Detail.propTypes = {
-  initialStatisticAndAttribute: PropTypes.string.isRequired,
-  initialRegions: PropTypes.arrayOf(PropTypes.string).isRequired,
+  initialStatisticAndAttribute: PropTypes.string,
+  initialRegions: PropTypes.arrayOf(PropTypes.string),
   initialError: PropTypes.string
 }
 
 Detail.defaultProps = {
-  error: null
+  initialStatisticAndAttribute: null,
+  initialRegions: [],
+  initialError: null
 }
 
 Detail.getInitialProps = async function({ query }) {
-  const initialRegions = query.regions ? query.regions.split(',') : []
+  let initialError = null
+  let initialRegions = []
+
+  if (query.regions) {
+    initialRegions = query.regions.split(',')
+    const invalidRegions = findInvalidRegionIds(initialRegions)
+    if (invalidRegions.length !== 0) {
+      initialError = `Skipping invalid region${
+        invalidRegions.length > 1 ? 's' : ''
+      }: ${invalidRegions.join(',')}`
+      initialRegions = initialRegions.filter(
+        region => !invalidRegions.includes(region)
+      )
+    }
+  }
 
   let initialStatisticAndAttribute = null
-  let initialError = null
   if (query.statistic && query.attribute) {
     const result = await fetch(
       `http://localhost:3000/api/statistics?filter=${query.statistic} ${query.attribute}`
@@ -126,8 +142,7 @@ Detail.getInitialProps = async function({ query }) {
     if (jsonResult.length === 1) {
       initialStatisticAndAttribute = jsonResult[0]
     } else {
-      initialError =
-        `Could not find statistic ${query.statistic} / attribute ${query.attribute}`
+      initialError = `Could not find statistic ${query.statistic} / attribute ${query.attribute}`
     }
   }
 
