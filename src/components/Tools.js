@@ -7,8 +7,6 @@ import CardActions from '@material-ui/core/CardActions'
 import CardContent from '@material-ui/core/CardContent'
 import CardHeader from '@material-ui/core/CardHeader'
 import Button from '@material-ui/core/Button'
-import Typography from '@material-ui/core/Typography'
-import SaveIcon from '@material-ui/icons/Save'
 import GithubCircle from 'mdi-material-ui/GithubCircle'
 
 import logoPython from '../assets/python.svg'
