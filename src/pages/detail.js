@@ -9,15 +9,20 @@ import Snackbar from '@material-ui/core/Snackbar'
 import { getAttributeArgs, extractAttribute } from '../lib/schema'
 import DefaultLayout from '../layouts/Default'
 import DataTable from '../components/DataTable'
-import RegionSelectTree from '../components/RegionSelectTree'
+// import RegionSelectTree from '../components/RegionSelectTree'
 import AutocompleteSearchField from '../components/AutocompleteSearchField'
 import ValueAttributeSelect from '../components/ValueAttributeSelect'
 import { findInvalidRegionIds } from './api/region'
+import RegionSearchParameterCard from '../components/RegionSearchParameterCard'
 
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
     padding: '0 80px'
+  },
+  sidebar: {
+    background: '#f5f5f5',
+    height: '100%'
   }
 }))
 
@@ -39,6 +44,13 @@ const Detail = ({
     const attributeArgs = getAttributeArgs(attribute)
     setArgs(attributeArgs.map(arg => ({ ...arg, selected: [], active: false })))
   }, [statisticAndAttribute])
+
+  // statistics selection
+
+  const loadStatisticsOptions = async (value = '') => {
+    const result = await fetch(`/api/search/statistics?filter=${value}`)
+    return result.json()
+  }
 
   const handleStatisticSelectionChange = value => {
     setStatisticAndAttribute(value)
@@ -62,24 +74,22 @@ const Detail = ({
     setArgs(newArgs)
   }
 
-  const handleRegionSelectionChange = newRegions => {
-    setRegions(newRegions)
-  }
-
-  const loadStatisticsOptions = async (value = '') => {
-    const result = await fetch(`/api/search/statistics?filter=${value}`)
-    return result.json()
-  }
+  // regions selections
 
   const loadRegionOptions = async (value = '') => {
     const result = await fetch(`/api/search/regions?filter=${value}`)
     return result.json()
   }
 
+  const handleRegionSelectionChange = value => setRegions([...regions, value])
+
+  const handleRegionCardClose = index => () =>
+    setRegions([...regions.slice(0, index), ...regions.slice(index + 1)])
+
   return (
     <DefaultLayout>
       <Grid container spacing={3} className={classes.root}>
-        <Grid item xs={4}>
+        <Grid item xs={4} className={classes.sidebar}>
           <h2>Regionen</h2>
           <AutocompleteSearchField
             onSelectionChange={handleRegionSelectionChange}
@@ -88,6 +98,14 @@ const Detail = ({
             label="Regionen"
             placeholder="Regionen suchen"
           />
+          {regions.map((region, index) => (
+            <RegionSearchParameterCard
+              key={index}
+              title={region.label}
+              text=""
+              onClose={handleRegionCardClose(index)}
+            />
+          ))}
           <h2>Statistiken und Merkmale</h2>
           <AutocompleteSearchField
             onSelectionChange={handleStatisticSelectionChange}
@@ -116,7 +134,6 @@ const Detail = ({
           {/*/>*/}
         </Grid>
         <Grid item xs={8}>
-
           <DataTable
             regions={regions}
             statisticAndAttribute={statisticAndAttribute}
