@@ -16,12 +16,13 @@ Object.keys(regions)
 export default (req, res) => {
   const { filter } = req.query
 
-  const regions = regionsIndex.search({
+  const regionsResult = regionsIndex.search({
     query: filter || '1'
   })
 
-  const result = regions.map(id => ({
+  const result = regionsResult.map(id => ({
     value: id,
+    name: regions[id],
     label: getLabel(id)
   }))
 

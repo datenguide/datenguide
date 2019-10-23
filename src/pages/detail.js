@@ -9,7 +9,6 @@ import Snackbar from '@material-ui/core/Snackbar'
 import { getAttributeArgs, extractAttribute } from '../lib/schema'
 import DefaultLayout from '../layouts/Default'
 import DataTable from '../components/DataTable'
-// import RegionSelectTree from '../components/RegionSelectTree'
 import AutocompleteSearchField from '../components/AutocompleteSearchField'
 import ValueAttributeSelect from '../components/ValueAttributeSelect'
 import { findInvalidRegionIds } from './api/region'
@@ -101,7 +100,8 @@ const Detail = ({
           {regions.map((region, index) => (
             <RegionSearchParameterCard
               key={index}
-              title={region.label}
+              title={region.name}
+              subheader={region.id}
               text=""
               onClose={handleRegionCardClose(index)}
             />
@@ -128,10 +128,6 @@ const Detail = ({
               />
             )
           })}
-          {/*<RegionSelectTree*/}
-          {/*  checked={regions}*/}
-          {/*  onChecked={handleRegionSelectionChange}*/}
-          {/*/>*/}
         </Grid>
         <Grid item xs={8}>
           <DataTable
