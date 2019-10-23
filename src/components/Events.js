@@ -147,7 +147,12 @@ export default function Events({ children, dates: { past, upcoming } }) {
   return (
     <div className={classes.container}>
       <Container fixed>
-        <Grid container direction="row" justify="center" alignItems="top">
+        <Grid
+          container
+          direction="row"
+          justify="center"
+          alignItems="flex-start"
+        >
           <Grid item md={6}>
             <section className={classes.content}>
               <h3>Termine</h3>
