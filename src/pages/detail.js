@@ -67,12 +67,12 @@ const Detail = ({
   }
 
   const loadStatisticsOptions = async (value = '') => {
-    const result = await fetch(`/api/statistics?filter=${value}`)
+    const result = await fetch(`/api/search/statistics?filter=${value}`)
     return result.json()
   }
 
   const loadRegionOptions = async (value = '') => {
-    const result = await fetch(`/api/region?filter=${value}`)
+    const result = await fetch(`/api/search/regions?filter=${value}`)
     return result.json()
   }
 

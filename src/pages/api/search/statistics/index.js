@@ -1,7 +1,7 @@
 import flexsearch from 'flexsearch'
 
-import schema from '../../../data/schema.json'
-import mappings from '../../../data/mappings.json'
+import schema from '../../../../data/schema.json'
+import mappings from '../../../../data/mappings.json'
 
 // TODO move to server
 
