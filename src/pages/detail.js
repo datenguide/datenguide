@@ -5,13 +5,12 @@ import _ from 'lodash'
 
 import Grid from '@material-ui/core/Grid'
 import Snackbar from '@material-ui/core/Snackbar'
-import CloseIcon from '@material-ui/icons/Close'
 
 import { getAttributeArgs, extractAttribute } from '../lib/schema'
 import DefaultLayout from '../layouts/Default'
 import DataTable from '../components/DataTable'
 import RegionSelectTree from '../components/RegionSelectTree'
-import StatisticsSelect from '../components/StatisticsSelect'
+import AutocompleteSearchField from '../components/AutocompleteSearchField'
 import ValueAttributeSelect from '../components/ValueAttributeSelect'
 import { findInvalidRegionIds } from './api/region'
 
@@ -67,11 +66,28 @@ const Detail = ({
     setRegions(newRegions)
   }
 
+  const loadStatisticsOptions = async (value = '') => {
+    const result = await fetch(`/api/statistics?filter=${value}`)
+    return result.json()
+  }
+
+  const loadRegionOptions = async (value = '') => {
+    const result = await fetch(`/api/region?filter=${value}`)
+    return result.json()
+  }
+
   return (
     <DefaultLayout>
       <Grid container spacing={3} className={classes.root}>
         <Grid item xs={4}>
           <h2>Regionen</h2>
+          <AutocompleteSearchField
+            onSelectionChange={handleStatisticSelectionChange}
+            loadOptions={loadRegionOptions}
+            value={regions}
+            label="Regionen"
+            placeholder="Regionen suchen"
+          />
           <RegionSelectTree
             checked={regions}
             onChecked={handleRegionSelectionChange}
@@ -79,9 +95,12 @@ const Detail = ({
         </Grid>
         <Grid item xs={8}>
           <h2>Statistiken und Merkmale</h2>
-          <StatisticsSelect
+          <AutocompleteSearchField
             onSelectionChange={handleStatisticSelectionChange}
+            loadOptions={loadStatisticsOptions}
             value={statisticAndAttribute}
+            label="Statistiken und Merkmale"
+            placeholder="Merkmal oder Statistik suchen"
           />
           {args.map((arg, index) => {
             return (

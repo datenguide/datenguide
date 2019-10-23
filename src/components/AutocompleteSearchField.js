@@ -228,14 +228,9 @@ const components = {
   ValueContainer
 }
 
-const StatisticsSelect = ({ onSelectionChange, value }) => {
+const AutocompleteSearchField = ({ onSelectionChange, value, loadOptions, label, placeholder }) => {
   const classes = useStyles()
   const theme = useTheme()
-
-  const loadOptions = async (value = '') => {
-    const result = await fetch(`/api/statistics?filter=${value}`)
-    return result.json()
-  }
 
   const selectStyles = {
     input: base => ({
@@ -255,13 +250,13 @@ const StatisticsSelect = ({ onSelectionChange, value }) => {
           styles={selectStyles}
           inputId="react-select-single"
           TextFieldProps={{
-            label: 'Statistiken und Merkmale',
+            label,
             InputLabelProps: {
               htmlFor: 'react-select-single',
               shrink: true
             }
           }}
-          placeholder="Merkmal oder Statistik suchen"
+          placeholder={placeholder}
           components={components}
           loadOptions={loadOptions}
           defaultOptions
@@ -274,8 +269,10 @@ const StatisticsSelect = ({ onSelectionChange, value }) => {
   )
 }
 
-StatisticsSelect.propTypes = {
-  onSelectionChange: PropTypes.func.isRequired
+AutocompleteSearchField.propTypes = {
+  onSelectionChange: PropTypes.func.isRequired,
+  loadOptions: PropTypes.func.isRequired,
+  value: PropTypes.string
 }
 
-export default StatisticsSelect
+export default AutocompleteSearchField
