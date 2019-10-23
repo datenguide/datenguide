@@ -82,18 +82,12 @@ const Detail = ({
         <Grid item xs={4}>
           <h2>Regionen</h2>
           <AutocompleteSearchField
-            onSelectionChange={handleStatisticSelectionChange}
+            onSelectionChange={handleRegionSelectionChange}
             loadOptions={loadRegionOptions}
             value={regions}
             label="Regionen"
             placeholder="Regionen suchen"
           />
-          <RegionSelectTree
-            checked={regions}
-            onChecked={handleRegionSelectionChange}
-          />
-        </Grid>
-        <Grid item xs={8}>
           <h2>Statistiken und Merkmale</h2>
           <AutocompleteSearchField
             onSelectionChange={handleStatisticSelectionChange}
@@ -116,6 +110,13 @@ const Detail = ({
               />
             )
           })}
+          {/*<RegionSelectTree*/}
+          {/*  checked={regions}*/}
+          {/*  onChecked={handleRegionSelectionChange}*/}
+          {/*/>*/}
+        </Grid>
+        <Grid item xs={8}>
+
           <DataTable
             regions={regions}
             statisticAndAttribute={statisticAndAttribute}
