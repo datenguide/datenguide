@@ -14,6 +14,7 @@ import {
   TableFooter,
   TablePagination
 } from '@material-ui/core'
+import LinearProgress from '@material-ui/core/LinearProgress'
 
 import getQuery from '../lib/queryBuilder'
 import convertToLongFormat from '../lib/tableDataConverter'
@@ -40,15 +41,18 @@ const DataTable = ({ regions, statisticAndAttribute, args }) => {
   const client = useContext(ClientContext)
 
   const [data, setData] = useState([])
+  const [loading, setLoading] = useState(false)
   const [rowsPerPage, setRowsPerPage] = useState(10)
   const [page, setPage] = useState(0)
 
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true)
       const query = getQuery(regions, statisticAndAttribute, args)
       const { data } = await client.request({ query: print(query) })
       const rowData = convertToLongFormat(data, attribute) || []
       setData(rowData)
+      setLoading(false)
     }
 
     if (statisticAndAttribute && args && regions.length > 0) {
@@ -87,10 +91,10 @@ const DataTable = ({ regions, statisticAndAttribute, args }) => {
   )
 
   const attribute = extractAttribute(statisticAndAttribute)
-  
+
   // TODO implement proper pagination
   const currentPageRowData =
-    (data.slice(page * rowsPerPage, (page + 1) * rowsPerPage)) || []
+    data.slice(page * rowsPerPage, (page + 1) * rowsPerPage) || []
 
   const handleChangePage = (event, page) => {
     setPage(page)
@@ -104,45 +108,48 @@ const DataTable = ({ regions, statisticAndAttribute, args }) => {
   return (
     <div className={classes.root}>
       <Paper className={classes.paper}>
-        <Table className={classes.table} size="small">
-          <TableHead>
-            <TableRow>
-              {columnDefs.map(def => (
-                <TableCell key={def.headerName}>{def.headerName}</TableCell>
-              ))}
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {currentPageRowData.map((row, index) => {
-              return (
-                <TableRow key={index}>
-                  {columnDefs.map(def => (
-                    <TableCell key={def.field}>{row[def.field]}</TableCell>
-                  ))}
-                </TableRow>
-              )
-            })}
-          </TableBody>
-          <TableFooter>
-            <TableRow>
-              <TablePagination
-                rowsPerPageOptions={[10, 50, 100]}
-                colSpan={3}
-                count={data.length}
-                rowsPerPage={rowsPerPage}
-                page={page}
-                SelectProps={{
-                  inputProps: { 'aria-label': 'Zeilen pro Seite' },
-                  native: true
-                }}
-                labelDisplayedRows={labelDisplayedRows}
-                onChangePage={handleChangePage}
-                onChangeRowsPerPage={handleChangeRowsPerPage}
-                ActionsComponent={DataTablePaginationActions}
-              />
-            </TableRow>
-          </TableFooter>
-        </Table>
+        {loading && <LinearProgress variant="query" />}
+        {!loading && (
+          <Table className={classes.table} size="small">
+            <TableHead>
+              <TableRow>
+                {columnDefs.map(def => (
+                  <TableCell key={def.headerName}>{def.headerName}</TableCell>
+                ))}
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {currentPageRowData.map((row, index) => {
+                return (
+                  <TableRow key={index}>
+                    {columnDefs.map(def => (
+                      <TableCell key={def.field}>{row[def.field]}</TableCell>
+                    ))}
+                  </TableRow>
+                )
+              })}
+            </TableBody>
+            <TableFooter>
+              <TableRow>
+                <TablePagination
+                  rowsPerPageOptions={[10, 50, 100]}
+                  colSpan={3}
+                  count={data.length}
+                  rowsPerPage={rowsPerPage}
+                  page={page}
+                  SelectProps={{
+                    inputProps: { 'aria-label': 'Zeilen pro Seite' },
+                    native: true
+                  }}
+                  labelDisplayedRows={labelDisplayedRows}
+                  onChangePage={handleChangePage}
+                  onChangeRowsPerPage={handleChangeRowsPerPage}
+                  ActionsComponent={DataTablePaginationActions}
+                />
+              </TableRow>
+            </TableFooter>
+          </Table>
+        )}
       </Paper>
     </div>
   )

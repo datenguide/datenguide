@@ -38,7 +38,7 @@ const Detail = ({
   useEffect(() => {
     const attribute = extractAttribute(statisticAndAttribute)
     const attributeArgs = getAttributeArgs(attribute)
-    setArgs(attributeArgs.map(arg => ({ ...arg, selected: [] })))
+    setArgs(attributeArgs.map(arg => ({ ...arg, selected: [], active: false })))
   }, [statisticAndAttribute])
 
   const handleStatisticSelectionChange = value => {
@@ -49,6 +49,17 @@ const Detail = ({
     // TODO this is just a temporary solution, implement proper state management
     const newArgs = _.cloneDeep(args)
     newArgs[index].selected = event.target.value
+    setArgs(newArgs)
+  }
+
+  const handleValueAttributeToggle = event => {
+    // TODO this is just a temporary solution, implement proper state management
+    const newArgs = _.cloneDeep(args)
+    const toggledArg = newArgs.find(arg => arg.value === event.target.value)
+    toggledArg.active = event.target.checked
+    toggledArg.selected = event.target.checked
+      ? toggledArg.values.map(v => v.value)
+      : []
     setArgs(newArgs)
   }
 
@@ -76,10 +87,13 @@ const Detail = ({
             return (
               <ValueAttributeSelect
                 key={arg.label}
+                name={arg.value}
                 label={arg.label}
                 value={arg.selected}
                 options={arg.values}
+                active={arg.active}
                 onChange={handleValueAttributeChange(index)}
+                onToggle={handleValueAttributeToggle}
               />
             )
           })}
