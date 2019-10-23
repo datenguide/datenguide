@@ -99,7 +99,7 @@ export default function Tools({ children, features }) {
 
         <Grid container justify="center" spacing={3}>
           {features.map(({ slug, title, desc, url, author, action }) => (
-            <Grid key={slug} item md={4} spacing={2}>
+            <Grid key={slug} item md={4}>
               <Card className={classes.card}>
                 <CardContent>
                   <CardHeader
