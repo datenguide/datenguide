@@ -22,7 +22,8 @@ import DataTablePaginationActions from './DataTablePaginationActions'
 
 const useStyles = makeStyles(theme => ({
   root: {
-    width: '100%'
+    width: '100%',
+    padding: theme.spacing(2)
   },
   paper: {
     marginTop: theme.spacing(3),
