@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core/styles'
 import _ from 'lodash'
 
-import Grid from '@material-ui/core/Grid'
 import Snackbar from '@material-ui/core/Snackbar'
+import Drawer from '@material-ui/core/Drawer'
 
 import { getAttributeArgs, extractAttribute } from '../lib/schema'
 import DefaultLayout from '../layouts/Default'
@@ -15,14 +15,26 @@ import ValueAttributeSelect from '../components/ValueAttributeSelect'
 import { findInvalidRegionIds } from './api/region'
 import RegionSearchParameterCard from '../components/RegionSearchParameterCard'
 
+const drawerWidth = '33%'
+
 const useStyles = makeStyles(theme => ({
   root: {
-    flexGrow: 1,
-    padding: '0 80px'
+    display: 'flex'
   },
   sidebar: {
     background: '#f5f5f5',
     height: '100%'
+  },
+  drawerPaper: {
+    width: drawerWidth
+  },
+  drawer: {
+    width: drawerWidth,
+    flexShrink: 0
+  },
+  content: {
+    flexGrow: 1,
+    padding: theme.spacing(3)
   }
 }))
 
@@ -88,8 +100,14 @@ const Detail = ({
 
   return (
     <DefaultLayout>
-      <Grid container spacing={3} className={classes.root}>
-        <Grid item xs={4} className={classes.sidebar}>
+      <div className={classes.root}>
+        <Drawer
+          className={classes.drawer}
+          variant="permanent"
+          classes={{
+            paper: classes.drawerPaper
+          }}
+        >
           <h2>Regionen</h2>
           <AutocompleteSearchField
             onSelectionChange={handleRegionSelectionChange}
@@ -132,25 +150,27 @@ const Detail = ({
           {/*  checked={regions}*/}
           {/*  onChecked={handleRegionSelectionChange}*/}
           {/*/>*/}
-        </Grid>
-        <Grid item xs={8}>
+        </Drawer>
+
+        <main className={classes.content}>
           <DataTable
             regions={regions}
             statisticAndAttribute={statisticAndAttribute}
             args={args}
           />
-        </Grid>
-      </Grid>
-      <Snackbar
-        anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'left'
-        }}
-        open={error !== null}
-        onClose={() => setError(null)}
-        autoHideDuration={6000}
-        message={<span>{error}</span>}
-      />
+
+          <Snackbar
+            anchorOrigin={{
+              vertical: 'bottom',
+              horizontal: 'left'
+            }}
+            open={error !== null}
+            onClose={() => setError(null)}
+            autoHideDuration={6000}
+            message={<span>{error}</span>}
+          />
+        </main>
+      </div>
     </DefaultLayout>
   )
 }

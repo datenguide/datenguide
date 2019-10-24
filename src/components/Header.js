@@ -12,7 +12,8 @@ const useStyles = makeStyles(theme => ({
   bar: {
     paddingTop: theme.spacing(2),
     paddingBottom: theme.spacing(2),
-    background: '#fff'
+    background: '#fff',
+    zIndex: theme.zIndex.drawer + 1
   },
 
   container: {
