@@ -1,11 +1,10 @@
 import gql from 'graphql-tag'
 
-import { getSchema } from './schema'
+const getQuery = (regions, statistics) => {
 
-const getQuery = (regions, statisticAndAttribute, args) => {
-  const { statistic, attribute } = getSchema(statisticAndAttribute)
+  const { statisticCode, attributeCode, args } = statistics
 
-  const statisticsExpression = `statistics: [R${statistic}]`
+  const statisticsExpression = `statistics: [R${statisticCode}]`
 
   const selectedArgs = args.filter(arg => arg.selected.length > 0)
 
@@ -25,7 +24,7 @@ const getQuery = (regions, statisticAndAttribute, args) => {
    region_${region}: region(id: "${region}") {
             id
             name
-            ${attribute}${argumentsExpression}{
+            ${attributeCode}${argumentsExpression}{
                 year
                 value
                 ${valueAttributeFieldSelections}
@@ -34,7 +33,7 @@ const getQuery = (regions, statisticAndAttribute, args) => {
 `
 
   const regionsToQuery = regions =>
-    regions.map(region => regionToQuery(region)).join('\n')
+    regions.map(region => regionToQuery(region.value)).join('\n')
 
   const query = `
     {

@@ -45,7 +45,7 @@ const reducer = (state, action) => {
       const schema = getSchema(statisticsId)
       schema.args = schema.args.map(arg => ({
         ...arg,
-        selected: [],
+        selected: arg.values.map(a => a.value),
         active: false
       }))
       state.statistics[statisticsId] = schema
@@ -58,7 +58,14 @@ const reducer = (state, action) => {
       debugger
       state.statistics[statisticAndAttribute].args = state.statistics[
         statisticAndAttribute
-      ].args.map(arg => (arg.value === argCode ? { ...arg, ...change } : arg))
+      ].args.map(arg =>
+        arg.value === argCode
+          ? {
+              ...arg,
+              ...change
+            }
+          : arg
+      )
       return state
     default:
       throw new Error(`unknown action ${action.type}`)
@@ -145,11 +152,7 @@ const Detail = ({ initialStatistics, initialRegions, initialError }) => {
       }
     >
       <main className={classes.content}>
-        <DataTable
-          regions={regions}
-          // statistics={statistics}
-          // args={args}
-        />
+        <DataTable regions={regions} statistics={statistics} />
       </main>
 
       <Snackbar

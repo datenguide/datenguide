@@ -19,7 +19,6 @@ import LinearProgress from '@material-ui/core/LinearProgress'
 import getQuery from '../lib/queryBuilder'
 import convertToLongFormat from '../lib/tableDataConverter'
 import DataTablePaginationActions from './DataTablePaginationActions'
-import { extractAttribute } from '../lib/schema'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -36,7 +35,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const DataTable = ({ regions, statisticAndAttribute, args }) => {
+const DataTable = ({ regions, statistics }) => {
   const classes = useStyles()
   const client = useContext(ClientContext)
 
@@ -48,19 +47,25 @@ const DataTable = ({ regions, statisticAndAttribute, args }) => {
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true)
-      const query = getQuery(regions, statisticAndAttribute, args)
+      // TODO support more than 1 statistic
+      const statistic = Object.values(statistics)[0]
+      const query = getQuery(regions, statistic)
       const { data } = await client.request({ query: print(query) })
-      const rowData = convertToLongFormat(data, attribute) || []
+      const rowData = convertToLongFormat(data, statistic.attributeCode) || []
       setData(rowData)
       setLoading(false)
     }
 
-    if (statisticAndAttribute && args && regions.length > 0) {
+    if (Object.keys(statistics).length > 0 && regions.length > 0) {
       fetchData()
     } else {
       setData([])
     }
-  }, [regions, statisticAndAttribute, args])
+  }, [regions, statistics])
+
+  // TODO support more than 1 statistic
+  const args =
+    Object.keys(statistics).length > 0 ? Object.values(statistics)[0].args : []
 
   const columnDefs = [
     {
@@ -82,15 +87,13 @@ const DataTable = ({ regions, statisticAndAttribute, args }) => {
   ].concat(
     (args &&
       args
-        .filter(a => a.selected.length !== 0)
+        .filter(a => a.selected.length !== 0 && a.active)
         .map(a => ({
           headerName: a.label,
           field: a.value
         }))) ||
       []
   )
-
-  const attribute = extractAttribute(statisticAndAttribute)
 
   // TODO implement proper pagination
   const currentPageRowData =
@@ -157,8 +160,7 @@ const DataTable = ({ regions, statisticAndAttribute, args }) => {
 
 DataTable.propTypes = {
   regions: PropTypes.arrayOf(PropTypes.string),
-  statisticAndAttribute: PropTypes.string,
-  args: PropTypes.array
+  statistics: PropTypes.object
 }
 
 export default DataTable
