@@ -15,7 +15,8 @@ const navItems = [
   },
   {
     title: 'Blog',
-    path: 'https://blog.datengui.de'
+    path: 'https://blog.datengui.de',
+    external: true
   },
   {
     title: 'Über Datenguide',
@@ -112,22 +113,26 @@ export default function Footer() {
               <ul className={classes.social}>
                 {socialItems.map(({ title, path, Icon }) => (
                   <li key={path}>
-                    <Link href={path}>
-                      <a className={classes.link}>
-                        <Icon className={classes.icon} /> {title}
-                      </a>
-                    </Link>
+                    <a href={path} className={classes.link}>
+                      <Icon className={classes.icon} /> {title}
+                    </a>
                   </li>
                 ))}
               </ul>
             </Grid>
             <Grid item xs={12} sm={6}>
               <ul>
-                {navItems.map(({ title, path }) => (
+                {navItems.map(({ title, path, external }) => (
                   <li key={path}>
-                    <Link href={path}>
-                      <a className={classes.link}>{title}</a>
-                    </Link>
+                    {external ? (
+                      <a href={path} className={classes.link}>
+                        {title}
+                      </a>
+                    ) : (
+                      <Link href={path}>
+                        <a className={classes.link}>{title}</a>
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>
