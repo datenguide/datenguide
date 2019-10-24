@@ -112,11 +112,11 @@ export default function Footer() {
               <ul className={classes.social}>
                 {socialItems.map(({ title, path, Icon }) => (
                   <li key={path}>
-                    <Link href={path}>
-                      <a className={classes.link}>
-                        <Icon className={classes.icon} /> {title}
-                      </a>
-                    </Link>
+                    {/*<Link href={path}>*/}
+                    {/*  <a className={classes.link}>*/}
+                    {/*    <Icon className={classes.icon} /> {title}*/}
+                    {/*  </a>*/}
+                    {/*</Link>*/}
                   </li>
                 ))}
               </ul>
@@ -125,9 +125,9 @@ export default function Footer() {
               <ul>
                 {navItems.map(({ title, path }) => (
                   <li key={path}>
-                    <Link href={path}>
-                      <a className={classes.link}>{title}</a>
-                    </Link>
+                    {/*<Link href={path}>*/}
+                    {/*  <a className={classes.link}>{title}</a>*/}
+                    {/*</Link>*/}
                   </li>
                 ))}
               </ul>

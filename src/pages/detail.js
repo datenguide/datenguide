@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react'
+import { useImmerReducer } from 'use-immer'
+import { createActions } from '../lib/redux'
 import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core/styles'
 import _ from 'lodash'
@@ -8,11 +10,12 @@ import Snackbar from '@material-ui/core/Snackbar'
 
 import { getAttributeArgs, extractAttribute } from '../lib/schema'
 import DefaultLayout from '../layouts/Default'
-import DataTable from '../components/DataTable'
+// import DataTable from '../components/DataTable'
 import AutocompleteSearchField from '../components/AutocompleteSearchField'
 import ValueAttributeSelect from '../components/ValueAttributeSelect'
 import { findInvalidRegionIds } from './api/region'
 import RegionSearchParameterCard from '../components/RegionSearchParameterCard'
+import StatisticsSearchParameterCard from '../components/StatisticSearchParameterCard'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -25,24 +28,58 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const Detail = ({
-  initialStatisticAndAttribute,
-  initialRegions,
-  initialError
-}) => {
-  const classes = useStyles()
-  const [statisticAndAttribute, setStatisticAndAttribute] = useState(
-    initialStatisticAndAttribute
-  )
-  const [args, setArgs] = useState([])
-  const [regions, setRegions] = useState(initialRegions)
-  const [error, setError] = useState(initialError)
+const actions = createActions([
+  'addRegion',
+  'removeRegion'
+  'addStatistic',
+  'removeStatistic',
+])
 
-  useEffect(() => {
-    const attribute = extractAttribute(statisticAndAttribute)
-    const attributeArgs = getAttributeArgs(attribute)
-    setArgs(attributeArgs.map(arg => ({ ...arg, selected: [], active: false })))
-  }, [statisticAndAttribute])
+// region: { value, name, label}
+// statistic: { value, label}
+
+const reducer = (state, action) => {
+  console.log('reducing -- state', JSON.stringify(state, null, 2))
+  console.log('reducing -- action', JSON.stringify(action, null, 2))
+  switch (action.type) {
+    case 'addRegion':
+      state.regions.push(action.payload)
+      return state
+    case 'removeRegion':
+      state.regions = state.regions.filter(r => r.value !== action.payload.value)
+      return state
+    case 'addStatistic':
+      state.statistics.push(action.payload)
+      return state
+    case 'removeStatistic':
+      state.statistics = state.statistics.filter(s => s.value !== action.payload.value)
+      return state
+    default:
+      throw new Error(`unknown action ${action.type}`)
+  }
+}
+
+const Detail = ({ initialStatistics, initialRegions, initialError }) => {
+  const classes = useStyles()
+
+  const [state, dispatch] = useImmerReducer(reducer, {
+    regions: initialRegions,
+    statistics: initialStatistics,
+    error: initialError
+  })
+
+  console.log('state', JSON.stringify(state, null, 2))
+
+  // const [statistics, setStatistics] = useState(initialStatistics)
+  // const [args, setArgs] = useState([])
+  // const [regions, setRegions] = useState(initialRegions)
+  // const [error, setError] = useState(initialError)
+  //
+  // useEffect(() => {
+  //   const attribute = extractAttribute(statistics)
+  //   const attributeArgs = getAttributeArgs(attribute)
+  //   setArgs(attributeArgs.map(arg => ({ ...arg, selected: [], active: false })))
+  // }, [statistics])
 
   // statistics selection
 
@@ -52,25 +89,31 @@ const Detail = ({
   }
 
   const handleStatisticSelectionChange = value => {
-    setStatisticAndAttribute(value)
+    dispatch(actions.addStatistic(value))
+  }
+
+  const handleStatisticsClose = value => {
+    dispatch(actions.removeStatistic(value))
   }
 
   const handleValueAttributeChange = index => event => {
-    // TODO this is just a temporary solution, implement proper state management
-    const newArgs = _.cloneDeep(args)
-    newArgs[index].selected = event.target.value
-    setArgs(newArgs)
+    // // TODO this is just a temporary solution, implement proper state management
+    // const newArgs = _.cloneDeep(args)
+    // newArgs[index].selected = event.target.value
+    // setArgs(newArgs)
+    // dispatch(actions.addStatistic, event.target.value)
   }
 
   const handleValueAttributeToggle = event => {
-    // TODO this is just a temporary solution, implement proper state management
-    const newArgs = _.cloneDeep(args)
-    const toggledArg = newArgs.find(arg => arg.value === event.target.value)
-    toggledArg.active = event.target.checked
-    toggledArg.selected = event.target.checked
-      ? toggledArg.values.map(v => v.value)
-      : []
-    setArgs(newArgs)
+    // // TODO this is just a temporary solution, implement proper state management
+    // const newArgs = _.cloneDeep(args)
+    // const toggledArg = newArgs.find(arg => arg.value === event.target.value)
+    // toggledArg.active = event.target.checked
+    // toggledArg.selected = event.target.checked
+    //   ? toggledArg.values.map(v => v.value)
+    //   : []
+    // setArgs(newArgs)
+    // dispatch(actions.toggleAttribute, event.target)
   }
 
   // regions selections
@@ -80,10 +123,15 @@ const Detail = ({
     return result.json()
   }
 
-  const handleRegionSelectionChange = value => setRegions([...regions, value])
+  const handleRegionSelectionChange = value => {
+    dispatch(actions.addRegion(value))
+  }
 
-  const handleRegionCardClose = index => () =>
-    setRegions([...regions.slice(0, index), ...regions.slice(index + 1)])
+  const handleRegionCardClose = region => () => {
+    dispatch(actions.removeRegion(region))
+  }
+
+  const { regions, statistics, error } = state
 
   return (
     <DefaultLayout>
@@ -93,7 +141,6 @@ const Detail = ({
           <AutocompleteSearchField
             onSelectionChange={handleRegionSelectionChange}
             loadOptions={loadRegionOptions}
-            value={regions}
             label="Regionen"
             placeholder="Regionen suchen"
           />
@@ -101,40 +148,48 @@ const Detail = ({
             <RegionSearchParameterCard
               key={index}
               title={region.name}
-              subheader={region.id}
+              subheader={region.value}
               text=""
-              onClose={handleRegionCardClose(index)}
+              onClose={handleRegionCardClose(region)}
             />
           ))}
           <h2>Statistiken und Merkmale</h2>
           <AutocompleteSearchField
             onSelectionChange={handleStatisticSelectionChange}
             loadOptions={loadStatisticsOptions}
-            value={statisticAndAttribute}
             label="Statistiken und Merkmale"
             placeholder="Merkmal oder Statistik suchen"
           />
-          {args.map((arg, index) => {
-            return (
-              <ValueAttributeSelect
-                key={arg.label}
-                name={arg.value}
-                label={arg.label}
-                value={arg.selected}
-                options={arg.values}
-                active={arg.active}
-                onChange={handleValueAttributeChange(index)}
-                onToggle={handleValueAttributeToggle}
-              />
-            )
-          })}
+          {statistics.map((statistic, index) => (
+            <StatisticsSearchParameterCard
+              key={index}
+              title={statistic.name}
+              subheader={statistic.value}
+              text=""
+              onClose={handleStatisticsClose(statistic)}
+            />
+          ))}
+          {/*{args.map((arg, index) => {*/}
+          {/*  return (*/}
+          {/*    <ValueAttributeSelect*/}
+          {/*      key={arg.label}*/}
+          {/*      name={arg.value}*/}
+          {/*      label={arg.label}*/}
+          {/*      value={arg.selected}*/}
+          {/*      options={arg.values}*/}
+          {/*      active={arg.active}*/}
+          {/*      onChange={handleValueAttributeChange(index)}*/}
+          {/*      onToggle={handleValueAttributeToggle}*/}
+          {/*    />*/}
+          {/*  )*/}
+          {/*})}*/}
         </Grid>
         <Grid item xs={8}>
-          <DataTable
-            regions={regions}
-            statisticAndAttribute={statisticAndAttribute}
-            args={args}
-          />
+          {/*<DataTable*/}
+          {/*  regions={regions}*/}
+          {/*  statistics={statistics}*/}
+          {/*  args={args}*/}
+          {/*/>*/}
         </Grid>
       </Grid>
       <Snackbar
@@ -152,7 +207,7 @@ const Detail = ({
 }
 
 Detail.propTypes = {
-  initialStatisticAndAttribute: PropTypes.string,
+  initialStatistics: PropTypes.arrayOf(PropTypes.string),
   initialRegions: PropTypes.arrayOf(PropTypes.string),
   initialError: PropTypes.string
 }
@@ -180,21 +235,21 @@ Detail.getInitialProps = async function({ query }) {
     }
   }
 
-  let initialStatisticAndAttribute = null
+  let initialStatistics = []
   if (query.statistic && query.attribute) {
     const result = await fetch(
       `http://localhost:3000/api/statistics?filter=${query.statistic} ${query.attribute}`
     )
     const jsonResult = await result.json()
     if (jsonResult.length === 1) {
-      initialStatisticAndAttribute = jsonResult[0]
+      initialStatistics = jsonResult[0]
     } else {
       initialError = `Could not find statistic ${query.statistic} / attribute ${query.attribute}`
     }
   }
 
   return {
-    initialStatisticAndAttribute,
+    initialStatistics,
     initialRegions,
     initialError
   }

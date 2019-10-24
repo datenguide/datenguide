@@ -147,13 +147,13 @@ const Option = props => {
 Option.propTypes = {
   children: PropTypes.node,
   innerProps: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    key: PropTypes.string.isRequired,
-    onClick: PropTypes.func.isRequired,
-    onMouseMove: PropTypes.func.isRequired,
-    onMouseOver: PropTypes.func.isRequired,
-    tabIndex: PropTypes.number.isRequired
-  }).isRequired,
+    id: PropTypes.string,
+    key: PropTypes.string,
+    onClick: PropTypes.func,
+    onMouseMove: PropTypes.func,
+    onMouseOver: PropTypes.func,
+    tabIndex: PropTypes.number
+  }),
   isFocused: PropTypes.bool.isRequired,
   isSelected: PropTypes.bool.isRequired
 }
@@ -228,7 +228,7 @@ const components = {
   ValueContainer
 }
 
-const AutocompleteSearchField = ({ onSelectionChange, value, loadOptions, label, placeholder }) => {
+const AutocompleteSearchField = ({ onSelectionChange, loadOptions, label, placeholder }) => {
   const classes = useStyles()
   const theme = useTheme()
 
@@ -262,7 +262,7 @@ const AutocompleteSearchField = ({ onSelectionChange, value, loadOptions, label,
           defaultOptions
           isSearchable
           onChange={onSelectionChange}
-          value={value}
+          value={null}  // never set a value, use this as a search field only
         />
       </NoSsr>
     </div>
@@ -272,7 +272,6 @@ const AutocompleteSearchField = ({ onSelectionChange, value, loadOptions, label,
 AutocompleteSearchField.propTypes = {
   onSelectionChange: PropTypes.func.isRequired,
   loadOptions: PropTypes.func.isRequired,
-  value: PropTypes.string
 }
 
 export default AutocompleteSearchField
