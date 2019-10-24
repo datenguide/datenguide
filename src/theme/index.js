@@ -10,8 +10,9 @@ const WHITE = '#fff'
 // Create a theme instance.
 const theme = createMuiTheme({
   typography: {
-    fontSize: 16,
-    fontFamily: [
+    fontSize: 14,
+    htmlFontSize: 16,
+  fontFamily: [
       plex.name,
       '-apple-system',
       'BlinkMacSystemFont',
