@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
         left: '50%',
         top: 0,
         bottom: 0,
-        opacity: 0.6,
+        opacity: 0.8,
         overflow: 'hidden',
         backgroundImage: `url(${background})`,
         backgroundSize: 'cover',
@@ -155,10 +155,10 @@ export default function Events({ children, dates: { past, upcoming } }) {
         >
           <Grid item md={6}>
             <section className={classes.content}>
-              <h3>Termine</h3>
+              <h2>Termine</h2>
               {upcoming && <Dates items={upcoming} />}
 
-              <h3>Vergangene Termine</h3>
+              <h2>Vergangene Termine</h2>
               {past && <Dates items={past} />}
             </section>
           </Grid>
