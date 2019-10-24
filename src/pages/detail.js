@@ -4,10 +4,9 @@ import { makeStyles } from '@material-ui/core/styles'
 import _ from 'lodash'
 
 import Snackbar from '@material-ui/core/Snackbar'
-import Drawer from '@material-ui/core/Drawer'
 
 import { getAttributeArgs, extractAttribute } from '../lib/schema'
-import DefaultLayout from '../layouts/Default'
+import DrawerLayout from '../layouts/Drawer'
 import DataTable from '../components/DataTable'
 // import RegionSelectTree from '../components/RegionSelectTree'
 import AutocompleteSearchField from '../components/AutocompleteSearchField'
@@ -15,25 +14,9 @@ import ValueAttributeSelect from '../components/ValueAttributeSelect'
 import { findInvalidRegionIds } from './api/region'
 import RegionSearchParameterCard from '../components/RegionSearchParameterCard'
 
-const drawerWidth = '33%'
-
 const useStyles = makeStyles(theme => ({
-  root: {
-    display: 'flex'
-  },
-  sidebar: {
-    background: '#f5f5f5',
-    height: '100%'
-  },
-  drawerPaper: {
-    width: drawerWidth
-  },
-  drawer: {
-    width: drawerWidth,
-    flexShrink: 0
-  },
-  content: {
-    flexGrow: 1,
+  main: {
+    display: 'block',
     padding: theme.spacing(3)
   }
 }))
@@ -99,15 +82,9 @@ const Detail = ({
     setRegions([...regions.slice(0, index), ...regions.slice(index + 1)])
 
   return (
-    <DefaultLayout>
-      <div className={classes.root}>
-        <Drawer
-          className={classes.drawer}
-          variant="permanent"
-          classes={{
-            paper: classes.drawerPaper
-          }}
-        >
+    <DrawerLayout
+      drawerContent={
+        <>
           <h2>Regionen</h2>
           <AutocompleteSearchField
             onSelectionChange={handleRegionSelectionChange}
@@ -146,32 +123,28 @@ const Detail = ({
               />
             )
           })}
-          {/*<RegionSelectTree*/}
-          {/*  checked={regions}*/}
-          {/*  onChecked={handleRegionSelectionChange}*/}
-          {/*/>*/}
-        </Drawer>
+        </>
+      }
+    >
+      <main className={classes.main}>
+        <DataTable
+          regions={regions}
+          statisticAndAttribute={statisticAndAttribute}
+          args={args}
+        />
+      </main>
 
-        <main className={classes.content}>
-          <DataTable
-            regions={regions}
-            statisticAndAttribute={statisticAndAttribute}
-            args={args}
-          />
-
-          <Snackbar
-            anchorOrigin={{
-              vertical: 'bottom',
-              horizontal: 'left'
-            }}
-            open={error !== null}
-            onClose={() => setError(null)}
-            autoHideDuration={6000}
-            message={<span>{error}</span>}
-          />
-        </main>
-      </div>
-    </DefaultLayout>
+      <Snackbar
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'left'
+        }}
+        open={error !== null}
+        onClose={() => setError(null)}
+        autoHideDuration={6000}
+        message={<span>{error}</span>}
+      />
+    </DrawerLayout>
   )
 }
 
