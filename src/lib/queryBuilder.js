@@ -1,12 +1,11 @@
 import gql from 'graphql-tag'
 
 const getQuery = (regions, statistics) => {
-
   const { statisticCode, attributeCode, args } = statistics
 
   const statisticsExpression = `statistics: [R${statisticCode}]`
 
-  const selectedArgs = args.filter(arg => arg.selected.length > 0)
+  const selectedArgs = args.filter(arg => arg.selected.length > 0 && arg.active)
 
   const valueAttributeArgumentsExpression = selectedArgs.map(
     arg => `${arg.value}:[${arg.selected.join(',')}]`
