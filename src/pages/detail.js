@@ -15,7 +15,7 @@ import QueryParameterSidebar from '../components/QueryParameterSidebar'
 const useStyles = makeStyles(theme => ({
   main: {
     display: 'block',
-    padding: theme.spacing(3),
+    padding: theme.spacing(3)
   }
 }))
 
@@ -24,7 +24,8 @@ const actions = createActions([
   'removeRegion',
   'addStatistic',
   'removeStatistic',
-  'updateStatisticsArguments'
+  'updateStatisticsArguments',
+  'updateError'
 ])
 
 const reducer = (state, action) => {
@@ -62,6 +63,9 @@ const reducer = (state, action) => {
           : arg
       )
       return state
+    case 'updateError':
+      state.error = null
+      return state
     default:
       throw new Error(`unknown action ${action.type}`)
   }
@@ -78,12 +82,25 @@ const Detail = ({ initialStatistics, initialRegions, initialError }) => {
 
   const loadStatisticsOptions = async (value = '') => {
     const result = await fetch(`/api/search/statistics?filter=${value}`)
-    return result.json()
+    const json = await result.json()
+    return json.map(statistic => {
+      const split = statistic.label.split('-').map(s => s.trim()) // TODO fetch data in proper format to avoid this
+      return {
+        value: statistic.value,
+        label: split[1],
+        description: split[0]
+      }
+    })
   }
 
   const loadRegionOptions = async (value = '') => {
     const result = await fetch(`/api/search/regions?filter=${value}`)
-    return result.json()
+    const json = await result.json()
+    return json.map(region => ({
+      value: region.value,
+      label: region.name,
+      description: `Bundesland, id: ${region.value}` // TODO define description, add nuts level description (Bundesland, Kreis etc)
+    }))
   }
 
   const { regions, statistics, error } = state
@@ -111,7 +128,7 @@ const Detail = ({ initialStatistics, initialRegions, initialError }) => {
           horizontal: 'left'
         }}
         open={error !== null}
-        onClose={() => setError(null)}
+        onClose={() => dispatch(actions.updateError(null))}
         autoHideDuration={6000}
         message={<span>{error}</span>}
       />

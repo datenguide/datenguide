@@ -57,6 +57,18 @@ const useStyles = makeStyles(theme => ({
   },
   divider: {
     height: theme.spacing(2)
+  },
+  option: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-start'
+  },
+  optionLabel: {
+    fontSize: theme.typography.body1.fontSize
+  },
+  optionDescription: {
+    fontSize: theme.typography.caption.fontSize,
+    color: '#9e9e9e'
   }
 }))
 
@@ -130,16 +142,16 @@ Control.propTypes = {
 }
 
 const Option = props => {
+  const { label, description } = props.data
   return (
     <MenuItem
       selected={props.isFocused}
-      component="div"
-      style={{
-        fontWeight: props.isSelected ? 500 : 400
-      }}
       {...props.innerProps}
+      component="div"
+      className={props.selectProps.classes.option}
     >
-      {props.children}
+      <div className={props.selectProps.classes.optionLabel}>{label}</div>
+      <div className={props.selectProps.classes.optionDescription}>{description}</div>
     </MenuItem>
   )
 }
@@ -228,7 +240,12 @@ const components = {
   ValueContainer
 }
 
-const AutocompleteSearchField = ({ onSelectionChange, loadOptions, label, placeholder }) => {
+const AutocompleteSearchField = ({
+  onSelectionChange,
+  loadOptions,
+  label,
+  placeholder
+}) => {
   const classes = useStyles()
   const theme = useTheme()
 
@@ -262,7 +279,7 @@ const AutocompleteSearchField = ({ onSelectionChange, loadOptions, label, placeh
           defaultOptions
           isSearchable
           onChange={onSelectionChange}
-          value={null}  // never set a value, use this as a search field only
+          value={null} // never set a value, use this as a search field only
         />
       </NoSsr>
     </div>
@@ -271,7 +288,7 @@ const AutocompleteSearchField = ({ onSelectionChange, loadOptions, label, placeh
 
 AutocompleteSearchField.propTypes = {
   onSelectionChange: PropTypes.func.isRequired,
-  loadOptions: PropTypes.func.isRequired,
+  loadOptions: PropTypes.func.isRequired
 }
 
 export default AutocompleteSearchField

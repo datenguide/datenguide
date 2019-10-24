@@ -25,7 +25,7 @@ const RegionSearchParameterCard = ({ region, onClose }) => {
             <CloseIcon onClick={onClose} />
           </IconButton>
         }
-        title={region.name}
+        title={region.label}
         subheader={region.value}
       />
       <CardContent />
