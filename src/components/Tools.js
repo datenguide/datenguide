@@ -13,6 +13,12 @@ import logoPython from '../assets/python.svg'
 import logoGraphQL from '../assets/graphql.svg'
 import logoRlang from '../assets/rlang.svg'
 
+const logos = {
+  python: logoPython,
+  graphql: logoGraphQL,
+  rlang: logoRlang
+}
+
 const useStyles = makeStyles(theme => ({
   container: {
     backgroundColor: theme.palette.grey[50],
@@ -51,12 +57,7 @@ const useStyles = makeStyles(theme => ({
     margin: '0'
   },
 
-  header: {
-    marginTop: '-1rem'
-  },
-
   avatar: {
-    marginLeft: '-1rem',
     marginTop: '0.3rem',
     width: '3rem',
     height: '3rem'
@@ -74,6 +75,10 @@ const useStyles = makeStyles(theme => ({
     textTransform: 'uppercase'
   },
 
+  cardHeader: {
+    paddingBottom: 0
+  },
+
   cardActions: {
     justifyContent: 'space-between'
   },
@@ -86,11 +91,6 @@ const useStyles = makeStyles(theme => ({
 
 export default function Tools({ children, features }) {
   const classes = useStyles()
-  const logos = {
-    python: logoPython,
-    graphql: logoGraphQL,
-    rlang: logoRlang
-  }
 
   return (
     <div className={classes.container}>
@@ -101,25 +101,23 @@ export default function Tools({ children, features }) {
           {features.map(({ slug, title, desc, url, author, action }) => (
             <Grid key={slug} item md={4}>
               <Card className={classes.card}>
-                <CardContent>
-                  <CardHeader
-                    className={classes.header}
-                    avatar={
-                      <img className={classes.avatar} src={logos[slug]} />
-                    }
-                    title={<h3 className={classes.title}>{title}</h3>}
-                    subheader={
-                      <a
-                        href={author.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        {author.name}
-                      </a>
-                    }
-                  />
-                  <p>{desc}</p>
-                </CardContent>
+                <CardHeader
+                  className={classes.cardHeader}
+                  avatar={<img className={classes.avatar} src={logos[slug]} />}
+                  title={<h3 className={classes.title}>{title}</h3>}
+                  subheader={
+                    <a
+                      href={author.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {author.name}
+                    </a>
+                  }
+                />
+
+                <CardContent>{desc}</CardContent>
+
                 <CardActions className={classes.cardActions}>
                   <small className={classes.beta}>beta</small>
                   <Button
