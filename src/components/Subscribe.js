@@ -102,7 +102,7 @@ export default function Subscribe() {
 
           <p className={classes.intro}>
             Der Datenguide macht die amtliche Statistik zugänglicher für alle.
-            Wir arbeiten an einer digitalen Plattform, die regionale Statiken
+            Wir arbeiten an einer digitalen Plattform, die regionale Statistiken
             klar und prägnant darstellt, vergleichbar macht und erklärt.
           </p>
 
