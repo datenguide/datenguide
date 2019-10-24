@@ -14,7 +14,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const RegionSearchParameterCard = ({ title, text, subheader, onClose }) => {
+const RegionSearchParameterCard = ({ region, onClose }) => {
   const styles = useStyles()
 
   return (
@@ -25,19 +25,17 @@ const RegionSearchParameterCard = ({ title, text, subheader, onClose }) => {
             <CloseIcon onClick={onClose} />
           </IconButton>
         }
-        title={title}
-        subheader={subheader}
+        title={region.name}
+        subheader={region.value}
       />
-      <CardContent>{text}</CardContent>
+      <CardContent />
     </Card>
   )
 }
 
 RegionSearchParameterCard.propTypes = {
   onClose: PropTypes.func.isRequired,
-  title: PropTypes.string.isRequired,
-  subheader: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired
+  region: PropTypes.object.isRequired
 }
 
 export default RegionSearchParameterCard

@@ -1,4 +1,5 @@
 import schema from '../data/schema.json'
+// import mappings from '../data/mappings.json'
 
 // TODO move to server API and get rid of these transformations
 const getArgValues = values =>
@@ -8,7 +9,8 @@ const getArgValues = values =>
   }))
 
 // TODO move to server API and get rid of these transformations
-export const getAttributeArgs = attribute => {
+export const getArgs = statisticAndAttribute => {
+  const attribute = extractAttribute(statisticAndAttribute)
   const attributeSchema = schema[attribute]
   return attributeSchema
     ? Object.keys(attributeSchema.args).reduce((acc, curr) => {
@@ -26,19 +28,28 @@ export const getAttributeArgs = attribute => {
 }
 
 export const extractAttribute = statisticAndAttribute =>
-  statisticAndAttribute != null
-    ? statisticAndAttribute.value.substr(5)
-    : null
+  statisticAndAttribute != null ? statisticAndAttribute.substr(5) : null
 
 export const extractStatistic = statisticAndAttribute =>
-  statisticAndAttribute != null
-    ? statisticAndAttribute.value.substr(0, 5)
-    : null
+  statisticAndAttribute != null ? statisticAndAttribute.substr(0, 5) : null
 
-export const extractStatisticAndAttribute = statisticAndAttribute =>
-  statisticAndAttribute != null
-    ? {
-        attribute: extractAttribute(statisticAndAttribute),
-        statistic: extractStatistic(statisticAndAttribute)
-      }
-    : null
+export const getSchema = statisticAndAttribute => {
+  if (!statisticAndAttribute) {
+    return null
+  }
+  const attributeCode = extractAttribute(statisticAndAttribute)
+  const statisticCode = extractStatistic(statisticAndAttribute)
+  const args = getArgs(statisticAndAttribute)
+  const {
+    name: attributeName,
+    source: { title_de: statisticName }
+  } = schema[attributeCode]
+  return {
+    statisticAndAttribute,
+    attributeCode,
+    attributeName,
+    statisticCode,
+    statisticName,
+    args
+  }
+}

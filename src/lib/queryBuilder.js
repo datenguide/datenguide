@@ -1,9 +1,9 @@
 import gql from 'graphql-tag'
 
-import { extractStatisticAndAttribute } from './schema'
+import { getSchema } from './schema'
 
-const getQuery = (regions, statisticAndAttribute, args ) => {
-  const { statistic, attribute} =  extractStatisticAndAttribute(statisticAndAttribute)
+const getQuery = (regions, statisticAndAttribute, args) => {
+  const { statistic, attribute } = getSchema(statisticAndAttribute)
 
   const statisticsExpression = `statistics: [R${statistic}]`
 
