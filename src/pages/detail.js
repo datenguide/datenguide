@@ -8,17 +8,14 @@ import Snackbar from '@material-ui/core/Snackbar'
 
 import { getSchema } from '../lib/schema'
 import DrawerLayout from '../layouts/Drawer'
-// import DataTable from '../components/DataTable'
-import AutocompleteSearchField from '../components/AutocompleteSearchField'
 import { findInvalidRegionIds } from './api/region'
-import RegionSearchParameterCard from '../components/RegionSearchParameterCard'
-import StatisticsSearchParameterCard from '../components/StatisticSearchParameterCard'
 import DataTable from '../components/DataTable'
+import QueryParameterSidebar from '../components/QueryParameterSidebar'
 
 const useStyles = makeStyles(theme => ({
   main: {
     display: 'block',
-    padding: theme.spacing(3)
+    padding: theme.spacing(3),
   }
 }))
 
@@ -31,8 +28,6 @@ const actions = createActions([
 ])
 
 const reducer = (state, action) => {
-  console.log('reducing -- state', JSON.stringify(state, null, 2))
-  console.log('reducing -- action', JSON.stringify(action, null, 2))
   switch (action.type) {
     case 'addRegion':
       state.regions.push(action.payload)
@@ -81,23 +76,9 @@ const Detail = ({ initialStatistics, initialRegions, initialError }) => {
     error: initialError
   })
 
-  console.log('state', JSON.stringify(state, null, 2))
-
   const loadStatisticsOptions = async (value = '') => {
     const result = await fetch(`/api/search/statistics?filter=${value}`)
     return result.json()
-  }
-
-  const handleStatisticChange = statistic => {
-    dispatch(actions.addStatistic(statistic))
-  }
-
-  const handleStatisticsClose = statisticsId => () => {
-    dispatch(actions.removeStatistic(statisticsId))
-  }
-
-  const handleStatisticsArgumentChange = value => {
-    dispatch(actions.updateStatisticsArguments(value))
   }
 
   const loadRegionOptions = async (value = '') => {
@@ -105,50 +86,19 @@ const Detail = ({ initialStatistics, initialRegions, initialError }) => {
     return result.json()
   }
 
-  const handleRegionChange = value => {
-    dispatch(actions.addRegion(value))
-  }
-
-  const handleRegionCardClose = value => () => {
-    dispatch(actions.removeRegion(value))
-  }
-
   const { regions, statistics, error } = state
 
   return (
     <DrawerLayout
       drawerContent={
-        <>
-          <h2>Regionen</h2>
-          <AutocompleteSearchField
-            onSelectionChange={handleRegionChange}
-            loadOptions={loadRegionOptions}
-            label="Regionen"
-            placeholder="Regionen suchen"
-          />
-          {regions.map(region => (
-            <RegionSearchParameterCard
-              key={region.value}
-              region={region}
-              onClose={handleRegionCardClose(region.value)}
-            />
-          ))}
-          <h2>Statistiken und Merkmale</h2>
-          <AutocompleteSearchField
-            onSelectionChange={handleStatisticChange}
-            loadOptions={loadStatisticsOptions}
-            label="Statistiken und Merkmale"
-            placeholder="Merkmal oder Statistik suchen"
-          />
-          {Object.keys(statistics).map(id => (
-            <StatisticsSearchParameterCard
-              key={id}
-              statistic={state.statistics[id]}
-              onClose={handleStatisticsClose(id)}
-              onArgumentChange={handleStatisticsArgumentChange}
-            />
-          ))}
-        </>
+        <QueryParameterSidebar
+          regions={regions}
+          statistics={statistics}
+          loadRegionOptions={loadRegionOptions}
+          loadStatisticsOptions={loadStatisticsOptions}
+          dispatch={dispatch}
+          actions={actions}
+        />
       }
     >
       <main className={classes.content}>
