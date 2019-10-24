@@ -36,7 +36,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const DataTable = ({ regions, statisticAndAttribute, args }) => {
+const DataTable = ({ regions, statistics, args }) => {
   const classes = useStyles()
   const client = useContext(ClientContext)
 
@@ -48,19 +48,21 @@ const DataTable = ({ regions, statisticAndAttribute, args }) => {
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true)
-      const query = getQuery(regions, statisticAndAttribute, args)
+      // we only support 1 statistic currently
+      const statistic = Object.values(statistics)[0]
+      const query = getQuery(regions, statistic)
       const { data } = await client.request({ query: print(query) })
-      const rowData = convertToLongFormat(data, attribute) || []
+      const rowData = convertToLongFormat(data, statistic.attributeCode) || []
       setData(rowData)
       setLoading(false)
     }
 
-    if (statisticAndAttribute && args && regions.length > 0) {
+    if (Object.keys(statistics).length > 0 && regions.length > 0) {
       fetchData()
     } else {
       setData([])
     }
-  }, [regions, statisticAndAttribute, args])
+  }, [regions, statistics])
 
   const columnDefs = [
     {
@@ -89,8 +91,6 @@ const DataTable = ({ regions, statisticAndAttribute, args }) => {
         }))) ||
       []
   )
-
-  const attribute = extractAttribute(statisticAndAttribute)
 
   // TODO implement proper pagination
   const currentPageRowData =
@@ -157,8 +157,7 @@ const DataTable = ({ regions, statisticAndAttribute, args }) => {
 
 DataTable.propTypes = {
   regions: PropTypes.arrayOf(PropTypes.string),
-  statisticAndAttribute: PropTypes.string,
-  args: PropTypes.array
+  statistics: PropTypes.object
 }
 
 export default DataTable

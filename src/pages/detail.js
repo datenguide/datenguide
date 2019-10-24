@@ -147,8 +147,7 @@ const Detail = ({ initialStatistics, initialRegions, initialError }) => {
       <main className={classes.content}>
         <DataTable
           regions={regions}
-          // statistics={statistics}
-          // args={args}
+          statistics={statistics}
         />
       </main>
 
