@@ -1,11 +1,11 @@
 import React from 'react'
 import { useImmerReducer } from 'use-immer'
-import { createActions } from '../lib/redux'
 import PropTypes from 'prop-types'
-import { makeStyles } from '@material-ui/core/styles'
 
+import { makeStyles } from '@material-ui/core/styles'
 import Snackbar from '@material-ui/core/Snackbar'
 
+import { createActions } from '../lib/redux'
 import { getSchema } from '../lib/schema'
 import DrawerLayout from '../layouts/Drawer'
 import { findInvalidRegionIds } from './api/region'
@@ -28,30 +28,38 @@ const actions = createActions([
   'updateError'
 ])
 
+const getStatisticStateObject = statisticId => {
+  const schema = getSchema(statisticId)
+  schema.args = schema.args.map(arg => ({
+    ...arg,
+    selected: arg.values.map(a => a.value),
+    active: false
+  }))
+  return schema
+}
+
+const getRegionStateObject = regionId => {
+  const region = getRegion(regionId)
+}
+
 const reducer = (state, action) => {
   switch (action.type) {
     case 'addRegion':
-      state.regions.push(action.payload)
+      const regionId = action.payload.value
+      state.regions[regionId] = getRegionStateObject(regionId)
       return state
     case 'removeRegion':
-      state.regions = state.regions.filter(r => r.value !== action.payload)
+      delete state.statistics[action.payload]
       return state
     case 'addStatistic':
-      const statisticsId = action.payload.value
-      const schema = getSchema(statisticsId)
-      schema.args = schema.args.map(arg => ({
-        ...arg,
-        selected: arg.values.map(a => a.value),
-        active: false
-      }))
-      state.statistics[statisticsId] = schema
+      const statisticId = action.payload.value
+      state.statistics[statisticId] = getStatisticStateObject(statisticId)
       return state
     case 'removeStatistic':
       delete state.statistics[action.payload]
       return state
     case 'updateStatisticsArguments':
       const { statisticAndAttribute, argCode, change } = action.payload
-      debugger
       state.statistics[statisticAndAttribute].args = state.statistics[
         statisticAndAttribute
       ].args.map(arg =>
@@ -71,6 +79,29 @@ const reducer = (state, action) => {
   }
 }
 
+const loadStatisticsOptions = async (value = '') => {
+  const result = await fetch(`/api/search/statistics?filter=${value}`)
+  const json = await result.json()
+  return json.map(statistic => {
+    const split = statistic.label.split('-').map(s => s.trim()) // TODO fetch data in proper format to avoid this
+    return {
+      value: statistic.value,
+      label: split[1],
+      description: split[0]
+    }
+  })
+}
+
+const loadRegionOptions = async (value = '') => {
+  const result = await fetch(`/api/search/regions?filter=${value}`)
+  const json = await result.json()
+  return json.map(region => ({
+    value: region.value,
+    label: region.name,
+    description: `Bundesland, id: ${region.value}` // TODO define description, add nuts level description (Bundesland, Kreis etc)
+  }))
+}
+
 const Detail = ({ initialStatistics, initialRegions, initialError }) => {
   const classes = useStyles()
 
@@ -79,29 +110,6 @@ const Detail = ({ initialStatistics, initialRegions, initialError }) => {
     statistics: initialStatistics,
     error: initialError
   })
-
-  const loadStatisticsOptions = async (value = '') => {
-    const result = await fetch(`/api/search/statistics?filter=${value}`)
-    const json = await result.json()
-    return json.map(statistic => {
-      const split = statistic.label.split('-').map(s => s.trim()) // TODO fetch data in proper format to avoid this
-      return {
-        value: statistic.value,
-        label: split[1],
-        description: split[0]
-      }
-    })
-  }
-
-  const loadRegionOptions = async (value = '') => {
-    const result = await fetch(`/api/search/regions?filter=${value}`)
-    const json = await result.json()
-    return json.map(region => ({
-      value: region.value,
-      label: region.name,
-      description: `Bundesland, id: ${region.value}` // TODO define description, add nuts level description (Bundesland, Kreis etc)
-    }))
-  }
 
   const { regions, statistics, error } = state
 

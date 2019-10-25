@@ -17,6 +17,9 @@ export const getRegions = nutsLevel =>
       slug: slugify(data[id])
     }))
 
+export const getRegion = id => data[id]
+
+
 export const findInvalidRegionIds = ids =>
   ids.filter(id => data[id] === undefined)
 

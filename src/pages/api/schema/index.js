@@ -14,16 +14,16 @@ export const getArgs = statisticAndAttribute => {
   const attributeSchema = schema[attribute]
   return attributeSchema
     ? Object.keys(attributeSchema.args).reduce((acc, curr) => {
-        const value = attributeSchema.args[curr]
-        const option = {
-          value: curr,
-          label: value.name,
-          description: value.description,
-          values: getArgValues(attributeSchema.args[curr].values)
-        }
-        acc.push(option)
-        return acc
-      }, [])
+      const value = attributeSchema.args[curr]
+      const option = {
+        value: curr,
+        label: value.name,
+        description: value.description,
+        values: getArgValues(attributeSchema.args[curr].values)
+      }
+      acc.push(option)
+      return acc
+    }, [])
     : []
 }
 
