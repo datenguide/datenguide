@@ -74,13 +74,19 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const NoOptionsMessage = props => (
+const NoOptionsMessage = ({
+  selectProps: {
+    classes: { noOptionsMessage }
+  },
+  innerProps,
+  children
+}) => (
   <Typography
     color="textSecondary"
-    className={props.selectProps.classes.noOptionsMessage}
-    {...props.innerProps}
+    className={noOptionsMessage}
+    {...innerProps}
   >
-    {props.children}
+    {children}
   </Typography>
 )
 
@@ -103,21 +109,22 @@ inputComponent.propTypes = {
   ])
 }
 
-const Control = props => {
-  const {
-    children,
-    innerProps,
-    innerRef,
-    selectProps: { classes, TextFieldProps }
-  } = props
-
+const Control = ({
+  children,
+  innerProps,
+  innerRef,
+  selectProps: {
+    classes: { input },
+    TextFieldProps
+  }
+}) => {
   return (
     <TextField
       fullWidth
       InputProps={{
         inputComponent,
         inputProps: {
-          className: classes.input,
+          className: input,
           ref: innerRef,
           children,
           ...innerProps
@@ -143,16 +150,15 @@ Control.propTypes = {
   selectProps: PropTypes.object.isRequired
 }
 
-const Option = props => {
-  const {
-    isFocused,
-    innerProps,
-    data: { label, description },
-    selectProps: {
-      inputValue,
-      classes: { option, optionLabel, optionDescription }
-    }
-  } = props
+const Option = ({
+  isFocused,
+  innerProps,
+  data: { label, description },
+  selectProps: {
+    inputValue,
+    classes: { option, optionLabel, optionDescription }
+  }
+}) => {
   const searchWords = inputValue.split(' ')
   return (
     <MenuItem
@@ -185,14 +191,14 @@ Option.propTypes = {
   isSelected: PropTypes.bool.isRequired
 }
 
-const Placeholder = props => {
-  const { selectProps, innerProps = {}, children } = props
+const Placeholder = ({
+  selectProps: {
+    classes: { placeholder }
+  },
+  children
+}) => {
   return (
-    <Typography
-      color="textSecondary"
-      className={selectProps.classes.placeholder}
-      {...innerProps}
-    >
+    <Typography color="textSecondary" className={placeholder}>
       {children}
     </Typography>
   )
@@ -200,30 +206,37 @@ const Placeholder = props => {
 
 Placeholder.propTypes = {
   children: PropTypes.node,
-  selectProps: PropTypes.object.isRequired
+  selectProps: PropTypes.shape({
+    classes: PropTypes.shape({ placeholder: PropTypes.string.isRequired })
+  }).isRequired
 }
 
-const ValueContainer = props => {
-  return (
-    <div className={props.selectProps.classes.valueContainer}>
-      {props.children}
-    </div>
-  )
+const ValueContainer = ({
+  selectProps: {
+    classes: { valueContainer }
+  },
+  children
+}) => {
+  return <div className={valueContainer}>{children}</div>
 }
 
 ValueContainer.propTypes = {
   children: PropTypes.node,
-  selectProps: PropTypes.object.isRequired
+  selectProps: PropTypes.shape({
+    classes: PropTypes.shape({ valueContainer: PropTypes.string.isRequired })
+  }).isRequired
 }
 
-const Menu = props => {
+const Menu = ({
+  selectProps: {
+    classes: { paper }
+  },
+  innerProps,
+  children
+}) => {
   return (
-    <Paper
-      square
-      className={props.selectProps.classes.paper}
-      {...props.innerProps}
-    >
-      {props.children}
+    <Paper square className={paper} {...innerProps}>
+      {children}
     </Paper>
   )
 }
@@ -231,7 +244,9 @@ const Menu = props => {
 Menu.propTypes = {
   children: PropTypes.element.isRequired,
   innerProps: PropTypes.object.isRequired,
-  selectProps: PropTypes.object.isRequired
+  selectProps: PropTypes.shape({
+    classes: PropTypes.shape({ paper: PropTypes.string.isRequired })
+  }).isRequired
 }
 
 const components = {
