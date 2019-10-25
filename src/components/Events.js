@@ -10,6 +10,7 @@ const useStyles = makeStyles(theme => ({
     position: 'relative',
     backgroundColor: '#c3e5f1',
     color: theme.palette.secondary.main,
+    fontSize: theme.typography.body1.fontSize,
 
     '&::before': {
       [theme.breakpoints.up('md')]: {
@@ -33,9 +34,9 @@ const useStyles = makeStyles(theme => ({
     paddingTop: theme.spacing(6),
     paddingBottom: theme.spacing(6),
 
-    [theme.breakpoints.up('lg')]: {
-      paddingTop: theme.spacing(10),
-      paddingBottom: theme.spacing(10)
+    [theme.breakpoints.up('xl')]: {
+      paddingTop: theme.spacing(9),
+      paddingBottom: theme.spacing(9)
     }
   },
 
@@ -55,9 +56,9 @@ const useStyles = makeStyles(theme => ({
       }
     },
 
-    [theme.breakpoints.up('lg')]: {
-      paddingTop: theme.spacing(10),
-      paddingBottom: theme.spacing(10)
+    [theme.breakpoints.up('xl')]: {
+      paddingTop: theme.spacing(9),
+      paddingBottom: theme.spacing(9)
     }
   },
 
