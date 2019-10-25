@@ -1,29 +1,14 @@
 import React from 'react'
-import { makeStyles } from '@material-ui/core/styles'
-
-import Header from '../components/Header'
-import Footer from '../components/Footer'
-
-const useStyles = makeStyles(theme => ({
-  root: {
-    display: 'flex',
-    minHeight: '100vh',
-    flexDirection: 'column'
-  },
-
-  content: {
-    flexGrow: 1
-  }
-}))
+import Container from '@material-ui/core/Container'
+import Box from '@material-ui/core/Box'
+import BaseLayout from '../layouts/Base'
 
 export default function DefaultLayout(props) {
-  const classes = useStyles()
-
   return (
-    <div className={classes.root}>
-      <Header />
-      <div className={classes.content}>{props.children}</div>
-      <Footer />
-    </div>
+    <BaseLayout>
+      <Container>
+        <Box my={4}>{props.children}</Box>
+      </Container>
+    </BaseLayout>
   )
 }
