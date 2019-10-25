@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import AsyncSelect from 'react-select/async'
+import Highlighter from 'react-highlight-words'
+
 import { emphasize, makeStyles, useTheme } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 import NoSsr from '@material-ui/core/NoSsr'
@@ -142,16 +144,29 @@ Control.propTypes = {
 }
 
 const Option = props => {
-  const { label, description } = props.data
+  const {
+    isFocused,
+    innerProps,
+    data: { label, description },
+    selectProps: {
+      inputValue,
+      classes: { option, optionLabel, optionDescription }
+    }
+  } = props
+  const searchWords = inputValue.split(' ')
   return (
     <MenuItem
-      selected={props.isFocused}
-      {...props.innerProps}
+      selected={isFocused}
+      {...innerProps}
       component="div"
-      className={props.selectProps.classes.option}
+      className={option}
     >
-      <div className={props.selectProps.classes.optionLabel}>{label}</div>
-      <div className={props.selectProps.classes.optionDescription}>{description}</div>
+      <div className={optionLabel}>
+        <Highlighter searchWords={searchWords} textToHighlight={label} />
+      </div>
+      <div className={optionDescription}>
+        <Highlighter searchWords={searchWords} textToHighlight={description} />
+      </div>
     </MenuItem>
   )
 }
@@ -184,17 +199,6 @@ const Placeholder = props => {
 }
 
 Placeholder.propTypes = {
-  children: PropTypes.node,
-  selectProps: PropTypes.object.isRequired
-}
-
-const SingleValue = props => (
-  <Typography className={props.selectProps.classes.singleValue}>
-    {props.children}
-  </Typography>
-)
-
-SingleValue.propTypes = {
   children: PropTypes.node,
   selectProps: PropTypes.object.isRequired
 }
@@ -236,7 +240,6 @@ const components = {
   NoOptionsMessage,
   Option,
   Placeholder,
-  SingleValue,
   ValueContainer
 }
 

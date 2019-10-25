@@ -51,6 +51,7 @@
     "react": "^16.10.2",
     "react-checkbox-tree": "^1.5.1",
     "react-dom": "^16.10.2",
+    "react-highlight-words": "^0.16.0",
     "react-responsive-embed": "^2.1.0",
     "react-select": "^3.0.8",
     "stringify-object": "^3.3.0",
