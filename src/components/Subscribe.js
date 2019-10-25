@@ -13,7 +13,7 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1,
     backgroundColor: '#c3e5f1',
     paddingTop: theme.spacing(3),
-    paddingBottom: theme.spacing(6),
+    paddingBottom: theme.spacing(5),
 
     [theme.breakpoints.up('md')]: {
       backgroundImage: `url(${background})`,
@@ -23,39 +23,36 @@ const useStyles = makeStyles(theme => ({
       borderBottom: '1px solid #44707f'
     },
 
-    [theme.breakpoints.up('lg')]: {
-      paddingTop: theme.spacing(3),
-      paddingBottom: theme.spacing(5)
-    },
-
     [theme.breakpoints.up('xl')]: {
       backgroundSize: '560px auto',
       backgroundPosition: '85% bottom',
-      paddingTop: theme.spacing(6),
-      paddingBottom: theme.spacing(10)
-    }
-  },
-
-  title: {
-    marginBottom: theme.spacing(2),
-    color: theme.palette.secondary.dark,
-
-    [theme.breakpoints.up('md')]: {
-      fontSize: theme.typography.h4.fontSize
+      paddingTop: theme.spacing(4),
+      paddingBottom: theme.spacing(6)
     }
   },
 
   intro: {
-    marginTop: '0',
-    marginBottom: theme.spacing(2),
+    '& p': {
+      marginTop: '0',
+      marginBottom: theme.spacing(2)
+    },
 
-    '& b': {
+    '& h1': {
+      marginBottom: theme.spacing(2),
+      color: theme.palette.secondary.dark,
+
+      [theme.breakpoints.up('md')]: {
+        fontSize: theme.typography.h3.fontSize
+      }
+    },
+
+    '& strong': {
       color: theme.palette.secondary.dark
     },
 
     [theme.breakpoints.up('md')]: {
-      maxWidth: '720px',
-      fontSize: theme.typography.h6.fontSize
+      maxWidth: '740px',
+      fontSize: theme.typography.h5.fontSize
     }
   },
 
@@ -71,14 +68,19 @@ const useStyles = makeStyles(theme => ({
 
     '& input': {
       borderRadius: '5px 5px 0 0',
-      backgroundColor: '#ffffff'
+      backgroundColor: 'white',
+      fontSize: '1.3rem'
+    },
+
+    '& label': {
+      fontSize: '1.3rem'
     }
   },
 
   submitButton: {
     marginLeft: theme.spacing(2),
     paddingLeft: theme.spacing(3),
-    height: '3.7rem',
+    height: '3.8rem',
     boxShadow: 'none'
   },
 
@@ -92,24 +94,13 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function Subscribe() {
+export default function Subscribe({ children }) {
   const classes = useStyles()
   return (
     <section className={classes.root}>
       <Container fixed>
         <Box my={4}>
-          <h1 className={classes.title}>Statistiken für alle</h1>
-
-          <p className={classes.intro}>
-            Der Datenguide macht die amtliche Statistik zugänglicher für alle.
-            Wir arbeiten an einer digitalen Plattform, die regionale Statistiken
-            klar und prägnant darstellt, vergleichbar macht und erklärt.
-          </p>
-
-          <p className={classes.intro}>
-            <b>🚧 Der Datenguide ist noch in Arbeit.</b> Wenn du zu den ersten
-            Nutzer:innen gehören willst, melde dich für unseren Newsletter an.
-          </p>
+          <div className={classes.intro}>{children}</div>
 
           <form
             className={classes.form}
