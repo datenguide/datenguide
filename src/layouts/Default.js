@@ -1,13 +1,23 @@
 import React from 'react'
 import Container from '@material-ui/core/Container'
-import Box from '@material-ui/core/Box'
+import { makeStyles } from '@material-ui/core/styles'
 import BaseLayout from '../layouts/Base'
 
+const useStyles = makeStyles(theme => ({
+  root: {
+    paddingTop: theme.spacing(3),
+    paddingBottom: theme.spacing(3),
+    fontSize: theme.typography.body1.fontSize
+  }
+}))
+
 export default function DefaultLayout(props) {
+  const classes = useStyles()
+
   return (
     <BaseLayout>
       <Container>
-        <Box my={4}>{props.children}</Box>
+        <div className={classes.root}>{props.children}</div>
       </Container>
     </BaseLayout>
   )

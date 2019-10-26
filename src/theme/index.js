@@ -12,7 +12,7 @@ const theme = createMuiTheme({
   typography: {
     fontSize: 14,
     htmlFontSize: 16,
-  fontFamily: [
+    fontFamily: [
       plex.name,
       '-apple-system',
       'BlinkMacSystemFont',

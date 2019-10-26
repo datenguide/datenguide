@@ -147,13 +147,8 @@ export default function Events({ children, dates: { past, upcoming } }) {
   const classes = useStyles()
   return (
     <div className={classes.container}>
-      <Container fixed>
-        <Grid
-          container
-          direction="row"
-          justify="center"
-          alignItems="flex-start"
-        >
+      <Container>
+        <Grid container direction="row" alignItems="flex-start">
           <Grid item md={6}>
             <section className={classes.content}>
               <h2>Termine</h2>

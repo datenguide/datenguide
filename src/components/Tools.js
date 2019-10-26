@@ -100,7 +100,7 @@ export default function Tools({ children, features }) {
 
   return (
     <div className={classes.root}>
-      <Container fixed>
+      <Container>
         <div className={classes.content}>{children}</div>
 
         <Grid container justify="center" spacing={3}>

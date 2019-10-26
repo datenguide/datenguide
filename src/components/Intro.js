@@ -10,7 +10,7 @@ import codeIcon from '../assets/openmoji/code.svg'
 import technologistIcon from '../assets/openmoji/technologist.svg'
 
 const useStyles = makeStyles(theme => ({
-  container: {
+  root: {
     paddingTop: theme.spacing(6),
     paddingBottom: theme.spacing(6),
 
@@ -85,7 +85,7 @@ const useStyles = makeStyles(theme => ({
 export default function Intro({ children, features }) {
   const classes = useStyles()
   return (
-    <Container className={classes.container} fixed>
+    <Container className={classes.root}>
       <Grid container direction="row" justify="center" alignItems="center">
         <Grid item md={6} className={classes.main}>
           {children}
