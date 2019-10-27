@@ -1,32 +1,89 @@
 ---
 title: 'Über Datenguide'
+team:
+  - name: Simon Jockers
+    role: Projektleitung
+    url: https://twitter.com/sjockers
+    image: /team/jockers.jpg
+  - name: Simon Wörpel
+    role: Datenjournalist
+    url: https://twitter.com/simonwoerpel
+    image: /team/woerpel.jpg
+  - name: Patricia Ennenbach
+    role: Datenjournalistin
+    url: https://twitter.com/pen1710
+    image: /team/ennenbach.jpg
+  - name: Christian Rijke
+    role: Software Engineer
+    url: https://twitter.com/crijke
+    image: /team/rijke.jpg
+tools:
+  - slug: graphql
+    title: GraphQL API
+    author:
+      name: Datenguide
+      url: https://datengui.de
+    desc: Über diese API kannst du mit einem Tool deiner Wahl auf die Daten der amtlichen Statistik zugreifen.
+    action: Zum Repository
+    url: https://github.com/datenguide/datenguide-api
+  - slug: rlang
+    author:
+      name: CorrelAid
+      url: https://correlaid.org
+    title: Datenguide für R
+    desc: Mit dem DatenguideR-Package kannst du direkt aus R auf die Daten der Datenguide-API zugreifen.
+    action: Zum Repository
+    url: https://github.com/CorrelAid/datenguideR
+  - slug: python
+    author:
+      name: CorrelAid
+      url: https://correlaid.org
+    title: Datenguide für Python
+    desc: Dieses Python-Package stellt Daten aus der Datenguide-API als Pandas DataFrames zur Verfügung.
+    action: Zum Repository
+    url: https://github.com/CorrelAid/datenguide-python
 ---
 
+import Grid from '@material-ui/core/Grid'
+import Typography from '@material-ui/core/Typography'
+import CssBaseline from '@material-ui/core/CssBaseline'
+
 import DefaultLayout from '../../layouts/Default'
+import BodyText from '../../components/BodyText'
+import Tools from '../../components/Tools'
+import Team from '../../components/Team'
 
 <DefaultLayout>
 
-Über den Datenguide
+# Über Datenguide
 
-[KICKER] Der Datenguide macht die amtliche Statistik zugänglicher für alle. Wir arbeiten an einer digitalen Plattform, die regionale Statistiken klar und prägnant darstellt, vergleichbar macht und erklärt.
+<Grid container>
+  <Grid item xs={10}>
+    <Typography variant="h5" component="p">
+      Der Datenguide macht die amtliche Statistik zugänglicher für alle. Wir
+      arbeiten an einer digitalen Plattform, die regionale Statistiken klar und
+      prägnant darstellt und es einfacher macht, die Daten weiterzuverwenden.
+    </Typography>
+  </Grid>
+</Grid>
+
+<BodyText>
 
 Die Statistischen Ämter sammeln kontinuierlich Daten und erstellen Statistiken zu allen Bereichen unserer Gesellschaft. Das reicht von Zahlen zu Arbeitslosigkeit und Sozialleistungen bis zur Tierhaltung in der Landwirtschaft. Diese _amtliche Statistik_ ist nicht nur eine wichtige Entscheidungsgrundlage für Politik, Verwaltung und Wirtschaft, sondern auch ein wertvolles Werkzeug für Journalist:innen und zivilgesellschaftliche Initiativen. Statistische Daten helfen bei investigativen Recherchen zu systemischen Problemen aber auch beim Fact-checking oder im Lokaljournalismus.
 
-Im Redaktionsalltag ist die Nutzung von amtlichen Statistiken oft schwierig. Denn obwohl die amtliche Statistik theoretisch der Öffentlichkeit zur Verfügung steht und offizielle Statistikportale Daten zum Download anbieten, stellt die Bedienung dieser Portale und die weitere Analyse der Daten die meisten Menschen vor große Hindernisse. Die offiziellen Portale richten sich an Experten und bieten kaum Informationen für Laien oder einfache Möglichkeiten zum Finden und Darstellen von Datensätzen. Auch für Fachleute ist die Arbeit mit der offziellen Veröffentlichung der amtlichen Statistik zeitraubend und frustrierend, da viele Datensätze einzeln angefordert und aufbereitet werden müssen.
+Im Redaktionsalltag ist die Nutzung von amtlichen Statistiken jedoch oft schwierig. Denn obwohl die amtliche Statistik theoretisch der Öffentlichkeit zur Verfügung steht und offizielle Statistikportale Daten zum Download anbieten, stellt die Bedienung dieser Portale und die weitere Analyse der Daten die meisten Menschen vor große Hindernisse. Die offiziellen Portale richten sich an Experten und bieten kaum Informationen für Laien oder einfache Möglichkeiten zum Finden und Darstellen von Datensätzen. Auch für Fachleute ist die Arbeit mit der offziellen Veröffentlichung der amtlichen Statistik zeitraubend und frustrierend, da viele Datensätze einzeln angefordert und aufbereitet werden müssen.
 
 ## Statistiken für alle!
 
 Mit dem Datenguide helfen wir Journalist:innen dabei, die amtliche Statistik sinnvoll zu nutzen. Mit modernen Web-Technologien entwickeln wir eine digitale Plattform, die statistische Daten klar und prägnant darstellt, vergleichbar macht, in Kontext setzt und erklärt. Der Datenguide strukturiert die Daten regional (Landkreise, Städte und Gemeinden) und nach Themen (z.B. Umwelt oder Soziales). Die Aufbereitung der Daten, beispielsweise durch interaktive Grafiken und zusätzliche Erklärungen, erfolgt teilweise automatisiert und teilweise redaktionell durch ein kleines Team von erfahrenen Datenjournalist:innen.
 
-## Team
+## Kernteam
 
-Simon Jockers
+</BodyText>
 
-Simon Wörpel
+<Team members={frontmatter.team} />
 
-Patricia Ennenbach
-
-Christian Rijke
+<BodyText>
 
 ## Mehr als eine Online-Plattform
 
@@ -34,13 +91,15 @@ Datenguide ist dabei mehr als eine Online-Plattform. Wir verstehen uns als Initi
 
 Datenguide soll nicht nur Daten-Einsteiger ansprechen, sondern auch Profis. Wir arbeiten an Open-Source-Tools, mit denen Datenjournalist:innen, Entwickler:innen und Wissenschaftler:innen auf die Daten der amtlichen Statistik zugreifen können. Wir stellen eine Datenschnittstelle (API) zur Verfügung und arbeiten gemeinsam mit unserer Partnerorganisation CorrelAid daran, statistische Daten mit den Programmiersprachen Python und R nutzbar zu machen. Damit ermöglichen wir komplexe Recherchen und die Entwicklung von neuen Tools auf Basis von amtlichen Statistiken. Anwendungen, die unsere Technologie verwenden, wurden bereits ausgezeichnet: Der Prototyp „Regio-Reports“ gewann den API-Award beim DPA „Data Deep Dive“ und „Revierderby“ den ersten Preis beim „Hacking Local Media“ Hackathon der LfM NRW.
 
-## Hintergrund und Status
+## 🚧 Der Datenguide ist noch in Arbeit
 
 Unsere Plattform befindet sich noch in der Entwicklung aber einige technische Komponenten sind bereits verwendbar. Profis können schon jetzt die Beta-Version unserer API nutzen und auf Github die Entwicklung verfolgen. In den nächsten Wochen werden wir eine Beta-Version unserer Plattform für Nutzer:innen öffnen.
 
-Die Datengrundlage für unsere Arbeit bildet die offizielle Veröffentlichung der Regionalstatistik der Statistischen Ämter, die wir automatisiert herunterladen und aufbereiten. Diese technische Basis haben wir im Rahmen einer Förderung durch den „Prototype Fund“ erarbeitet. Momentan arbeiten wir mit einer Förderung des MIZ Babelsberg an der Entwicklung der Online-Plattform und an Fallstudien, die wir zusammen mit den Medienpartnern RBB und WDR umsetzen. 2018 wurden wir außerdem durch ein Grow-Stipendium von Netzwerk Recherche gefördert.
+Die Datengrundlage für unsere Arbeit bildet die offizielle Veröffentlichung der Regionalstatistik der Statistischen Ämter, die wir automatisiert herunterladen und aufbereiten. Diese technische Basis haben wir im Rahmen einer Förderung durch den „Prototype Fund“ erarbeitet. Momentan arbeiten wir mit einer Förderung des MIZ Babelsberg an der Entwicklung der Online-Plattform und an Fallstudien, die wir zusammen mit Medienpartnern umsetzen. 2018 wurden wir außerdem durch ein Grow-Stipendium von Netzwerk Recherche gefördert.
 
 ## Förderer
+
+</BodyText>
 
 [LOGOS]
 
