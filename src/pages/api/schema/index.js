@@ -1,4 +1,4 @@
-import schema from '../data/schema.json'
+import schema from '../../../data/schema.json'
 // import mappings from '../data/mappings.json'
 
 // TODO move to server API and get rid of these transformations

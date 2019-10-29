@@ -6,7 +6,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import Snackbar from '@material-ui/core/Snackbar'
 
 import { createActions } from '../lib/redux'
-import { getSchema } from '../lib/schema'
+import { getSchema } from '../pages/api/schema'
 import DrawerLayout from '../layouts/Drawer'
 import { findInvalidRegionIds } from './api/region'
 import DataTable from '../components/DataTable'
