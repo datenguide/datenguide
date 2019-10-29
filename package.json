@@ -33,6 +33,8 @@
     "@zeit/next-css": "^1.0.1",
     "@zeit/next-mdx": "^1.2.0",
     "clsx": "^1.0.4",
+    "dotenv": "^8.2.0",
+    "dotenv-webpack": "^1.7.0",
     "flexsearch": "^0.6.30",
     "graphql": "^14.5.8",
     "graphql-hooks": "^4.0.1",

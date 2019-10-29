@@ -5,6 +5,9 @@ const withImages = require('next-images')
 const withMDX = require('@zeit/next-mdx')({
   extension: /\.mdx?$/
 })
+const Dotenv = require('dotenv-webpack')
+
+require('dotenv').config()
 
 module.exports = withCSS(
   withMDX(
@@ -16,6 +19,15 @@ module.exports = withCSS(
             test: /\.mdx?$/,
             use: [path.join(__dirname, './lib/frontmatter-loader')]
           })
+
+          config.plugins = [
+            ...config.plugins,
+            // Read the .env file
+            new Dotenv({
+              path: path.join(__dirname, '..', '.env'),
+              systemvars: true
+            })
+          ]
 
           return config
         }
