@@ -88,23 +88,34 @@ tools:
 ---
 
 import ResponsiveEmbed from 'react-responsive-embed'
-import DefaultLayout from '../layouts/Default'
+import BaseLayout from '../layouts/Base'
 import Subscribe from '../components/Subscribe'
 import Intro from '../components/Intro'
 import Events from '../components/Events'
 import Tools from '../components/Tools'
 
-<DefaultLayout>
+<BaseLayout>
 
-<Subscribe />
+<Subscribe>
+
+# Statistiken für alle
+
+Der Datenguide macht die amtliche Statistik zugänglicher für alle.
+Wir arbeiten an einer digitalen Plattform, die regionale Statistiken
+klar und prägnant darstellt, vergleichbar macht und erklärt.
+
+**🚧 Der Datenguide ist noch in Arbeit.** Wenn du zu den ersten
+Nutzer:innen gehören willst, melde dich für unseren Newsletter an.
+
+</Subscribe>
 
 <Intro features={frontmatter.intro}>
 
-### Über Datenguide
+## Über Datenguide
 
 Die Statistischen Ämter Deutschlands sammeln kontinuierlich Daten und erstellen Statistiken zu allen Bereichen der Gesellschaft. Der Datenguide soll diese **amtliche Statistik** zugänglich für alle machen. Wir entwickeln digitale Tools, die euch helfen, die amtliche Statistik zu verstehen und sinnvoll einzusetzen.
 
-Der Datenguide ist noch in Arbeit aber einige technische Komponenten sind bereits verwendbar. Profis können schon jetzt die Beta-Version unserer [Datenschnittstelle](https://github.com/datenguide/datenguide-api) nutzen und auf [Github](https://github.com/datenguide/datenguide) die weitere Entwicklung verfolgen. In den nächsten Wochen werden wir eine Beta-Version des Datenportals für erste Nutzer\*innen öffnen.
+Der Datenguide ist noch in Arbeit aber einige technische Komponenten sind bereits verwendbar. Profis können schon jetzt die Beta-Version unserer [Datenschnittstelle](https://github.com/datenguide/datenguide-api) nutzen und auf [Github](https://github.com/datenguide/datenguide) die weitere Entwicklung verfolgen. In den nächsten Wochen werden wir eine Beta-Version des Datenportals für erste Nutzer:innen öffnen.
 
 </Intro>
 
@@ -139,4 +150,4 @@ Die Datensätze, die über Datenguide zur Verfügung stehen, stammen aus der [Re
 
 </Tools>
 
-</DefaultLayout>
+</BaseLayout>

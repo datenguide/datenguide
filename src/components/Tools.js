@@ -20,15 +20,16 @@ const logos = {
 }
 
 const useStyles = makeStyles(theme => ({
-  container: {
+  root: {
     backgroundColor: theme.palette.grey[50],
     color: theme.palette.secondary.main,
     paddingTop: theme.spacing(6),
     paddingBottom: theme.spacing(6),
+    fontSize: theme.typography.body1.fontSize,
 
-    [theme.breakpoints.up('lg')]: {
-      paddingTop: theme.spacing(10),
-      paddingBottom: theme.spacing(10)
+    [theme.breakpoints.up('xl')]: {
+      paddingTop: theme.spacing(9),
+      paddingBottom: theme.spacing(9)
     }
   },
 
@@ -36,7 +37,6 @@ const useStyles = makeStyles(theme => ({
     color: theme.palette.text.primary,
     hyphens: 'auto',
     paddingBottom: theme.spacing(5),
-    fontSize: theme.typography.body1.fontSize,
 
     [theme.breakpoints.up('md')]: {
       display: 'flex',
@@ -55,6 +55,12 @@ const useStyles = makeStyles(theme => ({
 
   title: {
     margin: '0'
+  },
+
+  card: {
+    [theme.breakpoints.up('lg')]: {
+      marginBottom: theme.spacing(3)
+    }
   },
 
   avatar: {
@@ -93,8 +99,8 @@ export default function Tools({ children, features }) {
   const classes = useStyles()
 
   return (
-    <div className={classes.container}>
-      <Container fixed>
+    <div className={classes.root}>
+      <Container>
         <div className={classes.content}>{children}</div>
 
         <Grid container justify="center" spacing={3}>

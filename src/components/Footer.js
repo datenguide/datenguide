@@ -51,6 +51,7 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: '#c3e5f1',
     paddingTop: theme.spacing(3),
     paddingBottom: theme.spacing(3),
+    fontSize: theme.typography.body1.fontSize,
 
     [theme.breakpoints.up('md')]: {
       backgroundImage: `url(${background})`,

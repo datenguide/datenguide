@@ -1,13 +1,10 @@
 import React from 'react'
-import Container from '@material-ui/core/Container'
+import Grid from '@material-ui/core/Grid'
 import { makeStyles } from '@material-ui/core/styles'
-import BaseLayout from '../layouts/Base'
 
 const useStyles = makeStyles(theme => ({
   root: {
-    paddingTop: theme.spacing(3),
-    paddingBottom: theme.spacing(3),
-    fontSize: theme.typography.body1.fontSize
+    hyphens: 'auto'
   }
 }))
 
@@ -15,10 +12,10 @@ export default function DefaultLayout(props) {
   const classes = useStyles()
 
   return (
-    <BaseLayout>
-      <Container>
+    <Grid container>
+      <Grid item xs={7}>
         <div className={classes.root}>{props.children}</div>
-      </Container>
-    </BaseLayout>
+      </Grid>
+    </Grid>
   )
 }

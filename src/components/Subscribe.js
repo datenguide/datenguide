@@ -2,7 +2,6 @@ import React from 'react'
 import Link from 'next/link'
 import { makeStyles } from '@material-ui/core/styles'
 import Container from '@material-ui/core/Container'
-import Box from '@material-ui/core/Box'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 
@@ -11,51 +10,56 @@ import background from '../assets/hero_city.svg'
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
+    fontSize: theme.typography.body1.fontSize,
     backgroundColor: '#c3e5f1',
     paddingTop: theme.spacing(3),
     paddingBottom: theme.spacing(6),
 
-    [theme.breakpoints.up('md')]: {
+    [theme.breakpoints.up('sm')]: {
       backgroundImage: `url(${background})`,
       backgroundRepeat: 'no-repeat',
       backgroundSize: '560px auto',
       backgroundPosition: '110% bottom',
-      borderBottom: '1px solid #44707f'
+      borderBottom: '1px solid #44707f',
+      paddingBottom: theme.spacing(9)
     },
 
     [theme.breakpoints.up('lg')]: {
-      paddingTop: theme.spacing(3),
-      paddingBottom: theme.spacing(5)
+      paddingBottom: theme.spacing(4)
     },
 
     [theme.breakpoints.up('xl')]: {
       backgroundSize: '560px auto',
-      backgroundPosition: '85% bottom',
-      paddingTop: theme.spacing(6),
-      paddingBottom: theme.spacing(10)
-    }
-  },
-
-  title: {
-    marginBottom: theme.spacing(2),
-    color: theme.palette.secondary.dark,
-
-    [theme.breakpoints.up('md')]: {
-      fontSize: theme.typography.h4.fontSize
+      backgroundPosition: '85% bottom'
     }
   },
 
   intro: {
-    marginTop: '0',
-    marginBottom: theme.spacing(2),
+    '& p': {
+      marginTop: '0',
+      marginBottom: theme.spacing(2)
+    },
 
-    '& b': {
+    '& h1': {
+      marginBottom: theme.spacing(2),
+      color: theme.palette.secondary.dark,
+
+      [theme.breakpoints.up('md')]: {
+        fontSize: theme.typography.h3.fontSize
+      }
+    },
+
+    '& strong': {
       color: theme.palette.secondary.dark
     },
 
+    [theme.breakpoints.up('sm')]: {
+      maxWidth: '620px'
+    },
+
     [theme.breakpoints.up('md')]: {
-      maxWidth: '720px',
-      fontSize: theme.typography.h6.fontSize
+      maxWidth: '740px',
+      fontSize: theme.typography.h5.fontSize
     }
   },
 
@@ -69,88 +73,89 @@ const useStyles = makeStyles(theme => ({
       width: 350
     },
 
+    [theme.breakpoints.up('md')]: {
+      '& input, label': {
+        fontSize: '1.3rem'
+      }
+    },
+
     '& input': {
       borderRadius: '5px 5px 0 0',
-      backgroundColor: '#ffffff'
+      backgroundColor: 'white'
     }
   },
 
   submitButton: {
     marginLeft: theme.spacing(2),
     paddingLeft: theme.spacing(3),
-    height: '3.7rem',
-    boxShadow: 'none'
+    boxShadow: 'none',
+
+    [theme.breakpoints.up('md')]: {
+      height: '3.8rem'
+    }
   },
 
   terms: {
     display: 'block',
-    marginTop: theme.spacing(2),
+    margin: theme.spacing(2, 0),
+
+    [theme.breakpoints.up('sm')]: {
+      maxWidth: '620px',
+      marginBottom: theme.spacing(10)
+    },
 
     [theme.breakpoints.up('md')]: {
-      maxWidth: '60%'
+      maxWidth: '60%',
+      marginBottom: theme.spacing(5)
     }
   }
 }))
 
-export default function Subscribe() {
+export default function Subscribe({ children }) {
   const classes = useStyles()
   return (
     <section className={classes.root}>
-      <Container fixed>
-        <Box my={4}>
-          <h1 className={classes.title}>Statistiken für alle</h1>
+      <Container>
+        <div className={classes.intro}>{children}</div>
 
-          <p className={classes.intro}>
-            Der Datenguide macht die amtliche Statistik zugänglicher für alle.
-            Wir arbeiten an einer digitalen Plattform, die regionale Statistiken
-            klar und prägnant darstellt, vergleichbar macht und erklärt.
-          </p>
+        <form
+          className={classes.form}
+          action="https://datengui.us17.list-manage.com/subscribe/post?u=4b79a045e2fce403d887f9147&amp;id=19233695e7"
+          method="post"
+          id="mc-embedded-subscribe-form"
+          name="mc-embedded-subscribe-form"
+          noValidate
+        >
+          <TextField
+            className={classes.emailInput}
+            variant="filled"
+            label="Email-Adresse"
+            type="email"
+            id="email"
+            name="EMAIL"
+            autoComplete="email"
+          />
 
-          <p className={classes.intro}>
-            <b>🚧 Der Datenguide ist noch in Arbeit.</b> Wenn du zu den ersten
-            Nutzer:innen gehören willst, melde dich für unseren Newsletter an.
-          </p>
-
-          <form
-            className={classes.form}
-            action="https://datengui.us17.list-manage.com/subscribe/post?u=4b79a045e2fce403d887f9147&amp;id=19233695e7"
-            method="post"
-            id="mc-embedded-subscribe-form"
-            name="mc-embedded-subscribe-form"
-            noValidate
+          <Button
+            type="submit"
+            variant="contained"
+            size="large"
+            color="secondary"
+            className={classes.submitButton}
           >
-            <TextField
-              className={classes.emailInput}
-              variant="filled"
-              label="Email-Adresse"
-              type="email"
-              id="email"
-              name="EMAIL"
-              autoComplete="email"
-            />
-
-            <Button
-              type="submit"
-              variant="contained"
-              size="large"
-              color="secondary"
-              className={classes.submitButton}
-            >
-              Eintragen
-            </Button>
-          </form>
-          <small className={classes.terms}>
-            Deine Email-Adressen wird von uns ausschliesslich zur Information
-            über den Datenguide genutzt und nicht an Dritte weitergegeben. Für
-            diesen Verteiler verwenden wir{' '}
-            <a href="http://mailchimp.com/">Mailchimp</a>.{' '}
-            <Link href="/info/datenschutz">
-              <a className={classes.termsLink}>
-                Mehr zum Datenschutz bei Datenguide
-              </a>
-            </Link>
-          </small>
-        </Box>
+            Eintragen
+          </Button>
+        </form>
+        <small className={classes.terms}>
+          Deine Email-Adressen wird von uns ausschliesslich zur Information über
+          den Datenguide genutzt und nicht an Dritte weitergegeben. Für diesen
+          Verteiler verwenden wir <a href="http://mailchimp.com/">Mailchimp</a>.{' '}
+          <Link href="/info/datenschutz">
+            <a className={classes.termsLink}>
+              Mehr zum Datenschutz bei Datenguide
+            </a>
+          </Link>
+        </small>
       </Container>
     </section>
   )
