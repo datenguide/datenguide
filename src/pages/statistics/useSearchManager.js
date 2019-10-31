@@ -51,6 +51,7 @@ const measureSchemaToState = measure => ({
   dimensions: measure.dimensions.map(dim => ({
     ...dim,
     selected: dim.values.map(v => v.name),
+    values: dim.values.map(v => ({ value: v.name, label: v.title_de })),
     active: false
   }))
 })

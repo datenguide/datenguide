@@ -7,7 +7,7 @@ import CardHeader from '@material-ui/core/CardHeader'
 import IconButton from '@material-ui/core/IconButton'
 import CardContent from '@material-ui/core/CardContent'
 import CloseIcon from '@material-ui/icons/Close'
-import ValueAttributeSelect from './ValueAttributeSelect'
+import DimensionSelect from './DimensionSelect'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -22,7 +22,6 @@ const StatisticSearchParameterCard = ({
 }) => {
   const styles = useStyles()
 
-
   const {
     id,
     statistic_name,
@@ -32,7 +31,7 @@ const StatisticSearchParameterCard = ({
     dimensions
   } = statistic
 
-  const handleArgumentChange = argCode => event => {
+  const handleDimensionChange = argCode => event => {
     onArgumentChange({
       id,
       argCode,
@@ -65,14 +64,14 @@ const StatisticSearchParameterCard = ({
       />
       <CardContent>
         {dimensions.map(dim => (
-          <ValueAttributeSelect
+          <DimensionSelect
             key={dim.name}
             name={dim.name}
             label={dim.title_de}
             value={dim.selected}
             options={dim.values}
             active={dim.active}
-            onChange={handleArgumentChange(dim.value)}
+            onChange={handleDimensionChange(dim.name)}
             onToggle={handleArgumentToggle}
           />
         ))}

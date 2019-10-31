@@ -37,7 +37,7 @@ const MenuProps = {
   }
 }
 
-const ValueAttributeSelect = ({
+const DimensionSelect = ({
   name,
   label,
   value,
@@ -91,7 +91,7 @@ const ValueAttributeSelect = ({
   )
 }
 
-ValueAttributeSelect.propTypes = {
+DimensionSelect.propTypes = {
   name: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   options: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
@@ -100,4 +100,4 @@ ValueAttributeSelect.propTypes = {
   active: PropTypes.bool.isRequired
 }
 
-export default ValueAttributeSelect
+export default DimensionSelect
