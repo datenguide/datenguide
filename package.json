@@ -56,9 +56,9 @@
     "react-highlight-words": "^0.16.0",
     "react-responsive-embed": "^2.1.0",
     "react-select": "^3.0.8",
+    "reinspect": "^1.0.2",
     "stringify-object": "^3.3.0",
-    "typeface-ibm-plex-sans": "^0.0.75",
-    "use-immer": "^0.3.4"
+    "typeface-ibm-plex-sans": "^0.0.75"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.3",

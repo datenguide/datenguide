@@ -66,17 +66,13 @@ export default function Header({ menuButton }) {
               Home
             </Button>
           </Link>
-          <Link href="/detail">
+          <Link href="/statistics">
             <Button component="a" color="inherit">
               Statistics
             </Button>
           </Link>
         </div>
       </Toolbar>
-
-      {/* <Container className={classes.container} fixed={false}> */}
-
-      {/* </Container> */}
     </AppBar>
   )
 }

@@ -7,7 +7,7 @@ let graphQLClient = null
 function create(initialState = {}) {
   return new GraphQLClient({
     ssrMode: typeof window === 'undefined',
-    url: 'https://api-next.datengui.de/graphql/',
+    url: process.env.DATENGUIDE_API,
     cache: memCache({ initialState }),
     fetch: typeof window !== 'undefined' ? fetch.bind() : unfetch // eslint-disable-line
   })

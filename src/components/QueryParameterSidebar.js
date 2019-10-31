@@ -16,30 +16,30 @@ const useStyles = makeStyles(theme => ({
 const QueryParameterSidebar = ({
   regions,
   loadRegionOptions,
-  statistics,
-  loadStatisticsOptions,
+  measures,
+  loadMeasureOptions,
   dispatch,
   actions
 }) => {
   const classes = useStyles()
 
-  const handleStatisticChange = statistic => {
-    dispatch(actions.addStatistic(statistic))
+  const handleLoadMeasure = measure => {
+    dispatch(actions.loadMeasure(measure.value))
   }
 
-  const handleStatisticsClose = statisticsId => () => {
-    dispatch(actions.removeStatistic(statisticsId))
+  const handleRemoveMeausre = statisticsId => () => {
+    dispatch(actions.removeMeasure(statisticsId))
   }
 
-  const handleStatisticsArgumentChange = value => {
-    dispatch(actions.updateStatisticsArguments(value))
+  const handleChangeDimension = value => {
+    dispatch(actions.updateDimension(value))
   }
 
-  const handleRegionChange = value => {
-    dispatch(actions.addRegion(value))
+  const handleLoadRegion = region => {
+    dispatch(actions.loadRegion(region.value))
   }
 
-  const handleRegionCardClose = value => () => {
+  const handleRemoveRegion = value => () => {
     dispatch(actions.removeRegion(value))
   }
 
@@ -47,29 +47,29 @@ const QueryParameterSidebar = ({
     <div className={classes.root}>
       <h4>Regionen</h4>
       <AutocompleteSearchField
-        onSelectionChange={handleRegionChange}
+        onSelectionChange={handleLoadRegion}
         loadOptions={loadRegionOptions}
         placeholder="Regionen suchen"
       />
       {regions.map(region => (
         <RegionSearchParameterCard
-          key={region.value}
+          key={region.id}
           region={region}
-          onClose={handleRegionCardClose(region.value)}
+          onClose={handleRemoveRegion(region.id)}
         />
       ))}
       <h4>Statistiken und Merkmale</h4>
       <AutocompleteSearchField
-        onSelectionChange={handleStatisticChange}
-        loadOptions={loadStatisticsOptions}
+        onSelectionChange={handleLoadMeasure}
+        loadOptions={loadMeasureOptions}
         placeholder="Merkmal oder Statistik suchen"
       />
-      {Object.keys(statistics).map(id => (
+      {measures.map(measure => (
         <StatisticsSearchParameterCard
-          key={id}
-          statistic={statistics[id]}
-          onClose={handleStatisticsClose(id)}
-          onArgumentChange={handleStatisticsArgumentChange}
+          key={measure.id}
+          statistic={measure}
+          onClose={handleRemoveMeausre(measure.id)}
+          onArgumentChange={handleChangeDimension}
         />
       ))}
     </div>
@@ -78,7 +78,7 @@ const QueryParameterSidebar = ({
 
 QueryParameterSidebar.propTypes = {
   regions: PropTypes.array.isRequired,
-  statistics: PropTypes.object.isRequired,
+  measures: PropTypes.array.isRequired,
   loadRegionOptions: PropTypes.func.isRequired,
   loadStatisticsOptions: PropTypes.func.isRequired,
   dispatch: PropTypes.func.isRequired,

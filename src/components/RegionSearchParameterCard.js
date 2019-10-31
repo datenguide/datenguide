@@ -34,8 +34,9 @@ const RegionSearchParameterCard = ({ region, onClose }) => {
             <CloseIcon onClick={onClose} />
           </IconButton>
         }
-        title={region.label}
-        subheader={region.value}
+        title={region.name}
+        // TODO 
+        // subheader={region.value}
       />
       <CardContent>
         <FormGroup row>

@@ -6984,6 +6984,14 @@ readdirp@^2.2.1:
     micromatch "^3.1.10"
     readable-stream "^2.0.2"
 
+redux@^4.0.1:
+  version "4.0.4"
+  resolved "https://registry.npmjs.org/redux/-/redux-4.0.4.tgz#4ee1aeb164b63d6a1bcc57ae4aa0b6e6fa7a3796"
+  integrity sha512-vKv4WdiJxOWKxK0yRoaK3Y4pxxB0ilzVx6dszU2W8wLxlb2yikRph4iV/ymtdJ6ZxpBLFbyrxklnT5yBbQSl3Q==
+  dependencies:
+    loose-envify "^1.4.0"
+    symbol-observable "^1.2.0"
+
 reflect.ownkeys@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/reflect.ownkeys/-/reflect.ownkeys-0.2.0.tgz#749aceec7f3fdf8b63f927a04809e90c5c0b3460"
@@ -7090,6 +7098,13 @@ regjsparser@^0.6.0:
   integrity sha512-RQ7YyokLiQBomUJuUG8iGVvkgOLxwyZM8k6d3q5SAXpg4r5TZJZigKFvC6PpD+qQ98bCDC5YelPeA3EucDoNeQ==
   dependencies:
     jsesc "~0.5.0"
+
+reinspect@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.npmjs.org/reinspect/-/reinspect-1.0.2.tgz#19d8050d743e9afeb85bfc5ab9ce4ed24e44c956"
+  integrity sha512-T5rjUhzDXkGTtJi3qTG+d+QXkBibmE1/JNIiUhkWh90FRDTTjQT1EhvQZo6LZuwLVEwOVBCKcKkKitENv8sn/g==
+  dependencies:
+    redux "^4.0.1"
 
 remark-mdx@^1.5.1:
   version "1.5.1"
@@ -7862,6 +7877,11 @@ swap-case@^1.1.0:
     lower-case "^1.1.1"
     upper-case "^1.1.1"
 
+symbol-observable@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.npmjs.org/symbol-observable/-/symbol-observable-1.2.0.tgz#c22688aed4eab3cdc2dfeacbb561660560a00804"
+  integrity sha512-e900nM8RRtGhlV36KGEU9k65K3mPb1WV70OdjfxlG2EAuM1noi/E/BaW/uMhL7bPEssK8QV57vN3esixjUvcXQ==
+
 table@^5.2.3:
   version "5.4.6"
   resolved "https://registry.yarnpkg.com/table/-/table-5.4.6.tgz#1292d19500ce3f86053b05f0e8e7e4a3bb21079e"
@@ -8346,11 +8366,6 @@ url@0.11.0, url@^0.11.0:
   dependencies:
     punycode "1.3.2"
     querystring "0.2.0"
-
-use-immer@^0.3.4:
-  version "0.3.4"
-  resolved "https://registry.npmjs.org/use-immer/-/use-immer-0.3.4.tgz#a6ba73fd88ab08cdc2af8092e2f1ccfa84583af1"
-  integrity sha512-prWakGqnPstb6bnSWa50S4t+f/O4wQ13MK9JNu2+F7DQKyOXyEy4TUh/B53RHhpEyN417OBQQJNRjM6cClbWxQ==
 
 use@^3.1.0:
   version "3.1.1"

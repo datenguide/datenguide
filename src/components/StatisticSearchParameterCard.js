@@ -22,20 +22,21 @@ const StatisticSearchParameterCard = ({
 }) => {
   const styles = useStyles()
 
+
   const {
-    statisticAndAttribute,
-    attributeCode,
-    attributeName,
-    statisticCode,
-    statisticName,
-    args
+    id,
+    statistic_name,
+    statistic_title_de,
+    name,
+    title_de,
+    dimensions
   } = statistic
 
   const handleArgumentChange = argCode => event => {
     onArgumentChange({
-      statisticAndAttribute,
+      id,
       argCode,
-      change: {
+      diff: {
         selected: event.target.value
       }
     })
@@ -43,9 +44,9 @@ const StatisticSearchParameterCard = ({
 
   const handleArgumentToggle = event => {
     onArgumentChange({
-      statisticAndAttribute,
+      id,
       argCode: event.target.value,
-      change: {
+      diff: {
         active: event.target.checked
       }
     })
@@ -59,24 +60,22 @@ const StatisticSearchParameterCard = ({
             <CloseIcon onClick={onClose} />
           </IconButton>
         }
-        title={`${attributeCode} - ${attributeName}`}
-        subheader={`${statisticCode} ${statisticName}`}
+        title={`${name} - ${title_de}`}
+        subheader={`${statistic_name} ${statistic_title_de}`}
       />
       <CardContent>
-        {args.map(arg => {
-          return (
-            <ValueAttributeSelect
-              key={arg.label}
-              name={arg.value}
-              label={arg.label}
-              value={arg.selected}
-              options={arg.values}
-              active={arg.active}
-              onChange={handleArgumentChange(arg.value)}
-              onToggle={handleArgumentToggle}
-            />
-          )
-        })}
+        {dimensions.map(dim => (
+          <ValueAttributeSelect
+            key={dim.name}
+            name={dim.name}
+            label={dim.title_de}
+            value={dim.selected}
+            options={dim.values}
+            active={dim.active}
+            onChange={handleArgumentChange(dim.value)}
+            onToggle={handleArgumentToggle}
+          />
+        ))}
       </CardContent>
     </Card>
   )

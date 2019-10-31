@@ -3,6 +3,8 @@ import initGraphQL from './graphql-init'
 import Head from 'next/head'
 import { getInitialState } from 'graphql-hooks-ssr'
 
+export const graphQLClient = initGraphQL()
+
 export default App => {
   return class GraphQLHooks extends React.Component {
     static displayName = 'GraphQLHooks(App)'
@@ -16,7 +18,6 @@ export default App => {
 
       // Run all GraphQL queries in the component tree
       // and extract the resulting data
-      const graphQLClient = initGraphQL()
       let graphQLState = {}
       if (typeof window === 'undefined') {
         try {

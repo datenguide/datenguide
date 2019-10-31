@@ -6,17 +6,16 @@ import mappings from '../../../../data/mappings.json'
 // TODO move to server
 
 const getLabel = identifier => {
-  const statistic = identifier.substr(0, 5)
-  const attribute = identifier.substr(5)
+  const [statisticId, measureId] = identifier.split(':')
 
-  const statisticMapping = mappings[attribute].find(m => m.name === statistic)
-  return `${statisticMapping.name} ${statisticMapping.title_de}  - ${attribute} ${schema[attribute].name}`
+  const statisticMapping = mappings[measureId].find(m => m.name === statisticId)
+  return `${statisticMapping.name} ${statisticMapping.title_de}  - ${measureId} ${schema[measureId].name}`
 }
 
 const statisticsIndex = flexsearch.create()
 Object.keys(schema).forEach(key => {
   mappings[key].forEach(mapping => {
-    const identifier = `${mapping.name}${key}`
+    const identifier = `${mapping.name}:${key}`
     statisticsIndex.add(identifier, getLabel(identifier))
   })
 })
