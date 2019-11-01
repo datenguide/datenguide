@@ -36,7 +36,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const DataTable = ({ regions, statistics }) => {
+const DataTable = ({ regions, measures }) => {
   const classes = useStyles()
   const client = useContext(ClientContext)
 
@@ -48,25 +48,25 @@ const DataTable = ({ regions, statistics }) => {
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true)
-      // TODO support more than 1 statistic
-      const statistic = Object.values(statistics)[0]
-      const query = getQuery(regions, statistic)
+      // TODO support more than 1 measure
+      const measure = Object.values(measures)[0]
+      const query = getQuery(regions, measure)
       const { data } = await client.request({ query: print(query) })
-      const rowData = convertToLongFormat(data, statistic.attributeCode) || []
+      const rowData = convertToLongFormat(data, measure.name) || []
       setData(rowData)
       setLoading(false)
     }
 
-    if (Object.keys(statistics).length > 0 && regions.length > 0) {
+    if (Object.keys(measures).length > 0 && regions.length > 0) {
       fetchData()
     } else {
       setData([])
     }
-  }, [regions, statistics])
+  }, [regions, measures])
 
-  // TODO support more than 1 statistic
+  // TODO support more than 1 measure
   const args =
-    Object.keys(statistics).length > 0 ? Object.values(statistics)[0].args : []
+    Object.keys(measures).length > 0 ? Object.values(measures)[0].args : []
 
   const columnDefs = [
     {
@@ -161,7 +161,7 @@ const DataTable = ({ regions, statistics }) => {
 
 DataTable.propTypes = {
   regions: PropTypes.arrayOf(PropTypes.string),
-  statistics: PropTypes.object
+  measures: PropTypes.object
 }
 
 export default DataTable

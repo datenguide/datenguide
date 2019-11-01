@@ -1,29 +1,30 @@
 import gql from 'graphql-tag'
 
-const getQuery = (regions, statistics) => {
-  const { statisticCode, attributeCode, args } = statistics
+// TODO replace with tabular API
+const getQuery = (regions, measure) => {
+  const { name, statistic_name, dimensions} = measure
 
-  const statisticsExpression = `statistics: [R${statisticCode}]`
+  const statisticsExpression = `statistics: [R${statistic_name}]`
 
-  const selectedArgs = args.filter(arg => arg.selected.length > 0 && arg.active)
+  const selectedDimensions = dimensions.filter(dim => dim.selected.length > 0 && dim.active)
 
-  const valueAttributeArgumentsExpression = selectedArgs.map(
+  const dimensionExpression = selectedDimensions.map(
     arg => `${arg.value}:[${arg.selected.join(',')}]`
   )
 
-  const argumentsExpression = `(${valueAttributeArgumentsExpression
+  const argumentsExpression = `(${dimensionExpression
     .concat(statisticsExpression)
     .join(',')})`
 
-  const valueAttributeFieldSelections = selectedArgs
-    .map(arg => arg.value)
+  const valueAttributeFieldSelections = selectedDimensions
+    .map(dim => dim.value)
     .join('\n')
 
   const regionToQuery = region => `
    region_${region}: region(id: "${region}") {
             id
             name
-            ${attributeCode}${argumentsExpression}{
+            ${name}${argumentsExpression}{
                 year
                 value
                 ${valueAttributeFieldSelections}
@@ -32,7 +33,7 @@ const getQuery = (regions, statistics) => {
 `
 
   const regionsToQuery = regions =>
-    regions.map(region => regionToQuery(region.value)).join('\n')
+    regions.map(region => regionToQuery(region.id)).join('\n')
 
   const query = `
     {

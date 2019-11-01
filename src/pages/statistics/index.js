@@ -69,7 +69,7 @@ const Detail = ({ parsedArgs }) => {
       }
     >
       <main className={classes.content}>
-        {/*<DataTable regions={regions} statistics={statistics} />*/}
+        <DataTable regions={regions} measures={measures} />
       </main>
 
       <Snackbar
