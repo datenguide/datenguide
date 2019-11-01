@@ -17,31 +17,6 @@ team:
     role: Software Engineer
     url: https://twitter.com/crijke
     image: /team/rijke.jpg
-tools:
-  - slug: graphql
-    title: GraphQL API
-    author:
-      name: Datenguide
-      url: https://datengui.de
-    desc: Über diese API kannst du mit einem Tool deiner Wahl auf die Daten der amtlichen Statistik zugreifen.
-    action: Zum Repository
-    url: https://github.com/datenguide/datenguide-api
-  - slug: rlang
-    author:
-      name: CorrelAid
-      url: https://correlaid.org
-    title: Datenguide für R
-    desc: Mit dem DatenguideR-Package kannst du direkt aus R auf die Daten der Datenguide-API zugreifen.
-    action: Zum Repository
-    url: https://github.com/CorrelAid/datenguideR
-  - slug: python
-    author:
-      name: CorrelAid
-      url: https://correlaid.org
-    title: Datenguide für Python
-    desc: Dieses Python-Package stellt Daten aus der Datenguide-API als Pandas DataFrames zur Verfügung.
-    action: Zum Repository
-    url: https://github.com/CorrelAid/datenguide-python
 ---
 
 import Grid from '@material-ui/core/Grid'
@@ -52,6 +27,7 @@ import DefaultLayout from '../../layouts/Default'
 import BodyText from '../../components/BodyText'
 import Tools from '../../components/Tools'
 import Team from '../../components/Team'
+import Funders from '../../components/Funders'
 
 <DefaultLayout>
 
@@ -97,10 +73,8 @@ Unsere Plattform befindet sich noch in der Entwicklung aber einige technische Ko
 
 Die Datengrundlage für unsere Arbeit bildet die offizielle Veröffentlichung der Regionalstatistik der Statistischen Ämter, die wir automatisiert herunterladen und aufbereiten. Diese technische Basis haben wir 2018 im Rahmen einer Förderung durch den [Prototype Fund](https://prototypefund.de) erarbeitet. Momentan arbeiten wir mit einer Förderung des [MIZ Babelsberg](https://miz-babelsberg.de) an der Entwicklung der Online-Plattform und an Fallstudien, die wir zusammen mit Medienpartnern umsetzen. 2018 wurden wir außerdem durch ein [Grow-Stipendium](https://netzwerkrecherche.org/ziele/gemeinnuetziger-journalismus/grow-stipendien/) von Netzwerk Recherche und der Schöpflin Stiftung gefördert.
 
-## Förderer
+<Funders />
 
 </BodyText>
-
-[LOGOS]
 
 </DefaultLayout>
