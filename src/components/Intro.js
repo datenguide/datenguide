@@ -89,7 +89,7 @@ export default function Intro({ children, features }) {
       <Grid container direction="row" justify="center" alignItems="center">
         <Grid item md={6} className={classes.main}>
           {children}
-          <Link href="/about">
+          <Link href="/info">
             <Button variant="outlined" color="primary">
               Mehr über Datenguide
             </Button>
