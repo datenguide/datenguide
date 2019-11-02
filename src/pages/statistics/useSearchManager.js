@@ -186,7 +186,9 @@ const useSearchManager = ids => {
         dispatch(actions.initializeMeasures(schema.data.measures))
       }
     }
-    fetch()
+    if (ids.length > 0) {
+      fetch()
+    }
   }, [ids])
 
   return [

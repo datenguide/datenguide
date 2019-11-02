@@ -87,7 +87,7 @@ const Detail = ({ parsedArgs }) => {
 }
 
 Detail.propTypes = {
-  parsedArgs: PropTypes.object.isRequired
+  parsedArgs: PropTypes.arrayOf(PropTypes.object).isRequired
 }
 
 Detail.getInitialProps = async function({ query }) {

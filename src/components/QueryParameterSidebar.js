@@ -80,7 +80,7 @@ QueryParameterSidebar.propTypes = {
   regions: PropTypes.array.isRequired,
   measures: PropTypes.array.isRequired,
   loadRegionOptions: PropTypes.func.isRequired,
-  loadStatisticsOptions: PropTypes.func.isRequired,
+  loadMeasureOptions: PropTypes.func.isRequired,
   dispatch: PropTypes.func.isRequired,
   actions: PropTypes.object.isRequired
 }
