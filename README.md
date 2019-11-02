@@ -49,5 +49,3 @@ Datenguide is an open data project built on open source software. The Datenguide
 Datenguide received funding from [MIZ Babelsberg](https://miz-babelsberg.de) and the [Prototype Fund](https://prototypefund.de), a funding program by Open Knowledge Germany and the German Federal Ministry of Education and Research.
 
 In 2018, Datenguide participated in the [Mozilla Open Leaders](https://foundation.mozilla.org/en/opportunity/mozilla-open-leaders/) program and received support through a [stipend](https://netzwerkrecherche.org/ziele/gemeinnuetziger-journalismus/grow-stipendien/) from Netzwerk Recherche and the Schöpflin Foundation.
-
-The open canvas, which can be found in this repo's [`docs`](https://github.com/datenguide/datenguide/blob/master/docs/) folder is built using the Jekyll static site generator. It uses a project structure borrowed from [deimidis/privacy-journalists](https://github.com/deimidis/privacy-journalists), a collection of privacy related tutorials for journalists, published under [Mozilla Public License](https://github.com/datenguide/datenguide/blob/master/docs/LICENSE).
