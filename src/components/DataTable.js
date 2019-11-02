@@ -64,10 +64,6 @@ const DataTable = ({ regions, measures }) => {
     }
   }, [regions, measures])
 
-  // TODO support more than 1 measure
-  const args =
-    Object.keys(measures).length > 0 ? Object.values(measures)[0].args : []
-
   const columnDefs = [
     {
       headerName: 'Region ID',
@@ -86,12 +82,12 @@ const DataTable = ({ regions, measures }) => {
       field: 'value'
     }
   ].concat(
-    (args &&
-      args
-        .filter(a => a.selected.length !== 0 && a.active)
-        .map(a => ({
-          headerName: a.label,
-          field: a.value
+    (measures && measures.length === 1 &&  // TODO support more than one measure
+      measures[0].dimensions
+        .filter(m => m.selected.length !== 0 && m.active)
+        .map(m => ({
+          headerName: m.title_de,
+          field: m.name
         }))) ||
       []
   )

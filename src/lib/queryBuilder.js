@@ -9,7 +9,7 @@ const getQuery = (regions, measure) => {
   const selectedDimensions = dimensions.filter(dim => dim.selected.length > 0 && dim.active)
 
   const dimensionExpression = selectedDimensions.map(
-    arg => `${arg.value}:[${arg.selected.join(',')}]`
+    arg => `${arg.name}:[${arg.selected.join(',')}]`
   )
 
   const argumentsExpression = `(${dimensionExpression
@@ -17,7 +17,7 @@ const getQuery = (regions, measure) => {
     .join(',')})`
 
   const valueAttributeFieldSelections = selectedDimensions
-    .map(dim => dim.value)
+    .map(dim => dim.name)
     .join('\n')
 
   const regionToQuery = region => `
@@ -40,6 +40,9 @@ const getQuery = (regions, measure) => {
        ${regionsToQuery(regions)}
     }
 `
+
+  console.log('query', query);
+
 
   return gql`
     ${query}
