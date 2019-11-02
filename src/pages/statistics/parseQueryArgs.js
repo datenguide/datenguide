@@ -10,7 +10,7 @@ export const parseQueryArgs = queryArgs => {
     return []
   }
   const data = _.isArray(queryArgs.data) ? queryArgs.data : [queryArgs.data]
-  return data.map(statistic => {
+  const measures = data.map(statistic => {
     const match = statistic.match(statisticUrlEncoding)
     if (!match) {
       throw new Error(`invalid data attribute ${statistic}`)
@@ -27,6 +27,13 @@ export const parseQueryArgs = queryArgs => {
       dimensions
     }
   })
+
+  const regions = queryArgs.region ? queryArgs.region.split(',') : []
+
+  return {
+    measures,
+    regions
+  }
 }
 
 export default parseQueryArgs

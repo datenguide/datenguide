@@ -42,11 +42,12 @@ const loadRegionOptions = async (value = '') => {
   }))
 }
 
-const Detail = ({ parsedArgs }) => {
+const Detail = ({ initialMeasures, initialRegions }) => {
   const classes = useStyles()
 
   const [{ measures, regions, error, loading }, dispatch] = useSearchManager(
-    parsedArgs
+    initialMeasures,
+    initialRegions
   )
 
   return (
@@ -87,14 +88,16 @@ const Detail = ({ parsedArgs }) => {
 }
 
 Detail.propTypes = {
-  parsedArgs: PropTypes.arrayOf(PropTypes.object).isRequired
+  initialMeasures: PropTypes.array.isRequired,
+  initialRegions: PropTypes.array.isRequired
 }
 
 Detail.getInitialProps = async function({ query }) {
-  const parsedArgs = parseQueryArgs(query)
+  const { measures, regions } = parseQueryArgs(query)
 
   return {
-    parsedArgs
+    initialMeasures: measures,
+    initialRegions: regions
   }
 }
 

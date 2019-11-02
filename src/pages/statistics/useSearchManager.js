@@ -3,6 +3,7 @@ import { useCallback, useEffect } from 'react'
 import { useReducer } from 'reinspect'
 import { useManualQuery } from 'graphql-hooks'
 import { produce } from 'immer'
+import { getRegion } from '../api/region'
 
 const REGION_QUERY = `
 query Region($id: String!) {
@@ -14,8 +15,8 @@ query Region($id: String!) {
 `
 
 const SCHEMA_QUERY = `
-query Schema($ids: [MeasureDescription]) {
-  measures(ids: $ids) {
+query Schema($measures: [MeasureDescription]) {
+  measures(ids: $measures) {
     id
     statistic_name
     statistic_title_de
@@ -34,6 +35,7 @@ query Schema($ids: [MeasureDescription]) {
 `
 
 export const actions = createActions([
+  'initializeRegions',
   'loadRegion',
   'addRegion',
   'removeRegion',
@@ -66,13 +68,17 @@ const getRegionStateObject = regionId => {
   // const region = getRegion(regionId)
 }
 
-const useSearchManager = ids => {
+const useSearchManager = (measures, regions) => {
   const [fetchSchema] = useManualQuery(SCHEMA_QUERY, {
     variables: {
-      ids
+      measures
     }
   })
-  const [fetchRegion] = useManualQuery(REGION_QUERY)
+  const [fetchRegion] = useManualQuery(REGION_QUERY, {
+    variables: {
+      regions
+    }
+  })
 
   const reducer = (state, action) => {
     switch (action.type) {
@@ -83,12 +89,19 @@ const useSearchManager = ids => {
         state.measures = measureSchemaListToState(action.payload)
         state.loading = false
         return state
+      case 'initializeRegions':
+        // TODO transform to state object
+        state.regions = action.payload
+        state.loading = false
+        return state
       case 'addRegion':
         // TODO transform to state object
-        // const regionId = action.payload.value
-        // state.regions[regionId] = getRegionStateObject(regionId)
-        state.regions[action.payload.id] = action.payload
-        state.loading = false
+        if (state.regions[action.payload.id]) {
+          state.error = 'Region wurde bereits ausgewählt'
+        } else {
+          state.regions[action.payload.id] = action.payload
+          state.loading = false
+        }
         return state
       case 'removeRegion':
         delete state.regions[action.payload]
@@ -133,7 +146,7 @@ const useSearchManager = ids => {
           dispatch(actions.setLoading())
           const schema = await fetchSchema({
             variables: {
-              ids: [{ statisticId, measureId }]
+              measures: [{ statisticId, measureId }]
             }
           })
           if (schema.error) {
@@ -179,17 +192,34 @@ const useSearchManager = ids => {
   useEffect(() => {
     const fetch = async () => {
       dispatch(actions.setLoading())
-      const schema = await fetchSchema()
-      if (schema.error) {
-        dispatch(actions.setError(JSON.stringify(schema.error))) // TODO better error handling
+      const result = await fetchSchema()
+      if (result.error) {
+        dispatch(actions.setError(JSON.stringify(result.error))) // TODO better error handling
       } else {
-        dispatch(actions.initializeMeasures(schema.data.measures))
+        dispatch(actions.initializeMeasures(result.data.measures))
       }
     }
-    if (ids.length > 0) {
+    if (measures.length > 0) {
       fetch()
     }
-  }, [ids])
+  }, [measures])
+
+  useEffect(() => {
+    const fetch = async () => {
+      // TODO use proper API
+      const result = regions
+        .map(id => getRegion(id))
+        .reduce((acc, curr) => {
+          acc[curr.id] = curr
+          return acc
+        }, {})
+      dispatch(actions.initializeRegions(result))
+    }
+
+    if (regions.length > 0) {
+      fetch(regions)
+    }
+  }, [regions])
 
   return [
     {
