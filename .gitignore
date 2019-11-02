@@ -3,7 +3,9 @@ _site
 .jekyll-metadata
 .next
 .mdx-data
+.DS_Store
 dist
 docs/vendor
 docs/.bundle
 node_modules
+
