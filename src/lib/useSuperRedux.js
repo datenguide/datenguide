@@ -34,7 +34,18 @@ export const useSuperActions = (syncActions, asyncActions) => {
   )
 }
 
-export const useSuperReducer = (reducer, initialState, id) => {
+export const useSuperReducer = (reducers, initialState, id) => {
+
+  const reducer = useCallback(
+    (state, action) => {
+      if (!reducers[action.type]) {
+        throw new Error(`unknown action ${action.type}`)
+      }
+      return reducers[action.type](state, action)
+    },
+    [reducers]
+  )
+
   const cachedImmerReducer = useCallback(produce(reducer), [reducer])
 
   const [reducerState, setReducerState] = useState(initialState, id)
@@ -55,15 +66,9 @@ export const useSuperReducer = (reducer, initialState, id) => {
   return [reducerState, dispatchWithSideEffects]
 }
 
-const useSuperRedux = (
-  syncActions,
-  asyncActions,
-  reducer,
-  initialState,
-  id
-) => {
-  const actions = useSuperActions(syncActions, asyncActions)
-  const [state, dispatch] = useSuperReducer(reducer, initialState, id)
+const useSuperRedux = (asyncActions, reducers, initialState, id) => {
+  const actions = useSuperActions(Object.keys(reducers), asyncActions)
+  const [state, dispatch] = useSuperReducer(reducers, initialState, id)
   return [state, dispatch, actions]
 }
 

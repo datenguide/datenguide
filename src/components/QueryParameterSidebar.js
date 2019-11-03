@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import AutocompleteSearchField from './AutocompleteSearchField'
 import RegionSearchParameterCard from './RegionSearchParameterCard'
-import StatisticsSearchParameterCard from './StatisticSearchParameterCard'
+import StatisticsSearchParameterCard from './MeasureSearchParameterCard'
 import { makeStyles } from '@material-ui/core'
 
 const useStyles = makeStyles(theme => ({

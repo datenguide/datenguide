@@ -4,7 +4,7 @@ import Router from 'next/router'
 import { camelizeKeys } from 'humps'
 
 import { getRegion } from '../api/region'
-import useSuperRedux from './useSuperRedux'
+import useSuperRedux from '../../lib/useSuperRedux'
 
 const REGION_QUERY = `
 query Region($id: String!) {
@@ -59,18 +59,6 @@ const measureSchemaListToState = measureList =>
 const useSearchManager = (initialQuery, initialMeasures, initialRegions) => {
   const [fetchSchema] = useManualQuery(SCHEMA_QUERY)
   const [fetchRegion] = useManualQuery(REGION_QUERY)
-
-  const syncActions = [
-    'initializeRegions',
-    'addRegion',
-    'removeRegion',
-    'initializeMeasures',
-    'addMeasure',
-    'removeMeasure',
-    'updateDimension',
-    'setLoading',
-    'setError'
-  ]
 
   const asyncActions = {
     syncUrl: () => async (dispatch, getState) => {
@@ -128,62 +116,64 @@ const useSearchManager = (initialQuery, initialMeasures, initialRegions) => {
     }
   }
 
-  const reducer = (state, action) => {
-    switch (action.type) {
-      case 'setLoading':
-        state.loading = true
-        return state
-      case 'initializeMeasures':
-        state.measures = measureSchemaListToState(action.payload)
+  const reducers = {
+    setLoading: state => {
+      state.loading = true
+      return state
+    },
+    initializeMeasures: (state, action) => {
+      state.measures = measureSchemaListToState(action.payload)
+      state.loading = false
+      return state
+    },
+    initializeRegions: (state, action) => {
+      // TODO transform to state object
+      state.regions = action.payload
+      state.loading = false
+      return state
+    },
+    addRegion: (state, action) => {
+      // TODO transform to state object
+      if (state.regions[action.payload.id]) {
+        state.error = 'Region wurde bereits ausgewählt'
+      } else {
+        state.regions[action.payload.id] = action.payload
         state.loading = false
-        return state
-      case 'initializeRegions':
-        // TODO transform to state object
-        state.regions = action.payload
-        state.loading = false
-        return state
-      case 'addRegion':
-        // TODO transform to state object
-        if (state.regions[action.payload.id]) {
-          state.error = 'Region wurde bereits ausgewählt'
-        } else {
-          state.regions[action.payload.id] = action.payload
-          state.loading = false
-        }
-        return state
-      case 'removeRegion':
-        delete state.regions[action.payload]
-        return state
-      case 'addMeasure':
-        if (state.measures[action.payload.id]) {
-          state.error = 'Statistik wurde bereits ausgewählt'
-        } else {
-          state.measures[action.payload.id] = measureSchemaToState(
-            action.payload
-          )
-        }
-        state.loading = false
-        return state
-      case 'removeMeasure':
-        delete state.measures[action.payload]
-        return state
-      case 'updateDimension': {
-        const { id, argCode, diff } = action.payload
-        state.measures[id].dimensions = state.measures[id].dimensions.map(dim =>
-          dim.name === argCode
-            ? {
-                ...dim,
-                ...diff
-              }
-            : dim
-        )
-        return state
       }
-      case 'setError':
-        state.error = action.payload
-        return state
-      default:
-        throw new Error(`unknown action ${action.type}`)
+      return state
+    },
+    removeRegion: (state, action) => {
+      delete state.regions[action.payload]
+      return state
+    },
+    addMeasure: (state, action) => {
+      if (state.measures[action.payload.id]) {
+        state.error = 'Statistik wurde bereits ausgewählt'
+      } else {
+        state.measures[action.payload.id] = measureSchemaToState(action.payload)
+      }
+      state.loading = false
+      return state
+    },
+    removeMeasure: (state, action) => {
+      delete state.measures[action.payload]
+      return state
+    },
+    updateDimension: (state, action) => {
+      const { id, argCode, diff } = action.payload
+      state.measures[id].dimensions = state.measures[id].dimensions.map(dim =>
+        dim.name === argCode
+          ? {
+              ...dim,
+              ...diff
+            }
+          : dim
+      )
+      return state
+    },
+    setError: (state, action) => {
+      state.error = action.payload
+      return state
     }
   }
 
@@ -196,9 +186,8 @@ const useSearchManager = (initialQuery, initialMeasures, initialRegions) => {
   }
 
   const [state, dispatch, actions] = useSuperRedux(
-    syncActions,
     asyncActions,
-    reducer,
+    reducers,
     initialState,
     'searchmanager'
   )
