@@ -51,7 +51,7 @@ const measureToState = (dimensionSelection, schema) => ({
     // selected values or all
     selected: getSelectedValues(dimensionSelection, dim),
     values: dim.values.map(v => ({ value: v.name, label: v.title_de })),
-    active: dimensionSelection[dim.name]
+    active: !!dimensionSelection[dim.name]
   }))
 })
 
