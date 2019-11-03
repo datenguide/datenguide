@@ -63,8 +63,8 @@ const measureListToState = (dimensionSelection, schema) => {
 }
 
 // TODO maybe move this up to query string parser to not parse strings here
-const getDimensionSelection = measures => {
-  return measures.reduce((acc, curr) => {
+const getDimensionSelection = measures =>
+  measures.reduce((acc, curr) => {
     acc[`${curr.statisticId}:${curr.measureId}`] = curr.dimensions
       .split(',')
       .reduce((acc, curr) => {
@@ -74,7 +74,6 @@ const getDimensionSelection = measures => {
       }, {})
     return acc
   }, {})
-}
 
 // TODO
 // const getRegionStateObject = regionId => {
@@ -193,9 +192,9 @@ const useSearchManager = (initialMeasures, initialRegions) => {
         measure.dimensions = measure.dimensions.map(dim =>
           dim.name === argCode
             ? {
-              ...dim,
-              ...diff
-            }
+                ...dim,
+                ...diff
+              }
             : dim
         )
         return state
