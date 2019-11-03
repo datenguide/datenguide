@@ -19,7 +19,7 @@ export const queryArgsToState = queryArgs => {
     if (!match) {
       throw new Error(`invalid data attribute ${statistic}`)
     }
-    const [, statisticId, measureId, , dimensions = ''] = statistic.match(
+    const [, statisticId, measureId, , dimensions] = statistic.match(
       statisticUrlEncoding
     )
     if (!statisticId || !measureId) {

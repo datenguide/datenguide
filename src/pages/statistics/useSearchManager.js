@@ -37,27 +37,29 @@ query Schema($measures: [MeasureDescription]) {
 }
 `
 
-const getSelectedValues = (dimensionSelection, dim) => {
-  const selection = dimensionSelection[dim.name]
+const getSelectedValues = (dim, dimensionSelection) => {
+  const selection = (dimensionSelection && dimensionSelection[dim.name]) || []
   return selection && selection.length > 0
     ? selection
     : dim.values.map(v => v.name)
 }
 
-const measureToState = (dimensionSelection, schema) => ({
-  ...camelizeKeys(schema),
-  dimensions: schema.dimensions.map(dim => ({
-    ...camelizeKeys(dim),
-    // selected values or all
-    selected: getSelectedValues(dimensionSelection, dim),
-    values: dim.values.map(v => ({ value: v.name, label: v.title_de })),
-    active: !!dimensionSelection[dim.name]
-  }))
-})
+const measureToState = (schema, dimensionSelection) => {
+  return {
+    ...camelizeKeys(schema),
+    dimensions: schema.dimensions.map(dim => ({
+      ...camelizeKeys(dim),
+      // selected values or all
+      selected: getSelectedValues(dim, dimensionSelection),
+      values: dim.values.map(v => ({ value: v.name, label: v.title_de })),
+      active: dimensionSelection && !!dimensionSelection[dim.name]
+    }))
+  }
+}
 
-const measureListToState = (dimensionSelection, schema) => {
+const measureListToState = (schema, dimensionSelection) => {
   return schema.reduce((acc, curr) => {
-    acc[curr.id] = measureToState(dimensionSelection[curr.id], curr)
+    acc[curr.id] = measureToState(curr, dimensionSelection[curr.id])
     return acc
   }, {})
 }
@@ -65,9 +67,9 @@ const measureListToState = (dimensionSelection, schema) => {
 // TODO maybe move this up to query string parser to not parse strings here
 const getDimensionSelection = measures =>
   measures.reduce((acc, curr) => {
-    acc[`${curr.statisticId}:${curr.measureId}`] = curr.dimensions
-      .split(',')
-      .reduce((acc, curr) => {
+    acc[`${curr.statisticId}:${curr.measureId}`] =
+      curr.dimensions &&
+      curr.dimensions.split(',').reduce((acc, curr) => {
         const [name, selectedValues] = curr.split(':')
         acc[name] = selectedValues ? selectedValues.split('|') : []
         return acc
@@ -144,9 +146,10 @@ const useSearchManager = (initialMeasures, initialRegions) => {
         return state
       },
       initializeMeasures: (state, action) => {
-        const { dimensionSelection, schema } = action.payload
+        const { schema, dimensionSelection } = action.payload
+        debugger
 
-        state.measures = measureListToState(dimensionSelection, schema)
+        state.measures = measureListToState(schema, dimensionSelection)
         state.loading = false
         return state
       },
@@ -174,10 +177,7 @@ const useSearchManager = (initialMeasures, initialRegions) => {
         if (state.measures[action.payload.id]) {
           state.error = 'Statistik wurde bereits ausgewählt'
         } else {
-          state.measures[action.payload.id] = measureToState(
-            null,
-            action.payload
-          )
+          state.measures[action.payload.id] = measureToState(action.payload)
         }
         state.loading = false
         return state
@@ -234,6 +234,7 @@ const useSearchManager = (initialMeasures, initialRegions) => {
       if (result.error) {
         dispatch(actions.setError(JSON.stringify(result.error))) // TODO better error handling
       } else {
+        const d = getDimensionSelection(initialMeasures)
         dispatch(
           actions.initializeMeasures({
             dimensionSelection: getDimensionSelection(initialMeasures),
