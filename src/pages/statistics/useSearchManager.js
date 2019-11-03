@@ -65,7 +65,7 @@ const useSearchManager = (initialQuery, initialMeasures, initialRegions) => {
     'initializeMeasures',
     'addMeasure',
     'removeMeasure',
-    'setDimension',
+    'updateDimension',
     'setLoading',
     'setError'
   ]
