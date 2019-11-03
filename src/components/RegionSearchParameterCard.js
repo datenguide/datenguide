@@ -30,12 +30,12 @@ const RegionSearchParameterCard = ({ region, onClose }) => {
     <Card className={styles.root}>
       <CardHeader
         action={
-          <IconButton aria-label="settings">
-            <CloseIcon onClick={onClose} />
+          <IconButton aria-label="settings" onClick={onClose}>
+            <CloseIcon />
           </IconButton>
         }
         title={region.name}
-        // TODO 
+        // TODO
         // subheader={region.value}
       />
       <CardContent>

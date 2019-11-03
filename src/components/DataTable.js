@@ -156,7 +156,7 @@ const DataTable = ({ regions, measures }) => {
 }
 
 DataTable.propTypes = {
-  regions: PropTypes.arrayOf(PropTypes.string),
+  regions: PropTypes.arrayOf(PropTypes.object),
   measures: PropTypes.arrayOf(PropTypes.object),
 }
 

@@ -76,10 +76,10 @@ const useSearchManager = (initialQuery, initialMeasures, initialRegions) => {
           .join(','),
         data: Object.values(getState().measures).map(m => m.id)
       }
-      // Router.Router.push({
-      //   pathname: '/statistics',
-      //   query: newQuery
-      // })
+      Router.push({
+        pathname: '/statistics',
+        query: newQuery
+      })
     },
     loadMeasure: id => async dispatch => {
       const [statisticId, measureId] = id.split(':')

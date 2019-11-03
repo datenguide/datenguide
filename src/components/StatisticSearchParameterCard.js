@@ -55,8 +55,8 @@ const StatisticSearchParameterCard = ({
     <Card className={styles.root}>
       <CardHeader
         action={
-          <IconButton aria-label="settings">
-            <CloseIcon onClick={onClose} />
+          <IconButton aria-label="settings" onClick={onClose}>
+            <CloseIcon />
           </IconButton>
         }
         title={`${name} - ${title_de}`}
