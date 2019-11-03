@@ -38,7 +38,7 @@ query Schema($measures: [MeasureDescription]) {
 const measureSchemaToState = measure => ({
   ...camelizeKeys(measure),
   dimensions: measure.dimensions.map(dim => ({
-    ...dim,
+    ...camelizeKeys(dim),
     selected: dim.values.map(v => v.name),
     values: dim.values.map(v => ({ value: v.name, label: v.title_de })),
     active: false
@@ -172,9 +172,9 @@ const useSearchManager = (initialQuery, initialMeasures, initialRegions) => {
         state.measures[id].dimensions = state.measures[id].dimensions.map(dim =>
           dim.name === argCode
             ? {
-              ...dim,
-              ...diff
-            }
+                ...dim,
+                ...diff
+              }
             : dim
         )
         return state

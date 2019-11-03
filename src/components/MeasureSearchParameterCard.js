@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const StatisticSearchParameterCard = ({
+const MeasureSearchParameterCard = ({
   statistic,
   onClose,
   onArgumentChange
@@ -67,7 +67,7 @@ const StatisticSearchParameterCard = ({
           <DimensionSelect
             key={dim.name}
             name={dim.name}
-            label={dim.title_de}
+            label={dim.titleDe}
             value={dim.selected}
             options={dim.values}
             active={dim.active}
@@ -80,10 +80,10 @@ const StatisticSearchParameterCard = ({
   )
 }
 
-StatisticSearchParameterCard.propTypes = {
+MeasureSearchParameterCard.propTypes = {
   statistic: PropTypes.object.isRequired,
   onClose: PropTypes.func.isRequired,
   onArgumentChange: PropTypes.func.isRequired
 }
 
-export default StatisticSearchParameterCard
+export default MeasureSearchParameterCard
