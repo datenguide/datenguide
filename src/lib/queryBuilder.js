@@ -41,8 +41,7 @@ const getQuery = (regions, measure) => {
     }
 `
 
-  console.log('query', query);
-
+  // console.log('query', query);
 
   return gql`
     ${query}

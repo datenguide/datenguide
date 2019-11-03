@@ -8,7 +8,7 @@ import DrawerLayout from '../../layouts/Drawer'
 import DataTable from '../../components/DataTable'
 import QueryParameterSidebar from '../../components/QueryParameterSidebar'
 import parseQueryArgs from './parseQueryArgs'
-import useSearchManager, { actions } from './useSearchManager'
+import useSearchManager from './useSearchManager'
 // import LinearProgress from '@material-ui/core/LinearProgress'
 
 const useStyles = makeStyles(theme => ({
@@ -46,11 +46,13 @@ const loadRegionOptions = async (value = '') => {
 const Detail = ({ query, initialMeasures, initialRegions }) => {
   const classes = useStyles()
 
-  const [{ measures, regions, error, loading }, dispatch] = useSearchManager(
+  const [state, dispatch, actions] = useSearchManager(
     query,
     initialMeasures,
     initialRegions
   )
+
+  const { measures, regions, error, loading } = state
 
   return (
     <DrawerLayout
