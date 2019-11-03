@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 
 import { makeStyles } from '@material-ui/core/styles'
 import Snackbar from '@material-ui/core/Snackbar'
+
 import DrawerLayout from '../../layouts/Drawer'
 import DataTable from '../../components/DataTable'
 import QueryParameterSidebar from '../../components/QueryParameterSidebar'
@@ -42,10 +43,11 @@ const loadRegionOptions = async (value = '') => {
   }))
 }
 
-const Detail = ({ initialMeasures, initialRegions }) => {
+const Detail = ({ query, initialMeasures, initialRegions }) => {
   const classes = useStyles()
 
   const [{ measures, regions, error, loading }, dispatch] = useSearchManager(
+    query,
     initialMeasures,
     initialRegions
   )
@@ -96,6 +98,7 @@ Detail.getInitialProps = async function({ query }) {
   const { measures, regions } = parseQueryArgs(query)
 
   return {
+    query,
     initialMeasures: measures,
     initialRegions: regions
   }
