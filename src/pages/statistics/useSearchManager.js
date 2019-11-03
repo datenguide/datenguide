@@ -1,5 +1,7 @@
 import { useEffect } from 'react'
 import { useManualQuery } from 'graphql-hooks'
+import Router from 'next/router'
+
 import { getRegion } from '../api/region'
 import useSuperRedux from './useSuperRedux'
 
@@ -63,7 +65,7 @@ const useSearchManager = (initialQuery, initialMeasures, initialRegions) => {
     'initializeMeasures',
     'addMeasure',
     'removeMeasure',
-    'updateDimension',
+    'setDimension',
     'setLoading',
     'setError'
   ]
@@ -93,6 +95,7 @@ const useSearchManager = (initialQuery, initialMeasures, initialRegions) => {
         dispatch(actions.setError(JSON.stringify(schema.error))) // TODO better error handling
       } else {
         dispatch(actions.addMeasure(schema.data.measures[0]))
+        dispatch(actions.syncUrl())
       }
     },
     loadRegion: id => async dispatch => {
@@ -108,6 +111,18 @@ const useSearchManager = (initialQuery, initialMeasures, initialRegions) => {
         dispatch(actions.addRegion(region.data.region))
         dispatch(actions.syncUrl())
       }
+    },
+    closeRegion: id => async dispatch => {
+      dispatch(actions.removeRegion(id))
+      dispatch(actions.syncUrl())
+    },
+    closeMeasure: id => async dispatch => {
+      dispatch(actions.removeMeasure(id))
+      dispatch(actions.syncUrl())
+    },
+    changeDimensionSelection: payload => async dispatch => {
+      dispatch(actions.updateDimension(payload))
+      dispatch(actions.syncUrl())
     }
   }
 

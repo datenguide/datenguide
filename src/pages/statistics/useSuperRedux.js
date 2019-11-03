@@ -11,7 +11,7 @@ import { useState } from 'reinspect'
 // - thunk dispatch for side effects
 // - nested async dispatch: thunks can be dispatched from inside thunks
 // - immer for state changes written in mutating style
-// - redux dev tools
+// - partial redux dev tools support
 // - conveniently define sync and async action creators
 //
 

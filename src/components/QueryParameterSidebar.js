@@ -28,11 +28,11 @@ const QueryParameterSidebar = ({
   }
 
   const handleRemoveMeausre = statisticsId => () => {
-    dispatch(actions.removeMeasure(statisticsId))
+    dispatch(actions.closeMeasure(statisticsId))
   }
 
   const handleChangeDimension = value => {
-    dispatch(actions.updateDimension(value))
+    dispatch(actions.changeDimensionSelection(value))
   }
 
   const handleLoadRegion = region => {
@@ -40,7 +40,7 @@ const QueryParameterSidebar = ({
   }
 
   const handleRemoveRegion = value => () => {
-    dispatch(actions.removeRegion(value))
+    dispatch(actions.closeRegion(value))
   }
 
   return (
