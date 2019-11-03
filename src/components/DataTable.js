@@ -82,7 +82,7 @@ const DataTable = ({ regions, measures }) => {
       field: 'value'
     }
   ].concat(
-    (measures && measures.length === 1 &&  // TODO support more than one measure
+    (measures && measures.length === 1 && // TODO support more than one measure
       measures[0].dimensions
         .filter(m => m.selected.length !== 0 && m.active)
         .map(m => ({
@@ -157,7 +157,7 @@ const DataTable = ({ regions, measures }) => {
 
 DataTable.propTypes = {
   regions: PropTypes.arrayOf(PropTypes.object),
-  measures: PropTypes.arrayOf(PropTypes.object),
+  measures: PropTypes.arrayOf(PropTypes.object)
 }
 
 export default DataTable

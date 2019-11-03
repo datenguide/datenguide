@@ -24,7 +24,7 @@ const useStyles = makeStyles(theme => ({
         overflow: 'hidden',
         backgroundImage: `url(${background})`,
         backgroundSize: 'cover',
-        backgroundPosition: `right 0`,
+        backgroundPosition: 'right 0',
         backgroundRepeat: 'no-repeat'
       }
     }
@@ -106,7 +106,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-function Attachments({ items }) {
+function Attachments ({ items }) {
   const classes = useStyles()
   return (
     <ul className={classes.attachments}>
@@ -121,7 +121,7 @@ function Attachments({ items }) {
   )
 }
 
-function Dates({ items }) {
+function Dates ({ items }) {
   const classes = useStyles()
   return (
     <ul className={classes.dates}>
@@ -143,7 +143,7 @@ function Dates({ items }) {
   )
 }
 
-export default function Events({ children, dates: { past, upcoming } }) {
+export default function Events ({ children, dates: { past, upcoming } }) {
   const classes = useStyles()
   return (
     <div className={classes.container}>

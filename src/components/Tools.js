@@ -95,7 +95,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function Tools({ children, features }) {
+export default function Tools ({ children, features }) {
   const classes = useStyles()
 
   return (

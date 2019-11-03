@@ -2,9 +2,9 @@ import gql from 'graphql-tag'
 
 // TODO replace with tabular API
 const getQuery = (regions, measure) => {
-  const { name, statistic_name, dimensions} = measure
+  const { name, statisticName, dimensions } = measure
 
-  const statisticsExpression = `statistics: [R${statistic_name}]`
+  const statisticsExpression = `statistics: [R${statisticName}]`
 
   const selectedDimensions = dimensions.filter(dim => dim.selected.length > 0 && dim.active)
 

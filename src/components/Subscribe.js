@@ -111,7 +111,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function Subscribe({ children }) {
+export default function Subscribe ({ children }) {
   const classes = useStyles()
   return (
     <section className={classes.root}>

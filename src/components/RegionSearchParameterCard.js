@@ -10,12 +10,6 @@ import CloseIcon from '@material-ui/icons/Close'
 import FormGroup from '@material-ui/core/FormGroup'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import Switch from '@material-ui/core/Switch'
-import FormControl from '@material-ui/core/FormControl'
-import Select from '@material-ui/core/Select'
-import Input from '@material-ui/core/Input'
-import MenuItem from '@material-ui/core/MenuItem'
-import Checkbox from '@material-ui/core/Checkbox'
-import ListItemText from '@material-ui/core/ListItemText'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -44,12 +38,12 @@ const RegionSearchParameterCard = ({ region, onClose }) => {
             control={
               <Switch
                 size="small"
-                checked={true}
+                checked
                 onChange={() => {}}
                 value={{ id: 'DG' }}
               />
             }
-            label={'Daten dieser Region'}
+            label="Daten dieser Region"
           />
         </FormGroup>
         <FormGroup row>
@@ -62,7 +56,7 @@ const RegionSearchParameterCard = ({ region, onClose }) => {
                 value={{ parent: 'DG', nuts: 2 }}
               />
             }
-            label={'Bundesländer'}
+            label="Bundesländer"
           />
         </FormGroup>
         <FormGroup row>
@@ -75,7 +69,7 @@ const RegionSearchParameterCard = ({ region, onClose }) => {
                 value={{ parent: 'DG', nuts: 3 }}
               />
             }
-            label={'Regierungsbezirke / Statistische Regionen'}
+            label="Regierungsbezirke / Statistische Regionen"
           />
         </FormGroup>
         <FormGroup row>
@@ -88,7 +82,7 @@ const RegionSearchParameterCard = ({ region, onClose }) => {
                 value={{ parent: 'DG', lau: true }}
               />
             }
-            label={'Kreise und kreisfreie Städte'}
+            label="Kreise und kreisfreie Städte"
           />
         </FormGroup>
         <FormGroup row>
@@ -98,10 +92,10 @@ const RegionSearchParameterCard = ({ region, onClose }) => {
                 size="small"
                 checked={false}
                 onChange={() => {}}
-                value={'foo'}
+                value="foo"
               />
             }
-            label={'Gemeinden'}
+            label="Gemeinden"
           />
         </FormGroup>
       </CardContent>

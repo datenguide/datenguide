@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
+import fetch from 'isomorphic-unfetch'
 
 import { makeStyles } from '@material-ui/core/styles'
 import Snackbar from '@material-ui/core/Snackbar'
@@ -9,7 +10,6 @@ import DataTable from '../../components/DataTable'
 import QueryParameterSidebar from '../../components/QueryParameterSidebar'
 import parseQueryArgs from './parseQueryArgs'
 import useSearchManager from './useSearchManager'
-// import LinearProgress from '@material-ui/core/LinearProgress'
 
 const useStyles = makeStyles(theme => ({
   main: {
@@ -52,16 +52,11 @@ const Detail = ({ query, initialMeasures, initialRegions }) => {
     initialRegions
   )
 
-  const { measures, regions, error, loading } = state
+  const { measures, regions, error } = state
 
   return (
     <DrawerLayout
       drawerContent={
-        // TODO think about loading indicator, this solution
-        // is ugly and flickery
-        // loading ? (
-        //   <LinearProgress variant="query" />
-        // ) : (
         <QueryParameterSidebar
           regions={regions}
           measures={measures}
@@ -70,7 +65,6 @@ const Detail = ({ query, initialMeasures, initialRegions }) => {
           dispatch={dispatch}
           actions={actions}
         />
-        // )
       }
     >
       <main className={classes.content}>
@@ -96,7 +90,7 @@ Detail.propTypes = {
   initialRegions: PropTypes.array.isRequired
 }
 
-Detail.getInitialProps = async function({ query }) {
+Detail.getInitialProps = async function ({ query }) {
   const { measures, regions } = parseQueryArgs(query)
 
   return {

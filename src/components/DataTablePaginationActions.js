@@ -77,4 +77,3 @@ TablePaginationActions.propTypes = {
 }
 
 export default TablePaginationActions
-

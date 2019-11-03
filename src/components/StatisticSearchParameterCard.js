@@ -24,10 +24,10 @@ const StatisticSearchParameterCard = ({
 
   const {
     id,
-    statistic_name,
-    statistic_title_de,
+    statisticName,
+    statisticTitleDe,
     name,
-    title_de,
+    titleDe,
     dimensions
   } = statistic
 
@@ -59,8 +59,8 @@ const StatisticSearchParameterCard = ({
             <CloseIcon />
           </IconButton>
         }
-        title={`${name} - ${title_de}`}
-        subheader={`${statistic_name} ${statistic_title_de}`}
+        title={`${name} - ${titleDe}`}
+        subheader={`${statisticName} ${statisticTitleDe}`}
       />
       <CardContent>
         {dimensions.map(dim => (

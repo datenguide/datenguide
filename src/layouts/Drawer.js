@@ -82,7 +82,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function BaseLayout(props) {
+export default function BaseLayout (props) {
   const classes = useStyles()
   const [open, setOpen] = React.useState(true)
 

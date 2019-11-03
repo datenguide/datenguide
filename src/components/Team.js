@@ -1,9 +1,7 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-import Container from '@material-ui/core/Container'
 import Grid from '@material-ui/core/Grid'
 import Avatar from '@material-ui/core/Avatar'
-import GithubCircle from 'mdi-material-ui/GithubCircle'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -46,7 +44,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function Team({ children, members }) {
+export default function Team ({ children, members }) {
   const classes = useStyles()
 
   return (

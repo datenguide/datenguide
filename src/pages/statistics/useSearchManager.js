@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { useManualQuery } from 'graphql-hooks'
 import Router from 'next/router'
+import { camelizeKeys } from 'humps'
 
 import { getRegion } from '../api/region'
 import useSuperRedux from './useSuperRedux'
@@ -35,7 +36,7 @@ query Schema($measures: [MeasureDescription]) {
 `
 
 const measureSchemaToState = measure => ({
-  ...measure,
+  ...camelizeKeys(measure),
   dimensions: measure.dimensions.map(dim => ({
     ...dim,
     selected: dim.values.map(v => v.name),
@@ -50,9 +51,10 @@ const measureSchemaListToState = measureList =>
     return acc
   }, {})
 
-const getRegionStateObject = regionId => {
-  // const region = getRegion(regionId)
-}
+// TODO
+// const getRegionStateObject = regionId => {
+//   // const region = getRegion(regionId)
+// }
 
 const useSearchManager = (initialQuery, initialMeasures, initialRegions) => {
   const [fetchSchema] = useManualQuery(SCHEMA_QUERY)
@@ -165,17 +167,18 @@ const useSearchManager = (initialQuery, initialMeasures, initialRegions) => {
       case 'removeMeasure':
         delete state.measures[action.payload]
         return state
-      case 'updateDimension':
+      case 'updateDimension': {
         const { id, argCode, diff } = action.payload
         state.measures[id].dimensions = state.measures[id].dimensions.map(dim =>
           dim.name === argCode
             ? {
-                ...dim,
-                ...diff
-              }
+              ...dim,
+              ...diff
+            }
             : dim
         )
         return state
+      }
       case 'setError':
         state.error = action.payload
         return state

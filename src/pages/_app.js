@@ -8,7 +8,7 @@ import withGraphQLClient from '../lib/graphql-client'
 import theme from '../theme'
 
 class _App extends App {
-  render() {
+  render () {
     const { Component, pageProps, graphQLClient } = this.props
     return (
       <StateInspector name="Datenguide">

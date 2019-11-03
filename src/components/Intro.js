@@ -82,7 +82,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function Intro({ children, features }) {
+export default function Intro ({ children, features }) {
   const classes = useStyles()
   return (
     <Container className={classes.root}>
