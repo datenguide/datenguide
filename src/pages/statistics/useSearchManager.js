@@ -2,9 +2,11 @@ import { useEffect, useMemo } from 'react'
 import { useManualQuery } from 'graphql-hooks'
 import Router from 'next/router'
 import { camelizeKeys } from 'humps'
+import _ from 'lodash'
 
 import { getRegion } from '../api/region'
 import useSuperRedux from '../../lib/useSuperRedux'
+import { stateToQueryArgs } from '../../lib/queryString'
 
 const REGION_QUERY = `
 query Region($id: String!) {
@@ -35,43 +37,60 @@ query Schema($measures: [MeasureDescription]) {
 }
 `
 
-const measureSchemaToState = measure => ({
-  ...camelizeKeys(measure),
-  dimensions: measure.dimensions.map(dim => ({
+const getSelectedValues = (dimensionSelection, dim) => {
+  const selection = dimensionSelection[dim.name]
+  return selection && selection.length > 0
+    ? selection
+    : dim.values.map(v => v.name)
+}
+
+const measureToState = (dimensionSelection, schema) => ({
+  ...camelizeKeys(schema),
+  dimensions: schema.dimensions.map(dim => ({
     ...camelizeKeys(dim),
-    selected: dim.values.map(v => v.name),
+    // selected values or all
+    selected: getSelectedValues(dimensionSelection, dim),
     values: dim.values.map(v => ({ value: v.name, label: v.title_de })),
-    active: false
+    active: dimensionSelection[dim.name]
   }))
 })
 
-const measureSchemaListToState = measureList =>
-  measureList.reduce((acc, curr) => {
-    acc[curr.id] = measureSchemaToState(curr)
+const measureListToState = (dimensionSelection, schema) => {
+  return schema.reduce((acc, curr) => {
+    acc[curr.id] = measureToState(dimensionSelection[curr.id], curr)
     return acc
   }, {})
+}
+
+// TODO maybe move this up to query string parser to not parse strings here
+const getDimensionSelection = measures => {
+  return measures.reduce((acc, curr) => {
+    acc[`${curr.statisticId}:${curr.measureId}`] = curr.dimensions
+      .split(',')
+      .reduce((acc, curr) => {
+        const [name, selectedValues] = curr.split(':')
+        acc[name] = selectedValues ? selectedValues.split('|') : []
+        return acc
+      }, {})
+    return acc
+  }, {})
+}
 
 // TODO
 // const getRegionStateObject = regionId => {
 //   // const region = getRegion(regionId)
 // }
 
-const useSearchManager = (initialQuery, initialMeasures, initialRegions) => {
+const useSearchManager = (initialMeasures, initialRegions) => {
   const [fetchSchema] = useManualQuery(SCHEMA_QUERY)
   const [fetchRegion] = useManualQuery(REGION_QUERY)
 
   const asyncActions = useMemo(
     () => ({
       syncUrl: () => async (dispatch, getState) => {
-        const newQuery = {
-          region: Object.values(getState().regions)
-            .map(r => r.id)
-            .join(','),
-          data: Object.values(getState().measures).map(m => m.id)
-        }
         Router.push({
           pathname: '/statistics',
-          query: newQuery
+          query: stateToQueryArgs(getState())
         })
       },
       loadMeasure: id => async dispatch => {
@@ -126,7 +145,9 @@ const useSearchManager = (initialQuery, initialMeasures, initialRegions) => {
         return state
       },
       initializeMeasures: (state, action) => {
-        state.measures = measureSchemaListToState(action.payload)
+        const { dimensionSelection, schema } = action.payload
+
+        state.measures = measureListToState(dimensionSelection, schema)
         state.loading = false
         return state
       },
@@ -154,7 +175,8 @@ const useSearchManager = (initialQuery, initialMeasures, initialRegions) => {
         if (state.measures[action.payload.id]) {
           state.error = 'Statistik wurde bereits ausgewählt'
         } else {
-          state.measures[action.payload.id] = measureSchemaToState(
+          state.measures[action.payload.id] = measureToState(
+            null,
             action.payload
           )
         }
@@ -167,12 +189,13 @@ const useSearchManager = (initialQuery, initialMeasures, initialRegions) => {
       },
       updateDimension: (state, action) => {
         const { id, argCode, diff } = action.payload
-        state.measures[id].dimensions = state.measures[id].dimensions.map(dim =>
+        const measure = state.measures[id]
+        measure.dimensions = measure.dimensions.map(dim =>
           dim.name === argCode
             ? {
-                ...dim,
-                ...diff
-              }
+              ...dim,
+              ...diff
+            }
             : dim
         )
         return state
@@ -189,8 +212,7 @@ const useSearchManager = (initialQuery, initialMeasures, initialRegions) => {
     measures: {},
     regions: {},
     error: null,
-    measuresLoading: true,
-    query: initialQuery
+    measuresLoading: true
   }
 
   const [state, dispatch, actions] = useSuperRedux(
@@ -205,13 +227,20 @@ const useSearchManager = (initialQuery, initialMeasures, initialRegions) => {
       dispatch(actions.setLoading())
       const result = await fetchSchema({
         variables: {
-          measures: initialMeasures
+          measures: initialMeasures.map(measure =>
+            _.pick(measure, ['statisticId', 'measureId'])
+          )
         }
       })
       if (result.error) {
         dispatch(actions.setError(JSON.stringify(result.error))) // TODO better error handling
       } else {
-        dispatch(actions.initializeMeasures(result.data.measures))
+        dispatch(
+          actions.initializeMeasures({
+            dimensionSelection: getDimensionSelection(initialMeasures),
+            schema: result.data.measures
+          })
+        )
       }
     }
     if (initialMeasures.length > 0) {

@@ -7,12 +7,13 @@ import { useState } from 'reinspect'
 
 // features:
 // - hooks all the way down
-// - plain action dispatch
-// - thunk dispatch for side effects
-// - nested async dispatch: thunks can be dispatched from inside thunks
+// - plain action dispatch (sync actions)
+// - thunk dispatch for side effects (async actions)
+// - nested async dispatch: thunks can be dispatched inside thunks
 // - immer for state changes written in mutating style
-// - partial redux dev tools support
-// - conveniently define sync and async action creators
+// - partial redux dev tools support (state is supported, TODO: support actions)
+// - accepts reducer functions object (no switch statement required)
+// - auto-generates sync action creators from reducer functions
 //
 
 export const createSyncActionCreators = actions =>
@@ -35,7 +36,6 @@ export const useSuperActions = (syncActions, asyncActions) => {
 }
 
 export const useSuperReducer = (reducers, initialState, id) => {
-
   const reducer = useCallback(
     (state, action) => {
       if (!reducers[action.type]) {

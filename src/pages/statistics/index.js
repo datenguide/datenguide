@@ -8,7 +8,7 @@ import Snackbar from '@material-ui/core/Snackbar'
 import DrawerLayout from '../../layouts/Drawer'
 import DataTable from '../../components/DataTable'
 import QueryParameterSidebar from '../../components/QueryParameterSidebar'
-import parseQueryArgs from './parseQueryArgs'
+import { queryArgsToState } from '../../lib/queryString'
 import useSearchManager from './useSearchManager'
 
 const useStyles = makeStyles(theme => ({
@@ -43,11 +43,10 @@ const loadRegionOptions = async (value = '') => {
   }))
 }
 
-const Detail = ({ query, initialMeasures, initialRegions }) => {
+const Detail = ({ initialMeasures, initialRegions }) => {
   const classes = useStyles()
 
   const [state, dispatch, actions] = useSearchManager(
-    query,
     initialMeasures,
     initialRegions
   )
@@ -90,11 +89,10 @@ Detail.propTypes = {
   initialRegions: PropTypes.array.isRequired
 }
 
-Detail.getInitialProps = async function ({ query }) {
-  const { measures, regions } = parseQueryArgs(query)
+Detail.getInitialProps = async ({ query }) => {
+  const { measures, regions } = queryArgsToState(query)
 
   return {
-    query,
     initialMeasures: measures,
     initialRegions: regions
   }

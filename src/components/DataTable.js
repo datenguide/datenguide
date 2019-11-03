@@ -86,7 +86,7 @@ const DataTable = ({ regions, measures }) => {
       measures[0].dimensions
         .filter(m => m.selected.length !== 0 && m.active)
         .map(m => ({
-          headerName: m.title_de,
+          headerName: m.titleDe,
           field: m.name
         }))) ||
       []
