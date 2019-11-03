@@ -1,5 +1,3 @@
-import { useState, useEffect } from 'react'
-import _ from 'lodash'
 
 // 1234:FOO12
 // 1234:FOO12(GES,GEN)
