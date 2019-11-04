@@ -52,7 +52,7 @@ const measureToState = (schema, dimensionSelection) => {
       // selected values or all
       selected: getSelectedValues(dim, dimensionSelection),
       values: dim.values.map(v => ({ value: v.name, label: v.title_de })),
-      active: dimensionSelection && !!dimensionSelection[dim.name]
+      active: !!(dimensionSelection && dimensionSelection[dim.name])
     }))
   }
 }
@@ -147,8 +147,6 @@ const useSearchManager = (initialMeasures, initialRegions) => {
       },
       initializeMeasures: (state, action) => {
         const { schema, dimensionSelection } = action.payload
-        debugger
-
         state.measures = measureListToState(schema, dimensionSelection)
         state.loading = false
         return state
@@ -245,6 +243,13 @@ const useSearchManager = (initialMeasures, initialRegions) => {
     }
     if (initialMeasures.length > 0) {
       fetch()
+    } else {
+      dispatch(
+        actions.initializeMeasures({
+          dimensionSelection: null,
+          schema: []
+        })
+      )
     }
   }, [initialMeasures])
 
@@ -262,6 +267,8 @@ const useSearchManager = (initialMeasures, initialRegions) => {
 
     if (initialRegions.length > 0) {
       fetch()
+    } else {
+      dispatch(actions.initializeRegions([]))
     }
   }, [initialRegions])
 
