@@ -157,7 +157,7 @@ const DataTable = ({ router, regions, measures }) => {
   // e.g. implement GraphQL API and pass query object as variables
   const url = parse(router.asPath, false)
   const tabularApiUrl =
-    url.query && window && `https://tabular.genesapi.org${url.query}`
+    url.query && `https://tabular.genesapi.org${url.query}`
 
   // TODO improve this, best would be to get text in proper format (HTML?) from server
   const renderTextWithLineBreaks = text =>

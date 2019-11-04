@@ -1,6 +1,6 @@
 // 1234:FOO12
 // 1234:FOO12(GES,GEN)
-const statisticUrlEncoding = /([1-9]+):([A-Z0-9]+)(\((.*)\))?/
+const statisticUrlEncoding = /([0-9]+):([A-Z0-9]+)(\((.*)\))?/
 
 const toArray = data => {
   if (!data) {
