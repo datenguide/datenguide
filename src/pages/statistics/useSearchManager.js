@@ -4,7 +4,7 @@ import Router from 'next/router'
 import { camelizeKeys } from 'humps'
 import _ from 'lodash'
 
-import { getRegion } from '../api/region'
+import { getNuts, getRegion } from '../api/region'
 import useSuperRedux from '../../lib/useSuperRedux'
 import { stateToQueryArgs } from '../../lib/queryString'
 
@@ -78,10 +78,12 @@ const getDimensionSelection = measures =>
     return acc
   }, {})
 
-// TODO
-// const getRegionStateObject = regionId => {
-//   // const region = getRegion(regionId)
-// }
+
+// TODO load from API
+const regionToState = region => ({
+  ...region,
+  ...getNuts(region.id)
+})
 
 const useSearchManager = (initialMeasures, initialRegions) => {
   const [fetchSchema] = useManualQuery(SCHEMA_QUERY)
@@ -163,7 +165,7 @@ const useSearchManager = (initialMeasures, initialRegions) => {
         if (state.regions[action.payload.id]) {
           state.error = 'Region wurde bereits ausgewählt'
         } else {
-          state.regions[action.payload.id] = action.payload
+          state.regions[action.payload.id] = regionToState(action.payload)
           state.loading = false
         }
         return state

@@ -39,7 +39,7 @@ const loadRegionOptions = async (value = '') => {
   return json.map(region => ({
     value: region.value,
     label: region.name,
-    description: `Bundesland, id: ${region.value}` // TODO define description, add nuts level description (Bundesland, Kreis etc)
+    description: region.value // TODO define description, add nuts level description (Bundesland, Kreis etc)
   }))
 }
 

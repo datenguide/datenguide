@@ -14,6 +14,12 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
+const nutsToText = {
+  1: 'NUTS 1 Bundesländer',
+  2: 'NUTS 2 Regierungsbezirke',
+  3: 'NUTS 3 Landkreise, Kreise, kreisfreie Städte, Stadtkreise'
+}
+
 const RegionSearchParameterCard = ({ region, onClose }) => {
   const styles = useStyles()
 
@@ -26,6 +32,7 @@ const RegionSearchParameterCard = ({ region, onClose }) => {
           </IconButton>
         }
         title={region.name}
+        subheader={nutsToText[region.nuts]}
       />
       <CardContent />
     </Card>
