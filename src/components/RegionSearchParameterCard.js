@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
 const nutsToText = {
   1: 'NUTS 1 Bundesländer',
   2: 'NUTS 2 Regierungsbezirke',
-  3: 'NUTS 3 Landkreise, Kreise, kreisfreie Städte, Stadtkreise'
+  3: 'NUTS 3 Landkreise, Kreise, kreisfreie Städte'
 }
 
 const RegionSearchParameterCard = ({ region, onClose }) => {
