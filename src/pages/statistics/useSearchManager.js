@@ -24,6 +24,7 @@ query Schema($measures: [MeasureDescription]) {
     statistic_name
     statistic_title_de
     name
+    definition_de
     title_de
     dimensions {
       name
