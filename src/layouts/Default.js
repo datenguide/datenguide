@@ -11,13 +11,13 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function DefaultLayout (props) {
+export default function DefaultLayout ({ children, meta }) {
   const classes = useStyles()
 
   return (
-    <BaseLayout>
+    <BaseLayout meta={meta}>
       <Container>
-        <div className={classes.root}>{props.children}</div>
+        <div className={classes.root}>{children}</div>
       </Container>
     </BaseLayout>
   )
