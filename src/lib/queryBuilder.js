@@ -6,10 +6,14 @@ const getQuery = (regions, measure) => {
 
   const statisticsExpression = `statistics: [R${statisticName}]`
 
-  const selectedDimensions = dimensions.filter(dim => dim.selected.length > 0 && dim.active)
+  const selectedDimensions = dimensions.filter(
+    dim => dim.selected.length > 0 && dim.active
+  )
 
   const dimensionExpression = selectedDimensions.map(
-    arg => `${arg.name}:[${arg.selected.join(',')}]`
+    // TODO replacing - with _ can (probably) be removed as soon as schemas are in sync
+    arg =>
+      `${arg.name}:[${arg.selected.map(a => a.replace(/-/g, '_')).join(',')}]`
   )
 
   const argumentsExpression = `(${dimensionExpression
