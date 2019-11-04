@@ -4,7 +4,8 @@ import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(theme => ({
   root: {
-    hyphens: 'auto'
+    hyphens: 'auto',
+    fontSize: '1.2em'
   }
 }))
 
@@ -13,7 +14,7 @@ export default function DefaultLayout (props) {
 
   return (
     <Grid container>
-      <Grid item xs={7}>
+      <Grid item xs={8}>
         <div className={classes.root}>{props.children}</div>
       </Grid>
     </Grid>
