@@ -60,7 +60,7 @@ const MeasureSearchParameterCard = ({
           </IconButton>
         }
         title={`${name} - ${titleDe}`}
-        subheader={`${statisticName} ${statisticTitleDe}`}
+        subheader={`${statisticName} – ${statisticTitleDe}`}
       />
       <CardContent>
         {dimensions.map(dim => (

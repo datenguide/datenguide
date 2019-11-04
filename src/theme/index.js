@@ -43,6 +43,11 @@ const theme = createMuiTheme({
       root: {
         background: WHITE
       }
+    },
+    MuiCardHeader: {
+      content: {
+        whiteSpace: 'normal'
+      }
     }
   },
 
