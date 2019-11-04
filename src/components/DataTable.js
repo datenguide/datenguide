@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { print } from 'graphql'
 import { ClientContext } from 'graphql-hooks'
 import parse from 'url-parse'
-import Highlight from 'react-highlight';
+import Highlight from 'react-highlight'
 
 import { makeStyles } from '@material-ui/core/styles'
 import {
@@ -154,24 +154,22 @@ const DataTable = ({ router, regions, measures }) => {
     setTabValue(newValue)
   }
 
-  const handleDownload = (format, layout) => {
-    // FIXME this is a hack, use proper API
-    // e.g. implement GraphQL API and pass query object as variables
-    const url = parse(router.asPath, false)
-    if (url.query && window) {
-      const tabularApiUrl = `https://tabular.genesapi.org${url.query}&format=${format}&layout=${layout}`
-      window.open(tabularApiUrl, '_blank')
-    }
-  }
+  // FIXME this is a hack, use proper API
+  // e.g. implement GraphQL API and pass query object as variables
+  const url = parse(router.asPath, false)
+  const tabularApiUrl =
+    url.query && window && `https://tabular.genesapi.org${url.query}`
 
   // TODO improve this, best would be to get text in proper format (HTML?) from server
   const renderTextWithLineBreaks = text =>
-    text ? text.split('\n').map((item, i) => (
-      <div key={i}>
-        {item}
-        <br />
-      </div>
-    )) : 'Keine Beschreibung vorhanden.'
+    text
+      ? text.split('\n').map((item, i) => (
+          <div key={i}>
+            {item}
+            <br />
+          </div>
+        ))
+      : 'Keine Beschreibung vorhanden.'
 
   return (
     <div className={classes.root}>
@@ -260,7 +258,8 @@ const DataTable = ({ router, regions, measures }) => {
                   color="secondary"
                   className={classes.exportButton}
                   startIcon={<InsertDriveFileIcon />}
-                  onClick={() => handleDownload('csv', 'long')}
+                  target="_blank"
+                  href={`${tabularApiUrl}&format=csv&layout=long`}
                 >
                   CSV: eine Zeile pro Wert
                 </Button>
@@ -268,7 +267,8 @@ const DataTable = ({ router, regions, measures }) => {
                   color="secondary"
                   className={classes.exportButton}
                   startIcon={<InsertDriveFileIcon />}
-                  onClick={() => handleDownload('csv', 'region')}
+                  target="_blank"
+                  href={`${tabularApiUrl}&format=csv&layout=region`}
                 >
                   CSV: eine Zeile pro Region
                 </Button>
@@ -276,7 +276,8 @@ const DataTable = ({ router, regions, measures }) => {
                   color="secondary"
                   className={classes.exportButton}
                   startIcon={<InsertDriveFileIcon />}
-                  onClick={() => handleDownload('csv', 'time')}
+                  target="_blank"
+                  href={`${tabularApiUrl}&format=csv&layout=time`}
                 >
                   CSV: eine Zeile pro Jahr
                 </Button>
@@ -284,7 +285,8 @@ const DataTable = ({ router, regions, measures }) => {
                   color="secondary"
                   className={classes.exportButton}
                   startIcon={<InsertDriveFileIcon />}
-                  onClick={() => handleDownload('json', 'long')}
+                  target="_blank"
+                  href={`${tabularApiUrl}&format=json&layout=long`}
                 >
                   JSON: Ein Objekt pro Wert
                 </Button>
@@ -292,7 +294,9 @@ const DataTable = ({ router, regions, measures }) => {
             )}
             {tabValue === 3 && measures && measures.length === 1 && (
               <div className={classes.apiTab}>
-                <Typography variant="h5">GraphQL Abfrage zu aktueller Statistik:</Typography>
+                <Typography variant="h5">
+                  GraphQL Abfrage zu aktueller Statistik:
+                </Typography>
                 <Highlight className="graphql">{graphqlQuery}</Highlight>
                 <Button
                   color="secondary"
@@ -305,7 +309,6 @@ const DataTable = ({ router, regions, measures }) => {
                   GraphQL Playground öffnen
                 </Button>
               </div>
-
             )}
           </Paper>
         </>
