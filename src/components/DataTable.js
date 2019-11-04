@@ -166,12 +166,12 @@ const DataTable = ({ router, regions, measures }) => {
 
   // TODO improve this, best would be to get text in proper format (HTML?) from server
   const renderTextWithLineBreaks = text =>
-    text.split('\n').map((item, i) => (
+    text ? text.split('\n').map((item, i) => (
       <div key={i}>
         {item}
         <br />
       </div>
-    ))
+    )) : 'Keine Beschreibung vorhanden.'
 
   return (
     <div className={classes.root}>
