@@ -85,7 +85,7 @@ const DataTable = ({ router, regions, measures }) => {
   const [loading, setLoading] = useState(false)
   const [rowsPerPage, setRowsPerPage] = useState(100)
   const [page, setPage] = useState(0)
-  const [tabValue, setTabValue] = useState(3)
+  const [tabValue, setTabValue] = useState(0)
   const [graphqlQuery, setGraphqlQuery] = useState(null)
 
   useEffect(() => {
