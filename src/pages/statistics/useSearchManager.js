@@ -175,7 +175,13 @@ const useSearchManager = (initialMeasures, initialRegions) => {
         if (state.measures[action.payload.id]) {
           state.error = 'Statistik wurde bereits ausgewählt'
         } else {
-          state.measures[action.payload.id] = measureToState(action.payload)
+          // TODO this will always replace the current measure to allow a
+          // maximum of one measure.
+          // change to this as soon as we support more than 1 measure:
+          // state.measures[action.payload.id] = measureToState(action.payload)
+          state.measures = {
+            [action.payload.id]: measureToState(action.payload)
+          }
         }
         state.loading = false
         return state
