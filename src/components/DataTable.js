@@ -42,7 +42,7 @@ const DataTable = ({ regions, measures }) => {
 
   const [data, setData] = useState([])
   const [loading, setLoading] = useState(false)
-  const [rowsPerPage, setRowsPerPage] = useState(10)
+  const [rowsPerPage, setRowsPerPage] = useState(100)
   const [page, setPage] = useState(0)
 
   useEffect(() => {
@@ -132,7 +132,7 @@ const DataTable = ({ regions, measures }) => {
             <TableFooter>
               <TableRow>
                 <TablePagination
-                  rowsPerPageOptions={[10, 50, 100]}
+                  rowsPerPageOptions={[100, 200, 500]}
                   colSpan={3}
                   count={data.length}
                   rowsPerPage={rowsPerPage}
