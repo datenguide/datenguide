@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import { print } from 'graphql'
 import { ClientContext } from 'graphql-hooks'
+import parse from 'url-parse'
 
 import { makeStyles } from '@material-ui/core/styles'
 import {
@@ -16,12 +17,15 @@ import {
   Typography,
   LinearProgress,
   Tabs,
-  Tab
+  Tab,
+  Button
 } from '@material-ui/core'
+import InsertDriveFileIcon from '@material-ui/icons/InsertDriveFile'
 
 import getQuery from '../lib/queryBuilder'
 import convertToLongFormat from '../lib/tableDataConverter'
 import DataTablePaginationActions from './DataTablePaginationActions'
+import { withRouter } from 'next/router'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -47,14 +51,26 @@ const useStyles = makeStyles(theme => ({
     marginTop: theme.spacing(2),
     marginBottom: theme.spacing(4)
   },
-  description: {
+  descriptionTab: {
     fontSize: theme.typography.body1.fontSize,
     margin: theme.spacing(3),
     marginLeft: theme.spacing(2)
+  },
+  exportTab: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    fontSize: theme.typography.body1.fontSize,
+    margin: theme.spacing(3),
+    marginLeft: theme.spacing(2)
+  },
+  exportButton: {
+    marginTop: '0.3rem',
+    height: '3rem'
   }
 }))
 
-const DataTable = ({ regions, measures }) => {
+const DataTable = ({ router, regions, measures }) => {
   const classes = useStyles()
   const client = useContext(ClientContext)
 
@@ -129,13 +145,23 @@ const DataTable = ({ regions, measures }) => {
     setTabValue(newValue)
   }
 
+  const handleDownload = (format, layout) => {
+    // FIXME this is a hack, use proper API
+    // e.g. implement GraphQL API and pass query object as variables
+    const url = parse(router.asPath, false)
+    if (url.query && window) {
+      const tabularApiUrl = `https://tabular.genesapi.org${url.query}&format=${format}&layout=${layout}`
+      window.open(tabularApiUrl, '_blank')
+    }
+  }
+
   // TODO improve this, best would be to get text in proper format (HTML?) from server
   const renderTextWithLineBreaks = text =>
-    text.split('\n').map(item => (
-      <>
+    text.split('\n').map((item, i) => (
+      <div key={i}>
         {item}
         <br />
-      </>
+      </div>
     ))
 
   return (
@@ -159,7 +185,6 @@ const DataTable = ({ regions, measures }) => {
               indicatorColor="primary"
               textColor="primary"
               onChange={handleTabChange}
-              clasName={classes.tabs}
             >
               <Tab label="Daten" />
               <Tab label="Beschreibung" />
@@ -215,11 +240,45 @@ const DataTable = ({ regions, measures }) => {
               </Table>
             )}
             {tabValue === 1 && measures && measures.length === 1 && (
-              <div className={classes.description}>
+              <div className={classes.descriptionTab}>
                 <Typography variant="h5">{measures[0].name}</Typography>
-                <Typography variant="bodytext">
-                  {renderTextWithLineBreaks(measures[0].definitionDe)}
-                </Typography>
+                {renderTextWithLineBreaks(measures[0].definitionDe)}
+              </div>
+            )}
+            {tabValue === 2 && measures && measures.length === 1 && (
+              <div className={classes.exportTab}>
+                <Button
+                  color="secondary"
+                  className={classes.exportButton}
+                  startIcon={<InsertDriveFileIcon />}
+                  onClick={() => handleDownload('csv', 'long')}
+                >
+                  CSV: eine Zeile pro Wert
+                </Button>
+                <Button
+                  color="secondary"
+                  className={classes.exportButton}
+                  startIcon={<InsertDriveFileIcon />}
+                  onClick={() => handleDownload('csv', 'region')}
+                >
+                  CSV: eine Zeile pro Region
+                </Button>
+                <Button
+                  color="secondary"
+                  className={classes.exportButton}
+                  startIcon={<InsertDriveFileIcon />}
+                  onClick={() => handleDownload('csv', 'time')}
+                >
+                  CSV: eine Zeile pro Jahr
+                </Button>
+                <Button
+                  color="secondary"
+                  className={classes.exportButton}
+                  startIcon={<InsertDriveFileIcon />}
+                  onClick={() => handleDownload('json', 'long')}
+                >
+                  JSON: Ein Objekt pro Wert
+                </Button>
               </div>
             )}
           </Paper>
@@ -230,8 +289,9 @@ const DataTable = ({ regions, measures }) => {
 }
 
 DataTable.propTypes = {
+  router: PropTypes.object.isRequired,
   regions: PropTypes.arrayOf(PropTypes.object),
   measures: PropTypes.arrayOf(PropTypes.object)
 }
 
-export default DataTable
+export default withRouter(DataTable)

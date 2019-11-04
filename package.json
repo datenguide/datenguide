@@ -62,6 +62,7 @@
     "reinspect": "^1.0.2",
     "stringify-object": "^3.3.0",
     "typeface-ibm-plex-sans": "^0.0.75",
+    "url-parse": "^1.4.7",
     "use-reducer-thunk": "^1.0.4"
   },
   "devDependencies": {
