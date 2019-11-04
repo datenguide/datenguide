@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
-import { print } from 'graphql'
 import { ClientContext } from 'graphql-hooks'
 import parse from 'url-parse'
 import Highlight from 'react-highlight'
@@ -164,11 +163,11 @@ const DataTable = ({ router, regions, measures }) => {
   const renderTextWithLineBreaks = text =>
     text
       ? text.split('\n').map((item, i) => (
-          <div key={i}>
-            {item}
-            <br />
-          </div>
-        ))
+        <div key={i}>
+          {item}
+          <br />
+        </div>
+      ))
       : 'Keine Beschreibung vorhanden.'
 
   return (
@@ -304,7 +303,6 @@ const DataTable = ({ router, regions, measures }) => {
                   target="_blank"
                   href="http://api.datengui.de/graphql"
                   startIcon={<CallMadeIcon />}
-                  onClick={() => handleDownload('json', 'long')}
                 >
                   GraphQL Playground öffnen
                 </Button>

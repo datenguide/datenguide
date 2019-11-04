@@ -27,8 +27,7 @@ const RegionSearchParameterCard = ({ region, onClose }) => {
         }
         title={region.name}
       />
-      <CardContent>
-      </CardContent>
+      <CardContent />
     </Card>
   )
 }

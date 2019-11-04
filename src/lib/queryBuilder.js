@@ -1,5 +1,3 @@
-import gql from 'graphql-tag'
-
 // TODO replace with tabular API
 const getQuery = (regions, measure) => {
   const { name, statisticName, dimensions } = measure

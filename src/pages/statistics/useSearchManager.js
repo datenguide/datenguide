@@ -197,9 +197,9 @@ const useSearchManager = (initialMeasures, initialRegions) => {
         measure.dimensions = measure.dimensions.map(dim =>
           dim.name === argCode
             ? {
-                ...dim,
-                ...diff
-              }
+              ...dim,
+              ...diff
+            }
             : dim
         )
         return state
@@ -239,7 +239,6 @@ const useSearchManager = (initialMeasures, initialRegions) => {
       if (result.error) {
         dispatch(actions.setError(JSON.stringify(result.error))) // TODO better error handling
       } else {
-        const d = getDimensionSelection(initialMeasures)
         dispatch(
           actions.initializeMeasures({
             dimensionSelection: getDimensionSelection(initialMeasures),
