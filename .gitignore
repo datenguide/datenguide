@@ -1,4 +1,5 @@
 _site
+.env
 .sass-cache
 .jekyll-metadata
 .next
