@@ -71,11 +71,6 @@ export default function Header ({ menuButton }) {
               Über Datenguide
             </Button>
           </Link>
-          <Link href="/statistics">
-            <Button component="a" color="inherit">
-              Statistics
-            </Button>
-          </Link>
         </div>
       </Toolbar>
     </AppBar>
