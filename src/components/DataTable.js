@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { print } from 'graphql'
 import { ClientContext } from 'graphql-hooks'
 import parse from 'url-parse'
+import Highlight from 'react-highlight';
 
 import { makeStyles } from '@material-ui/core/styles'
 import {
@@ -21,6 +22,7 @@ import {
   Button
 } from '@material-ui/core'
 import InsertDriveFileIcon from '@material-ui/icons/InsertDriveFile'
+import CallMadeIcon from '@material-ui/icons/CallMade'
 
 import getQuery from '../lib/queryBuilder'
 import convertToLongFormat from '../lib/tableDataConverter'
@@ -64,6 +66,11 @@ const useStyles = makeStyles(theme => ({
     margin: theme.spacing(3),
     marginLeft: theme.spacing(2)
   },
+  apiTab: {
+    fontSize: theme.typography.body1.fontSize,
+    margin: theme.spacing(3),
+    marginLeft: theme.spacing(2)
+  },
   exportButton: {
     marginTop: '0.3rem',
     height: '3rem'
@@ -78,7 +85,8 @@ const DataTable = ({ router, regions, measures }) => {
   const [loading, setLoading] = useState(false)
   const [rowsPerPage, setRowsPerPage] = useState(100)
   const [page, setPage] = useState(0)
-  const [tabValue, setTabValue] = useState(0)
+  const [tabValue, setTabValue] = useState(3)
+  const [graphqlQuery, setGraphqlQuery] = useState(null)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -86,7 +94,8 @@ const DataTable = ({ router, regions, measures }) => {
       // TODO support more than 1 measure
       const measure = Object.values(measures)[0]
       const query = getQuery(regions, measure)
-      const { data } = await client.request({ query: print(query) })
+      setGraphqlQuery(query)
+      const { data } = await client.request({ query })
       const rowData = convertToLongFormat(data, measure.name) || []
       setData(rowData)
       setLoading(false)
@@ -280,6 +289,23 @@ const DataTable = ({ router, regions, measures }) => {
                   JSON: Ein Objekt pro Wert
                 </Button>
               </div>
+            )}
+            {tabValue === 3 && measures && measures.length === 1 && (
+              <div className={classes.apiTab}>
+                <Typography variant="h5">GraphQL Abfrage zu aktueller Statistik:</Typography>
+                <Highlight className="graphql">{graphqlQuery}</Highlight>
+                <Button
+                  color="secondary"
+                  className={classes.exportButton}
+                  target="_blank"
+                  href="http://api.datengui.de/graphql"
+                  startIcon={<CallMadeIcon />}
+                  onClick={() => handleDownload('json', 'long')}
+                >
+                  GraphQL Playground öffnen
+                </Button>
+              </div>
+
             )}
           </Paper>
         </>

@@ -4,7 +4,7 @@ import { ServerStyleSheets } from '@material-ui/styles'
 import theme from '../theme'
 
 class MyDocument extends Document {
-  render () {
+  render() {
     return (
       <html lang="en">
         <Head>
@@ -16,6 +16,13 @@ class MyDocument extends Document {
           />
           {/* PWA primary color */}
           <meta name="theme-color" content={theme.palette.primary.main} />
+          {/* TODO bundle this or put in proper place.. */}
+          <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/atom-one-light.min.css"
+            integrity="sha256-VCcaD9+X/d4QGYRX7l5aMJ8BWgwfA8d3S7i/HC9rvvw="
+            crossOrigin="anonymous"
+          />
         </Head>
         <body>
           <Main />
