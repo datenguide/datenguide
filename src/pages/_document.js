@@ -6,7 +6,7 @@ import theme from '../theme'
 class MyDocument extends Document {
   render () {
     return (
-      <html lang="en">
+      <html lang="de">
         <Head>
           <meta charSet="utf-8" />
           {/* Use minimum-scale=1 to enable GPU rasterization */}
