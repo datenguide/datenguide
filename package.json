@@ -38,7 +38,7 @@
     "dotenv-webpack": "^1.7.0",
     "flexsearch": "^0.6.30",
     "graphql": "^14.5.8",
-    "graphql-hooks": "^4.0.1",
+    "graphql-hooks": "^4.0.2",
     "graphql-hooks-memcache": "^1.2.3",
     "graphql-hooks-ssr": "^1.1.4",
     "graphql-tag": "^2.10.1",

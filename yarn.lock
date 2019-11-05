@@ -4000,10 +4000,10 @@ graphql-hooks-ssr@^1.1.4:
   resolved "https://registry.yarnpkg.com/graphql-hooks-ssr/-/graphql-hooks-ssr-1.1.4.tgz#6dbac78b090ab6a7053f3994400a0fbdb299f45c"
   integrity sha512-y3NWY+3k/16fkdHGNhobHoP9jbCifxrIY0MsUSUR3uD0YcCy609UA70JzzHINWPib0bTXaLsxsh4iPXC3j7iTA==
 
-graphql-hooks@^4.0.1:
-  version "4.0.1"
-  resolved "https://registry.npmjs.org/graphql-hooks/-/graphql-hooks-4.0.1.tgz#8ecf78b4c6f19f9c100a60598a3be18dbd2dcfc3"
-  integrity sha512-OAEap4XJuqm8uJPlfW9Abbnofq4rKCMh/AXS34xKjaB0GgLp3V3aHlOhSHUfk2h+UEcH2etM6hdsXmT6nFAhIg==
+graphql-hooks@^4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/graphql-hooks/-/graphql-hooks-4.0.2.tgz#2e3c7df106c07bfe5cf586b0083ab80a7a7ce7e9"
+  integrity sha512-1il7efixeRPMpxjE8CziJrVk6VI95iQ9T5IZYF53zEsBqebCM/DanbFQdywq+atGOCq0qClpcfHO3Pr86x2vdA==
   dependencies:
     dequal "^1.0.0"
     extract-files "^5.0.1"
