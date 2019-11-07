@@ -3987,10 +3987,10 @@ graceful-fs@^4.1.11, graceful-fs@^4.1.15, graceful-fs@^4.1.2:
   resolved "https://registry.yarnpkg.com/graceful-readlink/-/graceful-readlink-1.0.1.tgz#4cafad76bc62f02fa039b2f94e9a3dd3a391a725"
   integrity sha1-TK+tdrxi8C+gObL5Tpo906ORpyU=
 
-graphql-hooks-memcache@^1.2.3:
-  version "1.2.3"
-  resolved "https://registry.npmjs.org/graphql-hooks-memcache/-/graphql-hooks-memcache-1.2.3.tgz#b2922e5e324a3da4af4352ad94a95b50489806d3"
-  integrity sha512-Aughq0gJJdPtOmbGZz7TRtFmS/JG0cGfeVkhtvUj2mCenGqnortvBHesX8LjhTlk8QV5HopJey+AjJRTOZ2QUw==
+graphql-hooks-memcache@^1.2.4:
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/graphql-hooks-memcache/-/graphql-hooks-memcache-1.2.4.tgz#b909092ba3fdbc6a3840139957839c7aee661ef2"
+  integrity sha512-eX/rRs7n7zl7V5LbGm7za9Xh+3qWGzUudLGTmsRrXFU8tpu0h+H8onzhSvs2J0c9O3YBSi0nMq0Un8QkDZ/+HA==
   dependencies:
     "@sindresorhus/fnv1a" "^1.2.0"
     tiny-lru "^7.0.0"

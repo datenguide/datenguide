@@ -39,7 +39,7 @@
     "flexsearch": "^0.6.32",
     "graphql": "^14.5.8",
     "graphql-hooks": "^4.0.2",
-    "graphql-hooks-memcache": "^1.2.3",
+    "graphql-hooks-memcache": "^1.2.4",
     "graphql-hooks-ssr": "^1.1.4",
     "graphql-tag": "^2.10.1",
     "gray-matter": "^4.0.2",
