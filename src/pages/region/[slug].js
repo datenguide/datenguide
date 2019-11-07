@@ -49,7 +49,7 @@ const Region = ({ slug, id, name }) => {
   )
 }
 
-Region.getInitialProps = async function (context) {
+Region.getInitialProps = async function(context) {
   const { slug } = context.query
   const res = await fetch(`http://localhost:3000/api/region/${slug}`)
   const data = await res.json()

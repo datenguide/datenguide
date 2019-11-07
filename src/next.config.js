@@ -14,7 +14,7 @@ module.exports = withCSS(
     withImages(
       withFonts({
         pageExtensions: ['js', 'jsx', 'mdx', 'md'],
-        webpack (config, options) {
+        webpack(config, options) {
           config.module.rules.push({
             test: /\.mdx?$/,
             use: [path.join(__dirname, './lib/frontmatter-loader')]

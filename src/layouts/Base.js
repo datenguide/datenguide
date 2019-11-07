@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function BaseLayout ({ children, meta }) {
+export default function BaseLayout({ children, meta }) {
   const classes = useStyles()
 
   return (

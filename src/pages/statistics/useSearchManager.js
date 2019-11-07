@@ -198,9 +198,9 @@ const useSearchManager = (initialMeasures, initialRegions) => {
         measure.dimensions = measure.dimensions.map(dim =>
           dim.name === argCode
             ? {
-              ...dim,
-              ...diff
-            }
+                ...dim,
+                ...diff
+              }
             : dim
         )
         return state

@@ -156,18 +156,17 @@ const DataTable = ({ router, regions, measures }) => {
   // FIXME this is a hack, use proper API
   // e.g. implement GraphQL API and pass query object as variables
   const url = parse(router.asPath, false)
-  const tabularApiUrl =
-    url.query && `https://tabular.genesapi.org${url.query}`
+  const tabularApiUrl = url.query && `https://tabular.genesapi.org${url.query}`
 
   // TODO improve this, best would be to get text in proper format (HTML?) from server
   const renderTextWithLineBreaks = text =>
     text
       ? text.split('\n').map((item, i) => (
-        <div key={i}>
-          {item}
-          <br />
-        </div>
-      ))
+          <div key={i}>
+            {item}
+            <br />
+          </div>
+        ))
       : 'Keine Beschreibung vorhanden.'
 
   return (

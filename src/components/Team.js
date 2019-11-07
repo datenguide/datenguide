@@ -44,7 +44,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function Team ({ children, members }) {
+export default function Team({ children, members }) {
   const classes = useStyles()
 
   return (

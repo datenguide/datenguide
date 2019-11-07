@@ -44,7 +44,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function Header ({ menuButton }) {
+export default function Header({ menuButton }) {
   const classes = useStyles()
 
   return (

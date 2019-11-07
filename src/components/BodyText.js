@@ -9,7 +9,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function DefaultLayout (props) {
+export default function DefaultLayout(props) {
   const classes = useStyles()
 
   return (

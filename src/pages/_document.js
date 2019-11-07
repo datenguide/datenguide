@@ -4,7 +4,7 @@ import { ServerStyleSheets } from '@material-ui/styles'
 import theme from '../theme'
 
 class MyDocument extends Document {
-  render () {
+  render() {
     return (
       <html lang="de">
         <Head>
