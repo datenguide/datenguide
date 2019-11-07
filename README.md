@@ -1,5 +1,7 @@
 Datenguide is your guide to understanding and using German official statistics. We work on an easy-to-use data portal and on learning materials around data published by the German statistics offices.
 
+[![Build Status](https://travis-ci.com/datenguide/datenguide.svg?branch=master)](https://travis-ci.com/datenguide/datenguide)
+
 ### Mission statement (draft)
 
 > We are working with journalists and public administrators in Germany to make official statistics more accessible to citizens so that they can use publicly available statistical data to gain an informed understanding of social, economic, and environmental issues in their region.
