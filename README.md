@@ -1,6 +1,8 @@
-Datenguide is your guide to understanding and using German official statistics. We work on an easy-to-use data portal and on learning materials around data published by the German statistics offices.
+# Datenguide
 
 [![Build Status](https://travis-ci.com/datenguide/datenguide.svg?branch=master)](https://travis-ci.com/datenguide/datenguide)
+
+Datenguide is your guide to understanding and using German official statistics. We work on an easy-to-use data portal and on learning materials around data published by the German statistics offices.
 
 ### Mission statement (draft)
 
