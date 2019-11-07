@@ -78,7 +78,6 @@ const getDimensionSelection = measures =>
     return acc
   }, {})
 
-
 // TODO load from API
 const regionToState = region => ({
   ...region,
