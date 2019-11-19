@@ -61,11 +61,6 @@ export default function Header({ menuButton }) {
           </Link>
         </div>
         <div className={classes.controls}>
-          <Link href="/">
-            <Button component="a" color="inherit">
-              Startseite
-            </Button>
-          </Link>
           <Link href="/info">
             <Button component="a" color="inherit">
               Über Datenguide
