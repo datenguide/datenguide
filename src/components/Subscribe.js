@@ -4,6 +4,8 @@ import { makeStyles } from '@material-ui/core/styles'
 import Container from '@material-ui/core/Container'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
+import Checkbox from '@material-ui/core/Checkbox'
+import FormControlLabel from '@material-ui/core/FormControlLabel'
 
 import background from '../assets/hero_city.svg'
 
@@ -97,7 +99,7 @@ const useStyles = makeStyles(theme => ({
 
   terms: {
     display: 'block',
-    margin: theme.spacing(2, 0),
+    fontSize: '12px',
 
     [theme.breakpoints.up('sm')]: {
       maxWidth: '620px',
@@ -107,6 +109,27 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up('md')]: {
       maxWidth: '60%',
       marginBottom: theme.spacing(5)
+    }
+  },
+
+  checkboxLabel: {
+    display: 'block',
+    fontSize: '1.5rem',
+    margin: theme.spacing(0.75, -1.5)
+  },
+
+  icon: {
+    borderRadius: 5,
+    width: 18,
+    height: 18,
+    borderWidth: 2,
+    borderStyle: 'solid',
+    borderColor: theme.palette.secondary.main,
+    margin: 3,
+    backgroundColor: 'white',
+
+    'input:hover ~ &': {
+      opacity: 0.8
     }
   }
 }))
@@ -119,42 +142,68 @@ export default function Subscribe({ children }) {
         <div className={classes.intro}>{children}</div>
 
         <form
-          className={classes.form}
           action="https://datengui.us17.list-manage.com/subscribe/post?u=4b79a045e2fce403d887f9147&amp;id=19233695e7"
           method="post"
           id="mc-embedded-subscribe-form"
           name="mc-embedded-subscribe-form"
           noValidate
         >
-          <TextField
-            className={classes.emailInput}
-            variant="filled"
-            label="Email-Adresse"
-            type="email"
-            id="email"
-            name="EMAIL"
-            autoComplete="email"
-          />
+          <div className={classes.form}>
+            <TextField
+              className={classes.emailInput}
+              variant="filled"
+              label="E-Mail-Adresse"
+              type="email"
+              id="email"
+              name="EMAIL"
+              autoComplete="email"
+            />
 
-          <Button
-            type="submit"
-            variant="contained"
-            size="large"
-            color="secondary"
-            className={classes.submitButton}
-          >
-            Eintragen
-          </Button>
+            <Button
+              type="submit"
+              variant="contained"
+              size="large"
+              color="secondary"
+              className={classes.submitButton}
+            >
+              Eintragen
+            </Button>
+          </div>
+
+          <FormControlLabel
+            control={
+              <Checkbox
+                value="checked"
+                name="gdpr[42365]"
+                icon={<span className={classes.icon} />}
+                className={classes.checkbox}
+              />
+            }
+            label="Ja, schickt mir Infos per E-Mail."
+            className={classes.checkboxLabel}
+          />
         </form>
         <small className={classes.terms}>
-          Deine Email-Adressen wird von uns ausschliesslich zur Information über
-          den Datenguide genutzt und nicht an Dritte weitergegeben. Für diesen
-          Verteiler verwenden wir <a href="http://mailchimp.com/">Mailchimp</a>.{' '}
-          <Link href="/info/datenschutz">
-            <a className={classes.termsLink}>
-              Mehr zum Datenschutz bei Datenguide
+          <p>
+            Wir schicken dir die neuesten Infos über das Projekt Datenguide –
+            unregelmäßig und nur wenige Male pro Jahr. Deine E-Mail-Adresse wird
+            von uns ausschliesslich zur Information über den Datenguide genutzt
+            und nicht an Dritte weitergegeben.
+          </p>
+
+          <p>
+            Für diesen Newsletter verwenden wir Mailchimp,{' '}
+            <a href="http://mailchimp.com/">
+              deren Datenschutzerklärung du hier einsehen kannst
             </a>
-          </Link>
+            . Durch das Eintragen bestätigst du, dass deine Daten zur
+            Verarbeitung an Mailchimp übertragen werden.{' '}
+            <Link href="/info/datenschutz">
+              <a className={classes.termsLink}>
+                Mehr zum Datenschutz bei Datenguide
+              </a>
+            </Link>
+          </p>
         </small>
       </Container>
     </section>
