@@ -103,33 +103,13 @@ const useStyles = makeStyles(theme => ({
 
     [theme.breakpoints.up('sm')]: {
       maxWidth: '620px',
+      marginTop: theme.spacing(3),
       marginBottom: theme.spacing(10)
     },
 
     [theme.breakpoints.up('md')]: {
       maxWidth: '60%',
       marginBottom: theme.spacing(5)
-    }
-  },
-
-  checkboxLabel: {
-    display: 'block',
-    fontSize: '1.5rem',
-    margin: theme.spacing(0.75, -1.5)
-  },
-
-  icon: {
-    borderRadius: 5,
-    width: 18,
-    height: 18,
-    borderWidth: 2,
-    borderStyle: 'solid',
-    borderColor: theme.palette.secondary.main,
-    margin: 3,
-    backgroundColor: 'white',
-
-    'input:hover ~ &': {
-      opacity: 0.8
     }
   }
 }))
@@ -169,19 +149,6 @@ export default function Subscribe({ children }) {
               Eintragen
             </Button>
           </div>
-
-          <FormControlLabel
-            control={
-              <Checkbox
-                value="checked"
-                name="gdpr[42365]"
-                icon={<span className={classes.icon} />}
-                className={classes.checkbox}
-              />
-            }
-            label="Ja, schickt mir Infos per E-Mail."
-            className={classes.checkboxLabel}
-          />
         </form>
         <small className={classes.terms}>
           <p>
