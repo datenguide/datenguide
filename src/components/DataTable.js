@@ -24,7 +24,6 @@ import InsertDriveFileIcon from '@material-ui/icons/InsertDriveFile'
 import CallMadeIcon from '@material-ui/icons/CallMade'
 
 import getQuery from '../lib/queryBuilder'
-import convertToLongFormat from '../lib/tableDataConverter'
 import DataTablePaginationActions from './DataTablePaginationActions'
 import { withRouter } from 'next/router'
 
@@ -95,8 +94,7 @@ const DataTable = ({ router, regions, measures }) => {
       const query = getQuery(regions, measure)
       setGraphqlQuery(query)
       const { data } = await client.request({ query })
-      const rowData = convertToLongFormat(data, measure.name) || []
-      setData(rowData)
+      setData(data.table)
       setLoading(false)
     }
 
@@ -107,38 +105,19 @@ const DataTable = ({ router, regions, measures }) => {
     }
   }, [regions, measures])
 
-  const columnDefs = [
-    {
-      headerName: 'Region ID',
-      field: 'regionId'
-    },
-    {
-      headerName: 'Region Name',
-      field: 'regionName'
-    },
-    {
-      headerName: 'Jahr',
-      field: 'year'
-    },
-    {
-      headerName: 'Wert',
-      field: 'value'
-    }
-  ].concat(
-    (measures &&
-    measures.length === 1 && // TODO support more than one measure
-      measures[0].dimensions
-        .filter(m => m.selected.length !== 0 && m.active)
-        .map(m => ({
-          headerName: m.titleDe,
-          field: m.name
-        }))) ||
-      []
-  )
+  const columnDefs =
+    (data.schema &&
+      data.schema.fields
+        .filter(f => f.name !== 'index')
+        .map(f => ({ headerName: f.name, field: f.name }))) ||
+    []
 
   // TODO implement proper server-side pagination
   const currentPageRowData =
-    data.slice(page * rowsPerPage, (page + 1) * rowsPerPage) || []
+    (data &&
+      data.data &&
+      data.data.slice(page * rowsPerPage, (page + 1) * rowsPerPage)) ||
+    []
 
   const handleChangePage = (event, page) => {
     setPage(page)
