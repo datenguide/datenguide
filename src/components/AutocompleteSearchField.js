@@ -12,8 +12,7 @@ import MenuItem from '@material-ui/core/MenuItem'
 
 const useStyles = makeStyles(theme => ({
   root: {
-    flexGrow: 1,
-    minWidth: 290
+    flexGrow: 1
   },
   input: {
     display: 'flex',
