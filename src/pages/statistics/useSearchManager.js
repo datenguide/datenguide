@@ -19,7 +19,7 @@ query Region($id: String!) {
 
 const SCHEMA_QUERY = `
 query Schema($measures: [MeasureDescription]) {
-  measures(ids: $measures) {
+  measuresCatalog(ids: $measures) {
     id
     statistic_name
     statistic_title_de
