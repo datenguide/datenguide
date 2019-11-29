@@ -17,6 +17,14 @@ const useStyles = makeStyles(theme => ({
     display: 'flex'
   },
 
+  nav: {
+    display: 'flex',
+
+    [theme.breakpoints.down('sm')]: {
+      display: 'none'
+    }
+  },
+
   toolbar: {
     display: 'flex',
     justifyContent: 'space-between'
@@ -60,12 +68,7 @@ export default function Header({ menuButton }) {
             </a>
           </Link>
         </div>
-        <div className={classes.controls}>
-          <Link href="/">
-            <Button component="a" color="inherit">
-              Startseite
-            </Button>
-          </Link>
+        <div className={classes.nav}>
           <Link href="/info">
             <Button component="a" color="inherit">
               Über Datenguide

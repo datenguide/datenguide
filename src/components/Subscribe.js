@@ -97,10 +97,11 @@ const useStyles = makeStyles(theme => ({
 
   terms: {
     display: 'block',
-    margin: theme.spacing(2, 0),
+    fontSize: '12px',
 
     [theme.breakpoints.up('sm')]: {
       maxWidth: '620px',
+      marginTop: theme.spacing(3),
       marginBottom: theme.spacing(10)
     },
 
@@ -119,42 +120,55 @@ export default function Subscribe({ children }) {
         <div className={classes.intro}>{children}</div>
 
         <form
-          className={classes.form}
           action="https://datengui.us17.list-manage.com/subscribe/post?u=4b79a045e2fce403d887f9147&amp;id=19233695e7"
           method="post"
           id="mc-embedded-subscribe-form"
           name="mc-embedded-subscribe-form"
           noValidate
         >
-          <TextField
-            className={classes.emailInput}
-            variant="filled"
-            label="Email-Adresse"
-            type="email"
-            id="email"
-            name="EMAIL"
-            autoComplete="email"
-          />
+          <div className={classes.form}>
+            <TextField
+              className={classes.emailInput}
+              variant="filled"
+              label="E-Mail-Adresse"
+              type="email"
+              id="email"
+              name="EMAIL"
+              autoComplete="email"
+            />
 
-          <Button
-            type="submit"
-            variant="contained"
-            size="large"
-            color="secondary"
-            className={classes.submitButton}
-          >
-            Eintragen
-          </Button>
+            <Button
+              type="submit"
+              variant="contained"
+              size="large"
+              color="secondary"
+              className={classes.submitButton}
+            >
+              Eintragen
+            </Button>
+          </div>
         </form>
         <small className={classes.terms}>
-          Deine Email-Adressen wird von uns ausschliesslich zur Information über
-          den Datenguide genutzt und nicht an Dritte weitergegeben. Für diesen
-          Verteiler verwenden wir <a href="http://mailchimp.com/">Mailchimp</a>.{' '}
-          <Link href="/info/datenschutz">
-            <a className={classes.termsLink}>
-              Mehr zum Datenschutz bei Datenguide
+          <p>
+            Wir schicken dir die neuesten Infos über das Projekt Datenguide –
+            unregelmäßig und nur wenige Male pro Jahr. Deine E-Mail-Adresse wird
+            von uns ausschliesslich zur Information über den Datenguide genutzt
+            und nicht an Dritte weitergegeben.
+          </p>
+
+          <p>
+            Für diesen Newsletter verwenden wir Mailchimp,{' '}
+            <a href="http://mailchimp.com/">
+              deren Datenschutzerklärung du hier einsehen kannst
             </a>
-          </Link>
+            . Durch das Eintragen bestätigst du, dass deine Daten zur
+            Verarbeitung an Mailchimp übertragen werden.{' '}
+            <Link href="/info/datenschutz">
+              <a className={classes.termsLink}>
+                Mehr zum Datenschutz bei Datenguide
+              </a>
+            </Link>
+          </p>
         </small>
       </Container>
     </section>

@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import clsx from 'clsx'
-import { makeStyles } from '@material-ui/core/styles'
+import { makeStyles, useTheme } from '@material-ui/core/styles'
+import useMediaQuery from '@material-ui/core/useMediaQuery'
 import IconButton from '@material-ui/core/IconButton'
 import Drawer from '@material-ui/core/Drawer'
 import Divider from '@material-ui/core/Divider'
@@ -10,7 +11,7 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 
-const drawerWidth = '33%'
+const DRAWER_WIDTH = '33%'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -25,39 +26,21 @@ const useStyles = makeStyles(theme => ({
   },
 
   drawerPaper: {
-    width: drawerWidth
+    width: '100%'
   },
 
   drawer: {
-    width: drawerWidth,
     flexShrink: 0,
     whiteSpace: 'nowrap'
   },
 
-  content: {
-    flexGrow: 1,
-    zIndex: theme.zIndex.drawer + 1,
-    transition: theme.transitions.create(['width', 'margin'], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen
-    })
-  },
-
-  contentShift: {
-    marginLeft: drawerWidth,
-    width: `calc(100% - ${drawerWidth}px)`,
-    transition: theme.transitions.create(['width', 'margin'], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen
-    })
-  },
-
-  hide: {
-    display: 'none'
-  },
-
   drawerOpen: {
-    width: drawerWidth,
+    width: 300,
+
+    [theme.breakpoints.up('md')]: {
+      width: DRAWER_WIDTH
+    },
+
     transition: theme.transitions.create('width', {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen
@@ -65,12 +48,38 @@ const useStyles = makeStyles(theme => ({
   },
 
   drawerClose: {
+    width: 0,
+    overflowX: 'hidden',
+
     transition: theme.transitions.create('width', {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen
-    }),
-    overflowX: 'hidden',
-    width: 0
+    })
+  },
+
+  content: {
+    flexGrow: 1,
+    zIndex: theme.zIndex.drawer + 1,
+
+    transition: theme.transitions.create(['width', 'margin'], {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen
+    })
+  },
+
+  contentShift: {
+    [theme.breakpoints.up('md')]: {
+      marginLeft: DRAWER_WIDTH,
+      width: `calc(100% - ${DRAWER_WIDTH}px)`,
+      transition: theme.transitions.create(['width', 'margin'], {
+        easing: theme.transitions.easing.sharp,
+        duration: theme.transitions.duration.enteringScreen
+      })
+    }
+  },
+
+  hide: {
+    display: 'none'
   },
 
   toolbar: {
@@ -84,7 +93,9 @@ const useStyles = makeStyles(theme => ({
 
 export default function BaseLayout(props) {
   const classes = useStyles()
-  const [open, setOpen] = React.useState(true)
+  const theme = useTheme()
+  const isLargeScreen = useMediaQuery(theme.breakpoints.up('md'))
+  const [open, setOpen] = React.useState(false)
 
   const handleDrawerOpen = () => {
     setOpen(true)
@@ -93,6 +104,10 @@ export default function BaseLayout(props) {
   const handleDrawerClose = () => {
     setOpen(false)
   }
+
+  useEffect(() => {
+    setOpen(isLargeScreen)
+  }, [isLargeScreen])
 
   return (
     <div className={classes.root}>
