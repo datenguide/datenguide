@@ -16,12 +16,12 @@ export const allPostsQuery = `
   }
 `
 
-const Region = ({ slug, id, name }) => {
+const RegionDetails = ({ slug, id, name }) => {
   const { loading, error, data } = useQuery(allPostsQuery, {
     variables: { id }
   })
 
-  if (error) return <div>Error loading posts.</div>
+  if (error) return <div>Error loading statistics.</div>
   if (loading) return <div>Loading</div>
 
   const { WAHL09 } = data.region
@@ -48,12 +48,16 @@ const Region = ({ slug, id, name }) => {
   )
 }
 
+const Region = ({ slug, id, name }) => {
+  if (!id) return <div>Region not found: {slug}</div>
+  return <RegionDetails slug={slug} id={id} name={name} />
+}
+
 Region.getInitialProps = async function(context) {
   const { slug } = context.query
   const res = await fetch(`http://localhost:3000/api/region/${slug}`)
-  const data = await res.json()
-
-  return data
+  const data = !res.ok ? { slug } : await res.json()
+  return { ...data, res }
 }
 
 export default Region

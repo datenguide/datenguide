@@ -2,7 +2,7 @@ const data = require('../../../data/ags.json')
 const slugify = require('@sindresorhus/slugify')
 
 const districts = Object.keys(data)
-  .filter(id => id.length === 5)
+  .filter(id => id.length <= 5)
   .map(id => ({
     name: data[id],
     id,
@@ -14,5 +14,10 @@ export default (req, res) => {
     query: { slug }
   } = req
   const result = districts.find(region => region.slug === slug)
-  res.status(200).json(result)
+
+  if (result) {
+    res.status(200).json(result)
+  } else {
+    res.status(404).send(`Region not found: ${slug}`)
+  }
 }
