@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
 import { useQuery } from 'graphql-hooks'
 import DefaultLayout from '../../layouts/Default'
+import FigureHighlight from '../../components/regions/FigureHighlight'
 import MapCities from '../../components/regions/MapCities'
 
 export const query = `
@@ -41,30 +42,34 @@ const RegionBadenWuerttemberg = () => {
       <Grid container>
         <Grid item xs={4}>
           <h1>{name}</h1>
-          Baden-Württemberg ist nach Bayern und Nordrhein-Westfalen das
-          drittgrößte Bundesland Deutschlands, sowohl bei der Fläche als auch
-          bei der Einwohnerzahl. Die größte Stadt in Baden-Württemberg ist die
-          Landeshauptstadt Stuttgart, gefolgt von Karlsruhe und Heidelberg.
+          <p>
+            Baden-Württemberg ist nach Bayern und Nordrhein-Westfalen das
+            drittgrößte Bundesland Deutschlands, sowohl bei der Fläche als auch
+            bei der Einwohnerzahl. Die größte Stadt in Baden-Württemberg ist die
+            Landeshauptstadt Stuttgart, gefolgt von Karlsruhe und Heidelberg.
+          </p>
+
+          <FigureHighlight />
         </Grid>
         <Grid item xs={8}>
           <div className={classes.primaryVis}>
             <MapCities />
           </div>
-
-          <h3>Election results (2017)</h3>
-
-          <table>
-            <tbody>
-              {WAHL09.map(({ PART04: name, value }) => (
-                <tr key={name}>
-                  <th>{name}</th>
-                  <td>{value} votes</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
         </Grid>
       </Grid>
+
+      <h2>Bevölkerungsdichte</h2>
+
+      <table>
+        <tbody>
+          {WAHL09.map(({ PART04: name, value }) => (
+            <tr key={name}>
+              <th>{name}</th>
+              <td>{value} votes</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </DefaultLayout>
   )
 }
