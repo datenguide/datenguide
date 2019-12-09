@@ -29,6 +29,7 @@ const Home = ({ regions }) => {
 }
 
 Home.getInitialProps = async function(context) {
+  // TODO: Use actual hostname instead of localhost:
   const fetchStates = await fetch('http://localhost:3000/api/region?nuts=1')
   const fetchDistricts = await fetch('http://localhost:3000/api/region?nuts=3')
   const states = await fetchStates.json()
