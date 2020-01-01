@@ -3878,10 +3878,10 @@ extglob@^2.0.4:
     snapdragon "^0.8.1"
     to-regex "^3.0.1"
 
-extract-files@^5.0.1:
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/extract-files/-/extract-files-5.0.1.tgz#c9492a8410be643e260a376f0151361993d5f659"
-  integrity sha512-qRW6y9eKF0VbCyOoOEtFhzJ3uykAw8GKwQVXyAIqwocyEWW4m+v+evec34RwtUkkxxHh7NKBLJ6AnXM8W4dH5w==
+extract-files@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/extract-files/-/extract-files-6.0.0.tgz#a273fd666aac97fd32e788b62d72d978bf43bb71"
+  integrity sha512-v9UVTPkERZR1NjEOIPvmbzLFdh8YZFEGjRdSJraop6HJe9PQ8HU9iv6eRMuF06CXXXO/R5OBmnWMixZHuZ8CsA==
 
 extracted-loader@1.0.4:
   version "1.0.4"
@@ -4252,13 +4252,13 @@ graphql-hooks-ssr@^1.1.5:
   resolved "https://registry.npmjs.org/graphql-hooks-ssr/-/graphql-hooks-ssr-1.1.5.tgz#f833a413809a9d258ab2df65f26ac15fe224e146"
   integrity sha512-cCVLvjTYMZ9+4rJ4pbpBgcVUu9AC+9Lb28RO8cUGW87iy1jA46BMqX/OFYQDBea1SOJARcBQa/fiupZPuB1dMQ==
 
-graphql-hooks@^4.1.2:
-  version "4.1.2"
-  resolved "https://registry.npmjs.org/graphql-hooks/-/graphql-hooks-4.1.2.tgz#26536c6cf2b6281fdf6f3e693f19e6f52a950e9f"
-  integrity sha512-LvHMdvgGauL0mjchjJ1CVyTNQgFW+Q4DEXrYcIG5LutaJQPdoe8dOWocQ6GgW+E/ajJGBxDoxKGMBzHN5RTWgg==
+graphql-hooks@^4.3.0:
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/graphql-hooks/-/graphql-hooks-4.3.0.tgz#1814f9f09697a8ddff753f27fb5586caf08022ce"
+  integrity sha512-mjES4pH5g+4kvhmvbKXkOkYclObDRr2/4s1Pc+x79nOeom8pOeUDoDIkjA5SLJbv4K5215/dPpOG8uPjzFqqNw==
   dependencies:
     dequal "^1.0.0"
-    extract-files "^5.0.1"
+    extract-files "^6.0.0"
 
 graphql-tag@^2.10.1:
   version "2.10.1"
