@@ -45,7 +45,7 @@
     "graphql-tag": "^2.10.1",
     "gray-matter": "^4.0.2",
     "humps": "^2.0.1",
-    "immer": "^5.0.0",
+    "immer": "^5.1.0",
     "isomorphic-unfetch": "^3.0.0",
     "lodash": "^4.17.15",
     "mdi-material-ui": "^6.9.0",
