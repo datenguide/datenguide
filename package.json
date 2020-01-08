@@ -27,7 +27,7 @@
   "dependencies": {
     "@material-ui/core": "^4.7.0",
     "@material-ui/icons": "^4.5.1",
-    "@material-ui/styles": "^4.6.0",
+    "@material-ui/styles": "^4.5.0",
     "@mdx-js/mdx": "^1.5.1",
     "@sindresorhus/slugify": "^0.9.1",
     "@svgr/webpack": "^4.3.3",
