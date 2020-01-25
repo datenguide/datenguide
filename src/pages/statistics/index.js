@@ -7,6 +7,7 @@ import Snackbar from '@material-ui/core/Snackbar'
 
 import DrawerLayout from '../../layouts/Drawer'
 import DataTable from '../../components/DataTable'
+import StatisticsList from '../../components/StatisticsList'
 import QueryParameterSidebar from '../../components/QueryParameterSidebar'
 import { queryArgsToState } from '../../lib/queryString'
 import useSearchManager from './useSearchManager'
@@ -43,7 +44,7 @@ const loadRegionOptions = async (value = '') => {
   }))
 }
 
-const Detail = ({ initialMeasures, initialRegions }) => {
+const Detail = ({ initialMeasures, initialRegions, statistics }) => {
   const classes = useStyles()
 
   const [state, dispatch, actions] = useSearchManager(
@@ -67,7 +68,11 @@ const Detail = ({ initialMeasures, initialRegions }) => {
       }
     >
       <main className={classes.content}>
-        <DataTable regions={regions} measures={measures} />
+        {measures.length ? (
+          <DataTable regions={regions} measures={measures} />
+        ) : (
+          <StatisticsList statistics={statistics} />
+        )}
       </main>
 
       <Snackbar
@@ -91,8 +96,11 @@ Detail.propTypes = {
 
 Detail.getInitialProps = async ({ query }) => {
   const { measures, regions } = queryArgsToState(query)
+  const fetchStatistics = await fetch('http://localhost:3000/api/statistics')
+  const statistics = await fetchStatistics.json()
 
   return {
+    statistics: statistics,
     initialMeasures: measures,
     initialRegions: regions
   }
