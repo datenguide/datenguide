@@ -7,6 +7,8 @@ import TreeItem from '@material-ui/lab/TreeItem'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import ChevronRightIcon from '@material-ui/icons/ChevronRight'
 
+const DEFAULT_REGION = 'DG'
+
 const useStyles = makeStyles(theme => ({
   root: {
     width: '100%',
@@ -16,7 +18,16 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const StatisticsList = ({ statistics }) => {
+const getTableLink = ({ id, measure, regions }) => {
+  const regionList =
+    regions && regions.length
+      ? regions.map(({ id }) => id).join('%2C')
+      : DEFAULT_REGION
+
+  return `/statistics?region=${regionList}&data=${id}%3A${measure.id}`
+}
+
+const StatisticsList = ({ statistics, regions }) => {
   const classes = useStyles()
   const [expanded, setExpanded] = React.useState([])
 
@@ -45,7 +56,7 @@ const StatisticsList = ({ statistics }) => {
                   <p key={index}>{paragraph}</p>
                 ))}
                 <p>
-                  <Link href="/statistics?region=DG&data=12613%3ABEV002">
+                  <Link href={getTableLink({ id, measure, regions })}>
                     <a>Datensatz anzeigen</a>
                   </Link>
                 </p>
