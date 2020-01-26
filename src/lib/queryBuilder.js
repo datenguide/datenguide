@@ -1,6 +1,6 @@
 const getRegionGraphQLArg = regionArgs => `{
       region: [
-        ${regionArgs.map(r => `"${r.id}"`).join(',')} 
+        ${regionArgs.map(r => `"${r.id}"`).join(',')}
       ]
     }`
 
@@ -33,14 +33,7 @@ const getQuery = (regions, measure) => {
           type
         }
       }
-      data {
-        index
-        region_id
-        year
-        measure
-        value
-        statistic
-      }
+      data
     }
   }
 `
