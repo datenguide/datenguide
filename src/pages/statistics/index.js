@@ -71,7 +71,7 @@ const Detail = ({ initialMeasures, initialRegions, statistics }) => {
         {measures.length ? (
           <DataTable regions={regions} measures={measures} />
         ) : (
-          <StatisticsList statistics={statistics} />
+          <StatisticsList regions={regions} statistics={statistics} />
         )}
       </main>
 
