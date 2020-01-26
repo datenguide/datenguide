@@ -91,7 +91,7 @@ const DataTable = ({ router, regions, measures }) => {
       setLoading(true)
       // TODO support more than 1 measure
       const measure = Object.values(measures)[0]
-      const query = getQuery(regions, measure)
+      const query = getQuery(regions, measure, page, rowsPerPage)
       setGraphqlQuery(query)
       const { data } = await client.request({ query })
       if (data && data.table) {
@@ -108,20 +108,13 @@ const DataTable = ({ router, regions, measures }) => {
     } else {
       setData([])
     }
-  }, [regions, measures])
+  }, [regions, measures, rowsPerPage, page])
 
   const columnDefs =
     (data.schema &&
       data.schema.fields
         .filter(f => f.name !== 'index')
         .map(f => ({ headerName: f.name, field: f.name }))) ||
-    []
-
-  // TODO implement proper server-side pagination
-  const currentPageRowData =
-    (data &&
-      data.data &&
-      data.data.slice(page * rowsPerPage, (page + 1) * rowsPerPage)) ||
     []
 
   const handleChangePage = (event, page) => {
@@ -152,6 +145,9 @@ const DataTable = ({ router, regions, measures }) => {
           </div>
         ))
       : 'Keine Beschreibung vorhanden.'
+
+  const rows = data && data.data || []
+  const total = data && data.pagination && data.pagination.total || 0
 
   return (
     <div className={classes.root}>
@@ -195,7 +191,7 @@ const DataTable = ({ router, regions, measures }) => {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {currentPageRowData.map((row, index) => {
+                  {rows.map((row, index) => {
                     return (
                       <TableRow key={index}>
                         {columnDefs.map(def => (
@@ -212,7 +208,7 @@ const DataTable = ({ router, regions, measures }) => {
                     <TablePagination
                       rowsPerPageOptions={[100, 200, 500]}
                       colSpan={3}
-                      count={data.length}
+                      count={total}
                       rowsPerPage={rowsPerPage}
                       page={page}
                       SelectProps={{

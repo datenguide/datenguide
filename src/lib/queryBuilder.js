@@ -24,12 +24,14 @@ const getMeasuresGraphQLArg = measureArgs => `{
      )}]
 }`
 
-const getQuery = (regions, measure) => {
+const getQuery = (regions, measure, page, itemsPerPage) => {
   const query = `
   {
     table(regions: ${getRegionGraphQLArg(
       regions
-    )}, measures: ${getMeasuresGraphQLArg(measure)}) {
+    )}, measures: ${getMeasuresGraphQLArg(measure)},
+    page: ${page},
+    itemsPerPage: ${itemsPerPage}) {
         schema {
         fields {
           name
@@ -37,6 +39,11 @@ const getQuery = (regions, measure) => {
         }
       }
       data
+      pagination {
+        page
+        itemsPerPage
+        total
+      }
     }
   }
 `
