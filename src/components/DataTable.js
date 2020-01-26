@@ -22,7 +22,7 @@ import {
 } from '@material-ui/core'
 import InsertDriveFileIcon from '@material-ui/icons/InsertDriveFile'
 import CallMadeIcon from '@material-ui/icons/CallMade'
-import Alert from '@material-ui/lab/Alert';
+import Alert from '@material-ui/lab/Alert'
 
 import getQuery from '../lib/queryBuilder'
 import DataTablePaginationActions from './DataTablePaginationActions'
@@ -109,11 +109,9 @@ const DataTable = ({ router, regions, measures }) => {
         const graphQLError = error.graphQLError && error.graphQLError.statusText
         setData([])
         setError(
-          `${ERROR_MESSAGE} (${[
-            fetchError,
-            httpError,
-            graphQLError
-          ].join(' ')})`
+          `${ERROR_MESSAGE} (${[fetchError, httpError, graphQLError].join(
+            ' '
+          )})`
         )
       } else if (data && data.table) {
         setData(data.table)
@@ -212,7 +210,11 @@ const DataTable = ({ router, regions, measures }) => {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {error && <Alert className={classes.alert} severity="error">{error}</Alert>}
+                  {error && (
+                    <Alert className={classes.alert} severity="error">
+                      {error}
+                    </Alert>
+                  )}
                   {!error &&
                     rows.map((row, index) => {
                       return (
