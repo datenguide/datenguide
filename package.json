@@ -66,7 +66,8 @@
     "stringify-object": "^3.3.0",
     "typeface-ibm-plex-sans": "^0.0.75",
     "url-parse": "^1.4.7",
-    "use-reducer-thunk": "^1.0.4"
+    "use-reducer-thunk": "^1.0.4",
+    "prettier": "^1.19.1"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.3",
@@ -80,7 +81,6 @@
     "eslint-plugin-react": "^7.18.0",
     "eslint-plugin-standard": "^4.0.1",
     "healthier": "^3.2.0",
-    "prettier": "^1.19.1",
     "standard": "^14.3.1",
     "webpack": "^4.41.5"
   },
