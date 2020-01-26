@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-
+import Link from 'next/link'
 import { makeStyles } from '@material-ui/core/styles'
 import TreeView from '@material-ui/lab/TreeView'
 import TreeItem from '@material-ui/lab/TreeItem'
@@ -34,9 +34,24 @@ const StatisticsList = ({ statistics }) => {
     >
       {statistics.map(({ id, title, measures }) => (
         <TreeItem key={id} nodeId={id} label={`${id} / ${title}`}>
-          {measures.map(({ id, title }) => (
-            <TreeItem key={id} nodeId={id} label={title} />
-          ))}
+          <ul>
+            {measures.map(measure => (
+              <TreeItem
+                key={measure.id}
+                nodeId={measure.id}
+                label={`${measure.id} / ${measure.title}`}
+              >
+                {measure.description.split('\n\n').map((paragraph, index) => (
+                  <p key={index}>{paragraph}</p>
+                ))}
+                <p>
+                  <Link href="/statistics?region=DG&data=12613%3ABEV002">
+                    <a>Datensatz anzeigen</a>
+                  </Link>
+                </p>
+              </TreeItem>
+            ))}
+          </ul>
         </TreeItem>
       ))}
     </TreeView>

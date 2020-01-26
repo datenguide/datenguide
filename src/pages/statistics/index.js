@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import fetch from 'isomorphic-unfetch'
-
+import absoluteUrl from 'next-absolute-url'
 import { makeStyles } from '@material-ui/core/styles'
 import Snackbar from '@material-ui/core/Snackbar'
 
@@ -94,9 +94,10 @@ Detail.propTypes = {
   initialRegions: PropTypes.array.isRequired
 }
 
-Detail.getInitialProps = async ({ query }) => {
+Detail.getInitialProps = async ({ req, query }) => {
   const { measures, regions } = queryArgsToState(query)
-  const fetchStatistics = await fetch('http://localhost:3000/api/statistics')
+  const { origin } = absoluteUrl(req)
+  const fetchStatistics = await fetch(`${origin}/api/statistics`)
   const statistics = await fetchStatistics.json()
 
   return {

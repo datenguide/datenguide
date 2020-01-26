@@ -1,5 +1,10 @@
 const schema = require('../../../data/schema.json')
 
+const cleanDescription = ({ description }) => {
+  const separator = description.indexOf('Begriffsinhalt: ')
+  return separator > 0 ? description.slice(separator) : description
+}
+
 const data = Object.keys(schema).reduce((statistics, id) => {
   const statsId = schema[id].source.name
   statistics[statsId] = statistics[statsId] || {}
@@ -7,7 +12,7 @@ const data = Object.keys(schema).reduce((statistics, id) => {
   statistics[statsId].title = schema[id].source.title_de
   statistics[statsId].measures = [
     ...measures,
-    { title: schema[id].name, desc: schema[id].description }
+    { id, title: schema[id].name, description: cleanDescription(schema[id]) }
   ]
   return statistics
 }, {})
