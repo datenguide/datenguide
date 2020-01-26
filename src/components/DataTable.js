@@ -22,10 +22,14 @@ import {
 } from '@material-ui/core'
 import InsertDriveFileIcon from '@material-ui/icons/InsertDriveFile'
 import CallMadeIcon from '@material-ui/icons/CallMade'
+import Alert from '@material-ui/lab/Alert';
 
 import getQuery from '../lib/queryBuilder'
 import DataTablePaginationActions from './DataTablePaginationActions'
 import { withRouter } from 'next/router'
+
+// TODO create i8n label
+const ERROR_MESSAGE = 'Die Daten konnten nicht geladen werden.'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -72,6 +76,9 @@ const useStyles = makeStyles(theme => ({
   exportButton: {
     marginTop: '0.3rem',
     height: '3rem'
+  },
+  alert: {
+    margin: '0px 20px'
   }
 }))
 
@@ -80,6 +87,7 @@ const DataTable = ({ router, regions, measures }) => {
   const client = useContext(ClientContext)
 
   const [data, setData] = useState([])
+  const [error, setError] = useState(null)
   const [loading, setLoading] = useState(false)
   const [rowsPerPage, setRowsPerPage] = useState(100)
   const [page, setPage] = useState(0)
@@ -93,12 +101,25 @@ const DataTable = ({ router, regions, measures }) => {
       const measure = Object.values(measures)[0]
       const query = getQuery(regions, measure, page, rowsPerPage)
       setGraphqlQuery(query)
-      const { data } = await client.request({ query })
-      if (data && data.table) {
+      const response = await client.request({ query })
+      const { data, error } = response
+      if (error) {
+        const fetchError = error.fetchError && error.fetchError.statusText
+        const httpError = error.httpError && error.httpError.statusText
+        const graphQLError = error.graphQLError && error.graphQLError.statusText
+        setData([])
+        setError(
+          `${ERROR_MESSAGE} (${[
+            fetchError,
+            httpError,
+            graphQLError
+          ].join(' ')})`
+        )
+      } else if (data && data.table) {
         setData(data.table)
+        setError(null)
       } else {
-        // show error
-        debugger
+        setError(ERROR_MESSAGE)
       }
       setLoading(false)
     }
@@ -146,8 +167,8 @@ const DataTable = ({ router, regions, measures }) => {
         ))
       : 'Keine Beschreibung vorhanden.'
 
-  const rows = data && data.data || []
-  const total = data && data.pagination && data.pagination.total || 0
+  const rows = (data && data.data) || []
+  const total = (data && data.pagination && data.pagination.total) || 0
 
   return (
     <div className={classes.root}>
@@ -177,7 +198,7 @@ const DataTable = ({ router, regions, measures }) => {
               <Tab label="API" />
             </Tabs>
             {tabValue === 0 && (
-              <Table className={classes.table} size="small">
+              <Table className={classes.table} size="small" stickyHeader>
                 <TableHead>
                   <TableRow>
                     {columnDefs.map(def => (
@@ -191,17 +212,19 @@ const DataTable = ({ router, regions, measures }) => {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {rows.map((row, index) => {
-                    return (
-                      <TableRow key={index}>
-                        {columnDefs.map(def => (
-                          <TableCell key={def.field}>
-                            {row[def.field]}
-                          </TableCell>
-                        ))}
-                      </TableRow>
-                    )
-                  })}
+                  {error && <Alert className={classes.alert} severity="error">{error}</Alert>}
+                  {!error &&
+                    rows.map((row, index) => {
+                      return (
+                        <TableRow key={index}>
+                          {columnDefs.map(def => (
+                            <TableCell key={def.field}>
+                              {row[def.field]}
+                            </TableCell>
+                          ))}
+                        </TableRow>
+                      )
+                    })}
                 </TableBody>
                 <TableFooter>
                   <TableRow>
