@@ -239,6 +239,7 @@ const DataTable = ({ router, regions, measures }) => {
                         native: true
                       }}
                       labelDisplayedRows={labelDisplayedRows}
+                      labelRowsPerPage="Datensätze pro Seite: "
                       onChangePage={handleChangePage}
                       onChangeRowsPerPage={handleChangeRowsPerPage}
                       ActionsComponent={DataTablePaginationActions}
