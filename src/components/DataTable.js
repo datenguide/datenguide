@@ -94,7 +94,12 @@ const DataTable = ({ router, regions, measures }) => {
       const query = getQuery(regions, measure)
       setGraphqlQuery(query)
       const { data } = await client.request({ query })
-      setData(data.table)
+      if (data && data.table) {
+        setData(data.table)
+      } else {
+        // show error
+        debugger
+      }
       setLoading(false)
     }
 

@@ -1,3 +1,6 @@
+import prettier from 'prettier/standalone'
+import parserGraphql from 'prettier/parser-graphql'
+
 const getRegionGraphQLArg = regionArgs => `{
       region: [
         ${regionArgs.map(r => `"${r.id}"`).join(',')}
@@ -37,7 +40,8 @@ const getQuery = (regions, measure) => {
     }
   }
 `
-  return query
+
+  return prettier.format(query, { parser: 'graphql', plugins: [parserGraphql] })
 }
 
 export default getQuery
