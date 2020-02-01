@@ -4256,10 +4256,10 @@ graphql-hooks-ssr@^1.1.5:
   resolved "https://registry.yarnpkg.com/graphql-hooks-ssr/-/graphql-hooks-ssr-1.1.5.tgz#f833a413809a9d258ab2df65f26ac15fe224e146"
   integrity sha512-cCVLvjTYMZ9+4rJ4pbpBgcVUu9AC+9Lb28RO8cUGW87iy1jA46BMqX/OFYQDBea1SOJARcBQa/fiupZPuB1dMQ==
 
-graphql-hooks@^4.4.1:
-  version "4.4.1"
-  resolved "https://registry.yarnpkg.com/graphql-hooks/-/graphql-hooks-4.4.1.tgz#2dff6c5eebe5c15ce2eeaf6df709487e1f8884e1"
-  integrity sha512-TPDDtoBcQX/wRWL6FkNgpxu3XMEb8g9iD3I6Kj1Z2Te2oSb7WPyiWMITDxqJ/Om48O4OVDGxdHLqMCfIvlAZzg==
+graphql-hooks@^4.4.2:
+  version "4.4.2"
+  resolved "https://registry.yarnpkg.com/graphql-hooks/-/graphql-hooks-4.4.2.tgz#023fd7940144e65a9ea3fd2fd684ff28bfc6182c"
+  integrity sha512-uMaE5i9ZH4NO/NSs3e+3W/LvR31hWbqoXf+D/b6NUj3B7M2J8DFrrT2fgwq67Aflrmt6rvr8zQl5OVUgHxzG9Q==
   dependencies:
     dequal "^1.0.0"
     extract-files "^7.0.0"
