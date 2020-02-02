@@ -1,63 +1,34 @@
 import fetch from 'isomorphic-unfetch'
-import { useQuery } from 'graphql-hooks'
+import absoluteUrl from 'next-absolute-url'
+
 import DefaultLayout from '../../layouts/Default'
+import StatisticsList from '../../components/StatisticsList'
 
-export const allPostsQuery = `
-  query region($id: String!) {
-    region(id: $id) {
-      id
-      name
-      WAHL09(year: 2017, PART04: [CDU, SPD, AFD, FDP, DIELINKE, B90_GRUENE]) {
-        year
-        value
-        PART04
-      }
-    }
-  }
-`
-
-const RegionDetails = ({ slug, id, name }) => {
-  const { loading, error, data } = useQuery(allPostsQuery, {
-    variables: { id }
-  })
-
-  if (error) return <div>Error loading statistics.</div>
-  if (loading) return <div>Loading</div>
-
-  const { WAHL09 } = data.region
-
+const RegionDetails = ({ region, statistics }) => {
   return (
-    <DefaultLayout meta={{ title: name }}>
-      <h1>
-        {name} / {id} / {slug}
-      </h1>
+    <DefaultLayout meta={{ title: region.name }}>
+      <h1>{region.name}</h1>
 
-      <h3>Election results (2017)</h3>
+      <h3>Alle Statistiken für {region.name}</h3>
 
-      <table>
-        <tbody>
-          {WAHL09.map(({ PART04: name, value }) => (
-            <tr key={name}>
-              <th>{name}</th>
-              <td>{value} votes</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <StatisticsList regions={[region]} statistics={statistics} />
     </DefaultLayout>
   )
 }
 
-const Region = ({ slug, id, name }) => {
-  if (!id) return <div>Region not found: {slug}</div>
-  return <RegionDetails slug={slug} id={id} name={name} />
+const Region = ({ region, statistics }) => {
+  if (!region.id) return <div>Region not found: {region.slug}</div>
+  return <RegionDetails region={region} statistics={statistics} />
 }
 
-Region.getInitialProps = async function(context) {
-  const { slug } = context.query
-  const res = await fetch(`http://localhost:3000/api/region/${slug}`)
-  const data = !res.ok ? { slug } : await res.json()
-  return { ...data, res }
+Region.getInitialProps = async function({ req, query }) {
+  const { slug } = query
+  const { origin } = absoluteUrl(req)
+  const fetchRegion = await fetch(`${origin}/api/region/${slug}`)
+  const fetchStatistics = await fetch(`${origin}/api/statistics`)
+  const region = !fetchRegion.ok ? { slug } : await fetchRegion.json()
+  const statistics = await fetchStatistics.json()
+  return { region, statistics }
 }
 
 export default Region
