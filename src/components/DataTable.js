@@ -22,11 +22,14 @@ import {
 } from '@material-ui/core'
 import InsertDriveFileIcon from '@material-ui/icons/InsertDriveFile'
 import CallMadeIcon from '@material-ui/icons/CallMade'
+import Alert from '@material-ui/lab/Alert'
 
 import getQuery from '../lib/queryBuilder'
-import convertToLongFormat from '../lib/tableDataConverter'
 import DataTablePaginationActions from './DataTablePaginationActions'
 import { withRouter } from 'next/router'
+
+// TODO create i8n label
+const ERROR_MESSAGE = 'Die Daten konnten nicht geladen werden.'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -73,6 +76,9 @@ const useStyles = makeStyles(theme => ({
   exportButton: {
     marginTop: '0.3rem',
     height: '3rem'
+  },
+  alert: {
+    margin: '0px 20px'
   }
 }))
 
@@ -81,6 +87,7 @@ const DataTable = ({ router, regions, measures }) => {
   const client = useContext(ClientContext)
 
   const [data, setData] = useState([])
+  const [error, setError] = useState(null)
   const [loading, setLoading] = useState(false)
   const [rowsPerPage, setRowsPerPage] = useState(100)
   const [page, setPage] = useState(0)
@@ -92,11 +99,26 @@ const DataTable = ({ router, regions, measures }) => {
       setLoading(true)
       // TODO support more than 1 measure
       const measure = Object.values(measures)[0]
-      const query = getQuery(regions, measure)
+      const query = getQuery(regions, measure, page, rowsPerPage)
       setGraphqlQuery(query)
-      const { data } = await client.request({ query })
-      const rowData = convertToLongFormat(data, measure.name) || []
-      setData(rowData)
+      const response = await client.request({ query })
+      const { data, error } = response
+      if (error) {
+        const fetchError = error.fetchError && error.fetchError.statusText
+        const httpError = error.httpError && error.httpError.statusText
+        const graphQLError = error.graphQLError && error.graphQLError.statusText
+        setData([])
+        setError(
+          `${ERROR_MESSAGE} (${[fetchError, httpError, graphQLError].join(
+            ' '
+          )})`
+        )
+      } else if (data && data.table) {
+        setData(data.table)
+        setError(null)
+      } else {
+        setError(ERROR_MESSAGE)
+      }
       setLoading(false)
     }
 
@@ -105,40 +127,14 @@ const DataTable = ({ router, regions, measures }) => {
     } else {
       setData([])
     }
-  }, [regions, measures])
+  }, [regions, measures, rowsPerPage, page])
 
-  const columnDefs = [
-    {
-      headerName: 'Region ID',
-      field: 'regionId'
-    },
-    {
-      headerName: 'Region Name',
-      field: 'regionName'
-    },
-    {
-      headerName: 'Jahr',
-      field: 'year'
-    },
-    {
-      headerName: 'Wert',
-      field: 'value'
-    }
-  ].concat(
-    (measures &&
-    measures.length === 1 && // TODO support more than one measure
-      measures[0].dimensions
-        .filter(m => m.selected.length !== 0 && m.active)
-        .map(m => ({
-          headerName: m.titleDe,
-          field: m.name
-        }))) ||
-      []
-  )
-
-  // TODO implement proper server-side pagination
-  const currentPageRowData =
-    data.slice(page * rowsPerPage, (page + 1) * rowsPerPage) || []
+  const columnDefs =
+    (data.schema &&
+      data.schema.fields
+        .filter(f => f.name !== 'index')
+        .map(f => ({ headerName: f.name, field: f.name }))) ||
+    []
 
   const handleChangePage = (event, page) => {
     setPage(page)
@@ -169,6 +165,9 @@ const DataTable = ({ router, regions, measures }) => {
         ))
       : 'Keine Beschreibung vorhanden.'
 
+  const rows = (data && data.data) || []
+  const total = (data && data.pagination && data.pagination.total) || 0
+
   return (
     <div className={classes.root}>
       {loading && <LinearProgress variant="query" />}
@@ -197,7 +196,7 @@ const DataTable = ({ router, regions, measures }) => {
               <Tab label="API" />
             </Tabs>
             {tabValue === 0 && (
-              <Table className={classes.table} size="small">
+              <Table className={classes.table} size="small" stickyHeader>
                 <TableHead>
                   <TableRow>
                     {columnDefs.map(def => (
@@ -211,24 +210,30 @@ const DataTable = ({ router, regions, measures }) => {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {currentPageRowData.map((row, index) => {
-                    return (
-                      <TableRow key={index}>
-                        {columnDefs.map(def => (
-                          <TableCell key={def.field}>
-                            {row[def.field]}
-                          </TableCell>
-                        ))}
-                      </TableRow>
-                    )
-                  })}
+                  {error && (
+                    <Alert className={classes.alert} severity="error">
+                      {error}
+                    </Alert>
+                  )}
+                  {!error &&
+                    rows.map((row, index) => {
+                      return (
+                        <TableRow key={index}>
+                          {columnDefs.map(def => (
+                            <TableCell key={def.field}>
+                              {row[def.field]}
+                            </TableCell>
+                          ))}
+                        </TableRow>
+                      )
+                    })}
                 </TableBody>
                 <TableFooter>
                   <TableRow>
                     <TablePagination
                       rowsPerPageOptions={[100, 200, 500]}
                       colSpan={3}
-                      count={data.length}
+                      count={total}
                       rowsPerPage={rowsPerPage}
                       page={page}
                       SelectProps={{
@@ -236,6 +241,7 @@ const DataTable = ({ router, regions, measures }) => {
                         native: true
                       }}
                       labelDisplayedRows={labelDisplayedRows}
+                      labelRowsPerPage="Datensätze pro Seite: "
                       onChangePage={handleChangePage}
                       onChangeRowsPerPage={handleChangeRowsPerPage}
                       ActionsComponent={DataTablePaginationActions}

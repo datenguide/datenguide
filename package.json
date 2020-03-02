@@ -10,8 +10,9 @@
     "build": "next build src",
     "start": "next start src",
     "lint": "npx eslint . --fix",
-    "test": "healthier && prettier --check 'src/**/*.{js,json,css}'",
-    "format": "prettier --write 'src/**/*.{js,json,css,yml}'"
+    "test": "npx eslint . && npx prettier --check 'src/**/*.{js,json,css,mdx}'",
+    "prettier": "npx prettier --write 'src/**/*.{js,json,css,yml,mdx}'",
+    "pretty-quick": "npx pretty-quick --staged"
   },
   "repository": {
     "type": "git",
@@ -25,69 +26,66 @@
   },
   "homepage": "https://github.com/datenguide/datenguide#readme",
   "dependencies": {
-    "@material-ui/core": "^4.9.0",
-    "@material-ui/icons": "^4.5.1",
-    "@material-ui/styles": "^4.9.0",
-    "@mdx-js/mdx": "^1.5.5",
-    "@sindresorhus/slugify": "^0.10.0",
-    "@svgr/webpack": "^5.1.0",
+    "@material-ui/core": "^4.9.5",
+    "@material-ui/icons": "^4.9.1",
+    "@material-ui/lab": "^4.0.0-alpha.45",
+    "@mdx-js/mdx": "^1.5.7",
+    "@sindresorhus/slugify": "^0.11.0",
+    "@svgr/webpack": "^5.2.0",
     "@zeit/next-css": "^1.0.1",
     "@zeit/next-mdx": "^1.2.0",
-    "clsx": "^1.0.4",
+    "clsx": "^1.1.0",
     "dotenv": "^8.2.0",
     "dotenv-webpack": "^1.7.0",
-    "eslint-config-prettier": "^6.9.0",
+    "eslint-config-prettier": "^6.10.0",
     "flexsearch": "^0.6.32",
-    "graphql": "^14.5.8",
-    "graphql-hooks": "^4.4.1",
+    "graphql": "^14.6.0",
+    "graphql-hooks": "^4.4.3",
     "graphql-hooks-memcache": "^1.3.1",
     "graphql-hooks-ssr": "^1.1.5",
-    "graphql-tag": "^2.10.1",
+    "graphql-tag": "^2.10.3",
     "gray-matter": "^4.0.2",
     "humps": "^2.0.1",
-    "immer": "^5.3.2",
+    "husky": "^4.2.3",
+    "immer": "^5.3.6",
     "isomorphic-unfetch": "^3.0.0",
     "lodash": "^4.17.15",
-    "mdi-material-ui": "^6.11.0",
-    "next": "^9.2.1",
+    "mdi-material-ui": "^6.12.0",
+    "next": "^9.2.2",
+    "next-absolute-url": "^1.2.2",
     "next-fonts": "^1.0.3",
-    "next-images": "^1.3.0",
+    "next-images": "^1.3.1",
     "prop-types": "^15.7.2",
-    "query-string": "^6.10.1",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
+    "query-string": "^6.11.1",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
     "react-highlight": "^0.12.0",
     "react-highlight-words": "^0.16.0",
-    "react-hook-thunk-reducer": "^0.2.1",
+    "react-hook-thunk-reducer": "^0.2.4",
     "react-responsive-embed": "^2.1.0",
     "react-select": "^3.0.8",
-    "reinspect": "^1.0.2",
+    "reinspect": "^1.1.0",
     "stringify-object": "^3.3.0",
     "typeface-ibm-plex-sans": "^0.0.75",
     "url-parse": "^1.4.7",
     "use-reducer-thunk": "^1.0.4"
   },
   "devDependencies": {
-    "babel-eslint": "^10.0.3",
+    "babel-eslint": "^10.1.0",
     "eslint": "^6.8.0",
     "eslint-config-healthier": "^3.2.0",
     "eslint-config-standard": "^14.1.0",
     "eslint-config-standard-react": "^9.2.0",
-    "eslint-plugin-import": "^2.20.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-jest": "^23.8.1",
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-react": "^7.18.0",
+    "eslint-plugin-react": "^7.18.3",
     "eslint-plugin-standard": "^4.0.1",
-    "healthier": "^3.2.0",
-    "prettier": "^1.19.1",
+    "prettier": "prettier/prettier",
+    "pretty-quick": "^2.0.1",
     "standard": "^14.3.1",
-    "webpack": "^4.41.5"
-  },
-  "prettier": {
-    "tabWidth": 2,
-    "semi": false,
-    "singleQuote": true,
-    "jsxSingleQuote": false
+    "webpack": "^4.42.0"
   },
   "eslintConfig": {
     "parser": "babel-eslint",
@@ -112,11 +110,30 @@
         "version": "detect"
       }
     },
+    "env": {
+      "jest/globals": true,
+      "browser": true
+    },
+    "plugins": [
+      "jest"
+    ],
     "extends": [
       "standard",
       "standard-react",
       "prettier",
       "prettier/react"
     ]
+  },
+  "prettier": {
+    "tabWidth": 2,
+    "semi": false,
+    "singleQuote": true,
+    "jsxSingleQuote": false
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "yarn lint",
+      "pre-commit": "yarn pretty-quick"
+    }
   }
 }
