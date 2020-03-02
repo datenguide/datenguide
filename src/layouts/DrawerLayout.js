@@ -12,6 +12,7 @@ import useMediaQuery from '@material-ui/core/useMediaQuery'
 import useTheme from '@material-ui/styles/useTheme'
 
 import HeaderToolbar from '../components/HeaderToolbar'
+import Footer from '../components/Footer'
 
 const drawerWidth = {
   mobile: 240,
@@ -95,11 +96,11 @@ const DrawerLayout = ({ children, drawerContent }) => {
   }
 
   const drawer = (
-    <div>
+    <>
       <div className={classes.toolbar} />
       <Divider />
       {drawerContent}
-    </div>
+    </>
   )
 
   return (
@@ -149,6 +150,7 @@ const DrawerLayout = ({ children, drawerContent }) => {
           {children}
         </main>
       </div>
+      <Footer />
     </div>
   )
 }
