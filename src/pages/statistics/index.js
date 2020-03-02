@@ -5,7 +5,7 @@ import fetch from 'isomorphic-unfetch'
 import { makeStyles } from '@material-ui/core/styles'
 import Snackbar from '@material-ui/core/Snackbar'
 
-import DrawerLayout from '../../layouts/Drawer'
+import DrawerLayout from '../../layouts/DrawerLayout'
 import DataTable from '../../components/DataTable'
 import QueryParameterSidebar from '../../components/QueryParameterSidebar'
 import { queryArgsToState } from '../../lib/queryString'

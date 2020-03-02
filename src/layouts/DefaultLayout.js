@@ -1,7 +1,7 @@
 import React from 'react'
 import Container from '@material-ui/core/Container'
 import { makeStyles } from '@material-ui/core/styles'
-import BaseLayout from '../layouts/Base'
+import BaseLayout from '../layouts/BaseLayout'
 
 const useStyles = makeStyles(theme => ({
   root: {

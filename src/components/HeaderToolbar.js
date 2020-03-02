@@ -1,7 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
 import { makeStyles } from '@material-ui/core/styles'
-import AppBar from '@material-ui/core/AppBar'
 import Typography from '@material-ui/core/Typography'
 import Toolbar from '@material-ui/core/Toolbar'
 import Button from '@material-ui/core/Button'
@@ -10,7 +9,8 @@ import logo from '../assets/logo.svg'
 
 const useStyles = makeStyles(theme => ({
   root: {
-    background: '#fff'
+    background: theme.palette.background.paper,
+    boxShadow: theme.shadows[0]
   },
 
   controls: {
@@ -52,30 +52,28 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function Header({ menuButton }) {
+export default function HeaderToolbar({ menuButton }) {
   const classes = useStyles()
 
   return (
-    <AppBar className={classes.root} position="static">
-      <Toolbar className={classes.toolbar}>
-        <div className={classes.controls}>
-          {menuButton}
-          <Link href="/">
-            <a className={classes.homeLink}>
-              <Typography className={classes.logo} variant="h6" component="h2">
-                Datenguide
-              </Typography>
-            </a>
-          </Link>
-        </div>
-        <div className={classes.nav}>
-          <Link href="/info">
-            <Button component="a" color="inherit">
-              Über Datenguide
-            </Button>
-          </Link>
-        </div>
-      </Toolbar>
-    </AppBar>
+    <Toolbar className={classes.toolbar} classes={{ root: 'toolbar' }}>
+      <div className={classes.controls}>
+        {menuButton}
+        <Link href="/">
+          <a className={classes.homeLink}>
+            <Typography className={classes.logo} variant="h6" component="h2">
+              Datenguide
+            </Typography>
+          </a>
+        </Link>
+      </div>
+      <div className={classes.controls}>
+        <Link href="/info">
+          <Button component="a" color="inherit">
+            Über Datenguide
+          </Button>
+        </Link>
+      </div>
+    </Toolbar>
   )
 }
