@@ -10,3 +10,4 @@ docs/vendor
 docs/.bundle
 node_modules
 
+.idea

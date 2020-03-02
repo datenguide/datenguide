@@ -19,7 +19,7 @@ query Region($id: String!) {
 
 const SCHEMA_QUERY = `
 query Schema($measures: [MeasureDescription]) {
-  measures(ids: $measures) {
+  measuresCatalog(ids: $measures) {
     id
     statistic_name
     statistic_title_de
@@ -107,7 +107,7 @@ const useSearchManager = (initialMeasures, initialRegions) => {
         if (schema.error) {
           dispatch(actions.setError(JSON.stringify(schema.error))) // TODO better error handling
         } else {
-          dispatch(actions.addMeasure(schema.data.measures[0]))
+          dispatch(actions.addMeasure(schema.data.measuresCatalog[0]))
           dispatch(actions.syncUrl())
         }
       },
@@ -243,7 +243,7 @@ const useSearchManager = (initialMeasures, initialRegions) => {
         dispatch(
           actions.initializeMeasures({
             dimensionSelection: getDimensionSelection(initialMeasures),
-            schema: result.data.measures
+            schema: result.data.measuresCatalog
           })
         )
       }

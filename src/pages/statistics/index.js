@@ -1,12 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import fetch from 'isomorphic-unfetch'
-
+import absoluteUrl from 'next-absolute-url'
 import { makeStyles } from '@material-ui/core/styles'
 import Snackbar from '@material-ui/core/Snackbar'
 
 import DrawerLayout from '../../layouts/Drawer'
 import DataTable from '../../components/DataTable'
+import StatisticsList from '../../components/StatisticsList'
 import QueryParameterSidebar from '../../components/QueryParameterSidebar'
 import { queryArgsToState } from '../../lib/queryString'
 import useSearchManager from './useSearchManager'
@@ -43,7 +44,7 @@ const loadRegionOptions = async (value = '') => {
   }))
 }
 
-const Detail = ({ initialMeasures, initialRegions }) => {
+const Detail = ({ initialMeasures, initialRegions, statistics }) => {
   const classes = useStyles()
 
   const [state, dispatch, actions] = useSearchManager(
@@ -67,7 +68,11 @@ const Detail = ({ initialMeasures, initialRegions }) => {
       }
     >
       <main className={classes.content}>
-        <DataTable regions={regions} measures={measures} />
+        {measures.length ? (
+          <DataTable regions={regions} measures={measures} />
+        ) : (
+          <StatisticsList regions={regions} statistics={statistics} />
+        )}
       </main>
 
       <Snackbar
@@ -89,10 +94,14 @@ Detail.propTypes = {
   initialRegions: PropTypes.array.isRequired
 }
 
-Detail.getInitialProps = async ({ query }) => {
+Detail.getInitialProps = async ({ req, query }) => {
   const { measures, regions } = queryArgsToState(query)
+  const { origin } = absoluteUrl(req)
+  const fetchStatistics = await fetch(`${origin}/api/statistics`)
+  const statistics = await fetchStatistics.json()
 
   return {
+    statistics: statistics,
     initialMeasures: measures,
     initialRegions: regions
   }
