@@ -110,6 +110,10 @@
         "version": "detect"
       }
     },
+    "env": {
+      "jest/globals": true,
+      "browser": true
+    },
     "plugins": [
       "jest"
     ],
