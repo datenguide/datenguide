@@ -28,7 +28,7 @@ export default function BaseLayout({ children, meta }) {
         description={meta.description}
         previewImage={meta.previewImage}
       />
-      <AppBar>
+      <AppBar position="static">
         <HeaderToolbar />
       </AppBar>
       <div className={classes.content}>{children}</div>

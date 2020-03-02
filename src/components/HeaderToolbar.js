@@ -8,11 +8,6 @@ import Button from '@material-ui/core/Button'
 import logo from '../assets/logo.svg'
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    background: theme.palette.background.paper,
-    boxShadow: theme.shadows[0]
-  },
-
   controls: {
     display: 'flex'
   },
@@ -56,7 +51,7 @@ export default function HeaderToolbar({ menuButton }) {
   const classes = useStyles()
 
   return (
-    <Toolbar className={classes.toolbar} classes={{ root: 'toolbar' }}>
+    <Toolbar className={classes.toolbar}>
       <div className={classes.controls}>
         {menuButton}
         <Link href="/">
