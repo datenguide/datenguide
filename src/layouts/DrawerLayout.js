@@ -106,7 +106,6 @@ const DrawerLayout = ({ children, drawerContent }) => {
   return (
     <div className={classes.root}>
       <div className={classes.wrapper}>
-        <CssBaseline />
         <AppBar
           position="fixed"
           className={clsx(classes.appBar, {
