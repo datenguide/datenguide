@@ -14,7 +14,7 @@ import useTheme from '@material-ui/styles/useTheme'
 
 import HeaderToolbar from '../components/HeaderToolbar'
 
-const drawerWidth  = {
+const drawerWidth = {
   mobile: 240,
   desktop: 400
 }
@@ -32,7 +32,7 @@ const useStyles = makeStyles(theme => ({
   drawer: {
     [theme.breakpoints.up('sm')]: {
       width: drawerWidth.desktop,
-      flexShrink: 0,
+      flexShrink: 0
     }
   },
   appBar: {
@@ -87,7 +87,7 @@ const useStyles = makeStyles(theme => ({
 
 const DrawerLayout = ({ children, drawerContent }) => {
   const classes = useStyles()
-  const theme = useTheme();
+  const theme = useTheme()
   const [open, setOpen] = React.useState(false)
   const isDesktop = useMediaQuery(theme.breakpoints.up('sm'))
 
@@ -106,50 +106,50 @@ const DrawerLayout = ({ children, drawerContent }) => {
   return (
     <div className={classes.root}>
       <div className={classes.wrapper}>
-      <CssBaseline />
-      <AppBar
-        position="fixed"
-        className={clsx(classes.appBar, {
-          [classes.appBarShift]: open
-        })}
-      >
-        <HeaderToolbar
-          menuButton={
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              edge="start"
-              onClick={handleDrawerToggle}
-              className={classes.menuButton}
-            >
-              <MenuIcon />
-            </IconButton>
-          }
-        />
-      </AppBar>
-      <nav className={classes.drawer} aria-label="mailbox folders">
-        <Drawer
-          variant={isDesktop ? 'persistent' : 'temporary'}
-          open={open}
-          onClose={handleDrawerToggle}
-          classes={{
-            paper: classes.drawerPaper
-          }}
-          ModalProps={{
-            keepMounted: true
-          }}
+        <CssBaseline />
+        <AppBar
+          position="fixed"
+          className={clsx(classes.appBar, {
+            [classes.appBarShift]: open
+          })}
         >
-          {drawer}
-        </Drawer>
-      </nav>
-      <main
-        className={clsx(classes.content, {
-          [classes.contentShift]: open
-        })}
-      >
-        <div className={classes.toolbar} />
-        {children}
-      </main>
+          <HeaderToolbar
+            menuButton={
+              <IconButton
+                color="inherit"
+                aria-label="open drawer"
+                edge="start"
+                onClick={handleDrawerToggle}
+                className={classes.menuButton}
+              >
+                <MenuIcon />
+              </IconButton>
+            }
+          />
+        </AppBar>
+        <nav className={classes.drawer} aria-label="mailbox folders">
+          <Drawer
+            variant={isDesktop ? 'persistent' : 'temporary'}
+            open={open}
+            onClose={handleDrawerToggle}
+            classes={{
+              paper: classes.drawerPaper
+            }}
+            ModalProps={{
+              keepMounted: true
+            }}
+          >
+            {drawer}
+          </Drawer>
+        </nav>
+        <main
+          className={clsx(classes.content, {
+            [classes.contentShift]: open
+          })}
+        >
+          <div className={classes.toolbar} />
+          {children}
+        </main>
       </div>
     </div>
   )
