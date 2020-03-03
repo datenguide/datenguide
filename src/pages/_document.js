@@ -16,7 +16,9 @@ class MyDocument extends Document {
           />
           {/* PWA primary color */}
           <meta name="theme-color" content={theme.palette.primary.main} />
-          {/* TODO bundle this or put in proper place.. */}
+          {/* TODO can be removed after the redesign of the query tool UI */}
+          <script src="https://unpkg.com/prettier@1.19.1/standalone.js" />
+          <script src="https://unpkg.com/prettier@1.19.1/parser-graphql.js" />
           <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/atom-one-light.min.css"
