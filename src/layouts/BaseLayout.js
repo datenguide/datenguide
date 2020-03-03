@@ -2,8 +2,9 @@ import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 
 import Head from '../components/Head'
-import Header from '../components/Header'
+import HeaderToolbar from '../components/HeaderToolbar'
 import Footer from '../components/Footer'
+import AppBar from '@material-ui/core/AppBar'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -27,7 +28,9 @@ export default function BaseLayout({ children, meta }) {
         description={meta.description}
         previewImage={meta.previewImage}
       />
-      <Header />
+      <AppBar position="static">
+        <HeaderToolbar />
+      </AppBar>
       <div className={classes.content}>{children}</div>
       <Footer />
     </div>

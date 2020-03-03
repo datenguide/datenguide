@@ -5,7 +5,7 @@ import absoluteUrl from 'next-absolute-url'
 import { makeStyles } from '@material-ui/core/styles'
 import Snackbar from '@material-ui/core/Snackbar'
 
-import DrawerLayout from '../../layouts/Drawer'
+import DrawerLayout from '../../layouts/DrawerLayout'
 import DataTable from '../../components/DataTable'
 import StatisticsList from '../../components/StatisticsList'
 import QueryParameterSidebar from '../../components/QueryParameterSidebar'

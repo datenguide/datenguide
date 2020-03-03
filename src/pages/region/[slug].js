@@ -1,7 +1,7 @@
 import React from 'react'
 import fetch from 'isomorphic-unfetch'
 import { useQuery } from 'graphql-hooks'
-import DefaultLayout from '../../layouts/Default'
+import DefaultLayout from '../../layouts/DefaultLayout'
 
 export const allPostsQuery = `
   query region($id: String!) {
