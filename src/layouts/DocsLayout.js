@@ -12,10 +12,11 @@ import useTheme from '@material-ui/styles/useTheme'
 
 import HeaderToolbar from '../components/HeaderToolbar'
 import Footer from '../components/Footer'
+import DocsNavigationList from '../components/docs/DocsNavigationList'
 
 const drawerWidth = {
   mobile: 240,
-  desktop: 400
+  desktop: 250
 }
 
 const useStyles = makeStyles(theme => ({
@@ -50,6 +51,7 @@ const useStyles = makeStyles(theme => ({
     }
   },
   content: {
+    padding: theme.spacing(0, 4),
     flexGrow: 1,
     height: '100%',
     [theme.breakpoints.up('sm')]: {
@@ -62,7 +64,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const DrawerLayout = ({ children, drawerContent }) => {
+const DocsLayout = ({ children }) => {
   const classes = useStyles()
   const theme = useTheme()
   const [open, setOpen] = React.useState(false)
@@ -76,7 +78,7 @@ const DrawerLayout = ({ children, drawerContent }) => {
     <div>
       <div className={classes.toolbar} />
       <Divider />
-      {drawerContent}
+      <DocsNavigationList />
     </div>
   )
 
@@ -125,9 +127,8 @@ const DrawerLayout = ({ children, drawerContent }) => {
   )
 }
 
-DrawerLayout.propTypes = {
-  children: PropTypes.node.isRequired,
-  drawerContent: PropTypes.node.isRequired
+DocsLayout.propTypes = {
+  children: PropTypes.node.isRequired
 }
 
-export default DrawerLayout
+export default DocsLayout

@@ -82,10 +82,10 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.18.3",
     "eslint-plugin-standard": "^4.0.1",
+    "prettier": "prettier/prettier",
     "pretty-quick": "^2.0.1",
     "standard": "^14.3.1",
-    "webpack": "^4.42.0",
-    "prettier": "prettier/prettier"
+    "webpack": "^4.42.0"
   },
   "eslintConfig": {
     "parser": "babel-eslint",
