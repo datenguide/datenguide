@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react'
-// import Prism from 'prismjs'
 
-import Prism from './prism.js'
-import './prism.css'
-import './prism-material-dark.css'
+import Prism from '../../lib/vendor/prism.js'
+import '../../lib/vendor/prism.css'
+import '../../lib/vendor/prism-material-dark.css'
 
 const Code = ({ children, language }) => {
   useEffect(() => {

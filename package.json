@@ -9,8 +9,8 @@
     "dev": "next src",
     "build": "next build src",
     "start": "next start src",
-    "lint": "npx eslint . --fix",
-    "test": "npx eslint . && npx prettier --check 'src/**/*.{js,json,css,mdx}'",
+    "lint": "npx eslint --ignore-pattern 'src/lib/vendor' . --fix",
+    "test": "npx eslint --ignore-pattern 'src/lib/vendor' . && npx prettier --check 'src/**/*.{js,json,css,mdx}'",
     "prettier": "npx prettier --write 'src/**/*.{js,json,css,yml,mdx}'",
     "pretty-quick": "npx pretty-quick --staged"
   },
