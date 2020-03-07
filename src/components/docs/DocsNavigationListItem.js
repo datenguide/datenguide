@@ -22,18 +22,15 @@ const useStyles = makeStyles(theme => ({
     width: '100%',
     '&.depth0': {
       fontWeight: theme.typography.fontWeightBold
+    },
+    '&.active': {
+      color: theme.palette.primary.main,
+      fontWeight: theme.typography.fontWeightMedium
     }
-  },
-  depth0: {
-    fontWeight: theme.typography.fontWeightBold
-  },
-  active: {
-    color: theme.palette.primary.main,
-    fontWeight: theme.typography.fontWeightMedium
   }
 }))
 
-const DocsNavigationListItem = ({ title, href, depth, children }) => {
+const DocsNavigationListItem = ({ title, href, depth, children, active }) => {
   const classes = useStyles()
   const [open, setOpen] = React.useState(true)
 
@@ -49,7 +46,12 @@ const DocsNavigationListItem = ({ title, href, depth, children }) => {
     return (
       <>
         <ListItem className={classes.listItem}>
-          <Button href={href} className={clsx(classes.button, `depth${depth}`)}>
+          <Button
+            href={href}
+            className={clsx(classes.button, `depth${depth}`, {
+              active: active
+            })}
+          >
             {title}
           </Button>
         </ListItem>

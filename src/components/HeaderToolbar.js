@@ -63,6 +63,16 @@ export default function HeaderToolbar({ menuButton }) {
         </Link>
       </div>
       <div className={classes.controls}>
+        <Link href="/docs">
+          <Button component="a" color="inherit">
+            Docs
+          </Button>
+        </Link>
+        <Link href="/statistics">
+          <Button component="a" color="inherit">
+            Data
+          </Button>
+        </Link>
         <Link href="/info">
           <Button component="a" color="inherit">
             Über Datenguide
