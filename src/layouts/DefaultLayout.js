@@ -2,12 +2,13 @@ import React from 'react'
 import Container from '@material-ui/core/Container'
 import { makeStyles } from '@material-ui/core/styles'
 import BaseLayout from '../layouts/BaseLayout'
+import AppBar from '@material-ui/core/AppBar'
+import HeaderToolbar from '../components/HeaderToolbar'
+import Footer from '../components/Footer'
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    paddingTop: theme.spacing(1),
-    paddingBottom: theme.spacing(3),
-    fontSize: theme.typography.body1.fontSize
+  content: {
+    flexGrow: 1
   }
 }))
 
@@ -16,9 +17,15 @@ export default function DefaultLayout({ children, meta }) {
 
   return (
     <BaseLayout meta={meta}>
-      <Container>
-        <div className={classes.root}>{children}</div>
-      </Container>
+      <AppBar position="static">
+        <HeaderToolbar />
+      </AppBar>
+      <div className={classes.content}>
+        <Container>
+          <div className={classes.root}>{children}</div>
+        </Container>
+      </div>
+      <Footer />
     </BaseLayout>
   )
 }

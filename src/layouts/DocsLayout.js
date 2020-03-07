@@ -13,6 +13,7 @@ import useTheme from '@material-ui/styles/useTheme'
 import HeaderToolbar from '../components/HeaderToolbar'
 import Footer from '../components/Footer'
 import DocsNavigationList from '../components/docs/DocsNavigationList'
+import BaseLayout from './BaseLayout'
 
 const drawerWidth = {
   mobile: 240,
@@ -83,46 +84,48 @@ const DocsLayout = ({ children }) => {
   )
 
   return (
-    <div className={classes.root}>
-      <div className={classes.wrapper}>
-        <AppBar position="fixed" className={classes.appBar}>
-          <HeaderToolbar
-            menuButton={
-              isDesktop ? null : (
-                <IconButton
-                  color="inherit"
-                  aria-label="open drawer"
-                  onClick={handleDrawerToggle}
-                  className={classes.menuButton}
-                >
-                  <MenuIcon />
-                </IconButton>
-              )
-            }
-          />
-        </AppBar>
-        <nav className={classes.drawer} aria-label="mailbox folders">
-          <Drawer
-            variant={isDesktop ? 'permanent' : 'temporary'}
-            open={open}
-            onClose={handleDrawerToggle}
-            classes={{
-              paper: classes.drawerPaper
-            }}
-            ModalProps={{
-              keepMounted: true
-            }}
-          >
-            {drawer}
-          </Drawer>
-        </nav>
-        <main className={classes.content}>
-          <div className={classes.toolbar} />
-          {children}
-        </main>
+    <BaseLayout meta={meta}>
+      <div className={classes.root}>
+        <div className={classes.wrapper}>
+          <AppBar position="fixed" className={classes.appBar}>
+            <HeaderToolbar
+              menuButton={
+                isDesktop ? null : (
+                  <IconButton
+                    color="inherit"
+                    aria-label="open drawer"
+                    onClick={handleDrawerToggle}
+                    className={classes.menuButton}
+                  >
+                    <MenuIcon />
+                  </IconButton>
+                )
+              }
+            />
+          </AppBar>
+          <nav className={classes.drawer} aria-label="mailbox folders">
+            <Drawer
+              variant={isDesktop ? 'permanent' : 'temporary'}
+              open={open}
+              onClose={handleDrawerToggle}
+              classes={{
+                paper: classes.drawerPaper
+              }}
+              ModalProps={{
+                keepMounted: true
+              }}
+            >
+              {drawer}
+            </Drawer>
+          </nav>
+          <main className={classes.content}>
+            <div className={classes.toolbar} />
+            {children}
+          </main>
+        </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </BaseLayout>
   )
 }
 
