@@ -8,13 +8,12 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     minHeight: '100vh',
     flexDirection: 'column',
-    paddingTop: theme.spacing(1),
-    paddingBottom: theme.spacing(3),
+    paddingTop: theme.spacing(5),
     fontSize: theme.typography.body1.fontSize
   }
 }))
 
-export default function BaseLayout({ children, meta }) {
+export default function Base({ children, meta }) {
   const classes = useStyles()
 
   return (

@@ -5,7 +5,7 @@ import absoluteUrl from 'next-absolute-url'
 import { makeStyles } from '@material-ui/core/styles'
 import Snackbar from '@material-ui/core/Snackbar'
 
-import DrawerLayout from '../../layouts/DrawerLayout'
+import StatisticsLayout from '../../layouts/StatisticsPage'
 import DataTable from '../../components/DataTable'
 import StatisticsList from '../../components/StatisticsList'
 import QueryParameterSidebar from '../../components/QueryParameterSidebar'
@@ -55,7 +55,7 @@ const Detail = ({ initialMeasures, initialRegions, statistics }) => {
   const { measures, regions, error } = state
 
   return (
-    <DrawerLayout
+    <StatisticsLayout
       drawerContent={
         <QueryParameterSidebar
           regions={regions}
@@ -85,7 +85,7 @@ const Detail = ({ initialMeasures, initialRegions, statistics }) => {
         autoHideDuration={6000}
         message={<span>{error}</span>}
       />
-    </DrawerLayout>
+    </StatisticsLayout>
   )
 }
 

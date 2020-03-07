@@ -13,7 +13,7 @@ import useTheme from '@material-ui/styles/useTheme'
 
 import HeaderToolbar from '../components/HeaderToolbar'
 import Footer from '../components/Footer'
-import BaseLayout from './BaseLayout'
+import Base from '../layouts/Base'
 
 const drawerWidth = {
   mobile: 240,
@@ -57,7 +57,6 @@ const useStyles = makeStyles(theme => ({
   menuButton: {
     marginRight: theme.spacing(2)
   },
-  toolbar: theme.mixins.toolbar,
   drawerPaper: {
     width: drawerWidth.mobile,
     [theme.breakpoints.up('sm')]: {
@@ -65,6 +64,7 @@ const useStyles = makeStyles(theme => ({
     }
   },
   content: {
+    paddingTop: theme.spacing(3),
     flexGrow: 1,
     height: '100%',
     [theme.breakpoints.up('sm')]: {
@@ -86,7 +86,11 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const DrawerLayout = ({ children, drawerContent, meta = { title: null } }) => {
+const StatisticsPage = ({
+  children,
+  drawerContent,
+  meta = { title: null }
+}) => {
   const classes = useStyles()
   const theme = useTheme()
   const [open, setOpen] = React.useState(false)
@@ -98,14 +102,13 @@ const DrawerLayout = ({ children, drawerContent, meta = { title: null } }) => {
 
   const drawer = (
     <>
-      <div className={classes.toolbar} />
       <Divider />
       {drawerContent}
     </>
   )
 
   return (
-    <BaseLayout meta={meta}>
+    <Base meta={meta}>
       <div className={classes.root}>
         <div className={classes.wrapper}>
           <AppBar
@@ -154,13 +157,13 @@ const DrawerLayout = ({ children, drawerContent, meta = { title: null } }) => {
         </div>
         <Footer />
       </div>
-    </BaseLayout>
+    </Base>
   )
 }
 
-DrawerLayout.propTypes = {
+StatisticsPage.propTypes = {
   children: PropTypes.node.isRequired,
   drawerContent: PropTypes.node.isRequired
 }
 
-export default DrawerLayout
+export default StatisticsPage

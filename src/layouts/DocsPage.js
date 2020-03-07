@@ -13,7 +13,7 @@ import useTheme from '@material-ui/styles/useTheme'
 import HeaderToolbar from '../components/HeaderToolbar'
 import Footer from '../components/Footer'
 import DocsNavigationList from '../components/docs/DocsNavigationList'
-import BaseLayout from './BaseLayout'
+import Base from '../layouts/Base'
 
 const drawerWidth = {
   mobile: 240,
@@ -35,7 +35,6 @@ const useStyles = makeStyles(theme => ({
       zIndex: theme.zIndex.drawer + 1
     }
   },
-  toolbar: theme.mixins.toolbar,
   menuButton: {
     marginRight: theme.spacing(2)
   },
@@ -46,13 +45,15 @@ const useStyles = makeStyles(theme => ({
     }
   },
   drawerPaper: {
+    paddingTop: theme.spacing(9),
+
     width: drawerWidth.mobile,
     [theme.breakpoints.up('sm')]: {
       width: drawerWidth.desktop
     }
   },
   content: {
-    padding: theme.spacing(0, 4),
+    padding: theme.spacing(3, 4),
     flexGrow: 1,
     height: '100%',
     [theme.breakpoints.up('sm')]: {
@@ -65,7 +66,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const DocsLayout = ({ children }) => {
+const DocsPage = ({ children, meta = { title: '' } }) => {
   const classes = useStyles()
   const theme = useTheme()
   const [open, setOpen] = React.useState(false)
@@ -78,13 +79,12 @@ const DocsLayout = ({ children }) => {
   const drawer = (
     <div>
       <div className={classes.toolbar} />
-      <Divider />
       <DocsNavigationList />
     </div>
   )
 
   return (
-    <BaseLayout meta={meta}>
+    <Base meta={meta}>
       <div className={classes.root}>
         <div className={classes.wrapper}>
           <AppBar position="fixed" className={classes.appBar}>
@@ -118,19 +118,16 @@ const DocsLayout = ({ children }) => {
               {drawer}
             </Drawer>
           </nav>
-          <main className={classes.content}>
-            <div className={classes.toolbar} />
-            {children}
-          </main>
+          <main className={classes.content}>{children}</main>
         </div>
         <Footer />
       </div>
-    </BaseLayout>
+    </Base>
   )
 }
 
-DocsLayout.propTypes = {
+DocsPage.propTypes = {
   children: PropTypes.node.isRequired
 }
 
-export default DocsLayout
+export default DocsPage

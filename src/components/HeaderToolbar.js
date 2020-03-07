@@ -73,6 +73,11 @@ export default function HeaderToolbar({ menuButton }) {
             Data
           </Button>
         </Link>
+        <Link href="/regions">
+          <Button component="a" color="inherit">
+            Regions
+          </Button>
+        </Link>
         <Link href="/info">
           <Button component="a" color="inherit">
             Über Datenguide
