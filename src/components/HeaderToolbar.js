@@ -63,7 +63,7 @@ export default function HeaderToolbar({ menuButton }) {
         </Link>
       </div>
       <div className={classes.controls}>
-        <Link href="/docs">
+        <Link href="/docs/gettingstarted/intro">
           <Button component="a" color="inherit">
             Docs
           </Button>

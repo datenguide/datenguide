@@ -4,7 +4,7 @@ const docsNavigation = [
     children: [
       {
         title: 'What is Datenguide?',
-        href: '/docs/gettingstarted/whatisdatenguide'
+        href: '/docs/gettingstarted/intro'
       }
     ]
   },
