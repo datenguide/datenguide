@@ -92,7 +92,6 @@ const DocsLayout = ({ children }) => {
                 <IconButton
                   color="inherit"
                   aria-label="open drawer"
-                  edge="start"
                   onClick={handleDrawerToggle}
                   className={classes.menuButton}
                 >

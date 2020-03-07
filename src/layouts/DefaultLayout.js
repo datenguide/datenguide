@@ -5,7 +5,7 @@ import BaseLayout from '../layouts/BaseLayout'
 
 const useStyles = makeStyles(theme => ({
   root: {
-    paddingTop: theme.spacing(3),
+    paddingTop: theme.spacing(1),
     paddingBottom: theme.spacing(3),
     fontSize: theme.typography.body1.fontSize
   }
