@@ -12,7 +12,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function DefaultLayout({ children, meta = { title: '' } }) {
+const HomePage = ({ children, meta }) => {
   const classes = useStyles()
 
   return (
@@ -27,3 +27,5 @@ export default function DefaultLayout({ children, meta = { title: '' } }) {
     </Base>
   )
 }
+
+export default HomePage
