@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 
 import AppBar from '@material-ui/core/AppBar'
@@ -13,6 +13,10 @@ import HeaderToolbar from '../components/HeaderToolbar'
 import Footer from '../components/Footer'
 import DocsNavigationList from '../components/docs/DocsNavigationList'
 import Base from '../layouts/Base'
+
+import Prism from '../lib/vendor/prism.js'
+import '../lib/vendor/prism.css'
+import '../lib/vendor/prism-material-dark.css'
 
 const drawerWidth = {
   mobile: 240,
@@ -70,6 +74,10 @@ const DocsPage = ({ children, tableOfContents, meta = { title: '' } }) => {
   const theme = useTheme()
   const [open, setOpen] = React.useState(false)
   const isDesktop = useMediaQuery(theme.breakpoints.up('sm'))
+
+  useEffect(() => {
+    Prism.highlightAll()
+  }, [])
 
   const handleDrawerToggle = () => {
     setOpen(!open)

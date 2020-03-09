@@ -4,7 +4,6 @@ title: 'Datenguide | Getting Started'
 
 import Layout from '../../../layouts/DocsPage'
 import BodyText from '../../../components/BodyText'
-import Code from '../../../components/docs/Code'
 
 <Layout meta={frontmatter} tableOfContents={tableOfContents}>
 <BodyText>
@@ -27,12 +26,12 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry.
 Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
 when an unknown printer took a galley of type and scrambled it to make a type specimen book.
 
-<Code language="javascript">{`
-(function someDemo() {
-  var test = "Hello World!";
-  console.log(test);
-})();
-`}</Code>
+```javascript
+;(function someDemo() {
+  var test = 'Hello World!'
+  console.log(test)
+})()
+```
 
 ## Title 2
 
@@ -48,7 +47,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry.
 Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
 when an unknown printer took a galley of type and scrambled it to make a type specimen book.
 
-<Code language="graphql">{`
+```graphql
 {
   region(id: "11") {
     id
@@ -60,7 +59,7 @@ when an unknown printer took a galley of type and scrambled it to make a type sp
     }
   }
 }
-`}</Code>
+```
 
 Mehr Text.
 
