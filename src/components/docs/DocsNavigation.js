@@ -1,9 +1,11 @@
 import React from 'react'
-import { makeStyles } from '@material-ui/core/styles'
-import DocsNavigationListItem from './DocsNavigationListItem'
-import docsNavigation from '../../docsNavigation'
-import List from '@material-ui/core/List'
 import { useRouter } from 'next/router'
+
+import { makeStyles } from '@material-ui/core/styles'
+import List from '@material-ui/core/List'
+
+import DocsNavigationItem from './DocsNavigationItem'
+import docsNavigation from '../../docsNavigation'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -16,14 +18,14 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const DocsNavigationList = () => {
+const DocsNavigation = () => {
   const router = useRouter()
 
   const renderNavigation = (navigation, depth) => (
     <>
       {navigation.map(({ title, href, children }) => {
         return (
-          <DocsNavigationListItem
+          <DocsNavigationItem
             key={title}
             title={title}
             href={href}
@@ -31,7 +33,7 @@ const DocsNavigationList = () => {
             active={href === router.pathname}
           >
             {children ? renderNavigation(children, depth + 1) : null}
-          </DocsNavigationListItem>
+          </DocsNavigationItem>
         )
       })}
     </>
@@ -43,4 +45,4 @@ const DocsNavigationList = () => {
   )
 }
 
-export default DocsNavigationList
+export default DocsNavigation

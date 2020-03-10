@@ -11,7 +11,7 @@ import useTheme from '@material-ui/styles/useTheme'
 
 import HeaderToolbar from '../components/HeaderToolbar'
 import Footer from '../components/Footer'
-import DocsNavigationList from '../components/docs/DocsNavigationList'
+import DocsNavigation from '../components/docs/DocsNavigation'
 import Base from '../layouts/Base'
 
 import Prism from '../lib/vendor/prism.js'
@@ -69,7 +69,12 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const DocsPage = ({ children, tableOfContents, meta = { title: '' } }) => {
+const DocsPage = ({
+  children,
+  tableOfContents,
+  docsNavigation,
+  meta = { title: '' }
+}) => {
   const classes = useStyles()
   const theme = useTheme()
   const [open, setOpen] = React.useState(false)
@@ -86,7 +91,7 @@ const DocsPage = ({ children, tableOfContents, meta = { title: '' } }) => {
   const drawer = (
     <div>
       <div className={classes.toolbar} />
-      <DocsNavigationList />
+      <DocsNavigation docsNavigation={docsNavigation} />
     </div>
   )
 

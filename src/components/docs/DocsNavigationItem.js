@@ -30,7 +30,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const DocsNavigationListItem = ({ title, href, depth, children, active }) => {
+const DocsNavigationItem = ({ title, href, depth, children, active }) => {
   const classes = useStyles()
   const [open, setOpen] = React.useState(true)
 
@@ -75,4 +75,4 @@ const DocsNavigationListItem = ({ title, href, depth, children, active }) => {
   )
 }
 
-export default DocsNavigationListItem
+export default DocsNavigationItem
