@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import fetch from 'isomorphic-unfetch'
 import absoluteUrl from 'next-absolute-url'
+
 import { makeStyles } from '@material-ui/core/styles'
 import Snackbar from '@material-ui/core/Snackbar'
 
@@ -10,7 +11,7 @@ import DataTable from '../../components/DataTable'
 import StatisticsList from '../../components/StatisticsList'
 import QueryParameterSidebar from '../../components/QueryParameterSidebar'
 import { queryArgsToState } from '../../lib/queryString'
-import useSearchManager from './useSearchManager'
+import useSearchManager from '../../lib/useSearchManager'
 
 const useStyles = makeStyles(theme => ({
   main: {

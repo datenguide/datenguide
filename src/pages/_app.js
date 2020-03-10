@@ -4,7 +4,7 @@ import { StateInspector } from 'reinspect'
 import { ThemeProvider } from '@material-ui/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import { ClientContext } from 'graphql-hooks'
-import withGraphQLClient from '../lib/graphql-client'
+import withGraphQLClient from '../lib/withGraphQLClient'
 import theme from '../theme'
 
 class _App extends App {
