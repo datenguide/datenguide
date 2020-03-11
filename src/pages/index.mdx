@@ -1,6 +1,7 @@
 ---
 title: Datenguide | Amtliche Statistiken für alle
 description: Der Datenguide macht die amtliche Statistik zugänglicher für alle. Wir arbeiten an einer digitalen Plattform, die regionale Statistiken klar und prägnant darstellt, vergleichbar macht und erklärt.
+layout: HomePage
 intro:
   - title: Statistiken für alle
     text: Wir entwickeln eine einfach zu bedienende Website, die amtliche Statistiken zugänglich macht, in Kontext setzt, visualisiert und erklärt.
@@ -104,13 +105,11 @@ tools:
 ---
 
 import ResponsiveEmbed from 'react-responsive-embed'
-import Layout from '../layouts/HomePage'
 import Subscribe from '../components/Subscribe'
 import Intro from '../components/Intro'
 import Events from '../components/Events'
 import Tools from '../components/Tools'
-
-<Layout meta={frontmatter}>
+import { frontMatter } from './index.mdx'
 
 <Subscribe>
 
@@ -125,7 +124,7 @@ Nutzer:innen gehören willst, melde dich für unseren Newsletter an.
 
 </Subscribe>
 
-<Intro features={frontmatter.intro}>
+<Intro features={frontMatter.intro}>
 
 ## Über Datenguide
 
@@ -135,7 +134,7 @@ Der Datenguide ist noch in Arbeit aber einige technische Komponenten sind bereit
 
 </Intro>
 
-<Events dates={frontmatter.events}>
+<Events dates={frontMatter.events}>
 
 ## Datenguide beim 35C3
 
@@ -156,7 +155,7 @@ Foto: [Workshop bei der OpenNews Unconference](https://www.flickr.com/photos/moz
 
 </Events>
 
-<Tools features={frontmatter.tools}>
+<Tools features={frontMatter.tools}>
 
 ## Open Data und Open Source
 
@@ -165,5 +164,3 @@ Datenguide bietet direkten Zugriff auf Daten der amtlichen Statistik Deutschland
 Die Datensätze, die über Datenguide zur Verfügung stehen, stammen aus der [Regionaldatenbank Deutschland](https://www.regionalstatistik.de/genesis/online/), einer Veröffentlichung der Statistischen Ämter des Bundes und der Länder. Sie können unter den Bedingungen der Datenlizenz Deutschland ([dl‑de/by‑2-0](https://www.govdata.de/en/dl-de/by-2-0)) frei verwendet werden.
 
 </Tools>
-
-</Layout>

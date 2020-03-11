@@ -4,6 +4,7 @@ import Base from '../layouts/Base'
 import AppBar from '@material-ui/core/AppBar'
 import HeaderToolbar from '../components/HeaderToolbar'
 import Footer from '../components/Footer'
+import BodyText from '../components/BodyText'
 
 const useStyles = makeStyles(theme => ({
   content: {
@@ -12,16 +13,18 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const HomePage = ({ children, meta }) => {
+const HomePage = frontMatter => ({ children }) => {
   const classes = useStyles()
 
   return (
-    <Base meta={meta}>
+    <Base meta={frontMatter}>
       <AppBar position="fixed">
         <HeaderToolbar />
       </AppBar>
       <div className={classes.content}>
-        <div className={classes.root}>{children}</div>
+        <div className={classes.root}>
+          <BodyText>{children}</BodyText>
+        </div>
       </div>
       <Footer />
     </Base>

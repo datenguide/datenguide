@@ -13,8 +13,10 @@ import HeaderToolbar from '../components/HeaderToolbar'
 import Footer from '../components/Footer'
 import DocsNavigation from '../components/docs/DocsNavigation'
 import Base from '../layouts/Base'
+import docsNavigation from '../docsNavigation'
 
 import '../lib/vendor/prism-material-dark.css'
+import BodyText from '../components/BodyText'
 
 const drawerWidth = {
   mobile: 240,
@@ -67,12 +69,8 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const DocsPage = ({
-  children,
-  tableOfContents,
-  docsNavigation,
-  meta = { title: '' }
-}) => {
+const DocsPage = frontMatter => ({ children, tableOfContents }) => {
+  debugger
   const classes = useStyles()
   const theme = useTheme()
   const [open, setOpen] = React.useState(false)
@@ -90,7 +88,7 @@ const DocsPage = ({
   )
 
   return (
-    <Base meta={meta}>
+    <Base meta={frontMatter}>
       <div className={classes.root}>
         <div className={classes.wrapper}>
           <AppBar position="fixed" className={classes.appBar}>
@@ -124,7 +122,9 @@ const DocsPage = ({
               {drawer}
             </Drawer>
           </nav>
-          <main className={classes.content}>{children}</main>
+          <main className={classes.content}>
+            <BodyText>{children}</BodyText>
+          </main>
         </div>
         <Footer />
       </div>
