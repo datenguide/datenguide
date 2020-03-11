@@ -5,6 +5,7 @@ const mdx = require('@mdx-js/mdx')
 const mdxTableOfContents = require('mdx-table-of-contents')
 const mdxExportJSONByDefault = require('mdx-constant')
 const grayMatter = require('gray-matter')
+const rehypePrism = require('@mapbox/rehype-prism')
 
 module.exports = async function(source) {
   let result
@@ -13,7 +14,7 @@ module.exports = async function(source) {
   const options = Object.assign(
     {
       remarkPlugins: [slug, images],
-      rehypePlugins: [],
+      rehypePlugins: [rehypePrism],
       compilers: [
         mdxTableOfContents,
         mdxExportJSONByDefault('frontmatter', data)
