@@ -70,7 +70,6 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const DocsPage = frontMatter => ({ children, tableOfContents }) => {
-  debugger
   const classes = useStyles()
   const theme = useTheme()
   const [open, setOpen] = React.useState(false)
@@ -79,13 +78,6 @@ const DocsPage = frontMatter => ({ children, tableOfContents }) => {
   const handleDrawerToggle = () => {
     setOpen(!open)
   }
-
-  const drawer = (
-    <div>
-      <div className={classes.toolbar} />
-      <DocsNavigation docsNavigation={docsNavigation} />
-    </div>
-  )
 
   return (
     <Base meta={frontMatter}>
@@ -119,7 +111,8 @@ const DocsPage = frontMatter => ({ children, tableOfContents }) => {
                 keepMounted: true
               }}
             >
-              {drawer}
+              <div className={classes.toolbar} />
+              <DocsNavigation docsNavigation={docsNavigation} />
             </Drawer>
           </nav>
           <main className={classes.content}>
