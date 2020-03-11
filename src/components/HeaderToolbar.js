@@ -66,7 +66,7 @@ export default function HeaderToolbar({ menuButton }) {
         </Link>
       </div>
       <div className={classes.controls}>
-        {!process.browser && process.env.NODE_ENV !== 'production' ? (
+        {!process.env.NODE_ENV !== 'production' ? (
           <a
             className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-colorInherit"
             href="/docs/gettingstarted/intro"
