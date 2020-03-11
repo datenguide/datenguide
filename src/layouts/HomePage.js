@@ -1,7 +1,9 @@
 import React from 'react'
+
 import { makeStyles } from '@material-ui/core/styles'
-import Base from '../layouts/Base'
 import AppBar from '@material-ui/core/AppBar'
+
+import Base from '../layouts/Base'
 import HeaderToolbar from '../components/HeaderToolbar'
 import Footer from '../components/Footer'
 import BodyText from '../components/BodyText'
