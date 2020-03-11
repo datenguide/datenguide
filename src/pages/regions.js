@@ -1,7 +1,7 @@
 import React from 'react'
 import fetch from 'isomorphic-unfetch'
 import Link from 'next/link'
-import DefaultLayout from '../layouts/DefaultLayout'
+import Layout from '../layouts/ContentPage'
 
 const RegionLink = ({ name, slug }) => (
   <li>
@@ -13,7 +13,7 @@ const RegionLink = ({ name, slug }) => (
 
 const Home = ({ regions }) => {
   return (
-    <DefaultLayout>
+    <Layout>
       <h2>Regions</h2>
       {regions.map(({ name, id, slug, districts }) => (
         <ul key={id}>
@@ -25,7 +25,7 @@ const Home = ({ regions }) => {
           ))}
         </ul>
       ))}
-    </DefaultLayout>
+    </Layout>
   )
 }
 

@@ -13,6 +13,7 @@ import useTheme from '@material-ui/styles/useTheme'
 
 import HeaderToolbar from '../components/HeaderToolbar'
 import Footer from '../components/Footer'
+import Base from '../layouts/Base'
 
 const drawerWidth = {
   mobile: 240,
@@ -56,7 +57,6 @@ const useStyles = makeStyles(theme => ({
   menuButton: {
     marginRight: theme.spacing(2)
   },
-  toolbar: theme.mixins.toolbar,
   drawerPaper: {
     width: drawerWidth.mobile,
     [theme.breakpoints.up('sm')]: {
@@ -64,6 +64,7 @@ const useStyles = makeStyles(theme => ({
     }
   },
   content: {
+    paddingTop: theme.spacing(3),
     flexGrow: 1,
     height: '100%',
     [theme.breakpoints.up('sm')]: {
@@ -85,7 +86,11 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const DrawerLayout = ({ children, drawerContent }) => {
+const StatisticsPage = ({
+  children,
+  drawerContent,
+  meta = { title: null }
+}) => {
   const classes = useStyles()
   const theme = useTheme()
   const [open, setOpen] = React.useState(false)
@@ -97,67 +102,68 @@ const DrawerLayout = ({ children, drawerContent }) => {
 
   const drawer = (
     <>
-      <div className={classes.toolbar} />
       <Divider />
       {drawerContent}
     </>
   )
 
   return (
-    <div className={classes.root}>
-      <div className={classes.wrapper}>
-        <AppBar
-          position="fixed"
-          className={clsx(classes.appBar, {
-            [classes.appBarShift]: open
-          })}
-        >
-          <HeaderToolbar
-            menuButton={
-              <IconButton
-                color="inherit"
-                aria-label="open drawer"
-                edge="start"
-                onClick={handleDrawerToggle}
-                className={classes.menuButton}
-              >
-                <MenuIcon />
-              </IconButton>
-            }
-          />
-        </AppBar>
-        <nav className={classes.drawer} aria-label="mailbox folders">
-          <Drawer
-            variant={isDesktop ? 'persistent' : 'temporary'}
-            open={open}
-            onClose={handleDrawerToggle}
-            classes={{
-              paper: classes.drawerPaper
-            }}
-            ModalProps={{
-              keepMounted: true
-            }}
+    <Base meta={meta}>
+      <div className={classes.root}>
+        <div className={classes.wrapper}>
+          <AppBar
+            position="fixed"
+            className={clsx(classes.appBar, {
+              [classes.appBarShift]: open
+            })}
           >
-            {drawer}
-          </Drawer>
-        </nav>
-        <main
-          className={clsx(classes.content, {
-            [classes.contentShift]: open
-          })}
-        >
-          <div className={classes.toolbar} />
-          {children}
-        </main>
+            <HeaderToolbar
+              menuButton={
+                <IconButton
+                  color="inherit"
+                  aria-label="open drawer"
+                  edge="start"
+                  onClick={handleDrawerToggle}
+                  className={classes.menuButton}
+                >
+                  <MenuIcon />
+                </IconButton>
+              }
+            />
+          </AppBar>
+          <nav className={classes.drawer} aria-label="mailbox folders">
+            <Drawer
+              variant={isDesktop ? 'persistent' : 'temporary'}
+              open={open}
+              onClose={handleDrawerToggle}
+              classes={{
+                paper: classes.drawerPaper
+              }}
+              ModalProps={{
+                keepMounted: true
+              }}
+            >
+              {drawer}
+            </Drawer>
+          </nav>
+          <main
+            className={clsx(classes.content, {
+              [classes.contentShift]: open
+            })}
+          >
+            <div className={classes.toolbar} />
+            {children}
+          </main>
+        </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </Base>
   )
 }
 
-DrawerLayout.propTypes = {
+StatisticsPage.propTypes = {
   children: PropTypes.node.isRequired,
   drawerContent: PropTypes.node.isRequired
 }
 
-export default DrawerLayout
+export default StatisticsPage

@@ -2,23 +2,18 @@ import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 
 import Head from '../components/Head'
-import HeaderToolbar from '../components/HeaderToolbar'
-import Footer from '../components/Footer'
-import AppBar from '@material-ui/core/AppBar'
 
 const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
     minHeight: '100vh',
-    flexDirection: 'column'
-  },
-
-  content: {
-    flexGrow: 1
+    flexDirection: 'column',
+    paddingTop: theme.spacing(5),
+    fontSize: theme.typography.body1.fontSize
   }
 }))
 
-export default function BaseLayout({ children, meta }) {
+export default function Base({ children, meta }) {
   const classes = useStyles()
 
   return (
@@ -28,11 +23,7 @@ export default function BaseLayout({ children, meta }) {
         description={meta.description}
         previewImage={meta.previewImage}
       />
-      <AppBar position="static">
-        <HeaderToolbar />
-      </AppBar>
-      <div className={classes.content}>{children}</div>
-      <Footer />
+      {children}
     </div>
   )
 }

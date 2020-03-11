@@ -1,7 +1,7 @@
 import React from 'react'
 import fetch from 'isomorphic-unfetch'
 import { useQuery } from 'graphql-hooks'
-import DefaultLayout from '../../layouts/DefaultLayout'
+import Layout from '../../layouts/ContentPage'
 
 export const allPostsQuery = `
   query region($id: String!) {
@@ -28,7 +28,7 @@ const Region = ({ slug, id, name }) => {
   const { WAHL09 } = data.region
 
   return (
-    <DefaultLayout>
+    <Layout>
       <h1>
         {name} / {id} / {slug}
       </h1>
@@ -45,7 +45,7 @@ const Region = ({ slug, id, name }) => {
           ))}
         </tbody>
       </table>
-    </DefaultLayout>
+    </Layout>
   )
 }
 

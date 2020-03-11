@@ -4,9 +4,9 @@ import Router from 'next/router'
 import { camelizeKeys } from 'humps'
 import _ from 'lodash'
 
-import { getNuts, getRegion } from '../api/region'
-import useSuperRedux from '../../lib/useSuperRedux'
-import { stateToQueryArgs } from '../../lib/queryString'
+import { getNuts, getRegion } from '../pages/api/region'
+import useSuperRedux from './useSuperRedux'
+import { stateToQueryArgs } from './queryString'
 
 const REGION_QUERY = `
 query Region($id: String!) {
