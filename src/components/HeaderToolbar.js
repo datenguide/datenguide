@@ -47,6 +47,9 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
+// TODO Link to docs page doesn't work in dev mode after initial page load,
+//  so we currently render a regular a tag as a workaround in dev mode
+
 export default function HeaderToolbar({ menuButton }) {
   const classes = useStyles()
 
@@ -63,11 +66,21 @@ export default function HeaderToolbar({ menuButton }) {
         </Link>
       </div>
       <div className={classes.controls}>
-        <Link href="/docs/gettingstarted/intro">
-          <Button component="a" color="inherit">
+        {!process.browser && process.env.NODE_ENV !== 'production' ? (
+          <a
+            className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-colorInherit"
+            href="/docs/gettingstarted/intro"
+          >
             Docs
-          </Button>
-        </Link>
+          </a>
+        ) : (
+          <Link href="/docs/gettingstarted/intro" passHref>
+            Docs
+            <Button component="a" color="inherit">
+              Docs
+            </Button>
+          </Link>
+        )}
         <Link href="/statistics">
           <Button component="a" color="inherit">
             Data
