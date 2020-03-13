@@ -1,13 +1,11 @@
-import React from 'react'
-
 import Container from '@material-ui/core/Container'
 import { makeStyles } from '@material-ui/core/styles'
 import AppBar from '@material-ui/core/AppBar'
 
-import Base from '../layouts/Base'
-import HeaderToolbar from '../components/HeaderToolbar'
-import Footer from '../components/Footer'
-import BodyText from '../components/BodyText'
+import Base from '../Base'
+import HeaderToolbar from '../../components/HeaderToolbar'
+import Footer from '../../components/Footer'
+import BodyText from '../../components/BodyText'
 
 const useStyles = makeStyles(theme => ({
   content: {
@@ -16,7 +14,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const ContentPage = frontMatter => ({ children }) => {
+const BlogPost = frontMatter => ({ children }) => {
   const classes = useStyles()
 
   return (
@@ -36,4 +34,4 @@ const ContentPage = frontMatter => ({ children }) => {
   )
 }
 
-export default ContentPage
+export default BlogPost

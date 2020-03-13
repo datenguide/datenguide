@@ -1,4 +1,3 @@
-import React from 'react'
 import Link from 'next/link'
 import { makeStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
@@ -89,6 +88,11 @@ export default function HeaderToolbar({ menuButton }) {
         <Link href="/regions">
           <Button component="a" color="inherit">
             Regions
+          </Button>
+        </Link>
+        <Link href="/blog">
+          <Button component="a" color="inherit">
+            Blog
           </Button>
         </Link>
         <Link href="/info">

@@ -16,7 +16,7 @@ module.exports = withCSS(
   withImages(
     withFonts(
       withMdxEnhanced({
-        layoutPath: 'layouts',
+        layoutPath: 'layouts/mdx',
         defaultLayout: false,
         fileExtensions: ['mdx'],
         remarkPlugins: [slug, normalizeHeadings],

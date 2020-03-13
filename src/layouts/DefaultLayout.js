@@ -1,13 +1,9 @@
-import React from 'react'
-
-import Container from '@material-ui/core/Container'
 import { makeStyles } from '@material-ui/core/styles'
 import AppBar from '@material-ui/core/AppBar'
 
 import Base from '../layouts/Base'
 import HeaderToolbar from '../components/HeaderToolbar'
 import Footer from '../components/Footer'
-import BodyText from '../components/BodyText'
 
 const useStyles = makeStyles(theme => ({
   content: {
@@ -16,24 +12,18 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const BlogPost = frontMatter => ({ children }) => {
+const DefaultLayout = ({ children, meta }) => {
   const classes = useStyles()
 
   return (
-    <Base meta={frontMatter}>
+    <Base meta={meta}>
       <AppBar position="fixed">
         <HeaderToolbar />
       </AppBar>
-      <div className={classes.content}>
-        <Container>
-          <div className={classes.root}>
-            <BodyText>{children}</BodyText>
-          </div>
-        </Container>
-      </div>
+      <div className={classes.content}>{children}</div>
       <Footer />
     </Base>
   )
 }
 
-export default BlogPost
+export default DefaultLayout

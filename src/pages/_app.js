@@ -1,5 +1,5 @@
 import App from 'next/app'
-import React from 'react'
+
 import { StateInspector } from 'reinspect'
 import { ClientContext } from 'graphql-hooks'
 

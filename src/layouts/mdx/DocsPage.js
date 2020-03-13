@@ -1,4 +1,3 @@
-import React from 'react'
 import PropTypes from 'prop-types'
 
 import AppBar from '@material-ui/core/AppBar'
@@ -9,14 +8,15 @@ import { makeStyles } from '@material-ui/core/styles'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
 import useTheme from '@material-ui/styles/useTheme'
 
-import HeaderToolbar from '../components/HeaderToolbar'
-import Footer from '../components/Footer'
-import DocsNavigation from '../components/docs/DocsNavigation'
-import Base from '../layouts/Base'
-import docsNavigation from '../docsNavigation'
-import BodyText from '../components/BodyText'
+import HeaderToolbar from '../../components/HeaderToolbar'
+import Footer from '../../components/Footer'
+import DocsNavigation from '../../components/docs/DocsNavigation'
+import Base from '../Base'
+import docsNavigation from '../../docsNavigation'
+import BodyText from '../../components/BodyText'
 
-import '../lib/vendor/prism-material-dark.css'
+import '../../lib/vendor/prism-material-dark.css'
+import { useState } from 'react'
 
 const drawerWidth = {
   mobile: 240,
@@ -72,7 +72,7 @@ const useStyles = makeStyles(theme => ({
 const DocsPage = frontMatter => ({ children, tableOfContents }) => {
   const classes = useStyles()
   const theme = useTheme()
-  const [open, setOpen] = React.useState(false)
+  const [open, setOpen] = useState(false)
   const isDesktop = useMediaQuery(theme.breakpoints.up('sm'))
 
   const handleDrawerToggle = () => {

@@ -110,6 +110,7 @@
     "parser": "babel-eslint",
     "rules": {
       "react/prop-types": 0,
+      "react/react-in-jsx-scope": 0,
       "jsx-quotes": [
         "error",
         "prefer-double"

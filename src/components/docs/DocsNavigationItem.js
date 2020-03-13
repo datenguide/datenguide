@@ -1,10 +1,10 @@
-import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import Collapse from '@material-ui/core/Collapse'
 import clsx from 'clsx'
 import Button from '@material-ui/core/Button'
+import { useState } from 'react'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -32,7 +32,7 @@ const useStyles = makeStyles(theme => ({
 
 const DocsNavigationItem = ({ title, href, depth, children, active }) => {
   const classes = useStyles()
-  const [open, setOpen] = React.useState(true)
+  const [open, setOpen] = useState(true)
 
   const handleClick = () => {
     setOpen(!open)

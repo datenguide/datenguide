@@ -1,10 +1,11 @@
-import React from 'react'
+import Document, { Head, Main, NextScript } from 'next/document'
 import postcss from 'postcss'
 import cssnano from 'cssnano'
 
-import Document, { Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheets } from '@material-ui/styles'
+
 import theme from '../theme'
+import { Fragment } from 'react'
 
 const minifier = postcss([cssnano])
 
@@ -78,14 +79,14 @@ MyDocument.getInitialProps = async ctx => {
     ...initialProps,
     // Styles fragment is rendered after the app and page rendering finish.
     styles: [
-      <React.Fragment key="styles">
+      <Fragment key="styles">
         {initialProps.styles}
         <style
           id="jss-server-side"
           // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{ __html: css }}
         />
-      </React.Fragment>
+      </Fragment>
     ]
   }
 }

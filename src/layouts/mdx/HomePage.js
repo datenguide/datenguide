@@ -1,12 +1,9 @@
-import React from 'react'
-
 import { makeStyles } from '@material-ui/core/styles'
 import AppBar from '@material-ui/core/AppBar'
 
-import Base from '../layouts/Base'
-import HeaderToolbar from '../components/HeaderToolbar'
-import Footer from '../components/Footer'
-import BodyText from '../components/BodyText'
+import Base from '../Base'
+import HeaderToolbar from '../../components/HeaderToolbar'
+import Footer from '../../components/Footer'
 
 const useStyles = makeStyles(theme => ({
   content: {
@@ -24,9 +21,7 @@ const HomePage = frontMatter => ({ children }) => {
         <HeaderToolbar />
       </AppBar>
       <div className={classes.content}>
-        <div className={classes.root}>
-          <BodyText>{children}</BodyText>
-        </div>
+        <div className={classes.root}>{children}</div>
       </div>
       <Footer />
     </Base>
