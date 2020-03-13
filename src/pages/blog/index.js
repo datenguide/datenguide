@@ -1,7 +1,10 @@
 import DefaultLayout from '../../layouts/DefaultLayout'
+import Stage from '../../components/Stage'
 
 const Blog = ({ meta }) => (
-  <DefaultLayout meta={meta}>Hello World</DefaultLayout>
+  <DefaultLayout meta={meta}>
+    <Stage />
+  </DefaultLayout>
 )
 
 export const getStaticProps = () => {
