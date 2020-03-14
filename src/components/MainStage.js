@@ -61,7 +61,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function Stage({ children }) {
+const MainStage = ({ children }) => {
   const classes = useStyles()
   return (
     <section className={classes.root}>
@@ -71,3 +71,5 @@ export default function Stage({ children }) {
     </section>
   )
 }
+
+export default MainStage

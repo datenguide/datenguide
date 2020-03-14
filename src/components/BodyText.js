@@ -8,14 +8,16 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function DefaultLayout(props) {
+const DefaultLayout = props => {
   const classes = useStyles()
 
   return (
     <Grid container>
-      <Grid item xs={8}>
+      <Grid item sm={8}>
         <div className={classes.root}>{props.children}</div>
       </Grid>
     </Grid>
   )
 }
+
+export default DefaultLayout

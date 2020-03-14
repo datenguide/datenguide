@@ -6,6 +6,7 @@ import GithubIcon from 'mdi-material-ui/GithubCircle'
 import TwitterIcon from 'mdi-material-ui/TwitterCircle'
 
 import background from '../assets/hero_village.svg'
+import backgroundRight from '../assets/hero_city.svg'
 
 const navItems = [
   {
@@ -53,11 +54,20 @@ const useStyles = makeStyles(theme => ({
     fontSize: theme.typography.body1.fontSize,
 
     [theme.breakpoints.up('md')]: {
-      backgroundImage: `url(${background})`,
-      backgroundRepeat: 'no-repeat',
-      backgroundSize: '500px auto',
-      backgroundPosition: '-170px bottom',
-      borderBottom: '3px solid #44707f'
+      position: 'relative',
+
+      '&::after': {
+        content: '""',
+        backgroundImage: `url(${background})`,
+        backgroundRepeat: 'no-repeat',
+        position: 'absolute',
+        opacity: '0.5',
+        width: '500px',
+        top: '57px',
+        bottom: 0,
+        transform: 'translateX(-170px)',
+        backgroundSize: '500px auto'
+      }
     }
   },
 

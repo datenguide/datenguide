@@ -8,7 +8,7 @@ import Footer from '../components/Footer'
 const useStyles = makeStyles(theme => ({
   content: {
     flexGrow: 1,
-    paddingTop: theme.spacing(5)
+    paddingTop: theme.spacing(3)
   }
 }))
 

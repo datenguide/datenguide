@@ -1,9 +1,9 @@
 import DefaultLayout from '../../layouts/DefaultLayout'
-import Stage from '../../components/Stage'
+import SecondaryStage from '../../components/SecondaryStage'
 
 const Blog = ({ meta }) => (
   <DefaultLayout meta={meta}>
-    <Stage />
+    <SecondaryStage />
   </DefaultLayout>
 )
 
