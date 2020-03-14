@@ -6,7 +6,6 @@ import GithubIcon from 'mdi-material-ui/GithubCircle'
 import TwitterIcon from 'mdi-material-ui/TwitterCircle'
 
 import background from '../assets/hero_village.svg'
-import backgroundRight from '../assets/hero_city.svg'
 
 const navItems = [
   {
@@ -115,7 +114,7 @@ const useStyles = makeStyles(theme => ({
 export default function Footer() {
   const classes = useStyles()
   return (
-    <div className={classes.root} position="static">
+    <div className={classes.root}>
       <Container className={classes.container} fixed>
         <nav className={classes.nav}>
           <Grid container direction="row" justify="center">

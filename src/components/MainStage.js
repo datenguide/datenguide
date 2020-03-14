@@ -5,7 +5,6 @@ import background from '../assets/hero_city.svg'
 
 const useStyles = makeStyles(theme => ({
   root: {
-    flexGrow: 1,
     height: '600px',
     fontSize: theme.typography.body1.fontSize,
     backgroundColor: '#c3e5f1',

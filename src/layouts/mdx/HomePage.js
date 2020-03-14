@@ -6,10 +6,7 @@ import HeaderToolbar from '../../components/HeaderToolbar'
 import Footer from '../../components/Footer'
 
 const useStyles = makeStyles(theme => ({
-  content: {
-    flexGrow: 1,
-    paddingTop: theme.spacing(2)
-  }
+  content: {}
 }))
 
 const HomePage = frontMatter => ({ children }) => {

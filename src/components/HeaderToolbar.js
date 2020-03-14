@@ -97,7 +97,7 @@ export default function HeaderToolbar({ menuButton }) {
         </Link>
         <Link href="/info">
           <Button component="a" color="inherit">
-            Über Datenguide
+            About
           </Button>
         </Link>
       </div>
