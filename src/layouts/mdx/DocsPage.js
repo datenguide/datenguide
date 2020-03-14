@@ -1,4 +1,3 @@
-import React from 'react'
 import PropTypes from 'prop-types'
 
 import AppBar from '@material-ui/core/AppBar'
@@ -9,12 +8,15 @@ import { makeStyles } from '@material-ui/core/styles'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
 import useTheme from '@material-ui/styles/useTheme'
 
-import HeaderToolbar from '../components/HeaderToolbar'
-import Footer from '../components/Footer'
-import DocsNavigation from '../components/docs/DocsNavigation'
-import Base from '../layouts/Base'
+import HeaderToolbar from '../../components/HeaderToolbar'
+import Footer from '../../components/Footer'
+import DocsNavigation from '../../components/docs/DocsNavigation'
+import Base from '../Base'
+import docsNavigation from '../../docsNavigation'
+import BodyText from '../../components/BodyText'
 
-import '../lib/vendor/prism-material-dark.css'
+import '../../lib/vendor/prism-material-dark.css'
+import { useState } from 'react'
 
 const drawerWidth = {
   mobile: 240,
@@ -67,30 +69,18 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const DocsPage = ({
-  children,
-  tableOfContents,
-  docsNavigation,
-  meta = { title: '' }
-}) => {
+const DocsPage = frontMatter => ({ children, tableOfContents }) => {
   const classes = useStyles()
   const theme = useTheme()
-  const [open, setOpen] = React.useState(false)
+  const [open, setOpen] = useState(false)
   const isDesktop = useMediaQuery(theme.breakpoints.up('sm'))
 
   const handleDrawerToggle = () => {
     setOpen(!open)
   }
 
-  const drawer = (
-    <div>
-      <div className={classes.toolbar} />
-      <DocsNavigation docsNavigation={docsNavigation} />
-    </div>
-  )
-
   return (
-    <Base meta={meta}>
+    <Base meta={frontMatter}>
       <div className={classes.root}>
         <div className={classes.wrapper}>
           <AppBar position="fixed" className={classes.appBar}>
@@ -121,10 +111,13 @@ const DocsPage = ({
                 keepMounted: true
               }}
             >
-              {drawer}
+              <div className={classes.toolbar} />
+              <DocsNavigation docsNavigation={docsNavigation} />
             </Drawer>
           </nav>
-          <main className={classes.content}>{children}</main>
+          <main className={classes.content}>
+            <BodyText>{children}</BodyText>
+          </main>
         </div>
         <Footer />
       </div>

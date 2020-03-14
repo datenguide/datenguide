@@ -1,7 +1,6 @@
-import React from 'react'
 import fetch from 'isomorphic-unfetch'
 import { useQuery } from 'graphql-hooks'
-import Layout from '../../layouts/ContentPage'
+import Layout from '../../layouts/mdx/ContentPage'
 
 export const allPostsQuery = `
   query region($id: String!) {

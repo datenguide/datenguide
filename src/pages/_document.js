@@ -1,10 +1,11 @@
-import React from 'react'
+import Document, { Head, Main, NextScript } from 'next/document'
 import postcss from 'postcss'
 import cssnano from 'cssnano'
 
-import Document, { Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheets } from '@material-ui/styles'
+
 import theme from '../theme'
+import { Fragment } from 'react'
 
 const minifier = postcss([cssnano])
 
@@ -24,12 +25,6 @@ class MyDocument extends Document {
           {/* TODO can be removed after the redesign of the query tool UI */}
           <script src="https://unpkg.com/prettier@1.19.1/standalone.js" />
           <script src="https://unpkg.com/prettier@1.19.1/parser-graphql.js" />
-          <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/atom-one-light.min.css"
-            integrity="sha256-VCcaD9+X/d4QGYRX7l5aMJ8BWgwfA8d3S7i/HC9rvvw="
-            crossOrigin="anonymous"
-          />
         </Head>
         <body>
           <Main />
@@ -84,14 +79,14 @@ MyDocument.getInitialProps = async ctx => {
     ...initialProps,
     // Styles fragment is rendered after the app and page rendering finish.
     styles: [
-      <React.Fragment key="styles">
+      <Fragment key="styles">
         {initialProps.styles}
         <style
           id="jss-server-side"
           // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{ __html: css }}
         />
-      </React.Fragment>
+      </Fragment>
     ]
   }
 }

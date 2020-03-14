@@ -1,4 +1,4 @@
-import React from 'react'
+import { useState } from 'react'
 import PropTypes from 'prop-types'
 import Link from 'next/link'
 import { makeStyles } from '@material-ui/core/styles'
@@ -29,7 +29,7 @@ const getTableLink = ({ id, measure, regions }) => {
 
 const StatisticsList = ({ statistics, regions }) => {
   const classes = useStyles()
-  const [expanded, setExpanded] = React.useState([])
+  const [expanded, setExpanded] = useState([])
 
   const handleChange = (event, nodes) => {
     setExpanded(nodes)

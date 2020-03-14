@@ -1,4 +1,3 @@
-import React from 'react'
 import clsx from 'clsx'
 import PropTypes from 'prop-types'
 
@@ -14,6 +13,7 @@ import useTheme from '@material-ui/styles/useTheme'
 import HeaderToolbar from '../components/HeaderToolbar'
 import Footer from '../components/Footer'
 import Base from '../layouts/Base'
+import { useState } from 'react'
 
 const drawerWidth = {
   mobile: 240,
@@ -86,14 +86,14 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const StatisticsPage = ({
+const PersistentDrawerLayout = ({
   children,
   drawerContent,
   meta = { title: null }
 }) => {
   const classes = useStyles()
   const theme = useTheme()
-  const [open, setOpen] = React.useState(false)
+  const [open, setOpen] = useState(false)
   const isDesktop = useMediaQuery(theme.breakpoints.up('sm'))
 
   const handleDrawerToggle = () => {
@@ -161,9 +161,9 @@ const StatisticsPage = ({
   )
 }
 
-StatisticsPage.propTypes = {
+PersistentDrawerLayout.propTypes = {
   children: PropTypes.node.isRequired,
   drawerContent: PropTypes.node.isRequired
 }
 
-export default StatisticsPage
+export default PersistentDrawerLayout

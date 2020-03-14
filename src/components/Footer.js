@@ -1,4 +1,3 @@
-import React from 'react'
 import Link from 'next/link'
 import { makeStyles } from '@material-ui/core/styles'
 import Container from '@material-ui/core/Container'
@@ -54,11 +53,20 @@ const useStyles = makeStyles(theme => ({
     fontSize: theme.typography.body1.fontSize,
 
     [theme.breakpoints.up('md')]: {
-      backgroundImage: `url(${background})`,
-      backgroundRepeat: 'no-repeat',
-      backgroundSize: '500px auto',
-      backgroundPosition: '-170px bottom',
-      borderBottom: '3px solid #44707f'
+      position: 'relative',
+
+      '&::after': {
+        content: '""',
+        backgroundImage: `url(${background})`,
+        backgroundRepeat: 'no-repeat',
+        position: 'absolute',
+        opacity: '0.5',
+        width: '500px',
+        top: '57px',
+        bottom: 0,
+        transform: 'translateX(-170px)',
+        backgroundSize: '500px auto'
+      }
     }
   },
 
@@ -106,7 +114,7 @@ const useStyles = makeStyles(theme => ({
 export default function Footer() {
   const classes = useStyles()
   return (
-    <div className={classes.root} position="static">
+    <div className={classes.root}>
       <Container className={classes.container} fixed>
         <nav className={classes.nav}>
           <Grid container direction="row" justify="center">

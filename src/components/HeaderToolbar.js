@@ -1,4 +1,3 @@
-import React from 'react'
 import Link from 'next/link'
 import { makeStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
@@ -66,7 +65,7 @@ export default function HeaderToolbar({ menuButton }) {
         </Link>
       </div>
       <div className={classes.controls}>
-        {!process.browser && process.env.NODE_ENV !== 'production' ? (
+        {!process.env.NODE_ENV !== 'production' ? (
           <a
             className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-colorInherit"
             href="/docs/gettingstarted/intro"
@@ -91,9 +90,14 @@ export default function HeaderToolbar({ menuButton }) {
             Regions
           </Button>
         </Link>
+        <Link href="/blog">
+          <Button component="a" color="inherit">
+            Blog
+          </Button>
+        </Link>
         <Link href="/info">
           <Button component="a" color="inherit">
-            Über Datenguide
+            About
           </Button>
         </Link>
       </div>

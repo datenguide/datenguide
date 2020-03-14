@@ -1,7 +1,6 @@
-import React from 'react'
 import fetch from 'isomorphic-unfetch'
 import Link from 'next/link'
-import Layout from '../layouts/ContentPage'
+import Layout from '../layouts/mdx/ContentPage'
 
 const RegionLink = ({ name, slug }) => (
   <li>

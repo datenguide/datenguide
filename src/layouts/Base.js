@@ -1,4 +1,3 @@
-import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 
 import Head from '../components/Head'
@@ -8,9 +7,9 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     minHeight: '100vh',
     flexDirection: 'column',
-    paddingTop: theme.spacing(5),
     fontSize: theme.typography.body1.fontSize
-  }
+  },
+  toolbarSpacing: theme.mixins.toolbar
 }))
 
 export default function Base({ children, meta }) {
@@ -18,6 +17,7 @@ export default function Base({ children, meta }) {
 
   return (
     <div className={classes.root}>
+      <div className={classes.toolbarSpacing} />
       <Head
         title={meta.title}
         description={meta.description}
