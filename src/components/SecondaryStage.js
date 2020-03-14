@@ -7,7 +7,7 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: '#c3e5f1',
     borderBottom: '1px solid #44707f',
     display: 'flex',
-    height: '150px',
+    height: theme.spacing(25),
     justifyContent: 'center',
     alignItems: 'center',
     fontSize: theme.typography.body1.fontSize,
@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
     backgroundPosition: '105% 100%',
     [theme.breakpoints.up('sm')]: {
       backgroundSize: '300px auto',
-      height: '300px',
+      height: theme.spacing(32),
       justifyContent: 'flex-start'
     },
     [theme.breakpoints.up('md')]: {

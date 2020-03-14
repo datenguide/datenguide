@@ -4,13 +4,13 @@ import Container from '@material-ui/core/Container'
 const useStyles = makeStyles(theme => ({
   root: {
     backgroundColor: '#c3e5f1',
-    minHeight: '150px',
+    minHeight: theme.spacing(25),
     fontSize: theme.typography.body1.fontSize,
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'flex-end',
     [theme.breakpoints.up('sm')]: {
-      minHeight: '300px'
+      minHeight: theme.spacing(32)
     },
     [theme.breakpoints.up('md')]: {}
   },
@@ -41,7 +41,7 @@ const BlogHeader = ({ title, description }) => {
   const classes = useStyles()
   return (
     <div className={classes.root}>
-      <Container>
+      <Container maxWidth="md">
         <div className={classes.content}>
           <h1 className={classes.title}>{title}</h1>
           <h2 className={classes.description}>{description}</h2>

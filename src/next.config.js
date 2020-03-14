@@ -5,7 +5,6 @@ const withImages = require('next-images')
 const withMdxEnhanced = require('next-mdx-enhanced')
 
 const slug = require('remark-slug')
-const normalizeHeadings = require('remark-normalize-headings')
 const rehypePrism = require('@mapbox/rehype-prism')
 const generateToc = require('./lib/mdx/generateToc')
 const Dotenv = require('dotenv-webpack')
@@ -19,7 +18,7 @@ module.exports = withCSS(
         layoutPath: 'layouts/mdx',
         defaultLayout: false,
         fileExtensions: ['mdx'],
-        remarkPlugins: [slug, normalizeHeadings],
+        remarkPlugins: [slug],
         rehypePlugins: [rehypePrism],
         extendFrontMatter: {
           process: (mdxContent, frontMatter) => {

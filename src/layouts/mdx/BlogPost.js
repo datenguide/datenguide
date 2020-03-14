@@ -11,7 +11,7 @@ import BlogHeader from '../../components/BlogHeader'
 const useStyles = makeStyles(theme => ({
   content: {
     flexGrow: 1,
-    paddingTop: theme.spacing(5)
+    padding: theme.spacing(8, 0, 30, 0)
   }
 }))
 
@@ -28,10 +28,8 @@ const BlogPost = frontMatter => ({ children }) => {
         description={frontMatter.description}
       />
       <div className={classes.content}>
-        <Container>
-          <div className={classes.root}>
-            <BodyText>{children}</BodyText>
-          </div>
+        <Container maxWidth="md">
+          <BodyText>{children}</BodyText>
         </Container>
       </div>
       <Footer />
