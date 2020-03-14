@@ -22,13 +22,13 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const BlogPostListItem = ({ href, title, description }) => {
+const BlogPostListItem = ({ href, date, title, description }) => {
   const classes = useStyles()
 
   return (
     <div className={classes.root}>
       <a className={classes.link} href={href}>
-        <div className={classes.date}>2020-01-20</div>
+        <div className={classes.date}>{date}</div>
         <h2 className={classes.title}>{title}</h2>
         <div className={classes.description}>{description}</div>
       </a>

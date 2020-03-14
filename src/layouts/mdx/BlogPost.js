@@ -6,6 +6,7 @@ import Base from '../Base'
 import HeaderToolbar from '../../components/HeaderToolbar'
 import Footer from '../../components/Footer'
 import BodyText from '../../components/BodyText'
+import BlogHeader from '../../components/BlogHeader'
 
 const useStyles = makeStyles(theme => ({
   content: {
@@ -22,6 +23,10 @@ const BlogPost = frontMatter => ({ children }) => {
       <AppBar position="fixed">
         <HeaderToolbar />
       </AppBar>
+      <BlogHeader
+        title={frontMatter.title}
+        description={frontMatter.description}
+      />
       <div className={classes.content}>
         <Container>
           <div className={classes.root}>
