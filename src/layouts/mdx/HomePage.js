@@ -20,9 +20,7 @@ const HomePage = frontMatter => ({ children }) => {
       <AppBar position="fixed">
         <HeaderToolbar />
       </AppBar>
-      <div className={classes.content}>
-        <div className={classes.root}>{children}</div>
-      </div>
+      <div className={classes.content}>{children}</div>
       <Footer />
     </Base>
   )
