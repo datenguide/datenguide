@@ -9,6 +9,8 @@ import CssBaseline from '@material-ui/core/CssBaseline'
 import withGraphQLClient from '../lib/withGraphQLClient'
 import theme from '../theme'
 
+import '../lib/vendor/prism-material-dark.css'
+
 class _App extends App {
   render() {
     const { Component, pageProps, graphQLClient } = this.props

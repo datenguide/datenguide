@@ -75,7 +75,6 @@ export default function HeaderToolbar({ menuButton }) {
           </a>
         ) : (
           <Link href="/docs/gettingstarted/intro" passHref>
-            Docs
             <Button component="a" color="inherit">
               Docs
             </Button>

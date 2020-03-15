@@ -16,8 +16,6 @@ import Base from '../Base'
 import docsNavigation from '../../docsNavigation'
 import BodyText from '../../components/BodyText'
 
-import '../../lib/vendor/prism-material-dark.css'
-
 const drawerWidth = {
   mobile: 240,
   desktop: 250
