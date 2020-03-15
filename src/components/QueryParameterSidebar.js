@@ -1,8 +1,10 @@
 import PropTypes from 'prop-types'
+
+import { makeStyles } from '@material-ui/core'
+
 import AutocompleteSearchField from './AutocompleteSearchField'
 import RegionSearchParameterCard from './RegionSearchParameterCard'
 import StatisticsSearchParameterCard from './MeasureSearchParameterCard'
-import { makeStyles } from '@material-ui/core'
 
 const useStyles = makeStyles(theme => ({
   root: {

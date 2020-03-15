@@ -7,16 +7,19 @@ import DefaultLayout from '../../layouts/DefaultLayout'
 import SecondaryStage from '../../components/SecondaryStage'
 import BlogPostListItem from '../../components/BlogPostListItem'
 import traverseDirectory from '../../lib/traverseDirectory'
+import BodyText from '../../components/BodyText'
 
 const Blog = ({ meta, blogPosts = [] }) => {
   return (
     <DefaultLayout meta={meta}>
       <SecondaryStage claim="Der Datenguide hilft dir dabei, dich im Dschungel der Statistiken zurecht zu finden." />
       <Container>
-        <h1>Aktuelles</h1>
-        {blogPosts.map(blogPost => (
-          <BlogPostListItem {...blogPost} key={blogPost.href} />
-        ))}
+        <BodyText>
+          <h1>Aktuelles</h1>
+          {blogPosts.map(blogPost => (
+            <BlogPostListItem {...blogPost} key={blogPost.href} />
+          ))}
+        </BodyText>
       </Container>
     </DefaultLayout>
   )

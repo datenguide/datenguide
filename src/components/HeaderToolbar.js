@@ -1,4 +1,5 @@
 import Link from 'next/link'
+
 import { makeStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 import Toolbar from '@material-ui/core/Toolbar'
@@ -65,7 +66,7 @@ export default function HeaderToolbar({ menuButton }) {
         </Link>
       </div>
       <div className={classes.controls}>
-        {!process.env.NODE_ENV !== 'production' ? (
+        {process.env.NODE_ENV !== 'production' ? (
           <a
             className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-colorInherit"
             href="/docs/gettingstarted/intro"

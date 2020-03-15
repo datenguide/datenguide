@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import clsx from 'clsx'
 import PropTypes from 'prop-types'
 
@@ -13,7 +14,6 @@ import useTheme from '@material-ui/styles/useTheme'
 import HeaderToolbar from '../components/HeaderToolbar'
 import Footer from '../components/Footer'
 import Base from '../layouts/Base'
-import { useState } from 'react'
 
 const drawerWidth = {
   mobile: 240,

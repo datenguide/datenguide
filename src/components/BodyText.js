@@ -6,7 +6,7 @@ const useStyles = makeStyles(theme => ({
     margin: '0 auto',
     display: 'flex',
     flexDirection: 'column',
-    fontSize: '1.2em', // TODO define theme typography instead of adjusting here
+    paddingTop: theme.spacing(3),
 
     '& img': {
       maxWidth: '100%',
@@ -17,6 +17,16 @@ const useStyles = makeStyles(theme => ({
     },
     '& small': {
       paddingBottom: theme.spacing(3)
+    },
+    '& p, & ul, & ol': {
+      [theme.breakpoints.up('lg')]: {
+        width: '70%'
+      }
+    },
+    '& pre': {
+      [theme.breakpoints.up('lg')]: {
+        width: '70%'
+      }
     }
   }
 }))

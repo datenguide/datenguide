@@ -6,42 +6,58 @@ import LOGO_MIZ from '../assets/funders/miz.svg'
 
 const useStyles = makeStyles(theme => ({
   root: {
-    '& img': {
-      height: 80,
-      margin: theme.spacing(5, 5, 5, 0)
+    display: 'flex',
+    paddingTop: theme.spacing(7),
+    flexDirection: 'column',
+    alignItems: 'center',
+    [theme.breakpoints.up('sm')]: {
+      flexDirection: 'row',
+      alignItems: 'flex-start'
     }
   },
-
-  bmbf: {
-    position: 'relative',
-    top: -10,
-
-    '& img': {
-      height: 100
+  prototypefund: {
+    margin: theme.spacing(0, 8, 0, 0),
+    height: '140px'
+  },
+  miz: {
+    margin: theme.spacing(3, 8, 0, 0),
+    height: '140px',
+    [theme.breakpoints.up('sm')]: {
+      marginTop: theme.spacing(0)
     }
+  },
+  bmbf: {
+    margin: theme.spacing(0, 8, 0, 0),
+    position: 'relative',
+    height: '180px',
+    top: -38
   }
 }))
 
-export default function Header({ menuButton }) {
+const Funders = () => {
   const classes = useStyles()
 
   return (
     <div className={classes.root}>
-      <a
-        className={classes.bmbf}
-        href="https://www.bmbf.de/de/software-sprint-freie-programmierer-unterstuetzen-3512.html"
-      >
+      <a href="https://www.bmbf.de/de/software-sprint-freie-programmierer-unterstuetzen-3512.html">
         <img
+          className={classes.bmbf}
           src={LOGO_BMBF}
           alt="Bundesministerium für Bildung und Forschung"
         />
       </a>
       <a href="https://prototypefund.de/">
-        <img src={LOGO_PROTOTYPEFUND} alt="Prototype Fund" />
+        <img
+          className={classes.prototypefund}
+          src={LOGO_PROTOTYPEFUND}
+          alt="Prototype Fund"
+        />
       </a>
       <a href="https://miz-babelsberg.de">
-        <img src={LOGO_MIZ} alt="MIZ Babelsberg" />
+        <img className={classes.miz} src={LOGO_MIZ} alt="MIZ Babelsberg" />
       </a>
     </div>
   )
 }
+
+export default Funders

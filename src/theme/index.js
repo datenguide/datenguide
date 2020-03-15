@@ -7,7 +7,6 @@ const RED = '#f26c6f'
 const BLUE = '#01627c'
 const WHITE = '#fff'
 
-// Create a theme instance.
 const theme = createMuiTheme({
   typography: {
     fontSize: 14,
@@ -22,7 +21,10 @@ const theme = createMuiTheme({
       '"Apple Color Emoji"',
       '"Segoe UI Emoji"',
       '"Segoe UI Symbol"'
-    ].join(',')
+    ].join(','),
+    h1: {
+      fontSize: '14px'
+    }
   },
 
   overrides: {

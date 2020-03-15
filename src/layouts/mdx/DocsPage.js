@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'
+import { useState } from 'react'
 
 import AppBar from '@material-ui/core/AppBar'
 import Drawer from '@material-ui/core/Drawer'
@@ -10,13 +11,12 @@ import useTheme from '@material-ui/styles/useTheme'
 
 import HeaderToolbar from '../../components/HeaderToolbar'
 import Footer from '../../components/Footer'
-import DocsNavigation from '../../components/docs/DocsNavigation'
+import DocsNavigation from '../../components/DocsNavigation'
 import Base from '../Base'
 import docsNavigation from '../../docsNavigation'
 import BodyText from '../../components/BodyText'
 
 import '../../lib/vendor/prism-material-dark.css'
-import { useState } from 'react'
 
 const drawerWidth = {
   mobile: 240,
@@ -49,22 +49,22 @@ const useStyles = makeStyles(theme => ({
   },
   drawerPaper: {
     paddingTop: theme.spacing(9),
-
+    border: 'none',
     width: drawerWidth.mobile,
     [theme.breakpoints.up('sm')]: {
       width: drawerWidth.desktop
     }
   },
   content: {
-    padding: theme.spacing(3, 4),
     flexGrow: 1,
+    margin: theme.spacing(0, 4),
     height: '100%',
     [theme.breakpoints.up('sm')]: {
       transition: theme.transitions.create('margin', {
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.leavingScreen
       }),
-      marginLeft: drawerWidth.desktop
+      marginLeft: drawerWidth.desktop + theme.spacing(4)
     }
   }
 }))

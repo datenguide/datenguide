@@ -1,13 +1,19 @@
 import { makeStyles } from '@material-ui/core/styles'
-import Grid from '@material-ui/core/Grid'
 import Avatar from '@material-ui/core/Avatar'
 
 const useStyles = makeStyles(theme => ({
   root: {
     color: theme.palette.secondary.main,
-    paddingTop: theme.spacing(3),
     paddingBottom: theme.spacing(6),
     fontSize: theme.typography.body1.fontSize,
+    display: 'flex',
+    justifyContent: 'space-between',
+    flexDirection: 'column',
+    alignItems: 'center',
+    flexWrap: 'wrap',
+    [theme.breakpoints.up('md')]: {
+      flexDirection: 'row'
+    },
 
     [theme.breakpoints.up('xl')]: {
       paddingTop: theme.spacing(9),
@@ -24,6 +30,15 @@ const useStyles = makeStyles(theme => ({
 
   member: {
     textAlign: 'center',
+    padding: theme.spacing(4),
+
+    [theme.breakpoints.up('md')]: {
+      flexBasis: '50%'
+    },
+
+    [theme.breakpoints.up('lg')]: {
+      flexBasis: '25%'
+    },
 
     '& a': {
       textDecoration: 'none'
@@ -43,22 +58,22 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function Team({ children, members }) {
+const Team = ({ members }) => {
   const classes = useStyles()
 
   return (
     <div className={classes.root}>
-      <Grid container justify="flex-start" spacing={4}>
-        {members.map(({ name, role, url, image }) => (
-          <Grid key={name} item md={3} className={classes.member}>
-            <Avatar alt="" src={image} className={classes.avatar} />
-            <a href={url}>
-              <h3 className={classes.name}>{name}</h3>
-            </a>
-            <span className={classes.role}>{role}</span>
-          </Grid>
-        ))}
-      </Grid>
+      {members.map(({ name, role, url, image }) => (
+        <div key={name} className={classes.member}>
+          <Avatar alt="" src={image} className={classes.avatar} />
+          <a href={url}>
+            <h3 className={classes.name}>{name}</h3>
+          </a>
+          <span className={classes.role}>{role}</span>
+        </div>
+      ))}
     </div>
   )
 }
+
+export default Team

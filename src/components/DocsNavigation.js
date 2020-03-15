@@ -4,12 +4,12 @@ import { makeStyles } from '@material-ui/core/styles'
 import List from '@material-ui/core/List'
 
 import DocsNavigationItem from './DocsNavigationItem'
-import docsNavigation from '../../docsNavigation'
+import docsNavigation from '../docsNavigation'
 
 const useStyles = makeStyles(theme => ({
   root: {
     width: '100%',
-    paddingTop: theme.spacing(2),
+    paddingTop: theme.spacing(4),
     backgroundColor: theme.palette.background.paper
   },
   nested: {

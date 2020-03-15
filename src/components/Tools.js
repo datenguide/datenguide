@@ -1,3 +1,5 @@
+import GithubCircle from 'mdi-material-ui/GithubCircle'
+
 import { makeStyles } from '@material-ui/core/styles'
 import Container from '@material-ui/core/Container'
 import Grid from '@material-ui/core/Grid'
@@ -6,7 +8,6 @@ import CardActions from '@material-ui/core/CardActions'
 import CardContent from '@material-ui/core/CardContent'
 import CardHeader from '@material-ui/core/CardHeader'
 import Button from '@material-ui/core/Button'
-import GithubCircle from 'mdi-material-ui/GithubCircle'
 
 import logoPython from '../assets/python.svg'
 import logoGraphQL from '../assets/graphql.svg'
@@ -57,6 +58,7 @@ const useStyles = makeStyles(theme => ({
   },
 
   card: {
+    boxShadow: '0 4px 20px 0 rgba(130, 130, 130,0.15)',
     [theme.breakpoints.up('lg')]: {
       marginBottom: theme.spacing(3)
     }

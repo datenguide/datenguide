@@ -1,5 +1,6 @@
-import DefaultLayout from '../DefaultLayout'
 import Container from '@material-ui/core/Container'
+
+import DefaultLayout from '../DefaultLayout'
 import BodyText from '../../components/BodyText'
 
 const ContentPage = frontMatter => ({ children }) => {

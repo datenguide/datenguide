@@ -11,7 +11,7 @@ import BlogHeader from '../../components/BlogHeader'
 const useStyles = makeStyles(theme => ({
   content: {
     flexGrow: 1,
-    padding: theme.spacing(8, 0, 30, 0)
+    padding: theme.spacing(2, 0, 30, 0)
   }
 }))
 

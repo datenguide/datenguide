@@ -1,4 +1,5 @@
 import Link from 'next/link'
+
 import { makeStyles } from '@material-ui/core/styles'
 import Container from '@material-ui/core/Container'
 import Grid from '@material-ui/core/Grid'
@@ -33,12 +34,12 @@ const navItems = [
 
 const socialItems = [
   {
-    title: 'Datenguide auf Twitter',
+    title: 'Twitter',
     path: 'https://twitter.com/datenguide',
     Icon: TwitterIcon
   },
   {
-    title: 'Datenguide auf Github',
+    title: 'Github',
     path: 'https://github.com/datenguide',
     Icon: GithubIcon
   }

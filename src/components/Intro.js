@@ -57,10 +57,6 @@ const useStyles = makeStyles(theme => ({
       backgroundSize: 'auto 7em',
       paddingLeft: '8em',
       paddingBottom: theme.spacing(4)
-    },
-
-    [theme.breakpoints.up('sm')]: {
-      fontSize: theme.typography.body1.fontSize
     }
   },
 

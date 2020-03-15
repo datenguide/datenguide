@@ -4,8 +4,7 @@ import Container from '@material-ui/core/Container'
 const useStyles = makeStyles(theme => ({
   root: {
     backgroundColor: '#c3e5f1',
-    minHeight: theme.spacing(25),
-    fontSize: theme.typography.body1.fontSize,
+    minHeight: '200px',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'flex-end',
@@ -22,17 +21,17 @@ const useStyles = makeStyles(theme => ({
   },
 
   title: {
-    fontSize: '1.3rem',
+    fontSize: theme.typography.h5.fontSize,
     [theme.breakpoints.up('sm')]: {
-      fontSize: '2rem'
+      fontSize: theme.typography.h4.fontSize
     }
   },
 
   description: {
-    fontSize: '1rem',
+    fontSize: theme.typography.subtitle1.fontSize,
     fontWeight: 'regular',
     [theme.breakpoints.up('sm')]: {
-      fontSize: '1.3rem'
+      fontSize: theme.typography.h5.fontSize
     }
   }
 }))

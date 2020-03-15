@@ -16,7 +16,6 @@ const useStyles = makeStyles(theme => ({
       backgroundRepeat: 'no-repeat',
       backgroundSize: '560px auto',
       backgroundPosition: '110% bottom',
-      borderBottom: '1px solid #44707f',
       paddingBottom: theme.spacing(9)
     },
 

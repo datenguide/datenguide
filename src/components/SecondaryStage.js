@@ -1,4 +1,5 @@
 import { makeStyles } from '@material-ui/core/styles'
+
 import background from '../assets/hero_city.svg'
 
 const useStyles = makeStyles(theme => ({
@@ -7,7 +8,7 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: '#c3e5f1',
     borderBottom: '1px solid #44707f',
     display: 'flex',
-    height: theme.spacing(25),
+    minHeight: '200px',
     justifyContent: 'center',
     alignItems: 'center',
     fontSize: theme.typography.body1.fontSize,
@@ -17,7 +18,7 @@ const useStyles = makeStyles(theme => ({
     backgroundPosition: '105% 100%',
     [theme.breakpoints.up('sm')]: {
       backgroundSize: '300px auto',
-      height: theme.spacing(32),
+      minHeight: '256px',
       justifyContent: 'flex-start'
     },
     [theme.breakpoints.up('md')]: {
@@ -28,11 +29,10 @@ const useStyles = makeStyles(theme => ({
   title: {
     margin: theme.spacing(0),
     marginLeft: theme.spacing(4),
-    fontSize: '1rem',
+    fontSize: theme.typography.h5.fontSize,
     width: '70%',
 
     [theme.breakpoints.up('sm')]: {
-      fontSize: '2rem',
       width: '50%',
       marginLeft: theme.spacing(4)
     },

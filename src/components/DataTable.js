@@ -1,8 +1,9 @@
-import React, { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import { ClientContext } from 'graphql-hooks'
 import parse from 'url-parse'
 import Highlight from 'react-highlight'
+import { withRouter } from 'next/router'
 
 import { makeStyles } from '@material-ui/core/styles'
 import {
@@ -26,7 +27,6 @@ import Alert from '@material-ui/lab/Alert'
 
 import getQuery from '../lib/queryBuilder'
 import DataTablePaginationActions from './DataTablePaginationActions'
-import { withRouter } from 'next/router'
 
 // TODO create i8n label
 const ERROR_MESSAGE = 'Die Daten konnten nicht geladen werden.'
