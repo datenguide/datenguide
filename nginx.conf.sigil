@@ -66,7 +66,7 @@ server {
 
   rewrite ^/wahlsalon(/.*)?$ https://blog.datengui.de/wahlsalon permanent;
   rewrite ^/en/wahlsalon(/.*)?$ https://blog.datengui.de/en/wahlsalon permanent;
-  rewrite ^/blog(.*)$ https://blog.datengui.de/posts$1 permanent;
+  #rewrite ^/blog(.*)$ https://blog.datengui.de/posts$1 permanent;
 
   ssl_certificate           {{ $.APP_SSL_PATH }}/server.crt;
   ssl_certificate_key       {{ $.APP_SSL_PATH }}/server.key;
