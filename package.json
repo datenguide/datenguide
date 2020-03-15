@@ -86,7 +86,8 @@
     "typeface-ibm-plex-sans": "^0.0.75",
     "unified": "^8.4.2",
     "url-parse": "^1.4.7",
-    "use-reducer-thunk": "^1.0.4"
+    "use-reducer-thunk": "^1.0.4",
+    "postcss": "^7.0.27"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
@@ -101,7 +102,6 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-standard": "^4.0.1",
-    "postcss": "^7.0.27",
     "prettier": "prettier/prettier",
     "pretty-quick": "^2.0.1",
     "standard": "^14.3.1",
