@@ -87,11 +87,11 @@
     "unified": "^8.4.2",
     "url-parse": "^1.4.7",
     "use-reducer-thunk": "^1.0.4",
-    "postcss": "^7.0.27"
+    "postcss": "^7.0.27",
+    "cssnano": "^4.1.10"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
-    "cssnano": "^4.1.10",
     "eslint": "^6.8.0",
     "eslint-config-healthier": "^3.2.0",
     "eslint-config-standard": "^14.1.0",
