@@ -15,7 +15,7 @@ const navItems = [
   },
   {
     title: 'Blog',
-    path: 'https://blog.datengui.de',
+    path: '/blog',
     external: true
   },
   {
