@@ -40,7 +40,7 @@ const BlogHeader = ({ title, description }) => {
   const classes = useStyles()
   return (
     <div className={classes.root}>
-      <Container maxWidth="md">
+      <Container maxWidth="lg">
         <div className={classes.content}>
           <h1 className={classes.title}>{title}</h1>
           <h2 className={classes.description}>{description}</h2>

@@ -9,13 +9,14 @@ const useStyles = makeStyles(theme => ({
     paddingTop: theme.spacing(3),
 
     '& img': {
-      maxWidth: '100%',
+      maxWidth: '70%',
       padding: theme.spacing(5, 0, 2, 0)
     },
     '& hr': {
       border: `1px solid ${theme.palette.grey[200]}`
     },
     '& small': {
+      width: '70%',
       paddingBottom: theme.spacing(3)
     },
     '& p, & ul, & ol': {

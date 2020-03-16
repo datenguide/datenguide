@@ -28,7 +28,7 @@ const BlogPost = frontMatter => ({ children }) => {
         description={frontMatter.description}
       />
       <div className={classes.content}>
-        <Container maxWidth="md">
+        <Container maxWidth="lg">
           <BodyText>{children}</BodyText>
         </Container>
       </div>
