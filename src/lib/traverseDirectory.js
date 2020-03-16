@@ -1,6 +1,6 @@
 import path from 'path'
 import fs from 'fs'
-const matter = require('gray-matter')
+import matter from 'gray-matter'
 
 const readdirSync = fs.readdirSync
 
