@@ -17,11 +17,11 @@ const useStyles = makeStyles(theme => ({
   },
   prototypefund: {
     margin: theme.spacing(0, 8, 0, 0),
-    height: '140px'
+    height: '70px'
   },
   miz: {
     margin: theme.spacing(3, 8, 0, 0),
-    height: '140px',
+    height: '70px',
     [theme.breakpoints.up('sm')]: {
       marginTop: theme.spacing(0)
     }
@@ -29,8 +29,8 @@ const useStyles = makeStyles(theme => ({
   bmbf: {
     margin: theme.spacing(0, 8, 0, 0),
     position: 'relative',
-    height: '180px',
-    top: -38
+    height: '90px',
+    top: -25
   }
 }))
 
