@@ -9,15 +9,19 @@ const useStyles = makeStyles(theme => ({
     paddingTop: theme.spacing(3),
 
     '& .contentImage': {
-      maxWidth: '70%',
-      padding: theme.spacing(5, 0, 2, 0)
+      padding: theme.spacing(5, 0, 2, 0),
+      [theme.breakpoints.up('lg')]: {
+        width: '70%'
+      }
     },
     '& hr': {
       border: `1px solid ${theme.palette.grey[200]}`
     },
     '& small': {
-      width: '70%',
-      paddingBottom: theme.spacing(3)
+      paddingBottom: theme.spacing(3),
+      [theme.breakpoints.up('lg')]: {
+        width: '70%'
+      }
     },
     '& p, & ul, & ol': {
       [theme.breakpoints.up('lg')]: {

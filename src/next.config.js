@@ -1,18 +1,20 @@
 const path = require('path')
-const withFonts = require('next-fonts')
-const withImages = require('next-images')
-const withMdxEnhanced = require('next-mdx-enhanced')
+const Dotenv = require('dotenv-webpack')
+
+const withPlugins = require('next-compose-plugins')
+const fonts = require('next-fonts')
+const mdxEnhanced = require('next-mdx-enhanced')
+const optimizedImages = require('next-optimized-images')
 
 const slug = require('remark-slug')
 const rehypePrism = require('@mapbox/rehype-prism')
 const generateToc = require('./lib/mdx/generateToc')
-const Dotenv = require('dotenv-webpack')
 
 require('dotenv').config()
 
-module.exports = withImages(
-  withFonts(
-    withMdxEnhanced({
+module.exports = withPlugins(
+  [
+    mdxEnhanced({
       layoutPath: 'layouts/mdx',
       defaultLayout: false,
       fileExtensions: ['mdx'],
@@ -29,25 +31,28 @@ module.exports = withImages(
         },
         phase: 'both'
       }
-    })({
-      pageExtensions: ['js', 'jsx', 'mdx', 'md'],
-      webpack(config, options) {
-        config.plugins = [
-          ...config.plugins,
-          new Dotenv({
-            path: path.join(__dirname, '..', '.env'),
-            systemvars: true
-          })
-        ]
-        const mdxLoaders = config.module.rules.find(
-          rule => rule.test && '.mdx'.match(rule.test)
-        )
-        mdxLoaders.use.push({
-          loader: path.join(__dirname, './lib/mdx/mdxPreLoader')
+    }),
+    optimizedImages,
+    fonts
+  ],
+  {
+    pageExtensions: ['js', 'jsx', 'mdx', 'md'],
+    webpack(config) {
+      config.plugins = [
+        ...config.plugins,
+        new Dotenv({
+          path: path.join(__dirname, '..', '.env'),
+          systemvars: true
         })
+      ]
+      const mdxLoaders = config.module.rules.find(
+        rule => rule.test && '.mdx'.match(rule.test)
+      )
+      mdxLoaders.use.push({
+        loader: path.join(__dirname, './lib/mdx/mdxPreLoader')
+      })
 
-        return config
-      }
-    })
-  )
+      return config
+    }
+  }
 )
