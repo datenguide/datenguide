@@ -8,18 +8,22 @@ published: true
 lang: de
 ---
 
+import Button from '@material-ui/core/Button'
+
 Hallo Welt,
 es gibt heute gleich 2 News vom Datenguide:
 
 1. Wir haben jetzt einen Blog.
 2. Wir möchten die Regionalstatistik besser nutzbar machen und deshalb haben wir ein paar Fragen, Dauer ca. 5 Min.
 
-<a
+<Button
+  style={{ width: '200px', margin: '40px 0' }}
   href="https://docs.google.com/forms/d/e/1FAIpQLSfINpcx6F7n1VjdqJcc3LV-DlkzxGSg3IneXQx8WjiIqv-eug/viewform"
-  class="mdc-button mdc-button--outlined mdc-ripple-upgraded mdc-ripple-upgraded--foreground-activation"
+  variant="outlined"
+  color="primary"
 >
   Zur Umfrage
-</a>
+</Button>
 
 <small>
   Für diese Umfrage verwenden wir Google Forms. Die Daten werden an{' '}

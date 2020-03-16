@@ -4,8 +4,8 @@ const useStyles = makeStyles(theme => ({
   root: {
     marginBottom: theme.spacing(5)
   },
-  date: {
-    color: theme.palette.grey[400],
+  metaInfo: {
+    color: theme.palette.grey[500],
     fontWeight: 'bold'
   },
   title: {
@@ -28,7 +28,7 @@ const BlogPostListItem = ({ href, date, title, description }) => {
   return (
     <div className={classes.root}>
       <a className={classes.link} href={href}>
-        <div className={classes.date}>{date}</div>
+        <div className={classes.metaInfo}>{date}</div>
         <h2 className={classes.title}>{title}</h2>
         <div className={classes.description}>{description}</div>
       </a>

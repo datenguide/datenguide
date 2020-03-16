@@ -1,3 +1,5 @@
+import moment from 'moment'
+
 import Container from '@material-ui/core/Container'
 import { makeStyles } from '@material-ui/core/styles'
 import AppBar from '@material-ui/core/AppBar'
@@ -12,6 +14,10 @@ const useStyles = makeStyles(theme => ({
   content: {
     flexGrow: 1,
     padding: theme.spacing(2, 0, 30, 0)
+  },
+  metaInfo: {
+    color: theme.palette.grey[500],
+    fontWeight: 'bold'
   }
 }))
 
@@ -29,6 +35,10 @@ const BlogPost = frontMatter => ({ children }) => {
       />
       <div className={classes.content}>
         <Container maxWidth="lg">
+          <div className={classes.metaInfo}>
+            {moment(frontMatter.date).format('DD.MM.YYYY')} -{' '}
+            {frontMatter.author}
+          </div>
           <BodyText>{children}</BodyText>
         </Container>
       </div>

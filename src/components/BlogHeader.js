@@ -33,6 +33,9 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up('sm')]: {
       fontSize: theme.typography.h5.fontSize
     }
+  },
+  metaInfo: {
+    fontSize: theme.typography.subtitle1.fontSize
   }
 }))
 
