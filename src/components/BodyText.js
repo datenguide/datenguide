@@ -8,7 +8,7 @@ const useStyles = makeStyles(theme => ({
     flexDirection: 'column',
     paddingTop: theme.spacing(3),
 
-    '& img': {
+    '& .contentImage': {
       maxWidth: '70%',
       padding: theme.spacing(5, 0, 2, 0)
     },
