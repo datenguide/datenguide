@@ -32,26 +32,27 @@ export const getStaticProps = async () => {
     href: page.path,
     title: page.frontmatter.title,
     description: page.frontmatter.description,
-    date: page.frontmatter.date
+    date: page.frontmatter.date,
+    published: page.frontmatter.published
   }))
 
-  const sortedBlogPosts = _.orderBy(
+  const publishedBlogPosts = _.orderBy(
     blogPosts,
     post => moment(post.date).format('YYYYMMDD'),
     ['desc']
   )
-
-  const dateFormattedBlogPosts = sortedBlogPosts.map(post => ({
-    ...post,
-    date: moment(post.date).format('DD.MM.YYYY')
-  }))
+    .map(post => ({
+      ...post,
+      date: moment(post.date).format('DD.MM.YYYY')
+    }))
+    .filter(post => post.published)
 
   return {
     props: {
       meta: {
         title: 'Blog'
       },
-      blogPosts: dateFormattedBlogPosts
+      blogPosts: publishedBlogPosts
     }
   }
 }
