@@ -21,7 +21,7 @@ const navItems = [
   },
   {
     title: 'Dokumentation',
-    path: 'https://docs.genesapi.org/',
+    path: 'https://preview.datengui.de/dokumentation',
     external: true
   },
   {

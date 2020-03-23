@@ -92,7 +92,7 @@ const useSearchManager = (initialMeasures, initialRegions) => {
     () => ({
       syncUrl: () => async (dispatch, getState) => {
         Router.push({
-          pathname: '/statistics',
+          pathname: '/statistiken',
           query: stateToQueryArgs(getState())
         })
       },

@@ -81,12 +81,12 @@ export default function HeaderToolbar({ menuButton }) {
           </Link>
         )}
         <div className={classes.nav}>
-          <Link href="/statistics">
+          <Link href="/statistiken">
             <Button component="a" color="inherit">
               Data
             </Button>
           </Link>
-          <Link href="/regions">
+          <Link href="/regionen">
             <Button component="a" color="inherit">
               Regions
             </Button>

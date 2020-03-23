@@ -25,7 +25,7 @@ const getTableLink = ({ id, measure, regions }) => {
       ? regions.map(({ id }) => id).join('%2C')
       : DEFAULT_REGION
 
-  return `/statistics?region=${regionList}&data=${id}%3A${measure.id}`
+  return `/statistiken?region=${regionList}&data=${id}%3A${measure.id}`
 }
 
 const StatisticsList = ({ statistics, regions }) => {
