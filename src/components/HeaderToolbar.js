@@ -80,26 +80,28 @@ export default function HeaderToolbar({ menuButton }) {
             </Button>
           </Link>
         )}
-        <Link href="/statistics">
-          <Button component="a" color="inherit">
-            Data
-          </Button>
-        </Link>
-        <Link href="/regions">
-          <Button component="a" color="inherit">
-            Regions
-          </Button>
-        </Link>
-        <Link href="/blog">
-          <Button component="a" color="inherit">
-            Blog
-          </Button>
-        </Link>
-        <Link href="/info">
-          <Button component="a" color="inherit">
-            About
-          </Button>
-        </Link>
+        <div className={classes.nav}>
+          <Link href="/statistics">
+            <Button component="a" color="inherit">
+              Data
+            </Button>
+          </Link>
+          <Link href="/regions">
+            <Button component="a" color="inherit">
+              Regions
+            </Button>
+          </Link>
+          <Link href="/blog">
+            <Button component="a" color="inherit">
+              Blog
+            </Button>
+          </Link>
+          <Link href="/info">
+            <Button component="a" color="inherit">
+              About
+            </Button>
+          </Link>
+        </div>
       </div>
     </Toolbar>
   )
