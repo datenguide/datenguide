@@ -83,6 +83,7 @@
     "react-hook-thunk-reducer": "^0.2.4",
     "react-responsive-embed": "^2.1.0",
     "react-select": "^3.0.8",
+    "react-simple-maps": "^1.0.0-beta.0",
     "reinspect": "^1.1.0",
     "remark": "^11.0.2",
     "remark-emoji": "^2.0.2",
@@ -96,7 +97,9 @@
     "typeface-ibm-plex-sans": "^0.0.75",
     "unified": "^8.4.2",
     "url-parse": "^1.4.7",
-    "use-reducer-thunk": "^1.0.4"
+    "use-reducer-thunk": "^1.0.4",
+    "prettier": "^1.19.1",
+    "victory": "^33.1.7"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
