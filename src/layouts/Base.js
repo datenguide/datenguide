@@ -12,14 +12,14 @@ const useStyles = makeStyles(theme => ({
   toolbarSpacing: theme.mixins.toolbar
 }))
 
-export default function Base({ children, meta }) {
+export default function BaseLayout({ children, meta = {} }) {
   const classes = useStyles()
 
   return (
     <div className={classes.root}>
       <div className={classes.toolbarSpacing} />
       <Head
-        title={meta.title}
+        title={meta.title || 'Datenguide'}
         description={meta.description}
         previewImage={meta.previewImage}
       />
