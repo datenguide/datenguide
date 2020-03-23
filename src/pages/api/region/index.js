@@ -20,12 +20,17 @@ export const getNuts = id => {
   }
 }
 
-export const getRegion = id => ({
-  id,
-  name: data[id],
-  slug: slugify(data[id]),
-  ...getNuts(id)
-})
+export const getRegion = id => {
+  const [displayName, type] = data[id].split(', ')
+  return {
+    id,
+    name: data[id],
+    displayName,
+    type,
+    slug: slugify(data[id]),
+    ...getNuts(id)
+  }
+}
 
 export default (req, res) => {
   const {
