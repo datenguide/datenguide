@@ -66,38 +66,38 @@ export default function HeaderToolbar({ menuButton }) {
         </Link>
       </div>
       <div className={classes.controls}>
-        {/*{process.env.NODE_ENV !== 'production' ? (*/}
-        {/*  <a*/}
-        {/*    className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-colorInherit"*/}
-        {/*    href="/docs/gettingstarted/intro"*/}
-        {/*  >*/}
-        {/*    Docs*/}
-        {/*  </a>*/}
-        {/*) : (*/}
-        {/*  <Link href="/docs/gettingstarted/intro" passHref>*/}
-        {/*    <Button component="a" color="inherit">*/}
-        {/*      Docs*/}
-        {/*    </Button>*/}
-        {/*  </Link>*/}
-        {/*)}*/}
-        {/*<Link href="/statistics">*/}
-        {/*  <Button component="a" color="inherit">*/}
-        {/*    Data*/}
-        {/*  </Button>*/}
-        {/*</Link>*/}
-        {/*<Link href="/regions">*/}
-        {/*  <Button component="a" color="inherit">*/}
-        {/*    Regions*/}
-        {/*  </Button>*/}
-        {/*</Link>*/}
-        <Link href="/blog">
-          <Button component="a" color="inherit">
-            Blog
-          </Button>
-        </Link>
+        {/* {process.env.NODE_ENV !== 'production' ? ( */}
+        {/*  <a */}
+        {/*    className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-colorInherit" */}
+        {/*    href="/docs/gettingstarted/intro" */}
+        {/*  > */}
+        {/*    Docs */}
+        {/*  </a> */}
+        {/* ) : ( */}
+        {/*  <Link href="/docs/gettingstarted/intro" passHref> */}
+        {/*    <Button component="a" color="inherit"> */}
+        {/*      Docs */}
+        {/*    </Button> */}
+        {/*  </Link> */}
+        {/* )} */}
+        {/* <Link href="/statistics"> */}
+        {/*  <Button component="a" color="inherit"> */}
+        {/*    Data */}
+        {/*  </Button> */}
+        {/* </Link> */}
+        {/* <Link href="/regions"> */}
+        {/*  <Button component="a" color="inherit"> */}
+        {/*    Regions */}
+        {/*  </Button> */}
+        {/* </Link> */}
         <Link href="/info">
           <Button component="a" color="inherit">
             Über Datenguide
+          </Button>
+        </Link>
+        <Link href="/blog">
+          <Button component="a" color="inherit">
+            Blog
           </Button>
         </Link>
       </div>
