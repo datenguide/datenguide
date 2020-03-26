@@ -25,6 +25,12 @@ const theme = createMuiTheme({
     h1: {
       fontSize: '14px'
     }
+    // body1: {
+    //   fontSize: '1.25rem'
+    // },
+    // body2: {
+    //   fontSize: '1rem'
+    // }
   },
 
   overrides: {
