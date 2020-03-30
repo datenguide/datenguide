@@ -4,8 +4,6 @@ import Router from 'next/router'
 import { camelizeKeys } from 'humps'
 import _ from 'lodash'
 
-// TODO: Do not import from /pages/api directly – it will embed tons metadata!
-import { getRegion } from '../pages/api/region'
 import useSuperRedux from './useSuperRedux'
 import { stateToQueryArgs } from './queryString'
 
@@ -38,6 +36,11 @@ query Schema($measures: [MeasureDescription]) {
   }
 }
 `
+
+const getRegion = async id => {
+  const fetchRegion = await fetch(`/api/region?id=${id}`)
+  return fetchRegion.ok && fetchRegion.json()
+}
 
 const getSelectedValues = (dim, dimensionSelection) => {
   const selection = (dimensionSelection && dimensionSelection[dim.name]) || []
@@ -257,13 +260,11 @@ const useSearchManager = (initialMeasures, initialRegions) => {
 
   useEffect(() => {
     const fetch = async () => {
-      // TODO use proper API
-      const result = initialRegions
-        .map(id => getRegion(id))
-        .reduce((acc, curr) => {
-          acc[curr.id] = curr
-          return acc
-        }, {})
+      const regions = await Promise.all(initialRegions.map(id => getRegion(id)))
+      const result = regions.reduce((acc, curr) => {
+        acc[curr.id] = curr
+        return acc
+      }, {})
       dispatch(actions.initializeRegions(result))
     }
 
