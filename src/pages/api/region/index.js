@@ -1,25 +1,6 @@
 const data = require('@datenguide/metadata')
 const slugify = require('@sindresorhus/slugify')
 
-const AGS_TO_NUTS = {
-  2: 1,
-  3: 2,
-  5: 3
-}
-
-export const getNuts = id => {
-  if (!id) {
-    return {
-      nuts: null,
-      lau: false
-    }
-  }
-  return {
-    nuts: AGS_TO_NUTS[id.length],
-    lau: id.length > 8
-  }
-}
-
 export const getRegion = id => {
   const { name, level } = data[id]
   const [displayName, type] = name.split(', ')
