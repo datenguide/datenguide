@@ -1,17 +1,20 @@
 import fetch from 'isomorphic-unfetch'
 import absoluteUrl from 'next-absolute-url'
 
-import DefaultLayout from '../../layouts/Default'
+import DefaultLayout from '../../layouts/DefaultLayout'
 import StatisticsList from '../../components/StatisticsList'
+import { Container } from '@material-ui/core'
 
 const RegionDetails = ({ region, statistics }) => {
   return (
     <DefaultLayout meta={{ title: region.name }}>
-      <h1>{region.name}</h1>
+      <Container>
+        <h1>{region.name}</h1>
 
-      <h3>Alle Statistiken für {region.name}</h3>
+        <h3>Alle Statistiken für {region.name}</h3>
 
-      <StatisticsList regions={[region]} statistics={statistics} />
+        <StatisticsList regions={[region]} statistics={statistics} />
+      </Container>
     </DefaultLayout>
   )
 }

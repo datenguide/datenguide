@@ -28,8 +28,8 @@ const Home = ({ regions }) => {
 
 Home.getInitialProps = async function({ req }) {
   const { origin } = absoluteUrl(req)
-  const fetchStates = await fetch(`${origin}/api/region?nuts=1`)
-  const fetchDistricts = await fetch(`${origin}/api/region?nuts=3`)
+  const fetchStates = await fetch(`${origin}/api/region?level=1`)
+  const fetchDistricts = await fetch(`${origin}/api/region?level=3`)
   const states = await fetchStates.json()
   const districts = await fetchDistricts.json()
 

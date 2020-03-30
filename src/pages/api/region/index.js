@@ -1,4 +1,4 @@
-const data = require('../../../data/ags.json')
+const data = require('@datenguide/metadata')
 const slugify = require('@sindresorhus/slugify')
 
 const AGS_TO_NUTS = {
@@ -21,30 +21,32 @@ export const getNuts = id => {
 }
 
 export const getRegion = id => {
-  const [displayName, type] = data[id].split(', ')
+  const { name, level } = data[id]
+  const [displayName, type] = name.split(', ')
+
   return {
     id,
-    name: data[id],
+    name,
     displayName,
     type,
-    slug: slugify(data[id]),
-    ...getNuts(id)
+    slug: slugify(name),
+    level
   }
 }
 
 export default (req, res) => {
   const {
-    query: { nuts, parent }
+    query: { level, parent }
   } = req
 
   const result = Object.keys(data)
-    .filter(id => AGS_TO_NUTS[id.length] === +nuts)
+    .filter(id => data[id].level === +level)
     .filter(id => !parent || id.startsWith(parent))
     .map(getRegion)
 
   if (result.length > 0) {
     res.status(200).json(result)
   } else {
-    res.status(404).send(`No regions found found for nuts ${nuts}`)
+    res.status(404).send(`No regions found found for nuts ${level}`)
   }
 }

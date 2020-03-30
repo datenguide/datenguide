@@ -1,16 +1,15 @@
 import flexsearch from 'flexsearch'
-
-import regions from '../../../../data/ags.json'
+const regions = require('@datenguide/metadata')
 
 // TODO move to server
 
-const getLabel = identifier => `${identifier} - ${regions[identifier]}`
+const getLabel = id => `${id} - ${regions[id].name}`
 
 const regionsIndex = flexsearch.create()
 Object.keys(regions)
-  .filter(key => key.length <= 5) // NUTS 1 - 3, no LAU
-  .forEach(key => {
-    regionsIndex.add(key, getLabel(key))
+  .filter(id => regions[id].level <= 3) // NUTS 1 - 3, no LAU
+  .forEach(id => {
+    regionsIndex.add(id, getLabel(id))
   })
 
 export default (req, res) => {
@@ -22,7 +21,7 @@ export default (req, res) => {
 
   const result = regionsResult.map(id => ({
     value: id,
-    name: regions[id],
+    name: regions[id].name,
     label: getLabel(id)
   }))
 

@@ -1,12 +1,12 @@
-const data = require('../../../data/ags.json')
+const data = require('@datenguide/metadata')
 const slugify = require('@sindresorhus/slugify')
 
 const districts = Object.keys(data)
-  .filter(id => id.length <= 5)
+  .filter(id => data[id].level <= 3) // NUTS 1 - 3, no LAU
   .map(id => ({
-    name: data[id],
+    name: data[id].name,
     id,
-    slug: slugify(data[id])
+    slug: slugify(data[id].name)
   }))
 
 export default (req, res) => {
