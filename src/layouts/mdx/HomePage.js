@@ -5,11 +5,11 @@ import Base from '../Base'
 import HeaderToolbar from '../../components/HeaderToolbar'
 import Footer from '../../components/Footer'
 
-const useStyles = makeStyles(theme => ({
-  content: {}
+const useStyles = makeStyles((theme) => ({
+  content: {},
 }))
 
-const HomePage = frontMatter => ({ children }) => {
+const HomePage = (frontMatter) => ({ children }) => {
   const classes = useStyles()
 
   return (

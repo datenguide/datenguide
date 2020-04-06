@@ -35,7 +35,7 @@ class MyDocument extends Document {
   }
 }
 
-MyDocument.getInitialProps = async ctx => {
+MyDocument.getInitialProps = async (ctx) => {
   // Resolution order
   //
   // On the server:
@@ -64,7 +64,7 @@ MyDocument.getInitialProps = async ctx => {
 
   ctx.renderPage = () =>
     originalRenderPage({
-      enhanceApp: App => props => sheets.collect(<App {...props} />)
+      enhanceApp: (App) => (props) => sheets.collect(<App {...props} />),
     })
 
   const initialProps = await Document.getInitialProps(ctx)
@@ -86,8 +86,8 @@ MyDocument.getInitialProps = async ctx => {
           // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{ __html: css }}
         />
-      </Fragment>
-    ]
+      </Fragment>,
+    ],
   }
 }
 

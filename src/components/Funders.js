@@ -4,7 +4,7 @@ import LOGO_BMBF from '../assets/funders/bmbf.svg'
 import LOGO_PROTOTYPEFUND from '../assets/funders/prototypefund.svg'
 import LOGO_MIZ from '../assets/funders/miz.svg'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     paddingTop: theme.spacing(7),
@@ -12,26 +12,26 @@ const useStyles = makeStyles(theme => ({
     alignItems: 'center',
     [theme.breakpoints.up('sm')]: {
       flexDirection: 'row',
-      alignItems: 'flex-start'
-    }
+      alignItems: 'flex-start',
+    },
   },
   prototypefund: {
     margin: theme.spacing(0, 8, 0, 0),
-    height: '70px'
+    height: '70px',
   },
   miz: {
     margin: theme.spacing(3, 8, 0, 0),
     height: '70px',
     [theme.breakpoints.up('sm')]: {
-      marginTop: theme.spacing(0)
-    }
+      marginTop: theme.spacing(0),
+    },
   },
   bmbf: {
     margin: theme.spacing(0, 8, 0, 0),
     position: 'relative',
     height: '90px',
-    top: -25
-  }
+    top: -25,
+  },
 }))
 
 const Funders = () => {

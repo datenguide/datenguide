@@ -28,7 +28,7 @@ const Home = ({ regions }) => {
   )
 }
 
-Home.getInitialProps = async function(context) {
+Home.getInitialProps = async function (context) {
   const fetchStates = await fetch('http://localhost:3000/api/region?nuts=1')
   const fetchDistricts = await fetch('http://localhost:3000/api/region?nuts=3')
   const states = await fetchStates.json()
@@ -36,11 +36,11 @@ Home.getInitialProps = async function(context) {
 
   const regions = states
     .sort((a, b) => (a.name > b.name ? 1 : -1))
-    .map(state => ({
+    .map((state) => ({
       ...state,
       districts: districts
         .filter(({ id }) => id.startsWith(state.id))
-        .sort((a, b) => (a.name > b.name ? 1 : -1))
+        .sort((a, b) => (a.name > b.name ? 1 : -1)),
     }))
 
   return { regions }

@@ -12,13 +12,13 @@ const data = Object.keys(schema).reduce((statistics, id) => {
   statistics[statsId].title = schema[id].source.title_de
   statistics[statsId].measures = [
     ...measures,
-    { id, title: schema[id].name, description: cleanDescription(schema[id]) }
+    { id, title: schema[id].name, description: cleanDescription(schema[id]) },
   ]
   return statistics
 }, {})
 
 const result = Object.keys(data)
-  .map(id => ({ id, title: data[id].title, measures: data[id].measures }))
+  .map((id) => ({ id, title: data[id].title, measures: data[id].measures }))
   .sort((a, b) => (a.id < b.id ? -1 : 1))
 
 export default (req, res) => {

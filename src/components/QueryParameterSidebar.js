@@ -6,12 +6,12 @@ import AutocompleteSearchField from './AutocompleteSearchField'
 import RegionSearchParameterCard from './RegionSearchParameterCard'
 import StatisticsSearchParameterCard from './MeasureSearchParameterCard'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     padding: theme.spacing(2),
     backgroundColor: '#f5f5f5',
-    height: '100%'
-  }
+    height: '100%',
+  },
 }))
 
 const QueryParameterSidebar = ({
@@ -20,27 +20,27 @@ const QueryParameterSidebar = ({
   measures,
   loadMeasureOptions,
   dispatch,
-  actions
+  actions,
 }) => {
   const classes = useStyles()
 
-  const handleLoadMeasure = measure => {
+  const handleLoadMeasure = (measure) => {
     dispatch(actions.loadMeasure(measure.value))
   }
 
-  const handleRemoveMeausre = statisticsId => () => {
+  const handleRemoveMeausre = (statisticsId) => () => {
     dispatch(actions.closeMeasure(statisticsId))
   }
 
-  const handleChangeDimension = value => {
+  const handleChangeDimension = (value) => {
     dispatch(actions.changeDimensionSelection(value))
   }
 
-  const handleLoadRegion = region => {
+  const handleLoadRegion = (region) => {
     dispatch(actions.loadRegion(region.value))
   }
 
-  const handleRemoveRegion = value => () => {
+  const handleRemoveRegion = (value) => () => {
     dispatch(actions.closeRegion(value))
   }
 
@@ -52,7 +52,7 @@ const QueryParameterSidebar = ({
         loadOptions={loadRegionOptions}
         placeholder="Regionen suchen"
       />
-      {regions.map(region => (
+      {regions.map((region) => (
         <RegionSearchParameterCard
           key={region.id}
           region={region}
@@ -65,7 +65,7 @@ const QueryParameterSidebar = ({
         loadOptions={loadMeasureOptions}
         placeholder="Merkmal oder Statistik suchen"
       />
-      {measures.map(measure => (
+      {measures.map((measure) => (
         <StatisticsSearchParameterCard
           key={measure.id}
           statistic={measure}
@@ -83,7 +83,7 @@ QueryParameterSidebar.propTypes = {
   loadRegionOptions: PropTypes.func.isRequired,
   loadMeasureOptions: PropTypes.func.isRequired,
   dispatch: PropTypes.func.isRequired,
-  actions: PropTypes.object.isRequired
+  actions: PropTypes.object.isRequired,
 }
 
 export default QueryParameterSidebar

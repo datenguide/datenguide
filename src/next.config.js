@@ -24,16 +24,16 @@ module.exports = withPlugins(
         process: (mdxContent, frontMatter) => {
           if (frontMatter.layout === 'DocsPage') {
             return {
-              tableOfContents: generateToc(mdxContent)
+              tableOfContents: generateToc(mdxContent),
             }
           }
           return {}
         },
-        phase: 'both'
-      }
+        phase: 'both',
+      },
     }),
     optimizedImages,
-    fonts
+    fonts,
   ],
   {
     pageExtensions: ['js', 'jsx', 'mdx', 'md'],
@@ -42,17 +42,17 @@ module.exports = withPlugins(
         ...config.plugins,
         new Dotenv({
           path: path.join(__dirname, '..', '.env'),
-          systemvars: true
-        })
+          systemvars: true,
+        }),
       ]
       const mdxLoaders = config.module.rules.find(
-        rule => rule.test && '.mdx'.match(rule.test)
+        (rule) => rule.test && '.mdx'.match(rule.test)
       )
       mdxLoaders.use.push({
-        loader: path.join(__dirname, './lib/mdx/mdxPreLoader')
+        loader: path.join(__dirname, './lib/mdx/mdxPreLoader'),
       })
 
       return config
-    }
+    },
   }
 )

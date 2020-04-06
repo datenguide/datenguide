@@ -12,23 +12,23 @@ import QueryParameterSidebar from '../../components/QueryParameterSidebar'
 import { queryArgsToState } from '../../lib/queryString'
 import useSearchManager from '../../lib/useSearchManager'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   main: {
     display: 'block',
-    padding: theme.spacing(3)
-  }
+    padding: theme.spacing(3),
+  },
 }))
 
 const loadMeasureOptions = async (value = '') => {
   // TODO use server API
   const result = await fetch(`/api/search/measures?filter=${value}`)
   const json = await result.json()
-  return json.map(statistic => {
-    const split = statistic.label.split('-').map(s => s.trim()) // TODO fetch data in proper format to avoid this
+  return json.map((statistic) => {
+    const split = statistic.label.split('-').map((s) => s.trim()) // TODO fetch data in proper format to avoid this
     return {
       value: statistic.value,
       label: split[1],
-      description: split[0]
+      description: split[0],
     }
   })
 }
@@ -37,10 +37,10 @@ const loadRegionOptions = async (value = '') => {
   // TODO use server API
   const result = await fetch(`/api/search/regions?filter=${value}`)
   const json = await result.json()
-  return json.map(region => ({
+  return json.map((region) => ({
     value: region.value,
     label: region.name,
-    description: region.value // TODO define description, add nuts level description (Bundesland, Kreis etc)
+    description: region.value, // TODO define description, add nuts level description (Bundesland, Kreis etc)
   }))
 }
 
@@ -78,7 +78,7 @@ const Detail = ({ initialMeasures, initialRegions, statistics }) => {
       <Snackbar
         anchorOrigin={{
           vertical: 'bottom',
-          horizontal: 'left'
+          horizontal: 'left',
         }}
         open={error !== null}
         onClose={() => dispatch(actions.setError(null))}
@@ -91,7 +91,7 @@ const Detail = ({ initialMeasures, initialRegions, statistics }) => {
 
 Detail.propTypes = {
   initialMeasures: PropTypes.array.isRequired,
-  initialRegions: PropTypes.array.isRequired
+  initialRegions: PropTypes.array.isRequired,
 }
 
 Detail.getInitialProps = async ({ req, query }) => {
@@ -103,7 +103,7 @@ Detail.getInitialProps = async ({ req, query }) => {
   return {
     statistics: statistics,
     initialMeasures: measures,
-    initialRegions: regions
+    initialRegions: regions,
   }
 }
 

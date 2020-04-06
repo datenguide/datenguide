@@ -19,7 +19,7 @@ import {
   LinearProgress,
   Tabs,
   Tab,
-  Button
+  Button,
 } from '@material-ui/core'
 import InsertDriveFileIcon from '@material-ui/icons/InsertDriveFile'
 import CallMadeIcon from '@material-ui/icons/CallMade'
@@ -31,34 +31,34 @@ import DataTablePaginationActions from './DataTablePaginationActions'
 // TODO create i8n label
 const ERROR_MESSAGE = 'Die Daten konnten nicht geladen werden.'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
     height: '100%',
     padding: theme.spacing(2),
-    backgroundColor: '#f5f5f5'
+    backgroundColor: '#f5f5f5',
   },
   paper: {
     marginTop: theme.spacing(3),
     width: '100%',
     overflowX: 'auto',
-    marginBottom: theme.spacing(2)
+    marginBottom: theme.spacing(2),
   },
   table: {
     minWidth: 650,
-    marginTop: theme.spacing(3)
+    marginTop: theme.spacing(3),
   },
   tableTitle: {
-    fontWeight: 'bold'
+    fontWeight: 'bold',
   },
   heading: {
     marginTop: theme.spacing(2),
-    marginBottom: theme.spacing(4)
+    marginBottom: theme.spacing(4),
   },
   descriptionTab: {
     fontSize: theme.typography.body1.fontSize,
     margin: theme.spacing(3),
-    marginLeft: theme.spacing(2)
+    marginLeft: theme.spacing(2),
   },
   exportTab: {
     display: 'flex',
@@ -66,20 +66,20 @@ const useStyles = makeStyles(theme => ({
     alignItems: 'flex-start',
     fontSize: theme.typography.body1.fontSize,
     margin: theme.spacing(3),
-    marginLeft: theme.spacing(2)
+    marginLeft: theme.spacing(2),
   },
   apiTab: {
     fontSize: theme.typography.body1.fontSize,
     margin: theme.spacing(3),
-    marginLeft: theme.spacing(2)
+    marginLeft: theme.spacing(2),
   },
   exportButton: {
     marginTop: '0.3rem',
-    height: '3rem'
+    height: '3rem',
   },
   alert: {
-    margin: '0px 20px'
-  }
+    margin: '0px 20px',
+  },
 }))
 
 const DataTable = ({ router, regions, measures }) => {
@@ -132,14 +132,14 @@ const DataTable = ({ router, regions, measures }) => {
   const columnDefs =
     (data.schema &&
       data.schema.fields
-        .filter(f => f.name !== 'index')
-        .map(f => ({ headerName: f.name, field: f.name }))) ||
+        .filter((f) => f.name !== 'index')
+        .map((f) => ({ headerName: f.name, field: f.name }))) ||
     []
 
   const handleChangePage = (event, page) => {
     setPage(page)
   }
-  const handleChangeRowsPerPage = value => {
+  const handleChangeRowsPerPage = (value) => {
     setRowsPerPage(value.target.value)
   }
   const labelDisplayedRows = ({ from, to, count }) =>
@@ -155,7 +155,7 @@ const DataTable = ({ router, regions, measures }) => {
   const tabularApiUrl = url.query && `https://tabular.genesapi.org${url.query}`
 
   // TODO improve this, best would be to get text in proper format (HTML?) from server
-  const renderTextWithLineBreaks = text =>
+  const renderTextWithLineBreaks = (text) =>
     text
       ? text.split('\n').map((item, i) => (
           <div key={i}>
@@ -199,7 +199,7 @@ const DataTable = ({ router, regions, measures }) => {
               <Table className={classes.table} size="small" stickyHeader>
                 <TableHead>
                   <TableRow>
-                    {columnDefs.map(def => (
+                    {columnDefs.map((def) => (
                       <TableCell
                         className={classes.tableTitle}
                         key={def.headerName}
@@ -219,7 +219,7 @@ const DataTable = ({ router, regions, measures }) => {
                     rows.map((row, index) => {
                       return (
                         <TableRow key={index}>
-                          {columnDefs.map(def => (
+                          {columnDefs.map((def) => (
                             <TableCell key={def.field}>
                               {row[def.field]}
                             </TableCell>
@@ -238,7 +238,7 @@ const DataTable = ({ router, regions, measures }) => {
                       page={page}
                       SelectProps={{
                         inputProps: { 'aria-label': 'Zeilen pro Seite' },
-                        native: true
+                        native: true,
                       }}
                       labelDisplayedRows={labelDisplayedRows}
                       labelRowsPerPage="Datensätze pro Seite: "
@@ -323,7 +323,7 @@ const DataTable = ({ router, regions, measures }) => {
 DataTable.propTypes = {
   router: PropTypes.object.isRequired,
   regions: PropTypes.arrayOf(PropTypes.object),
-  measures: PropTypes.arrayOf(PropTypes.object)
+  measures: PropTypes.arrayOf(PropTypes.object),
 }
 
 export default withRouter(DataTable)

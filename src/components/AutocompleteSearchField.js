@@ -9,24 +9,24 @@ import TextField from '@material-ui/core/TextField'
 import Paper from '@material-ui/core/Paper'
 import MenuItem from '@material-ui/core/MenuItem'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1
+    flexGrow: 1,
   },
   input: {
     display: 'flex',
     padding: 0,
-    height: 'auto'
+    height: 'auto',
   },
   valueContainer: {
     display: 'flex',
     flexWrap: 'wrap',
     flex: 1,
     alignItems: 'center',
-    overflow: 'hidden'
+    overflow: 'hidden',
   },
   chip: {
-    margin: theme.spacing(0.5, 0.25)
+    margin: theme.spacing(0.5, 0.25),
   },
   chipFocused: {
     backgroundColor: emphasize(
@@ -34,50 +34,50 @@ const useStyles = makeStyles(theme => ({
         ? theme.palette.grey[300]
         : theme.palette.grey[700],
       0.08
-    )
+    ),
   },
   noOptionsMessage: {
-    padding: theme.spacing(1, 2)
+    padding: theme.spacing(1, 2),
   },
   singleValue: {
-    fontSize: 16
+    fontSize: 16,
   },
   placeholder: {
     position: 'absolute',
     left: 2,
     bottom: 6,
-    fontSize: 16
+    fontSize: 16,
   },
   paper: {
     position: 'absolute',
     zIndex: 1,
     marginTop: theme.spacing(1),
     left: 0,
-    right: 0
+    right: 0,
   },
   divider: {
-    height: theme.spacing(2)
+    height: theme.spacing(2),
   },
   option: {
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'flex-start'
+    alignItems: 'flex-start',
   },
   optionLabel: {
-    fontSize: theme.typography.body1.fontSize
+    fontSize: theme.typography.body1.fontSize,
   },
   optionDescription: {
     fontSize: theme.typography.caption.fontSize,
-    color: '#9e9e9e'
-  }
+    color: '#9e9e9e',
+  },
 }))
 
 const NoOptionsMessage = ({
   selectProps: {
-    classes: { noOptionsMessage }
+    classes: { noOptionsMessage },
   },
   innerProps,
-  children
+  children,
 }) => (
   <Typography
     color="textSecondary"
@@ -91,7 +91,7 @@ const NoOptionsMessage = ({
 NoOptionsMessage.propTypes = {
   children: PropTypes.node,
   innerProps: PropTypes.object.isRequired,
-  selectProps: PropTypes.object.isRequired
+  selectProps: PropTypes.object.isRequired,
 }
 
 const inputComponent = ({ inputRef, ...props }) => {
@@ -102,9 +102,9 @@ inputComponent.propTypes = {
   inputRef: PropTypes.oneOfType([
     PropTypes.func,
     PropTypes.shape({
-      current: PropTypes.any.isRequired
-    })
-  ])
+      current: PropTypes.any.isRequired,
+    }),
+  ]),
 }
 
 const Control = ({
@@ -113,8 +113,8 @@ const Control = ({
   innerRef,
   selectProps: {
     classes: { input },
-    TextFieldProps
-  }
+    TextFieldProps,
+  },
 }) => {
   return (
     <TextField
@@ -125,8 +125,8 @@ const Control = ({
           className: input,
           ref: innerRef,
           children,
-          ...innerProps
-        }
+          ...innerProps,
+        },
       }}
       {...TextFieldProps}
     />
@@ -136,16 +136,16 @@ const Control = ({
 Control.propTypes = {
   children: PropTypes.node,
   innerProps: PropTypes.shape({
-    onMouseDown: PropTypes.func.isRequired
+    onMouseDown: PropTypes.func.isRequired,
   }).isRequired,
   innerRef: PropTypes.oneOfType([
     PropTypes.oneOf([null]),
     PropTypes.func,
     PropTypes.shape({
-      current: PropTypes.any.isRequired
-    })
+      current: PropTypes.any.isRequired,
+    }),
   ]).isRequired,
-  selectProps: PropTypes.object.isRequired
+  selectProps: PropTypes.object.isRequired,
 }
 
 const Option = ({
@@ -154,8 +154,8 @@ const Option = ({
   data: { label, description },
   selectProps: {
     inputValue,
-    classes: { option, optionLabel, optionDescription }
-  }
+    classes: { option, optionLabel, optionDescription },
+  },
 }) => {
   const searchWords = inputValue.split(' ')
   return (
@@ -183,17 +183,17 @@ Option.propTypes = {
     onClick: PropTypes.func,
     onMouseMove: PropTypes.func,
     onMouseOver: PropTypes.func,
-    tabIndex: PropTypes.number
+    tabIndex: PropTypes.number,
   }),
   isFocused: PropTypes.bool.isRequired,
-  isSelected: PropTypes.bool.isRequired
+  isSelected: PropTypes.bool.isRequired,
 }
 
 const Placeholder = ({
   selectProps: {
-    classes: { placeholder }
+    classes: { placeholder },
   },
-  children
+  children,
 }) => {
   return (
     <Typography color="textSecondary" className={placeholder}>
@@ -205,15 +205,15 @@ const Placeholder = ({
 Placeholder.propTypes = {
   children: PropTypes.node,
   selectProps: PropTypes.shape({
-    classes: PropTypes.shape({ placeholder: PropTypes.string.isRequired })
-  }).isRequired
+    classes: PropTypes.shape({ placeholder: PropTypes.string.isRequired }),
+  }).isRequired,
 }
 
 const ValueContainer = ({
   selectProps: {
-    classes: { valueContainer }
+    classes: { valueContainer },
   },
-  children
+  children,
 }) => {
   return <div className={valueContainer}>{children}</div>
 }
@@ -221,16 +221,16 @@ const ValueContainer = ({
 ValueContainer.propTypes = {
   children: PropTypes.node,
   selectProps: PropTypes.shape({
-    classes: PropTypes.shape({ valueContainer: PropTypes.string.isRequired })
-  }).isRequired
+    classes: PropTypes.shape({ valueContainer: PropTypes.string.isRequired }),
+  }).isRequired,
 }
 
 const Menu = ({
   selectProps: {
-    classes: { paper }
+    classes: { paper },
   },
   innerProps,
-  children
+  children,
 }) => {
   return (
     <Paper square className={paper} {...innerProps}>
@@ -243,8 +243,8 @@ Menu.propTypes = {
   children: PropTypes.element.isRequired,
   innerProps: PropTypes.object.isRequired,
   selectProps: PropTypes.shape({
-    classes: PropTypes.shape({ paper: PropTypes.string.isRequired })
-  }).isRequired
+    classes: PropTypes.shape({ paper: PropTypes.string.isRequired }),
+  }).isRequired,
 }
 
 const components = {
@@ -253,26 +253,26 @@ const components = {
   NoOptionsMessage,
   Option,
   Placeholder,
-  ValueContainer
+  ValueContainer,
 }
 
 const AutocompleteSearchField = ({
   onSelectionChange,
   loadOptions,
   label,
-  placeholder
+  placeholder,
 }) => {
   const classes = useStyles()
   const theme = useTheme()
 
   const selectStyles = {
-    input: base => ({
+    input: (base) => ({
       ...base,
       color: theme.palette.text.primary,
       '& input': {
-        font: 'inherit'
-      }
-    })
+        font: 'inherit',
+      },
+    }),
   }
 
   return (
@@ -286,8 +286,8 @@ const AutocompleteSearchField = ({
             label,
             InputLabelProps: {
               htmlFor: 'react-select-single',
-              shrink: true
-            }
+              shrink: true,
+            },
           }}
           placeholder={placeholder}
           components={components}
@@ -304,7 +304,7 @@ const AutocompleteSearchField = ({
 
 AutocompleteSearchField.propTypes = {
   onSelectionChange: PropTypes.func.isRequired,
-  loadOptions: PropTypes.func.isRequired
+  loadOptions: PropTypes.func.isRequired,
 }
 
 export default AutocompleteSearchField

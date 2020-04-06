@@ -1,4 +1,4 @@
-module.exports = async function(source) {
+module.exports = async function (source) {
   const callback = this.async()
 
   // replace markdown image link with img tag and require image

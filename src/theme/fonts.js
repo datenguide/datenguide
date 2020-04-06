@@ -20,7 +20,7 @@ export const plex = {
       src: `
       url(${plexRegularWoff2}) format('woff2'),
       url(${plexRegularWoff}) format('woff')
-      `
+      `,
     },
     {
       fontFamily: PLEX_NAME,
@@ -30,7 +30,7 @@ export const plex = {
       src: `
       url(${plexRegularItalicWoff2}) format('woff2'),
       url(${plexRegularItalicWoff}) format('woff')
-      `
+      `,
     },
     {
       fontFamily: PLEX_NAME,
@@ -40,7 +40,7 @@ export const plex = {
       src: `
       url(${plexBoldWoff2}) format('woff2'),
       url(${plexBoldWoff}) format('woff')
-      `
+      `,
     },
     {
       fontFamily: PLEX_NAME,
@@ -50,7 +50,7 @@ export const plex = {
       src: `
       url(${plexBoldItalicWoff2}) format('woff2'),
       url(${plexBoldItalicWoff}) format('woff')
-      `
-    }
-  ]
+      `,
+    },
+  ],
 }

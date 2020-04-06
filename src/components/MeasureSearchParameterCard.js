@@ -9,16 +9,16 @@ import CloseIcon from '@material-ui/icons/Close'
 
 import DimensionSelect from './DimensionSelect'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
-    margin: '8px 0'
-  }
+    margin: '8px 0',
+  },
 }))
 
 const MeasureSearchParameterCard = ({
   statistic,
   onClose,
-  onArgumentChange
+  onArgumentChange,
 }) => {
   const styles = useStyles()
 
@@ -28,26 +28,26 @@ const MeasureSearchParameterCard = ({
     statisticTitleDe,
     name,
     titleDe,
-    dimensions
+    dimensions,
   } = statistic
 
-  const handleDimensionChange = argCode => event => {
+  const handleDimensionChange = (argCode) => (event) => {
     onArgumentChange({
       id,
       argCode,
       diff: {
-        selected: event.target.value
-      }
+        selected: event.target.value,
+      },
     })
   }
 
-  const handleArgumentToggle = event => {
+  const handleArgumentToggle = (event) => {
     onArgumentChange({
       id,
       argCode: event.target.value,
       diff: {
-        active: event.target.checked
-      }
+        active: event.target.checked,
+      },
     })
   }
 
@@ -63,7 +63,7 @@ const MeasureSearchParameterCard = ({
         subheader={`${statisticName} – ${statisticTitleDe}`}
       />
       <CardContent>
-        {dimensions.map(dim => (
+        {dimensions.map((dim) => (
           <DimensionSelect
             key={dim.name}
             name={dim.name}
@@ -83,7 +83,7 @@ const MeasureSearchParameterCard = ({
 MeasureSearchParameterCard.propTypes = {
   statistic: PropTypes.object.isRequired,
   onClose: PropTypes.func.isRequired,
-  onArgumentChange: PropTypes.func.isRequired
+  onArgumentChange: PropTypes.func.isRequired,
 }
 
 export default MeasureSearchParameterCard

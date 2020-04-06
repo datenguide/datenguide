@@ -3,7 +3,7 @@ import Container from '@material-ui/core/Container'
 
 import background from '../assets/hero_city.svg'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     height: '600px',
     fontSize: theme.typography.body1.fontSize,
@@ -17,23 +17,23 @@ const useStyles = makeStyles(theme => ({
       backgroundRepeat: 'no-repeat',
       backgroundSize: '560px auto',
       backgroundPosition: '110% bottom',
-      paddingBottom: theme.spacing(9)
+      paddingBottom: theme.spacing(9),
     },
 
     [theme.breakpoints.up('lg')]: {
-      paddingBottom: theme.spacing(4)
+      paddingBottom: theme.spacing(4),
     },
 
     [theme.breakpoints.up('xl')]: {
       backgroundSize: '560px auto',
-      backgroundPosition: '85% bottom'
-    }
+      backgroundPosition: '85% bottom',
+    },
   },
 
   content: {
     '& p': {
       marginTop: '0',
-      marginBottom: theme.spacing(2)
+      marginBottom: theme.spacing(2),
     },
 
     '& h1': {
@@ -41,23 +41,23 @@ const useStyles = makeStyles(theme => ({
       color: theme.palette.secondary.dark,
 
       [theme.breakpoints.up('md')]: {
-        fontSize: theme.typography.h3.fontSize
-      }
+        fontSize: theme.typography.h3.fontSize,
+      },
     },
 
     '& strong': {
-      color: theme.palette.secondary.dark
+      color: theme.palette.secondary.dark,
     },
 
     [theme.breakpoints.up('sm')]: {
-      maxWidth: '620px'
+      maxWidth: '620px',
     },
 
     [theme.breakpoints.up('md')]: {
       maxWidth: '740px',
-      fontSize: theme.typography.h5.fontSize
-    }
-  }
+      fontSize: theme.typography.h5.fontSize,
+    },
+  },
 }))
 
 const MainStage = ({ children }) => {

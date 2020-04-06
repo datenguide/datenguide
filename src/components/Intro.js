@@ -9,15 +9,15 @@ import chartIcon from '../assets/openmoji/chart.svg'
 import codeIcon from '../assets/openmoji/code.svg'
 import technologistIcon from '../assets/openmoji/technologist.svg'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     paddingTop: theme.spacing(6),
     paddingBottom: theme.spacing(6),
 
     [theme.breakpoints.up('xl')]: {
       paddingTop: theme.spacing(7),
-      paddingBottom: theme.spacing(7)
-    }
+      paddingBottom: theme.spacing(7),
+    },
   },
 
   main: {
@@ -25,17 +25,17 @@ const useStyles = makeStyles(theme => ({
     fontSize: theme.typography.body1.fontSize,
 
     [theme.breakpoints.up('md')]: {
-      paddingRight: theme.spacing(6)
+      paddingRight: theme.spacing(6),
     },
 
     [theme.breakpoints.up('lg')]: {
-      fontSize: theme.typography.h6.fontSize
+      fontSize: theme.typography.h6.fontSize,
     },
 
     '& h2': {
       marginBottom: 0,
-      fontSize: theme.typography.h5.fontSize
-    }
+      fontSize: theme.typography.h5.fontSize,
+    },
   },
 
   features: {
@@ -44,11 +44,11 @@ const useStyles = makeStyles(theme => ({
 
     [theme.breakpoints.up('lg')]: {
       marginLeft: theme.spacing(6),
-      marginBottom: theme.spacing(3)
+      marginBottom: theme.spacing(3),
     },
 
     '& h3': {
-      marginBottom: 0
+      marginBottom: 0,
     },
 
     '& li': {
@@ -56,26 +56,26 @@ const useStyles = makeStyles(theme => ({
       backgroundRepeat: 'no-repeat',
       backgroundSize: 'auto 7em',
       paddingLeft: '8em',
-      paddingBottom: theme.spacing(4)
-    }
+      paddingBottom: theme.spacing(4),
+    },
   },
 
   statistics: {
-    backgroundImage: `url(${chartIcon})`
+    backgroundImage: `url(${chartIcon})`,
   },
 
   api: {
-    backgroundImage: `url(${codeIcon})`
+    backgroundImage: `url(${codeIcon})`,
   },
 
   literacy: {
-    backgroundImage: `url(${technologistIcon})`
+    backgroundImage: `url(${technologistIcon})`,
   },
 
   featureText: {
     margin: 0,
-    paddingTop: theme.spacing(1)
-  }
+    paddingTop: theme.spacing(1),
+  },
 }))
 
 export default function Intro({ children, features }) {

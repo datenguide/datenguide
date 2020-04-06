@@ -4,31 +4,31 @@ import { makeStyles } from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   form: {
     display: 'flex',
-    marginTop: theme.spacing(3)
+    marginTop: theme.spacing(3),
   },
   '@global': {
     // this property cannot be accessed through
     // the CSS API 🤯
     '.MuiOutlinedInput-root': {
-      background: 'white'
-    }
+      background: 'white',
+    },
   },
   textInput: {
     marginBottom: theme.spacing(3),
     [theme.breakpoints.up('sm')]: {
       width: 350,
-      marginBottom: theme.spacing(1)
-    }
+      marginBottom: theme.spacing(1),
+    },
   },
 
   submitButton: {
     marginLeft: theme.spacing(2),
     marginTop: '1px',
     height: '3.4rem',
-    boxShadow: theme.shadows[0]
+    boxShadow: theme.shadows[0],
   },
 
   terms: {
@@ -38,13 +38,13 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up('sm')]: {
       maxWidth: '680px',
       marginTop: theme.spacing(3),
-      marginBottom: theme.spacing(10)
+      marginBottom: theme.spacing(10),
     },
 
     [theme.breakpoints.up('md')]: {
-      marginBottom: theme.spacing(5)
-    }
-  }
+      marginBottom: theme.spacing(5),
+    },
+  },
 }))
 
 const Subscribe = () => {

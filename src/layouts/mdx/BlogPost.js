@@ -10,18 +10,18 @@ import Footer from '../../components/Footer'
 import BodyText from '../../components/BodyText'
 import BlogHeader from '../../components/BlogHeader'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   content: {
     flexGrow: 1,
-    padding: theme.spacing(2, 0, 30, 0)
+    padding: theme.spacing(2, 0, 30, 0),
   },
   metaInfo: {
     color: theme.palette.grey[500],
-    fontWeight: 'bold'
-  }
+    fontWeight: 'bold',
+  },
 }))
 
-const BlogPost = frontMatter => ({ children }) => {
+const BlogPost = (frontMatter) => ({ children }) => {
   const classes = useStyles()
 
   return (

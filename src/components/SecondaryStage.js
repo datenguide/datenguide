@@ -2,7 +2,7 @@ import { makeStyles } from '@material-ui/core/styles'
 
 import background from '../assets/hero_city.svg'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     position: 'relative',
     backgroundColor: '#c3e5f1',
@@ -19,11 +19,11 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up('sm')]: {
       backgroundSize: '300px auto',
       minHeight: '256px',
-      justifyContent: 'flex-start'
+      justifyContent: 'flex-start',
     },
     [theme.breakpoints.up('md')]: {
-      justifyContent: 'center'
-    }
+      justifyContent: 'center',
+    },
   },
 
   title: {
@@ -34,12 +34,12 @@ const useStyles = makeStyles(theme => ({
 
     [theme.breakpoints.up('sm')]: {
       width: '50%',
-      marginLeft: theme.spacing(4)
+      marginLeft: theme.spacing(4),
     },
     [theme.breakpoints.up('md')]: {
-      marginLeft: 0
-    }
-  }
+      marginLeft: 0,
+    },
+  },
 }))
 
 const SecondaryStage = ({ claim }) => {

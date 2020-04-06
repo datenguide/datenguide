@@ -6,15 +6,15 @@ import List from '@material-ui/core/List'
 import DocsNavigationItem from './DocsNavigationItem'
 import docsNavigation from '../docsNavigation'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
     paddingTop: theme.spacing(4),
-    backgroundColor: theme.palette.background.paper
+    backgroundColor: theme.palette.background.paper,
   },
   nested: {
-    paddingLeft: theme.spacing(4)
-  }
+    paddingLeft: theme.spacing(4),
+  },
 }))
 
 const DocsNavigation = () => {

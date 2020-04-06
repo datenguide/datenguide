@@ -2,19 +2,19 @@ import Link from 'next/link'
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward'
 import { makeStyles } from '@material-ui/core/styles'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   link: {
     display: 'flex',
     marginBottom: theme.spacing(1),
     color: theme.palette.grey[0],
-    textDecoration: 'none'
+    textDecoration: 'none',
   },
   text: {
-    marginTop: '1px'
+    marginTop: '1px',
   },
   icon: {
-    marginRight: theme.spacing(1)
-  }
+    marginRight: theme.spacing(1),
+  },
 }))
 
 const ArrowLink = ({ href, children }) => {

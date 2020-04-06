@@ -10,13 +10,13 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight'
 
 const DEFAULT_REGION = 'DG'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
     height: '100%',
     padding: theme.spacing(2),
-    backgroundColor: '#f5f5f5'
-  }
+    backgroundColor: '#f5f5f5',
+  },
 }))
 
 const getTableLink = ({ id, measure, regions }) => {
@@ -47,7 +47,7 @@ const StatisticsList = ({ statistics, regions }) => {
       {statistics.map(({ id, title, measures }) => (
         <TreeItem key={id} nodeId={id} label={`${id} / ${title}`}>
           <ul>
-            {measures.map(measure => (
+            {measures.map((measure) => (
               <TreeItem
                 key={measure.id}
                 nodeId={measure.id}
@@ -71,7 +71,7 @@ const StatisticsList = ({ statistics, regions }) => {
 }
 
 StatisticsList.propTypes = {
-  statistics: PropTypes.arrayOf(PropTypes.object)
+  statistics: PropTypes.arrayOf(PropTypes.object),
 }
 
 export default StatisticsList

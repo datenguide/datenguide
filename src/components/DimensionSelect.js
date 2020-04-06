@@ -11,19 +11,19 @@ import Switch from '@material-ui/core/Switch'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import FormGroup from '@material-ui/core/FormGroup'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
-    flexWrap: 'wrap'
+    flexWrap: 'wrap',
   },
   formControl: {
     margin: theme.spacing(1),
     minWidth: 120,
-    width: '100%'
+    width: '100%',
   },
   noLabel: {
-    marginTop: theme.spacing(3)
-  }
+    marginTop: theme.spacing(3),
+  },
 }))
 
 const ITEM_HEIGHT = 48
@@ -32,9 +32,9 @@ const MenuProps = {
   PaperProps: {
     style: {
       maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-      width: '250px'
-    }
-  }
+      width: '250px',
+    },
+  },
 }
 
 const DimensionSelect = ({
@@ -44,7 +44,7 @@ const DimensionSelect = ({
   options,
   onChange,
   onToggle,
-  active
+  active,
 }) => {
   const classes = useStyles()
 
@@ -71,12 +71,12 @@ const DimensionSelect = ({
             onChange={onChange}
             input={<Input id="select-multiple-checkbox" />}
             inputProps={{
-              id: label
+              id: label,
             }}
-            renderValue={value => `Ausgewählt: ${value.length}`}
+            renderValue={(value) => `Ausgewählt: ${value.length}`}
             MenuProps={MenuProps}
           >
-            {options.map(option => {
+            {options.map((option) => {
               return (
                 <MenuItem key={option.label} value={option.value}>
                   <Checkbox checked={value.includes(option.value)} />
@@ -97,7 +97,7 @@ DimensionSelect.propTypes = {
   options: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   onChange: PropTypes.func.isRequired,
   onToggle: PropTypes.func.isRequired,
-  active: PropTypes.bool.isRequired
+  active: PropTypes.bool.isRequired,
 }
 
 export default DimensionSelect

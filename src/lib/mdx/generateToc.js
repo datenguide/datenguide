@@ -4,7 +4,7 @@ const toc = require('mdast-util-toc')
 
 const remarkProcessor = unified().use(markdown, { commonmark: true })
 
-const convertMdAstTocListItem = mdAstListItem =>
+const convertMdAstTocListItem = (mdAstListItem) =>
   mdAstListItem.children.reduce((acc, current) => {
     if (current.type === 'paragraph') {
       acc.url = current.children[0].url
@@ -15,13 +15,13 @@ const convertMdAstTocListItem = mdAstListItem =>
     return acc
   }, {})
 
-const convertMdAstTocList = mdAstList => {
-  return mdAstList.children.map(child => {
+const convertMdAstTocList = (mdAstList) => {
+  return mdAstList.children.map((child) => {
     return convertMdAstTocListItem(child)
   })
 }
 
-const generateToc = mdxContent => {
+const generateToc = (mdxContent) => {
   const mdAstToc = toc(remarkProcessor.parse(mdxContent))
   return mdAstToc.map && convertMdAstTocList(mdAstToc.map)
 }

@@ -6,16 +6,16 @@ import CardHeader from '@material-ui/core/CardHeader'
 import IconButton from '@material-ui/core/IconButton'
 import CloseIcon from '@material-ui/icons/Close'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
-    margin: '8px 0'
-  }
+    margin: '8px 0',
+  },
 }))
 
 const nutsToText = {
   1: 'NUTS 1 – Bundesländer',
   2: 'NUTS 2 – Regierungsbezirke',
-  3: 'NUTS 3 – Landkreise, Kreise, kreisfreie Städte'
+  3: 'NUTS 3 – Landkreise, Kreise, kreisfreie Städte',
 }
 
 const RegionSearchParameterCard = ({ region, onClose }) => {
@@ -38,7 +38,7 @@ const RegionSearchParameterCard = ({ region, onClose }) => {
 
 RegionSearchParameterCard.propTypes = {
   onClose: PropTypes.func.isRequired,
-  region: PropTypes.object.isRequired
+  region: PropTypes.object.isRequired,
 }
 
 export default RegionSearchParameterCard

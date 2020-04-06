@@ -5,10 +5,10 @@ import Base from '../layouts/Base'
 import HeaderToolbar from '../components/HeaderToolbar'
 import Footer from '../components/Footer'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   content: {
-    paddingBottom: theme.spacing(20)
-  }
+    paddingBottom: theme.spacing(20),
+  },
 }))
 
 const DefaultLayout = ({ children, meta }) => {
