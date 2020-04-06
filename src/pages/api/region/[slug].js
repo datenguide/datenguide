@@ -14,7 +14,6 @@ export default (req, res) => {
     query: { slug },
   } = req
   const result = districts.find((region) => region.slug === slug)
-
   if (result) {
     res.status(200).json(result)
   } else {

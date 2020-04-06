@@ -17,7 +17,6 @@ const navItems = [
   {
     title: 'Blog',
     path: '/blog',
-    external: true,
   },
   {
     title: 'Dokumentation',
@@ -118,6 +117,7 @@ const useStyles = makeStyles((theme) => ({
   icon: {
     position: 'absolute',
     width: '0.8em',
+    top: '-0.1em',
     left: '-1em',
   },
 }))

@@ -91,14 +91,14 @@ export default function HeaderToolbar({ menuButton }) {
               Regions
             </Button>
           </Link>
+          <Link href="/info">
+            <Button component="a" color="inherit">
+              Über Datenguide
+            </Button>
+          </Link>
           <Link href="/blog">
             <Button component="a" color="inherit">
               Blog
-            </Button>
-          </Link>
-          <Link href="/info">
-            <Button component="a" color="inherit">
-              About
             </Button>
           </Link>
         </div>

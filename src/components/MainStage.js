@@ -10,6 +10,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: '#c3e5f1',
     paddingTop: theme.spacing(3),
     paddingBottom: theme.spacing(6),
+    borderBottom: '1px solid',
 
     [theme.breakpoints.up('sm')]: {
       backgroundImage: `url(${background})`,

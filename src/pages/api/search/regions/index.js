@@ -22,7 +22,6 @@ export default (req, res) => {
   const result = regionsResult.map((id) => ({
     value: id,
     name: regions[id].name,
-    label: getLabel(id),
   }))
 
   res.setHeader('Content-Type', 'application/json')
