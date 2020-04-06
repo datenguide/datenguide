@@ -23,8 +23,8 @@ class MyDocument extends Document {
           {/* PWA primary color */}
           <meta name="theme-color" content={theme.palette.primary.main} />
           {/* TODO can be removed after the redesign of the query tool UI */}
-          <script src="https://unpkg.com/prettier@1.19.1/standalone.js" />
-          <script src="https://unpkg.com/prettier@1.19.1/parser-graphql.js" />
+          <script src="https://unpkg.com/prettier@2.0.4/standalone.js" />
+          <script src="https://unpkg.com/prettier@2.0.4/parser-graphql.js" />
         </Head>
         <body>
           <Main />

@@ -4,7 +4,6 @@ import Router from 'next/router'
 import { camelizeKeys } from 'humps'
 import _ from 'lodash'
 
-import { getNuts, getRegion } from '../pages/api/region'
 import useSuperRedux from './useSuperRedux'
 import { stateToQueryArgs } from './queryString'
 
@@ -37,6 +36,11 @@ query Schema($measures: [MeasureDescription]) {
   }
 }
 `
+
+const getRegion = async (id) => {
+  const fetchRegion = await fetch(`/api/region?id=${id}`)
+  return fetchRegion.ok && fetchRegion.json()
+}
 
 const getSelectedValues = (dim, dimensionSelection) => {
   const selection = (dimensionSelection && dimensionSelection[dim.name]) || []
@@ -78,12 +82,6 @@ const getDimensionSelection = (measures) =>
     return acc
   }, {})
 
-// TODO load from API
-const regionToState = (region) => ({
-  ...region,
-  ...getNuts(region.id),
-})
-
 const useSearchManager = (initialMeasures, initialRegions) => {
   const [fetchSchema] = useManualQuery(SCHEMA_QUERY)
   const [fetchRegion] = useManualQuery(REGION_QUERY)
@@ -92,7 +90,7 @@ const useSearchManager = (initialMeasures, initialRegions) => {
     () => ({
       syncUrl: () => async (dispatch, getState) => {
         Router.push({
-          pathname: '/statistics',
+          pathname: '/statistiken',
           query: stateToQueryArgs(getState()),
         })
       },
@@ -164,7 +162,7 @@ const useSearchManager = (initialMeasures, initialRegions) => {
         if (state.regions[action.payload.id]) {
           state.error = 'Region wurde bereits ausgewählt'
         } else {
-          state.regions[action.payload.id] = regionToState(action.payload)
+          state.regions[action.payload.id] = action.payload
           state.loading = false
         }
         return state
@@ -262,13 +260,13 @@ const useSearchManager = (initialMeasures, initialRegions) => {
 
   useEffect(() => {
     const fetch = async () => {
-      // TODO use proper API
-      const result = initialRegions
-        .map((id) => getRegion(id))
-        .reduce((acc, curr) => {
-          acc[curr.id] = curr
-          return acc
-        }, {})
+      const regions = await Promise.all(
+        initialRegions.map((id) => getRegion(id))
+      )
+      const result = regions.reduce((acc, curr) => {
+        acc[curr.id] = curr
+        return acc
+      }, {})
       dispatch(actions.initializeRegions(result))
     }
 

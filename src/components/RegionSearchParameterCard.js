@@ -30,7 +30,7 @@ const RegionSearchParameterCard = ({ region, onClose }) => {
           </IconButton>
         }
         title={region.name}
-        subheader={nutsToText[region.nuts]}
+        subheader={nutsToText[region.level]}
       />
     </Card>
   )

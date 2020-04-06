@@ -3,8 +3,9 @@ import Link from 'next/link'
 import { makeStyles } from '@material-ui/core/styles'
 import Container from '@material-ui/core/Container'
 import Grid from '@material-ui/core/Grid'
+import MastodonIcon from 'mdi-material-ui/Mastodon'
 import GithubIcon from 'mdi-material-ui/GithubCircle'
-import TwitterIcon from 'mdi-material-ui/TwitterCircle'
+import TwitterIcon from 'mdi-material-ui/Twitter'
 
 import background from '../assets/hero_village.svg'
 
@@ -16,6 +17,10 @@ const navItems = [
   {
     title: 'Blog',
     path: '/blog',
+  },
+  {
+    title: 'Dokumentation',
+    path: 'https://preview.datengui.de/dokumentation',
     external: true,
   },
   {
@@ -34,12 +39,17 @@ const navItems = [
 
 const socialItems = [
   {
-    title: 'Twitter',
+    title: 'Datenguide auf Twitter',
     path: 'https://twitter.com/datenguide',
     Icon: TwitterIcon,
   },
   {
-    title: 'Github',
+    title: 'Datenguide auf Mastodon',
+    path: 'https://chaos.social/@datenguide',
+    Icon: MastodonIcon,
+  },
+  {
+    title: 'Datenguide auf Github',
     path: 'https://github.com/datenguide',
     Icon: GithubIcon,
   },
