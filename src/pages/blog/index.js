@@ -16,7 +16,7 @@ const Blog = ({ meta, blogPosts = [] }) => {
       <Container>
         <BodyText>
           <h1>Aktuelles</h1>
-          {blogPosts.map(blogPost => (
+          {blogPosts.map((blogPost) => (
             <BlogPostListItem {...blogPost} key={blogPost.href} />
           ))}
         </BodyText>
@@ -28,32 +28,32 @@ const Blog = ({ meta, blogPosts = [] }) => {
 export const getStaticProps = async () => {
   const blogPages = await traverseDirectory('blog', true)
 
-  const blogPosts = blogPages.map(page => ({
+  const blogPosts = blogPages.map((page) => ({
     href: page.path,
     title: page.frontmatter.title,
     description: page.frontmatter.description,
     date: page.frontmatter.date,
-    published: page.frontmatter.published
+    published: page.frontmatter.published,
   }))
 
   const publishedBlogPosts = _.orderBy(
     blogPosts,
-    post => moment(post.date).format('YYYYMMDD'),
+    (post) => moment(post.date).format('YYYYMMDD'),
     ['desc']
   )
-    .map(post => ({
+    .map((post) => ({
       ...post,
-      date: moment(post.date).format('DD.MM.YYYY')
+      date: moment(post.date).format('DD.MM.YYYY'),
     }))
-    .filter(post => post.published)
+    .filter((post) => post.published)
 
   return {
     props: {
       meta: {
-        title: 'Blog'
+        title: 'Blog',
       },
-      blogPosts: publishedBlogPosts
-    }
+      blogPosts: publishedBlogPosts,
+    },
   }
 }
 

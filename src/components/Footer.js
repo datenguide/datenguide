@@ -12,51 +12,51 @@ import background from '../assets/hero_village.svg'
 const navItems = [
   {
     title: 'Startseite',
-    path: '/'
+    path: '/',
   },
   {
     title: 'Blog',
     path: '/blog',
-    external: true
+    external: true,
   },
   {
     title: 'Dokumentation',
     path: 'https://preview.datengui.de/dokumentation',
-    external: true
+    external: true,
   },
   {
     title: 'Über Datenguide',
-    path: '/info'
+    path: '/info',
   },
   {
     title: 'Datenschutz',
-    path: '/info/datenschutz'
+    path: '/info/datenschutz',
   },
   {
     title: 'Kontakt und Impressum',
-    path: '/info/kontakt'
-  }
+    path: '/info/kontakt',
+  },
 ]
 
 const socialItems = [
   {
     title: 'Datenguide auf Twitter',
     path: 'https://twitter.com/datenguide',
-    Icon: TwitterIcon
+    Icon: TwitterIcon,
   },
   {
     title: 'Datenguide auf Mastodon',
     path: 'https://chaos.social/@datenguide',
-    Icon: MastodonIcon
+    Icon: MastodonIcon,
   },
   {
     title: 'Datenguide auf Github',
     path: 'https://github.com/datenguide',
-    Icon: GithubIcon
-  }
+    Icon: GithubIcon,
+  },
 ]
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 0,
     backgroundColor: '#c3e5f1',
@@ -77,9 +77,9 @@ const useStyles = makeStyles(theme => ({
         top: '57px',
         bottom: 0,
         transform: 'translateX(-170px)',
-        backgroundSize: '500px auto'
-      }
-    }
+        backgroundSize: '500px auto',
+      },
+    },
   },
 
   nav: {
@@ -90,36 +90,36 @@ const useStyles = makeStyles(theme => ({
       listStyle: 'none',
       margin: 0,
       paddingTop: theme.spacing(3),
-      paddingLeft: theme.spacing(3)
+      paddingLeft: theme.spacing(3),
     },
 
     '& a': {
       textDecoration: 'none',
       position: 'relative',
       marginBottom: theme.spacing(1),
-      display: 'inline-block'
+      display: 'inline-block',
     },
 
     '& a:hover': {
-      textDecoration: 'underline'
+      textDecoration: 'underline',
     },
 
     [theme.breakpoints.up('md')]: {
-      paddingLeft: '33.3%'
-    }
+      paddingLeft: '33.3%',
+    },
   },
 
   social: {
     '& li': {
-      paddingLeft: '1em'
-    }
+      paddingLeft: '1em',
+    },
   },
 
   icon: {
     position: 'absolute',
     width: '0.8em',
-    left: '-1em'
-  }
+    left: '-1em',
+  },
 }))
 
 export default function Footer() {

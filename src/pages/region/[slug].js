@@ -24,7 +24,7 @@ const Region = ({ region, statistics }) => {
   return <RegionDetails region={region} statistics={statistics} />
 }
 
-Region.getInitialProps = async function({ req, query }) {
+Region.getInitialProps = async function ({ req, query }) {
   const { slug } = query
   const { origin } = absoluteUrl(req)
   const fetchRegion = await fetch(`${origin}/api/region/${slug}`)

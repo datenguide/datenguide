@@ -18,40 +18,40 @@ import BodyText from '../../components/BodyText'
 
 const drawerWidth = {
   mobile: 240,
-  desktop: 250
+  desktop: 250,
 }
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     minHeight: '100vh',
-    flexDirection: 'column'
+    flexDirection: 'column',
   },
   wrapper: {
     flexGrow: 1,
-    flexDirection: 'row'
+    flexDirection: 'row',
   },
   appBar: {
     [theme.breakpoints.up('sm')]: {
-      zIndex: theme.zIndex.drawer + 1
-    }
+      zIndex: theme.zIndex.drawer + 1,
+    },
   },
   menuButton: {
-    marginRight: theme.spacing(2)
+    marginRight: theme.spacing(2),
   },
   drawer: {
     [theme.breakpoints.up('sm')]: {
       width: drawerWidth.desktop,
-      flexShrink: 0
-    }
+      flexShrink: 0,
+    },
   },
   drawerPaper: {
     paddingTop: theme.spacing(9),
     border: 'none',
     width: drawerWidth.mobile,
     [theme.breakpoints.up('sm')]: {
-      width: drawerWidth.desktop
-    }
+      width: drawerWidth.desktop,
+    },
   },
   content: {
     flexGrow: 1,
@@ -60,14 +60,14 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up('sm')]: {
       transition: theme.transitions.create('margin', {
         easing: theme.transitions.easing.sharp,
-        duration: theme.transitions.duration.leavingScreen
+        duration: theme.transitions.duration.leavingScreen,
       }),
-      marginLeft: drawerWidth.desktop + theme.spacing(4)
-    }
-  }
+      marginLeft: drawerWidth.desktop + theme.spacing(4),
+    },
+  },
 }))
 
-const DocsPage = frontMatter => ({ children, tableOfContents }) => {
+const DocsPage = (frontMatter) => ({ children, tableOfContents }) => {
   const classes = useStyles()
   const theme = useTheme()
   const [open, setOpen] = useState(false)
@@ -103,10 +103,10 @@ const DocsPage = frontMatter => ({ children, tableOfContents }) => {
               open={open}
               onClose={handleDrawerToggle}
               classes={{
-                paper: classes.drawerPaper
+                paper: classes.drawerPaper,
               }}
               ModalProps={{
-                keepMounted: true
+                keepMounted: true,
               }}
             >
               <div className={classes.toolbar} />
@@ -124,7 +124,7 @@ const DocsPage = frontMatter => ({ children, tableOfContents }) => {
 }
 
 DocsPage.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 }
 
 export default DocsPage

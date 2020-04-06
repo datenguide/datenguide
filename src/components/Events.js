@@ -4,7 +4,7 @@ import Grid from '@material-ui/core/Grid'
 
 import background from '../assets/background_events.jpg'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   container: {
     position: 'relative',
     backgroundColor: '#c3e5f1',
@@ -24,9 +24,9 @@ const useStyles = makeStyles(theme => ({
         backgroundImage: `url(${background})`,
         backgroundSize: 'cover',
         backgroundPosition: 'right 0',
-        backgroundRepeat: 'no-repeat'
-      }
-    }
+        backgroundRepeat: 'no-repeat',
+      },
+    },
   },
 
   content: {
@@ -35,8 +35,8 @@ const useStyles = makeStyles(theme => ({
 
     [theme.breakpoints.up('xl')]: {
       paddingTop: theme.spacing(9),
-      paddingBottom: theme.spacing(9)
-    }
+      paddingBottom: theme.spacing(9),
+    },
   },
 
   video: {
@@ -51,14 +51,14 @@ const useStyles = makeStyles(theme => ({
       textShadow: `0 0 15px ${theme.palette.secondary.dark}`,
 
       '& a': {
-        color: 'white'
-      }
+        color: 'white',
+      },
     },
 
     [theme.breakpoints.up('xl')]: {
       paddingTop: theme.spacing(9),
-      paddingBottom: theme.spacing(9)
-    }
+      paddingBottom: theme.spacing(9),
+    },
   },
 
   dates: {
@@ -70,18 +70,18 @@ const useStyles = makeStyles(theme => ({
     '& li': {
       margin: 0,
       padding: 0,
-      paddingBottom: theme.spacing(2)
+      paddingBottom: theme.spacing(2),
     },
 
     '& h4': {
       margin: 0,
       lineHeight: 1.2,
-      color: theme.palette.text.primary
-    }
+      color: theme.palette.text.primary,
+    },
   },
 
   eventLink: {
-    textDecoration: 'none'
+    textDecoration: 'none',
   },
 
   attachments: {
@@ -92,7 +92,7 @@ const useStyles = makeStyles(theme => ({
     '& li': {
       display: 'inline-block',
       margin: 0,
-      padding: 0
+      padding: 0,
     },
 
     '& li::before': {
@@ -100,9 +100,9 @@ const useStyles = makeStyles(theme => ({
       display: 'inline-block',
       textDecoration: 'none',
       paddingLeft: '0.3em',
-      paddingRight: '0.3em'
-    }
-  }
+      paddingRight: '0.3em',
+    },
+  },
 }))
 
 function Attachments({ items }) {

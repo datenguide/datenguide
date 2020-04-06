@@ -2,7 +2,7 @@
 // 1234:FOO12(GES,GEN)
 const statisticUrlEncoding = /([0-9]+):([A-Z0-9]+)(\((.*)\))?/
 
-const toArray = data => {
+const toArray = (data) => {
   if (!data) {
     return []
   } else if (!Array.isArray(data)) {
@@ -11,10 +11,10 @@ const toArray = data => {
   return data
 }
 
-export const queryArgsToState = queryArgs => {
+export const queryArgsToState = (queryArgs) => {
   const { data, region } = queryArgs
 
-  const measures = toArray(data).map(statistic => {
+  const measures = toArray(data).map((statistic) => {
     const match = statistic.match(statisticUrlEncoding)
     if (!match) {
       throw new Error(`invalid data attribute ${statistic}`)
@@ -29,7 +29,7 @@ export const queryArgsToState = queryArgs => {
     return {
       statisticId,
       measureId,
-      dimensions
+      dimensions,
     }
   })
 
@@ -37,16 +37,16 @@ export const queryArgsToState = queryArgs => {
 
   return {
     measures,
-    regions
+    regions,
   }
 }
 
 // GES:A|B|C,NAT
-const dimensionsQueryString = measure => {
+const dimensionsQueryString = (measure) => {
   const dimensionString = measure.dimensions
     // remove inactive dimensions and empty active dimensions
-    .filter(dim => dim.active && dim.selected.length > 0)
-    .map(dim => {
+    .filter((dim) => dim.active && dim.selected.length > 0)
+    .map((dim) => {
       if (dim.selected.length !== dim.values.length) {
         // partial selection of values: specify selected values
         const selectedDimensionValues = dim.selected.join('|')
@@ -60,13 +60,13 @@ const dimensionsQueryString = measure => {
   return dimensionString ? `(${dimensionString})` : ''
 }
 
-export const stateToQueryArgs = state => {
+export const stateToQueryArgs = (state) => {
   return {
     region: Object.values(state.regions)
-      .map(r => r.id)
+      .map((r) => r.id)
       .join(','),
     data: Object.values(state.measures).map(
-      m => `${m.id}${dimensionsQueryString(m)}`
-    )
+      (m) => `${m.id}${dimensionsQueryString(m)}`
+    ),
   }
 }

@@ -22,14 +22,14 @@ export const query = `
 const id = '08'
 const name = 'Baden-Württemberg'
 
-const useStyles = makeStyles(theme => ({
-  root: {}
+const useStyles = makeStyles((theme) => ({
+  root: {},
 }))
 
 const RegionBadenWuerttemberg = () => {
   const classes = useStyles()
   const { loading, error, data } = useQuery(query, {
-    variables: { id }
+    variables: { id },
   })
 
   if (error) return <div>Error loading posts.</div>

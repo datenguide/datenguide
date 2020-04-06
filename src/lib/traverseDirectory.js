@@ -25,7 +25,7 @@ const getFrontMatter = (directory, filename) => {
   return data
 }
 
-const traverseDirectory = directory =>
+const traverseDirectory = (directory) =>
   readdirSync(directory, { withFileTypes: true }).reduce((acc, current) => {
     if (
       current.isFile() &&
@@ -35,7 +35,7 @@ const traverseDirectory = directory =>
         name: current.name,
         type: TYPE_PAGE,
         path: getResourcePath(directory, current.name),
-        frontmatter: getFrontMatter(directory, current.name)
+        frontmatter: getFrontMatter(directory, current.name),
       })
     }
     if (current.isDirectory()) {
@@ -44,13 +44,13 @@ const traverseDirectory = directory =>
         name: current.name,
         path: getResourcePath(subDirectoryPath),
         type: TYPE_DIRECTORY,
-        children: traverseDirectory(subDirectoryPath)
+        children: traverseDirectory(subDirectoryPath),
       })
     }
     return acc
   }, [])
 
-const flattenTree = pageInfoTree =>
+const flattenTree = (pageInfoTree) =>
   pageInfoTree.reduce((acc, curr) => {
     if (curr.children) {
       acc = acc.concat(flattenTree(curr.children))

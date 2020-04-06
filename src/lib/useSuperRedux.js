@@ -16,14 +16,14 @@ import { useState } from 'reinspect'
 // - auto-generates sync action creators from reducer functions
 //
 
-export const createSyncActionCreators = actions =>
+export const createSyncActionCreators = (actions) =>
   actions.reduce(
     (acc, curr) => ({
       ...acc,
-      [curr]: payload => ({
+      [curr]: (payload) => ({
         type: curr,
-        payload
-      })
+        payload,
+      }),
     }),
     {}
   )
@@ -52,13 +52,13 @@ export const useSuperReducer = (reducers, initialState, id) => {
 
   const state = useRef(reducerState)
   const getState = () => state.current
-  const setState = newState => {
+  const setState = (newState) => {
     state.current = newState
     setReducerState(newState)
   }
 
-  const reduce = action => cachedImmerReducer(getState(), action)
-  const dispatchWithSideEffects = action =>
+  const reduce = (action) => cachedImmerReducer(getState(), action)
+  const dispatchWithSideEffects = (action) =>
     typeof action === 'function'
       ? action(dispatchWithSideEffects, getState)
       : setState(reduce(action))

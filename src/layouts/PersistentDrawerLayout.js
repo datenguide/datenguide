@@ -17,32 +17,32 @@ import Base from '../layouts/Base'
 
 const drawerWidth = {
   mobile: 240,
-  desktop: 400
+  desktop: 400,
 }
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     minHeight: '100vh',
-    flexDirection: 'column'
+    flexDirection: 'column',
   },
   wrapper: {
     flexGrow: 1,
-    flexDirection: 'row'
+    flexDirection: 'row',
   },
   drawer: {
     [theme.breakpoints.up('sm')]: {
       width: drawerWidth.desktop,
-      flexShrink: 0
-    }
+      flexShrink: 0,
+    },
   },
   appBar: {
     [theme.breakpoints.up('sm')]: {
       transition: theme.transitions.create(['margin', 'width'], {
         easing: theme.transitions.easing.sharp,
-        duration: theme.transitions.duration.leavingScreen
-      })
-    }
+        duration: theme.transitions.duration.leavingScreen,
+      }),
+    },
   },
   appBarShift: {
     [theme.breakpoints.up('sm')]: {
@@ -50,18 +50,18 @@ const useStyles = makeStyles(theme => ({
       marginLeft: drawerWidth.desktop,
       transition: theme.transitions.create(['margin', 'width'], {
         easing: theme.transitions.easing.easeOut,
-        duration: theme.transitions.duration.enteringScreen
-      })
-    }
+        duration: theme.transitions.duration.enteringScreen,
+      }),
+    },
   },
   menuButton: {
-    marginRight: theme.spacing(2)
+    marginRight: theme.spacing(2),
   },
   drawerPaper: {
     width: drawerWidth.mobile,
     [theme.breakpoints.up('sm')]: {
-      width: drawerWidth.desktop
-    }
+      width: drawerWidth.desktop,
+    },
   },
   content: {
     paddingTop: theme.spacing(3),
@@ -70,26 +70,26 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up('sm')]: {
       transition: theme.transitions.create('margin', {
         easing: theme.transitions.easing.sharp,
-        duration: theme.transitions.duration.leavingScreen
+        duration: theme.transitions.duration.leavingScreen,
       }),
-      marginLeft: 0
-    }
+      marginLeft: 0,
+    },
   },
   contentShift: {
     [theme.breakpoints.up('sm')]: {
       transition: theme.transitions.create('margin', {
         easing: theme.transitions.easing.easeOut,
-        duration: theme.transitions.duration.enteringScreen
+        duration: theme.transitions.duration.enteringScreen,
       }),
-      marginLeft: drawerWidth.desktop
-    }
-  }
+      marginLeft: drawerWidth.desktop,
+    },
+  },
 }))
 
 const PersistentDrawerLayout = ({
   children,
   drawerContent,
-  meta = { title: null }
+  meta = { title: null },
 }) => {
   const classes = useStyles()
   const theme = useTheme()
@@ -114,7 +114,7 @@ const PersistentDrawerLayout = ({
           <AppBar
             position="fixed"
             className={clsx(classes.appBar, {
-              [classes.appBarShift]: open
+              [classes.appBarShift]: open,
             })}
           >
             <HeaderToolbar
@@ -137,10 +137,10 @@ const PersistentDrawerLayout = ({
               open={open}
               onClose={handleDrawerToggle}
               classes={{
-                paper: classes.drawerPaper
+                paper: classes.drawerPaper,
               }}
               ModalProps={{
-                keepMounted: true
+                keepMounted: true,
               }}
             >
               {drawer}
@@ -148,7 +148,7 @@ const PersistentDrawerLayout = ({
           </nav>
           <main
             className={clsx(classes.content, {
-              [classes.contentShift]: open
+              [classes.contentShift]: open,
             })}
           >
             <div className={classes.toolbar} />
@@ -163,7 +163,7 @@ const PersistentDrawerLayout = ({
 
 PersistentDrawerLayout.propTypes = {
   children: PropTypes.node.isRequired,
-  drawerContent: PropTypes.node.isRequired
+  drawerContent: PropTypes.node.isRequired,
 }
 
 export default PersistentDrawerLayout

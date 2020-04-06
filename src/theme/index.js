@@ -20,11 +20,11 @@ const theme = createMuiTheme({
       'sans-serif',
       '"Apple Color Emoji"',
       '"Segoe UI Emoji"',
-      '"Segoe UI Symbol"'
+      '"Segoe UI Symbol"',
     ].join(','),
     h1: {
-      fontSize: '14px'
-    }
+      fontSize: '14px',
+    },
   },
 
   overrides: {
@@ -32,40 +32,40 @@ const theme = createMuiTheme({
       '@global': {
         '@font-face': plex.fontFace,
         a: {
-          color: BLUE
-        }
-      }
+          color: BLUE,
+        },
+      },
     },
     MuiButton: {
       root: {
-        fontWeight: 'bold'
-      }
+        fontWeight: 'bold',
+      },
     },
     MuiToolbar: {
       root: {
-        background: WHITE
-      }
+        background: WHITE,
+      },
     },
     MuiCardHeader: {
       content: {
-        whiteSpace: 'normal'
-      }
-    }
+        whiteSpace: 'normal',
+      },
+    },
   },
 
   palette: {
     primary: {
-      main: RED
+      main: RED,
     },
     secondary: {
-      main: BLUE
+      main: BLUE,
     },
     error: {
-      main: red.A400
+      main: red.A400,
     },
     background: {
-      default: WHITE
-    }
+      default: WHITE,
+    },
   },
 
   breakpoints: {
@@ -74,15 +74,15 @@ const theme = createMuiTheme({
       sm: 600,
       md: 960,
       lg: 1200,
-      xl: 1920
-    }
+      xl: 1920,
+    },
   },
 
   props: {
     MuiButtonBase: {
-      disableRipple: true // No more ripple, on the whole application 💣!
-    }
-  }
+      disableRipple: true, // No more ripple, on the whole application 💣!
+    },
+  },
 })
 
 export default theme

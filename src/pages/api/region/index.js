@@ -1,7 +1,7 @@
 const data = require('@datenguide/metadata')
 const slugify = require('@sindresorhus/slugify')
 
-const getRegion = id => {
+const getRegion = (id) => {
   const region = data[id]
   if (region) {
     const [displayName, type] = region.name.split(', ')
@@ -9,21 +9,21 @@ const getRegion = id => {
       ...region,
       type,
       displayName,
-      slug: slugify(region.name)
+      slug: slugify(region.name),
     }
   }
 }
 
 const getRegions = (level, parent) => {
   return Object.keys(data)
-    .filter(key => data[key].level === +level)
-    .filter(key => !parent || key.startsWith(parent))
+    .filter((key) => data[key].level === +level)
+    .filter((key) => !parent || key.startsWith(parent))
     .map(getRegion)
 }
 
 export default (req, res) => {
   const {
-    query: { level, id }
+    query: { level, id },
   } = req
 
   if (id && !level) {

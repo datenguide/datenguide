@@ -37,7 +37,7 @@ query Schema($measures: [MeasureDescription]) {
 }
 `
 
-const getRegion = async id => {
+const getRegion = async (id) => {
   const fetchRegion = await fetch(`/api/region?id=${id}`)
   return fetchRegion.ok && fetchRegion.json()
 }
@@ -46,19 +46,19 @@ const getSelectedValues = (dim, dimensionSelection) => {
   const selection = (dimensionSelection && dimensionSelection[dim.name]) || []
   return selection && selection.length > 0
     ? selection
-    : dim.values.map(v => v.name)
+    : dim.values.map((v) => v.name)
 }
 
 const measureToState = (schema, dimensionSelection) => {
   return {
     ...camelizeKeys(schema),
-    dimensions: schema.dimensions.map(dim => ({
+    dimensions: schema.dimensions.map((dim) => ({
       ...camelizeKeys(dim),
       // selected values or all
       selected: getSelectedValues(dim, dimensionSelection),
-      values: dim.values.map(v => ({ value: v.name, label: v.title_de })),
-      active: !!(dimensionSelection && dimensionSelection[dim.name])
-    }))
+      values: dim.values.map((v) => ({ value: v.name, label: v.title_de })),
+      active: !!(dimensionSelection && dimensionSelection[dim.name]),
+    })),
   }
 }
 
@@ -70,7 +70,7 @@ const measureListToState = (schema, dimensionSelection) => {
 }
 
 // TODO maybe move this up to query string parser to not parse strings here
-const getDimensionSelection = measures =>
+const getDimensionSelection = (measures) =>
   measures.reduce((acc, curr) => {
     acc[`${curr.statisticId}:${curr.measureId}`] =
       curr.dimensions &&
@@ -91,16 +91,16 @@ const useSearchManager = (initialMeasures, initialRegions) => {
       syncUrl: () => async (dispatch, getState) => {
         Router.push({
           pathname: '/statistiken',
-          query: stateToQueryArgs(getState())
+          query: stateToQueryArgs(getState()),
         })
       },
-      loadMeasure: id => async dispatch => {
+      loadMeasure: (id) => async (dispatch) => {
         const [statisticId, measureId] = id.split(':')
         dispatch(actions.setLoading())
         const schema = await fetchSchema({
           variables: {
-            measures: [{ statisticId, measureId }]
-          }
+            measures: [{ statisticId, measureId }],
+          },
         })
         if (schema.error) {
           dispatch(actions.setError(JSON.stringify(schema.error))) // TODO better error handling
@@ -109,12 +109,12 @@ const useSearchManager = (initialMeasures, initialRegions) => {
           dispatch(actions.syncUrl())
         }
       },
-      loadRegion: id => async dispatch => {
+      loadRegion: (id) => async (dispatch) => {
         dispatch(actions.setLoading())
         const region = await fetchRegion({
           variables: {
-            id
-          }
+            id,
+          },
         })
         if (region.error) {
           dispatch(actions.setError(JSON.stringify(region.error))) // TODO better error handling
@@ -123,25 +123,25 @@ const useSearchManager = (initialMeasures, initialRegions) => {
           dispatch(actions.syncUrl())
         }
       },
-      closeRegion: id => async dispatch => {
+      closeRegion: (id) => async (dispatch) => {
         dispatch(actions.removeRegion(id))
         dispatch(actions.syncUrl())
       },
-      closeMeasure: id => async dispatch => {
+      closeMeasure: (id) => async (dispatch) => {
         dispatch(actions.removeMeasure(id))
         dispatch(actions.syncUrl())
       },
-      changeDimensionSelection: payload => async dispatch => {
+      changeDimensionSelection: (payload) => async (dispatch) => {
         dispatch(actions.updateDimension(payload))
         dispatch(actions.syncUrl())
-      }
+      },
     }),
     []
   )
 
   const reducers = useMemo(
     () => ({
-      setLoading: state => {
+      setLoading: (state) => {
         state.loading = true
         return state
       },
@@ -180,7 +180,7 @@ const useSearchManager = (initialMeasures, initialRegions) => {
           // change to this as soon as we support more than 1 measure:
           // state.measures[action.payload.id] = measureToState(action.payload)
           state.measures = {
-            [action.payload.id]: measureToState(action.payload)
+            [action.payload.id]: measureToState(action.payload),
           }
         }
         state.loading = false
@@ -193,11 +193,11 @@ const useSearchManager = (initialMeasures, initialRegions) => {
       updateDimension: (state, action) => {
         const { id, argCode, diff } = action.payload
         const measure = state.measures[id]
-        measure.dimensions = measure.dimensions.map(dim =>
+        measure.dimensions = measure.dimensions.map((dim) =>
           dim.name === argCode
             ? {
                 ...dim,
-                ...diff
+                ...diff,
               }
             : dim
         )
@@ -206,7 +206,7 @@ const useSearchManager = (initialMeasures, initialRegions) => {
       setError: (state, action) => {
         state.error = action.payload
         return state
-      }
+      },
     }),
     []
   )
@@ -215,7 +215,7 @@ const useSearchManager = (initialMeasures, initialRegions) => {
     measures: {},
     regions: {},
     error: null,
-    measuresLoading: true
+    measuresLoading: true,
   }
 
   const [state, dispatch, actions] = useSuperRedux(
@@ -230,10 +230,10 @@ const useSearchManager = (initialMeasures, initialRegions) => {
       dispatch(actions.setLoading())
       const result = await fetchSchema({
         variables: {
-          measures: initialMeasures.map(measure =>
+          measures: initialMeasures.map((measure) =>
             _.pick(measure, ['statisticId', 'measureId'])
-          )
-        }
+          ),
+        },
       })
       if (result.error) {
         dispatch(actions.setError(JSON.stringify(result.error))) // TODO better error handling
@@ -241,7 +241,7 @@ const useSearchManager = (initialMeasures, initialRegions) => {
         dispatch(
           actions.initializeMeasures({
             dimensionSelection: getDimensionSelection(initialMeasures),
-            schema: result.data.measuresCatalog
+            schema: result.data.measuresCatalog,
           })
         )
       }
@@ -252,7 +252,7 @@ const useSearchManager = (initialMeasures, initialRegions) => {
       dispatch(
         actions.initializeMeasures({
           dimensionSelection: null,
-          schema: []
+          schema: [],
         })
       )
     }
@@ -260,7 +260,9 @@ const useSearchManager = (initialMeasures, initialRegions) => {
 
   useEffect(() => {
     const fetch = async () => {
-      const regions = await Promise.all(initialRegions.map(id => getRegion(id)))
+      const regions = await Promise.all(
+        initialRegions.map((id) => getRegion(id))
+      )
       const result = regions.reduce((acc, curr) => {
         acc[curr.id] = curr
         return acc
@@ -279,10 +281,10 @@ const useSearchManager = (initialMeasures, initialRegions) => {
     {
       ...state,
       regions: Object.values(state.regions),
-      measures: Object.values(state.measures)
+      measures: Object.values(state.measures),
     },
     dispatch,
-    actions
+    actions,
   ]
 }
 

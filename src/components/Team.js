@@ -1,7 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles'
 import Avatar from '@material-ui/core/Avatar'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     color: theme.palette.secondary.main,
     paddingBottom: theme.spacing(6),
@@ -12,20 +12,20 @@ const useStyles = makeStyles(theme => ({
     alignItems: 'center',
     flexWrap: 'wrap',
     [theme.breakpoints.up('md')]: {
-      flexDirection: 'row'
+      flexDirection: 'row',
     },
 
     [theme.breakpoints.up('xl')]: {
       paddingTop: theme.spacing(9),
-      paddingBottom: theme.spacing(9)
-    }
+      paddingBottom: theme.spacing(9),
+    },
   },
 
   avatar: {
     display: 'inline-block',
     background: theme.palette.grey[500],
     width: '200px',
-    height: '200px'
+    height: '200px',
   },
 
   member: {
@@ -33,29 +33,29 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(4),
 
     [theme.breakpoints.up('md')]: {
-      flexBasis: '50%'
+      flexBasis: '50%',
     },
 
     [theme.breakpoints.up('lg')]: {
-      flexBasis: '25%'
+      flexBasis: '25%',
     },
 
     '& a': {
-      textDecoration: 'none'
+      textDecoration: 'none',
     },
 
     '& a:hover, & a:focus': {
-      textDecoration: 'underline'
-    }
+      textDecoration: 'underline',
+    },
   },
 
   name: {
-    marginBottom: 0
+    marginBottom: 0,
   },
 
   role: {
-    color: theme.palette.grey[700]
-  }
+    color: theme.palette.grey[700],
+  },
 }))
 
 const Team = ({ members }) => {

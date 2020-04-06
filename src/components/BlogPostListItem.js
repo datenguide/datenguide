@@ -1,25 +1,25 @@
 import { makeStyles } from '@material-ui/styles'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
-    marginBottom: theme.spacing(5)
+    marginBottom: theme.spacing(5),
   },
   metaInfo: {
     color: theme.palette.grey[500],
-    fontWeight: 'bold'
+    fontWeight: 'bold',
   },
   title: {
     margin: 0,
     '&:hover': {
-      fontWeight: 'bold'
-    }
+      fontWeight: 'bold',
+    },
   },
   description: {
-    fontSize: theme.typography.subtitle1.fontSize
+    fontSize: theme.typography.subtitle1.fontSize,
   },
   link: {
-    textDecoration: 'none'
-  }
+    textDecoration: 'none',
+  },
 }))
 
 const BlogPostListItem = ({ href, date, title, description }) => {

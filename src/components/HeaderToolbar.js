@@ -7,31 +7,31 @@ import Button from '@material-ui/core/Button'
 
 import logo from '../assets/logo.svg'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   controls: {
-    display: 'flex'
+    display: 'flex',
   },
 
   nav: {
     display: 'flex',
 
     [theme.breakpoints.down('sm')]: {
-      display: 'none'
-    }
+      display: 'none',
+    },
   },
 
   toolbar: {
     display: 'flex',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
   },
 
   menuButton: {
-    marginRight: theme.spacing(2)
+    marginRight: theme.spacing(2),
   },
 
   homeLink: {
     color: 'inherit',
-    textDecoration: 'none'
+    textDecoration: 'none',
   },
 
   logo: {
@@ -43,8 +43,8 @@ const useStyles = makeStyles(theme => ({
     backgroundImage: `url(${logo})`,
     backgroundRepeat: 'no-repeat',
     backgroundSize: '1.3em auto',
-    backgroundPosition: 'left center'
-  }
+    backgroundPosition: 'left center',
+  },
 }))
 
 // TODO Link to docs page doesn't work in dev mode after initial page load,

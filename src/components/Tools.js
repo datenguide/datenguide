@@ -16,10 +16,10 @@ import logoRlang from '../assets/rlang.svg'
 const logos = {
   python: logoPython,
   graphql: logoGraphQL,
-  rlang: logoRlang
+  rlang: logoRlang,
 }
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: theme.palette.grey[50],
     color: theme.palette.secondary.main,
@@ -29,8 +29,8 @@ const useStyles = makeStyles(theme => ({
 
     [theme.breakpoints.up('xl')]: {
       paddingTop: theme.spacing(9),
-      paddingBottom: theme.spacing(9)
-    }
+      paddingBottom: theme.spacing(9),
+    },
   },
 
   content: {
@@ -44,30 +44,30 @@ const useStyles = makeStyles(theme => ({
       justifyContent: 'space-between',
 
       '& h2': {
-        width: '100%'
+        width: '100%',
       },
 
       '& p': {
-        width: 'calc(50% - 2rem)'
-      }
-    }
+        width: 'calc(50% - 2rem)',
+      },
+    },
   },
 
   title: {
-    margin: '0'
+    margin: '0',
   },
 
   card: {
     boxShadow: '0 4px 20px 0 rgba(130, 130, 130,0.15)',
     [theme.breakpoints.up('lg')]: {
-      marginBottom: theme.spacing(3)
-    }
+      marginBottom: theme.spacing(3),
+    },
   },
 
   avatar: {
     marginTop: '0.3rem',
     width: '3rem',
-    height: '3rem'
+    height: '3rem',
   },
 
   beta: {
@@ -79,21 +79,21 @@ const useStyles = makeStyles(theme => ({
     color: 'white',
     background: theme.palette.grey[500],
     fontWeight: 'bold',
-    textTransform: 'uppercase'
+    textTransform: 'uppercase',
   },
 
   cardHeader: {
-    paddingBottom: 0
+    paddingBottom: 0,
   },
 
   cardActions: {
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
   },
 
   action: {
     paddingLeft: '0.5rem',
-    paddingRight: '0.5rem'
-  }
+    paddingRight: '0.5rem',
+  },
 }))
 
 export default function Tools({ children, features }) {

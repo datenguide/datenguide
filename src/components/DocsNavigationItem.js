@@ -7,14 +7,14 @@ import ListItem from '@material-ui/core/ListItem'
 import Collapse from '@material-ui/core/Collapse'
 import Button from '@material-ui/core/Button'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
     paddingTop: theme.spacing(2),
-    backgroundColor: theme.palette.background.paper
+    backgroundColor: theme.palette.background.paper,
   },
   listItem: {
-    display: 'flex'
+    display: 'flex',
   },
   button: {
     fontWeight: theme.typography.fontWeightRegular,
@@ -22,13 +22,13 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'flex-start',
     width: '100%',
     '&.depth0': {
-      fontWeight: theme.typography.fontWeightBold
+      fontWeight: theme.typography.fontWeightBold,
     },
     '&.active': {
       color: theme.palette.primary.main,
-      fontWeight: theme.typography.fontWeightMedium
-    }
-  }
+      fontWeight: theme.typography.fontWeightMedium,
+    },
+  },
 }))
 
 const DocsNavigationItem = ({ title, href, depth, children, active }) => {
@@ -40,7 +40,7 @@ const DocsNavigationItem = ({ title, href, depth, children, active }) => {
   }
 
   const indentStyle = {
-    paddingLeft: 8 * (depth + 1)
+    paddingLeft: 8 * (depth + 1),
   }
 
   if (href) {
@@ -50,7 +50,7 @@ const DocsNavigationItem = ({ title, href, depth, children, active }) => {
           <Button
             href={href}
             className={clsx(classes.button, `depth${depth}`, {
-              active: active
+              active: active,
             })}
           >
             {title}

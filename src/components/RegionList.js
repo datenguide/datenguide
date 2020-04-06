@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { makeStyles } from '@material-ui/core/styles'
 import CityIcon from 'mdi-material-ui/HomeCityOutline'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     display: 'block',
     position: 'relative',
@@ -13,16 +13,16 @@ const useStyles = makeStyles(theme => ({
     listStyle: 'none',
 
     [theme.breakpoints.up('md')]: {
-      columnCount: 2
+      columnCount: 2,
     },
 
     [theme.breakpoints.up('lg')]: {
-      columnCount: 3
+      columnCount: 3,
     },
 
     [theme.breakpoints.up('xl')]: {
-      columnCount: 4
-    }
+      columnCount: 4,
+    },
   },
 
   item: {
@@ -39,8 +39,8 @@ const useStyles = makeStyles(theme => ({
       padding: '0.6em 1em 0.6em 3.6em',
       marginBottom: '0.5em',
       textDecoration: 'none',
-      color: 'black'
-    }
+      color: 'black',
+    },
   },
 
   iconBackground: {
@@ -51,14 +51,14 @@ const useStyles = makeStyles(theme => ({
     width: 50,
     position: 'absolute',
     borderRadius: '50%',
-    background: '#c3e5f1'
+    background: '#c3e5f1',
   },
 
   icon: {
     position: 'relative',
     fill: theme.palette.secondary.main,
     left: 12,
-    top: 12
+    top: 12,
   },
 
   name: {
@@ -67,15 +67,15 @@ const useStyles = makeStyles(theme => ({
     padding: 0,
     whiteSpace: 'nowrap',
     overflow: 'hidden',
-    textOverflow: 'ellipsis'
+    textOverflow: 'ellipsis',
   },
 
   type: {
     margin: 0,
     padding: 0,
     fontSize: 'smaller',
-    color: theme.palette.grey[700]
-  }
+    color: theme.palette.grey[700],
+  },
 }))
 
 export default function RegionList({ regions }) {

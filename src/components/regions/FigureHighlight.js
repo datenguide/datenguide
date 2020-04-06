@@ -3,13 +3,13 @@ import { makeStyles } from '@material-ui/core/styles'
 import PopulationIcon from 'mdi-material-ui/AccountMultiple'
 import DataIcon from 'mdi-material-ui/TableLarge'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
-    marginBottom: theme.spacing(3)
+    marginBottom: theme.spacing(3),
   },
 
   container: {
-    color: theme.palette.secondary.main
+    color: theme.palette.secondary.main,
   },
 
   icon: {
@@ -17,23 +17,23 @@ const useStyles = makeStyles(theme => ({
     top: 20,
     width: 80,
     height: 80,
-    marginRight: '.5em'
+    marginRight: '.5em',
   },
 
   number: {
     fontSize: 50,
     lineHeight: 1,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
   },
 
   title: {
     margin: 0,
     color: theme.palette.secondary.main,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
   },
 
   download: {
-    display: 'flex'
+    display: 'flex',
   },
 
   downloadIcon: {
@@ -41,8 +41,8 @@ const useStyles = makeStyles(theme => ({
     top: '.1em',
     width: '.6em',
     height: '.6em',
-    marginRight: '.2em'
-  }
+    marginRight: '.2em',
+  },
 }))
 
 const FigureHighlight = () => {

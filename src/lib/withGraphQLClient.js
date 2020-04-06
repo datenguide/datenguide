@@ -2,7 +2,7 @@ import { Component } from 'react'
 
 import initGraphQL from './initGraphQLClient'
 
-export default App => {
+export default (App) => {
   return class GraphQLHooks extends Component {
     static displayName = 'GraphQLHooks(App)'
 
