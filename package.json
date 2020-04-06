@@ -96,7 +96,7 @@
     "responsive-loader": "^1.2.0",
     "stringify-object": "^3.3.0",
     "typeface-ibm-plex-sans": "^0.0.75",
-    "unified": "^8.4.2",
+    "unified": "^9.0.0",
     "url-parse": "^1.4.7",
     "use-reducer-thunk": "^1.0.4",
     "victory": "^33.1.7"
