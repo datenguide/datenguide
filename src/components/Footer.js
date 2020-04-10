@@ -73,7 +73,7 @@ const useStyles = makeStyles((theme) => ({
         position: 'absolute',
         opacity: '0.5',
         width: '500px',
-        top: '57px',
+        top: '87px',
         bottom: 0,
         transform: 'translateX(-170px)',
         backgroundSize: '500px auto',
