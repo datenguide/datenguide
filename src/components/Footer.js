@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import Container from '@material-ui/core/Container'
 import Grid from '@material-ui/core/Grid'
 import MastodonIcon from 'mdi-material-ui/Mastodon'
-import GithubIcon from 'mdi-material-ui/GithubCircle'
+import GithubIcon from 'mdi-material-ui/Github'
 import TwitterIcon from 'mdi-material-ui/Twitter'
 
 import background from '../assets/hero_village.svg'

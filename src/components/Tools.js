@@ -1,4 +1,4 @@
-import GithubCircle from 'mdi-material-ui/GithubCircle'
+import GithubIcon from 'mdi-material-ui/Github'
 
 import { makeStyles } from '@material-ui/core/styles'
 import Container from '@material-ui/core/Container'
@@ -133,7 +133,7 @@ export default function Tools({ children, features }) {
                     href={url}
                     target="_blank"
                     className={classes.action}
-                    startIcon={<GithubCircle />}
+                    startIcon={<GithubIcon />}
                   >
                     {action}
                   </Button>
