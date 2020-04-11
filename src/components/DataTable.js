@@ -1,10 +1,10 @@
 import { useContext, useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import { ClientContext } from 'graphql-hooks'
-import parse from 'url-parse'
 import Highlight from 'react-highlight'
 import { withRouter } from 'next/router'
 
+import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown'
 import { makeStyles } from '@material-ui/core/styles'
 import {
   Paper,
@@ -23,6 +23,12 @@ import {
 } from '@material-ui/core'
 import CallMadeIcon from '@material-ui/icons/CallMade'
 import Alert from '@material-ui/lab/Alert'
+import Toolbar from '@material-ui/core/Toolbar'
+import SaveAltIcon from '@material-ui/icons/SaveAlt'
+import GridOnIcon from '@material-ui/icons/GridOn'
+import ViewColumnIcon from '@material-ui/icons/ViewColumn'
+import TextFormatIcon from '@material-ui/icons/TextFormat'
+import AppsIcon from '@material-ui/icons/Apps'
 
 import getQuery from '../lib/queryBuilder'
 import DataTablePaginationActions from './DataTablePaginationActions'
@@ -42,7 +48,6 @@ const useStyles = makeStyles((theme) => ({
   },
   table: {
     minWidth: 650,
-    marginTop: theme.spacing(3),
   },
   tableTitle: {
     fontWeight: 'bold',
@@ -62,6 +67,10 @@ const useStyles = makeStyles((theme) => ({
   },
   alert: {
     margin: '0px 20px',
+  },
+  toolbar: {
+    display: 'flex',
+    justifyContent: 'flex-end',
   },
 }))
 
@@ -141,69 +150,99 @@ const DataTable = ({ router, regions, measures }) => {
       {!loading && (
         <>
           <Paper className={classes.paper}>
-            <Tabs
-              value={tabValue}
-              indicatorColor="primary"
-              textColor="primary"
-              onChange={handleTabChange}
-            >
-              <Tab label="Daten" />
-              <Tab label="API" />
-            </Tabs>
+            <>
+              <Tabs
+                value={tabValue}
+                indicatorColor="primary"
+                textColor="primary"
+                onChange={handleTabChange}
+              >
+                <Tab label="Daten" />
+                <Tab label="API" />
+              </Tabs>
+              <Toolbar
+                variant="dense"
+                disableGutters
+                className={classes.toolbar}
+              >
+                <Button>
+                  <ViewColumnIcon />
+                  Spalten
+                  <ArrowDropDownIcon />
+                </Button>
+                <Button>
+                  <AppsIcon />
+                  Layout
+                  <ArrowDropDownIcon />
+                </Button>
+                <Button>
+                  <TextFormatIcon />
+                  Beschriftung
+                  <ArrowDropDownIcon />
+                </Button>
+                <Button>
+                  <SaveAltIcon />
+                  Download
+                  <ArrowDropDownIcon />
+                </Button>
+              </Toolbar>
+            </>
             {tabValue === 0 && (
-              <Table className={classes.table} size="small" stickyHeader>
-                <TableHead>
-                  <TableRow>
-                    {columnDefs.map((def) => (
-                      <TableCell
-                        className={classes.tableTitle}
-                        key={def.headerName}
-                      >
-                        {def.headerName}
-                      </TableCell>
-                    ))}
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  {error && (
-                    <Alert className={classes.alert} severity="error">
-                      {error}
-                    </Alert>
-                  )}
-                  {!error &&
-                    rows.map((row, index) => {
-                      return (
-                        <TableRow key={index}>
-                          {columnDefs.map((def) => (
-                            <TableCell key={def.field}>
-                              {row[def.field]}
-                            </TableCell>
-                          ))}
-                        </TableRow>
-                      )
-                    })}
-                </TableBody>
-                <TableFooter>
-                  <TableRow>
-                    <TablePagination
-                      rowsPerPageOptions={[100, 200, 500]}
-                      colSpan={3}
-                      count={total}
-                      rowsPerPage={rowsPerPage}
-                      page={page}
-                      SelectProps={{
-                        inputProps: { 'aria-label': 'Zeilen pro Seite' },
-                        native: true,
-                      }}
-                      labelDisplayedRows={labelDisplayedRows}
-                      labelRowsPerPage="Datensätze pro Seite: "
-                      onChangePage={handleChangePage}
-                      onChangeRowsPerPage={handleChangeRowsPerPage}
-                      ActionsComponent={DataTablePaginationActions}
-                    />
-                  </TableRow>
-                </TableFooter>
-              </Table>
+              <>
+                <Table className={classes.table} size="small" stickyHeader>
+                  <TableHead>
+                    <TableRow>
+                      {columnDefs.map((def) => (
+                        <TableCell
+                          className={classes.tableTitle}
+                          key={def.headerName}
+                        >
+                          {def.headerName}
+                        </TableCell>
+                      ))}
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>
+                    {error && (
+                      <Alert className={classes.alert} severity="error">
+                        {error}
+                      </Alert>
+                    )}
+                    {!error &&
+                      rows.map((row, index) => {
+                        return (
+                          <TableRow key={index}>
+                            {columnDefs.map((def) => (
+                              <TableCell key={def.field}>
+                                {row[def.field]}
+                              </TableCell>
+                            ))}
+                          </TableRow>
+                        )
+                      })}
+                  </TableBody>
+                  <TableFooter>
+                    <TableRow>
+                      <TablePagination
+                        rowsPerPageOptions={[100, 200, 500]}
+                        colSpan={6}
+                        count={total}
+                        rowsPerPage={rowsPerPage}
+                        page={page}
+                        SelectProps={{
+                          inputProps: { 'aria-label': 'Zeilen pro Seite' },
+                          native: true,
+                        }}
+                        labelDisplayedRows={labelDisplayedRows}
+                        labelRowsPerPage="Datensätze pro Seite: "
+                        onChangePage={handleChangePage}
+                        onChangeRowsPerPage={handleChangeRowsPerPage}
+                        ActionsComponent={DataTablePaginationActions}
+                      />
+                    </TableRow>
+                  </TableFooter>
+                </Table>
+              </>
             )}
             {tabValue === 1 && measures && measures.length === 1 && (
               <div className={classes.apiTab}>
