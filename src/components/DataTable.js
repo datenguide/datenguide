@@ -21,7 +21,6 @@ import {
   Tab,
   Button,
 } from '@material-ui/core'
-import InsertDriveFileIcon from '@material-ui/icons/InsertDriveFile'
 import CallMadeIcon from '@material-ui/icons/CallMade'
 import Alert from '@material-ui/lab/Alert'
 
@@ -35,14 +34,11 @@ const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
     height: '100%',
-    padding: theme.spacing(2),
     backgroundColor: '#f5f5f5',
   },
   paper: {
-    marginTop: theme.spacing(3),
     width: '100%',
     overflowX: 'auto',
-    marginBottom: theme.spacing(2),
   },
   table: {
     minWidth: 650,
@@ -54,19 +50,6 @@ const useStyles = makeStyles((theme) => ({
   heading: {
     marginTop: theme.spacing(2),
     marginBottom: theme.spacing(4),
-  },
-  descriptionTab: {
-    fontSize: theme.typography.body1.fontSize,
-    margin: theme.spacing(3),
-    marginLeft: theme.spacing(2),
-  },
-  exportTab: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'flex-start',
-    fontSize: theme.typography.body1.fontSize,
-    margin: theme.spacing(3),
-    marginLeft: theme.spacing(2),
   },
   apiTab: {
     fontSize: theme.typography.body1.fontSize,
@@ -149,22 +132,6 @@ const DataTable = ({ router, regions, measures }) => {
     setTabValue(newValue)
   }
 
-  // FIXME this is a hack, use proper API
-  // e.g. implement GraphQL API and pass query object as variables
-  const url = parse(router.asPath, false)
-  const tabularApiUrl = url.query && `https://tabular.genesapi.org${url.query}`
-
-  // TODO improve this, best would be to get text in proper format (HTML?) from server
-  const renderTextWithLineBreaks = (text) =>
-    text
-      ? text.split('\n').map((item, i) => (
-          <div key={i}>
-            {item}
-            <br />
-          </div>
-        ))
-      : 'Keine Beschreibung vorhanden.'
-
   const rows = (data && data.data) || []
   const total = (data && data.pagination && data.pagination.total) || 0
 
@@ -173,16 +140,6 @@ const DataTable = ({ router, regions, measures }) => {
       {loading && <LinearProgress variant="query" />}
       {!loading && (
         <>
-          <div className={classes.heading}>
-            {measures && measures.length === 1 && (
-              <Typography variant="h4">{measures[0].titleDe}</Typography>
-            )}
-            {measures && measures.length === 1 && (
-              <Typography variant="subtitle1">
-                {measures[0].statisticTitleDe}
-              </Typography>
-            )}
-          </div>
           <Paper className={classes.paper}>
             <Tabs
               value={tabValue}
@@ -191,8 +148,6 @@ const DataTable = ({ router, regions, measures }) => {
               onChange={handleTabChange}
             >
               <Tab label="Daten" />
-              <Tab label="Beschreibung" />
-              <Tab label="Export" />
               <Tab label="API" />
             </Tabs>
             {tabValue === 0 && (
@@ -251,52 +206,6 @@ const DataTable = ({ router, regions, measures }) => {
               </Table>
             )}
             {tabValue === 1 && measures && measures.length === 1 && (
-              <div className={classes.descriptionTab}>
-                <Typography variant="h5">{measures[0].name}</Typography>
-                {renderTextWithLineBreaks(measures[0].definitionDe)}
-              </div>
-            )}
-            {tabValue === 2 && measures && measures.length === 1 && (
-              <div className={classes.exportTab}>
-                <Button
-                  color="secondary"
-                  className={classes.exportButton}
-                  startIcon={<InsertDriveFileIcon />}
-                  target="_blank"
-                  href={`${tabularApiUrl}&format=csv&layout=long`}
-                >
-                  CSV: eine Zeile pro Wert
-                </Button>
-                <Button
-                  color="secondary"
-                  className={classes.exportButton}
-                  startIcon={<InsertDriveFileIcon />}
-                  target="_blank"
-                  href={`${tabularApiUrl}&format=csv&layout=region`}
-                >
-                  CSV: eine Zeile pro Region
-                </Button>
-                <Button
-                  color="secondary"
-                  className={classes.exportButton}
-                  startIcon={<InsertDriveFileIcon />}
-                  target="_blank"
-                  href={`${tabularApiUrl}&format=csv&layout=time`}
-                >
-                  CSV: eine Zeile pro Jahr
-                </Button>
-                <Button
-                  color="secondary"
-                  className={classes.exportButton}
-                  startIcon={<InsertDriveFileIcon />}
-                  target="_blank"
-                  href={`${tabularApiUrl}&format=json&layout=long`}
-                >
-                  JSON: Ein Objekt pro Wert
-                </Button>
-              </div>
-            )}
-            {tabValue === 3 && measures && measures.length === 1 && (
               <div className={classes.apiTab}>
                 <Typography variant="h5">
                   GraphQL Abfrage zu aktueller Statistik:

@@ -5,17 +5,41 @@ import absoluteUrl from 'next-absolute-url'
 import { makeStyles } from '@material-ui/core/styles'
 import Snackbar from '@material-ui/core/Snackbar'
 
-import PersistentDrawerLayout from '../../layouts/PersistentDrawerLayout'
+import DefaultLayout from '../../layouts/DefaultLayout'
 import DataTable from '../../components/DataTable'
-import StatisticsList from '../../components/StatisticsList'
 import QueryParameterSidebar from '../../components/QueryParameterSidebar'
 import { queryArgsToState } from '../../lib/queryString'
 import useSearchManager from '../../lib/useSearchManager'
+import Paper from '@material-ui/core/Paper'
 
 const useStyles = makeStyles((theme) => ({
-  main: {
-    display: 'block',
+  content: {
+    flexGrow: 1,
+    backgroundColor: '#f5f5f5',
+    display: 'flex',
+    flexDirection: 'row',
+    width: '100%',
     padding: theme.spacing(3),
+  },
+  headline: {
+    paddingTop: theme.spacing(3),
+    paddingLeft: theme.spacing(5),
+    marginBottom: theme.spacing(0),
+  },
+  sidebar: {
+    width: '400px',
+    padding: theme.spacing(2),
+  },
+  paper: {
+    height: '300px',
+    // margin: theme.spacing(2),
+    width: '100%',
+    overflowX: 'auto',
+  },
+  data: {
+    padding: theme.spacing(2),
+    display: 'flex',
+    flexGrow: 1,
   },
 }))
 
@@ -55,24 +79,22 @@ const Detail = ({ initialMeasures, initialRegions, statistics }) => {
   const { measures, regions, error } = state
 
   return (
-    <PersistentDrawerLayout
-      drawerContent={
-        <QueryParameterSidebar
-          regions={regions}
-          measures={measures}
-          loadRegionOptions={loadRegionOptions}
-          loadMeasureOptions={loadMeasureOptions}
-          dispatch={dispatch}
-          actions={actions}
-        />
-      }
-    >
+    <DefaultLayout backgroundColor="#f5f5f5">
+      <h1 className={classes.headline}>Erweiterte Abfrage</h1>
       <main className={classes.content}>
-        {measures.length ? (
+        <div className={classes.sidebar}>
+          <QueryParameterSidebar
+            regions={regions}
+            measures={measures}
+            loadRegionOptions={loadRegionOptions}
+            loadMeasureOptions={loadMeasureOptions}
+            dispatch={dispatch}
+            actions={actions}
+          />
+        </div>
+        <div className={classes.data}>
           <DataTable regions={regions} measures={measures} />
-        ) : (
-          <StatisticsList regions={regions} statistics={statistics} />
-        )}
+        </div>
       </main>
 
       <Snackbar
@@ -85,7 +107,7 @@ const Detail = ({ initialMeasures, initialRegions, statistics }) => {
         autoHideDuration={6000}
         message={<span>{error}</span>}
       />
-    </PersistentDrawerLayout>
+    </DefaultLayout>
   )
 }
 

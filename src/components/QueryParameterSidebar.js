@@ -5,12 +5,20 @@ import { makeStyles } from '@material-ui/core'
 import AutocompleteSearchField from './AutocompleteSearchField'
 import RegionSearchParameterCard from './RegionSearchParameterCard'
 import StatisticsSearchParameterCard from './MeasureSearchParameterCard'
+import Paper from '@material-ui/core/Paper'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    padding: theme.spacing(2),
-    backgroundColor: '#f5f5f5',
     height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  paper: {
+    padding: theme.spacing(2),
+    marginBottom: theme.spacing(4),
+  },
+  title: {
+    marginTop: theme.spacing(1),
   },
 }))
 
@@ -46,33 +54,37 @@ const QueryParameterSidebar = ({
 
   return (
     <div className={classes.root}>
-      <h4>Regionen</h4>
-      <AutocompleteSearchField
-        onSelectionChange={handleLoadRegion}
-        loadOptions={loadRegionOptions}
-        placeholder="Regionen suchen"
-      />
-      {regions.map((region) => (
-        <RegionSearchParameterCard
-          key={region.id}
-          region={region}
-          onClose={handleRemoveRegion(region.id)}
+      <Paper className={classes.paper}>
+        <h4 className={classes.title}>Regionen</h4>
+        <AutocompleteSearchField
+          onSelectionChange={handleLoadRegion}
+          loadOptions={loadRegionOptions}
+          placeholder="Regionen suchen"
         />
-      ))}
-      <h4>Statistiken und Merkmale</h4>
-      <AutocompleteSearchField
-        onSelectionChange={handleLoadMeasure}
-        loadOptions={loadMeasureOptions}
-        placeholder="Merkmal oder Statistik suchen"
-      />
-      {measures.map((measure) => (
-        <StatisticsSearchParameterCard
-          key={measure.id}
-          statistic={measure}
-          onClose={handleRemoveMeausre(measure.id)}
-          onArgumentChange={handleChangeDimension}
+        {regions.map((region) => (
+          <RegionSearchParameterCard
+            key={region.id}
+            region={region}
+            onClose={handleRemoveRegion(region.id)}
+          />
+        ))}
+      </Paper>
+      <Paper className={classes.paper}>
+        <h4 className={classes.title}>Statistiken und Merkmale</h4>
+        <AutocompleteSearchField
+          onSelectionChange={handleLoadMeasure}
+          loadOptions={loadMeasureOptions}
+          placeholder="Merkmal oder Statistik suchen"
         />
-      ))}
+        {measures.map((measure) => (
+          <StatisticsSearchParameterCard
+            key={measure.id}
+            statistic={measure}
+            onClose={handleRemoveMeausre(measure.id)}
+            onArgumentChange={handleChangeDimension}
+          />
+        ))}
+      </Paper>
     </div>
   )
 }
