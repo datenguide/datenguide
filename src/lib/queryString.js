@@ -12,7 +12,7 @@ const toArray = (data) => {
 }
 
 export const queryArgsToState = (queryArgs) => {
-  const { data, region } = queryArgs
+  const { data, region, labels, layout } = queryArgs
 
   const measures = toArray(data).map((statistic) => {
     const match = statistic.match(statisticUrlEncoding)
@@ -38,6 +38,8 @@ export const queryArgsToState = (queryArgs) => {
   return {
     measures,
     regions,
+    labels,
+    layout,
   }
 }
 
@@ -68,5 +70,7 @@ export const stateToQueryArgs = (state) => {
     data: Object.values(state.measures).map(
       (m) => `${m.id}${dimensionsQueryString(m)}`
     ),
+    labels: state.labels,
+    layout: state.layout,
   }
 }

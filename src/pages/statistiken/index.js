@@ -68,15 +68,22 @@ const loadRegionOptions = async (value = '') => {
   }))
 }
 
-const Detail = ({ initialMeasures, initialRegions, statistics }) => {
+const Detail = ({
+  initialMeasures,
+  initialRegions,
+  initialLabels,
+  initialLayout,
+}) => {
   const classes = useStyles()
 
   const [state, dispatch, actions] = useSearchManager(
     initialMeasures,
-    initialRegions
+    initialRegions,
+    initialLabels,
+    initialLayout
   )
 
-  const { measures, regions, error } = state
+  const { measures, regions, labels, layout, error } = state
 
   return (
     <DefaultLayout backgroundColor="#f5f5f5">
@@ -93,7 +100,14 @@ const Detail = ({ initialMeasures, initialRegions, statistics }) => {
           />
         </div>
         <div className={classes.data}>
-          <DataTable regions={regions} measures={measures} />
+          <DataTable
+            regions={regions}
+            measures={measures}
+            labels={labels}
+            layout={layout}
+            dispatch={dispatch}
+            actions={actions}
+          />
         </div>
       </main>
 
@@ -114,18 +128,29 @@ const Detail = ({ initialMeasures, initialRegions, statistics }) => {
 Detail.propTypes = {
   initialMeasures: PropTypes.array.isRequired,
   initialRegions: PropTypes.array.isRequired,
+  initialLabels: PropTypes.string.isRequired,
+  initialLayout: PropTypes.string.isRequired,
 }
 
-Detail.getInitialProps = async ({ req, query }) => {
-  const { measures, regions } = queryArgsToState(query)
-  const { origin } = absoluteUrl(req)
-  const fetchStatistics = await fetch(`${origin}/api/statistics`)
-  const statistics = await fetchStatistics.json()
+export async function getServerSideProps({ query }) {
+  const { measures, regions, labels, layout } = queryArgsToState(query)
+
+  // TODO fix server-side data fetching?
+  // const { origin } = absoluteUrl(req)
+  // const fetchStatistics = await fetch(`${origin}/api/statistics`)
+  // const statistics = await fetchStatistics.json()
 
   return {
-    statistics: statistics,
-    initialMeasures: measures,
-    initialRegions: regions,
+    props: {
+      // statistics: statistics,
+      initialMeasures: measures.map((m) => ({
+        ...m,
+        dimensions: m.dimensions !== undefined ? m.dimensions : null, // undefined not allowed here TODO avoid earlier
+      })),
+      initialRegions: regions,
+      initialLabels: labels || 'id',
+      initialLayout: layout || 'long',
+    },
   }
 }
 

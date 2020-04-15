@@ -82,7 +82,12 @@ const getDimensionSelection = (measures) =>
     return acc
   }, {})
 
-const useSearchManager = (initialMeasures, initialRegions) => {
+const useSearchManager = (
+  initialMeasures,
+  initialRegions,
+  initialLabels,
+  initialLayout
+) => {
   const [fetchSchema] = useManualQuery(SCHEMA_QUERY)
   const [fetchRegion] = useManualQuery(REGION_QUERY)
 
@@ -133,6 +138,14 @@ const useSearchManager = (initialMeasures, initialRegions) => {
       },
       changeDimensionSelection: (payload) => async (dispatch) => {
         dispatch(actions.updateDimension(payload))
+        dispatch(actions.syncUrl())
+      },
+      changeLabels: (payload) => async (dispatch) => {
+        dispatch(actions.setLabels(payload))
+        dispatch(actions.syncUrl())
+      },
+      changeLayout: (payload) => async (dispatch) => {
+        dispatch(actions.setLayout(payload))
         dispatch(actions.syncUrl())
       },
     }),
@@ -203,6 +216,16 @@ const useSearchManager = (initialMeasures, initialRegions) => {
         )
         return state
       },
+      setLabels: (state, action) => {
+        const { labels } = action.payload
+        state.labels = labels
+        return state
+      },
+      setLayout: (state, action) => {
+        const { layout } = action.payload
+        state.layout = layout
+        return state
+      },
       setError: (state, action) => {
         state.error = action.payload
         return state
@@ -214,6 +237,8 @@ const useSearchManager = (initialMeasures, initialRegions) => {
   const initialState = {
     measures: {},
     regions: {},
+    labels: initialLabels,
+    layout: initialLayout,
     error: null,
     measuresLoading: true,
   }

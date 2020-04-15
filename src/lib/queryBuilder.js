@@ -21,12 +21,14 @@ const getMeasuresGraphQLArg = (measureArgs) => `{
      )}]
 }`
 
-const getQuery = (regions, measure, page, itemsPerPage) => {
+const getQuery = (regions, measure, labels, layout, page, itemsPerPage) => {
   const query = `
   {
     table(regions: ${getRegionGraphQLArg(
       regions
     )}, measures: ${getMeasuresGraphQLArg(measure)},
+    labels: ${labels},
+    layout: ${layout},
     page: ${page},
     itemsPerPage: ${itemsPerPage}) {
         schema {

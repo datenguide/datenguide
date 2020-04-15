@@ -63,7 +63,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const DataTable = ({ router, regions, measures }) => {
+const DataTable = ({
+  regions,
+  measures,
+  labels,
+  layout,
+  dispatch,
+  actions,
+}) => {
   const classes = useStyles()
   const client = useContext(ClientContext)
 
@@ -88,7 +95,14 @@ const DataTable = ({ router, regions, measures }) => {
       setLoading(true)
       // TODO support more than 1 measure
       const measure = Object.values(measures)[0]
-      const query = getQuery(regions, measure, page, rowsPerPage)
+      const query = getQuery(
+        regions,
+        measure,
+        labels,
+        layout,
+        page,
+        rowsPerPage
+      )
       setGraphqlQuery(query)
       const response = await client.request({ query })
       const { data, error } = response
@@ -148,7 +162,14 @@ const DataTable = ({ router, regions, measures }) => {
                 <Tab label="Daten" />
                 <Tab label="API" />
               </Tabs>
-              <DataTableToolbar measures={measures} />
+              <DataTableToolbar
+                measures={measures}
+                regions={regions}
+                labels={labels}
+                layout={layout}
+                dispatch={dispatch}
+                actions={actions}
+              />
             </>
             {tabValue === 0 && (
               <>
@@ -225,6 +246,7 @@ const DataTable = ({ router, regions, measures }) => {
 DataTable.propTypes = {
   regions: PropTypes.arrayOf(PropTypes.object),
   measures: PropTypes.arrayOf(PropTypes.object),
+  labels: PropTypes.string.isRequired,
 }
 
 export default DataTable

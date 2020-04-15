@@ -62,20 +62,20 @@ const MeasureSearchParameterCard = ({
         title={`${name} - ${titleDe}`}
         subheader={`${statisticName} – ${statisticTitleDe}`}
       />
-      <CardContent>
-        {dimensions.map((dim) => (
-          <DimensionSelect
-            key={dim.name}
-            name={dim.name}
-            label={dim.titleDe}
-            value={dim.selected}
-            options={dim.values}
-            active={dim.active}
-            onChange={handleDimensionChange(dim.name)}
-            onToggle={handleArgumentToggle}
-          />
-        ))}
-      </CardContent>
+      {/*<CardContent>*/}
+      {/*  {dimensions.map((dim) => (*/}
+      {/*    <DimensionSelect*/}
+      {/*      key={dim.name}*/}
+      {/*      name={dim.name}*/}
+      {/*      label={dim.titleDe}*/}
+      {/*      value={dim.selected}*/}
+      {/*      options={dim.values}*/}
+      {/*      active={dim.active}*/}
+      {/*      onChange={handleDimensionChange(dim.name)}*/}
+      {/*      onToggle={handleArgumentToggle}*/}
+      {/*    />*/}
+      {/*  ))}*/}
+      {/*</CardContent>*/}
     </Card>
   )
 }
