@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
 import fetch from 'isomorphic-unfetch'
-import absoluteUrl from 'next-absolute-url'
 
 import { makeStyles } from '@material-ui/core/styles'
 import Snackbar from '@material-ui/core/Snackbar'
@@ -10,7 +9,6 @@ import DataTable from '../../components/DataTable'
 import QueryParameterSidebar from '../../components/QueryParameterSidebar'
 import { queryArgsToState } from '../../lib/queryString'
 import useSearchManager from '../../lib/useSearchManager'
-import Paper from '@material-ui/core/Paper'
 
 const useStyles = makeStyles((theme) => ({
   content: {

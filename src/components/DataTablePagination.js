@@ -1,14 +1,10 @@
-import { makeStyles } from '@material-ui/core/styles'
-import PropTypes from 'prop-types'
+// import { makeStyles } from '@material-ui/core/styles'
 import DataTablePaginationActions from './DataTablePaginationActions'
 import { TablePagination } from '@material-ui/core'
-import { useState } from 'react'
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    background: 'red',
-  },
-}))
+// const useStyles = makeStyles((theme) => ({
+//   root: {},
+// }))
 
 const labelDisplayedRows = ({ from, to, count }) => `${from}-${to} von ${count}`
 
@@ -19,7 +15,7 @@ const DataTablePagination = ({
   onChangePage,
   onChangeRowsPerPage,
 }) => {
-  const classes = useStyles()
+  // const classes = useStyles()
 
   return (
     <TablePagination

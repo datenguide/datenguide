@@ -1,15 +1,11 @@
 import { makeStyles } from '@material-ui/core/styles'
-import { Button, withStyles } from '@material-ui/core'
+import { Button } from '@material-ui/core'
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown'
 import Menu from '@material-ui/core/Menu'
 import { useState } from 'react'
 
 const useStyles = makeStyles((theme) => ({
   root: {},
-  icon: {
-    // marginRight: theme.spacing(1),
-    // marginTop: 0,
-  },
 }))
 
 const DataTableMenu = ({ label, icon, children }) => {

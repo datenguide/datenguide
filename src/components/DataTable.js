@@ -2,7 +2,6 @@ import { useContext, useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import { ClientContext } from 'graphql-hooks'
 import Highlight from 'react-highlight'
-import { withRouter } from 'next/router'
 
 import { makeStyles } from '@material-ui/core/styles'
 import {
