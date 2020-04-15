@@ -4,7 +4,6 @@ import { ClientContext } from 'graphql-hooks'
 import Highlight from 'react-highlight'
 import { withRouter } from 'next/router'
 
-import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown'
 import { makeStyles } from '@material-ui/core/styles'
 import {
   Paper,
@@ -14,7 +13,6 @@ import {
   TableHead,
   TableRow,
   TableFooter,
-  TablePagination,
   Typography,
   LinearProgress,
   Tabs,
@@ -23,15 +21,10 @@ import {
 } from '@material-ui/core'
 import CallMadeIcon from '@material-ui/icons/CallMade'
 import Alert from '@material-ui/lab/Alert'
-import Toolbar from '@material-ui/core/Toolbar'
-import SaveAltIcon from '@material-ui/icons/SaveAlt'
-import GridOnIcon from '@material-ui/icons/GridOn'
-import ViewColumnIcon from '@material-ui/icons/ViewColumn'
-import TextFormatIcon from '@material-ui/icons/TextFormat'
-import AppsIcon from '@material-ui/icons/Apps'
 
 import getQuery from '../lib/queryBuilder'
-import DataTablePaginationActions from './DataTablePaginationActions'
+import DataTableToolbar from './DataTableToolbar'
+import DataTablePagination from './DataTablePagination'
 
 // TODO create i8n label
 const ERROR_MESSAGE = 'Die Daten konnten nicht geladen werden.'
@@ -68,10 +61,6 @@ const useStyles = makeStyles((theme) => ({
   alert: {
     margin: '0px 20px',
   },
-  toolbar: {
-    display: 'flex',
-    justifyContent: 'flex-end',
-  },
 }))
 
 const DataTable = ({ router, regions, measures }) => {
@@ -81,10 +70,18 @@ const DataTable = ({ router, regions, measures }) => {
   const [data, setData] = useState([])
   const [error, setError] = useState(null)
   const [loading, setLoading] = useState(false)
-  const [rowsPerPage, setRowsPerPage] = useState(100)
-  const [page, setPage] = useState(0)
   const [tabValue, setTabValue] = useState(0)
   const [graphqlQuery, setGraphqlQuery] = useState(null)
+
+  const [rowsPerPage, setRowsPerPage] = useState(100)
+  const [page, setPage] = useState(0)
+
+  const handleChangePage = (event, page) => {
+    setPage(page)
+  }
+  const handleChangeRowsPerPage = (value) => {
+    setRowsPerPage(value.target.value)
+  }
 
   useEffect(() => {
     const fetchData = async () => {
@@ -128,21 +125,12 @@ const DataTable = ({ router, regions, measures }) => {
         .map((f) => ({ headerName: f.name, field: f.name }))) ||
     []
 
-  const handleChangePage = (event, page) => {
-    setPage(page)
-  }
-  const handleChangeRowsPerPage = (value) => {
-    setRowsPerPage(value.target.value)
-  }
-  const labelDisplayedRows = ({ from, to, count }) =>
-    `${from}-${to} von ${count}`
-
   const handleTabChange = (event, newValue) => {
     setTabValue(newValue)
   }
 
   const rows = (data && data.data) || []
-  const total = (data && data.pagination && data.pagination.total) || 0
+  const count = (data && data.pagination && data.pagination.total) || 0
 
   return (
     <div className={classes.root}>
@@ -160,32 +148,7 @@ const DataTable = ({ router, regions, measures }) => {
                 <Tab label="Daten" />
                 <Tab label="API" />
               </Tabs>
-              <Toolbar
-                variant="dense"
-                disableGutters
-                className={classes.toolbar}
-              >
-                <Button>
-                  <ViewColumnIcon />
-                  Spalten
-                  <ArrowDropDownIcon />
-                </Button>
-                <Button>
-                  <AppsIcon />
-                  Layout
-                  <ArrowDropDownIcon />
-                </Button>
-                <Button>
-                  <TextFormatIcon />
-                  Beschriftung
-                  <ArrowDropDownIcon />
-                </Button>
-                <Button>
-                  <SaveAltIcon />
-                  Download
-                  <ArrowDropDownIcon />
-                </Button>
-              </Toolbar>
+              <DataTableToolbar measures={measures} />
             </>
             {tabValue === 0 && (
               <>
@@ -223,21 +186,12 @@ const DataTable = ({ router, regions, measures }) => {
                   </TableBody>
                   <TableFooter>
                     <TableRow>
-                      <TablePagination
-                        rowsPerPageOptions={[100, 200, 500]}
-                        colSpan={6}
-                        count={total}
+                      <DataTablePagination
                         rowsPerPage={rowsPerPage}
                         page={page}
-                        SelectProps={{
-                          inputProps: { 'aria-label': 'Zeilen pro Seite' },
-                          native: true,
-                        }}
-                        labelDisplayedRows={labelDisplayedRows}
-                        labelRowsPerPage="Datensätze pro Seite: "
+                        count={count}
                         onChangePage={handleChangePage}
                         onChangeRowsPerPage={handleChangeRowsPerPage}
-                        ActionsComponent={DataTablePaginationActions}
                       />
                     </TableRow>
                   </TableFooter>
@@ -269,9 +223,8 @@ const DataTable = ({ router, regions, measures }) => {
 }
 
 DataTable.propTypes = {
-  router: PropTypes.object.isRequired,
   regions: PropTypes.arrayOf(PropTypes.object),
   measures: PropTypes.arrayOf(PropTypes.object),
 }
 
-export default withRouter(DataTable)
+export default DataTable
