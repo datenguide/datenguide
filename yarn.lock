@@ -1150,10 +1150,10 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@datenguide/explorables@^1.0.5":
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/@datenguide/explorables/-/explorables-1.0.5.tgz#90217f25a8170dd5322b16c6657e71bd48c8e4da"
-  integrity sha512-8EXEoxokAGFFHXGt+QQoAfXHcTpaqEgLAgwghz2IdwgzQlrbkethIiYH/OCw5gV55Xv+GuXRvD8zfDm+/j0Y6g==
+"@datenguide/explorables@^1.0.8":
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/@datenguide/explorables/-/explorables-1.0.8.tgz#bf4875a9d6dc13bab9ec4b9de679e400d80ed41b"
+  integrity sha512-tbZLht1+LaSChyiX+/dx6/FjsdA7yYOR/LayCJ/1zMbtl0ATJ1qckkNRRmzVrchaBSblwtYE3bE8QMxG6Lrwwg==
   dependencies:
     dotenv "^8.2.0"
     react-map-gl "^5.2.3"
