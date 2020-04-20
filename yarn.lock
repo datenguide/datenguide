@@ -1150,11 +1150,13 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@datenguide/explorables@^1.0.8":
-  version "1.0.8"
-  resolved "https://registry.yarnpkg.com/@datenguide/explorables/-/explorables-1.0.8.tgz#bf4875a9d6dc13bab9ec4b9de679e400d80ed41b"
-  integrity sha512-tbZLht1+LaSChyiX+/dx6/FjsdA7yYOR/LayCJ/1zMbtl0ATJ1qckkNRRmzVrchaBSblwtYE3bE8QMxG6Lrwwg==
+"@datenguide/explorables@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@datenguide/explorables/-/explorables-0.0.1.tgz#4dd045d3ebfe822c8ec0c338262b850814497c6a"
+  integrity sha512-X34mTH+verIaW7+FW7IV0hw6Aj8lPzVklBgdEubz/lYbJnUqX3KNjzKkq28bIAS0wD21obUcHN9+9BdIzggdAg==
   dependencies:
+    "@babel/plugin-proposal-object-rest-spread" "^7.9.5"
+    "@babel/preset-react" "^7.9.4"
     dotenv "^8.2.0"
     react-map-gl "^5.2.3"
 
