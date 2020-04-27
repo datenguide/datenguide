@@ -9068,6 +9068,18 @@ react-map-gl@^5.2.3:
     react-virtualized-auto-sizer "^1.0.2"
     viewport-mercator-project "^6.2.3 || ^7.0.1"
 
+react-map-gl@^5.2.5:
+  version "5.2.5"
+  resolved "https://registry.yarnpkg.com/react-map-gl/-/react-map-gl-5.2.5.tgz#0b16bfd384d5d471cceaabff893b0d088fec9270"
+  integrity sha512-+U5d2ZJ3FpvJvO1U8hJvikC0s51Gq5bcjA77I8yECrbRIfgtPlnhuRoxUDN7rtxtlMHBsPdsypPe3pKgkK+iow==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    mapbox-gl "^1.0.0"
+    mjolnir.js "^2.4.0"
+    prop-types "^15.7.2"
+    react-virtualized-auto-sizer "^1.0.2"
+    viewport-mercator-project "^6.2.3 || ^7.0.1"
+
 react-responsive-embed@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/react-responsive-embed/-/react-responsive-embed-2.1.0.tgz#e61c5360e4cc783eeda56ef0d1751420736065f6"
