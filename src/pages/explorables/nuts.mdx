@@ -9,14 +9,11 @@ published: false
 lang: de
 ---
 
-import Map from '../../../components/Map.js'
-import { ShapeLayer } from '@datenguide/explorables'
+import Map from '../../components/Map.js'
 
 Das Datenguide-Team ist in der 7. Förderrunde des Prototype Funds dabei. Mit dieser Projektförderung werden wir ab März 2019 an neuen Darstellungsformen für amtliche Statistiken arbeiten. Mit _Explorable Explanations_ wollen wir statistische Daten und Zusammenhänge anhand von praktischen Beispielen erfahrbar machen, zum Beispiel als interaktive Grafiken oder kleine digitale Spiele. Explorable Explanations könnten zum Beispiel zeigen, wie statistische Daten erhoben werden oder wo Fallstricke bei der Darstellungen von Statistiken liegen.
 
-<Map latitude="51.427" longitude="7.664">
-  <ShapeLayer path="./nrw_gemeinden.json" />
-</Map>
+<Map latitude={51.427} longitude={7.664} path="/geo/nrw_gemeinden.json"></Map>
 
 ## Ein Werkzeugkasten für interaktive Erklärungen
 

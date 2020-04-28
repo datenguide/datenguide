@@ -1,7 +1,18 @@
 import React, { useState } from 'react'
-import { StaticMap } from 'react-map-gl'
+import dynamic from 'next/dynamic'
+// import { ShapeLayer } from '@datenguide/explorables'
 
-function Map(options) {
+const StaticMap = dynamic(
+  () => import('react-map-gl').then(({ StaticMap }) => StaticMap),
+  { ssr: false }
+)
+
+const ShapeLayer = dynamic(
+  () => import('@datenguide/explorables').then(({ ShapeLayer }) => ShapeLayer),
+  { ssr: false }
+)
+
+function Map({ path, ...options }) {
   const [viewport, setViewport] = useState({
     width: '100%',
     height: 400,
@@ -13,7 +24,11 @@ function Map(options) {
     ...options,
   })
 
-  return <StaticMap {...viewport} onViewportChange={setViewport} />
+  return process.browser ? (
+    <StaticMap {...viewport} onViewportChange={setViewport}>
+      <ShapeLayer path={path} />
+    </StaticMap>
+  ) : null
 }
 
 export default Map
