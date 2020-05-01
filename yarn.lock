@@ -7815,10 +7815,10 @@ next-compose-plugins@^2.2.0:
   resolved "https://registry.yarnpkg.com/next-compose-plugins/-/next-compose-plugins-2.2.0.tgz#95cd8eb40ab0652070d76572fb648354191628b0"
   integrity sha512-ChUlpT9tWfJ7YxqGw/WQ2T1gf8EeX93n1XqeQw0lkvGa7seszahvF4eOZUJoq7Hetsbzg4UHVnPoCXfXTyQR3g==
 
-next-fonts@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/next-fonts/-/next-fonts-1.0.3.tgz#2c1970f18eca657ac9323b496c6333cab320c3bd"
-  integrity sha512-0WT88wZyxdfYR2G90osx+OykVXY7uSIoTbSmimxJEv4UOQ4RUfYDxgPVZuudrqlvGYYkAXUKwLRUHI2Ql2fFoA==
+next-fonts@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/next-fonts/-/next-fonts-1.1.0.tgz#5981ad5b8db4c6ae101919e2252e8dd2ec5b387a"
+  integrity sha512-Fbo2EROr4Y2T4lfHaHg5LkVse2OmHQIYLptdnnX43YLvOsE2btlarv+zFp6ex45znrVnwNxcAsdYH4N4jGzfeQ==
   dependencies:
     file-loader "^2.0.0"
     url-loader "^1.1.1"
