@@ -75,7 +75,7 @@
     "next-mdx-enhanced": "^2.4.0",
     "next-optimized-images": "^2.5.7",
     "postcss": "^7.0.27",
-    "prettier": "^2.0.4",
+    "prettier": "^2.0.5",
     "prop-types": "^15.7.2",
     "query-string": "^6.12.0",
     "react": "^16.13.1",
