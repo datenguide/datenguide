@@ -9,7 +9,9 @@ published: false
 lang: de
 ---
 
+import Grid from '@material-ui/core/Grid'
 import ScrollyMap from './ScrollyMap'
+import SimpleMap from './SimpleMap'
 
 Das Datenguide-Team ist in der 7. Förderrunde des Prototype Funds dabei. Mit dieser Projektförderung werden wir ab März 2019 an neuen Darstellungsformen für amtliche Statistiken arbeiten. Mit _Explorable Explanations_ wollen wir statistische Daten und Zusammenhänge anhand von praktischen Beispielen erfahrbar machen, zum Beispiel als interaktive Grafiken oder kleine digitale Spiele. Explorable Explanations könnten zum Beispiel zeigen, wie statistische Daten erhoben werden oder wo Fallstricke bei der Darstellungen von Statistiken liegen.
 
@@ -23,10 +25,50 @@ Im Rahmen der Projektförderung durch den Prototype Fund entwickeln wir nicht nu
 
 Der Prototype Fund ist ein Förderprogramm, das Open-Source-Initiativen für ein halbes Jahr mit bis zu 47.500 Euro unterstützt. Er ist ein Projekt der Open Knowledge Foundation und wird vom Bundesministerium für Bildung und Forschung (BMBF) finanziert. Übrigens: Der Datenguide ist bereits ein Alumni des Prototype Fund. Der Grundstein für das Datenguide-Projekt wurde 2018 in der 2. Förderphase des Prototype Funds gelegt, damals noch unter dem Arbeitstitel [Datenland](https://prototypefund.de/project/datenland/).
 
-### Links zum Thema:
+<Grid container direction="row" justify="center" spacing={2}>
+  <Grid item xs={12} sm={6}>
+    <SimpleMap
+      latitude={51.427}
+      longitude={7.664}
+      src="/geo/bundeslaender.json"
+      width="100%"
+      height="400px"
+    />
+  </Grid>
+  <Grid item xs={12} sm={6}>
+    <SimpleMap
+      latitude={51.427}
+      longitude={7.664}
+      src="/geo/nrw_landkreise.json"
+      width="100%"
+      height="400px"
+    />
+  </Grid>
+</Grid>
 
-<ArrowLink href="https://prototypefund.de/about/">
-  Über den Prototype Fund
-</ArrowLink>
+Exercitation eu eu commodo labore aute Lorem reprehenderit. Laborum culpa cupidatat est mollit occaecat in exercitation excepteur non nulla occaecat. Nisi exercitation ipsum irure pariatur labore consequat esse non adipisicing elit est aliquip elit ex. Elit officia officia magna aute do reprehenderit aliqua magna. Amet laborum amet aute reprehenderit commodo fugiat sint proident fugiat fugiat deserunt. Quis velit esse ipsum est deserunt do nostrud qui duis anim. In incididunt id est occaecat ut est nostrud labore dolor consequat.
 
-<ArrowLink href="https://explorabl.es/">Über Explorable Explanations</ArrowLink>
+Sit in non labore fugiat Lorem aute voluptate. Ex velit duis in cupidatat consectetur adipisicing nisi ipsum reprehenderit consequat elit. Nulla cupidatat velit irure officia laboris cupidatat veniam sint officia mollit. Occaecat est cillum aute id. Ex cupidatat dolor ex nulla tempor. Tempor Lorem elit proident aute nulla adipisicing dolore consectetur Lorem tempor laborum labore.
+
+In aliqua anim ullamco velit duis. Et irure Lorem amet ea officia deserunt eu qui aliquip tempor culpa in. Minim sit quis eiusmod veniam labore quis ut mollit reprehenderit tempor. Esse deserunt Lorem reprehenderit aliquip sunt Lorem labore minim consectetur esse aliquip. Ad ea in qui adipisicing ad consequat nisi qui commodo ullamco ex.
+
+<Grid container direction="row" justify="center" spacing={2}>
+  <Grid item xs={12} sm={6}>
+    <SimpleMap
+      latitude={51.427}
+      longitude={7.664}
+      src="/geo/nrw_gemeinden.json"
+      width="100%"
+      height="400px"
+    />
+  </Grid>
+  <Grid item xs={12} sm={6}>
+    <SimpleMap src="/geo/bundeslaender.json" width="100%" height="400px" />
+  </Grid>
+</Grid>
+
+Exercitation eu eu commodo labore aute Lorem reprehenderit. Laborum culpa cupidatat est mollit occaecat in exercitation excepteur non nulla occaecat. Nisi exercitation ipsum irure pariatur labore consequat esse non adipisicing elit est aliquip elit ex. Elit officia officia magna aute do reprehenderit aliqua magna. Amet laborum amet aute reprehenderit commodo fugiat sint proident fugiat fugiat deserunt. Quis velit esse ipsum est deserunt do nostrud qui duis anim. In incididunt id est occaecat ut est nostrud labore dolor consequat.
+
+Sit in non labore fugiat Lorem aute voluptate. Ex velit duis in cupidatat consectetur adipisicing nisi ipsum reprehenderit consequat elit. Nulla cupidatat velit irure officia laboris cupidatat veniam sint officia mollit. Occaecat est cillum aute id. Ex cupidatat dolor ex nulla tempor. Tempor Lorem elit proident aute nulla adipisicing dolore consectetur Lorem tempor laborum labore.
+
+In aliqua anim ullamco velit duis. Et irure Lorem amet ea officia deserunt eu qui aliquip tempor culpa in. Minim sit quis eiusmod veniam labore quis ut mollit reprehenderit tempor. Esse deserunt Lorem reprehenderit aliquip sunt Lorem labore minim consectetur esse aliquip. Ad ea in qui adipisicing ad consequat nisi qui commodo ullamco ex.

@@ -1,27 +1,33 @@
+import dynamic from 'next/dynamic'
 import React, { PureComponent } from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import { Scrollama, Step } from 'react-scrollama'
+// import SimpleMap from './SimpleMap'
+
+const StaticMap = dynamic(
+  () => import('@datenguide/explorables').then(({ StaticMap }) => StaticMap),
+  { ssr: false }
+)
+
+const ShapeLayer = dynamic(
+  () => import('@datenguide/explorables').then(({ ShapeLayer }) => ShapeLayer),
+  { ssr: false }
+)
 
 const styles = {
   main: {
-    padding: '70vh 2vw',
+    padding: '2em 0',
     display: 'flex',
     fontFamily: 'Helvetica',
     justifyContent: 'space-between',
   },
-  graphic: {
-    flexBasis: '60%',
+  map: {
     position: 'sticky',
     width: '100%',
-    padding: '5rem 0',
-    top: '160px',
+    padding: '0',
+    top: '2em',
     alignSelf: 'flex-start',
     backgroundColor: '#aaa',
-    '& p': {
-      fontSize: '5rem',
-      textAlign: 'center',
-      color: '#fff',
-    },
   },
   scroller: {
     flexBasis: '35%',
@@ -89,7 +95,16 @@ class Graphic extends PureComponent {
             </Scrollama>
           )}
         </div>
-        <div className={classes.graphic}>
+        <div className={classes.map}>
+          <StaticMap
+            latitude={51.427}
+            longitude={7.664}
+            width="100%"
+            height="100vh"
+            mapboxApiAccessToken={process.env.MAPBOX_TOKEN}
+          >
+            <ShapeLayer src="/geo/nrw_gemeinden.json" />
+          </StaticMap>
           <p>{data}</p>
         </div>
       </div>
