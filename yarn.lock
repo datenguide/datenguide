@@ -9011,10 +9011,10 @@ react-responsive-embed@^2.1.0:
   resolved "https://registry.yarnpkg.com/react-responsive-embed/-/react-responsive-embed-2.1.0.tgz#e61c5360e4cc783eeda56ef0d1751420736065f6"
   integrity sha512-GzvZ8i1ZRL4YRaTOfIeka5CQSc7mCIZVa0C7brJoA55EQ0A+EsFQT1YOvFVzKOVP33UqoKNMijI1PQ7UtO1Eeg==
 
-react-scrollama@^2.2.1:
-  version "2.2.3"
-  resolved "https://registry.yarnpkg.com/react-scrollama/-/react-scrollama-2.2.3.tgz#34de0654777302173963e5ef8253a19adb0020be"
-  integrity sha512-7N3fBc73a1TvvcDA8oP3soayL1v4Qu4n/B21HMwPxxlXyG5faj0ZCZKqsw+530gBI8iu+s3XsLBHzcxq5Lf7mA==
+react-scrollama@2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/react-scrollama/-/react-scrollama-2.2.1.tgz#201fa3dc0a4d28a7461c8e5a21785edb09e28db3"
+  integrity sha512-Ftevn1o2ezTvlrNp1lvuZKJfl5x41puesJ86c2zma2z/quxaoV8Vr3R0KzJo3d7LqF+taOVJPptP3m53TZgoBg==
 
 react-select@^3.1.0:
   version "3.1.0"
