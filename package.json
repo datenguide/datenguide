@@ -72,7 +72,7 @@
     "next-compose-plugins": "^2.2.0",
     "next-fonts": "^1.0.3",
     "next-images": "^1.4.0",
-    "next-mdx-enhanced": "^2.4.0",
+    "next-mdx-enhanced": "^2.5.0",
     "next-optimized-images": "^2.5.7",
     "postcss": "^7.0.27",
     "prettier": "^2.0.4",
