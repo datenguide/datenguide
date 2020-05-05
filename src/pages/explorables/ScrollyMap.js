@@ -2,10 +2,9 @@ import dynamic from 'next/dynamic'
 import React, { PureComponent } from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import { Scrollama, Step } from 'react-scrollama'
-// import SimpleMap from './SimpleMap'
 
-const StaticMap = dynamic(
-  () => import('@datenguide/explorables').then(({ StaticMap }) => StaticMap),
+const Map = dynamic(
+  () => import('@datenguide/explorables').then(({ Map }) => Map),
   { ssr: false }
 )
 
@@ -50,14 +49,47 @@ const styles = {
 
 class Graphic extends PureComponent {
   state = {
-    data: 0,
-    steps: [10, 20, 30],
-    progress: 0,
+    viewport: {
+      latitude: 51.427,
+      longitude: 7.664,
+      width: '100%',
+      height: '100vh',
+      zoom: 6,
+    },
+    settings: {
+      dragPan: false,
+      dragRotate: false,
+      scrollZoom: false,
+      touchZoom: false,
+      touchRotate: false,
+      keyboard: false,
+      doubleClickZoom: false,
+      mapboxApiAccessToken: process.env.MAPBOX_TOKEN,
+    },
+    currentStep: 'lau',
+    steps: [
+      {
+        id: 'lau',
+        title: 'Gemeinden',
+      },
+      {
+        id: 'nuts3',
+        title: 'Landkreise',
+      },
+      {
+        id: 'nuts2',
+        title: 'Statistische Regionen',
+      },
+      {
+        id: 'nuts1',
+        title: 'Bundesländer',
+      },
+    ],
   }
 
   handleStepEnter = ({ element, data }) => {
     element.style.backgroundColor = 'lightgoldenrodyellow'
-    this.setState({ data })
+    this.setState({ currentStep: data })
   }
 
   handleStepExit = ({ element }) => {
@@ -65,12 +97,13 @@ class Graphic extends PureComponent {
   }
 
   handleStepProgress = ({ element, progress }) => {
-    this.setState({ progress })
+    // console.log('progress', element, progress)
   }
 
   render() {
-    const { data, steps, progress } = this.state
+    const { currentStep, steps, viewport, settings } = this.state
     const { classes } = this.props
+    // console.log('currentStep', currentStep)
 
     return (
       <div className={classes.main}>
@@ -84,28 +117,45 @@ class Graphic extends PureComponent {
               offset={0.33}
               debug
             >
-              {steps.map((value) => (
-                <Step data={value} key={value}>
+              {steps.map(({ id, title }) => (
+                <Step data={id} key={id}>
                   <div className={classes.step}>
-                    <p>step value: {value}</p>
-                    {value === data && <p>{Math.round(progress * 100)}%</p>}
+                    <p>{title}</p>
                   </div>
                 </Step>
               ))}
             </Scrollama>
           )}
         </div>
+
         <div className={classes.map}>
-          <StaticMap
-            latitude={51.427}
-            longitude={7.664}
-            width="100%"
-            height="100vh"
-            mapboxApiAccessToken={process.env.MAPBOX_TOKEN}
+          <Map
+            viewport={viewport}
+            settings={settings}
+            onViewportChange={(viewport) => this.setState({ viewport })}
           >
-            <ShapeLayer src="/geo/nrw_gemeinden.json" />
-          </StaticMap>
-          <p>{data}</p>
+            <h1>{currentStep}</h1>
+            <ShapeLayer
+              key="lau"
+              src="/geo/nrw_gemeinden.json"
+              hidden={currentStep !== 'lau'}
+            />
+            <ShapeLayer
+              key="nuts1"
+              src="/geo/nrw_landkreise.json"
+              hidden={currentStep !== 'nuts3'}
+            />
+            <ShapeLayer
+              key="nuts2"
+              src="/geo/nrw_regierungsbezirke.json"
+              hidden={currentStep !== 'nuts2'}
+            />
+            <ShapeLayer
+              key="nuts3"
+              src="/geo/bundesländer.json"
+              hidden={currentStep !== 'nuts1'}
+            />
+          </Map>
         </div>
       </div>
     )
