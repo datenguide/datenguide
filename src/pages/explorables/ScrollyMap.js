@@ -1,7 +1,9 @@
-import dynamic from 'next/dynamic'
 import React, { PureComponent } from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import { Scrollama, Step } from 'react-scrollama'
+import dynamic from 'next/dynamic'
+
+import { WebMercatorViewport } from 'react-map-gl'
 
 const Map = dynamic(
   () => import('@datenguide/explorables').then(({ Map }) => Map),
@@ -12,6 +14,11 @@ const ShapeLayer = dynamic(
   () => import('@datenguide/explorables').then(({ ShapeLayer }) => ShapeLayer),
   { ssr: false }
 )
+
+const bounds = [
+  [5.8663, 50.3226],
+  [9.4617, 52.5315],
+]
 
 const styles = {
   main: {
@@ -46,15 +53,25 @@ const styles = {
   },
 }
 
+function computeViewport() {
+  const { clientWidth, clientHeight } = document.documentElement
+  const offset = clientWidth / 3
+  return new WebMercatorViewport({
+    width: clientWidth,
+    height: clientHeight,
+  }).fitBounds(bounds, {
+    padding: {
+      top: 20,
+      left: offset,
+      right: -offset,
+      bottom: 20,
+    },
+  })
+}
+
 class Graphic extends PureComponent {
   state = {
-    viewport: {
-      latitude: 51.427,
-      longitude: 7.664,
-      width: '100%',
-      height: '100vh',
-      zoom: 6,
-    },
+    viewport: process.browser ? computeViewport() : {},
     settings: {
       dragPan: false,
       dragRotate: false,
@@ -131,7 +148,7 @@ class Graphic extends PureComponent {
             />
             <ShapeLayer
               key="nuts3"
-              src="/geo/bundesländer.json"
+              src="/geo/bundeslaender.json"
               hidden={currentStep !== 'nuts1'}
             />
           </Map>
@@ -144,7 +161,6 @@ class Graphic extends PureComponent {
               progress
               onStepProgress={this.handleStepProgress}
               offset={0.5}
-              debug
             >
               {steps.map(({ id, title }) => (
                 <Step data={id} key={id}>
