@@ -16,34 +16,33 @@ const ShapeLayer = dynamic(
 const styles = {
   main: {
     padding: '2em 0',
-    display: 'flex',
-    fontFamily: 'Helvetica',
-    justifyContent: 'space-between',
+    position: 'relative',
   },
   map: {
     position: 'sticky',
     width: '100%',
     padding: '0',
-    top: '2em',
+    top: '3em',
+    left: 0,
     alignSelf: 'flex-start',
     backgroundColor: '#aaa',
   },
   scroller: {
-    flexBasis: '35%',
+    position: 'relative',
+    top: '-100vh',
+    marginBottom: '-100vh',
+    width: '33%',
   },
   step: {
-    margin: '0 auto 2rem auto',
-    paddingTop: 200,
-    paddingBottom: 200,
-    border: '1px solid #333',
-    '& p': {
-      textAlign: 'center',
-      padding: '1rem',
-      fontSize: '1.5rem',
-    },
-    '&:last-child': {
-      marginBottom: 0,
-    },
+    opacity: 0.4,
+    transition: 'opacity 300ms',
+    minHeight: '66vh',
+    padding: 20,
+  },
+  stepInner: {
+    background: 'white',
+    padding: '1rem',
+    fontSize: '1.5rem',
   },
 }
 
@@ -88,12 +87,13 @@ class Graphic extends PureComponent {
   }
 
   handleStepEnter = ({ element, data }) => {
-    element.style.backgroundColor = 'lightgoldenrodyellow'
+    element.style.opacity = 0.9
     this.setState({ currentStep: data })
   }
 
   handleStepExit = ({ element }) => {
-    element.style.backgroundColor = '#fff'
+    element.style.opacity = 0.4
+    // console.log('exit', element)
   }
 
   handleStepProgress = ({ element, progress }) => {
@@ -107,27 +107,6 @@ class Graphic extends PureComponent {
 
     return (
       <div className={classes.main}>
-        <div className={classes.scroller}>
-          {process.browser && (
-            <Scrollama
-              onStepEnter={this.handleStepEnter}
-              onStepExit={this.handleStepExit}
-              progress
-              onStepProgress={this.handleStepProgress}
-              offset={0.33}
-              debug
-            >
-              {steps.map(({ id, title }) => (
-                <Step data={id} key={id}>
-                  <div className={classes.step}>
-                    <p>{title}</p>
-                  </div>
-                </Step>
-              ))}
-            </Scrollama>
-          )}
-        </div>
-
         <div className={classes.map}>
           <Map
             viewport={viewport}
@@ -156,6 +135,28 @@ class Graphic extends PureComponent {
               hidden={currentStep !== 'nuts1'}
             />
           </Map>
+        </div>
+        <div className={classes.scroller}>
+          {process.browser && (
+            <Scrollama
+              onStepEnter={this.handleStepEnter}
+              onStepExit={this.handleStepExit}
+              progress
+              onStepProgress={this.handleStepProgress}
+              offset={0.5}
+              debug
+            >
+              {steps.map(({ id, title }) => (
+                <Step data={id} key={id}>
+                  <div className={classes.step}>
+                    <div className={classes.stepInner}>
+                      <p>{title}</p>
+                    </div>
+                  </div>
+                </Step>
+              ))}
+            </Scrollama>
+          )}
         </div>
       </div>
     )
