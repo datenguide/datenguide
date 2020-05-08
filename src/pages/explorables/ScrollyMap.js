@@ -107,7 +107,7 @@ function computeViewport(bounds) {
   })
 }
 
-class Graphic extends PureComponent {
+class ScrollyMapComponent extends PureComponent {
   state = {
     currentStep: steps[0].id,
     viewport: computeViewport(bounds),
@@ -139,8 +139,7 @@ class Graphic extends PureComponent {
 
   render() {
     const { currentStep, viewport, settings } = this.state
-    const { classes } = this.props
-    // console.log('currentStep', currentStep)
+    const { children, classes } = this.props
 
     return (
       <div className={classes.main}>
@@ -184,13 +183,9 @@ class Graphic extends PureComponent {
               onStepProgress={this.handleStepProgress}
               offset={0.5}
             >
-              {steps.map(({ id, title }) => (
-                <Step data={id} key={id}>
-                  <div className={classes.step}>
-                    <div className={classes.stepInner}>
-                      <p>{title}</p>
-                    </div>
-                  </div>
+              {React.Children.map(children, (child, i) => (
+                <Step data={child.props.id} key={i}>
+                  <div className={classes.step}>{child}</div>
                 </Step>
               ))}
             </Scrollama>
@@ -201,4 +196,8 @@ class Graphic extends PureComponent {
   }
 }
 
-export default withStyles(styles)(Graphic)
+export const ScrollyMapStep = withStyles(styles)(({ classes, children }) => (
+  <div className={classes.stepInner}>{children}</div>
+))
+
+export const ScrollyMap = withStyles(styles)(ScrollyMapComponent)

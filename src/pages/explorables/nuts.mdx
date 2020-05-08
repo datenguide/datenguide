@@ -12,11 +12,11 @@ lang: de
 import Grid from '@material-ui/core/Grid'
 import Container from '@material-ui/core/Container'
 import BodyText from '../../components/BodyText'
-import ScrollyMap from './ScrollyMap'
+import { ScrollyMap, ScrollyMapStep } from './ScrollyMap'
 import SimpleMap from './SimpleMap'
 
 <Container maxWidth="lg">
-  <BodyText>
+<BodyText>
 
 // Pyramide: Land, Bundesländer, Regierungsbezirke, Landkreise, Gemeinden
 
@@ -24,13 +24,36 @@ Bei der Suche nach amtlichen Daten für eine Region begegnen dir oft Begriffe wi
 
 Wir vom Datenguide zeigen dir die Einteilung und ihre Sonderfälle für Deutschland, damit du dich schnell in den Regionaldaten zurecht findest.
 
-  </BodyText>
+</BodyText>
 </Container>
 
-<ScrollyMap />
+<ScrollyMap>
+<ScrollyMapStep id="lau">
+
+### Das ist eine Überschrift
+
+Hier kommt der Text für den erste Step, mit einem [Link](https:/datengui.de).
+
+</ScrollyMapStep>
+<ScrollyMapStep id="nuts1">
+
+Hier kommt der Text für den zweiten Step
+
+</ScrollyMapStep>
+<ScrollyMapStep id="nuts2">
+
+Hier kommt der Text für den dritten Step
+
+</ScrollyMapStep>
+<ScrollyMapStep id="nuts3">
+
+Hier kommt der Text für den dritten Step
+
+</ScrollyMapStep>
+</ScrollyMap>
 
 <Container maxWidth="lg">
-  <BodyText>
+<BodyText>
 
 ## Nuts
 
@@ -121,5 +144,5 @@ Sit in non labore fugiat Lorem aute voluptate. Ex velit duis in cupidatat consec
 
 In aliqua anim ullamco velit duis. Et irure Lorem amet ea officia deserunt eu qui aliquip tempor culpa in. Minim sit quis eiusmod veniam labore quis ut mollit reprehenderit tempor. Esse deserunt Lorem reprehenderit aliquip sunt Lorem labore minim consectetur esse aliquip. Ad ea in qui adipisicing ad consequat nisi qui commodo ullamco ex.
 
-  </BodyText>
+</BodyText>
 </Container>
