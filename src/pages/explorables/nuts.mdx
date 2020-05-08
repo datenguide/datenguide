@@ -20,7 +20,9 @@ import SimpleMap from './SimpleMap'
 
 // Pyramide: Land, Bundesländer, Regierungsbezirke, Landkreise, Gemeinden
 
-Bei der Suche nach amtlichen Daten für eine Region begegnen dir oft Begriffe wie 'Nuts-Level', 'Lau' oder 'regionale Tiefe', dabei geht es um die Einteilung und Vergleichbarkeit von Gebieten. Wo gibt es die meisten Kühe? Wer erzeugt den meisten Müll? Um diese Fragen zu beantworten, muss klar sein, dass ähnliche Gebiete miteinander verglichen werden. In Deutschland sind das Bundesländer, Landkreise, Gemeinden - dazu kommen Sonderfälle wie Stadtstaaten (Hamburg, Bremen, Berlin) oder Regierungsbezirke, die es nur in einigen Bundesländern gibt. Auf dieser Grundlage teilt die EU europäische Gebiete in drei Stufen ein: Nuts-1 bis Nuts-3. So werden Regionen auch über Grenzen hinweg vergleichbar.
+Bei der Suche nach amtlichen Daten für eine Region begegnen dir oft Begriffe wie 'Nuts-Level', 'Lau' oder 'regionale Tiefe', dabei geht es um die Einteilung und Vergleichbarkeit von Gebieten. Wo gibt es die meisten Kühe? Wer erzeugt den meisten Müll? Um diese Fragen zu beantworten, muss klar sein, dass ähnliche Gebiete miteinander verglichen werden.
+
+In Deutschland sind das Bundesländer, Landkreise, Gemeinden - dazu kommen Sonderfälle wie Stadtstaaten (Hamburg, Bremen, Berlin) oder Regierungsbezirke, die es nur in einigen Bundesländern gibt. Auf dieser Grundlage teilt die EU europäische Gebiete in drei Stufen ein: Nuts-1 bis Nuts-3. So werden Regionen auch über Grenzen hinweg vergleichbar.
 
 Wir vom Datenguide zeigen dir die Einteilung und ihre Sonderfälle für Deutschland, damit du dich schnell in den Regionaldaten zurecht findest.
 
@@ -28,73 +30,118 @@ Wir vom Datenguide zeigen dir die Einteilung und ihre Sonderfälle für Deutschl
 </Container>
 
 <ScrollyMap>
+
 <ScrollyMapStep id="lau">
 
-### Das ist eine Überschrift
+### Gemeinden - LAU
 
-Hier kommt der Text für den erste Step, mit einem [Link](https:/datengui.de).
-
-</ScrollyMapStep>
-<ScrollyMapStep id="nuts1">
-
-Hier kommt der Text für den zweiten Step
+Die Grundbausteine der regionalen Einteilung bilden in Deutschland über 11.000 Gemeinden. In der EU werden diese kleinsten Einheiten als LAU, Local Administrative Units, also lokale Verwaltungseinheiten bezeichnet. Da die LAU häufig geändert werden, veröffentlicht Eurostat gegen Ende jeden Jahres eine aktualisierte Liste.
 
 </ScrollyMapStep>
-<ScrollyMapStep id="nuts2">
 
-Hier kommt der Text für den dritten Step
-
+<ScrollyMapStep id="lau-local">
+  // Tooltip rechts Altena zum Beispiel ist eine Kleinstadt im Märkischen Kreis
+  in Nordrhein-Westfalen. Mit knapp 17.000 Einwohnern und 381 Einwohnern pro
+  Quadratkilometer // liegt sie in NRW im Mittelfeld der Gemeinden in NRW. // Es
+  gibt dort die meisten Beamten pro 100.000 Einwohner und die wenigsten Kühe.
 </ScrollyMapStep>
+
 <ScrollyMapStep id="nuts3">
 
-Hier kommt der Text für den dritten Step
+### Kreise und kreisfreie Städte - NUTS-3
 
+Über den Gemeinden liegt in Deutschland eine Ebene von 401 Landkreisen und kreisfreien Städten (in Baden-Württemberg Stadtkreise genannt). In der EU wird diese Ebene als NUTS-3 bezeichnet. Das sind kleinere Regionen, die zwischen 150.000 und 800.000 Einwohnern liegen.
+
+</ScrollyMapStep>
+
+<ScrollyMapStep id="nuts3-local">
+  // Tooltip rechts Altena zum Beispiel liegt wie die Gemeinde Herscheid oder
+  die kreisangehörige Stadt Lüdenscheid im Märkischen Kreis. //Fun Facts zum
+  Märkischen Kreis.
+</ScrollyMapStep>
+
+<ScrollyMapStep id="nuts2">
+
+### Regierungsbezirke - NUTS-2
+
+Weniger eindeutig sind in Deutschland die NUTS-2
+Regionen besetzt. Im Regelfall handelt es sich um die Ebene der
+Regierungsbezirke. NUTS-2-Gebiete haben meist zwischen 800 000 und 3 Millionen
+Einwohner. Allerdings gibt es in Deutschland nicht in allen Bundesländern
+Regierungsbezirke.
+
+</ScrollyMapStep>
+
+<ScrollyMapStep id="nuts2-local">
+  // Tooltip rechts Altena im Märkischen Kreis gehört zum Regierungsbezirk
+  Arnsberg. Das ist einer von fünf Regierungsbezirken in Nordrhein-Westfalen. //
+  FunFacts Regierungsbezirk Arnsberg
+</ScrollyMapStep>
+
+<ScrollyMapStep id="nuts1">
+
+### Bundesländer - NUTS-1
+
+In Deutschland sind die NUTS-1-Regionen die 16 Bundesländer. Die Bevölkerung
+einer NUTS-1-Region liegt in aller Regel zwischen 3 und 7 Millionen
+Einwohnern.
+
+</ScrollyMapStep>
+
+<ScrollyMapStep id="nuts1-local">
+Nordrhein-Westfalen das Bundesland, in dem Altena liegt, ist das bevölkerungsreichste Bundesland. // FunFacts NRW
 </ScrollyMapStep>
 </ScrollyMap>
 
 <Container maxWidth="lg">
 <BodyText>
 
-## Nuts
+// Angedacht: Interaktive Karte:
 
-Steht für "Nomenclatur of Territorial Units for Statistics". (Einteilung von Gebieten für statistische Zwecke.) Die Abkürzung 'Nuts' (bedeutet nicht nur Nüsse, sondern auch 'verrückt' zeigt, dass es auch unter den mit Sonderfällen geplagten EU-Geografen Menschen mit Humor gibt.
+- Mit button Nuts-Levels umschalten
+- Per Mouseover highlighten wir immer die Eltern-Regionen
+- zeigen per Tooltip Name, AGS und Einwohnerzahl an, ggf. Fun-Fact
 
-## Lau
+## NUTS: Wichtig für die EU-Förderung
 
-Lau steht für Local Administrative Units, also lokale Verwaltungseinheiten. Sie umfassen die Gemeinden und Kommunen der Europäischen Union.
-? Das sind derzeit die kleinsten Verwaltungseinheiten für die auf EU-Ebene Daten erfasst werden.
+NUTS steht für "Nomenclatur of Territorial Units for Statistics". (Einteilung von Gebieten für statistische Zwecke.) Die Abkürzung 'NUTS' - bedeutet nicht nur Nüsse, sondern auch 'verrückt' - zeigt, dass es auch unter den mit Sonderfällen geplagten EU-Geografen Menschen mit Humor gibt.
 
-## Warum is das wichtig?
+Für die Regionen in der EU ist die Gebiets-Einteilung wichtig, weil sie Vergleiche und Rankings möglich macht. Welche Regionen liegen unter oder über dem EU-Durchschnitt? Welche Region liegt vorn oder hängt hinterher? Und: NUTS-Level spielen für die Regionalpolitik eine wichtige Rolle: Denn EU-Fördermittel werden konkreten NUTS-Regionen (vor allem NUTS-3-Regionen) zugewiesen.
 
-Welche Regionen liegen unter oder über dem EU-Durchschnitt? Welche Region liegt vorn oder hängt hinterher? NUTS-Regionen sind die Grundlage für die Beurteilung von Regionen durch die EU. Und sehr wichtig: EU-Fördermittel werden konkreten NUTS-Regionen (vor allem NUTS-3-Regionen) zugewiesen. NUTS-Level spielen also für die Regionalpolitik eine wichtige Rolle.
-
-## Gebiete
-
-In Deutschland sind die NUTS-1-Regionen die Bundesländer. Die Bevölkerung einer NUTS-1-Region liegt in aller Regel zwischen 3 und 7 Millionen Einwohnern.
-NUTS-1: 16 Länder
-
-NUTS-2-Regionen haben meist zwischen 800 000 und 3 Millionen Einwohnern. In Deutschland ist dies im Regelfall die Ebene der Regierungsbezirke.
-NUTS-2: 38 Regionen. Dabei handelt es sich um:
-19 Regierungsbezirke in den Ländern Baden-Württemberg (4), Bayern (7), Hessen (3) und Nordrhein-Westfalen (5)
-10 ehemalige Regierungsbezirke: in Rheinland-Pfalz drei Regierungsbezirke, die 2000 aufgelöst wurden, in Niedersachsen vier Regierungsbezirke, die 2005 aufgelöst wurden und jetzt als Statistische Regionen bezeichnet werden, und in Sachsen 3 Regierungsbezirke, später Direktionsbezirke, die 2012 aufgelöst wurden
-9 Länder, die auf dieser Ebene nicht weiter untergliedert werden: die „Stadtstaaten“ Berlin, Hamburg und Bremen, sowie die „Flächenländer“ Brandenburg, Mecklenburg-Vorpommern, Schleswig-Holstein, Sachsen-Anhalt, Saarland und Thüringen (Sie sind somit gleichzeitig NUTS-1-Regionen und NUTS-2-Regionen.)
-
-Die Bevölkerungszahl von NUTS-3-Regionen liegt generell zwischen 150 000 und 800 000 Einwohnern. NUTS-3 entspricht in Deutschland den Kreisen und kreisfreien Städten.
-NUTS-3: 401 Landkreise/Kreise und kreisfreie Städte bzw. in Baden-Württemberg Stadtkreise
-
-Die aktuelle NUTS-Systematik, gültig seit dem 1. Januar 2018, umfasst EU-weit 104 Regionen auf der NUTS-1-Ebene, 281 Regionen auf der NUTS-2-Ebene und 1 348 Regionen auf der NUTS-3-Ebene.
-
-LAU: 11.130 Gemeinden (früher: LAU-1: Gemeindezusammenschlüsse wie Samtgemeinden, Verwaltungsgemeinschaften oder Verwaltungsverbände, aber auch Einheitsgemeinden, LAU-2: Gemeinden und gemeindefreie Gebiete)
-Stand: 30. November 2018
+Das NUTS-System wird regelmäßig angepasst. Derzeit ist NUTS-2016 seit dem 1. Januar 2018 gültig. Das nächste Update ist schon in Vorbereitung: ab 1. Januar 2021 wird NUTS 2021 gültig sein.
 
 ## Unterschiede und Sonderfälle
 
-Trotz des Bestrebens, auf einer NUTS-Ebene Regionen vergleichbarer Größe zu schaffen, können sich diese sehr deutlich hinsichtlich ihrer Fläche, Bevölkerungszahl sowie ihrer wirtschaftlichen und verwaltungstechnischen Bedeutung unterscheiden. Luxemburg ist zum Beispiel gleichzeitig NUTS-Ebene 1, 2 und 3. In Deutschland sind unter anderem die Bundesländer Berlin, Hamburg, Mecklenburg-Vorpommern und das Saarland gleichzeitig NUTS-1- und NUTS-2-Regionen.
+Trotz des Ziels auf einer NUTS-Ebene Regionen vergleichbarer Größe zu schaffen, können sich diese deutlich in Bezug auf ihre Fläche, Bevölkerungszahl und ihrer wirtschaftlichen oder verwaltungstechnischen Bedeutung unterscheiden. Luxemburg ist zum Beispiel gleichzeitig NUTS-Ebene 1, 2 und 3.
+
+In Nordrhein-Westfalen gibt es 17.364.000 Einwohner aufgeteilt in 396 politisch selbstständige Gemeinden, 53 Landkreise und kreisfreie Städte und 5 Regierungsbezirke. Im Vergleich dazu hat Mecklenburg-Vorpommern nur 1.609.675 Einwohner in 726 politisch selbstständige Gemeinden, dafür gibts es aber nur 8 Landkreise und Kreisfreie Städte. Und keine Regierungsbezirke.
+
+### Gleichzeitig NUTS-1 und NUTS-2
+
+In Deutschland sind unter anderem die Bundesländer Berlin, Hamburg, Mecklenburg-Vorpommern und das Saarland gleichzeitig NUTS-1- und NUTS-2-Regionen.
 
 ## FunFacts:
 
 - Brandenburg
   Brandenburg wurde von 2003 bis 2011 in die NUTS-2-Regionen Brandenburg-Nordost und Brandenburg-Südwest geteilt, in der Absicht, nach der EU-Erweiterung vom 1. Mai 2004 wenigstens noch für den ärmeren Nordosten weiterhin EU-Fördergelder zugewiesen zu bekommen.
+
+## Datenfragen
+
+Lau:
+
+- Haben wir überhaupt Daten auf Gemeindeebene?
+- Geokarte auf Gemeindeebene
+- Gesamtzahl der Gemeinden 11.300?
+- Bevölkerungszahl, Fläche, Einwohner pro qm2
+
+- NUTS-3
+  https://github.com/hackingstudio/locationbased-newsgame/tree/main/content
+
+- NUTS-2
+  ?
+
+- NUTS-1
+  https://github.com/hackingstudio/locationbased-newsgame/tree/main/content
 
 <Grid container direction="row" justify="center" spacing={2}>
   <Grid item xs={12} sm={6}>
@@ -106,6 +153,7 @@ Trotz des Bestrebens, auf einer NUTS-Ebene Regionen vergleichbarer Größe zu sc
       height="400px"
     />
   </Grid>
+
   <Grid item xs={12} sm={6}>
     <SimpleMap
       latitude={51.427}
@@ -116,12 +164,6 @@ Trotz des Bestrebens, auf einer NUTS-Ebene Regionen vergleichbarer Größe zu sc
     />
   </Grid>
 </Grid>
-
-Exercitation eu eu commodo labore aute Lorem reprehenderit. Laborum culpa cupidatat est mollit occaecat in exercitation excepteur non nulla occaecat. Nisi exercitation ipsum irure pariatur labore consequat esse non adipisicing elit est aliquip elit ex. Elit officia officia magna aute do reprehenderit aliqua magna. Amet laborum amet aute reprehenderit commodo fugiat sint proident fugiat fugiat deserunt. Quis velit esse ipsum est deserunt do nostrud qui duis anim. In incididunt id est occaecat ut est nostrud labore dolor consequat.
-
-Sit in non labore fugiat Lorem aute voluptate. Ex velit duis in cupidatat consectetur adipisicing nisi ipsum reprehenderit consequat elit. Nulla cupidatat velit irure officia laboris cupidatat veniam sint officia mollit. Occaecat est cillum aute id. Ex cupidatat dolor ex nulla tempor. Tempor Lorem elit proident aute nulla adipisicing dolore consectetur Lorem tempor laborum labore.
-
-In aliqua anim ullamco velit duis. Et irure Lorem amet ea officia deserunt eu qui aliquip tempor culpa in. Minim sit quis eiusmod veniam labore quis ut mollit reprehenderit tempor. Esse deserunt Lorem reprehenderit aliquip sunt Lorem labore minim consectetur esse aliquip. Ad ea in qui adipisicing ad consequat nisi qui commodo ullamco ex.
 
 <Grid container direction="row" justify="center" spacing={2}>
   <Grid item xs={12} sm={6}>
@@ -137,12 +179,6 @@ In aliqua anim ullamco velit duis. Et irure Lorem amet ea officia deserunt eu qu
     <SimpleMap src="/geo/bundeslaender.json" width="100%" height="400px" />
   </Grid>
 </Grid>
-
-Exercitation eu eu commodo labore aute Lorem reprehenderit. Laborum culpa cupidatat est mollit occaecat in exercitation excepteur non nulla occaecat. Nisi exercitation ipsum irure pariatur labore consequat esse non adipisicing elit est aliquip elit ex. Elit officia officia magna aute do reprehenderit aliqua magna. Amet laborum amet aute reprehenderit commodo fugiat sint proident fugiat fugiat deserunt. Quis velit esse ipsum est deserunt do nostrud qui duis anim. In incididunt id est occaecat ut est nostrud labore dolor consequat.
-
-Sit in non labore fugiat Lorem aute voluptate. Ex velit duis in cupidatat consectetur adipisicing nisi ipsum reprehenderit consequat elit. Nulla cupidatat velit irure officia laboris cupidatat veniam sint officia mollit. Occaecat est cillum aute id. Ex cupidatat dolor ex nulla tempor. Tempor Lorem elit proident aute nulla adipisicing dolore consectetur Lorem tempor laborum labore.
-
-In aliqua anim ullamco velit duis. Et irure Lorem amet ea officia deserunt eu qui aliquip tempor culpa in. Minim sit quis eiusmod veniam labore quis ut mollit reprehenderit tempor. Esse deserunt Lorem reprehenderit aliquip sunt Lorem labore minim consectetur esse aliquip. Ad ea in qui adipisicing ad consequat nisi qui commodo ullamco ex.
 
 </BodyText>
 </Container>
