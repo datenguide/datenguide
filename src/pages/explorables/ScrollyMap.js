@@ -14,38 +14,27 @@ const ShapeLayer = dynamic(
   { ssr: false }
 )
 
+const bounds = [
+  [5.8663, 50.3226],
+  [9.4617, 52.5315],
+]
+
 const steps = [
   {
     id: 'lau',
     title: 'Gemeinden',
-    bounds: [
-      [7.41721, 51.06859],
-      [7.951286, 51.478409],
-    ],
   },
   {
     id: 'nuts3',
     title: 'Landkreise',
-    bounds: [
-      [5.8663, 50.3226],
-      [9.4617, 52.5315],
-    ],
   },
   {
     id: 'nuts2',
     title: 'Statistische Regionen',
-    bounds: [
-      [5.8663, 50.3226],
-      [9.4617, 52.5315],
-    ],
   },
   {
     id: 'nuts1',
     title: 'Bundesländer',
-    bounds: [
-      [5.8663, 50.3226],
-      [9.4617, 52.5315],
-    ],
   },
 ]
 
@@ -102,7 +91,7 @@ function computeViewport(bounds) {
 class Graphic extends PureComponent {
   state = {
     currentStep: steps[0].id,
-    viewport: computeViewport(steps[0].bounds),
+    viewport: computeViewport(bounds),
     settings: {
       dragPan: false,
       dragRotate: false,
@@ -117,13 +106,7 @@ class Graphic extends PureComponent {
 
   handleStepEnter = ({ element, data }) => {
     element.style.opacity = 0.9
-    const { bounds } = steps.find(({ id }) => id === data)
-    const viewport = computeViewport(bounds)
-    console.log('bounds', viewport.zoom)
-    this.setState({
-      currentStep: data,
-      viewport,
-    })
+    this.setState({ currentStep: data })
   }
 
   handleStepExit = ({ element }) => {
@@ -150,22 +133,18 @@ class Graphic extends PureComponent {
           >
             <h1 style={{ textAlign: 'right' }}>{currentStep}</h1>
             <ShapeLayer
-              key="lau"
               src="/geo/nrw_gemeinden.json"
               hidden={currentStep !== 'lau'}
             />
             <ShapeLayer
-              key="nuts1"
               src="/geo/nrw_landkreise.json"
               hidden={currentStep !== 'nuts3'}
             />
             <ShapeLayer
-              key="nuts2"
               src="/geo/nrw_regierungsbezirke.json"
               hidden={currentStep !== 'nuts2'}
             />
             <ShapeLayer
-              key="nuts3"
               src="/geo/bundeslaender.json"
               hidden={currentStep !== 'nuts1'}
             />
