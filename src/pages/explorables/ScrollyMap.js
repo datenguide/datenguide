@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import { Scrollama, Step } from 'react-scrollama'
 import dynamic from 'next/dynamic'
-
 import { WebMercatorViewport } from 'react-map-gl'
 
 const Map = dynamic(
@@ -15,9 +14,39 @@ const ShapeLayer = dynamic(
   { ssr: false }
 )
 
-const bounds = [
-  [5.8663, 50.3226],
-  [9.4617, 52.5315],
+const steps = [
+  {
+    id: 'lau',
+    title: 'Gemeinden',
+    bounds: [
+      [7.41721, 51.06859],
+      [7.951286, 51.478409],
+    ],
+  },
+  {
+    id: 'nuts3',
+    title: 'Landkreise',
+    bounds: [
+      [5.8663, 50.3226],
+      [9.4617, 52.5315],
+    ],
+  },
+  {
+    id: 'nuts2',
+    title: 'Statistische Regionen',
+    bounds: [
+      [5.8663, 50.3226],
+      [9.4617, 52.5315],
+    ],
+  },
+  {
+    id: 'nuts1',
+    title: 'Bundesländer',
+    bounds: [
+      [5.8663, 50.3226],
+      [9.4617, 52.5315],
+    ],
+  },
 ]
 
 const styles = {
@@ -38,7 +67,7 @@ const styles = {
     position: 'relative',
     top: '-100vh',
     marginBottom: '-100vh',
-    width: '33%',
+    width: '40%',
   },
   step: {
     opacity: 0.4,
@@ -53,7 +82,8 @@ const styles = {
   },
 }
 
-function computeViewport() {
+function computeViewport(bounds) {
+  if (!process.browser) return {} // In SSR, it is not possible to compute the viewport
   const { clientWidth, clientHeight } = document.documentElement
   const offset = clientWidth / 3
   return new WebMercatorViewport({
@@ -71,7 +101,8 @@ function computeViewport() {
 
 class Graphic extends PureComponent {
   state = {
-    viewport: process.browser ? computeViewport() : {},
+    currentStep: steps[0].id,
+    viewport: computeViewport(steps[0].bounds),
     settings: {
       dragPan: false,
       dragRotate: false,
@@ -82,30 +113,17 @@ class Graphic extends PureComponent {
       doubleClickZoom: false,
       mapboxApiAccessToken: process.env.MAPBOX_TOKEN,
     },
-    currentStep: 'lau',
-    steps: [
-      {
-        id: 'lau',
-        title: 'Gemeinden',
-      },
-      {
-        id: 'nuts3',
-        title: 'Landkreise',
-      },
-      {
-        id: 'nuts2',
-        title: 'Statistische Regionen',
-      },
-      {
-        id: 'nuts1',
-        title: 'Bundesländer',
-      },
-    ],
   }
 
   handleStepEnter = ({ element, data }) => {
     element.style.opacity = 0.9
-    this.setState({ currentStep: data })
+    const { bounds } = steps.find(({ id }) => id === data)
+    const viewport = computeViewport(bounds)
+    console.log('bounds', viewport.zoom)
+    this.setState({
+      currentStep: data,
+      viewport,
+    })
   }
 
   handleStepExit = ({ element }) => {
@@ -118,7 +136,7 @@ class Graphic extends PureComponent {
   }
 
   render() {
-    const { currentStep, steps, viewport, settings } = this.state
+    const { currentStep, viewport, settings } = this.state
     const { classes } = this.props
     // console.log('currentStep', currentStep)
 
@@ -130,7 +148,7 @@ class Graphic extends PureComponent {
             settings={settings}
             onViewportChange={(viewport) => this.setState({ viewport })}
           >
-            <h1>{currentStep}</h1>
+            <h1 style={{ textAlign: 'right' }}>{currentStep}</h1>
             <ShapeLayer
               key="lau"
               src="/geo/nrw_gemeinden.json"
