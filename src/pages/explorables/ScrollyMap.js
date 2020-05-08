@@ -19,6 +19,25 @@ const bounds = [
   [9.4617, 52.5315],
 ]
 
+const layerOptions = {
+  municipalities: {
+    filter: ['!=', 'GEN', 'Altena'],
+    paint: {
+      'fill-color': '#004443',
+      'fill-opacity': 0.1,
+      'fill-outline-color': '#ffffff',
+    },
+  },
+  municipalitiesHighlight: {
+    filter: ['==', 'GEN', 'Altena'],
+    paint: {
+      'fill-color': '#004443',
+      'fill-opacity': 0.8,
+      'fill-outline-color': '#ffffff',
+    },
+  },
+}
+
 const steps = [
   {
     id: 'lau',
@@ -134,6 +153,12 @@ class Graphic extends PureComponent {
             <h1 style={{ textAlign: 'right' }}>{currentStep}</h1>
             <ShapeLayer
               src="/geo/nrw_gemeinden.json"
+              options={layerOptions.municipalitiesHighlight}
+              hidden={currentStep !== 'lau'}
+            />
+            <ShapeLayer
+              src="/geo/nrw_gemeinden.json"
+              options={layerOptions.municipalities}
               hidden={currentStep !== 'lau'}
             />
             <ShapeLayer
