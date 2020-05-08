@@ -1,0 +1,21 @@
+---
+title: 'Amtlicher Gemeindeschlüssel - interaktiv erklärt'
+description: ''
+metaImage: '/images/explorable_explanations.jpg'
+author: Patricia Ennenbach
+date: 2020-04-20
+layout: BlogPostCustom
+published: false
+lang: de
+---
+
+import Grid from '@material-ui/core/Grid'
+import Container from '@material-ui/core/Container'
+import BodyText from '../../components/BodyText'
+
+<Container maxWidth="lg">
+  <BodyText>
+
+  Wir vom Datenguide erklären dir den Amtlichen Gemeindeschlüssel.
+  </BodyText>
+</Container>

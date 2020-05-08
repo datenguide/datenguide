@@ -1,6 +1,6 @@
 ---
-title: '🎉 Erstes Test Explorables'
-description: 'Explorable Explanations: Wir machen Statistik spielerisch erlebbar.'
+title: 'Nüsse? Was für Nüsse?'
+description: ''
 metaImage: '/images/explorable_explanations.jpg'
 author: Patricia Ennenbach
 date: 2020-04-20
@@ -17,14 +17,13 @@ import SimpleMap from './SimpleMap'
 
 <Container maxWidth="lg">
   <BodyText>
-    Das Datenguide-Team ist in der **7. Förderrunde des Prototype Funds** dabei.
-    Mit dieser Projektförderung werden wir ab März 2019 an neuen
-    Darstellungsformen für amtliche Statistiken arbeiten. Mit _Explorable
-    Explanations_ wollen wir statistische Daten und Zusammenhänge anhand von
-    praktischen Beispielen erfahrbar machen, zum Beispiel als interaktive
-    Grafiken oder kleine digitale Spiele. Explorable Explanations könnten zum
-    Beispiel zeigen, wie statistische Daten erhoben werden oder wo Fallstricke
-    bei der Darstellungen von Statistiken liegen.
+
+// Pyramide: Land, Bundesländer, Regierungsbezirke, Landkreise, Gemeinden
+
+Bei der Suche nach amtlichen Daten für eine Region begegnen dir oft Begriffe wie 'Nuts-Level', 'Lau' oder 'regionale Tiefe', dabei geht es um die Einteilung und Vergleichbarkeit von Gebieten. Wo gibt es die meisten Kühe? Wer erzeugt den meisten Müll? Um diese Fragen zu beantworten, muss klar sein, dass ähnliche Gebiete miteinander verglichen werden. In Deutschland sind das Bundesländer, Landkreise, Gemeinden - dazu kommen Sonderfälle wie Stadtstaaten (Hamburg, Bremen, Berlin) oder Regierungsbezirke, die es nur in einigen Bundesländern gibt. Auf dieser Grundlage teilt die EU europäische Gebiete in drei Stufen ein: Nuts-1 bis Nuts-3. So werden Regionen auch über Grenzen hinweg vergleichbar.
+
+Wir vom Datenguide zeigen dir die Einteilung und ihre Sonderfälle für Deutschland, damit du dich schnell in den Regionaldaten zurecht findest.
+
   </BodyText>
 </Container>
 
@@ -33,13 +32,46 @@ import SimpleMap from './SimpleMap'
 <Container maxWidth="lg">
   <BodyText>
 
-## Ein Werkzeugkasten für interaktive Erklärungen
+## Nuts
 
-Im Rahmen der Projektförderung durch den Prototype Fund entwickeln wir nicht nur Inhalte sondern auch die zugrundeliegende Technik. Wir erarbeiten ein Set von wiederverwendbaren Komponenten, mit denen Explorable Explanations erstellt werden können. Mit diesen Komponenten werden wir auch über die Projektdauer hinaus an interaktiven Erklärstücken arbeiten. Außerdem veröffentlichen wir unsere Projektergebnisse unter einer freien Lizenz, damit auch andere unsere Inhalte und unseren Code weiterverwenden können.
+Steht für "Nomenclatur of Territorial Units for Statistics". (Einteilung von Gebieten für statistische Zwecke.) Die Abkürzung 'Nuts' (bedeutet nicht nur Nüsse, sondern auch 'verrückt' zeigt, dass es auch unter den mit Sonderfällen geplagten EU-Geografen Menschen mit Humor gibt.
 
-## Über den Prototype Fund
+## Lau
 
-Der Prototype Fund ist ein Förderprogramm, das Open-Source-Initiativen für ein halbes Jahr mit bis zu 47.500 Euro unterstützt. Er ist ein Projekt der Open Knowledge Foundation und wird vom Bundesministerium für Bildung und Forschung (BMBF) finanziert. Übrigens: Der Datenguide ist bereits ein Alumni des Prototype Fund. Der Grundstein für das Datenguide-Projekt wurde 2018 in der 2. Förderphase des Prototype Funds gelegt, damals noch unter dem Arbeitstitel [Datenland](https://prototypefund.de/project/datenland/).
+Lau steht für Local Administrative Units, also lokale Verwaltungseinheiten. Sie umfassen die Gemeinden und Kommunen der Europäischen Union.
+? Das sind derzeit die kleinsten Verwaltungseinheiten für die auf EU-Ebene Daten erfasst werden.
+
+## Warum is das wichtig?
+
+Welche Regionen liegen unter oder über dem EU-Durchschnitt? Welche Region liegt vorn oder hängt hinterher? NUTS-Regionen sind die Grundlage für die Beurteilung von Regionen durch die EU. Und sehr wichtig: EU-Fördermittel werden konkreten NUTS-Regionen (vor allem NUTS-3-Regionen) zugewiesen. NUTS-Level spielen also für die Regionalpolitik eine wichtige Rolle.
+
+## Gebiete
+
+In Deutschland sind die NUTS-1-Regionen die Bundesländer. Die Bevölkerung einer NUTS-1-Region liegt in aller Regel zwischen 3 und 7 Millionen Einwohnern.
+NUTS-1: 16 Länder
+
+NUTS-2-Regionen haben meist zwischen 800 000 und 3 Millionen Einwohnern. In Deutschland ist dies im Regelfall die Ebene der Regierungsbezirke.
+NUTS-2: 38 Regionen. Dabei handelt es sich um:
+19 Regierungsbezirke in den Ländern Baden-Württemberg (4), Bayern (7), Hessen (3) und Nordrhein-Westfalen (5)
+10 ehemalige Regierungsbezirke: in Rheinland-Pfalz drei Regierungsbezirke, die 2000 aufgelöst wurden, in Niedersachsen vier Regierungsbezirke, die 2005 aufgelöst wurden und jetzt als Statistische Regionen bezeichnet werden, und in Sachsen 3 Regierungsbezirke, später Direktionsbezirke, die 2012 aufgelöst wurden
+9 Länder, die auf dieser Ebene nicht weiter untergliedert werden: die „Stadtstaaten“ Berlin, Hamburg und Bremen, sowie die „Flächenländer“ Brandenburg, Mecklenburg-Vorpommern, Schleswig-Holstein, Sachsen-Anhalt, Saarland und Thüringen (Sie sind somit gleichzeitig NUTS-1-Regionen und NUTS-2-Regionen.)
+
+Die Bevölkerungszahl von NUTS-3-Regionen liegt generell zwischen 150 000 und 800 000 Einwohnern. NUTS-3 entspricht in Deutschland den Kreisen und kreisfreien Städten.
+NUTS-3: 401 Landkreise/Kreise und kreisfreie Städte bzw. in Baden-Württemberg Stadtkreise
+
+Die aktuelle NUTS-Systematik, gültig seit dem 1. Januar 2018, umfasst EU-weit 104 Regionen auf der NUTS-1-Ebene, 281 Regionen auf der NUTS-2-Ebene und 1 348 Regionen auf der NUTS-3-Ebene.
+
+LAU: 11.130 Gemeinden (früher: LAU-1: Gemeindezusammenschlüsse wie Samtgemeinden, Verwaltungsgemeinschaften oder Verwaltungsverbände, aber auch Einheitsgemeinden, LAU-2: Gemeinden und gemeindefreie Gebiete)
+Stand: 30. November 2018
+
+## Unterschiede und Sonderfälle
+
+Trotz des Bestrebens, auf einer NUTS-Ebene Regionen vergleichbarer Größe zu schaffen, können sich diese sehr deutlich hinsichtlich ihrer Fläche, Bevölkerungszahl sowie ihrer wirtschaftlichen und verwaltungstechnischen Bedeutung unterscheiden. Luxemburg ist zum Beispiel gleichzeitig NUTS-Ebene 1, 2 und 3. In Deutschland sind unter anderem die Bundesländer Berlin, Hamburg, Mecklenburg-Vorpommern und das Saarland gleichzeitig NUTS-1- und NUTS-2-Regionen.
+
+## FunFacts:
+
+- Brandenburg
+  Brandenburg wurde von 2003 bis 2011 in die NUTS-2-Regionen Brandenburg-Nordost und Brandenburg-Südwest geteilt, in der Absicht, nach der EU-Erweiterung vom 1. Mai 2004 wenigstens noch für den ärmeren Nordosten weiterhin EU-Fördergelder zugewiesen zu bekommen.
 
 <Grid container direction="row" justify="center" spacing={2}>
   <Grid item xs={12} sm={6}>
