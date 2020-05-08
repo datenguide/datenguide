@@ -3,6 +3,7 @@ import { withStyles } from '@material-ui/core/styles'
 import { Scrollama, Step } from 'react-scrollama'
 import dynamic from 'next/dynamic'
 import { WebMercatorViewport } from 'react-map-gl'
+import RegionTooltip from './RegionTooltip'
 
 const Map = dynamic(
   () => import('@datenguide/explorables').then(({ Map }) => Map),
@@ -38,25 +39,6 @@ const layerOptions = {
   },
 }
 
-const steps = [
-  {
-    id: 'lau',
-    title: 'Gemeinden',
-  },
-  {
-    id: 'nuts3',
-    title: 'Landkreise',
-  },
-  {
-    id: 'nuts2',
-    title: 'Statistische Regionen',
-  },
-  {
-    id: 'nuts1',
-    title: 'Bundesländer',
-  },
-]
-
 const styles = {
   main: {
     padding: '2em 0',
@@ -65,6 +47,7 @@ const styles = {
   map: {
     position: 'sticky',
     width: '100%',
+    height: '100vh',
     padding: '0',
     top: '3em',
     left: 0,
@@ -109,7 +92,6 @@ function computeViewport(bounds) {
 
 class ScrollyMapComponent extends PureComponent {
   state = {
-    currentStep: steps[0].id,
     viewport: computeViewport(bounds),
     settings: {
       dragPan: false,
@@ -150,15 +132,21 @@ class ScrollyMapComponent extends PureComponent {
             onViewportChange={(viewport) => this.setState({ viewport })}
           >
             <h1 style={{ textAlign: 'right' }}>{currentStep}</h1>
+
             <ShapeLayer
               src="/geo/nrw_gemeinden.json"
               options={layerOptions.municipalitiesHighlight}
-              hidden={currentStep !== 'lau'}
+              hidden={currentStep && currentStep !== 'lau'}
             />
+
+            {currentStep === 'lau' && (
+              <RegionTooltip lonLat={[7.672, 51.281]} title="Altena" />
+            )}
+
             <ShapeLayer
               src="/geo/nrw_gemeinden.json"
               options={layerOptions.municipalities}
-              hidden={currentStep !== 'lau'}
+              hidden={currentStep && currentStep !== 'lau'}
             />
             <ShapeLayer
               src="/geo/nrw_landkreise.json"
