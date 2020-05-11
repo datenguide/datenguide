@@ -26,7 +26,7 @@ const layerOptions = {
     paint: {
       'fill-color': '#004443',
       'fill-opacity': 0.1,
-      'fill-outline-color': '#ffffff',
+      'fill-outline-color': '#004443',
     },
   },
   municipalitiesHighlight: {
@@ -101,6 +101,7 @@ class ScrollyMapComponent extends PureComponent {
       touchRotate: false,
       keyboard: false,
       doubleClickZoom: false,
+      mapStyle: 'mapbox://styles/datenguide/cka2hksel3jxf1iobq6rxka0l',
       mapboxApiAccessToken: process.env.MAPBOX_TOKEN,
     },
   }
