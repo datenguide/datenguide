@@ -18,9 +18,9 @@ import SimpleMap from './SimpleMap'
 <Container maxWidth="lg">
 <BodyText>
 
-// Pyramide: Land, Bundesländer, Regierungsbezirke, Landkreise, Gemeinden
+// gif? Pyramide: Land, Bundesländer, Regierungsbezirke, Landkreise, Gemeinden
 
-Bei der Suche nach amtlichen Daten für eine Region begegnen dir oft Begriffe wie 'Nuts-Level', 'Lau' oder 'regionale Tiefe', dabei geht es um die Einteilung und Vergleichbarkeit von Gebieten. Wo gibt es die meisten Kühe? Wer erzeugt den meisten Müll? Um diese Fragen zu beantworten, muss klar sein, dass ähnliche Gebiete miteinander verglichen werden.
+Bei der Suche nach amtlichen Daten für eine Region begegnen dir oft Begriffe wie 'regionale Tiefe', 'Nuts-Level' oder 'Lau'. Dabei geht es um die Einteilung und Vergleichbarkeit von Gebieten. Wo gibt es die meisten Kühe? Wer erzeugt den meisten Müll? Um diese Fragen zu beantworten, muss klar sein, dass ähnliche und gleichbleibende Gebiete miteinander verglichen werden.
 
 In Deutschland sind das Bundesländer, Landkreise, Gemeinden - dazu kommen Sonderfälle wie Stadtstaaten (Hamburg, Bremen, Berlin) oder Regierungsbezirke, die es nur in einigen Bundesländern gibt. Auf dieser Grundlage teilt die EU europäische Gebiete in drei Stufen ein: Nuts-1 bis Nuts-3. So werden Regionen auch über Grenzen hinweg vergleichbar.
 
@@ -35,7 +35,7 @@ Wir vom Datenguide zeigen dir die Einteilung und ihre Sonderfälle für Deutschl
 
 ### Gemeinden - LAU
 
-Die Grundbausteine der regionalen Einteilung bilden in Deutschland über 11.000 Gemeinden. In der EU werden diese kleinsten Einheiten als LAU, Local Administrative Units, also lokale Verwaltungseinheiten bezeichnet. Da die LAU häufig geändert werden, veröffentlicht Eurostat gegen Ende jeden Jahres eine aktualisierte Liste.
+Die Grundbausteine der regionalen Einteilung bilden in Deutschland 11.030 Gemeinden. In der EU werden diese kleinsten Einheiten als LAU, Local Administrative Units, also lokale Verwaltungseinheiten bezeichnet. Da die LAU häufig geändert werden, veröffentlicht Eurostat gegen Ende jeden Jahres eine aktualisierte Liste.
 
 </ScrollyMapStep>
 
@@ -96,17 +96,23 @@ Nordrhein-Westfalen das Bundesland, in dem Altena liegt, ist das bevölkerungsre
 <Container maxWidth="lg">
 <BodyText>
 
-// Angedacht: Interaktive Karte:
+## Weniger Gemeinden
 
-- Mit button Nuts-Levels umschalten
-- Per Mouseover highlighten wir immer die Eltern-Regionen
-- zeigen per Tooltip Name, AGS und Einwohnerzahl an, ggf. Fun-Fact
+In Deutschland geht die Zahl der Gemeinden seit über 20 Jahren immer weiter zurück.
+
+// https://www.datawrapper.de/_/JYU8f/
+// https://tabular.genesapi.org/?region=DG&data=11111%3AGEM001
+
+## Große Unterschiede
+
+Während Rheinland-Pfalz bei der Zahl der Einwohner nur an sechster Stelle steht, ist es aber das Land mit den meisten Gemeinden in Deutschland:
+// https://www.datawrapper.de/_/JNe0o/
+// Abfrage so noch nicht möglich
+Wobei 96 Städte und 2165 Ortsgemeinden sich zu 129 Verbandsgemeinden zusammengeschlossen haben, die für die angehörenden Gemeinden die Verwaltungsgeschäfte übernehmen.
 
 ## NUTS: Wichtig für die EU-Förderung
 
-NUTS steht für "Nomenclatur of Territorial Units for Statistics". (Einteilung von Gebieten für statistische Zwecke.) Die Abkürzung 'NUTS' - bedeutet nicht nur Nüsse, sondern auch 'verrückt' - zeigt, dass es auch unter den mit Sonderfällen geplagten EU-Geografen Menschen mit Humor gibt.
-
-Für die Regionen in der EU ist die Gebiets-Einteilung wichtig, weil sie Vergleiche und Rankings möglich macht. Welche Regionen liegen unter oder über dem EU-Durchschnitt? Welche Region liegt vorn oder hängt hinterher? Und: NUTS-Level spielen für die Regionalpolitik eine wichtige Rolle: Denn EU-Fördermittel werden konkreten NUTS-Regionen (vor allem NUTS-3-Regionen) zugewiesen.
+NUTS steht für "Nomenclatur of Territorial Units for Statistics". (Einteilung von Gebieten für statistische Zwecke.) Für die Regionen in der EU ist die Gebiets-Einteilung wichtig, weil sie Vergleiche und Rankings möglich macht. Welche Regionen liegen unter oder über dem EU-Durchschnitt? Welche Region liegt vorn oder hängt hinterher? Und: NUTS-Level spielen für die Regionalpolitik eine wichtige Rolle: Denn EU-Fördermittel werden konkreten NUTS-Regionen (vor allem NUTS-3-Regionen) zugewiesen.
 
 Das NUTS-System wird regelmäßig angepasst. Derzeit ist NUTS-2016 seit dem 1. Januar 2018 gültig. Das nächste Update ist schon in Vorbereitung: ab 1. Januar 2021 wird NUTS 2021 gültig sein.
 
