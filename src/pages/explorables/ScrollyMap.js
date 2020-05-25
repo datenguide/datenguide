@@ -69,7 +69,6 @@ const styles = {
   stepInner: {
     background: 'white',
     padding: '1rem',
-    fontSize: '1.5rem',
   },
 }
 
