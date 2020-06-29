@@ -120,7 +120,7 @@ class ScrollyMapComponent extends PureComponent {
   }
 
   render() {
-    const { currentStep, viewport, settings } = this.state
+    const { currentStep = '', viewport, settings } = this.state
     const { children, classes } = this.props
 
     return (
@@ -135,19 +135,20 @@ class ScrollyMapComponent extends PureComponent {
 
             <ShapeLayer
               src="/geo/nrw_gemeinden.json"
-              options={layerOptions.municipalitiesHighlight}
-              hidden={currentStep && currentStep !== 'lau'}
+              options={layerOptions.municipalities}
+              hidden={currentStep !== 'lau' && currentStep !== 'lau-local'}
             />
 
-            {currentStep === 'lau' && (
+            {currentStep === 'lau-local' && (
               <RegionTooltip lonLat={[7.672, 51.281]} title="Altena" />
             )}
 
             <ShapeLayer
               src="/geo/nrw_gemeinden.json"
-              options={layerOptions.municipalities}
-              hidden={currentStep && currentStep !== 'lau'}
+              options={layerOptions.municipalitiesHighlight}
+              hidden={currentStep !== 'lau-local'}
             />
+
             <ShapeLayer
               src="/geo/nrw_landkreise.json"
               hidden={currentStep !== 'nuts3'}
