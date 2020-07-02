@@ -8936,6 +8936,13 @@ raw-loader@^2.0.0:
     loader-utils "^1.1.0"
     schema-utils "^1.0.0"
 
+react-datawrapper-chart@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/react-datawrapper-chart/-/react-datawrapper-chart-1.0.3.tgz#59cd8762222197de2e66d0266f5f63f1b5eefa40"
+  integrity sha512-TiF5XQwrkluBFUPyka073K8m/fKaKZIzP7yXSssMt8RYnpxCIV4rX9bUjg4TrAN9gzxq/ZKE9mDh9ywO48Vytg==
+  dependencies:
+    prop-types "^15.7.2"
+
 react-dom@^16.13.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.13.1.tgz#c1bd37331a0486c078ee54c4740720993b2e0e7f"

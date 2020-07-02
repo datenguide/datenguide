@@ -80,6 +80,7 @@
     "prop-types": "^15.7.2",
     "query-string": "^6.12.1",
     "react": "^16.13.1",
+    "react-datawrapper-chart": "^1.0.3",
     "react-dom": "^16.13.1",
     "react-highlight": "^0.12.0",
     "react-highlight-words": "^0.16.0",
