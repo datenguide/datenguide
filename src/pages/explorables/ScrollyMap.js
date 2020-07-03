@@ -22,7 +22,6 @@ const bounds = [
 
 const layerOptions = {
   municipalities: {
-    filter: ['!=', 'GEN', 'Altena'],
     paint: {
       'fill-color': '#004443',
       'fill-opacity': 0.1,
@@ -112,11 +111,18 @@ class ScrollyMapComponent extends PureComponent {
 
   handleStepExit = ({ element }) => {
     element.style.opacity = 0.4
-    // console.log('exit', element)
   }
 
-  handleStepProgress = ({ element, progress }) => {
-    // console.log('progress', element, progress)
+  updateDimensions = () => {
+    this.setState({ viewport: computeViewport(bounds) })
+  }
+
+  componentDidMount() {
+    window.addEventListener('resize', this.updateDimensions)
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateDimensions)
   }
 
   render() {
@@ -168,8 +174,6 @@ class ScrollyMapComponent extends PureComponent {
             <Scrollama
               onStepEnter={this.handleStepEnter}
               onStepExit={this.handleStepExit}
-              progress
-              onStepProgress={this.handleStepProgress}
               offset={0.5}
             >
               {React.Children.map(children, (child, i) => (
