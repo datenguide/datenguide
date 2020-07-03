@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import { withStyles } from '@material-ui/core/styles'
+import { withStyles, withTheme } from '@material-ui/core/styles'
 import { Scrollama, Step } from 'react-scrollama'
 import dynamic from 'next/dynamic'
 import { WebMercatorViewport } from 'react-map-gl'
@@ -38,7 +38,7 @@ const layerOptions = {
   },
 }
 
-const styles = {
+const styles = (theme) => ({
   main: {
     padding: '2em 0',
     position: 'relative',
@@ -57,24 +57,37 @@ const styles = {
     position: 'relative',
     top: '-100vh',
     marginBottom: '-100vh',
-    width: '40%',
+
+    [theme.breakpoints.up('md')]: {
+      width: '50%',
+    },
+
+    [theme.breakpoints.up('lg')]: {
+      width: '40%',
+    },
   },
   step: {
     opacity: 0.4,
     transition: 'opacity 300ms',
-    minHeight: '66vh',
     padding: 20,
+    marginBottom: '66vh',
   },
   stepInner: {
     background: 'white',
     padding: '1rem',
   },
+})
+
+function getOffset(width, { values }) {
+  if (width > values.md) return width / 2
+  if (width > values.lg) return width / 3
+  return 0
 }
 
-function computeViewport(bounds) {
+function computeViewport(bounds, breakpoints) {
   if (!process.browser) return {} // In SSR, it is not possible to compute the viewport
   const { clientWidth, clientHeight } = document.documentElement
-  const offset = clientWidth / 3
+  const offset = getOffset(clientWidth, breakpoints)
   return new WebMercatorViewport({
     width: clientWidth,
     height: clientHeight,
@@ -90,7 +103,7 @@ function computeViewport(bounds) {
 
 class ScrollyMapComponent extends PureComponent {
   state = {
-    viewport: computeViewport(bounds),
+    viewport: computeViewport(bounds, this.props.theme.breakpoints),
     settings: {
       dragPan: false,
       dragRotate: false,
@@ -114,7 +127,8 @@ class ScrollyMapComponent extends PureComponent {
   }
 
   updateDimensions = () => {
-    this.setState({ viewport: computeViewport(bounds) })
+    const { breakpoints } = this.props.theme
+    this.setState({ viewport: computeViewport(bounds, breakpoints) })
   }
 
   componentDidMount() {
@@ -174,7 +188,7 @@ class ScrollyMapComponent extends PureComponent {
             <Scrollama
               onStepEnter={this.handleStepEnter}
               onStepExit={this.handleStepExit}
-              offset={0.5}
+              offset={0.7}
             >
               {React.Children.map(children, (child, i) => (
                 <Step data={child.props.id} key={i}>
@@ -193,4 +207,4 @@ export const ScrollyMapStep = withStyles(styles)(({ classes, children }) => (
   <div className={classes.stepInner}>{children}</div>
 ))
 
-export const ScrollyMap = withStyles(styles)(ScrollyMapComponent)
+export const ScrollyMap = withTheme(withStyles(styles)(ScrollyMapComponent))
