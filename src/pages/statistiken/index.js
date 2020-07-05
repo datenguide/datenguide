@@ -15,9 +15,8 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     backgroundColor: '#f5f5f5',
     display: 'flex',
-    flexDirection: 'row',
+    flexDirection: 'column',
     width: '100%',
-    padding: theme.spacing(3),
   },
   headline: {
     paddingTop: theme.spacing(3),
@@ -84,9 +83,8 @@ const Detail = ({
   const { measures, regions, labels, layout, error } = state
 
   return (
-    <DockedDrawerLayout backgroundColor="#f5f5f5">
-      <h1 className={classes.headline}>Erweiterte Abfrage</h1>
-      <main className={classes.content}>
+    <DockedDrawerLayout
+      drawerContent={
         <div className={classes.sidebar}>
           <QueryParameterSidebar
             regions={regions}
@@ -97,6 +95,10 @@ const Detail = ({
             actions={actions}
           />
         </div>
+      }
+    >
+      <main className={classes.content}>
+        <h1 className={classes.headline}>Erweiterte Abfrage</h1>
         <div className={classes.data}>
           <DataTable
             regions={regions}

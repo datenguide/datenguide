@@ -48,10 +48,14 @@ const useStyles = makeStyles((theme) => ({
       width: drawerWidth.desktop,
     },
   },
+  drawerContent: {
+    paddingTop: '64px', // TODO use constant for app bar height
+  },
   content: {
-    paddingTop: theme.spacing(3),
     flexGrow: 1,
     height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
     [theme.breakpoints.up('sm')]: {
       transition: theme.transitions.create('margin', {
         easing: theme.transitions.easing.sharp,
@@ -85,12 +89,7 @@ const DockedDrawerLayout = ({
     setOpen(!open)
   }
 
-  const drawer = (
-    <>
-      <Divider />
-      {drawerContent}
-    </>
-  )
+  const drawer = <div className={classes.drawerContent}>{drawerContent}</div>
 
   return (
     <Base meta={meta}>
