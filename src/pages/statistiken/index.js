@@ -9,6 +9,7 @@ import DataTable from '../../components/DataTable'
 import QueryParameterSidebar from '../../components/QueryParameterSidebar'
 import { queryArgsToState } from '../../lib/queryString'
 import useSearchManager from '../../lib/useSearchManager'
+import DockedDrawerLayout from '../../layouts/DockedDrawerLayout'
 
 const useStyles = makeStyles((theme) => ({
   content: {
@@ -84,7 +85,7 @@ const Detail = ({
   const { measures, regions, labels, layout, error } = state
 
   return (
-    <DefaultLayout backgroundColor="#f5f5f5">
+    <DockedDrawerLayout backgroundColor="#f5f5f5">
       <h1 className={classes.headline}>Erweiterte Abfrage</h1>
       <main className={classes.content}>
         <div className={classes.sidebar}>
@@ -119,7 +120,7 @@ const Detail = ({
         autoHideDuration={6000}
         message={<span>{error}</span>}
       />
-    </DefaultLayout>
+    </DockedDrawerLayout>
   )
 }
 

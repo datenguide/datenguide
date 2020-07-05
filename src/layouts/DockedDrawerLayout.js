@@ -37,22 +37,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   appBar: {
-    [theme.breakpoints.up('sm')]: {
-      transition: theme.transitions.create(['margin', 'width'], {
-        easing: theme.transitions.easing.sharp,
-        duration: theme.transitions.duration.leavingScreen,
-      }),
-    },
-  },
-  appBarShift: {
-    [theme.breakpoints.up('sm')]: {
-      width: `calc(100% - ${drawerWidth.desktop}px)`,
-      marginLeft: drawerWidth.desktop,
-      transition: theme.transitions.create(['margin', 'width'], {
-        easing: theme.transitions.easing.easeOut,
-        duration: theme.transitions.duration.enteringScreen,
-      }),
-    },
+    zIndex: theme.zIndex.drawer + 1,
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -86,14 +71,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const PersistentDrawerLayout = ({
+const DockedDrawerLayout = ({
   children,
   drawerContent,
   meta = { title: null },
 }) => {
   const classes = useStyles()
   const theme = useTheme()
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(true)
   const isDesktop = useMediaQuery(theme.breakpoints.up('sm'))
 
   const handleDrawerToggle = () => {
@@ -111,12 +96,7 @@ const PersistentDrawerLayout = ({
     <Base meta={meta}>
       <div className={classes.root}>
         <div className={classes.wrapper}>
-          <AppBar
-            position="fixed"
-            className={clsx(classes.appBar, {
-              [classes.appBarShift]: open,
-            })}
-          >
+          <AppBar position="fixed" className={clsx(classes.appBar)}>
             <HeaderToolbar
               menuButton={
                 <IconButton
@@ -161,9 +141,9 @@ const PersistentDrawerLayout = ({
   )
 }
 
-PersistentDrawerLayout.propTypes = {
+DockedDrawerLayout.propTypes = {
   children: PropTypes.node.isRequired,
   drawerContent: PropTypes.node.isRequired,
 }
 
-export default PersistentDrawerLayout
+export default DockedDrawerLayout
