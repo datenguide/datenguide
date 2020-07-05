@@ -4,7 +4,6 @@ import fetch from 'isomorphic-unfetch'
 import { makeStyles } from '@material-ui/core/styles'
 import Snackbar from '@material-ui/core/Snackbar'
 
-import DefaultLayout from '../../layouts/DefaultLayout'
 import DataTable from '../../components/DataTable'
 import QueryParameterSidebar from '../../components/QueryParameterSidebar'
 import { queryArgsToState } from '../../lib/queryString'
