@@ -75,6 +75,10 @@ const styles = (theme) => ({
   stepInner: {
     background: 'white',
     padding: '1rem',
+
+    '& img': {
+      width: '100%',
+    },
   },
 })
 
