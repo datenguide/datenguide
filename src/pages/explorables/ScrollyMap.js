@@ -21,19 +21,67 @@ const bounds = [
 ]
 
 const layerOptions = {
-  municipalities: {
-    paint: {
-      'fill-color': '#004443',
-      'fill-opacity': 0.1,
-      'fill-outline-color': '#004443',
+  choropleth: [
+    {
+      type: 'fill',
+      paint: {
+        'fill-color': [
+          'interpolate',
+          ['linear'],
+          ['get', 'cx'],
+          6,
+          '#06617C',
+          9,
+          '#C3E5F1',
+        ],
+        'fill-opacity': 0.4,
+      },
     },
-  },
+    {
+      type: 'line',
+      paint: {
+        'line-color': '#004443',
+        'line-opacity': 0.4,
+        'line-width': 2,
+      },
+    },
+  ],
+  municipalities: [
+    {
+      paint: {
+        'fill-color': '#004443',
+        'fill-opacity': 0.1,
+        'fill-outline-color': '#004443',
+      },
+    },
+    {
+      type: 'line',
+      paint: {
+        'line-color': '#004443',
+        'line-opacity': 1,
+        'line-width': 1,
+      },
+    },
+    {
+      filter: ['==', 'GEN', 'Köln'],
+      paint: {
+        'fill-color': '#004443',
+        'fill-opacity': 0.8,
+      },
+    },
+    {
+      filter: ['==', 'GEN', 'Dahlem'],
+      paint: {
+        'fill-color': '#004443',
+        'fill-opacity': 0.8,
+      },
+    },
+  ],
   municipalitiesHighlight: {
     filter: ['==', 'GEN', 'Altena'],
     paint: {
       'fill-color': '#004443',
       'fill-opacity': 0.8,
-      'fill-outline-color': '#ffffff',
     },
   },
 }
@@ -156,11 +204,34 @@ class ScrollyMapComponent extends PureComponent {
             onViewportChange={(viewport) => this.setState({ viewport })}
           >
             <h1 style={{ textAlign: 'right' }}>{currentStep}</h1>
+            <ShapeLayer
+              src="/geo/bundeslaender.json"
+              options={layerOptions.choropleth}
+              hidden={currentStep !== 'nuts1'}
+            />
+
+            <ShapeLayer
+              src="/geo/nrw_regierungsbezirke.json"
+              options={layerOptions.choropleth}
+              hidden={currentStep !== 'nuts2'}
+            />
+
+            <ShapeLayer
+              src="/geo/nrw_landkreise.json"
+              options={layerOptions.choropleth}
+              hidden={currentStep !== 'nuts3'}
+            />
+
+            <ShapeLayer
+              src="/geo/nrw_gemeinden.json"
+              options={layerOptions.choropleth}
+              hidden={currentStep !== 'lau'}
+            />
 
             <ShapeLayer
               src="/geo/nrw_gemeinden.json"
               options={layerOptions.municipalities}
-              hidden={currentStep !== 'lau' && currentStep !== 'lau-local'}
+              hidden={currentStep !== 'lau'}
             />
 
             {currentStep === 'lau-local' && (
@@ -171,19 +242,6 @@ class ScrollyMapComponent extends PureComponent {
               src="/geo/nrw_gemeinden.json"
               options={layerOptions.municipalitiesHighlight}
               hidden={currentStep !== 'lau-local'}
-            />
-
-            <ShapeLayer
-              src="/geo/nrw_landkreise.json"
-              hidden={currentStep !== 'nuts3'}
-            />
-            <ShapeLayer
-              src="/geo/nrw_regierungsbezirke.json"
-              hidden={currentStep !== 'nuts2'}
-            />
-            <ShapeLayer
-              src="/geo/bundeslaender.json"
-              hidden={currentStep !== 'nuts1'}
             />
           </Map>
         </div>
