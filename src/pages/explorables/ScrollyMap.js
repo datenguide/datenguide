@@ -28,13 +28,13 @@ const layerOptions = {
         'fill-color': [
           'interpolate',
           ['linear'],
-          ['get', 'cx'],
-          6,
+          ['get', 'alter'],
+          43,
           '#06617C',
-          9,
+          45,
           '#C3E5F1',
         ],
-        'fill-opacity': 0.4,
+        'fill-opacity': 0.5,
       },
     },
     {
