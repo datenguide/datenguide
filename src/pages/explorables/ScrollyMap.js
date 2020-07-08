@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import { withStyles, withTheme } from '@material-ui/core/styles'
 import { Scrollama, Step } from 'react-scrollama'
 import dynamic from 'next/dynamic'
-import { WebMercatorViewport } from 'react-map-gl'
+import { WebMercatorViewport, Marker } from 'react-map-gl'
 import RegionTooltip from './RegionTooltip'
 
 const Map = dynamic(
@@ -43,6 +43,13 @@ const layerOptions = {
         'line-color': '#004443',
         'line-opacity': 0.4,
         'line-width': 2,
+      },
+    },
+    {
+      filter: ['==', 'AGS', '05962004'],
+      paint: {
+        'fill-color': '#ff0000',
+        'fill-opacity': 0.8,
       },
     },
   ],
@@ -128,6 +135,18 @@ const styles = (theme) => ({
       width: '100%',
     },
   },
+
+  mapText: {
+    width: '200px',
+    position: 'relative',
+    left: '-100px',
+    textAlign: 'center',
+  },
+
+  mapTextValue: {
+    fontSize: 60,
+    display: 'block',
+  },
 })
 
 function getOffset(width, { values }) {
@@ -204,6 +223,16 @@ class ScrollyMapComponent extends PureComponent {
             onViewportChange={(viewport) => this.setState({ viewport })}
           >
             <h1 style={{ textAlign: 'right' }}>{currentStep}</h1>
+
+            {currentStep === 'nuts1' && (
+              <Marker longitude={7.65708} latitude={51.6146}>
+                <div className={classes.mapText}>
+                  <b>Durchschnittsalter</b>
+                  <span className={classes.mapTextValue}>44,1</span>
+                </div>
+              </Marker>
+            )}
+
             <ShapeLayer
               src="/geo/bundeslaender.json"
               options={layerOptions.choropleth}
