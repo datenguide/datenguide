@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import { withStyles, withTheme } from '@material-ui/core/styles'
 import { Scrollama, Step } from 'react-scrollama'
 import dynamic from 'next/dynamic'
-import { WebMercatorViewport, Marker } from 'react-map-gl'
+import { WebMercatorViewport } from 'react-map-gl'
 import RegionTooltip from './RegionTooltip'
 
 const Map = dynamic(
@@ -12,6 +12,11 @@ const Map = dynamic(
 
 const ShapeLayer = dynamic(
   () => import('@datenguide/explorables').then(({ ShapeLayer }) => ShapeLayer),
+  { ssr: false }
+)
+
+const TextMarker = dynamic(
+  () => import('@datenguide/explorables').then(({ TextMarker }) => TextMarker),
   { ssr: false }
 )
 
@@ -30,9 +35,9 @@ const layerOptions = {
           ['linear'],
           ['get', 'alter'],
           43,
-          '#06617C',
-          45,
           '#C3E5F1',
+          45,
+          '#06617C',
         ],
         'fill-opacity': 0.5,
       },
@@ -137,14 +142,14 @@ const styles = (theme) => ({
   },
 
   mapText: {
-    width: '200px',
-    position: 'relative',
-    left: '-100px',
-    textAlign: 'center',
+    marginTop: -20,
+    color: 'white',
+    lineHeight: 1.1,
   },
 
   mapTextValue: {
-    fontSize: 60,
+    fontSize: 48,
+    fontWeight: 'bold',
     display: 'block',
   },
 })
@@ -225,12 +230,14 @@ class ScrollyMapComponent extends PureComponent {
             <h1 style={{ textAlign: 'right' }}>{currentStep}</h1>
 
             {currentStep === 'nuts1' && (
-              <Marker longitude={7.65708} latitude={51.6146}>
-                <div className={classes.mapText}>
-                  <b>Durchschnittsalter</b>
-                  <span className={classes.mapTextValue}>44,1</span>
-                </div>
-              </Marker>
+              <TextMarker
+                className={classes.mapText}
+                lonLat={[7.65708, 51.6146]}
+              >
+                <b>Nordrhein-Westfalen</b>
+                <span className={classes.mapTextValue}>44,1 Jahre</span>
+                Durchschnittsalter
+              </TextMarker>
             )}
 
             <ShapeLayer
