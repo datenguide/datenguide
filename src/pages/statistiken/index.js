@@ -33,7 +33,6 @@ const useStyles = makeStyles((theme) => ({
   },
   paper: {
     height: '300px',
-    // margin: theme.spacing(2),
     width: '100%',
     overflowX: 'auto',
   },
@@ -136,6 +135,14 @@ const Detail = ({
                 onClose={handleRemoveRegion(region.id)}
               />
             ))}
+            {measures.map((measure) => (
+              <StatisticsSearchParameterCard
+                key={measure.id}
+                statistic={measure}
+                onClose={handleRemoveMeasure(measure.id)}
+                onArgumentChange={handleChangeDimension}
+              />
+            ))}
             {regions.length === 0 && measures.length === 0 && (
               <div className={classes.emptyState}>
                 Wähle mindestens eine Region und eine Statistik aus.
@@ -151,22 +158,8 @@ const Detail = ({
                 Wähle mindestens eine Statistik aus.
               </div>
             )}
-            {measures.map((measure) => (
-              <StatisticsSearchParameterCard
-                key={measure.id}
-                statistic={measure}
-                onClose={handleRemoveMeasure(measure.id)}
-                onArgumentChange={handleChangeDimension}
-              />
-            ))}
           </Paper>
         </div>
-        {/*TODO maybe separate into measure section? */}
-        {/*<div className={classes.measuressection}>*/}
-        {/*  <Paper elevation={0} className={classes.sectionPaper}>*/}
-        {/*    <h4 className={classes.sectionTitle}>Statistiken</h4>*/}
-        {/*  </Paper>*/}
-        {/*</div>*/}
         <h4 className={classes.sectionTitle}>Daten</h4>
         <div className={classes.datasection}>
           <DataTable
