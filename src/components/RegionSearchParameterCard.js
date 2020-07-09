@@ -53,7 +53,7 @@ const RegionSearchParameterCard = ({ region, onClose }) => {
           <CloseIcon />
         </IconButton>
       </AccordionSummary>
-      <AccordionDetails></AccordionDetails>
+      <AccordionDetails />
     </Accordion>
   )
 }

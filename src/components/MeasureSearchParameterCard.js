@@ -124,7 +124,7 @@ const MeasureSearchParameterCard = ({
     .mode('lch')
     .colors(dimensions.length)
 
-  const { data: inventory, error } = useSWR(
+  const { data: inventory } = useSWR(
     `/api/inventory?statistic=${statisticId}&measure=${measureId}`,
     fetcher
   )
@@ -225,15 +225,15 @@ const MeasureSearchParameterCard = ({
                   </div>
                 ))}
 
-            {/*<div className={classes.headingLegend}>Beschreibung</div>*/}
-            {/*{dimensions.map((dim, i) => (*/}
-            {/*  <div className={classes.combo} key={dim.name}>*/}
-            {/*    {renderChip(dim.name)}*/}
-            {/*    <span className={classes.dimensionDescription}>*/}
-            {/*      {dim.titleDe}*/}
-            {/*    </span>*/}
-            {/*  </div>*/}
-            {/*))}*/}
+            {/* <div className={classes.headingLegend}>Beschreibung</div> */}
+            {/* {dimensions.map((dim, i) => ( */}
+            {/*  <div className={classes.combo} key={dim.name}> */}
+            {/*    {renderChip(dim.name)} */}
+            {/*    <span className={classes.dimensionDescription}> */}
+            {/*      {dim.titleDe} */}
+            {/*    </span> */}
+            {/*  </div> */}
+            {/* ))} */}
           </div>
         </div>
       </AccordionDetails>

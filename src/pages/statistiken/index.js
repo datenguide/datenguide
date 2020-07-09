@@ -29,7 +29,8 @@ const useStyles = makeStyles((theme) => ({
   },
   sidebar: {
     width: '400px',
-    padding: theme.spacing(2),
+    padding: theme.spacing(0, 2),
+    height: '100%',
   },
   paper: {
     height: '300px',

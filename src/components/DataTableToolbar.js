@@ -1,11 +1,9 @@
 import Toolbar from '@material-ui/core/Toolbar'
-import ViewColumnIcon from '@material-ui/icons/ViewColumn'
 import TextFormatIcon from '@material-ui/icons/TextFormat'
 import SaveAltIcon from '@material-ui/icons/SaveAlt'
 import AppsIcon from '@material-ui/icons/Apps'
 import { makeStyles } from '@material-ui/styles'
 
-import DataTableColumnsMenu from './DataTableColumnsMenu'
 import DataTableRadioButtonMenu from './DataTableRadioButtonMenu'
 import DataTableDownloadMenu from './DataTableDownloadMenu'
 

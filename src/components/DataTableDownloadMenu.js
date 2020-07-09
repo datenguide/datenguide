@@ -4,7 +4,6 @@ import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown'
 import Menu from '@material-ui/core/Menu'
 import { useEffect, useRef, useState } from 'react'
 import MenuItem from '@material-ui/core/MenuItem'
-import { useRouter } from 'next/router'
 import querystring from 'query-string'
 
 const useStyles = makeStyles((theme) => ({
@@ -18,8 +17,6 @@ const DataTableDownloadMenu = ({ label, icon, queryArgs }) => {
   const [data, setData] = useState(null)
   const [type, setType] = useState('json')
   const downloadLinkRef = useRef()
-
-  const router = useRouter()
 
   useEffect(() => {
     if (data) {
@@ -37,9 +34,7 @@ const DataTableDownloadMenu = ({ label, icon, queryArgs }) => {
   const handleDownload = (type) => () => {
     setAnchorEl(null)
     setType(type)
-    console.log('queryArgs', queryArgs)
 
-    const query = router.pathname.split('? ')[1]
     fetch(
       `https://tabular.genesapi.org?${querystring.stringify(
         queryArgs

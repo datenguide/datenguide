@@ -5,6 +5,7 @@ import { makeStyles, Tab, Tabs } from '@material-ui/core'
 import AutocompleteSearchField from './AutocompleteSearchField'
 import Paper from '@material-ui/core/Paper'
 import { useState } from 'react'
+import RegionTreeView from './TreeView'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -13,8 +14,8 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
   },
   paper: {
-    padding: theme.spacing(2),
-    marginBottom: theme.spacing(4),
+    padding: theme.spacing(2, 2, 0, 2),
+    marginBottom: theme.spacing(2),
     backgroundColor: theme.palette.grey[100],
     flexGrow: 1,
   },
@@ -23,6 +24,9 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     marginTop: theme.spacing(1),
+  },
+  treeView: {
+    marginTop: theme.spacing(2),
   },
 }))
 
@@ -63,22 +67,24 @@ const QueryParameterSidebar = ({
       </Tabs>
       {tabValue === 0 && (
         <Paper className={classes.paper} elevation={0}>
-          <h4 className={classes.title}>Regionen</h4>
+          {/* <h4 className={classes.title}>Regionen</h4> */}
           <AutocompleteSearchField
             onSelectionChange={handleLoadRegion}
             loadOptions={loadRegionOptions}
             placeholder="Regionen suchen"
           />
+          <RegionTreeView className={classes.treeView} />
         </Paper>
       )}
       {tabValue === 1 && (
         <Paper className={classes.paper} elevation={0}>
-          <h4 className={classes.title}>Statistiken und Merkmale</h4>
+          {/* <h4 className={classes.title}>Statistiken und Merkmale</h4> */}
           <AutocompleteSearchField
             onSelectionChange={handleLoadMeasure}
             loadOptions={loadMeasureOptions}
             placeholder="Merkmal oder Statistik suchen"
           />
+          <RegionTreeView className={classes.treeView} />
         </Paper>
       )}
     </div>
