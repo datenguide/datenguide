@@ -27,8 +27,10 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
   },
   wrapper: {
+    display: 'flex',
     flexGrow: 1,
-    flexDirection: 'row',
+    height: '100%',
+    flexDirection: 'column',
   },
   drawer: {
     [theme.breakpoints.up('sm')]: {

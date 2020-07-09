@@ -3,20 +3,24 @@ import fetch from 'isomorphic-unfetch'
 
 import { makeStyles } from '@material-ui/core/styles'
 import Snackbar from '@material-ui/core/Snackbar'
+import Paper from '@material-ui/core/Paper'
 
 import DataTable from '../../components/DataTable'
 import QueryParameterSidebar from '../../components/QueryParameterSidebar'
 import { queryArgsToState } from '../../lib/queryString'
 import useSearchManager from '../../lib/useSearchManager'
 import DockedDrawerLayout from '../../layouts/DockedDrawerLayout'
+import RegionSearchParameterCard from '../../components/RegionSearchParameterCard'
+import StatisticsSearchParameterCard from '../../components/MeasureSearchParameterCard'
 
 const useStyles = makeStyles((theme) => ({
   content: {
     flexGrow: 1,
-    backgroundColor: '#f5f5f5',
     display: 'flex',
     flexDirection: 'column',
     width: '100%',
+    padding: theme.spacing(2),
+    backgroundColor: theme.palette.grey[100],
   },
   headline: {
     paddingTop: theme.spacing(3),
@@ -33,10 +37,22 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     overflowX: 'auto',
   },
-  data: {
-    padding: theme.spacing(2),
+  sectionPaper: {
+    minHeight: theme.spacing(12),
+    marginBottom: theme.spacing(2),
+    background: theme.palette.grey[100],
+  },
+  sectionTitle: {
+    margin: theme.spacing(0, 0, 2, 0),
+  },
+  regionssection: {},
+  measuressection: {},
+  datasection: {
     display: 'flex',
     flexGrow: 1,
+  },
+  emptyState: {
+    marginTop: theme.spacing(2),
   },
 }))
 
@@ -82,6 +98,18 @@ const Detail = ({
 
   const { measures, regions, labels, layout, error } = state
 
+  const handleRemoveMeasure = (statisticsId) => () => {
+    dispatch(actions.closeMeasure(statisticsId))
+  }
+
+  const handleChangeDimension = (value) => {
+    dispatch(actions.changeDimensionSelection(value))
+  }
+
+  const handleRemoveRegion = (value) => () => {
+    dispatch(actions.closeRegion(value))
+  }
+
   return (
     <DockedDrawerLayout
       drawerContent={
@@ -98,8 +126,42 @@ const Detail = ({
       }
     >
       <main className={classes.content}>
-        <h1 className={classes.headline}>Erweiterte Abfrage</h1>
-        <div className={classes.data}>
+        <div className={classes.regionssection}>
+          <Paper elevation={0} className={classes.sectionPaper}>
+            <h4 className={classes.sectionTitle}>Regionen</h4>
+            {regions.map((region) => (
+              <RegionSearchParameterCard
+                key={region.id}
+                region={region}
+                onClose={handleRemoveRegion(region.id)}
+              />
+            ))}
+            {regions.length === 0 && (
+              <div className={classes.emptyState}>
+                Wähle mindestens eine Region aus.
+              </div>
+            )}
+          </Paper>
+        </div>
+        <div className={classes.measuressection}>
+          <Paper elevation={0} className={classes.sectionPaper}>
+            <h4 className={classes.sectionTitle}>Statistiken</h4>
+            {measures.map((measure) => (
+              <StatisticsSearchParameterCard
+                key={measure.id}
+                statistic={measure}
+                onClose={handleRemoveMeasure(measure.id)}
+                onArgumentChange={handleChangeDimension}
+              />
+            ))}
+            {measures.length === 0 && (
+              <div className={classes.emptyState}>
+                Wähle mindestens ein Merkmal aus.
+              </div>
+            )}
+          </Paper>
+        </div>
+        <div className={classes.datasection}>
           <DataTable
             regions={regions}
             measures={measures}

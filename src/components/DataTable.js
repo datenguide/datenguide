@@ -150,7 +150,7 @@ const DataTable = ({
       {loading && <LinearProgress variant="query" />}
       {!loading && (
         <>
-          <Paper className={classes.paper}>
+          <Paper className={classes.paper} elevation={0}>
             <>
               <Tabs
                 value={tabValue}
