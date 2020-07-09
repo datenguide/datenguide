@@ -37,6 +37,7 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     width: '100%',
     overflowX: 'auto',
+    minHeight: '600px',
   },
   table: {
     minWidth: 650,
@@ -150,7 +151,7 @@ const DataTable = ({
       {loading && <LinearProgress variant="query" />}
       {!loading && (
         <>
-          <Paper className={classes.paper} elevation={0}>
+          <Paper className={classes.paper} elevation={1}>
             <>
               <Tabs
                 value={tabValue}
@@ -158,7 +159,7 @@ const DataTable = ({
                 textColor="primary"
                 onChange={handleTabChange}
               >
-                <Tab label="Daten" />
+                <Tab label="Tabelle" />
                 <Tab label="API" />
               </Tabs>
               <DataTableToolbar

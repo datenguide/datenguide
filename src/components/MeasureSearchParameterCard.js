@@ -25,13 +25,26 @@ const useStyles = makeStyles((theme) => ({
   },
   headingStatistic: {
     fontSize: theme.typography.subtitle2.fontSize,
-    fontWeight: theme.typography.subtitle2.fontSize,
+    fontWeight: theme.typography.subtitle2.fontWeight,
     color: theme.palette.grey[500],
   },
-  dimensionSelectWrapper: {
+  headingDetails: {
+    fontSize: theme.typography.subtitle1.fontSize,
+    fontWeight: 'bold',
+    marginBottom: theme.spacing(2),
+  },
+  measureDetails: {
+    width: '100%',
+    display: 'flex',
+    flexDirection: 'row',
+  },
+  measureDescription: {
+    flex: '1 0 50%',
+  },
+  dimensionSelect: {
+    flex: '1 0 50%',
     display: 'flex',
     flexDirection: 'column',
-    flexGrow: 1,
   },
 }))
 
@@ -48,8 +61,11 @@ const MeasureSearchParameterCard = ({
     statisticTitleDe,
     name,
     titleDe,
+    definitionDe,
     dimensions,
   } = statistic
+
+  const definitionWithLineBreaks = definitionDe.replace(/\n/g, '<br/>')
 
   const handleDimensionChange = (argCode) => (event) => {
     onArgumentChange({
@@ -91,19 +107,28 @@ const MeasureSearchParameterCard = ({
         </IconButton>
       </AccordionSummary>
       <AccordionDetails>
-        <div className={classes.dimensionSelectWrapper}>
-          {dimensions.map((dim) => (
-            <DimensionSelect
-              key={dim.name}
-              name={dim.name}
-              label={dim.titleDe}
-              value={dim.selected}
-              options={dim.values}
-              active={dim.active}
-              onChange={handleDimensionChange(dim.name)}
-              onToggle={handleArgumentToggle}
+        <div className={classes.measureDetails}>
+          <div className={classes.measureDescription}>
+            <div className={classes.headingDetails}>Beschreibung</div>
+            <div
+              dangerouslySetInnerHTML={{ __html: definitionWithLineBreaks }}
             />
-          ))}
+          </div>
+          <div className={classes.dimensionSelect}>
+            <div className={classes.headingDetails}>Merkmalsausprägungen</div>
+            {dimensions.map((dim) => (
+              <DimensionSelect
+                key={dim.name}
+                name={dim.name}
+                label={dim.titleDe}
+                value={dim.selected}
+                options={dim.values}
+                active={dim.active}
+                onChange={handleDimensionChange(dim.name)}
+                onToggle={handleArgumentToggle}
+              />
+            ))}
+          </div>
         </div>
       </AccordionDetails>
     </Accordion>

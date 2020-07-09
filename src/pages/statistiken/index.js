@@ -128,7 +128,7 @@ const Detail = ({
       <main className={classes.content}>
         <div className={classes.regionssection}>
           <Paper elevation={0} className={classes.sectionPaper}>
-            <h4 className={classes.sectionTitle}>Regionen</h4>
+            <h4 className={classes.sectionTitle}>Aktuelle Auswahl</h4>
             {regions.map((region) => (
               <RegionSearchParameterCard
                 key={region.id}
@@ -136,16 +136,21 @@ const Detail = ({
                 onClose={handleRemoveRegion(region.id)}
               />
             ))}
-            {regions.length === 0 && (
+            {regions.length === 0 && measures.length === 0 && (
               <div className={classes.emptyState}>
-                Wähle mindestens eine Region aus.
+                Wähle mindestens eine Region und eine Statistik aus.
               </div>
             )}
-          </Paper>
-        </div>
-        <div className={classes.measuressection}>
-          <Paper elevation={0} className={classes.sectionPaper}>
-            <h4 className={classes.sectionTitle}>Statistiken</h4>
+            {regions.length === 0 && measures.length !== 0 && (
+              <div className={classes.emptyState}>
+                Wähle mindestens Statistik aus.
+              </div>
+            )}
+            {regions.length !== 0 && measures.length === 0 && (
+              <div className={classes.emptyState}>
+                Wähle mindestens eine Statistik aus.
+              </div>
+            )}
             {measures.map((measure) => (
               <StatisticsSearchParameterCard
                 key={measure.id}
@@ -154,13 +159,15 @@ const Detail = ({
                 onArgumentChange={handleChangeDimension}
               />
             ))}
-            {measures.length === 0 && (
-              <div className={classes.emptyState}>
-                Wähle mindestens ein Merkmal aus.
-              </div>
-            )}
           </Paper>
         </div>
+        {/*TODO maybe separate into measure section? */}
+        {/*<div className={classes.measuressection}>*/}
+        {/*  <Paper elevation={0} className={classes.sectionPaper}>*/}
+        {/*    <h4 className={classes.sectionTitle}>Statistiken</h4>*/}
+        {/*  </Paper>*/}
+        {/*</div>*/}
+        <h4 className={classes.sectionTitle}>Daten</h4>
         <div className={classes.datasection}>
           <DataTable
             regions={regions}

@@ -68,12 +68,6 @@ const DataTableToolbar = ({
 
   return (
     <Toolbar variant="dense" className={classes.root}>
-      <DataTableColumnsMenu
-        label="Spalten"
-        icon={<ViewColumnIcon />}
-        columns={columns}
-        onToggle={handleColumnToggle}
-      />
       <DataTableRadioButtonMenu
         label="Beschriftung"
         icon={<TextFormatIcon />}
