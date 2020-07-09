@@ -35,11 +35,11 @@ const layerOptions = {
           ['linear'],
           ['get', 'alter'],
           43,
-          '#C3E5F1',
+          '#83A7A8',
           45,
-          '#06617C',
+          '#004443',
         ],
-        'fill-opacity': 0.5,
+        'fill-opacity': 0.55,
       },
     },
     {
@@ -130,7 +130,7 @@ const styles = (theme) => ({
     opacity: 0.4,
     transition: 'opacity 300ms',
     padding: 20,
-    marginBottom: '66vh',
+    marginBottom: '60vh',
   },
   stepInner: {
     background: 'white',
@@ -142,17 +142,35 @@ const styles = (theme) => ({
   },
 
   mapText: {
-    marginTop: -20,
+    marginTop: -40,
     color: 'white',
-    lineHeight: 1.1,
+    lineHeight: 1.2,
+    textShadow: '1px 1px 15px #4D7D7E',
+
+    [theme.breakpoints.down('xs')]: {
+      fontSize: 12,
+    },
   },
 
   mapTextValue: {
-    fontSize: 48,
-    fontWeight: 'bold',
+    fontSize: '2.6em',
+    fontWeight: 'regular',
     display: 'block',
+    lineHeight: 1,
+  },
+
+  mapTextName: {
+    whiteSpace: 'pre-line',
   },
 })
+
+const districts = [
+  { name: 'Regierungsbezirk\nDüsseldorf', lonLat: [6.6, 51.5], value: '44,5' },
+  { name: 'Regierungsbezirk\nKöln', lonLat: [6.65, 50.67], value: '43,5' },
+  { name: 'Regierungsbezirk\nMünster', lonLat: [7.45, 52.04], value: '43,9' },
+  { name: 'Regierungsbezirk\nDetmold', lonLat: [8.77, 51.92], value: '43,8' },
+  { name: 'Regierungsbezirk\nArnsberg', lonLat: [8.02, 51.31], value: '44,6' },
+]
 
 function getOffset(width, { values }) {
   if (width > values.md) return width / 2
@@ -198,10 +216,6 @@ class ScrollyMapComponent extends PureComponent {
     this.setState({ currentStep: data })
   }
 
-  handleStepExit = ({ element }) => {
-    element.style.opacity = 0.4
-  }
-
   updateDimensions = () => {
     const { breakpoints } = this.props.theme
     this.setState({ viewport: computeViewport(bounds, breakpoints) })
@@ -230,15 +244,20 @@ class ScrollyMapComponent extends PureComponent {
             <h1 style={{ textAlign: 'right' }}>{currentStep}</h1>
 
             {currentStep === 'nuts1' && (
-              <TextMarker
-                className={classes.mapText}
-                lonLat={[7.65708, 51.6146]}
-              >
+              <TextMarker className={classes.mapText} lonLat={[7.65, 51.61]}>
                 <b>Nordrhein-Westfalen</b>
                 <span className={classes.mapTextValue}>44,1 Jahre</span>
-                Durchschnittsalter
+                Durchschnittsalter (2018)
               </TextMarker>
             )}
+
+            {currentStep === 'nuts2' &&
+              districts.map(({ name, lonLat, value }, i) => (
+                <TextMarker key={i} className={classes.mapText} lonLat={lonLat}>
+                  <span className={classes.mapTextValue}>{value}</span>
+                  <b className={classes.mapTextName}>{name}</b>
+                </TextMarker>
+              ))}
 
             <ShapeLayer
               src="/geo/bundeslaender.json"

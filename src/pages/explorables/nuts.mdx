@@ -14,6 +14,7 @@ import Container from '@material-ui/core/Container'
 import BodyText from '../../components/BodyText'
 import { ScrollyMap, ScrollyMapStep } from './ScrollyMap'
 import SimpleMap from './SimpleMap'
+import DatawrapperChart from '../../components/DatawrapperChart'
 
 <Container maxWidth="lg">
 <BodyText>
@@ -33,12 +34,14 @@ Wir zeigen dir die Einteilung und ihre Sonderfälle für Deutschland, damit du d
 
 <ScrollyMapStep id="nuts1">
 
-### Bundesländer - NUTS-1
+### Ein Beispiel: Das Durchschnittsalter der Bevölkerung
 
-Um zum Beispiel deutschlandweit das Durchschnittsalter der Bevölkerung zu vergleichen, gibt es auf erster Ebene die 16 Bundesländer ( NUTS-1-Regionen). Die Bevölkerung einer NUTS-1-Region liegt in aller Regel zwischen 3 und 7 Millionen
+Um zum Beispiel deutschlandweit das Durchschnittsalter der Bevölkerung zu vergleichen, gibt es auf erster Ebene die **16&nbsp;Bundesländer (NUTS-1-Regionen)**. Die Bevölkerung einer NUTS-1-Region liegt in aller Regel zwischen 3 und 7 Millionen
 Einwohnern.
 
-Das bevölkerungsreichste Bundesland Nordrhein-Westfalen liegt mit einem Durschnittsalter von 44,1 Jahren im Mittelfeld.
+**Nordrhein-Westfalen** ist das bevölkerungsreichste Bundesland und liegt mit einem Durschnittsalter von **44,1&nbsp;Jahren** im Mittelfeld.
+
+<DatawrapperChart src="//datawrapper.dwcdn.net/WglMK/2/" />
 
 </ScrollyMapStep>
 
