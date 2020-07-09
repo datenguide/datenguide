@@ -7,7 +7,7 @@ import Paper from '@material-ui/core/Paper'
 
 import DataTable from '../../components/DataTable'
 import QueryParameterSidebar from '../../components/QueryParameterSidebar'
-import { queryArgsToState } from '../../lib/queryString'
+import { queryArgsToState, stateToQueryArgs } from '../../lib/queryString'
 import useSearchManager from '../../lib/useSearchManager'
 import DockedDrawerLayout from '../../layouts/DockedDrawerLayout'
 import RegionSearchParameterCard from '../../components/RegionSearchParameterCard'
@@ -97,6 +97,8 @@ const Detail = ({
 
   const { measures, regions, labels, layout, error } = state
 
+  const queryArgs = stateToQueryArgs(state)
+
   const handleRemoveMeasure = (statisticsId) => () => {
     dispatch(actions.closeMeasure(statisticsId))
   }
@@ -169,6 +171,7 @@ const Detail = ({
             layout={layout}
             dispatch={dispatch}
             actions={actions}
+            queryArgs={queryArgs}
           />
         </div>
       </main>

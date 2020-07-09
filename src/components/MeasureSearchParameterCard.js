@@ -55,22 +55,38 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
   },
-  dimensionChip: {
-    margin: theme.spacing(0.5),
+  codeDimensionChip: {
     width: '80px',
+    color: 'white',
+    fontWeight: 'bold',
+  },
+  titleDimensionChip: {
     color: 'white',
     fontWeight: 'bold',
   },
   dimensionDescription: {
     marginLeft: theme.spacing(1),
   },
+  activeCombo: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: theme.spacing(1),
+  },
+  dimensionPlus: {
+    margin: theme.spacing(0, 0.5),
+  },
   combo: {
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
+    padding: theme.spacing(1, 0.5),
   },
   emptyCombo: {
-    margin: theme.spacing(1),
+    margin: theme.spacing(1, 1, 1, 0),
+  },
+  radio: {
+    padding: theme.spacing(0, 1, 0, 0),
   },
 }))
 
@@ -117,28 +133,47 @@ const MeasureSearchParameterCard = ({
     onArgumentChange({ id, combo: JSON.parse(event.target.value) })
   }
 
-  const renderChip = (dimensionName) => (
-    <Chip
-      key={dimensionName}
-      label={dimensionName}
-      className={classes.dimensionChip}
-      style={{
-        backgroundColor:
-          dimensionColors[
-            _.findIndex(dimensions, (d) => d.name === dimensionName)
-          ],
-      }}
-    />
-  )
+  const renderChip = (dimensionName, withTitle = false) => {
+    const dimensionIndex = _.findIndex(
+      dimensions,
+      (d) => d.name === dimensionName
+    )
+    const label = withTitle ? dimensions[dimensionIndex].titleDe : dimensionName
+    return (
+      <Chip
+        key={dimensionName}
+        label={label}
+        className={
+          withTitle ? classes.titleDimensionChip : classes.codeDimensionChip
+        }
+        style={{
+          backgroundColor: dimensionColors[dimensionIndex],
+        }}
+      />
+    )
+  }
+
+  const renderSummaryCombo = (combo) => {
+    if (!combo) {
+      return <div className={classes.emptyCombo}>Ohne Ausprägungen</div>
+    }
+    const comboArray = combo.split(',')
+    const result = [renderChip(comboArray[0], true)]
+    comboArray.slice(1).forEach((dimension) => {
+      result.push(<span className={classes.dimensionPlus}>+</span>)
+      result.push(renderChip(dimension, true))
+    })
+    return result
+  }
 
   const renderCombo = (combo) => {
     if (combo.length === 0) {
       return <div className={classes.emptyCombo}>Ohne Ausprägungen</div>
     }
-    const result = [renderChip(combo[0])]
+    const result = [renderChip(combo[0], true)]
     combo.slice(1).forEach((dimension) => {
-      result.push(<span>+</span>)
-      result.push(renderChip(dimension))
+      result.push(<span className={classes.dimensionPlus}>+</span>)
+      result.push(renderChip(dimension, true))
     })
     return result
   }
@@ -152,6 +187,9 @@ const MeasureSearchParameterCard = ({
           </div>
           <div className={classes.headingStatistic}>
             {`${statisticName} – ${statisticTitleDe}`}
+          </div>
+          <div className={classes.activeCombo}>
+            {renderSummaryCombo(activeCombo)}
           </div>
         </div>
         <IconButton
@@ -178,6 +216,7 @@ const MeasureSearchParameterCard = ({
                 .map((combo, i) => (
                   <div key={combo} className={classes.combo}>
                     <Radio
+                      className={classes.radio}
                       checked={activeCombo === combo.join(',')}
                       onChange={handleComboChange}
                       value={JSON.stringify(combo)}
@@ -186,15 +225,15 @@ const MeasureSearchParameterCard = ({
                   </div>
                 ))}
 
-            <div className={classes.headingLegend}>Beschreibung</div>
-            {dimensions.map((dim, i) => (
-              <div key={dim.name}>
-                {renderChip(dim.name)}
-                <span className={classes.dimensionDescription}>
-                  {dim.titleDe}
-                </span>
-              </div>
-            ))}
+            {/*<div className={classes.headingLegend}>Beschreibung</div>*/}
+            {/*{dimensions.map((dim, i) => (*/}
+            {/*  <div className={classes.combo} key={dim.name}>*/}
+            {/*    {renderChip(dim.name)}*/}
+            {/*    <span className={classes.dimensionDescription}>*/}
+            {/*      {dim.titleDe}*/}
+            {/*    </span>*/}
+            {/*  </div>*/}
+            {/*))}*/}
           </div>
         </div>
       </AccordionDetails>

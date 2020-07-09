@@ -190,11 +190,10 @@ const useSearchManager = (
         } else {
           // TODO this will always replace the current measure to allow a
           // maximum of one measure.
-          // change to this as soon as we support more than 1 measure:
-          // state.measures[action.payload.id] = measureToState(action.payload)
-          state.measures = {
-            [action.payload.id]: measureToState(action.payload),
-          }
+          // state.measures = {
+          //   [action.payload.id]: measureToState(action.payload),
+          // }
+          state.measures[action.payload.id] = measureToState(action.payload)
         }
         state.loading = false
         return state

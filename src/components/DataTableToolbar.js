@@ -16,35 +16,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const DataTableToolbar = ({
-  measures,
-  regions,
-  labels,
-  layout,
-  dispatch,
-  actions,
-}) => {
+const DataTableToolbar = ({ labels, layout, dispatch, actions, queryArgs }) => {
   const classes = useStyles()
-
-  const columns =
-    (measures &&
-      measures[0] &&
-      // adding measure id here to identify the owner of the dimension
-      measures[0].dimensions.map((dim) => ({ ...dim, id: measures[0].id }))) ||
-    []
-
-  const handleColumnToggle = (value) => {
-    const { id, name } = JSON.parse(value.target.value)
-    dispatch(
-      actions.changeDimensionSelection({
-        id,
-        argCode: name,
-        diff: {
-          active: value.target.checked,
-        },
-      })
-    )
-  }
 
   const labelOptions = [
     { label: 'Codes', value: 'id' },
@@ -82,7 +55,11 @@ const DataTableToolbar = ({
         value={layout}
         onChange={handleLayoutChange}
       />
-      <DataTableDownloadMenu label="Download" icon={<SaveAltIcon />} />
+      <DataTableDownloadMenu
+        label="Download"
+        icon={<SaveAltIcon />}
+        queryArgs={queryArgs}
+      />
     </Toolbar>
   )
 }

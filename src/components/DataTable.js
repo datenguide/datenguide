@@ -70,6 +70,7 @@ const DataTable = ({
   layout,
   dispatch,
   actions,
+  queryArgs,
 }) => {
   const classes = useStyles()
   const client = useContext(ClientContext)
@@ -169,6 +170,7 @@ const DataTable = ({
                 layout={layout}
                 dispatch={dispatch}
                 actions={actions}
+                queryArgs={queryArgs}
               />
             </>
             {tabValue === 0 && (
@@ -219,7 +221,7 @@ const DataTable = ({
                 </Table>
               </>
             )}
-            {tabValue === 1 && measures && measures.length === 1 && (
+            {tabValue === 1 && measures && (
               <div className={classes.apiTab}>
                 <Typography variant="h5">
                   GraphQL Abfrage zu aktueller Statistik:

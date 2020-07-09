@@ -4,8 +4,6 @@ import { makeStyles } from '@material-ui/core/styles'
 import Accordion from '@material-ui/core/ExpansionPanel' // TODO rename to accordion after material-ui update
 import AccordionSummary from '@material-ui/core/ExpansionPanelSummary' // TODO rename to accordion after material-ui update
 import AccordionDetails from '@material-ui/core/ExpansionPanelDetails' // TODO rename to accordion after material-ui update
-import Card from '@material-ui/core/Card'
-import CardHeader from '@material-ui/core/CardHeader'
 import IconButton from '@material-ui/core/IconButton'
 import CloseIcon from '@material-ui/icons/Close'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
@@ -30,9 +28,9 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const nutsToText = {
-  1: 'NUTS 1 – Bundesländer',
-  2: 'NUTS 2 – Regierungsbezirke',
-  3: 'NUTS 3 – Landkreise, Kreise, kreisfreie Städte',
+  1: 'NUTS 1 – Bundesland',
+  2: 'NUTS 2 – Regierungsbezirk',
+  3: 'NUTS 3 – Landkreis, Kreis, kreisfreie Stadt',
 }
 
 const RegionSearchParameterCard = ({ region, onClose }) => {
@@ -55,6 +53,7 @@ const RegionSearchParameterCard = ({ region, onClose }) => {
           <CloseIcon />
         </IconButton>
       </AccordionSummary>
+      <AccordionDetails></AccordionDetails>
     </Accordion>
   )
 }
