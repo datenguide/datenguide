@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react'
+import Fade from '@material-ui/core/Fade'
 import { withStyles, withTheme } from '@material-ui/core/styles'
 import { Scrollama, Step } from 'react-scrollama'
 import dynamic from 'next/dynamic'
@@ -35,11 +36,11 @@ const layerOptions = {
           ['linear'],
           ['get', 'alter'],
           43,
-          '#83A7A8',
+          '#B0D3E1',
           45,
-          '#004443',
+          '#024259',
         ],
-        'fill-opacity': 0.55,
+        'fill-opacity': 0.6,
       },
     },
     {
@@ -54,7 +55,7 @@ const layerOptions = {
       filter: ['==', 'AGS', '05962004'],
       paint: {
         'fill-color': '#ff0000',
-        'fill-opacity': 0.8,
+        'fill-opacity': 0.7,
       },
     },
   ],
@@ -244,19 +245,23 @@ class ScrollyMapComponent extends PureComponent {
             <h1 style={{ textAlign: 'right' }}>{currentStep}</h1>
 
             {currentStep === 'nuts1' && (
-              <TextMarker className={classes.mapText} lonLat={[7.65, 51.61]}>
-                <b>Nordrhein-Westfalen</b>
-                <span className={classes.mapTextValue}>44,1 Jahre</span>
-                Durchschnittsalter (2018)
-              </TextMarker>
+              <Fade>
+                <TextMarker className={classes.mapText} lonLat={[7.65, 51.61]}>
+                  <b>Nordrhein-Westfalen</b>
+                  <span className={classes.mapTextValue}>44,1 Jahre</span>
+                  Durchschnittsalter (2018)
+                </TextMarker>
+              </Fade>
             )}
 
             {currentStep === 'nuts2' &&
               districts.map(({ name, lonLat, value }, i) => (
-                <TextMarker key={i} className={classes.mapText} lonLat={lonLat}>
-                  <span className={classes.mapTextValue}>{value}</span>
-                  <b className={classes.mapTextName}>{name}</b>
-                </TextMarker>
+                <Fade key={i}>
+                  <TextMarker className={classes.mapText} lonLat={lonLat}>
+                    <span className={classes.mapTextValue}>{value}</span>
+                    <b className={classes.mapTextName}>{name}</b>
+                  </TextMarker>
+                </Fade>
               ))}
 
             <ShapeLayer
