@@ -3555,11 +3555,6 @@ chroma-js@^2.1.0:
   dependencies:
     cross-env "^6.0.3"
 
-chroma@^0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/chroma/-/chroma-0.0.1.tgz#a59132defa72113b9312fa98d2587c67d309f989"
-  integrity sha1-pZEy3vpyETuTEvqY0lh8Z9MJ+Yk=
-
 chrome-trace-event@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/chrome-trace-event/-/chrome-trace-event-1.0.2.tgz#234090ee97c7d4ad1a2c4beae27505deffc608a4"

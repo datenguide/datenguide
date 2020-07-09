@@ -11,6 +11,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import IconButton from '@material-ui/core/IconButton'
 import CloseIcon from '@material-ui/icons/Close'
 import Chip from '@material-ui/core/Chip'
+import Radio from '@material-ui/core/Radio'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -96,6 +97,12 @@ const MeasureSearchParameterCard = ({
 
   const [statisticId, measureId] = statistic.id.split(':')
 
+  const activeCombo = dimensions
+    .filter((d) => d.active)
+    .map((d) => d.name)
+    .sort()
+    .join(',')
+
   const dimensionColors = chroma
     .scale(['#9cdf7c', '#2A4858'])
     .mode('lch')
@@ -106,24 +113,8 @@ const MeasureSearchParameterCard = ({
     fetcher
   )
 
-  const handleDimensionChange = (argCode) => (event) => {
-    onArgumentChange({
-      id,
-      argCode,
-      diff: {
-        selected: event.target.value,
-      },
-    })
-  }
-
-  const handleArgumentToggle = (event) => {
-    onArgumentChange({
-      id,
-      argCode: event.target.value,
-      diff: {
-        active: event.target.checked,
-      },
-    })
+  const handleComboChange = (event) => {
+    onArgumentChange({ id, combo: JSON.parse(event.target.value) })
   }
 
   const renderChip = (dimensionName) => (
@@ -182,25 +173,21 @@ const MeasureSearchParameterCard = ({
           <div className={classes.dimensionSelect}>
             <div className={classes.headingDetails}>Merkmalsausprägungen</div>
             {inventory &&
-              _.sortBy(inventory[0], (combo) => combo.length).map(
-                (combo, i) => (
-                  <div key={i} className={classes.combo}>
+              _.sortBy(inventory[0], (combo) => combo.length) // TODO should already be sorted before, not here
+                .map((combo) => combo.sort())
+                .map((combo, i) => (
+                  <div key={combo} className={classes.combo}>
+                    <Radio
+                      checked={activeCombo === combo.join(',')}
+                      onChange={handleComboChange}
+                      value={JSON.stringify(combo)}
+                    />
                     {renderCombo(combo)}
                   </div>
-                )
-              )}
+                ))}
+
             <div className={classes.headingLegend}>Beschreibung</div>
             {dimensions.map((dim, i) => (
-              // <DimensionSelect
-              //   key={dim.name}
-              //   name={dim.name}
-              //   label={dim.titleDe}
-              //   value={dim.selected}
-              //   options={dim.values}
-              //   active={dim.active}
-              //   onChange={handleDimensionChange(dim.name)}
-              //   onToggle={handleArgumentToggle}
-              // />
               <div key={dim.name}>
                 {renderChip(dim.name)}
                 <span className={classes.dimensionDescription}>

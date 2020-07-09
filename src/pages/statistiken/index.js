@@ -101,7 +101,7 @@ const Detail = ({
     dispatch(actions.closeMeasure(statisticsId))
   }
 
-  const handleChangeDimension = (value) => {
+  const handleSelectCombo = (value) => {
     dispatch(actions.changeDimensionSelection(value))
   }
 
@@ -140,7 +140,7 @@ const Detail = ({
                 key={measure.id}
                 statistic={measure}
                 onClose={handleRemoveMeasure(measure.id)}
-                onArgumentChange={handleChangeDimension}
+                onArgumentChange={handleSelectCombo}
               />
             ))}
             {regions.length === 0 && measures.length === 0 && (

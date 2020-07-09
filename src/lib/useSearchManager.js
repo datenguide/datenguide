@@ -204,16 +204,12 @@ const useSearchManager = (
         return state
       },
       updateDimension: (state, action) => {
-        const { id, argCode, diff } = action.payload
+        const { id, combo } = action.payload
         const measure = state.measures[id]
-        measure.dimensions = measure.dimensions.map((dim) =>
-          dim.name === argCode
-            ? {
-                ...dim,
-                ...diff,
-              }
-            : dim
-        )
+        measure.dimensions = measure.dimensions.map((dim) => ({
+          ...dim,
+          active: combo.includes(dim.name),
+        }))
         return state
       },
       setLabels: (state, action) => {
