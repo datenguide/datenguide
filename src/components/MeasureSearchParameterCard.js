@@ -1,3 +1,4 @@
+import React from 'react'
 import PropTypes from 'prop-types'
 import useSWR from 'swr'
 import chroma from 'chroma-js'
@@ -7,10 +8,14 @@ import { makeStyles } from '@material-ui/core/styles'
 import Accordion from '@material-ui/core/ExpansionPanel' // TODO rename to accordion after material-ui update
 import AccordionSummary from '@material-ui/core/ExpansionPanelSummary' // TODO rename to accordion after material-ui update
 import AccordionDetails from '@material-ui/core/ExpansionPanelDetails' // TODO rename to accordion after material-ui update
+import Button from '@material-ui/core/Button'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import IconButton from '@material-ui/core/IconButton'
+import DropDownIcon from '@material-ui/icons/ArrowDropDownCircle'
 import CloseIcon from '@material-ui/icons/Close'
 import Chip from '@material-ui/core/Chip'
+import Menu from '@material-ui/core/Menu'
+import MenuItem from '@material-ui/core/MenuItem'
 import Radio from '@material-ui/core/Radio'
 
 const useStyles = makeStyles((theme) => ({
@@ -88,6 +93,10 @@ const useStyles = makeStyles((theme) => ({
   radio: {
     padding: theme.spacing(0, 1, 0, 0),
   },
+  menuButton: {
+    marginLeft: theme.spacing(1),
+    color: theme.palette.grey[600],
+  },
 }))
 
 const fetcher = (url) => fetch(url).then((r) => r.json())
@@ -108,6 +117,19 @@ const MeasureSearchParameterCard = ({
     definitionDe,
     dimensions,
   } = statistic
+
+  const [menuOpen, setMenuOpen] = React.useState(false)
+
+  const menuAnchor = React.useRef(null)
+
+  const handleMenuOpen = (event) => {
+    event.stopPropagation()
+    setMenuOpen(true)
+  }
+
+  const handleMenuClose = () => {
+    setMenuOpen(false)
+  }
 
   const definitionWithLineBreaks = definitionDe.replace(/\n/g, '<br/>')
 
@@ -131,6 +153,12 @@ const MeasureSearchParameterCard = ({
 
   const handleComboChange = (event) => {
     onArgumentChange({ id, combo: JSON.parse(event.target.value) })
+  }
+
+  const handleComboClick = (event, combo) => {
+    event.stopPropagation()
+    onArgumentChange({ id, combo })
+    handleMenuClose()
   }
 
   const renderChip = (dimensionName, withTitle = false) => {
@@ -163,7 +191,22 @@ const MeasureSearchParameterCard = ({
       result.push(<span className={classes.dimensionPlus}>+</span>)
       result.push(renderChip(dimension, true))
     })
-    return result
+
+    return (
+      <div ref={menuAnchor}>
+        {result}
+        <Button
+          onClick={handleMenuOpen}
+          startIcon={<DropDownIcon />}
+          className={classes.menuButton}
+          size="small"
+          aria-controls="simple-menu"
+          aria-haspopup="true"
+        >
+          Auswähl ändern
+        </Button>
+      </div>
+    )
   }
 
   const renderCombo = (combo) => {
@@ -190,6 +233,27 @@ const MeasureSearchParameterCard = ({
           </div>
           <div className={classes.activeCombo}>
             {renderSummaryCombo(activeCombo)}
+            <Menu
+              id="simple-menu"
+              anchorEl={menuAnchor.current}
+              keepMounted
+              open={menuOpen}
+              onClose={handleMenuClose}
+            >
+              {inventory &&
+                _.sortBy(inventory[0], (combo) => combo.length) // TODO should already be sorted before, not here
+                  .map((combo) => combo.sort())
+                  .map((combo, i) => (
+                    <MenuItem
+                      key={combo}
+                      className={classes.radio}
+                      selected={activeCombo === combo.join(',')}
+                      onClick={(event) => handleComboClick(event, combo)}
+                    >
+                      <div className={classes.combo}>{renderCombo(combo)}</div>
+                    </MenuItem>
+                  ))}
+            </Menu>
           </div>
         </div>
         <IconButton
