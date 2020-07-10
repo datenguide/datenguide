@@ -6,6 +6,8 @@ import AutocompleteSearchField from './AutocompleteSearchField'
 import Paper from '@material-ui/core/Paper'
 import { useState } from 'react'
 import RegionTreeView from './TreeView'
+import useSWR from 'swr'
+import StatisticsTreeView from './StatisticsTreeView'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -16,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     padding: theme.spacing(2, 2, 0, 2),
     marginBottom: theme.spacing(2),
-    backgroundColor: theme.palette.grey[100],
+    // backgroundColor: theme.palette.grey[100],
     flexGrow: 1,
   },
   tabs: {
@@ -30,6 +32,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
+const fetcher = (url) => fetch(url).then((r) => r.json())
+
 const QueryParameterSidebar = ({
   loadRegionOptions,
   loadMeasureOptions,
@@ -39,6 +43,8 @@ const QueryParameterSidebar = ({
   const [tabValue, setTabValue] = useState(0)
 
   const classes = useStyles()
+
+  const { data: statistics } = useSWR(`/api/statistics`, fetcher)
 
   const handleLoadMeasure = (measure) => {
     dispatch(actions.loadMeasure(measure.value))
@@ -84,7 +90,9 @@ const QueryParameterSidebar = ({
             loadOptions={loadMeasureOptions}
             placeholder="Merkmal oder Statistik suchen"
           />
-          <RegionTreeView className={classes.treeView} />
+          {statistics && (
+            <StatisticsTreeView statistics={Object.values(statistics)} />
+          )}
         </Paper>
       )}
     </div>
