@@ -26,6 +26,8 @@ const bounds = [
   [9.4617, 52.5315],
 ]
 
+const choroplethColors = ['#B0D3E1', '#024258']
+
 const layerOptions = {
   choropleth: [
     {
@@ -36,9 +38,9 @@ const layerOptions = {
           ['linear'],
           ['get', 'alter'],
           43,
-          '#B0D3E1',
+          choroplethColors[0],
           45,
-          '#024259',
+          choroplethColors[1],
         ],
         'fill-opacity': 0.6,
       },
@@ -51,11 +53,29 @@ const layerOptions = {
         'line-width': 2,
       },
     },
+  ],
+  choroplethMunicipalities: [
     {
-      filter: ['==', 'AGS', '05962004'],
+      type: 'fill',
       paint: {
-        'fill-color': '#ff0000',
-        'fill-opacity': 0.7,
+        'fill-color': [
+          'interpolate',
+          ['linear'],
+          ['get', 'alter'],
+          42,
+          choroplethColors[0],
+          48,
+          choroplethColors[1],
+        ],
+        'fill-opacity': 0.6,
+      },
+    },
+    {
+      type: 'line',
+      paint: {
+        'line-color': '#004443',
+        'line-opacity': 0.4,
+        'line-width': 1,
       },
     },
   ],
@@ -278,19 +298,13 @@ class ScrollyMapComponent extends PureComponent {
 
             <ShapeLayer
               src="/geo/nrw_landkreise.json"
-              options={layerOptions.choropleth}
+              options={layerOptions.choroplethMunicipalities}
               hidden={currentStep !== 'nuts3'}
             />
 
             <ShapeLayer
               src="/geo/nrw_gemeinden.json"
-              options={layerOptions.choropleth}
-              hidden={currentStep !== 'lau'}
-            />
-
-            <ShapeLayer
-              src="/geo/nrw_gemeinden.json"
-              options={layerOptions.municipalities}
+              options={layerOptions.choroplethMunicipalities}
               hidden={currentStep !== 'lau'}
             />
 
