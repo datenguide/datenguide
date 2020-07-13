@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 import useSWR from 'swr'
 import chroma from 'chroma-js'
@@ -17,6 +17,8 @@ import Chip from '@material-ui/core/Chip'
 import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
 import Radio from '@material-ui/core/Radio'
+
+import fetcher from '../lib/fetcher'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -99,8 +101,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const fetcher = (url) => fetch(url).then((r) => r.json())
-
 const MeasureSearchParameterCard = ({
   statistic,
   onClose,
@@ -118,9 +118,9 @@ const MeasureSearchParameterCard = ({
     dimensions,
   } = statistic
 
-  const [menuOpen, setMenuOpen] = React.useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
 
-  const menuAnchor = React.useRef(null)
+  const menuAnchor = useRef(null)
 
   const handleMenuOpen = (event) => {
     event.stopPropagation()
@@ -182,15 +182,17 @@ const MeasureSearchParameterCard = ({
   }
 
   const renderSummaryCombo = (combo) => {
+    let result
     if (!combo) {
-      return <div className={classes.emptyCombo}>Ohne Ausprägungen</div>
+      result = <span className={classes.emptyCombo}>Ohne Ausprägungen</span>
+    } else {
+      const comboArray = combo.split(',')
+      result = [renderChip(comboArray[0], true)]
+      comboArray.slice(1).forEach((dimension) => {
+        result.push(<span className={classes.dimensionPlus}>+</span>)
+        result.push(renderChip(dimension, true))
+      })
     }
-    const comboArray = combo.split(',')
-    const result = [renderChip(comboArray[0], true)]
-    comboArray.slice(1).forEach((dimension) => {
-      result.push(<span className={classes.dimensionPlus}>+</span>)
-      result.push(renderChip(dimension, true))
-    })
 
     return (
       <div ref={menuAnchor}>

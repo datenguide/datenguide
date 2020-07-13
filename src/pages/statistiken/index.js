@@ -28,7 +28,6 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(0),
   },
   sidebar: {
-    width: '400px',
     padding: theme.spacing(0, 2),
     height: '100%',
   },
@@ -153,7 +152,7 @@ const Detail = ({
             )}
             {regions.length === 0 && measures.length !== 0 && (
               <div className={classes.emptyState}>
-                Wähle mindestens Statistik aus.
+                Wähle mindestens eine Region aus.
               </div>
             )}
             {regions.length !== 0 && measures.length === 0 && (

@@ -1,13 +1,14 @@
 import PropTypes from 'prop-types'
+import useSWR from 'swr'
+import { useState } from 'react'
 
 import { makeStyles, Tab, Tabs } from '@material-ui/core'
+import Paper from '@material-ui/core/Paper'
 
 import AutocompleteSearchField from './AutocompleteSearchField'
-import Paper from '@material-ui/core/Paper'
-import { useState } from 'react'
 import RegionTreeView from './TreeView'
-import useSWR from 'swr'
 import StatisticsTreeView from './StatisticsTreeView'
+import fetcher from '../lib/fetcher'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -16,9 +17,8 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
   },
   paper: {
-    padding: theme.spacing(2, 2, 0, 2),
+    padding: theme.spacing(2, 0),
     marginBottom: theme.spacing(2),
-    // backgroundColor: theme.palette.grey[100],
     flexGrow: 1,
   },
   tabs: {
@@ -32,14 +32,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const fetcher = (url) => fetch(url).then((r) => r.json())
-
-const QueryParameterSidebar = ({
-  loadRegionOptions,
-  loadMeasureOptions,
-  dispatch,
-  actions,
-}) => {
+const QueryParameterSidebar = ({ loadRegionOptions, dispatch, actions }) => {
   const [tabValue, setTabValue] = useState(0)
 
   const classes = useStyles()
@@ -47,7 +40,7 @@ const QueryParameterSidebar = ({
   const { data: statistics } = useSWR(`/api/statistics`, fetcher)
 
   const handleLoadMeasure = (measure) => {
-    dispatch(actions.loadMeasure(measure.value))
+    dispatch(actions.loadMeasure(measure))
   }
 
   const handleLoadRegion = (region) => {
@@ -73,7 +66,6 @@ const QueryParameterSidebar = ({
       </Tabs>
       {tabValue === 0 && (
         <Paper className={classes.paper} elevation={0}>
-          {/* <h4 className={classes.title}>Regionen</h4> */}
           <AutocompleteSearchField
             onSelectionChange={handleLoadRegion}
             loadOptions={loadRegionOptions}
@@ -84,14 +76,11 @@ const QueryParameterSidebar = ({
       )}
       {tabValue === 1 && (
         <Paper className={classes.paper} elevation={0}>
-          {/* <h4 className={classes.title}>Statistiken und Merkmale</h4> */}
-          <AutocompleteSearchField
-            onSelectionChange={handleLoadMeasure}
-            loadOptions={loadMeasureOptions}
-            placeholder="Merkmal oder Statistik suchen"
-          />
           {statistics && (
-            <StatisticsTreeView statistics={Object.values(statistics)} />
+            <StatisticsTreeView
+              statistics={Object.values(statistics)}
+              onSelectMeasure={handleLoadMeasure}
+            />
           )}
         </Paper>
       )}
@@ -101,7 +90,6 @@ const QueryParameterSidebar = ({
 
 QueryParameterSidebar.propTypes = {
   loadRegionOptions: PropTypes.func.isRequired,
-  loadMeasureOptions: PropTypes.func.isRequired,
   dispatch: PropTypes.func.isRequired,
   actions: PropTypes.object.isRequired,
 }
