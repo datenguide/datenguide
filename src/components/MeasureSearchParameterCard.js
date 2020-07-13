@@ -131,7 +131,8 @@ const MeasureSearchParameterCard = ({
     setMenuOpen(false)
   }
 
-  const definitionWithLineBreaks = definitionDe.replace(/\n/g, '<br/>')
+  const definitionWithLineBreaks =
+    definitionDe && definitionDe.replace(/\n/g, '<br/>')
 
   const [statisticId, measureId] = statistic.id.split(':')
 
@@ -197,16 +198,18 @@ const MeasureSearchParameterCard = ({
     return (
       <div ref={menuAnchor}>
         {result}
-        <Button
-          onClick={handleMenuOpen}
-          startIcon={<DropDownIcon />}
-          className={classes.menuButton}
-          size="small"
-          aria-controls="simple-menu"
-          aria-haspopup="true"
-        >
-          Auswähl ändern
-        </Button>
+        {inventory && inventory[0].length > 1 && (
+          <Button
+            onClick={handleMenuOpen}
+            startIcon={<DropDownIcon />}
+            className={classes.menuButton}
+            size="small"
+            aria-controls="simple-menu"
+            aria-haspopup="true"
+          >
+            Auswähl ändern
+          </Button>
+        )}
       </div>
     )
   }
