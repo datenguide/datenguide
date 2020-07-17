@@ -58,7 +58,7 @@ const useStyles = makeStyles((theme) => ({
   searchField: {},
 }))
 
-const StatisticsTreeView = ({ nodes, onSelect }) => {
+const RegionsTreeView = ({ nodes, onSelect }) => {
   const classes = useStyles()
   const [expanded, setExpanded] = useState([])
   const [searchValue, setSearchValue] = useState('')
@@ -71,21 +71,19 @@ const StatisticsTreeView = ({ nodes, onSelect }) => {
       setSearchResult(nodes)
     } else {
       const result = _.compact(
-        nodes.map((statistic) => {
-          if (
-            statistic.title.toLowerCase().includes(searchValue.toLowerCase())
-          ) {
-            // return entire statistic
-            return statistic
+        nodes.map((region) => {
+          if (region.title.toLowerCase().includes(searchValue.toLowerCase())) {
+            // return entire region
+            return region
           }
-          const matchingMeasures = statistic.measures.filter((m) => {
+          const matchingRegions = region.measures.filter((m) => {
             return m.title.toLowerCase().includes(searchValue.toLowerCase())
           })
-          if (matchingMeasures.length > 0) {
-            // return filtered statistic
+          if (matchingRegions.length > 0) {
+            // return filtered region
             return {
-              ...statistic,
-              measures: matchingMeasures,
+              ...region,
+              measures: matchingRegions,
             }
           }
           return null
@@ -114,10 +112,10 @@ const StatisticsTreeView = ({ nodes, onSelect }) => {
     }
   }
 
-  const renderLabel = (id, title, showStatisticIcon) => {
+  const renderLabel = (id, title, showregionIcon) => {
     return (
       <div className={classes.itemLabel}>
-        {showStatisticIcon && <EqualizerIcon className={classes.icon} />}
+        {showregionIcon && <EqualizerIcon className={classes.icon} />}
         <span className={classes.itemTitle}>
           <Highlighter searchWords={[searchValue]} textToHighlight={title} />
         </span>
@@ -177,8 +175,8 @@ const StatisticsTreeView = ({ nodes, onSelect }) => {
   )
 }
 
-StatisticsTreeView.propTypes = {
+RegionsTreeView.propTypes = {
   nodes: PropTypes.arrayOf(PropTypes.object),
 }
 
-export default StatisticsTreeView
+export default RegionsTreeView

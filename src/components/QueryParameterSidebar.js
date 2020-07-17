@@ -6,9 +6,9 @@ import { makeStyles, Tab, Tabs } from '@material-ui/core'
 import Paper from '@material-ui/core/Paper'
 
 import AutocompleteSearchField from './AutocompleteSearchField'
-import RegionTreeView from './TreeView'
 import StatisticsTreeView from './StatisticsTreeView'
 import fetcher from '../lib/fetcher'
+import RegionsTreeView from './RegionsTreeView'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -38,6 +38,7 @@ const QueryParameterSidebar = ({ loadRegionOptions, dispatch, actions }) => {
   const classes = useStyles()
 
   const { data: statistics } = useSWR(`/api/statistics`, fetcher)
+  const { data: regions } = useSWR(`/api/region?level=1`, fetcher)
 
   const handleLoadMeasure = (measure) => {
     dispatch(actions.loadMeasure(measure))
@@ -66,20 +67,18 @@ const QueryParameterSidebar = ({ loadRegionOptions, dispatch, actions }) => {
       </Tabs>
       {tabValue === 0 && (
         <Paper className={classes.paper} elevation={0}>
-          <AutocompleteSearchField
-            onSelectionChange={handleLoadRegion}
-            loadOptions={loadRegionOptions}
-            placeholder="Regionen suchen"
+          <RegionsTreeView
+            nodes={Object.values(regions)}
+            onSelect={handleLoadRegion}
           />
-          <RegionTreeView className={classes.treeView} />
         </Paper>
       )}
       {tabValue === 1 && (
         <Paper className={classes.paper} elevation={0}>
           {statistics && (
             <StatisticsTreeView
-              statistics={Object.values(statistics)}
-              onSelectMeasure={handleLoadMeasure}
+              nodes={Object.values(statistics)}
+              onSelect={handleLoadMeasure}
             />
           )}
         </Paper>
