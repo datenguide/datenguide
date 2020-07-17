@@ -75,7 +75,10 @@ const MeasureSearchComboSelection = ({
     handleMenuClose()
   }
 
-  const renderChip = (dimensionName, withTitle = false) => {
+  const renderChip = (
+    dimensionName,
+    { withTitle = true, withDropdown = false }
+  ) => {
     const dimensionIndex = _.findIndex(
       dimensions,
       (d) => d.name === dimensionName
@@ -87,7 +90,7 @@ const MeasureSearchComboSelection = ({
       <Chip
         key={dimensionName}
         label={label}
-        icon={values.length && <DropDownCircleIcon />}
+        icon={values.length && withDropdown && <DropDownCircleIcon />}
         size="small"
         color="default"
         className={
@@ -104,10 +107,10 @@ const MeasureSearchComboSelection = ({
     if (combo.length === 0) {
       return <div className={classes.emptyCombo}>Ohne Ausprägungen</div>
     }
-    const result = [renderChip(combo[0], true)]
+    const result = [renderChip(combo[0], { withDropdown: false })]
     combo.slice(1).forEach((dimension) => {
       result.push(<span className={classes.dimensionPlus}>+</span>)
-      result.push(renderChip(dimension, true))
+      result.push(renderChip(dimension, { withDropdown: false }))
     })
     return result
   }
@@ -118,10 +121,10 @@ const MeasureSearchComboSelection = ({
       result = <span className={classes.emptyCombo}>Ohne Ausprägungen</span>
     } else {
       const comboArray = combo.split(',')
-      result = [renderChip(comboArray[0], true)]
+      result = [renderChip(comboArray[0], { withDropdown: true })]
       comboArray.slice(1).forEach((dimension) => {
         result.push(<span className={classes.dimensionPlus}>+</span>)
-        result.push(renderChip(dimension, true))
+        result.push(renderChip(dimension, { withDropdown: true }))
       })
     }
 
