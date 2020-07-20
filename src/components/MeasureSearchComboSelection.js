@@ -5,10 +5,13 @@ import _ from 'lodash'
 
 import { makeStyles } from '@material-ui/core/styles'
 import Button from '@material-ui/core/Button'
-import DropDownCircleIcon from '@material-ui/icons/ArrowDropDownCircle'
 import Chip from '@material-ui/core/Chip'
+import DropDownCircleIcon from '@material-ui/icons/ArrowDropDownCircle'
+import FormControlLabel from '@material-ui/core/FormControlLabel'
 import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
+import Radio from '@material-ui/core/Radio'
+import RadioGroup from '@material-ui/core/RadioGroup'
 
 const useStyles = makeStyles((theme) => ({
   codeDimensionChip: {
@@ -52,8 +55,10 @@ const MeasureSearchComboSelection = ({
   const { id, dimensions } = statistic
 
   const [menuOpen, setMenuOpen] = useState(false)
-
   const menuAnchor = useRef(null)
+
+  const [filterOpen, setFilterOpen] = useState(null)
+  const [filterAnchor, setFilterAnchor] = useState(null)
 
   const handleMenuOpen = (event) => {
     event.stopPropagation()
@@ -75,6 +80,22 @@ const MeasureSearchComboSelection = ({
     handleMenuClose()
   }
 
+  const handleFilterClose = (event) => {
+    event.stopPropagation()
+    setFilterAnchor(null)
+    setFilterOpen(null)
+  }
+
+  const handleFilter = (event, name) => {
+    event.stopPropagation()
+    setFilterAnchor(event.currentTarget)
+    setFilterOpen(name)
+  }
+
+  const handleFilterValueChange = (event) => {
+    // console.log(event)
+  }
+
   const renderChip = (
     dimensionName,
     { withTitle = true, withDropdown = false }
@@ -87,19 +108,50 @@ const MeasureSearchComboSelection = ({
     const values = dimensions[dimensionIndex].values || []
 
     return (
-      <Chip
-        key={dimensionName}
-        label={label}
-        icon={values.length && withDropdown && <DropDownCircleIcon />}
-        size="small"
-        color="default"
-        className={
-          withTitle ? classes.titleDimensionChip : classes.codeDimensionChip
-        }
-        style={{
-          backgroundColor: dimensionColors[dimensionIndex],
-        }}
-      />
+      <>
+        <Chip
+          key={dimensionName}
+          label={label}
+          icon={values.length && withDropdown && <DropDownCircleIcon />}
+          size="small"
+          color="default"
+          onClick={(event) => handleFilter(event, dimensionName, withDropdown)}
+          className={
+            withTitle ? classes.titleDimensionChip : classes.codeDimensionChip
+          }
+          style={{
+            backgroundColor: dimensionColors[dimensionIndex],
+          }}
+        />
+        <Menu
+          id={id}
+          anchorEl={filterAnchor}
+          keepMounted
+          open={dimensionName === filterOpen}
+          onClose={handleFilterClose}
+          getContentAnchorEl={null}
+          anchorOrigin={{
+            vertical: 'bottom',
+            horizontal: 'center',
+          }}
+          transformOrigin={{
+            vertical: 'top',
+            horizontal: 'center',
+          }}
+        >
+          <RadioGroup onChange={handleFilterValueChange}>
+            {values.map((option) => (
+              <MenuItem key={option.value}>
+                <FormControlLabel
+                  value={option.value}
+                  control={<Radio />}
+                  label={option.label}
+                />
+              </MenuItem>
+            ))}
+          </RadioGroup>
+        </Menu>
+      </>
     )
   }
 
@@ -176,7 +228,7 @@ const MeasureSearchComboSelection = ({
 }
 
 MeasureSearchComboSelection.propTypes = {
-  inventory: PropTypes.array.isRequired,
+  inventory: PropTypes.object.isRequired,
   statistic: PropTypes.object.isRequired,
   onArgumentChange: PropTypes.func.isRequired,
 }
