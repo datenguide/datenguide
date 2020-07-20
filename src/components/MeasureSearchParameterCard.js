@@ -194,7 +194,7 @@ const MeasureSearchParameterCard = ({
             {inventory &&
               _.sortBy(inventory[0], (combo) => combo.length) // TODO should already be sorted before, not here
                 .map((combo) => combo.sort())
-                .map((combo, i) => (
+                .map((combo) => (
                   <div key={combo} className={classes.combo}>
                     <Radio
                       className={classes.radio}
