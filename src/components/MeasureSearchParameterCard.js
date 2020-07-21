@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import useSWR from 'swr'
 import chroma from 'chroma-js'
@@ -8,16 +8,13 @@ import { makeStyles } from '@material-ui/core/styles'
 import Accordion from '@material-ui/core/ExpansionPanel' // TODO rename to accordion after material-ui update
 import AccordionSummary from '@material-ui/core/ExpansionPanelSummary' // TODO rename to accordion after material-ui update
 import AccordionDetails from '@material-ui/core/ExpansionPanelDetails' // TODO rename to accordion after material-ui update
-import Button from '@material-ui/core/Button'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import IconButton from '@material-ui/core/IconButton'
-import DropDownIcon from '@material-ui/icons/ArrowDropDownCircle'
 import CloseIcon from '@material-ui/icons/Close'
 import Chip from '@material-ui/core/Chip'
-import Menu from '@material-ui/core/Menu'
-import MenuItem from '@material-ui/core/MenuItem'
 import Radio from '@material-ui/core/Radio'
 
+import MeasureSearchComboSelection from './MeasureSearchComboSelection'
 import fetcher from '../lib/fetcher'
 
 const useStyles = makeStyles((theme) => ({
@@ -74,30 +71,11 @@ const useStyles = makeStyles((theme) => ({
   dimensionDescription: {
     marginLeft: theme.spacing(1),
   },
-  activeCombo: {
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginTop: theme.spacing(1),
-  },
   dimensionPlus: {
     margin: theme.spacing(0, 0.5),
   },
-  combo: {
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
-    padding: theme.spacing(1, 0.5),
-  },
-  emptyCombo: {
-    margin: theme.spacing(1, 1, 1, 0),
-  },
   radio: {
     padding: theme.spacing(0, 1, 0, 0),
-  },
-  menuButton: {
-    marginLeft: theme.spacing(1),
-    color: theme.palette.grey[600],
   },
 }))
 
@@ -117,19 +95,6 @@ const MeasureSearchParameterCard = ({
     definitionDe,
     dimensions,
   } = statistic
-
-  const [menuOpen, setMenuOpen] = useState(false)
-
-  const menuAnchor = useRef(null)
-
-  const handleMenuOpen = (event) => {
-    event.stopPropagation()
-    setMenuOpen(true)
-  }
-
-  const handleMenuClose = () => {
-    setMenuOpen(false)
-  }
 
   const definitionWithLineBreaks =
     definitionDe && definitionDe.replace(/\n/g, '<br/>')
@@ -156,12 +121,6 @@ const MeasureSearchParameterCard = ({
     onArgumentChange({ id, combo: JSON.parse(event.target.value) })
   }
 
-  const handleComboClick = (event, combo) => {
-    event.stopPropagation()
-    onArgumentChange({ id, combo })
-    handleMenuClose()
-  }
-
   const renderChip = (dimensionName, withTitle = false) => {
     const dimensionIndex = _.findIndex(
       dimensions,
@@ -175,42 +134,11 @@ const MeasureSearchParameterCard = ({
         className={
           withTitle ? classes.titleDimensionChip : classes.codeDimensionChip
         }
+        size="small"
         style={{
           backgroundColor: dimensionColors[dimensionIndex],
         }}
       />
-    )
-  }
-
-  const renderSummaryCombo = (combo) => {
-    let result
-    if (!combo) {
-      result = <span className={classes.emptyCombo}>Ohne Ausprägungen</span>
-    } else {
-      const comboArray = combo.split(',')
-      result = [renderChip(comboArray[0], true)]
-      comboArray.slice(1).forEach((dimension) => {
-        result.push(<span className={classes.dimensionPlus}>+</span>)
-        result.push(renderChip(dimension, true))
-      })
-    }
-
-    return (
-      <div ref={menuAnchor}>
-        {result}
-        {inventory && inventory[0].length > 1 && (
-          <Button
-            onClick={handleMenuOpen}
-            startIcon={<DropDownIcon />}
-            className={classes.menuButton}
-            size="small"
-            aria-controls="simple-menu"
-            aria-haspopup="true"
-          >
-            Auswähl ändern
-          </Button>
-        )}
-      </div>
     )
   }
 
@@ -236,30 +164,14 @@ const MeasureSearchParameterCard = ({
           <div className={classes.headingStatistic}>
             {`${statisticName} – ${statisticTitleDe}`}
           </div>
-          <div className={classes.activeCombo}>
-            {renderSummaryCombo(activeCombo)}
-            <Menu
-              id="simple-menu"
-              anchorEl={menuAnchor.current}
-              keepMounted
-              open={menuOpen}
-              onClose={handleMenuClose}
-            >
-              {inventory &&
-                _.sortBy(inventory[0], (combo) => combo.length) // TODO should already be sorted before, not here
-                  .map((combo) => combo.sort())
-                  .map((combo, i) => (
-                    <MenuItem
-                      key={combo}
-                      className={classes.radio}
-                      selected={activeCombo === combo.join(',')}
-                      onClick={(event) => handleComboClick(event, combo)}
-                    >
-                      <div className={classes.combo}>{renderCombo(combo)}</div>
-                    </MenuItem>
-                  ))}
-            </Menu>
-          </div>
+          {inventory && (
+            <MeasureSearchComboSelection
+              statistic={statistic}
+              inventory={inventory}
+              activeCombo={activeCombo}
+              onArgumentChange={onArgumentChange}
+            />
+          )}
         </div>
         <IconButton
           aria-label="settings"
