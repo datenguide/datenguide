@@ -10,8 +10,7 @@ import DropDownCircleIcon from '@material-ui/icons/ArrowDropDownCircle'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
-import Radio from '@material-ui/core/Radio'
-import RadioGroup from '@material-ui/core/RadioGroup'
+import Checkbox from '@material-ui/core/Checkbox'
 
 const useStyles = makeStyles((theme) => ({
   codeDimensionChip: {
@@ -86,14 +85,25 @@ const MeasureSearchComboSelection = ({
     setFilterOpen(null)
   }
 
-  const handleFilter = (event, name) => {
+  const handleFilter = (event, name, hasDropdown) => {
+    if (!hasDropdown) return
     event.stopPropagation()
     setFilterAnchor(event.currentTarget)
     setFilterOpen(name)
   }
 
-  const handleFilterValueChange = (event) => {
-    // console.log(event)
+  const handleFilterValueChange = (dimensionIndex, value) => {
+    const { selected } = dimensions[dimensionIndex]
+    const index = selected.indexOf(value)
+    if (index >= 0) {
+      // eslint-disable-next-line no-console
+      console.log('unselect', value)
+      // selected.splice(index)
+    } else {
+      // eslint-disable-next-line no-console
+      console.log('select', value)
+      // selected.push(value)
+    }
   }
 
   const renderChip = (
@@ -105,7 +115,7 @@ const MeasureSearchComboSelection = ({
       (d) => d.name === dimensionName
     )
     const label = withTitle ? dimensions[dimensionIndex].titleDe : dimensionName
-    const values = dimensions[dimensionIndex].values || []
+    const { values = [], selected = [] } = dimensions[dimensionIndex]
 
     return (
       <>
@@ -139,17 +149,21 @@ const MeasureSearchComboSelection = ({
             horizontal: 'center',
           }}
         >
-          <RadioGroup onChange={handleFilterValueChange}>
-            {values.map((option) => (
-              <MenuItem key={option.value}>
-                <FormControlLabel
-                  value={option.value}
-                  control={<Radio />}
-                  label={option.label}
-                />
-              </MenuItem>
-            ))}
-          </RadioGroup>
+          {values.map(({ value, label }) => (
+            <MenuItem key={value}>
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={selected.includes(value)}
+                    onChange={() =>
+                      handleFilterValueChange(dimensionIndex, value)
+                    }
+                  />
+                }
+                label={label}
+              />
+            </MenuItem>
+          ))}
         </Menu>
       </>
     )
