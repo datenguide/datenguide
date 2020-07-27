@@ -118,9 +118,8 @@ const MeasureSearchComboSelection = ({
     const { values = [], selected = [] } = dimensions[dimensionIndex]
 
     return (
-      <>
+      <div key={dimensionName}>
         <Chip
-          key={dimensionName}
           label={label}
           icon={values.length && withDropdown && <DropDownCircleIcon />}
           size="small"
@@ -165,7 +164,7 @@ const MeasureSearchComboSelection = ({
             </MenuItem>
           ))}
         </Menu>
-      </>
+      </div>
     )
   }
 
@@ -175,7 +174,11 @@ const MeasureSearchComboSelection = ({
     }
     const result = [renderChip(combo[0], { withDropdown: false })]
     combo.slice(1).forEach((dimension) => {
-      result.push(<span className={classes.dimensionPlus}>+</span>)
+      result.push(
+        <span key={`${dimension}+`} className={classes.dimensionPlus}>
+          +
+        </span>
+      )
       result.push(renderChip(dimension, { withDropdown: false }))
     })
     return result

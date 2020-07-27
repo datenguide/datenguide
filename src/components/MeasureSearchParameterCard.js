@@ -148,7 +148,11 @@ const MeasureSearchParameterCard = ({
     }
     const result = [renderChip(combo[0], true)]
     combo.slice(1).forEach((dimension) => {
-      result.push(<span className={classes.dimensionPlus}>+</span>)
+      result.push(
+        <span key={`${dimension}+`} className={classes.dimensionPlus}>
+          +
+        </span>
+      )
       result.push(renderChip(dimension, true))
     })
     return result
