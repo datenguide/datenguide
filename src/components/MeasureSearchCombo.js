@@ -4,7 +4,6 @@ import chroma from 'chroma-js'
 import _ from 'lodash'
 
 import { makeStyles } from '@material-ui/core/styles'
-import Chip from '@material-ui/core/Chip'
 import DropDownCircleIcon from '@material-ui/icons/ArrowDropDownCircle'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import Menu from '@material-ui/core/Menu'
@@ -17,9 +16,20 @@ const useStyles = makeStyles((theme) => ({
     color: 'white',
     fontWeight: 'bold',
   },
-  titleDimensionChip: {
+  chip: {
     color: 'white',
     fontWeight: 'bold',
+    fontSize: theme.typography.button.fontSize,
+    textAlign: 'left',
+    border: 0,
+    padding: theme.spacing(0.5, 1.5),
+    borderRadius: 20,
+    cursor: 'pointer',
+  },
+  icon: {
+    verticalAlign: 'text-bottom',
+    fontSize: '1.25em',
+    margin: theme.spacing(0, 0.5, 0, -1),
   },
   dimensionPlus: {
     margin: theme.spacing(0, 0.5),
@@ -28,7 +38,8 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(1, 1, 1, 0),
   },
   chipContainer: {
-    display: 'inline',
+    display: 'inline-block',
+    margin: theme.spacing(0.25, 0),
   },
 }))
 
@@ -66,19 +77,16 @@ const MeasureSearchCombo = ({ dimensions, combo, onFilterChange }) => {
 
     return (
       <div className={classes.chipContainer} key={dimensionName}>
-        <Chip
-          label={label}
-          icon={hasFilter ? <DropDownCircleIcon /> : <></>}
-          size="small"
-          color="default"
+        <button
           onClick={(event) => handleFilter(event, dimensionName)}
-          className={
-            withTitle ? classes.titleDimensionChip : classes.codeDimensionChip
-          }
+          className={classes.chip}
           style={{
             backgroundColor: dimensionColors[dimensionIndex],
           }}
-        />
+        >
+          {hasFilter && <DropDownCircleIcon className={classes.icon} />}
+          {label}
+        </button>
         <Menu
           anchorEl={filterAnchor}
           keepMounted

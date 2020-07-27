@@ -15,8 +15,11 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(1, 0.5),
   },
   menuButton: {
-    marginLeft: theme.spacing(1),
     color: theme.palette.grey[600],
+  },
+  activeCombo: {
+    display: 'inline-block',
+    paddingRight: theme.spacing(1),
   },
 }))
 
@@ -65,11 +68,13 @@ const MeasureSearchComboSelection = ({
   const renderActiveCombo = (combo) => {
     return (
       <div ref={menuAnchor}>
-        <MeasureSearchCombo
-          combo={combo.split(',')}
-          dimensions={dimensions}
-          onFilterChange={handleFilterChange}
-        />
+        <div className={classes.activeCombo}>
+          <MeasureSearchCombo
+            combo={combo.split(',')}
+            dimensions={dimensions}
+            onFilterChange={handleFilterChange}
+          />
+        </div>
         {inventory && inventory[0].length > 1 && (
           <Button
             onClick={handleMenuOpen}
