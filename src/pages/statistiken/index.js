@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types'
-import fetch from 'isomorphic-unfetch'
 
 import { makeStyles } from '@material-ui/core/styles'
 import Snackbar from '@material-ui/core/Snackbar'
@@ -11,7 +10,7 @@ import { queryArgsToState, stateToQueryArgs } from '../../lib/queryString'
 import useSearchManager from '../../lib/useSearchManager'
 import DockedDrawerLayout from '../../layouts/DockedDrawerLayout'
 import RegionSearchParameterCard from '../../components/querytool/RegionSearchParameterCard'
-import StatisticsSearchParameterCard from '../../components/querytool/MeasureSearchParameterCard'
+import MeasureSearchParameterCard from '../../components/querytool/MeasureSearchParameterCard'
 
 const useStyles = makeStyles((theme) => ({
   content: {
@@ -55,30 +54,31 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const loadMeasureOptions = async (value = '') => {
-  // TODO use server API
-  const result = await fetch(`/api/search/measures?filter=${value}`)
-  const json = await result.json()
-  return json.map((statistic) => {
-    const split = statistic.label.split('-').map((s) => s.trim()) // TODO fetch data in proper format to avoid this
-    return {
-      value: statistic.value,
-      label: split[1],
-      description: split[0],
-    }
-  })
-}
-
-const loadRegionOptions = async (value = '') => {
-  // TODO use server API
-  const result = await fetch(`/api/search/regions?filter=${value}`)
-  const json = await result.json()
-  return json.map((region) => ({
-    value: region.value,
-    label: region.name,
-    description: region.value, // TODO define description, add nuts level description (Bundesland, Kreis etc)
-  }))
-}
+// TODO this was for autocomplete field
+// const loadMeasureOptions = async (value = '') => {
+//   // TODO use server API
+//   const result = await fetch(`/api/search/measures?filter=${value}`)
+//   const json = await result.json()
+//   return json.map((statistic) => {
+//     const split = statistic.label.split('-').map((s) => s.trim()) // TODO fetch data in proper format to avoid this
+//     return {
+//       value: statistic.value,
+//       label: split[1],
+//       description: split[0],
+//     }
+//   })
+// }
+//
+// const loadRegionOptions = async (value = '') => {
+//   // TODO use server API
+//   const result = await fetch(`/api/search/regions?filter=${value}`)
+//   const json = await result.json()
+//   return json.map((region) => ({
+//     value: region.value,
+//     label: region.name,
+//     description: region.value, // TODO define description, add nuts level description (Bundesland, Kreis etc)
+//   }))
+// }
 
 const Detail = ({
   initialMeasures,
@@ -115,14 +115,7 @@ const Detail = ({
     <DockedDrawerLayout
       drawerContent={
         <div className={classes.sidebar}>
-          <QueryParameterSidebar
-            // regions={regions}
-            // measures={measures}
-            // loadRegionOptions={loadRegionOptions}
-            // loadMeasureOptions={loadMeasureOptions}
-            dispatch={dispatch}
-            actions={actions}
-          />
+          <QueryParameterSidebar dispatch={dispatch} actions={actions} />
         </div>
       }
     >
@@ -138,7 +131,7 @@ const Detail = ({
               />
             ))}
             {measures.map((measure) => (
-              <StatisticsSearchParameterCard
+              <MeasureSearchParameterCard
                 key={measure.id}
                 statistic={measure}
                 onClose={handleRemoveMeasure(measure.id)}

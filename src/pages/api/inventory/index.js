@@ -1,4 +1,4 @@
-import inventory from './inventory.json'
+import inventory from '../../../data/inventory.json'
 
 export default (req, res) => {
   const {

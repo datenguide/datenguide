@@ -70,7 +70,7 @@ const MeasureSearchComboSelection = ({
       <div ref={menuAnchor}>
         <div className={classes.activeCombo}>
           <MeasureSearchCombo
-            combo={combo.split(',')}
+            combo={combo}
             dimensions={dimensions}
             onFilterChange={handleFilterChange}
           />

@@ -105,7 +105,6 @@ const MeasureSearchParameterCard = ({
     .filter((d) => d.active)
     .map((d) => d.name)
     .sort()
-    .join(',')
 
   const dimensionColors = chroma
     .scale(['#9cdf7c', '#2A4858'])
