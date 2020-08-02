@@ -30,7 +30,8 @@ const MeasureSearchComboSelection = ({
   statistic,
   inventory,
   activeCombo,
-  onArgumentChange,
+  onDimensionChange,
+  onDimensionValuesChange,
 }) => {
   const classes = useStyles()
 
@@ -50,22 +51,21 @@ const MeasureSearchComboSelection = ({
 
   const handleComboClick = (event, combo) => {
     event.stopPropagation()
-    onArgumentChange({ id, combo })
+    onDimensionChange({ id, combo })
     handleMenuClose()
   }
 
-  const handleFilterChange = (dimensionIndex, value) => {
-    const { selected } = dimensions[dimensionIndex]
-    const index = selected.indexOf(value)
-    if (index >= 0) {
-      // eslint-disable-next-line no-console
-      console.log('unselect', value)
-      // selected.splice(index)
-    } else {
-      // eslint-disable-next-line no-console
-      console.log('select', value)
-      // selected.push(value)
-    }
+  const handleFilterChange = (dimensionIndex, changedValue) => {
+    const { name, values, selected } = dimensions[dimensionIndex]
+    const newSelection = values
+      .map((v) => v.value)
+      .filter((v) => {
+        if (v === changedValue) {
+          return !selected.includes(v)
+        }
+        return selected.includes(v)
+      })
+    onDimensionValuesChange({ id, dimension: name, values: newSelection })
   }
 
   const renderActiveCombo = (combo) => {

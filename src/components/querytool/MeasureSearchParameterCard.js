@@ -104,7 +104,8 @@ const useStyles = makeStyles((theme) => ({
 const MeasureSearchParameterCard = ({
   statistic,
   onClose,
-  onArgumentChange,
+  onDimensionChange,
+  onDimensionValuesChange,
 }) => {
   const classes = useStyles()
 
@@ -150,7 +151,8 @@ const MeasureSearchParameterCard = ({
                 statistic={statistic}
                 inventory={inventory}
                 activeCombo={activeCombo}
-                onArgumentChange={onArgumentChange}
+                onDimensionChange={onDimensionChange}
+                onDimensionValuesChange={onDimensionValuesChange}
               />
             )}
           </div>
@@ -189,7 +191,8 @@ const MeasureSearchParameterCard = ({
 MeasureSearchParameterCard.propTypes = {
   statistic: PropTypes.object.isRequired,
   onClose: PropTypes.func.isRequired,
-  onArgumentChange: PropTypes.func.isRequired,
+  onDimensionChange: PropTypes.func.isRequired,
+  onDimensionValuesChange: PropTypes.func.isRequired,
 }
 
 export default MeasureSearchParameterCard

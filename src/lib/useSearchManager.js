@@ -136,8 +136,12 @@ const useSearchManager = (
         dispatch(actions.removeMeasure(id))
         dispatch(actions.syncUrl())
       },
+      changeDimensionValues: (payload) => async (dispatch) => {
+        dispatch(actions.setDimensionValues(payload))
+        dispatch(actions.syncUrl())
+      },
       changeDimensionSelection: (payload) => async (dispatch) => {
-        dispatch(actions.updateDimension(payload))
+        dispatch(actions.setDimensionCombo(payload))
         dispatch(actions.syncUrl())
       },
       changeLabels: (payload) => async (dispatch) => {
@@ -188,11 +192,6 @@ const useSearchManager = (
         if (state.measures[action.payload.id]) {
           state.error = 'Statistik wurde bereits ausgewählt'
         } else {
-          // TODO this will always replace the current measure to allow a
-          // maximum of one measure.
-          // state.measures = {
-          //   [action.payload.id]: measureToState(action.payload),
-          // }
           state.measures[action.payload.id] = measureToState(action.payload)
         }
         state.loading = false
@@ -202,12 +201,21 @@ const useSearchManager = (
         delete state.measures[action.payload]
         return state
       },
-      updateDimension: (state, action) => {
+      setDimensionCombo: (state, action) => {
         const { id, combo } = action.payload
         const measure = state.measures[id]
         measure.dimensions = measure.dimensions.map((dim) => ({
           ...dim,
           active: combo.includes(dim.name),
+        }))
+        return state
+      },
+      setDimensionValues: (state, action) => {
+        const { id, dimension, values } = action.payload
+        const measure = state.measures[id]
+        measure.dimensions = measure.dimensions.map((dim) => ({
+          ...dim,
+          selected: dim.name === dimension ? values : dim.selected,
         }))
         return state
       },
