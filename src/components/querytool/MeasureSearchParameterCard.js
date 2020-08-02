@@ -68,6 +68,15 @@ const useStyles = makeStyles((theme) => ({
     color: 'white',
     fontWeight: 'bold',
   },
+  dimension: {
+    width: '100%',
+    display: 'flex',
+    flexDirection: 'row',
+  },
+  dimensionName: {
+    fontWeight: 'bold',
+    width: '72px',
+  },
   dimensionDescription: {
     marginLeft: theme.spacing(1),
   },
@@ -194,30 +203,14 @@ const MeasureSearchParameterCard = ({
           </div>
           <div className={classes.dimensionSelect}>
             <div className={classes.headingDetails}>Merkmalsausprägungen</div>
-            {inventory &&
-              _.sortBy(inventory[0], (combo) => combo.length) // TODO should already be sorted before, not here
-                .map((combo) => combo.sort())
-                .map((combo) => (
-                  <div key={combo} className={classes.combo}>
-                    <Radio
-                      className={classes.radio}
-                      checked={activeCombo === combo.join(',')}
-                      onChange={handleComboChange}
-                      value={JSON.stringify(combo)}
-                    />
-                    {renderCombo(combo)}
-                  </div>
-                ))}
-
-            {/* <div className={classes.headingLegend}>Beschreibung</div> */}
-            {/* {dimensions.map((dim, i) => ( */}
-            {/*  <div className={classes.combo} key={dim.name}> */}
-            {/*    {renderChip(dim.name)} */}
-            {/*    <span className={classes.dimensionDescription}> */}
-            {/*      {dim.titleDe} */}
-            {/*    </span> */}
-            {/*  </div> */}
-            {/* ))} */}
+            {dimensions.map((dim, i) => (
+              <div className={classes.dimension} key={dim.name}>
+                <div className={classes.dimensionName}>{dim.name}</div>
+                <span className={classes.dimensionDescription}>
+                  {dim.titleDe}
+                </span>
+              </div>
+            ))}
           </div>
         </div>
       </AccordionDetails>
