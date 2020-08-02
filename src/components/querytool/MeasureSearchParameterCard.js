@@ -19,8 +19,25 @@ const useStyles = makeStyles((theme) => ({
   },
   summary: {
     display: 'flex',
+    flexDirection: 'row',
+    flexGrow: 1,
+  },
+  summaryDescription: {
+    display: 'flex',
     flexDirection: 'column',
     flexGrow: 1,
+  },
+  summaryDescriptionWrapper: {
+    flexGrow: 1,
+  },
+  summaryComboDesciption: {
+    display: 'flex',
+    flexDirection: 'row',
+    flexGrow: 1,
+  },
+  summaryActions: {
+    display: 'flex',
+    alignItems: 'center',
   },
   headingAttribute: {
     fontSize: theme.typography.h6.fontSize,
@@ -92,7 +109,6 @@ const MeasureSearchParameterCard = ({
   const classes = useStyles()
 
   const {
-    id,
     statisticName,
     statisticTitleDe,
     name,
@@ -120,28 +136,30 @@ const MeasureSearchParameterCard = ({
     <Accordion elevation={1}>
       <AccordionSummary expandIcon={<ExpandMoreIcon />}>
         <div className={classes.summary}>
-          <div className={classes.headingAttribute}>
-            {`${name} - ${titleDe}`}
+          <div className={classes.summaryDescriptionWrapper}>
+            <div className={classes.summaryDescription}>
+              <div className={classes.headingAttribute}>
+                {`${name} - ${titleDe}`}
+              </div>
+              <div className={classes.headingStatistic}>
+                {`${statisticName} – ${statisticTitleDe}`}
+              </div>
+            </div>
+            {inventory && (
+              <MeasureSearchComboSelection
+                statistic={statistic}
+                inventory={inventory}
+                activeCombo={activeCombo}
+                onArgumentChange={onArgumentChange}
+              />
+            )}
           </div>
-          <div className={classes.headingStatistic}>
-            {`${statisticName} – ${statisticTitleDe}`}
+          <div className={classes.summaryActions}>
+            <IconButton aria-label="settings" onClick={onClose}>
+              <CloseIcon />
+            </IconButton>
           </div>
-          {inventory && (
-            <MeasureSearchComboSelection
-              statistic={statistic}
-              inventory={inventory}
-              activeCombo={activeCombo}
-              onArgumentChange={onArgumentChange}
-            />
-          )}
         </div>
-        <IconButton
-          aria-label="settings"
-          onClick={onClose}
-          className={classes.closeButton}
-        >
-          <CloseIcon />
-        </IconButton>
       </AccordionSummary>
       <AccordionDetails>
         <div className={classes.measureDetails}>
