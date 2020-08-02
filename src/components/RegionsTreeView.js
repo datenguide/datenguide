@@ -94,6 +94,8 @@ const RegionsTreeView = ({ nodes, onSelect }) => {
     }
   }, [searchValue])
 
+  console.log('searchResult', searchResult)
+
   const handleNodeToggle = (event, nodes) => {
     setExpanded(nodes)
   }
@@ -157,17 +159,17 @@ const RegionsTreeView = ({ nodes, onSelect }) => {
         onNodeToggle={handleNodeToggle}
         onNodeSelect={handleSelectMeasure}
       >
-        {searchResult.map(({ id, title, measures }) => (
-          <TreeItem key={id} nodeId={id} label={renderLabel(id, title, true)}>
-            <ul>
-              {measures.map((measure) => (
-                <TreeItem
-                  key={measure.id}
-                  nodeId={`${id}:${measure.id}`}
-                  label={renderLabel(measure.id, measure.title)}
-                />
-              ))}
-            </ul>
+        {searchResult.map(({ id, name }) => (
+          <TreeItem key={id} nodeId={id} label={renderLabel(id, name, true)}>
+            {/*<ul>*/}
+            {/*  {measures.map((measure) => (*/}
+            {/*    <TreeItem*/}
+            {/*      key={measure.id}*/}
+            {/*      nodeId={`${id}:${measure.id}`}*/}
+            {/*      label={renderLabel(measure.id, measure.title)}*/}
+            {/*    />*/}
+            {/*  ))}*/}
+            {/*</ul>*/}
           </TreeItem>
         ))}
       </TreeView>

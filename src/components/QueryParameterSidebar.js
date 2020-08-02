@@ -5,7 +5,6 @@ import { useState } from 'react'
 import { makeStyles, Tab, Tabs } from '@material-ui/core'
 import Paper from '@material-ui/core/Paper'
 
-import AutocompleteSearchField from './AutocompleteSearchField'
 import StatisticsTreeView from './StatisticsTreeView'
 import fetcher from '../lib/fetcher'
 import RegionsTreeView from './RegionsTreeView'
@@ -52,6 +51,8 @@ const QueryParameterSidebar = ({ loadRegionOptions, dispatch, actions }) => {
     setTabValue(newValue)
   }
 
+  console.log('regions', regions)
+
   return (
     <div className={classes.root}>
       <Tabs
@@ -67,10 +68,12 @@ const QueryParameterSidebar = ({ loadRegionOptions, dispatch, actions }) => {
       </Tabs>
       {tabValue === 0 && (
         <Paper className={classes.paper} elevation={0}>
-          <RegionsTreeView
-            nodes={Object.values(regions)}
-            onSelect={handleLoadRegion}
-          />
+          {regions && (
+            <RegionsTreeView
+              nodes={Object.values(regions)}
+              onSelect={handleLoadRegion}
+            />
+          )}
         </Paper>
       )}
       {tabValue === 1 && (
