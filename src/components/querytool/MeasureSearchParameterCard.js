@@ -1,8 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import useSWR from 'swr'
-import chroma from 'chroma-js'
-import _ from 'lodash'
 
 import { makeStyles } from '@material-ui/core/styles'
 import Accordion from '@material-ui/core/ExpansionPanel' // TODO rename to accordion after material-ui update
@@ -11,8 +9,6 @@ import AccordionDetails from '@material-ui/core/ExpansionPanelDetails' // TODO r
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import IconButton from '@material-ui/core/IconButton'
 import CloseIcon from '@material-ui/icons/Close'
-import Chip from '@material-ui/core/Chip'
-import Radio from '@material-ui/core/Radio'
 
 import MeasureSearchComboSelection from './MeasureSearchComboSelection'
 import fetcher from '../../lib/fetcher'
@@ -115,56 +111,10 @@ const MeasureSearchParameterCard = ({
     .map((d) => d.name)
     .sort()
 
-  const dimensionColors = chroma
-    .scale(['#9cdf7c', '#2A4858'])
-    .mode('lch')
-    .colors(dimensions.length)
-
   const { data: inventory } = useSWR(
     `/api/inventory?statistic=${statisticId}&measure=${measureId}`,
     fetcher
   )
-
-  const handleComboChange = (event) => {
-    onArgumentChange({ id, combo: JSON.parse(event.target.value) })
-  }
-
-  const renderChip = (dimensionName, withTitle = false) => {
-    const dimensionIndex = _.findIndex(
-      dimensions,
-      (d) => d.name === dimensionName
-    )
-    const label = withTitle ? dimensions[dimensionIndex].titleDe : dimensionName
-    return (
-      <Chip
-        key={dimensionName}
-        label={label}
-        className={
-          withTitle ? classes.titleDimensionChip : classes.codeDimensionChip
-        }
-        size="small"
-        style={{
-          backgroundColor: dimensionColors[dimensionIndex],
-        }}
-      />
-    )
-  }
-
-  const renderCombo = (combo) => {
-    if (combo.length === 0) {
-      return <div className={classes.emptyCombo}>Ohne Ausprägungen</div>
-    }
-    const result = [renderChip(combo[0], true)]
-    combo.slice(1).forEach((dimension) => {
-      result.push(
-        <span key={`${dimension}+`} className={classes.dimensionPlus}>
-          +
-        </span>
-      )
-      result.push(renderChip(dimension, true))
-    })
-    return result
-  }
 
   return (
     <Accordion elevation={1}>

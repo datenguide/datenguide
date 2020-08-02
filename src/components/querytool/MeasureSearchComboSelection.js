@@ -11,8 +11,11 @@ import MenuItem from '@material-ui/core/MenuItem'
 import MeasureSearchCombo from './MeasureSearchCombo'
 
 const useStyles = makeStyles((theme) => ({
+  root: {
+    marginTop: theme.spacing(1),
+  },
   menuItem: {
-    padding: theme.spacing(1, 0.5),
+    padding: theme.spacing(1, 2),
   },
   menuButton: {
     color: theme.palette.grey[600],
@@ -92,7 +95,7 @@ const MeasureSearchComboSelection = ({
   }
 
   return (
-    <>
+    <div className={classes.root}>
       {renderActiveCombo(activeCombo)}
       <Menu
         id="combo-menu"
@@ -119,7 +122,7 @@ const MeasureSearchComboSelection = ({
               )
             })}
       </Menu>
-    </>
+    </div>
   )
 }
 
