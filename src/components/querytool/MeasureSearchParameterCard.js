@@ -15,7 +15,7 @@ import Chip from '@material-ui/core/Chip'
 import Radio from '@material-ui/core/Radio'
 
 import MeasureSearchComboSelection from './MeasureSearchComboSelection'
-import fetcher from '../lib/fetcher'
+import fetcher from '../../lib/fetcher'
 
 const useStyles = makeStyles((theme) => ({
   root: {

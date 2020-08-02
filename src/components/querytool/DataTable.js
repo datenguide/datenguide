@@ -21,7 +21,7 @@ import {
 import CallMadeIcon from '@material-ui/icons/CallMade'
 import Alert from '@material-ui/lab/Alert'
 
-import getQuery from '../lib/queryBuilder'
+import getQuery from '../../lib/queryBuilder'
 import DataTableToolbar from './DataTableToolbar'
 import DataTablePagination from './DataTablePagination'
 

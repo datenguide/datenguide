@@ -5,13 +5,13 @@ import { makeStyles } from '@material-ui/core/styles'
 import Snackbar from '@material-ui/core/Snackbar'
 import Paper from '@material-ui/core/Paper'
 
-import DataTable from '../../components/DataTable'
-import QueryParameterSidebar from '../../components/QueryParameterSidebar'
+import DataTable from '../../components/querytool/DataTable'
+import QueryParameterSidebar from '../../components/querytool/QueryParameterSidebar'
 import { queryArgsToState, stateToQueryArgs } from '../../lib/queryString'
 import useSearchManager from '../../lib/useSearchManager'
 import DockedDrawerLayout from '../../layouts/DockedDrawerLayout'
-import RegionSearchParameterCard from '../../components/RegionSearchParameterCard'
-import StatisticsSearchParameterCard from '../../components/MeasureSearchParameterCard'
+import RegionSearchParameterCard from '../../components/querytool/RegionSearchParameterCard'
+import StatisticsSearchParameterCard from '../../components/querytool/MeasureSearchParameterCard'
 
 const useStyles = makeStyles((theme) => ({
   content: {

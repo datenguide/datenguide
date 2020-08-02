@@ -6,7 +6,7 @@ import { makeStyles, Tab, Tabs } from '@material-ui/core'
 import Paper from '@material-ui/core/Paper'
 
 import StatisticsTreeView from './StatisticsTreeView'
-import fetcher from '../lib/fetcher'
+import fetcher from '../../lib/fetcher'
 import RegionsTreeView from './RegionsTreeView'
 
 const useStyles = makeStyles((theme) => ({

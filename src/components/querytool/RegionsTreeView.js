@@ -120,7 +120,7 @@ const RegionsTreeView = ({ nodes, onSelect }) => {
     setSearchValue('')
   }
 
-  const handleSelectMeasure = (event, nodeIds) => {
+  const handleSelectRegion = (event, nodeIds) => {
     if (nodeIds.includes(':')) {
       onSelect(nodeIds.slice(0))
     }
@@ -177,7 +177,7 @@ const RegionsTreeView = ({ nodes, onSelect }) => {
         defaultExpandIcon={<ChevronRightIcon />}
         expanded={expanded}
         onNodeToggle={handleNodeToggle}
-        onNodeSelect={handleSelectMeasure}
+        onNodeSelect={handleSelectRegion}
       >
         {searchResult.map((item) => renderTreeItem(item))}
       </TreeView>
