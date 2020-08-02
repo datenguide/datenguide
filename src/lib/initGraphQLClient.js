@@ -7,7 +7,7 @@ let graphQLClient = null
 const create = (initialState = {}) => {
   return new GraphQLClient({
     ssrMode: false, // graphql is only used on the client, pages are SSG
-    url: process.env.DATENGUIDE_API,
+    url: `${process.env.DATENGUIDE_API}/graphql`,
     cache: memCache({ initialState }),
     fetch: typeof window !== 'undefined' ? fetch.bind() : unfetch, // eslint-disable-line
   })

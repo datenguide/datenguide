@@ -11,7 +11,7 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight'
 import TextField from '@material-ui/core/TextField'
 import InputAdornment from '@material-ui/core/InputAdornment'
 import SearchIcon from '@material-ui/icons/Search'
-import EqualizerIcon from '@material-ui/icons/Equalizer'
+import LocationOnOutlinedIcon from '@material-ui/icons/LocationOnOutlined'
 import ClearIcon from '@material-ui/icons/Clear'
 
 const useStyles = makeStyles((theme) => ({
@@ -66,35 +66,47 @@ const RegionsTreeView = ({ nodes, onSelect }) => {
   const [searchResult, setSearchResult] = useState(nodes)
 
   useEffect(() => {
+    const filterRegionList = (regions, searchValue) =>
+      regions.filter((r) =>
+        r.name.toLowerCase().includes(searchValue.toLowerCase())
+      )
+
+    const findInregionTree = (region, searchValue) => {
+      if (region.name.toLowerCase().includes(searchValue.toLowerCase())) {
+        // return entire region
+        return region
+      }
+      if (!region.children || region.children.length === 0) {
+        return null
+      }
+      let matchingChildren = []
+      const directChildtMatches = filterRegionList(region.children, searchValue)
+      matchingChildren = matchingChildren.concat(directChildtMatches)
+      const subChildMatches = region.children.filter((c) => {
+        return (
+          !directChildtMatches.includes(c) &&
+          findInregionTree(c, searchValue) !== null
+        )
+      })
+      matchingChildren = matchingChildren.concat(subChildMatches)
+      if (matchingChildren.length > 0) {
+        setExpanded(matchingChildren.map((c) => c.id))
+        return { ...region, children: matchingChildren }
+      }
+      return null
+    }
+
     if (!searchValue) {
       setExpanded([])
       setSearchResult(nodes)
     } else {
       const result = _.compact(
-        nodes.map((region) => {
-          if (region.title.toLowerCase().includes(searchValue.toLowerCase())) {
-            // return entire region
-            return region
-          }
-          const matchingRegions = region.measures.filter((m) => {
-            return m.title.toLowerCase().includes(searchValue.toLowerCase())
-          })
-          if (matchingRegions.length > 0) {
-            // return filtered region
-            return {
-              ...region,
-              measures: matchingRegions,
-            }
-          }
-          return null
-        })
+        nodes.map((region) => findInregionTree(region, searchValue))
       )
       setSearchResult(result)
       setExpanded(result.map((s) => s.id))
     }
   }, [searchValue])
-
-  console.log('searchResult', searchResult)
 
   const handleNodeToggle = (event, nodes) => {
     setExpanded(nodes)
@@ -117,7 +129,7 @@ const RegionsTreeView = ({ nodes, onSelect }) => {
   const renderLabel = (id, title, showregionIcon) => {
     return (
       <div className={classes.itemLabel}>
-        {showregionIcon && <EqualizerIcon className={classes.icon} />}
+        {showregionIcon && <LocationOnOutlinedIcon className={classes.icon} />}
         <span className={classes.itemTitle}>
           <Highlighter searchWords={[searchValue]} textToHighlight={title} />
         </span>
@@ -125,12 +137,20 @@ const RegionsTreeView = ({ nodes, onSelect }) => {
     )
   }
 
+  const renderTreeItem = ({ id, name, children }) => (
+    <TreeItem key={id} nodeId={id} label={renderLabel(id, name, true)}>
+      {children &&
+        children.length > 0 &&
+        children.map((child) => renderTreeItem(child))}
+    </TreeItem>
+  )
+
   return (
     <div className={classes.root}>
       <TextField
         id="search"
         style={{ margin: 8 }}
-        placeholder="Merkmal oder Statistik suchen"
+        placeholder="Region suchen"
         value={searchValue}
         InputProps={{
           startAdornment: (
@@ -159,19 +179,7 @@ const RegionsTreeView = ({ nodes, onSelect }) => {
         onNodeToggle={handleNodeToggle}
         onNodeSelect={handleSelectMeasure}
       >
-        {searchResult.map(({ id, name }) => (
-          <TreeItem key={id} nodeId={id} label={renderLabel(id, name, true)}>
-            {/*<ul>*/}
-            {/*  {measures.map((measure) => (*/}
-            {/*    <TreeItem*/}
-            {/*      key={measure.id}*/}
-            {/*      nodeId={`${id}:${measure.id}`}*/}
-            {/*      label={renderLabel(measure.id, measure.title)}*/}
-            {/*    />*/}
-            {/*  ))}*/}
-            {/*</ul>*/}
-          </TreeItem>
-        ))}
+        {searchResult.map((item) => renderTreeItem(item))}
       </TreeView>
     </div>
   )

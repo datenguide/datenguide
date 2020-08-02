@@ -116,10 +116,10 @@ const Detail = ({
       drawerContent={
         <div className={classes.sidebar}>
           <QueryParameterSidebar
-            regions={regions}
-            measures={measures}
-            loadRegionOptions={loadRegionOptions}
-            loadMeasureOptions={loadMeasureOptions}
+            // regions={regions}
+            // measures={measures}
+            // loadRegionOptions={loadRegionOptions}
+            // loadMeasureOptions={loadMeasureOptions}
             dispatch={dispatch}
             actions={actions}
           />

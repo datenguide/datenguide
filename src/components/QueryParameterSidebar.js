@@ -31,13 +31,16 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const QueryParameterSidebar = ({ loadRegionOptions, dispatch, actions }) => {
+const QueryParameterSidebar = ({ dispatch, actions }) => {
   const [tabValue, setTabValue] = useState(0)
 
   const classes = useStyles()
 
   const { data: statistics } = useSWR(`/api/statistics`, fetcher)
-  const { data: regions } = useSWR(`/api/region?level=1`, fetcher)
+  const { data: regionData } = useSWR(
+    `${process.env.DATENGUIDE_API}/catalog/regions?nuts=1&$children=true&$limit=16`,
+    fetcher
+  )
 
   const handleLoadMeasure = (measure) => {
     dispatch(actions.loadMeasure(measure))
@@ -51,7 +54,7 @@ const QueryParameterSidebar = ({ loadRegionOptions, dispatch, actions }) => {
     setTabValue(newValue)
   }
 
-  console.log('regions', regions)
+  const regions = regionData ? regionData.data : []
 
   return (
     <div className={classes.root}>
