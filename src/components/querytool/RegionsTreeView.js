@@ -13,6 +13,9 @@ import InputAdornment from '@material-ui/core/InputAdornment'
 import SearchIcon from '@material-ui/icons/Search'
 import LocationOnOutlinedIcon from '@material-ui/icons/LocationOnOutlined'
 import ClearIcon from '@material-ui/icons/Clear'
+import AddCircleIcon from '@material-ui/icons/AddCircle'
+import IconButton from '@material-ui/core/IconButton'
+import Tooltip from '@material-ui/core/Tooltip'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -33,7 +36,10 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.grey[500],
     fontSize: '12px',
   },
-  itemTitle: {},
+  itemTitle: {
+    flex: '1 1 auto',
+    flexWrap: 'wrap',
+  },
   '@global': {
     '.MuiCollapse-wrapperInner > ul': {
       paddingLeft: 0,
@@ -44,6 +50,12 @@ const useStyles = makeStyles((theme) => ({
     '.MuiTreeItem-iconContainer': {
       marginTop: '3px',
     },
+    flex: '1 0 auto',
+  },
+  addButton: {
+    height: '12px',
+    width: '12px',
+    flex: '0 1 auto',
   },
   searchIcon: {
     color: theme.palette.grey[500],
@@ -120,19 +132,27 @@ const RegionsTreeView = ({ nodes, onSelect }) => {
     setSearchValue('')
   }
 
-  const handleSelectRegion = (event, nodeIds) => {
-    if (nodeIds.includes(':')) {
-      onSelect(nodeIds.slice(0))
-    }
+  const handleSelectRegion = (id) => () => {
+    onSelect(id)
   }
 
   const renderLabel = (id, title, showregionIcon) => {
     return (
       <div className={classes.itemLabel}>
         {showregionIcon && <LocationOnOutlinedIcon className={classes.icon} />}
-        <span className={classes.itemTitle}>
+        <div className={classes.itemTitle}>
           <Highlighter searchWords={[searchValue]} textToHighlight={title} />
-        </span>
+        </div>
+        <Tooltip title="Zur Abfrage hinzufügen">
+          <IconButton
+            className={classes.addButton}
+            variant="contained"
+            color="primary"
+            onClick={handleSelectRegion(id)}
+          >
+            <AddCircleIcon fontSize="small" />
+          </IconButton>
+        </Tooltip>
       </div>
     )
   }

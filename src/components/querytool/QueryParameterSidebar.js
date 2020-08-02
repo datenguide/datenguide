@@ -46,8 +46,8 @@ const QueryParameterSidebar = ({ dispatch, actions }) => {
     dispatch(actions.loadMeasure(measure))
   }
 
-  const handleLoadRegion = (region) => {
-    dispatch(actions.loadRegion(region.value))
+  const handleLoadRegion = (id) => {
+    dispatch(actions.loadRegion(id))
   }
 
   const handleTabChange = (event, newValue) => {
@@ -94,7 +94,6 @@ const QueryParameterSidebar = ({ dispatch, actions }) => {
 }
 
 QueryParameterSidebar.propTypes = {
-  loadRegionOptions: PropTypes.func.isRequired,
   dispatch: PropTypes.func.isRequired,
   actions: PropTypes.object.isRequired,
 }
