@@ -129,7 +129,8 @@ const MeasureSearchComboSelection = ({
 MeasureSearchComboSelection.propTypes = {
   inventory: PropTypes.object.isRequired,
   statistic: PropTypes.object.isRequired,
-  onArgumentChange: PropTypes.func.isRequired,
+  onDimensionChange: PropTypes.func.isRequired,
+  onDimensionValuesChange: PropTypes.func.isRequired,
 }
 
 export default MeasureSearchComboSelection

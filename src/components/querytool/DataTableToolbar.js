@@ -18,8 +18,8 @@ const DataTableToolbar = ({ labels, layout, dispatch, actions, queryArgs }) => {
   const classes = useStyles()
 
   const labelOptions = [
-    { label: 'Codes', value: 'id' },
     { label: 'Texte', value: 'name' },
+    { label: 'Codes', value: 'id' },
     { label: 'Codes und Texte', value: 'both' },
   ]
 
@@ -40,18 +40,18 @@ const DataTableToolbar = ({ labels, layout, dispatch, actions, queryArgs }) => {
   return (
     <Toolbar variant="dense" className={classes.root}>
       <DataTableRadioButtonMenu
-        label="Beschriftung"
-        icon={<TextFormatIcon />}
-        options={labelOptions}
-        value={labels}
-        onChange={handleLabelsChange}
-      />
-      <DataTableRadioButtonMenu
         label="Layout"
         icon={<AppsIcon />}
         options={layoutOptions}
         value={layout}
         onChange={handleLayoutChange}
+      />
+      <DataTableRadioButtonMenu
+        label="Beschriftung"
+        icon={<TextFormatIcon />}
+        options={labelOptions}
+        value={labels}
+        onChange={handleLabelsChange}
       />
       <DataTableDownloadMenu
         label="Download"

@@ -71,7 +71,7 @@ const QueryParameterSidebar = ({ dispatch, actions }) => {
       </Tabs>
       {tabValue === 0 && (
         <Paper className={classes.paper} elevation={0}>
-          {regions && (
+          {regionData && (
             <RegionsTreeView
               nodes={Object.values(regions)}
               onSelect={handleLoadRegion}

@@ -38,9 +38,31 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     overflowX: 'auto',
     minHeight: '600px',
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  loadingIndicator: {
+    height: '16px',
+  },
+  tableSection: {
+    flexGrow: 1,
+    display: 'flex',
+    flexDirection: 'column',
   },
   table: {
-    minWidth: 650,
+    flexGrow: 1,
+  },
+  tableWrapper: {
+    flexGrow: 1,
+    display: 'flex',
+    alignItems: 'flex-end',
+  },
+  error: {
+    flex: '1 0 auto',
+    paddingTop: theme.spacing(4),
+  },
+  tableBody: {
+    flexGrow: '1 0 auto',
   },
   tableTitle: {
     fontWeight: 'bold',
@@ -149,32 +171,41 @@ const DataTable = ({
 
   return (
     <div className={classes.root}>
-      {loading && <LinearProgress variant="query" />}
-      {!loading && (
+      <Paper className={classes.paper} elevation={1}>
         <>
-          <Paper className={classes.paper} elevation={1}>
-            <>
-              <Tabs
-                value={tabValue}
-                indicatorColor="primary"
-                textColor="primary"
-                onChange={handleTabChange}
-              >
-                <Tab label="Tabelle" />
-                <Tab label="API" />
-              </Tabs>
-              <DataTableToolbar
-                measures={measures}
-                regions={regions}
-                labels={labels}
-                layout={layout}
-                dispatch={dispatch}
-                actions={actions}
-                queryArgs={queryArgs}
-              />
-            </>
-            {tabValue === 0 && (
-              <>
+          <Tabs
+            value={tabValue}
+            indicatorColor="primary"
+            textColor="primary"
+            onChange={handleTabChange}
+          >
+            <Tab label="Tabelle" />
+            <Tab label="API" />
+          </Tabs>
+          <DataTableToolbar
+            measures={measures}
+            regions={regions}
+            labels={labels}
+            layout={layout}
+            dispatch={dispatch}
+            actions={actions}
+            queryArgs={queryArgs}
+          />
+        </>
+        {tabValue === 0 && (
+          <>
+            <div className={classes.loadingIndicator}>
+              {loading && <LinearProgress variant="query" />}
+            </div>
+            <div className={classes.tableSection}>
+              {error && (
+                <div className={classes.error}>
+                  <Alert className={classes.alert} severity="error">
+                    {error}
+                  </Alert>
+                </div>
+              )}
+              <div className={classes.tableWrapper}>
                 <Table className={classes.table} size="small" stickyHeader>
                   <TableHead>
                     <TableRow>
@@ -188,12 +219,7 @@ const DataTable = ({
                       ))}
                     </TableRow>
                   </TableHead>
-                  <TableBody>
-                    {error && (
-                      <Alert className={classes.alert} severity="error">
-                        {error}
-                      </Alert>
-                    )}
+                  <TableBody className={classes.tableBody}>
                     {!error &&
                       rows.map((row, index) => {
                         return (
@@ -219,28 +245,28 @@ const DataTable = ({
                     </TableRow>
                   </TableFooter>
                 </Table>
-              </>
-            )}
-            {tabValue === 1 && measures && (
-              <div className={classes.apiTab}>
-                <Typography variant="h5">
-                  GraphQL Abfrage zu aktueller Statistik:
-                </Typography>
-                <Highlight className="graphql">{graphqlQuery}</Highlight>
-                <Button
-                  color="secondary"
-                  className={classes.exportButton}
-                  target="_blank"
-                  href="http://api.datengui.de/graphql"
-                  startIcon={<CallMadeIcon />}
-                >
-                  GraphQL Playground öffnen
-                </Button>
               </div>
-            )}
-          </Paper>
-        </>
-      )}
+            </div>
+          </>
+        )}
+        {tabValue === 1 && measures && (
+          <div className={classes.apiTab}>
+            <Typography variant="h5">
+              GraphQL Abfrage zu aktueller Statistik:
+            </Typography>
+            <Highlight className="graphql">{graphqlQuery}</Highlight>
+            <Button
+              color="secondary"
+              className={classes.exportButton}
+              target="_blank"
+              href="http://api.datengui.de/graphql"
+              startIcon={<CallMadeIcon />}
+            >
+              GraphQL Playground öffnen
+            </Button>
+          </div>
+        )}
+      </Paper>
     </div>
   )
 }
