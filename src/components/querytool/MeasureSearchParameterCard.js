@@ -53,12 +53,6 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 'bold',
     margin: theme.spacing(2, 0),
   },
-  headingLegend: {
-    fontSize: theme.typography.subtitle1.fontSize,
-    fontWeight: 'bold',
-    margin: theme.spacing(2, 0),
-    color: theme.palette.grey[500],
-  },
   measureDetails: {
     width: '100%',
     display: 'flex',
@@ -72,15 +66,6 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
   },
-  codeDimensionChip: {
-    width: '80px',
-    color: 'white',
-    fontWeight: 'bold',
-  },
-  titleDimensionChip: {
-    color: 'white',
-    fontWeight: 'bold',
-  },
   dimension: {
     width: '100%',
     display: 'flex',
@@ -92,12 +77,6 @@ const useStyles = makeStyles((theme) => ({
   },
   dimensionDescription: {
     marginLeft: theme.spacing(1),
-  },
-  dimensionPlus: {
-    margin: theme.spacing(0, 0.5),
-  },
-  radio: {
-    padding: theme.spacing(0, 1, 0, 0),
   },
 }))
 
