@@ -8,6 +8,10 @@ import querystring from 'query-string'
 
 const useStyles = makeStyles((theme) => ({
   root: {},
+  icon: {
+    marginRight: theme.spacing(0.5),
+    marginTop: theme.spacing(1),
+  },
 }))
 
 const DataTableDownloadMenu = ({ label, icon, queryArgs }) => {
@@ -53,7 +57,7 @@ const DataTableDownloadMenu = ({ label, icon, queryArgs }) => {
   return (
     <div className={classes.root}>
       <Button aria-controls={id} aria-haspopup="true" onClick={handleClick}>
-        {icon}
+        <span className={classes.icon}>{icon}</span>
         {label}
         <ArrowDropDownIcon />
       </Button>

@@ -2,15 +2,9 @@ import DataTableMenu from './DataTableMenu'
 import MenuItem from '@material-ui/core/MenuItem'
 import RadioGroup from '@material-ui/core/RadioGroup'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
-import Radio from '@material-ui/core/Radio'
+import Checkbox from '@material-ui/core/Checkbox'
 
-const DataTableRadioButtonMenu = ({
-  label,
-  icon,
-  options,
-  onChange,
-  value,
-}) => {
+const DataTableCheckboxMenu = ({ label, icon, options, onChange, value }) => {
   return (
     <DataTableMenu label={label} icon={icon}>
       <RadioGroup
@@ -23,7 +17,13 @@ const DataTableRadioButtonMenu = ({
           <MenuItem key={option.value}>
             <FormControlLabel
               value={option.value}
-              control={<Radio />}
+              control={
+                <Checkbox
+                  checked={option.checked}
+                  onChange={onChange}
+                  name="option.value"
+                />
+              }
               label={option.label}
             />
           </MenuItem>
@@ -33,6 +33,6 @@ const DataTableRadioButtonMenu = ({
   )
 }
 
-DataTableRadioButtonMenu.propTypes = {}
+DataTableCheckboxMenu.propTypes = {}
 
-export default DataTableRadioButtonMenu
+export default DataTableCheckboxMenu

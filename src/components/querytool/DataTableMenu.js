@@ -6,6 +6,10 @@ import { useState } from 'react'
 
 const useStyles = makeStyles((theme) => ({
   root: {},
+  icon: {
+    marginRight: theme.spacing(0.5),
+    marginTop: theme.spacing(1),
+  },
 }))
 
 const DataTableMenu = ({ label, icon, children }) => {
@@ -25,8 +29,13 @@ const DataTableMenu = ({ label, icon, children }) => {
 
   return (
     <div className={classes.root}>
-      <Button aria-controls={id} aria-haspopup="true" onClick={handleClick}>
-        {icon}
+      <Button
+        className={classes.button}
+        aria-controls={id}
+        aria-haspopup="true"
+        onClick={handleClick}
+      >
+        <span className={classes.icon}>{icon}</span>
         {label}
         <ArrowDropDownIcon />
       </Button>
