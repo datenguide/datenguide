@@ -20,6 +20,7 @@ import {
 } from '@material-ui/core'
 import CallMadeIcon from '@material-ui/icons/CallMade'
 import Alert from '@material-ui/lab/Alert'
+import AlertTitle from '@material-ui/lab/AlertTitle'
 
 import getQuery from '../../lib/queryBuilder'
 import DataTableToolbar from './DataTableToolbar'
@@ -58,7 +59,7 @@ const useStyles = makeStyles((theme) => ({
   },
   error: {
     flex: '1 0 auto',
-    paddingTop: theme.spacing(4),
+    padding: theme.spacing(4, 2, 6, 2),
   },
   tableBody: {
     flexGrow: '1 0 auto',
@@ -131,13 +132,11 @@ const DataTable = ({
       if (error) {
         const fetchError = error.fetchError && error.fetchError.statusText
         const httpError = error.httpError && error.httpError.statusText
-        const graphQLError = error.graphQLError && error.graphQLError.statusText
+        const graphQLError =
+          error.graphQLErrors &&
+          error.graphQLErrors.map((e) => e.message).join('\n')
         setData([])
-        setError(
-          `${ERROR_MESSAGE} (${[fetchError, httpError, graphQLError].join(
-            ' '
-          )})`
-        )
+        setError([fetchError, httpError, graphQLError].join(' ').trim())
       } else if (data && data.table) {
         setData(data.table)
         setError(null)
@@ -200,6 +199,7 @@ const DataTable = ({
               {error && (
                 <div className={classes.error}>
                   <Alert className={classes.alert} severity="error">
+                    <AlertTitle>{ERROR_MESSAGE}</AlertTitle>
                     {error}
                   </Alert>
                 </div>
