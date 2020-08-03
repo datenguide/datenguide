@@ -20,7 +20,6 @@ const DataTablePagination = ({
   return (
     <TablePagination
       rowsPerPageOptions={[100, 200, 500]}
-      colSpan={6}
       count={count}
       rowsPerPage={rowsPerPage}
       page={page}
