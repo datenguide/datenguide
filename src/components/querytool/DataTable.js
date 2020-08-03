@@ -258,7 +258,9 @@ const DataTable = ({
               color="secondary"
               className={classes.exportButton}
               target="_blank"
-              href="http://api.datengui.de/graphql"
+              href={`http://api.datengui.de/graphql?query=${encodeURI(
+                graphqlQuery
+              )}`}
               startIcon={<CallMadeIcon />}
             >
               GraphQL Playground öffnen
