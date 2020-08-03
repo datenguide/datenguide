@@ -1,51 +1,86 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
+import clsx from 'clsx'
 
 import { makeStyles } from '@material-ui/core/styles'
-import Accordion from '@material-ui/core/ExpansionPanel' // TODO rename to accordion after material-ui update
-import AccordionSummary from '@material-ui/core/ExpansionPanelSummary' // TODO rename to accordion after material-ui update
-import AccordionDetails from '@material-ui/core/ExpansionPanelDetails' // TODO rename to accordion after material-ui update
-import Button from '@material-ui/core/Button'
+import Card from '@material-ui/core/Card'
+import CardHeader from '@material-ui/core/CardHeader'
+import DropDownCircleIcon from '@material-ui/icons/ArrowDropDownCircle'
 import IconButton from '@material-ui/core/IconButton'
 import CloseIcon from '@material-ui/icons/Close'
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
 
 const useStyles = makeStyles((theme) => ({
-  root: {},
+  root: {
+    borderBottomLeftRadius: 0,
+    borderBottomRightRadius: 0,
+  },
   summary: {
     display: 'flex',
     flexDirection: 'column',
     flexGrow: 1,
+  },
+  chip: {
+    color: 'white',
+    display: 'inline-block',
+    width: 75,
+    background: theme.palette.grey[600],
+    fontWeight: 'bold',
+    textAlign: 'center',
+    border: 0,
+    padding: theme.spacing(0.5, 1.5),
+    borderRadius: 20,
+    cursor: 'pointer',
+    marginRight: theme.spacing(1),
+
+    '&.hasIcon': {
+      width: 'auto',
+    },
+  },
+  icon: {
+    verticalAlign: 'text-bottom',
+    fontSize: '1.25em',
+    margin: theme.spacing(0, 0.5, 0, -1),
   },
   headingAttribute: {
     fontSize: theme.typography.h6.fontSize,
     fontWeight: theme.typography.h6.fontWeight,
     width: '400px',
   },
-  headingStatistic: {
-    fontSize: theme.typography.subtitle2.fontSize,
-    fontWeight: theme.typography.subtitle2.fontSize,
-    color: theme.palette.grey[500],
+  regionLevel: {
+    padding: theme.spacing(0.5, 0),
+    fontSize: theme.typography.button.fontSize,
+    color: theme.palette.grey[600],
   },
-  regionTitle: {
-    fontWeight: 'bold',
+  menuButton: {
+    margin: 0,
+    padding: theme.spacing(0.5, 0),
+    border: 0,
+    background: 'transparent',
   },
-  menuItem: {},
 }))
 
 const regionLevels = [
-  { level: 1, title: 'NUTS 1', description: 'Bundesländer' },
   {
-    level: 2,
-    title: 'NUTS 2',
-    description: 'Regierungsbezirke und statistische Regionen',
+    id: 1,
+    abbr: 'NUTS 1',
+    title: 'Bundesländer',
   },
   {
-    level: 3,
-    title: 'NUTS 3',
-    description: 'Landkreise und kreisfreie Städte',
+    id: 2,
+    title: 'Regierungsbezirke und statistische Regionen',
+    abbr: 'NUTS 2',
+  },
+  {
+    id: 3,
+    title: 'Landkreise und kreisfreie Städte',
+    abbr: 'NUTS 3',
+  },
+  {
+    id: 4,
+    title: 'Gemeinden',
+    abbr: 'LAU',
   },
 ]
 
@@ -68,53 +103,66 @@ const RegionSearchParameterCard = ({ region, onClose }) => {
     console.log('menu select!', level) // eslint-disable-line
   }
 
-  return (
-    <Accordion className={classes.root}>
-      <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-        <div className={classes.summary}>
-          <div className={classes.headingAttribute}>{region.name}</div>
-          <div className={classes.headingStatistic}>
-            <Button
-              aria-controls="simple-menu"
-              aria-haspopup="true"
-              onClick={handleMenuOpen}
-            >
-              <div className={classes.regionTitle}>
-                {region.level && regionLevels[region.level - 1].description}
-              </div>
-            </Button>
-            <Menu
-              id="region-menu"
-              anchorEl={menuAnchor}
-              keepMounted
-              open={Boolean(menuAnchor)}
-              onClose={handleMenuClose}
-            >
-              {regionLevels.map(({ level, title, description }) => {
-                return (
-                  <MenuItem
-                    key={level}
-                    className={classes.menuItem}
-                    selected={region.level === level}
-                    onClick={(event) => handleMenuSelect(event, level)}
-                  >
-                    {title} – {description}
-                  </MenuItem>
-                )
-              })}
-            </Menu>
-          </div>
-        </div>
-        <IconButton
-          aria-label="settings"
-          onClick={onClose}
-          className={classes.closeButton}
+  const renderRegionLevel = ({ level, showIcon = true }) => {
+    const { abbr, title } = regionLevels.find(({ id }) => level === id)
+    return (
+      <div className={classes.regionLevel}>
+        <span className={clsx(classes.chip, { hasIcon: showIcon })}>
+          {showIcon && <DropDownCircleIcon className={classes.icon} />}
+          {abbr}
+        </span>
+        {title}
+      </div>
+    )
+  }
+
+  const renderMenu = () => {
+    return (
+      <>
+        <button
+          aria-controls="simple-menu"
+          aria-haspopup="true"
+          onClick={handleMenuOpen}
+          className={classes.menuButton}
         >
-          <CloseIcon />
-        </IconButton>
-      </AccordionSummary>
-      <AccordionDetails />
-    </Accordion>
+          {renderRegionLevel({ level: region.level })}
+        </button>
+        <Menu
+          id="region-menu"
+          anchorEl={menuAnchor}
+          keepMounted
+          open={Boolean(menuAnchor)}
+          onClose={handleMenuClose}
+        >
+          {regionLevels.map(({ id }) => {
+            return (
+              <MenuItem
+                key={id}
+                className={classes.menuItem}
+                selected={region.level === id}
+                onClick={(event) => handleMenuSelect(event, id)}
+              >
+                {renderRegionLevel({ level: id, showIcon: false })}
+              </MenuItem>
+            )
+          })}
+        </Menu>
+      </>
+    )
+  }
+
+  return (
+    <Card className={classes.root}>
+      <CardHeader
+        title={<div className={classes.headingAttribute}>{region.name}</div>}
+        subheader={renderMenu()}
+        action={
+          <IconButton aria-label="close" onClick={onClose}>
+            <CloseIcon />
+          </IconButton>
+        }
+      />
+    </Card>
   )
 }
 
