@@ -37,7 +37,6 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     width: '100%',
     overflowX: 'auto',
-    minHeight: '600px',
     display: 'flex',
     flexDirection: 'column',
   },
