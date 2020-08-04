@@ -1,11 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import useSWR from 'swr'
+import clsx from 'clsx'
 
 import { makeStyles } from '@material-ui/core/styles'
-import Accordion from '@material-ui/core/ExpansionPanel' // TODO rename to accordion after material-ui update
-import AccordionSummary from '@material-ui/core/ExpansionPanelSummary' // TODO rename to accordion after material-ui update
-import AccordionDetails from '@material-ui/core/ExpansionPanelDetails' // TODO rename to accordion after material-ui update
+import Card from '@material-ui/core/Card'
+import CardActions from '@material-ui/core/CardActions'
+import CardContent from '@material-ui/core/CardContent'
+import CardHeader from '@material-ui/core/CardHeader'
+import Collapse from '@material-ui/core/Collapse'
+
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import IconButton from '@material-ui/core/IconButton'
 import CloseIcon from '@material-ui/icons/Close'
@@ -15,7 +19,15 @@ import fetcher from '../../lib/fetcher'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    backgroundColor: theme.palette.grey[500],
+    borderTopLeftRadius: 0,
+    borderTopRightRadius: 0,
+    borderTop: '1px solid #dadada',
+  },
+  header: {
+    paddingBottom: 0,
+  },
+  comboSelection: {
+    marginLeft: theme.spacing(4),
   },
   summary: {
     display: 'flex',
@@ -78,6 +90,16 @@ const useStyles = makeStyles((theme) => ({
   dimensionDescription: {
     marginLeft: theme.spacing(1),
   },
+  expand: {
+    transform: 'rotate(0deg)',
+    marginLeft: 'auto',
+    transition: theme.transitions.create('transform', {
+      duration: theme.transitions.duration.shortest,
+    }),
+  },
+  expandOpen: {
+    transform: 'rotate(180deg)',
+  },
 }))
 
 const MeasureSearchParameterCard = ({
@@ -87,6 +109,11 @@ const MeasureSearchParameterCard = ({
   onDimensionValuesChange,
 }) => {
   const classes = useStyles()
+  const [expanded, setExpanded] = React.useState(false)
+
+  const handleExpandClick = () => {
+    setExpanded(!expanded)
+  }
 
   const {
     statisticName,
@@ -113,57 +140,66 @@ const MeasureSearchParameterCard = ({
   )
 
   return (
-    <Accordion elevation={1}>
-      <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-        <div className={classes.summary}>
-          <div className={classes.summaryDescriptionWrapper}>
-            <div className={classes.summaryDescription}>
-              <div className={classes.headingAttribute}>
-                {`${name} - ${titleDe}`}
-              </div>
-              <div className={classes.headingStatistic}>
-                {`${statisticName} – ${statisticTitleDe}`}
-              </div>
-            </div>
-            {inventory && (
-              <MeasureSearchComboSelection
-                statistic={statistic}
-                inventory={inventory}
-                activeCombo={activeCombo}
-                onDimensionChange={onDimensionChange}
-                onDimensionValuesChange={onDimensionValuesChange}
+    <Card className={classes.root}>
+      <CardHeader
+        className={classes.header}
+        title={
+          <div
+            className={classes.headingAttribute}
+          >{`${name} - ${titleDe}`}</div>
+        }
+        subheader={`${statisticName} – ${statisticTitleDe}`}
+        action={
+          <IconButton aria-label="close" onClick={onClose}>
+            <CloseIcon />
+          </IconButton>
+        }
+      />
+      <CardActions disableSpacing>
+        {inventory && (
+          <MeasureSearchComboSelection
+            statistic={statistic}
+            inventory={inventory}
+            activeCombo={activeCombo}
+            className={classes.comboSelection}
+            onDimensionValuesChange={onDimensionValuesChange}
+          />
+        )}
+        <IconButton
+          className={clsx(classes.expand, {
+            [classes.expandOpen]: expanded,
+          })}
+          onClick={handleExpandClick}
+          aria-expanded={expanded}
+          aria-label="show more"
+        >
+          <ExpandMoreIcon />
+        </IconButton>
+      </CardActions>
+      <Collapse in={expanded} timeout="auto" unmountOnExit>
+        <CardContent>
+          <div className={classes.measureDetails}>
+            <div className={classes.measureDescription}>
+              <div className={classes.headingDetails}>Beschreibung</div>
+              <div
+                dangerouslySetInnerHTML={{ __html: definitionWithLineBreaks }}
               />
-            )}
+            </div>
+            <div className={classes.dimensionSelect}>
+              <div className={classes.headingDetails}>Merkmalsausprägungen</div>
+              {dimensions.map((dim, i) => (
+                <div className={classes.dimension} key={dim.name}>
+                  <div className={classes.dimensionName}>{dim.name}</div>
+                  <span className={classes.dimensionDescription}>
+                    {dim.titleDe}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
-          <div className={classes.summaryActions}>
-            <IconButton aria-label="settings" onClick={onClose}>
-              <CloseIcon />
-            </IconButton>
-          </div>
-        </div>
-      </AccordionSummary>
-      <AccordionDetails>
-        <div className={classes.measureDetails}>
-          <div className={classes.measureDescription}>
-            <div className={classes.headingDetails}>Beschreibung</div>
-            <div
-              dangerouslySetInnerHTML={{ __html: definitionWithLineBreaks }}
-            />
-          </div>
-          <div className={classes.dimensionSelect}>
-            <div className={classes.headingDetails}>Merkmalsausprägungen</div>
-            {dimensions.map((dim, i) => (
-              <div className={classes.dimension} key={dim.name}>
-                <div className={classes.dimensionName}>{dim.name}</div>
-                <span className={classes.dimensionDescription}>
-                  {dim.titleDe}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </AccordionDetails>
-    </Accordion>
+        </CardContent>
+      </Collapse>
+    </Card>
   )
 }
 

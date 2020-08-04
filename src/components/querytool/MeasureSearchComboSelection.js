@@ -12,10 +12,7 @@ import MeasureSearchCombo from './MeasureSearchCombo'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    marginTop: theme.spacing(1),
-  },
-  menuItem: {
-    padding: theme.spacing(1, 2),
+    paddingLeft: theme.spacing(1, 2),
   },
   menuButton: {
     color: theme.palette.grey[600],
