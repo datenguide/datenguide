@@ -143,6 +143,7 @@ const MeasureSearchParameterCard = ({
             inventory={inventory}
             activeCombo={activeCombo}
             className={classes.comboSelection}
+            onDimensionChange={onDimensionChange}
             onDimensionValuesChange={onDimensionValuesChange}
           />
         )}
