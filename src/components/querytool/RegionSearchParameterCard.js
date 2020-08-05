@@ -24,14 +24,14 @@ const useStyles = makeStyles((theme) => ({
   chip: {
     color: 'white',
     display: 'inline-block',
-    width: 75,
+    width: 80,
     background: theme.palette.grey[600],
     fontWeight: 'bold',
+    fontSize: theme.typography.button.fontSize,
     textAlign: 'center',
     border: 0,
     padding: theme.spacing(0.5, 1.5),
     borderRadius: 20,
-    cursor: 'pointer',
     marginRight: theme.spacing(1),
 
     '&.hasIcon': {
@@ -49,15 +49,15 @@ const useStyles = makeStyles((theme) => ({
     width: '400px',
   },
   regionLevel: {
-    padding: theme.spacing(0.5, 0),
-    fontSize: theme.typography.button.fontSize,
+    fontSize: theme.typography.body1.fontSize,
     color: theme.palette.grey[600],
   },
   menuButton: {
     margin: 0,
-    padding: theme.spacing(0.5, 0),
+    padding: theme.spacing(1, 0, 0),
     border: 0,
     background: 'transparent',
+    cursor: 'pointer',
   },
 }))
 
@@ -89,7 +89,6 @@ const RegionSearchParameterCard = ({ region, onClose }) => {
   const [menuAnchor, setMenuAnchor] = useState(null)
 
   const handleMenuOpen = (event) => {
-    event.stopPropagation()
     setMenuAnchor(event.currentTarget)
   }
 
@@ -97,8 +96,7 @@ const RegionSearchParameterCard = ({ region, onClose }) => {
     setMenuAnchor(null)
   }
 
-  const handleMenuSelect = (event, level) => {
-    event.stopPropagation()
+  const handleMenuSelect = (level) => {
     setMenuAnchor(null)
     console.log('menu select!', level) // eslint-disable-line
   }
@@ -140,7 +138,7 @@ const RegionSearchParameterCard = ({ region, onClose }) => {
                 key={id}
                 className={classes.menuItem}
                 selected={region.level === id}
-                onClick={(event) => handleMenuSelect(event, id)}
+                onClick={(event) => handleMenuSelect(id)}
               >
                 {renderRegionLevel({ level: id, showIcon: false })}
               </MenuItem>

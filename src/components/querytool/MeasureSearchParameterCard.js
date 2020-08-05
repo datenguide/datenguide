@@ -26,30 +26,11 @@ const useStyles = makeStyles((theme) => ({
   header: {
     paddingBottom: 0,
   },
+  actions: {
+    padding: theme.spacing(0, 1, 1, 2),
+  },
   comboSelection: {
     marginLeft: theme.spacing(4),
-  },
-  summary: {
-    display: 'flex',
-    flexDirection: 'row',
-    flexGrow: 1,
-  },
-  summaryDescription: {
-    display: 'flex',
-    flexDirection: 'column',
-    flexGrow: 1,
-  },
-  summaryDescriptionWrapper: {
-    flexGrow: 1,
-  },
-  summaryComboDesciption: {
-    display: 'flex',
-    flexDirection: 'row',
-    flexGrow: 1,
-  },
-  summaryActions: {
-    display: 'flex',
-    alignItems: 'center',
   },
   headingAttribute: {
     fontSize: theme.typography.h6.fontSize,
@@ -155,7 +136,7 @@ const MeasureSearchParameterCard = ({
           </IconButton>
         }
       />
-      <CardActions disableSpacing>
+      <CardActions disableSpacing className={classes.actions}>
         {inventory && (
           <MeasureSearchComboSelection
             statistic={statistic}
