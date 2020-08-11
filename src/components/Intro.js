@@ -21,20 +21,20 @@ const useStyles = makeStyles((theme) => ({
   },
 
   main: {
+    ...theme.typography.body2,
     paddingBottom: theme.spacing(6),
-    fontSize: theme.typography.body1.fontSize,
 
     [theme.breakpoints.up('md')]: {
       paddingRight: theme.spacing(6),
     },
 
     [theme.breakpoints.up('lg')]: {
-      fontSize: theme.typography.h6.fontSize,
+      fontSize: theme.typography.body1.fontSize,
     },
 
     '& h2': {
       marginBottom: 0,
-      fontSize: theme.typography.h5.fontSize,
+      fontSize: theme.typography.h3.fontSize,
     },
   },
 
@@ -57,6 +57,7 @@ const useStyles = makeStyles((theme) => ({
       backgroundSize: 'auto 7em',
       paddingLeft: '8em',
       paddingBottom: theme.spacing(4),
+      fontSize: theme.typography.body2.fontSize,
     },
   },
 

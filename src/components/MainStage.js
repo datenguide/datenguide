@@ -6,7 +6,7 @@ import background from '../assets/hero_city.svg'
 const useStyles = makeStyles((theme) => ({
   root: {
     height: '600px',
-    fontSize: theme.typography.body1.fontSize,
+    fontSize: theme.typography.subtitle2.fontSize,
     backgroundColor: '#c3e5f1',
     paddingTop: theme.spacing(3),
     paddingBottom: theme.spacing(6),
@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
       color: theme.palette.secondary.dark,
 
       [theme.breakpoints.up('md')]: {
-        fontSize: theme.typography.h3.fontSize,
+        fontSize: theme.typography.h2.fontSize,
       },
     },
 
@@ -55,7 +55,6 @@ const useStyles = makeStyles((theme) => ({
 
     [theme.breakpoints.up('md')]: {
       maxWidth: '740px',
-      fontSize: theme.typography.h5.fontSize,
     },
   },
 }))
