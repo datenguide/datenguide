@@ -153,15 +153,6 @@ const styles = (theme) => ({
     padding: 20,
     marginBottom: '60vh',
   },
-  stepInner: {
-    background: 'white',
-    padding: '1rem',
-
-    '& img': {
-      width: '100%',
-    },
-  },
-
   mapText: {
     marginTop: -40,
     color: 'white',
@@ -216,7 +207,7 @@ function computeViewport(bounds, breakpoints) {
   })
 }
 
-class ScrollyMapComponent extends PureComponent {
+class ScrollyMap extends PureComponent {
   state = {
     viewport: computeViewport(bounds, this.props.theme.breakpoints),
     settings: {
@@ -339,8 +330,4 @@ class ScrollyMapComponent extends PureComponent {
   }
 }
 
-export const ScrollyMapStep = withStyles(styles)(({ classes, children }) => (
-  <div className={classes.stepInner}>{children}</div>
-))
-
-export const ScrollyMap = withTheme(withStyles(styles)(ScrollyMapComponent))
+export default withTheme(withStyles(styles)(ScrollyMap))
