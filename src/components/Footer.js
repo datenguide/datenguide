@@ -61,7 +61,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: '#c3e5f1',
     paddingTop: theme.spacing(3),
     paddingBottom: theme.spacing(3),
-    fontSize: theme.typography.body1.fontSize,
+    fontSize: theme.typography.body2.fontSize,
 
     [theme.breakpoints.up('md')]: {
       position: 'relative',
@@ -71,9 +71,8 @@ const useStyles = makeStyles((theme) => ({
         backgroundImage: `url(${background})`,
         backgroundRepeat: 'no-repeat',
         position: 'absolute',
-        opacity: '0.5',
         width: '500px',
-        top: '87px',
+        height: '212px',
         bottom: 0,
         transform: 'translateX(-170px)',
         backgroundSize: '500px auto',
