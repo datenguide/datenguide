@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(2),
   },
   regionKeySegment: {
-    //border: 1px solid green,
+    // border: 1px solid green,
     display: 'flex',
     justifyContent: 'center',
   },

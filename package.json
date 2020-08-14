@@ -26,7 +26,7 @@
   },
   "homepage": "https://github.com/datenguide/datenguide#readme",
   "dependencies": {
-    "@datenguide/explorables": "^0.0.3",
+    "@datenguide/explorables": "^0.0.4",
     "@datenguide/metadata": "^0.0.1",
     "@mapbox/rehype-prism": "^0.4.0",
     "@material-ui/core": "^4.9.10",
