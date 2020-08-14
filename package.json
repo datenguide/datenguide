@@ -33,7 +33,7 @@
     "@material-ui/icons": "^4.9.1",
     "@material-ui/lab": "^4.0.0-alpha.49",
     "@material-ui/styles": "^4.9.10",
-    "@mdi/js": "^5.1.45",
+    "@mdi/js": "^5.5.55",
     "@mdx-js/loader": "^1.5.8",
     "@mdx-js/mdx": "^1.5.8",
     "@mdx-js/react": "^1.5.8",
