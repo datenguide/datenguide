@@ -4,7 +4,10 @@ import clsx from 'clsx'
 
 import { makeStyles } from '@material-ui/core/styles'
 
-import { getNutsHierarchy, getNutsComponents } from '../../lib/nutsFormatting'
+import {
+  getNutsHierarchy,
+  getNutsComponents,
+} from '../../../../lib/nutsFormatting'
 
 // import styles from './styles.scss'
 import RegionSelectStatic from './RegionSelectStatic'
