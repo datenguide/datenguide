@@ -1,4 +1,7 @@
 import dynamic from 'next/dynamic'
+import getConfig from 'next/config';
+
+const { publicRuntimeConfig } = getConfig();
 
 const SimpleMap = dynamic(
   () => import('@datenguide/explorables').then(({ SimpleMap }) => SimpleMap),
@@ -6,5 +9,5 @@ const SimpleMap = dynamic(
 )
 
 export default (props) => (
-  <SimpleMap {...props} mapboxApiAccessToken={process.env.MAPBOX_TOKEN} />
+  <SimpleMap {...props} mapboxApiAccessToken={publicRuntimeConfig.mapboxToken} />
 )
