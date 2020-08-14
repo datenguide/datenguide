@@ -26,7 +26,7 @@ const Blog = ({ meta, blogPosts = [] }) => {
 }
 
 export const getStaticProps = async () => {
-  const blogPages = await traverseDirectory('explorables', true)
+  const blogPages = await traverseDirectory('statistik-erklaert', true)
 
   const blogPosts = blogPages.map((page) => ({
     href: page.path,
