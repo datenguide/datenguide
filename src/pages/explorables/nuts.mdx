@@ -1,0 +1,198 @@
+---
+title: 'Nüsse? Was für Nüsse?'
+description: ''
+metaImage: '/images/explorable_explanations.jpg'
+author: Patricia Ennenbach
+date: 2020-04-20
+layout: BlogPostCustom
+published: false
+lang: de
+---
+
+import Grid from '@material-ui/core/Grid'
+import Container from '@material-ui/core/Container'
+import BodyText from '../../components/BodyText'
+import DatawrapperChart from '../../components/DatawrapperChart'
+import SimpleMap from './components/SimpleMap'
+import ScrollyMap from './components/ScrollyMap'
+import ScrollyMapStep from './components/ScrollyMapStep'
+
+<Container maxWidth="lg">
+<BodyText>
+
+Bei der Suche nach amtlichen Daten für eine Region begegnen dir oft Begriffe wie _regionale Tiefe_, _NUTS_ oder _LAU_. Dabei geht es um die Einteilung und Vergleichbarkeit von Gebieten. Wo gibt es die meisten Kühe? Wer erzeugt den meisten Müll? Solche Fragen können regionale Statistiken beantworten. Doch um solche Statistiken sinnvoll zu nutzen müssen wir verstehen, wie wir ähnliche und gleichbleibende Gebiete miteinander vergleichen können.
+
+Um regionale Statistiken über Grenzen hinweg vergleichbar zu machen, wird in Europa ein System namens NUTS (_Nomenclature des unités territoriales statistiques_) verwendet. NUTS ist hierarchisch und teilt Staaten in Regionen vier verschiedener Stufen ein: NUTS 1 bis NUTS 3, sowie LAU (_Local administrative units_). In Deutschland sind das Bundesländer, Landkreise, Gemeinden - dazu kommen Sonderfälle wie Stadtstaaten (Hamburg, Bremen, Berlin) oder Regierungsbezirke, die es nur in einigen Bundesländern gibt. Diese Einteilung wird manchmal auch regionale Tiefe genannt.
+
+Wir zeigen dir die Einteilung und ihre Sonderfälle für Deutschland, damit du dich schnell in den Regionaldaten zurecht findest.
+
+</BodyText>
+</Container>
+
+<ScrollyMap>
+
+<!-- -------------------------- Step 1: NUTS 1 -------------------------- -->
+
+<ScrollyMapStep id="nuts1">
+
+### Ein Beispiel: Das Durchschnittsalter der Bevölkerung
+
+Um zum Beispiel deutschlandweit das Durchschnittsalter der Bevölkerung zu vergleichen, gibt es auf erster Ebene die **16&nbsp;Bundesländer (NUTS 1)**. Die Bevölkerung einer NUTS-1-Region liegt in aller Regel zwischen 3 und 7 Millionen Einwohnern.
+
+**Nordrhein-Westfalen** ist das bevölkerungsreichste Bundesland und liegt mit einem Durschnittsalter von **44,1&nbsp;Jahren** im Mittelfeld.
+
+<DatawrapperChart
+  src="//datawrapper.dwcdn.net/WglMK/2/"
+  title="Durchschnittsalter nach Bundesland"
+/>
+
+</ScrollyMapStep>
+
+<!-- -------------------------- Step 2: NUTS 2 -------------------------- -->
+
+<ScrollyMapStep id="nuts2">
+
+### Regierungsbezirke – NUTS-2
+
+In Nordrhein-Westfalen bilden die nächstkleinere Ebene (NUTS-2) die Regierungsbezirke. Die gibt es aber nicht in allen Bundesländern.
+
+Arnsberg ist in Nordrhein-Westfalen der Regierungsbezirk mit dem höchsten Durchschnittsalter (44,6 Jahre).
+
+<DatawrapperChart
+  src="//datawrapper.dwcdn.net/gxPvP/1/"
+  title="Durchschnittsalter in den Regierungsbezirken in NRW"
+/>
+
+</ScrollyMapStep>
+
+<!-- -------------------------- Step 3: NUTS 3 -------------------------- -->
+
+<ScrollyMapStep id="nuts3">
+
+### Landkreise und kreisfreie Stätdte – NUTS-3
+
+Auf der nächsten Ebene (NUTS-3) besteht NRW aus 53 Landkreisen. NUTS-3-Regionen sind kleinere Verwaltungseinheiten mit 150.000 bis 800.000 Einwohnern in der Regel.
+
+Auf dieser Ebene sind schon größere Unterschiede im Altersdurchschnitt zu erkennen: So ist die Bevölkerung des Ennepe-Ruhr-Kreis mit 46,1 Jahren im Schnitt am ältesten, die kreisfreie Stadt Münster hat mit 41,2 Jahren im Schnitt die jüngste Bevölkerung.
+
+<DatawrapperChart
+  src="//datawrapper.dwcdn.net/WXRqq/2/"
+  title="Durchschnittsalter in den Landkreisen in NRW"
+/>
+
+</ScrollyMapStep>
+
+<!-- --------------------------- Step 4: LAU ---------------------------- -->
+
+<ScrollyMapStep id="lau">
+
+### Gemeinden – LAU
+
+Die Grundbausteine der regionalen Einteilung bilden in Deutschland rund 11.000 **Gemeinden**. In der EU werden diese kleinsten Einheiten als **LAU**, Local Administrative Units, also lokale Verwaltungseinheiten bezeichnet. Das Bundesland Nordrhein-Westfalen zum Beispiel besteht aus 396 Gemeinden.
+
+<DatawrapperChart
+  src="//datawrapper.dwcdn.net/M3hLf/2/"
+  title="Durchschnittsalter in den Gemeinden in NRW"
+/>
+
+</ScrollyMapStep>
+
+<ScrollyMapStep id="lau-local">
+
+### Ein Beispiel: Die Gemeinde Altena
+
+Auf dieser kleinsten Ebene zeigt sich beim Altersdurchschnitt die größte Spannbreite: Während in Bad Sassendorf die rund 12.000 Einwohner im Schnitt 49,7 Jahre alt sind, hat die Gemeinde Augustdorf mit einem Schnitt von 38,7 Jahren die jüngste Einwohnerschaft in Nordrhein-Westfalen. Etwa 33% der rund 10.000 Einwohner sind unter 25 Jahre alt.
+
+</ScrollyMapStep>
+
+</ScrollyMap>
+
+<Container maxWidth="lg">
+<BodyText>
+
+## Weniger Gemeinden
+
+In Deutschland geht die Zahl der Gemeinden seit über 20 Jahren immer weiter zurück.
+
+// https://www.datawrapper.de/_/JYU8f/
+// https://tabular.genesapi.org/?region=DG&data=11111%3AGEM001
+
+Regionale Einteilungen verändern sich immer wieder, am häufigsten ändern sich Gemeinden. Den aktuellen Stand kann man [hier abrufen](https://www.destatis.de/DE/Themen/Laender-Regionen/Regionales/Gemeindeverzeichnis/_inhalt.html).
+
+## Große Unterschiede
+
+Während Rheinland-Pfalz bei der Zahl der Einwohner nur an sechster Stelle steht, ist es aber das Land mit den meisten Gemeinden in Deutschland:
+// https://www.datawrapper.de/_/JNe0o/
+Wobei 96 Städte und 2.165 Ortsgemeinden sich zu 129 Verbandsgemeinden zusammengeschlossen haben, die für die angehörenden Gemeinden die Verwaltungsgeschäfte übernehmen.
+
+## NUTS: Wichtig für die EU-Förderung
+
+NUTS steht für "Nomenclatur of Territorial Units for Statistics". (Einteilung von Gebieten für statistische Zwecke.) Für die Regionen in der EU ist die Gebiets-Einteilung wichtig, weil sie Vergleiche und Rankings möglich macht. Welche Regionen liegen unter oder über dem EU-Durchschnitt? Welche Region liegt vorn oder hängt hinterher? Und: NUTS-Level spielen für die Regionalpolitik eine wichtige Rolle: Denn EU-Fördermittel werden konkreten NUTS-Regionen (vor allem NUTS-3-Regionen) zugewiesen.
+
+## Unterschiede und Sonderfälle
+
+Trotz des Ziels auf einer NUTS-Ebene Regionen vergleichbarer Größe zu schaffen, können sich diese deutlich in Bezug auf ihre Fläche, Bevölkerungszahl und ihrer wirtschaftlichen oder verwaltungstechnischen Bedeutung unterscheiden. Luxemburg ist zum Beispiel gleichzeitig NUTS-Ebene 1, 2 und 3.
+
+In Nordrhein-Westfalen gibt es 17.364.000 Einwohner aufgeteilt in 396 politisch selbstständige Gemeinden, 53 Landkreise und kreisfreie Städte und 5 Regierungsbezirke. Im Vergleich dazu hat Mecklenburg-Vorpommern nur 1.609.675 Einwohner in 726 politisch selbstständige Gemeinden, dafür gibts es aber nur 8 Landkreise und Kreisfreie Städte. Und keine Regierungsbezirke.
+
+### Gleichzeitig NUTS-1 und NUTS-2
+
+In NRW, Baden-Württemberg, Bayern, Hessen gibt es Regierungsbezirke. In Rheinland-Pfalz, Niedersachsen und Sachen wurden diese Regierungsbezirke aufgelöst. 9 weitere Länder sind gleichzeitig NUTS-1- und NUTS-2-Regionen: Die „Stadtstaaten“ Berlin, Hamburg und Bremen, sowie die „Flächenländer“ Brandenburg, Mecklenburg-Vorpommern, Schleswig-Holstein, Sachsen-Anhalt, Saarland und Thüringen.
+
+// Deutschlandkarte - Nuts 1 und Nuts 2 nebeneinander
+
+<Grid container direction="row" justify="center" spacing={2}>
+  <Grid item xs={12} sm={6}>
+    <SimpleMap
+      latitude={51.427}
+      longitude={7.664}
+      src="/geo/bundeslaender.json"
+      width="100%"
+      height="400px"
+    />
+  </Grid>
+
+## Brandenburg
+
+Brandenburg wurde von 2003 bis 2011 in die NUTS-2-Regionen Brandenburg-Nordost und Brandenburg-Südwest geteilt, in der Absicht, nach der EU-Erweiterung vom 1. Mai 2004 wenigstens noch für den ärmeren Nordosten weiterhin EU-Fördergelder zugewiesen zu bekommen.
+
+// Karte Brandenburg
+
+## Berlin (anders als Bremen, Hamburg)
+
+Sonderfälle Einteilung Bezirke
+
+  <Grid item xs={12} sm={6}>
+    <SimpleMap
+      latitude={51.427}
+      longitude={7.664}
+      src="/geo/nrw_landkreise.json"
+      width="100%"
+      height="400px"
+    />
+  </Grid>
+</Grid>
+
+<Grid container direction="row" justify="center" spacing={2}>
+  <Grid item xs={12} sm={6}>
+    <SimpleMap
+      latitude={51.427}
+      longitude={7.664}
+      src="/geo/nrw_gemeinden.json"
+      width="100%"
+      height="400px"
+    />
+  </Grid>
+  <Grid item xs={12} sm={6}>
+    <SimpleMap src="/geo/bundeslaender.json" width="100%" height="400px" />
+  </Grid>
+</Grid>
+
+### Credits
+
+Bild Altena: https://de.wikipedia.org/wiki/Altena#/media/Datei:Altena_(Burg_Altena)_04_ies.jpg
+Bild Köln: https://de.wikipedia.org/wiki/K%C3%B6ln#/media/Datei:Stadtbild_K%C3%B6ln_(50MP).jpg
+Bild Dahlem: https://de.wikipedia.org/wiki/Dahlem_(Nordeifel)#/media/Datei:Dahlem_(Nordeifel)_001x.jpg
+
+</BodyText>
+</Container>

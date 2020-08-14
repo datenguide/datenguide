@@ -9,6 +9,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     marginTop: theme.spacing(3),
   },
+
   '@global': {
     // this property cannot be accessed through
     // the CSS API 🤯
@@ -16,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
       background: 'white',
     },
   },
+
   textInput: {
     marginBottom: theme.spacing(3),
     [theme.breakpoints.up('sm')]: {
@@ -26,14 +28,13 @@ const useStyles = makeStyles((theme) => ({
 
   submitButton: {
     marginLeft: theme.spacing(2),
-    marginTop: '1px',
-    height: '3.4rem',
+    height: '3.75rem',
     boxShadow: theme.shadows[0],
   },
 
   terms: {
     display: 'block',
-    fontSize: '12px',
+    fontSize: '0.75rem',
 
     [theme.breakpoints.up('sm')]: {
       maxWidth: '680px',
@@ -50,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
 const Subscribe = () => {
   const classes = useStyles()
   return (
-    <div>
+    <div className={classes.root}>
       <form
         action="https://datengui.us17.list-manage.com/subscribe/post?u=4b79a045e2fce403d887f9147&amp;id=19233695e7"
         method="post"

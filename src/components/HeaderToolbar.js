@@ -59,7 +59,7 @@ export default function HeaderToolbar({ menuButton }) {
         {menuButton}
         <Link href="/">
           <a className={classes.homeLink}>
-            <Typography className={classes.logo} variant="h6" component="h2">
+            <Typography className={classes.logo} component="h2">
               Datenguide
             </Typography>
           </a>

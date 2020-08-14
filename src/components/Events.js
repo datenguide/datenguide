@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
     position: 'relative',
     backgroundColor: '#c3e5f1',
     color: theme.palette.secondary.main,
-    fontSize: theme.typography.body1.fontSize,
+    fontSize: theme.typography.body2.fontSize,
 
     '&::before': {
       [theme.breakpoints.up('md')]: {

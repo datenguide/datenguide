@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.secondary.main,
     paddingTop: theme.spacing(6),
     paddingBottom: theme.spacing(6),
-    fontSize: theme.typography.body1.fontSize,
+    fontSize: theme.typography.body2.fontSize,
 
     [theme.breakpoints.up('xl')]: {
       paddingTop: theme.spacing(9),

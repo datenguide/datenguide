@@ -5,7 +5,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     color: theme.palette.secondary.main,
     paddingBottom: theme.spacing(6),
-    fontSize: theme.typography.body1.fontSize,
+    fontSize: theme.typography.body2.fontSize,
     display: 'flex',
     justifyContent: 'space-between',
     flexDirection: 'column',

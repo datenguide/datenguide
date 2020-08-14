@@ -11,28 +11,34 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up('sm')]: {
       minHeight: theme.spacing(32),
     },
-    [theme.breakpoints.up('md')]: {},
   },
+
   content: {
     width: '100%',
     [theme.breakpoints.up('md')]: {
-      width: '60%',
+      width: '80%',
     },
+    margin: theme.spacing(10, 0),
   },
 
   title: {
-    fontSize: theme.typography.h5.fontSize,
-    [theme.breakpoints.up('sm')]: {
-      fontSize: theme.typography.h4.fontSize,
+    ...theme.typography.h2,
+    marginBottom: 0,
+    color: theme.palette.secondary.dark,
+
+    [theme.breakpoints.up('md')]: {
+      ...theme.typography.h1,
     },
   },
 
   description: {
     fontSize: theme.typography.subtitle1.fontSize,
     fontWeight: 'regular',
-    [theme.breakpoints.up('sm')]: {
-      fontSize: theme.typography.h5.fontSize,
-    },
+    margin: theme.spacing(2, 0),
+
+    // [theme.breakpoints.up('sm')]: {
+    //   fontSize: theme.typography.h5.fontSize,
+    // },
   },
   metaInfo: {
     fontSize: theme.typography.subtitle1.fontSize,
@@ -42,14 +48,14 @@ const useStyles = makeStyles((theme) => ({
 const BlogHeader = ({ title, description }) => {
   const classes = useStyles()
   return (
-    <div className={classes.root}>
+    <header className={classes.root}>
       <Container maxWidth="lg">
         <div className={classes.content}>
           <h1 className={classes.title}>{title}</h1>
-          <h2 className={classes.description}>{description}</h2>
+          <p className={classes.description}>{description}</p>
         </div>
       </Container>
-    </div>
+    </header>
   )
 }
 
