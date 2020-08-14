@@ -5,6 +5,9 @@ import { Scrollama, Step } from 'react-scrollama'
 import dynamic from 'next/dynamic'
 import { WebMercatorViewport } from 'react-map-gl'
 import RegionTooltip from './RegionTooltip'
+import getConfig from 'next/config'
+
+const { publicRuntimeConfig } = getConfig()
 
 const Map = dynamic(
   () => import('@datenguide/explorables').then(({ Map }) => Map),
@@ -219,7 +222,7 @@ class ScrollyMap extends PureComponent {
       keyboard: false,
       doubleClickZoom: false,
       mapStyle: 'mapbox://styles/datenguide/cka2hksel3jxf1iobq6rxka0l',
-      mapboxApiAccessToken: process.env.MAPBOX_TOKEN,
+      mapboxApiAccessToken: publicRuntimeConfig.mapboxToken,
     },
   }
 
