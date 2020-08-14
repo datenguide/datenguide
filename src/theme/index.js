@@ -24,7 +24,7 @@ const theme = createMuiTheme({
     ].join(','),
 
     h1: {
-      fontSize: '3rem',
+      fontSize: '3.5rem',
       lineHeight: 1.1,
       fontWeight: 'bold',
     },
@@ -49,17 +49,23 @@ const theme = createMuiTheme({
       fontWeight: 'bold',
     },
     h6: {
-      fontSize: '1rem',
+      fontSize: '0.75rem',
       lineHeight: 1.1,
       fontWeight: 'bold',
     },
     subtitle1: {
-      fontSize: '1rem',
+      fontSize: '1.75rem',
       lineHeight: 1.3,
     },
     subtitle2: {
-      fontSize: '1rem',
+      fontSize: '1.5rem',
       lineHeight: 1.3,
+    },
+    body1: {
+      fontSize: '1.25rem',
+    },
+    body2: {
+      fontSize: '1rem',
     },
   },
 
