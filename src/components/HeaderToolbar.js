@@ -66,31 +66,31 @@ export default function HeaderToolbar({ menuButton }) {
         </Link>
       </div>
       <div className={classes.controls}>
-        {/*{process.env.NODE_ENV !== 'production' ? (*/}
-        {/*  <a*/}
-        {/*    className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-colorInherit"*/}
-        {/*    href="/docs/gettingstarted/intro"*/}
-        {/*  >*/}
-        {/*    Docs*/}
-        {/*  </a>*/}
-        {/*) : (*/}
-        {/*  <Link href="/docs/gettingstarted/intro" passHref>*/}
-        {/*    <Button component="a" color="inherit">*/}
-        {/*      Docs*/}
-        {/*    </Button>*/}
-        {/*  </Link>*/}
-        {/*)}*/}
+        {/* {process.env.NODE_ENV !== 'production' ? ( */}
+        {/*  <a */}
+        {/*    className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-colorInherit" */}
+        {/*    href="/docs/gettingstarted/intro" */}
+        {/*  > */}
+        {/*    Docs */}
+        {/*  </a> */}
+        {/* ) : ( */}
+        {/*  <Link href="/docs/gettingstarted/intro" passHref> */}
+        {/*    <Button component="a" color="inherit"> */}
+        {/*      Docs */}
+        {/*    </Button> */}
+        {/*  </Link> */}
+        {/* )} */}
         <div className={classes.nav}>
           <Link href="/statistiken">
             <Button component="a" color="inherit">
               Statistiken
             </Button>
           </Link>
-          {/*<Link href="/regionen">*/}
-          {/*  <Button component="a" color="inherit">*/}
-          {/*    Regions*/}
-          {/*  </Button>*/}
-          {/*</Link>*/}
+          {/* <Link href="/regionen"> */}
+          {/*  <Button component="a" color="inherit"> */}
+          {/*    Regions */}
+          {/*  </Button> */}
+          {/* </Link> */}
           <Link href="/explorables">
             <Button component="a" color="inherit">
               Explorables
