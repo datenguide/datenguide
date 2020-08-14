@@ -91,7 +91,7 @@ export default function HeaderToolbar({ menuButton }) {
           {/*    Regions */}
           {/*  </Button> */}
           {/* </Link> */}
-          <Link href="/explorables">
+          <Link href="/statistik-erklaert">
             <Button component="a" color="inherit">
               Explorables
             </Button>
