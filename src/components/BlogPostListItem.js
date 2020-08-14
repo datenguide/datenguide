@@ -28,7 +28,7 @@ const BlogPostListItem = ({ href, date, title, description }) => {
   return (
     <div className={classes.root}>
       <a className={classes.link} href={href}>
-        <div className={classes.metaInfo}>{date}</div>
+        {date && <div className={classes.metaInfo}>{date}</div>}
         <h2 className={classes.title}>{title}</h2>
         <div className={classes.description}>{description}</div>
       </a>

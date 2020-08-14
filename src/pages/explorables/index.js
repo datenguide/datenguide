@@ -12,7 +12,7 @@ import BodyText from '../../components/BodyText'
 const Blog = ({ meta, blogPosts = [] }) => {
   return (
     <DefaultLayout meta={meta}>
-      <SecondaryStage claim="Statistik erklärt" />
+      <SecondaryStage claim="Statistik erklärt - Explorable Explanations" />
       <Container>
         <BodyText>
           <h1>Statistik Erklärt</h1>
@@ -32,7 +32,6 @@ export const getStaticProps = async () => {
     href: page.path,
     title: page.frontmatter.title,
     description: page.frontmatter.description,
-    date: page.frontmatter.date,
     published: page.frontmatter.published,
   }))
 
@@ -43,7 +42,6 @@ export const getStaticProps = async () => {
   )
     .map((post) => ({
       ...post,
-      date: moment(post.date).format('DD.MM.YYYY'),
     }))
     .filter((post) => post.published)
 
