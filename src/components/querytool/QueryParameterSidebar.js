@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import useSWR from 'swr'
 import { useState } from 'react'
+import getConfig from 'next/config';
 
 import { makeStyles, Tab, Tabs } from '@material-ui/core'
 import Paper from '@material-ui/core/Paper'
@@ -8,6 +9,9 @@ import Paper from '@material-ui/core/Paper'
 import StatisticsTreeView from './StatisticsTreeView'
 import fetcher from '../../lib/fetcher'
 import RegionsTreeView from './RegionsTreeView'
+
+const { publicRuntimeConfig } = getConfig();
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -38,7 +42,7 @@ const QueryParameterSidebar = ({ dispatch, actions }) => {
 
   const { data: statistics } = useSWR(`/api/statistics`, fetcher)
   const { data: regionData } = useSWR(
-    `${process.env.DATENGUIDE_API}/catalog/regions?nuts=1&$children=true&$limit=16`,
+    `${publicRuntimeConfig.datenguideApiUrl}/catalog/regions?nuts=1&$children=true&$limit=16`,
     fetcher
   )
 

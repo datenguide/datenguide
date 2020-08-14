@@ -1,13 +1,16 @@
 import { GraphQLClient } from 'graphql-hooks'
 import memCache from 'graphql-hooks-memcache'
 import unfetch from 'isomorphic-unfetch'
+import getConfig from 'next/config';
 
 let graphQLClient = null
+
+const { publicRuntimeConfig } = getConfig();
 
 const create = (initialState = {}) => {
   return new GraphQLClient({
     ssrMode: false, // graphql is only used on the client, pages are SSG
-    url: `${process.env.DATENGUIDE_API}/graphql`,
+    url: `${publicRuntimeConfig.datenguideApiUrl}/graphql`,
     cache: memCache({ initialState }),
     fetch: typeof window !== 'undefined' ? fetch.bind() : unfetch, // eslint-disable-line
   })
