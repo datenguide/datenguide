@@ -1,6 +1,9 @@
 import { makeStyles } from '@material-ui/core/styles'
 import Container from '@material-ui/core/Container'
 import Avatar from '@material-ui/core/Avatar'
+import MastodonIcon from 'mdi-material-ui/Mastodon'
+import GithubIcon from 'mdi-material-ui/Github'
+import TwitterIcon from 'mdi-material-ui/Twitter'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -72,29 +75,60 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: theme.spacing(1),
   },
 
-  authorTwitter: {
-    color: theme.palette.grey[600],
-    textDecoration: 'none',
+  authorSocial: {
+    display: 'inline',
+
+    '& a': {
+      color: theme.palette.grey[600],
+      textDecoration: 'none',
+    },
+
+    '& a:hover': {
+      textDecoration: 'underline',
+    },
+
+    '& svg': {
+      fontSize: 18,
+      marginLeft: 5,
+      verticalAlign: 'middle',
+    },
   },
 }))
+
+const renderAuthorSocial = ({ icon, text, href }) => (
+  <a href={href} target="_blank" rel="noopener noreferrer">
+    {text}
+    {icon}
+  </a>
+)
 
 const renderAuthors = (authors) => {
   const classes = useStyles()
   return (
     <div className={classes.authors}>
-      {authors.map(({ name, image, twitter }) => (
+      {authors.map(({ name, image, social = {} }) => (
         <div key={name} className={classes.author}>
           <Avatar alt="" src={image} className={classes.authorAvatar} />
           <div className={classes.authorMeta}>
             <b className={classes.authorName}>{name}</b>
-            <a
-              href={`https://twitter.com/${twitter}/`}
-              className={classes.authorTwitter}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {twitter}
-            </a>
+            <div className={classes.authorSocial}>
+              {social.twitter &&
+                renderAuthorSocial({
+                  icon: <TwitterIcon />,
+                  text: `@${social.twitter}`,
+                  href: `https://twitter.com/${social.twitter}/`,
+                })}
+              {social.github &&
+                renderAuthorSocial({
+                  icon: <GithubIcon />,
+                  href: `https://github.com/${social.github}/`,
+                })}
+              {social.mastodon &&
+                renderAuthorSocial({
+                  icon: <MastodonIcon />,
+                  href: `https://${social.mastodon}/`,
+                })}
+            </div>
           </div>
         </div>
       ))}
