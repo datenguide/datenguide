@@ -15,6 +15,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     borderBottomLeftRadius: 0,
     borderBottomRightRadius: 0,
+    fontSize: '16px',
   },
   summary: {
     display: 'flex',

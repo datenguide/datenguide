@@ -22,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
     borderTopLeftRadius: 0,
     borderTopRightRadius: 0,
     borderTop: '1px solid #dadada',
+    fontSize: '16px',
   },
   header: {
     paddingBottom: 0,

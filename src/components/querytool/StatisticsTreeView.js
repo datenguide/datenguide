@@ -21,6 +21,13 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
   },
+  searchfield: {
+    '@global': {
+      '.MuiInputBase-input': {
+        fontSize: '16px',
+      },
+    },
+  },
   tree: {
     paddingTop: theme.spacing(2),
   },
@@ -33,7 +40,9 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.grey[500],
     fontSize: '12px',
   },
-  itemTitle: {},
+  itemTitle: {
+    fontSize: '16px',
+  },
   '@global': {
     '.MuiCollapse-wrapperInner > ul': {
       paddingLeft: 0,

@@ -24,6 +24,13 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
   },
+  searchfield: {
+    '@global': {
+      '.MuiInputBase-input': {
+        fontSize: '16px',
+      },
+    },
+  },
   tree: {
     paddingTop: theme.spacing(2),
   },
@@ -37,6 +44,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '12px',
   },
   itemTitle: {
+    fontSize: '16px',
     flex: '1 1 auto',
     flexWrap: 'wrap',
   },
