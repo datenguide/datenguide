@@ -180,15 +180,6 @@ const DataTable = ({
             <Tab label="Tabelle" />
             <Tab label="API" />
           </Tabs>
-          <DataTableToolbar
-            measures={measures}
-            regions={regions}
-            labels={labels}
-            layout={layout}
-            dispatch={dispatch}
-            actions={actions}
-            queryArgs={queryArgs}
-          />
         </>
         {tabValue === 0 && (
           <>
@@ -204,6 +195,15 @@ const DataTable = ({
                   </Alert>
                 </div>
               )}
+              <DataTableToolbar
+                measures={measures}
+                regions={regions}
+                labels={labels}
+                layout={layout}
+                dispatch={dispatch}
+                actions={actions}
+                queryArgs={queryArgs}
+              />
               <div className={classes.tableWrapper}>
                 <Table className={classes.table} size="small" stickyHeader>
                   <TableHead>
