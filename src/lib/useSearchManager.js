@@ -12,6 +12,7 @@ query Region($id: String!) {
   region(id: $id) {
     id
     name
+    nuts
   }
 }
 `
@@ -36,11 +37,6 @@ query Schema($measures: [MeasureDescription]) {
   }
 }
 `
-
-const getRegion = async (id) => {
-  const fetchRegion = await fetch(`/api/region?id=${id}`)
-  return fetchRegion.ok && fetchRegion.json()
-}
 
 const getSelectedValues = (dim, dimensionSelection) => {
   const selection = (dimensionSelection && dimensionSelection[dim.name]) || []
@@ -289,7 +285,14 @@ const useSearchManager = (
   useEffect(() => {
     const fetch = async () => {
       const regions = await Promise.all(
-        initialRegions.map((id) => getRegion(id))
+        initialRegions.map(async (id) => {
+          const result = await fetchRegion({
+            variables: {
+              id,
+            },
+          })
+          return result.data.region
+        })
       )
       const result = regions.reduce((acc, curr) => {
         acc[curr.id] = curr

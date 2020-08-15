@@ -124,7 +124,7 @@ const RegionSearchParameterCard = ({ region, onClose }) => {
           onClick={handleMenuOpen}
           className={classes.menuButton}
         >
-          {renderRegionLevel({ level: region.level })}
+          {renderRegionLevel({ nuts: region.nuts })}
         </button>
         <Menu
           id="region-menu"
