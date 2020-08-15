@@ -11,8 +11,6 @@ import CloseIcon from '@material-ui/icons/Close'
 import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
 import CardActions from '@material-ui/core/CardActions'
-import MeasureSearchComboSelection from './MeasureSearchComboSelection'
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -124,8 +122,6 @@ const RegionSearchParameterCard = ({
   const handleMenuOpen = (event) => {
     setMenuAnchor(event.currentTarget)
   }
-
-  console.log('level', level)
 
   const handleMenuClose = () => {
     setMenuAnchor(null)
