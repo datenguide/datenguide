@@ -85,6 +85,7 @@ const Detail = ({
   initialRegions,
   initialLabels,
   initialLayout,
+  initialLevel,
 }) => {
   const classes = useStyles()
 
@@ -92,10 +93,11 @@ const Detail = ({
     initialMeasures,
     initialRegions,
     initialLabels,
-    initialLayout
+    initialLayout,
+    initialLevel
   )
 
-  const { measures, regions, labels, layout, error } = state
+  const { measures, regions, labels, layout, level, error } = state
 
   const queryArgs = stateToQueryArgs(state)
 
@@ -115,6 +117,10 @@ const Detail = ({
     dispatch(actions.closeRegion(value))
   }
 
+  const handleRegionLevelChange = (value) => {
+    dispatch(actions.changeRegionLevel({ level: value }))
+  }
+
   return (
     <DockedDrawerLayout
       drawerContent={
@@ -131,7 +137,9 @@ const Detail = ({
               <RegionSearchParameterCard
                 key={region.id}
                 region={region}
+                level={level}
                 onClose={handleRemoveRegion(region.id)}
+                onRegionLevelChange={handleRegionLevelChange}
               />
             ))}
             {measures.map((measure) => (
@@ -196,7 +204,7 @@ Detail.propTypes = {
 }
 
 export async function getServerSideProps({ query }) {
-  const { measures, regions, labels, layout } = queryArgsToState(query)
+  const { measures, regions, labels, level, layout } = queryArgsToState(query)
 
   // TODO fix server-side data fetching?
   // const { origin } = absoluteUrl(req)
@@ -213,6 +221,7 @@ export async function getServerSideProps({ query }) {
       initialRegions: regions,
       initialLabels: labels || 'id',
       initialLayout: layout || 'long',
+      initialLevel: (level && Number(level)) || 1,
     },
   }
 }

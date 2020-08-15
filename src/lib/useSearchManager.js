@@ -82,7 +82,8 @@ const useSearchManager = (
   initialMeasures,
   initialRegions,
   initialLabels,
-  initialLayout
+  initialLayout,
+  initialLevel
 ) => {
   const [fetchSchema] = useManualQuery(SCHEMA_QUERY)
   const [fetchRegion] = useManualQuery(REGION_QUERY)
@@ -148,6 +149,10 @@ const useSearchManager = (
         dispatch(actions.setLayout(payload))
         dispatch(actions.syncUrl())
       },
+      changeRegionLevel: (payload) => async (dispatch) => {
+        dispatch(actions.setRegionLevel(payload))
+        dispatch(actions.syncUrl())
+      },
     }),
     []
   )
@@ -181,6 +186,7 @@ const useSearchManager = (
         // }
         state.regions = {}
         state.regions[action.payload.id] = action.payload
+        state.level = action.payload.nuts
         return state
       },
       removeRegion: (state, action) => {
@@ -228,6 +234,11 @@ const useSearchManager = (
         state.layout = layout
         return state
       },
+      setRegionLevel: (state, action) => {
+        const { level } = action.payload
+        state.level = level
+        return state
+      },
       setError: (state, action) => {
         state.error = action.payload
         return state
@@ -241,6 +252,7 @@ const useSearchManager = (
     regions: {},
     labels: initialLabels,
     layout: initialLayout,
+    level: initialLevel,
     error: null,
     measuresLoading: true,
   }

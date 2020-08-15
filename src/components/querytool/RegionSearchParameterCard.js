@@ -10,6 +10,9 @@ import IconButton from '@material-ui/core/IconButton'
 import CloseIcon from '@material-ui/icons/Close'
 import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
+import CardActions from '@material-ui/core/CardActions'
+import MeasureSearchComboSelection from './MeasureSearchComboSelection'
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -17,10 +20,16 @@ const useStyles = makeStyles((theme) => ({
     borderBottomRightRadius: 0,
     fontSize: '16px',
   },
+  header: {
+    paddingBottom: 0,
+  },
   summary: {
     display: 'flex',
     flexDirection: 'column',
     flexGrow: 1,
+  },
+  actions: {
+    padding: theme.spacing(0, 1, 2, 2),
   },
   chip: {
     color: 'white',
@@ -47,8 +56,8 @@ const useStyles = makeStyles((theme) => ({
   headingAttribute: {
     fontSize: theme.typography.h6.fontSize,
     fontWeight: theme.typography.h6.fontWeight,
-    width: '400px',
   },
+  headingSubtitle: {},
   regionLevel: {
     fontSize: theme.typography.body1.fontSize,
     color: theme.palette.grey[600],
@@ -62,30 +71,53 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const regionLevels = [
-  {
-    id: 1,
-    abbr: 'NUTS 1',
-    title: 'Bundesländer',
-  },
+const childLevels = [
   {
     id: 2,
     abbr: 'NUTS 2',
-    title: 'Regierungsbezirke und statistische Regionen',
+    title: 'Alle Regierungsbezirke/statistische Regionen',
   },
   {
     id: 3,
     abbr: 'NUTS 3',
-    title: 'Landkreise und kreisfreie Städte',
+    title: 'Alle Landkreise/kreisfreie Städte',
   },
   {
     id: 4,
     abbr: 'LAU',
-    title: 'Gemeinden',
+    title: 'Alle Gemeinden',
   },
 ]
 
-const RegionSearchParameterCard = ({ region, onClose }) => {
+const parentLevels = [
+  {
+    id: 1,
+    abbr: 'NUTS 1',
+    title: 'Bundesland',
+  },
+  {
+    id: 2,
+    abbr: 'NUTS 2',
+    title: 'Regierungsbezirk/statistische Region',
+  },
+  {
+    id: 3,
+    abbr: 'NUTS 3',
+    title: 'Landkreis/kreisfreie Stadt',
+  },
+  {
+    id: 4,
+    abbr: 'LAU',
+    title: 'Gemeinde',
+  },
+]
+
+const RegionSearchParameterCard = ({
+  region,
+  level,
+  onClose,
+  onRegionLevelChange,
+}) => {
   const classes = useStyles()
   const [menuAnchor, setMenuAnchor] = useState(null)
 
@@ -93,17 +125,21 @@ const RegionSearchParameterCard = ({ region, onClose }) => {
     setMenuAnchor(event.currentTarget)
   }
 
+  console.log('level', level)
+
   const handleMenuClose = () => {
     setMenuAnchor(null)
   }
 
   const handleMenuSelect = (level) => {
     setMenuAnchor(null)
-    console.log('menu select!', level) // eslint-disable-line
+    onRegionLevelChange(level)
   }
 
-  const renderRegionLevel = ({ nuts, showIcon = true }) => {
-    const { abbr, title } = regionLevels.find(({ id }) => nuts === id)
+  const renderRegionLevel = ({ nuts, showIcon = true, parent = true }) => {
+    const { abbr, title } = parent
+      ? parentLevels.find(({ id }) => nuts === id)
+      : childLevels.find(({ id }) => nuts === id)
     return (
       <div className={classes.regionLevel}>
         <span className={clsx(classes.chip, { hasIcon: showIcon })}>
@@ -118,13 +154,9 @@ const RegionSearchParameterCard = ({ region, onClose }) => {
   const renderMenu = () => {
     return (
       <>
-        <button
-          aria-controls="simple-menu"
-          aria-haspopup="true"
-          onClick={handleMenuOpen}
-          className={classes.menuButton}
-        >
-          {region.nuts && renderRegionLevel({ nuts: region.nuts })}
+        <button onClick={handleMenuOpen} className={classes.menuButton}>
+          {region.nuts &&
+            renderRegionLevel({ nuts: level, parent: level === region.nuts })}
         </button>
         <Menu
           id="region-menu"
@@ -133,18 +165,34 @@ const RegionSearchParameterCard = ({ region, onClose }) => {
           open={Boolean(menuAnchor)}
           onClose={handleMenuClose}
         >
-          {regionLevels.map(({ id }) => {
+          {[parentLevels.find((l) => l.id === region.nuts)].map(({ id }) => {
             return (
               <MenuItem
                 key={id}
                 className={classes.menuItem}
-                selected={region.level === id}
                 onClick={() => handleMenuSelect(id)}
               >
-                {renderRegionLevel({ nuts: id, showIcon: false })}
+                {renderRegionLevel({ nuts: id, showIcon: false, parent: true })}
               </MenuItem>
             )
           })}
+          {childLevels
+            .filter((l) => l.id > region.nuts)
+            .map(({ id }) => {
+              return (
+                <MenuItem
+                  key={id}
+                  className={classes.menuItem}
+                  onClick={() => handleMenuSelect(id)}
+                >
+                  {renderRegionLevel({
+                    nuts: id,
+                    showIcon: false,
+                    parent: false,
+                  })}
+                </MenuItem>
+              )
+            })}
         </Menu>
       </>
     )
@@ -154,19 +202,24 @@ const RegionSearchParameterCard = ({ region, onClose }) => {
     <Card className={classes.root}>
       <CardHeader
         title={<div className={classes.headingAttribute}>{region.name}</div>}
-        subheader={renderMenu()}
         action={
           <IconButton aria-label="close" onClick={onClose}>
             <CloseIcon />
           </IconButton>
         }
+        className={classes.header}
+        subheader={parentLevels.find((l) => l.id === region.nuts).title}
       />
+      <CardActions disableSpacing className={classes.actions}>
+        {renderMenu()}
+      </CardActions>
     </Card>
   )
 }
 
 RegionSearchParameterCard.propTypes = {
   onClose: PropTypes.func.isRequired,
+  onRegionLevelChange: PropTypes.func.isRequired,
   region: PropTypes.object.isRequired,
 }
 
