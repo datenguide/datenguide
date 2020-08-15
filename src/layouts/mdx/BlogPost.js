@@ -29,10 +29,7 @@ const BlogPost = (frontMatter) => ({ children }) => {
       <AppBar position="fixed">
         <HeaderToolbar />
       </AppBar>
-      <BlogHeader
-        title={frontMatter.title}
-        description={frontMatter.description}
-      />
+      <BlogHeader {...frontMatter} />
       <div className={classes.content}>
         <Container maxWidth="lg">
           <div className={classes.metaInfo}>
