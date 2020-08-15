@@ -70,18 +70,18 @@ const regionLevels = [
   },
   {
     id: 2,
-    title: 'Regierungsbezirke und statistische Regionen',
     abbr: 'NUTS 2',
+    title: 'Regierungsbezirke und statistische Regionen',
   },
   {
     id: 3,
-    title: 'Landkreise und kreisfreie Städte',
     abbr: 'NUTS 3',
+    title: 'Landkreise und kreisfreie Städte',
   },
   {
     id: 4,
-    title: 'Gemeinden',
     abbr: 'LAU',
+    title: 'Gemeinden',
   },
 ]
 
@@ -102,8 +102,8 @@ const RegionSearchParameterCard = ({ region, onClose }) => {
     console.log('menu select!', level) // eslint-disable-line
   }
 
-  const renderRegionLevel = ({ level, showIcon = true }) => {
-    const { abbr, title } = regionLevels.find(({ id }) => level === id)
+  const renderRegionLevel = ({ nuts, showIcon = true }) => {
+    const { abbr, title } = regionLevels.find(({ id }) => nuts === id)
     return (
       <div className={classes.regionLevel}>
         <span className={clsx(classes.chip, { hasIcon: showIcon })}>
@@ -124,7 +124,7 @@ const RegionSearchParameterCard = ({ region, onClose }) => {
           onClick={handleMenuOpen}
           className={classes.menuButton}
         >
-          {renderRegionLevel({ nuts: region.nuts })}
+          {region.nuts && renderRegionLevel({ nuts: region.nuts })}
         </button>
         <Menu
           id="region-menu"
@@ -139,9 +139,9 @@ const RegionSearchParameterCard = ({ region, onClose }) => {
                 key={id}
                 className={classes.menuItem}
                 selected={region.level === id}
-                onClick={(event) => handleMenuSelect(id)}
+                onClick={() => handleMenuSelect(id)}
               >
-                {renderRegionLevel({ level: id, showIcon: false })}
+                {renderRegionLevel({ nuts: id, showIcon: false })}
               </MenuItem>
             )
           })}

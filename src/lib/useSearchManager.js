@@ -172,12 +172,15 @@ const useSearchManager = (
       },
       addRegion: (state, action) => {
         // TODO transform to state object
-        if (state.regions[action.payload.id]) {
-          state.error = 'Region wurde bereits ausgewählt'
-        } else {
-          state.regions[action.payload.id] = action.payload
-          state.loading = false
-        }
+        // only load one region for now
+        // if (state.regions[action.payload.id]) {
+        //   state.error = 'Region wurde bereits ausgewählt'
+        // } else {
+        //   state.regions[action.payload.id] = action.payload
+        //   state.loading = false
+        // }
+        state.regions = {}
+        state.regions[action.payload.id] = action.payload
         return state
       },
       removeRegion: (state, action) => {
