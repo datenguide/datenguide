@@ -1,3 +1,5 @@
+import Link from 'next/link'
+import moment from 'moment'
 import { makeStyles } from '@material-ui/core/styles'
 import Container from '@material-ui/core/Container'
 import Avatar from '@material-ui/core/Avatar'
@@ -7,11 +9,13 @@ import TwitterIcon from 'mdi-material-ui/Twitter'
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    position: 'relative',
     backgroundColor: '#c3e5f1',
     minHeight: '200px',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'flex-end',
+    marginBottom: theme.spacing(5),
 
     [theme.breakpoints.up('sm')]: {
       minHeight: theme.spacing(32),
@@ -42,6 +46,21 @@ const useStyles = makeStyles((theme) => ({
     fontSize: theme.typography.subtitle1.fontSize,
     fontWeight: 'regular',
     margin: theme.spacing(2, 0),
+  },
+
+  meta: {
+    color: theme.palette.grey[500],
+    position: 'absolute',
+    bottom: theme.spacing(-7),
+  },
+
+  category: {
+    fontWeight: 'bold',
+    color: 'black',
+    background: theme.palette.info.main,
+    textDecoration: 'none',
+    padding: theme.spacing(0.5, 1),
+    lineHeight: '1em',
   },
 
   authors: {
@@ -137,7 +156,31 @@ const renderAuthors = (authors) => {
   )
 }
 
-const BlogHeader = ({ title, description, authors = [], authorMeta = {} }) => {
+const renderMeta = ({ category, date }) => {
+  const classes = useStyles()
+  return (
+    <div className={classes.meta}>
+      {category && (
+        <>
+          <Link href={category.href}>
+            <a className={classes.category}>{category.name}</a>
+          </Link>
+          &nbsp;—&nbsp;
+        </>
+      )}
+      {moment(date).format('DD.MM.YYYY')}
+    </div>
+  )
+}
+
+const BlogHeader = ({
+  title,
+  date,
+  description,
+  category,
+  authors = [],
+  authorMeta = {},
+}) => {
   const classes = useStyles()
   const fullAuthorData = authors.map((name) => authorMeta[name] || { name })
 
@@ -149,6 +192,7 @@ const BlogHeader = ({ title, description, authors = [], authorMeta = {} }) => {
           <p className={classes.description}>{description}</p>
           {authors.length > 0 && renderAuthors(fullAuthorData)}
         </div>
+        {renderMeta({ category, date })}
       </Container>
     </header>
   )
