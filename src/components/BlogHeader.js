@@ -72,7 +72,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   authorMeta: {
-    paddingLeft: theme.spacing(1),
+    margin: theme.spacing(-0.5, 0, 0, 2),
   },
 
   authorSocial: {
@@ -85,6 +85,7 @@ const useStyles = makeStyles((theme) => ({
 
     '& a:hover': {
       textDecoration: 'underline',
+      color: theme.palette.secondary.main,
     },
 
     '& svg': {
@@ -136,15 +137,17 @@ const renderAuthors = (authors) => {
   )
 }
 
-const BlogHeader = ({ title, description, authors }) => {
+const BlogHeader = ({ title, description, authors = [], authorMeta = {} }) => {
   const classes = useStyles()
+  const fullAuthorData = authors.map((name) => authorMeta[name] || { name })
+
   return (
     <header className={classes.root}>
       <Container maxWidth="lg">
         <div className={classes.content}>
           <h1 className={classes.title}>{title}</h1>
           <p className={classes.description}>{description}</p>
-          {authors && authors.length && renderAuthors(authors)}
+          {authors.length > 0 && renderAuthors(fullAuthorData)}
         </div>
       </Container>
     </header>

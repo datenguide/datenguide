@@ -33,8 +33,7 @@ const BlogPost = (frontMatter) => ({ children }) => {
       <div className={classes.content}>
         <Container maxWidth="lg">
           <div className={classes.metaInfo}>
-            {moment(frontMatter.date).format('DD.MM.YYYY')} -{' '}
-            {frontMatter.author}
+            {moment(frontMatter.date).format('DD.MM.YYYY')}
           </div>
           <BodyText>{children}</BodyText>
         </Container>
