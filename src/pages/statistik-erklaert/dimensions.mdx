@@ -17,19 +17,52 @@ authors:
 import Grid from '@material-ui/core/Grid'
 import Container from '@material-ui/core/Container'
 import BodyText from '../../components/BodyText'
+import ArrowLink from '../../components/ArrowLink'
+import StatisticsTree from './components/StatisticsTree'
+import DimensionExplorable from './components/DimensionExplorable'
 
 <Container maxWidth="lg">
   <BodyText>
 
+## Intro
+
 Welche Daten gibt es überhaupt in der Regionalstatistik? Wie kriege ich das raus und wie frage ich das ab?
+Was sind 'Merkmale' und 'Merkmalsausprägungen'? Wir haben uns das mal genauer angeschaut.
 
-Was sind Merkmale und Merkmalsausprägungen?
+## Statistiken und Wertmerkmale
 
-Welche Kombis gibt es? Ist nicht klar ersichtlich -> Wir haben das analysiert und ein Frontent gebaut.
+- Die Regionalstatistik ist eine Sammlung von Statistiken
+- Eine Statistik enthält mehrere Merkmale, sogenannte 'Wertmerkmale'. Das kann man als verschiedene Werte verstehen, die thematisch in einer Statistik zusammengefasst sind, bzw zusammen erhoben werden (?).
+- Beispiel: Statistik 'Feststellung des Gebietsstandes' enthält die Wertmerkmale 'Zahl der Gemeinden' und 'Gebietsfläche'.
+- Oft werden Wertmerkale auch 'measures' genannt.
 
--- Ev kleines Tool zum Rumspielen mit Dimensionen --
+<StatisticsTree />
 
--- Link zu Query Tool --
+## Räumliche Gliederung
+
+- Statistiken sind auf verschiedenen regionalen Ebenen verfügbar, siehe NUTS-Explorable
+- Es gibt die Ebenen Deutschland gesamt, Bundesländer (NUTS 1), Regierungsbezirke (NUTS 2), Kreise (NUTS 3) und Gemeinden (LAU)
+
+## Sachliche Merkmale
+
+- Die Daten sind weiter nach sogenannten 'sachlichen Merkmalen' aufgegliedert. Sachliche Merkmale können beispielsweise Nationalität,
+  Schulabschluss, Altersgruppe, Geschlecht etc. sein. Statistiken können oft in verschiedenen Kombinationen dieser sachlichen Merkmale abgefragt werden,
+  zb nach Geschlecht und Nationalität, oder nur nach Nationalität, oder nach Geschlecht und Altersgruppe.
+- Oft werden Sachliche Merkmale auch 'dimensions' genannt.
+- Doch welche Kombinationsmöglichkeite gibt es? Das ist nicht auf denr ersten Blick ersichtlich -> Wir haben das analysiert und ein Tool
+  gebaut.
+
+<DimensionExplorable />
+
+## Das Datenguide Datenportal
+
+- Alles, was in diesem Artikel erklärt wurde, war die Grundlage, um ein neues Datenguide Abfrage-Tool zu entwickeln,
+  das Datenguide Datenportal.
+- Eine erste Preview Version davon gibt es hier:
+
+<ArrowLink href="https://preview.datengui.de/statistiken">
+  Datenguide Datenportal
+</ArrowLink>
 
   </BodyText>
 </Container>

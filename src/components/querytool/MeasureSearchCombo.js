@@ -73,7 +73,7 @@ const MeasureSearchCombo = ({ dimensions, combo, onFilterChange }) => {
     const dimensionIndex = findDimensionIndex(dimensionName)
     const label = withTitle ? dimensions[dimensionIndex].titleDe : dimensionName
     const { values = [], selected = [] } = dimensions[dimensionIndex]
-    const hasFilter = values.length && onFilterChange
+    const hasFilter = onFilterChange ? values.length : null
 
     return (
       <div className={classes.chipContainer} key={dimensionName}>
