@@ -9,6 +9,7 @@ const optimizedImages = require('next-optimized-images')
 const slug = require('remark-slug')
 const rehypePrism = require('@mapbox/rehype-prism')
 const generateToc = require('./lib/mdx/generateToc')
+const authorMeta = require('./authors.json')
 
 require('dotenv').config()
 
@@ -24,10 +25,11 @@ module.exports = withPlugins(
         process: (mdxContent, frontMatter) => {
           if (frontMatter.layout === 'DocsPage') {
             return {
+              authorMeta,
               tableOfContents: generateToc(mdxContent),
             }
           }
-          return {}
+          return { authorMeta }
         },
         phase: 'both',
       },

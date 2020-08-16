@@ -1,0 +1,27 @@
+{
+  "p3nny": {
+    "name": "Patricia Ennenbach",
+    "image": "/team/ennenbach.jpg",
+    "social": {
+      "twitter": "pen1710",
+      "github": "P3nny"
+    }
+  },
+  "sjockers": {
+    "name": "Simon Jockers",
+    "image": "/team/jockers.jpg",
+    "social": {
+      "twitter": "sjockers",
+      "github": "sjockers",
+      "mastodon": "vis.social/@sjockers"
+    }
+  },
+  "crijke": {
+    "name": "Christian Rijke",
+    "image": "/team/rijke.jpg",
+    "social": {
+      "twitter": "crijke",
+      "github": "crijke"
+    }
+  }
+}
