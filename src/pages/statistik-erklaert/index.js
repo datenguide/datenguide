@@ -1,24 +1,40 @@
 import _ from 'lodash'
 import moment from 'moment'
 
+import { makeStyles } from '@material-ui/styles'
 import Container from '@material-ui/core/Container'
+import Grid from '@material-ui/core/Grid'
 
 import DefaultLayout from '../../layouts/DefaultLayout'
-import SecondaryStage from '../../components/SecondaryStage'
-import BlogPostListItem from '../../components/BlogPostListItem'
+import BlogPostFeaturedItem from '../../components/BlogPostFeaturedItem'
 import traverseDirectory from '../../lib/traverseDirectory'
 import BodyText from '../../components/BodyText'
 
+const useStyles = makeStyles((theme) => ({
+  title: {
+    ...theme.typography.h1,
+    margin: theme.spacing(10, 0, 6, 0),
+  },
+}))
+
 const Blog = ({ meta, blogPosts = [] }) => {
+  const classes = useStyles()
+  const [featuredPost, ...posts] = blogPosts
   return (
     <DefaultLayout meta={meta}>
-      <SecondaryStage claim="Statistik erklärt - Explorable Explanations" />
       <Container>
         <BodyText>
-          <h1>Statistik Erklärt</h1>
-          {blogPosts.map((blogPost) => (
-            <BlogPostListItem {...blogPost} key={blogPost.href} />
-          ))}
+          <h1 className={classes.title}>Statistik erklärt</h1>
+          <Grid container spacing={3}>
+            <Grid item xs={8}>
+              <BlogPostFeaturedItem {...featuredPost} />
+            </Grid>
+            {posts.map((post) => (
+              <Grid key={post.href} item xs={4}>
+                <BlogPostFeaturedItem {...post} />
+              </Grid>
+            ))}
+          </Grid>
         </BodyText>
       </Container>
     </DefaultLayout>
