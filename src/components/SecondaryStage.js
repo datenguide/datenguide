@@ -28,17 +28,8 @@ const useStyles = makeStyles((theme) => ({
 
   title: {
     margin: theme.spacing(0),
-    marginLeft: theme.spacing(4),
-    fontSize: theme.typography.h5.fontSize,
+    fontSize: theme.typography.h3.fontSize,
     width: '70%',
-
-    [theme.breakpoints.up('sm')]: {
-      width: '50%',
-      marginLeft: theme.spacing(4),
-    },
-    [theme.breakpoints.up('md')]: {
-      marginLeft: 0,
-    },
   },
 }))
 
