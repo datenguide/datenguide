@@ -54,13 +54,15 @@ const Blog = ({ meta, blogPosts = [] }) => {
 export const getStaticProps = async () => {
   const blogPages = await traverseDirectory('statistik-erklaert', true)
 
-  const blogPosts = blogPages.map((page) => {
+  const blogPosts = blogPages.map(({ path, frontmatter }) => {
+    const { title, description, published, date, previewImage } = frontmatter
     return {
-      href: page.path,
-      title: page.frontmatter.title,
-      description: page.frontmatter.description,
-      published: page.frontmatter.published,
-      date: moment(page.frontmatter.date).format('YYYY-MM-DD'),
+      href: path,
+      title,
+      description,
+      published,
+      image: previewImage || null,
+      date: moment(date).format('YYYY-MM-DD'),
     }
   })
 
