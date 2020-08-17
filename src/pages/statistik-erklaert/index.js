@@ -1,41 +1,51 @@
 import _ from 'lodash'
 import moment from 'moment'
 
-import { makeStyles } from '@material-ui/styles'
+import { makeStyles, useTheme } from '@material-ui/styles'
 import Container from '@material-ui/core/Container'
 import Grid from '@material-ui/core/Grid'
 
 import DefaultLayout from '../../layouts/DefaultLayout'
 import BlogPostFeaturedItem from '../../components/BlogPostFeaturedItem'
 import traverseDirectory from '../../lib/traverseDirectory'
-import BodyText from '../../components/BodyText'
+import Funders from '../../components/Funders'
 
 const useStyles = makeStyles((theme) => ({
   title: {
     ...theme.typography.h1,
     margin: theme.spacing(10, 0, 6, 0),
   },
+
+  container: {
+    marginBottom: theme.spacing(4),
+  },
 }))
 
 const Blog = ({ meta, blogPosts = [] }) => {
   const classes = useStyles()
-  const [featuredPost, ...posts] = blogPosts
+  const theme = useTheme()
+  const [primaryFeature, secondaryFeature, ...posts] = blogPosts
   return (
     <DefaultLayout meta={meta}>
       <Container>
-        <BodyText>
-          <h1 className={classes.title}>Statistik erklärt</h1>
-          <Grid container spacing={3}>
-            <Grid item xs={8}>
-              <BlogPostFeaturedItem {...featuredPost} />
-            </Grid>
-            {posts.map((post) => (
-              <Grid key={post.href} item xs={4}>
-                <BlogPostFeaturedItem {...post} />
-              </Grid>
-            ))}
+        <h1 className={classes.title}>Statistik erklärt</h1>
+        <Grid className={classes.container} container spacing={3}>
+          <Grid item xs={8}>
+            <BlogPostFeaturedItem {...primaryFeature} />
           </Grid>
-        </BodyText>
+          <Grid item xs={4}>
+            <BlogPostFeaturedItem
+              {...secondaryFeature}
+              background={theme.palette.info.main}
+            />
+          </Grid>
+          {posts.map((post) => (
+            <Grid key={post.href} item xs={4}>
+              <BlogPostFeaturedItem {...post} />
+            </Grid>
+          ))}
+        </Grid>
+        <Funders />
       </Container>
     </DefaultLayout>
   )
@@ -44,21 +54,18 @@ const Blog = ({ meta, blogPosts = [] }) => {
 export const getStaticProps = async () => {
   const blogPages = await traverseDirectory('statistik-erklaert', true)
 
-  const blogPosts = blogPages.map((page) => ({
-    href: page.path,
-    title: page.frontmatter.title,
-    description: page.frontmatter.description,
-    published: page.frontmatter.published,
-  }))
+  const blogPosts = blogPages.map((page) => {
+    return {
+      href: page.path,
+      title: page.frontmatter.title,
+      description: page.frontmatter.description,
+      published: page.frontmatter.published,
+      date: moment(page.frontmatter.date).format('YYYY-MM-DD'),
+    }
+  })
 
-  const publishedBlogPosts = _.orderBy(
-    blogPosts,
-    (post) => moment(post.date).format('YYYYMMDD'),
-    ['desc']
-  )
-    .map((post) => ({
-      ...post,
-    }))
+  const publishedBlogPosts = _.orderBy(blogPosts, ({ date }) => date, ['desc'])
+    .map((post) => ({ ...post }))
     .filter((post) => post.published)
 
   return {
