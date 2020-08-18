@@ -24,7 +24,6 @@ const useStyles = makeStyles((theme) => ({
   comboHeading: {
     paddingTop: '8px',
     paddingBottom: '16px',
-    color: 'grey',
   },
   combos: {
     display: 'flex',
@@ -78,9 +77,11 @@ const DimensionExplorable = () => {
         {measure &&
           `${measure} - ${schema[statistic.value].measures[measure].title_de}`}
       </Typography>
-      <Typography variant="h5" className={classes.comboHeading}>
-        Kombinationsmöglichkeiten der sachlichen Merkmale
-      </Typography>
+      {measure && statistic && (
+        <Typography variant="h4" className={classes.comboHeading}>
+          Kombinationsmöglichkeiten der sachlichen Merkmale
+        </Typography>
+      )}
       {combos.map((combo, index) => (
         <div key={index} className={classes.combos}>
           <MeasureSearchCombo combo={combo} dimensions={dimensions} />

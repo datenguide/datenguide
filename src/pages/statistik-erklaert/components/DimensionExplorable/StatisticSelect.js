@@ -4,11 +4,19 @@ import TextField from '@material-ui/core/TextField'
 import Autocomplete from '@material-ui/lab/Autocomplete'
 
 import inventory from '../../../../data/inventory.json'
-import schema from '../../../../data/statSchema.json' // TODO use API
+import schema from '../../../../data/statSchema.json'
+import { makeStyles } from '@material-ui/core/styles' // TODO use API
 
 const statOptions = Object.keys(inventory)
 
+const useStyles = makeStyles((theme) => ({
+  textfield: {
+    marginBottom: theme.spacing(2),
+  },
+}))
+
 const StatisticSelect = ({ onSelect, className }) => {
+  const classes = useStyles()
   const [options, setOptions] = useState([])
 
   useEffect(() => {
@@ -40,9 +48,11 @@ const StatisticSelect = ({ onSelect, className }) => {
         <TextField
           {...params}
           label="Statistik auswählen oder suchen"
+          variant="outlined"
           InputProps={{
             ...params.InputProps,
           }}
+          className={classes.textfield}
         />
       )}
     />

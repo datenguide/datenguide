@@ -7,8 +7,9 @@ import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    paddingTop: '12px',
     width: '100%',
+    height: theme.spacing(6),
+    marginBottom: theme.spacing(2),
   },
 }))
 
@@ -38,6 +39,7 @@ const MeasureSelect = ({ onSelect, className, statistic }) => {
       onChange={handleChange}
       className={classes.root}
       disabled={disabled}
+      variant="outlined"
     >
       {options &&
         options.map((o) => (

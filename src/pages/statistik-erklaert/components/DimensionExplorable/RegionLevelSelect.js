@@ -6,8 +6,9 @@ import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    paddingTop: '12px',
     width: '100%',
+    height: theme.spacing(6),
+    marginBottom: theme.spacing(2),
   },
 }))
 
@@ -26,6 +27,7 @@ const RegionLevelSelect = ({ onSelect }) => {
       id="region-level-select"
       value={value}
       onChange={handleChange}
+      variant="outlined"
       className={classes.root}
     >
       <MenuItem value={1} key={1}>
