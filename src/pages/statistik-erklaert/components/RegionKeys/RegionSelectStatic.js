@@ -5,6 +5,7 @@ import { getAllCommunities } from '../../../../data/regions'
 
 const RegionSelect = ({ onSelect, className }) => {
   const [options, setOptions] = useState([])
+  const [value, setValue] = useState(null)
 
   useEffect(async () => {
     const loadRegions = async () => {
@@ -14,10 +15,19 @@ const RegionSelect = ({ onSelect, className }) => {
     await loadRegions()
   }, [])
 
-  // useEffect(() => {
-  //   // pre-select value for testing TODO move to storybook?
-  //   onSelect({ value: '00000000' })
-  // }, [])
+  useEffect(() => {
+    const startingValues = [
+      '07333046',
+      '09575130',
+      '09176132',
+      '08315051',
+      '08425125',
+    ]
+    const randomIndex = Math.floor(Math.random() * 5)
+    const option = options.find((o) => o.value === startingValues[randomIndex])
+    onSelect(option)
+    setValue(option)
+  }, [options])
 
   const handleChange = (__, value) => {
     onSelect(value)
@@ -31,11 +41,13 @@ const RegionSelect = ({ onSelect, className }) => {
       disableClearable
       onChange={handleChange}
       autoHighlight
+      value={value}
       getOptionLabel={(option) => option.name}
       options={options}
       renderInput={(params) => (
         <TextField
           {...params}
+          variant="outlined"
           label="Gemeinde auswählen oder suchen"
           InputProps={{
             ...params.InputProps,

@@ -9,11 +9,9 @@ import {
   getNutsComponents,
 } from '../../../../lib/nutsFormatting'
 
-// import styles from './styles.scss'
 import RegionSelectStatic from './RegionSelectStatic'
 
 const red = '#f26c6f'
-const grey = '#e5e5e5'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -23,7 +21,6 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     alignItems: 'center',
     height: '550px',
-    background: grey,
   },
   regionSelect: {
     marginLeft: '240px',
