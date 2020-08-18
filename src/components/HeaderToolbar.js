@@ -1,4 +1,4 @@
-    import Link from 'next/link'
+import Link from 'next/link'
 
 import { makeStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
@@ -83,7 +83,7 @@ export default function HeaderToolbar({ menuButton }) {
         <div className={classes.nav}>
           <Link href="/statistiken">
             <Button component="a" color="inherit">
-              Statistiken
+              Datenportal
             </Button>
           </Link>
           {/* <Link href="/regionen"> */}
@@ -93,7 +93,7 @@ export default function HeaderToolbar({ menuButton }) {
           {/* </Link> */}
           <Link href="/statistik-erklaert">
             <Button component="a" color="inherit">
-              Explorables
+              Statistik erklärt
             </Button>
           </Link>
           <Link href="/blog">
