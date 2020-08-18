@@ -22,30 +22,36 @@ import RegionkeysNoSSR from './components/RegionKeys'
 <Container maxWidth="lg">
   <BodyText>
 
-**Finde den amtlichen Gemeindeschlüssel für deine Stadt!** Gib den Namen einer deutschen Stadt in das Suchfeld ein. Wir geben dir dafür den amtlichen Gemeindeschlüssel zurück und erklären dir, wofür die Ziffern stehen.
+**Finde den amtlichen Gemeindeschlüssel für deine Stadt!** Gib den Namen einer deutschen Stadt oder Gemeinde in das Suchfeld ein. Wir geben dir dafür den amtlichen Gemeindeschlüssel zurück und erklären dir, wofür die Ziffern stehen.
 
 <RegionkeysNoSSR />
 
 Der amtliche Gemeindeschlüssel (AGS) ist eine achtstellige Zahl, die alle Städte und politisch eigenständigen Gemeinden in Deutschland eindeutig identifiziert. Früher wurde der amtliche Gemeindeschlüssel auch Gemeindekennzahl (GKZ), Gemeindekennziffer oder Gemeindeschlüsselzahl genannt.
 
-Bei rund 11.000 Gemeinden in Deutschland kommen Namen mehrfach vor und manchmal gibt es für einen Ort verschiedene Schreibweisen. Der amtlichen Gemeindeschlüssel kennzeichnet jede Gemeinde eindeutig. Wie Du im Tool oben siehst, beeinhaltet er zudem Informationen darüber, zu welchen Gebieten eine Gemeinde oder kreisfreie Stadt gehört.
+Bei rund 11.000 Gemeinden in Deutschland kommen Namen mehrfach vor und manchmal gibt es für einen Ort verschiedene Schreibweisen. Der amtliche Gemeindeschlüssel kennzeichnet jede Gemeinde eindeutig. Wie Du im Tool oben siehst, beinhaltet er zudem Informationen darüber, zu welchen Gebieten eine Gemeinde oder kreisfreie Stadt gehört.
 
-Für Datenvisualisierungen oder Analysen auf Basis von amtlichen Statistiken ist so ein eindeutiger Schlüssel sehr hilfreich. Um zum Beispiel auf einer Deutschlandkarte zu zeigen, welche Gemeinde den höchsten Altersschnitt hat, kannst Du in Visualisierungstools wie Datawrapper den AGS als Geo-Code nutzen. So weiß dein Tool, welche Fläche auf der Karte welche Gemeinde repräsentiert um sie dann entsprechend eines Wertes einzufärben.
+Für Datenvisualisierungen oder Analysen auf Basis von amtlichen Statistiken ist so ein eindeutiger Schlüssel sehr hilfreich. Um zum Beispiel auf einer Karte zu zeigen, welche Gemeinde den höchsten Altersschnitt hat, kannst Du in Visualisierungstools wie Datawrapper den AGS als Geo-Code nutzen. So weiß dein Tool, welche Fläche auf der Karte welche Gemeinde repräsentiert, um sie dann entsprechend eines Wertes einzufärben.
 
-(Choroplethenkarte zum Altersschnitt für Gemeinden in Deutschland – Evtl. bestehende Karte aus NUTS-Artikel: NRW)
+(Choroplethenkarte zum Altersschnitt für Gemeinden aus NUTS-Artikel: NRW)
 
-## Besonderheiten
+### Besonderheiten: Regierungsbezirke, kreisfreie Städte und Stadtstaaten
 
 Die regionale Einteilung ist nicht in allen Bundesländern gleich. NRW ist zum Beispiel eines von vier Bundesländern, das in Regierungsbezirke aufgeteilt ist. In 12 Bundesländern gibt es keine Regierungsbezirke oder sie wurden aufgelöst.
 Dazu gehört zum Beispiel Mecklenburg-Vorpommern. Der AGS lautet in diesen Bundesländern an der 3. Stelle immer 0.
 
-[Statische Darstellungen für Moers und Altenhagen – evtl. Erklärungen]
+[Moers][altenhagen]
 
 Kreisfreie Städte stehen auf einer Stufe mit den Landkreisen. Die sechste bis achte Stelle des Gemeindeschlüssels lautet dort 000.
 
 [Statische Darstellungen für Köln – evtl. mit Erklärungen]
 
-[Was ist mit den Bezirken in Berlin? Die tauchen auch in der Liste auf. Können wir das erklären?]
+Eine weitere Besonderheit stellen die Stadtstaaten Hamburg, Bremen, Berlin dar. Hamburg ist gleichzeitig Bundesland, Regierungsbezirk, Landkreis und Gemeinde. Bremen besteht aus zwei Landkreisen: Bremen und Bremerhaven.
+
+[Hamburg][bremen]
+
+Berlin ist in zwölf Bezirke aufgeteilt, die zwischen 250.000 und 400.000 Einwohner haben und Landkreisen entsprechen.
+
+[Berlin]
 
 Mehr zur Einteilung von statistischen Regionen in Deutschland (NUTS) erfährst Du [hier](/statistik-erklaert/nuts).
 
