@@ -16,29 +16,45 @@ const red = '#f26c6f'
 const useStyles = makeStyles((theme) => ({
   root: {
     fontFamily: "'Roboto', 'Helvetica', 'Arial', sans-serif",
-    padding: theme.spacing(4),
+    padding: theme.spacing(1),
+
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    height: '550px',
+    height: '620px',
+    [theme.breakpoints.up('sm')]: {
+      padding: theme.spacing(4),
+    },
+    [theme.breakpoints.up('lg')]: {
+      height: '550px',
+    },
   },
   regionSelect: {
-    marginLeft: '240px',
-    width: '800px',
+    width: '100%',
+    maxWidth: '800px',
     marginBottom: theme.spacing(4),
+    [theme.breakpoints.up('lg')]: {
+      alignSelf: 'flex-end',
+    },
   },
   regionKey: {
     fontFamily: "'Roboto', 'Helvetica', 'Arial', sans-serif",
-    fontSize: '6rem',
+    fontSize: '2.5rem',
     fontWeight: 400,
-    marginLeft: '400px',
     display: 'flex',
     flexDirection: 'row',
-    width: '500px',
+    width: '200px',
     marginBottom: theme.spacing(2),
+    [theme.breakpoints.up('sm')]: {
+      fontSize: '6rem',
+      width: '500px',
+    },
+    [theme.breakpoints.up('lg')]: {
+      alignSelf: 'flex-end',
+      width: '500px',
+    },
   },
   regionKeySegment: {
-    // border: 1px solid green,
     display: 'flex',
     justifyContent: 'center',
   },
@@ -61,22 +77,43 @@ const useStyles = makeStyles((theme) => ({
   nutsHierarchy: {
     display: 'flex',
     flexDirection: 'column',
+    [theme.breakpoints.up('lg')]: {
+      alignSelf: 'flex-end',
+    },
   },
   nutsHierarchyRow: {
     display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: 'column',
+    alignItems: 'left',
+    width: '200px',
     padding: theme.spacing(1, 0),
-    width: '900px',
+    [theme.breakpoints.up('sm')]: {
+      width: '500px',
+    },
+    [theme.breakpoints.up('lg')]: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      width: '900px',
+    },
   },
   nutsHierarchyLabel: {
+    alignSelf: 'center',
     fontFamily: "'Roboto', 'Helvetica', 'Arial', sans-serif",
-    fontSize: '1rem',
+    fontSize: '0.5rem',
     fontWeight: 400,
-    width: '384px',
+    width: '200px',
     display: 'flex',
-    justifyContent: 'flex-end',
+    justifyContent: 'flex-start',
+    paddingBottom: '8px',
     paddingRight: theme.spacing(2),
+    [theme.breakpoints.up('sm')]: {
+      fontSize: '1rem',
+      width: '500px',
+    },
+    [theme.breakpoints.up('lg')]: {
+      justifyContent: 'flex-end',
+      paddingBottom: 0,
+    },
   },
   nutsHierarchyLabelName: {
     fontWeight: 'bold',
@@ -87,7 +124,11 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 400,
     color: red,
     display: 'flex',
+    alignSelf: 'left',
     flexGrow: 1,
+    [theme.breakpoints.up('lg')]: {
+      width: '620px',
+    },
   },
   nutsHierarchyId: {
     padding: theme.spacing(0, 1),
