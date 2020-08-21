@@ -6,6 +6,7 @@ import Toolbar from '@material-ui/core/Toolbar'
 import Button from '@material-ui/core/Button'
 
 import logo from '../assets/logo.svg'
+import { useRouter } from 'next/router'
 
 const useStyles = makeStyles((theme) => ({
   controls: {
@@ -53,6 +54,8 @@ const useStyles = makeStyles((theme) => ({
 export default function HeaderToolbar({ menuButton }) {
   const classes = useStyles()
 
+  const router = useRouter()
+
   return (
     <Toolbar className={classes.toolbar}>
       <div className={classes.controls}>
@@ -82,7 +85,14 @@ export default function HeaderToolbar({ menuButton }) {
         {/* )} */}
         <div className={classes.nav}>
           <Link href="/statistiken">
-            <Button component="a" color="inherit">
+            <Button
+              component="a"
+              color={
+                router.pathname.startsWith('/statistiken')
+                  ? 'primary'
+                  : 'inherit'
+              }
+            >
               Datenportal
             </Button>
           </Link>
@@ -92,17 +102,34 @@ export default function HeaderToolbar({ menuButton }) {
           {/*  </Button> */}
           {/* </Link> */}
           <Link href="/statistik-erklaert">
-            <Button component="a" color="inherit">
+            <Button
+              component="a"
+              color={
+                router.pathname.startsWith('/statistik-erklaert')
+                  ? 'primary'
+                  : 'inherit'
+              }
+            >
               Statistik erklärt
             </Button>
           </Link>
           <Link href="/blog">
-            <Button component="a" color="inherit">
+            <Button
+              component="a"
+              color={
+                router.pathname.startsWith('/blog') ? 'primary' : 'inherit'
+              }
+            >
               Blog
             </Button>
           </Link>
           <Link href="/info">
-            <Button component="a" color="inherit">
+            <Button
+              component="a"
+              color={
+                router.pathname.startsWith('/info') ? 'primary' : 'inherit'
+              }
+            >
               Über Datenguide
             </Button>
           </Link>
