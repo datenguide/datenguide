@@ -48,7 +48,7 @@ const MeasureEmptyState = ({ dispatch, actions }) => {
 
   return (
     <div className={classes.root}>
-      <div className={classes.title}>2. Wähle eine Wertmerkmal aus.</div>
+      <div className={classes.title}>2. Wähle ein Wertmerkmal aus.</div>
       <div className={classes.subtitle}>
         Suche ein Wertmerkmal hier im Suchfeld oder nutze die Baumansicht, um
         das gewünschte Wertmerkmal zu finden.
