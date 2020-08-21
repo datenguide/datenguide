@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import moment from 'moment'
 import { makeStyles } from '@material-ui/core/styles'
 import Container from '@material-ui/core/Container'
@@ -162,9 +161,10 @@ const renderMeta = ({ category, date }) => {
     <div className={classes.meta}>
       {category && (
         <>
-          <Link href={category.href}>
-            <a className={classes.category}>{category.name}</a>
-          </Link>
+          {/* TODO: This is a workaround. Should use `Link` to optimize page loading: */}
+          <a href={category.href} className={classes.category}>
+            {category.name}
+          </a>
           &nbsp;—&nbsp;
         </>
       )}
