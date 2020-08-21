@@ -36,6 +36,7 @@ const useStyles = makeStyles((theme) => ({
   },
   emptyCombo: {
     margin: theme.spacing(1, 1, 1, 0),
+    fontSize: '16px',
   },
   chipContainer: {
     display: 'inline-block',

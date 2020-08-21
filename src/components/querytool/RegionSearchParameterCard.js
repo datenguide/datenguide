@@ -65,7 +65,7 @@ const useStyles = makeStyles((theme) => ({
   },
   headingSubtitle: {},
   regionLevel: {
-    fontSize: theme.typography.body1.fontSize,
+    fontSize: '16px',
     color: theme.palette.grey[600],
   },
   menuButton: {
