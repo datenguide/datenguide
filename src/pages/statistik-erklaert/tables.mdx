@@ -17,7 +17,7 @@ author:
 
 import Grid from '@material-ui/core/Grid'
 import Container from '@material-ui/core/Container'
-import BodyText from '../../components/BodyText'
+import { BodyText, BodyTextAside } from '../../components/BodyText'
 import DatawrapperChart from '../../components/DatawrapperChart.js'
 
 <Container maxWidth="lg">
@@ -48,10 +48,14 @@ Suche auf regionalstatistik.de nach ‘Bauland’ oder direkt nach der Nummer de
 
 #### 2. Kopf- und Fußzeilen löschen, Kopfzeile neu beschriften
 
+<BodyTextAside>
+
 Importiere die .csv in der Tabellenkalkulation deiner Wahl (Excel, LibreOffice, GoogleSheets). Wir zeigen den Prozess am Beispiel von GoogleSheets.
 Achtung beim Import: Die .csv verwendet ‘;’ als Trennzeichen. Das musst du beim Import angeben. Lösche dann händisch die Zeilen über den Daten ( Header) und unter den Daten (Footer).
 
 ![Import](./tables/02_Einstellungen_beim_Import.png)
+
+</BodyTextAside>
 
 Danach beschriftest Du die erste Zeile neu und legst sie als Kopfzeile fest.
 

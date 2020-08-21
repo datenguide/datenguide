@@ -30,11 +30,32 @@ const useStyles = makeStyles((theme) => ({
       width: '100%',
     },
   },
+  aside: {
+    display: 'block',
+    position: 'relative',
+    fontSize: theme.typography.body2.fontSize,
+  },
+
+  asideInner: {
+    [theme.breakpoints.up('md')]: {
+      position: 'absolute',
+      width: '42%',
+      right: '-42%',
+      paddingLeft: theme.spacing(4),
+    },
+  },
 }))
 
-const BodyText = (props) => {
+export const BodyText = (props) => {
   const classes = useStyles()
   return <div className={classes.root}>{props.children}</div>
 }
 
-export default BodyText
+export const BodyTextAside = (props) => {
+  const classes = useStyles()
+  return (
+    <aside className={classes.aside}>
+      <div className={classes.asideInner}>{props.children}</div>
+    </aside>
+  )
+}

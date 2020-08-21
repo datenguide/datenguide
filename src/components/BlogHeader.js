@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'flex-end',
-    marginBottom: theme.spacing(5),
+    marginBottom: theme.spacing(10),
 
     [theme.breakpoints.up('sm')]: {
       minHeight: theme.spacing(32),

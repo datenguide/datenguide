@@ -5,7 +5,7 @@ import AppBar from '@material-ui/core/AppBar'
 import Base from '../Base'
 import HeaderToolbar from '../../components/HeaderToolbar'
 import Footer from '../../components/Footer'
-import BodyText from '../../components/BodyText'
+import { BodyText } from '../../components/BodyText'
 import BlogHeader from '../../components/BlogHeader'
 
 const useStyles = makeStyles((theme) => ({

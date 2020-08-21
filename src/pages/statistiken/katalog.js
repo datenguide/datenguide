@@ -1,6 +1,6 @@
 import DefaultLayout from '../../layouts/DefaultLayout'
 import Container from '@material-ui/core/Container'
-import BodyText from '../../components/BodyText'
+import { BodyText } from '../../components/BodyText'
 import fetch from 'isomorphic-unfetch'
 import Link from 'next/link'
 import SecondaryStage from '../../components/SecondaryStage'
