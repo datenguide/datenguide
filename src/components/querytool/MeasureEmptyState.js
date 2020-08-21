@@ -11,6 +11,7 @@ const useStyles = makeStyles((theme) => ({
     background: theme.palette.common.white,
     padding: theme.spacing(2),
     marginTop: theme.spacing(1),
+    marginBottom: theme.spacing(1),
   },
   title: {
     fontSize: '24px',

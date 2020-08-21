@@ -9,6 +9,7 @@ const useStyles = makeStyles((theme) => ({
     border: '1px dotted',
     background: theme.palette.common.white,
     padding: theme.spacing(2),
+    marginBottom: theme.spacing(1),
   },
   title: {
     fontSize: '24px',
