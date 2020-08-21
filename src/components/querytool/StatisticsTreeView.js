@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
+import clsx from 'clsx'
 import Highlighter from 'react-highlight-words'
 import _ from 'lodash'
 
@@ -11,8 +12,8 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight'
 import TextField from '@material-ui/core/TextField'
 import InputAdornment from '@material-ui/core/InputAdornment'
 import SearchIcon from '@material-ui/icons/Search'
-import EqualizerIcon from '@material-ui/icons/Equalizer'
 import ClearIcon from '@material-ui/icons/Clear'
+import Chip from '@material-ui/core/Chip'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -43,6 +44,9 @@ const useStyles = makeStyles((theme) => ({
   itemTitle: {
     fontSize: '16px',
   },
+  boldTitle: {
+    fontWeight: 'bold',
+  },
   '@global': {
     '.MuiCollapse-wrapperInner > ul': {
       paddingLeft: 0,
@@ -63,6 +67,11 @@ const useStyles = makeStyles((theme) => ({
     '&:hover': {
       color: theme.palette.grey[500],
     },
+  },
+  chip: {
+    marginRight: '2px',
+    fontWeight: 'normal',
+    fontSize: '12px',
   },
   searchField: {},
 }))
@@ -123,11 +132,18 @@ const StatisticsTreeView = ({ nodes, onSelect }) => {
     }
   }
 
-  const renderLabel = (id, title, showStatisticIcon) => {
+  const renderLabel = (id, title, bold = false) => {
     return (
       <div className={classes.itemLabel}>
-        {showStatisticIcon && <EqualizerIcon className={classes.icon} />}
-        <span className={classes.itemTitle}>
+        <span
+          className={clsx(classes.itemTitle, { [classes.boldTitle]: bold })}
+        >
+          <Chip
+            size="small"
+            label={id}
+            className={classes.chip}
+            color={bold ? 'secondary' : 'grey'}
+          />
           <Highlighter searchWords={[searchValue]} textToHighlight={title} />
         </span>
       </div>

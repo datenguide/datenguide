@@ -17,9 +17,18 @@ const useStyles = makeStyles((theme) => ({
     borderBottomLeftRadius: 0,
     borderBottomRightRadius: 0,
     fontSize: '16px',
+    marginBottom: theme.spacing(1),
   },
   header: {
     paddingBottom: 0,
+    '@global': {
+      '.MuiCardHeader-title': {
+        fontWeight: 'normal',
+      },
+      '.MuiCardHeader-subheader': {
+        fontSize: '14px',
+      },
+    },
   },
   summary: {
     display: 'flex',
@@ -52,8 +61,7 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(0, 0.5, 0, -1),
   },
   headingAttribute: {
-    fontSize: theme.typography.h6.fontSize,
-    fontWeight: theme.typography.h6.fontWeight,
+    fontSize: theme.typography.h4.fontSize,
   },
   headingSubtitle: {},
   regionLevel: {

@@ -26,6 +26,14 @@ const useStyles = makeStyles((theme) => ({
   },
   header: {
     paddingBottom: 0,
+    '@global': {
+      '.MuiCardHeader-title': {
+        fontWeight: 'normal',
+      },
+      '.MuiCardHeader-subheader': {
+        fontSize: '14px',
+      },
+    },
   },
   actions: {
     padding: theme.spacing(0, 1, 1, 2),
@@ -34,16 +42,15 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: theme.spacing(4),
   },
   headingAttribute: {
-    fontSize: theme.typography.h6.fontSize,
-    fontWeight: theme.typography.h6.fontWeight,
+    fontSize: theme.typography.h4.fontSize,
   },
   headingStatistic: {
-    fontSize: theme.typography.subtitle2.fontSize,
-    fontWeight: theme.typography.subtitle2.fontWeight,
+    fontSize: theme.typography.subtitle1.fontSize,
+    fontWeight: theme.typography.subtitle1.fontWeight,
     color: theme.palette.grey[500],
   },
   headingDetails: {
-    fontSize: theme.typography.subtitle1.fontSize,
+    fontSize: theme.typography.h5.fontSize,
     fontWeight: 'bold',
     margin: theme.spacing(2, 0),
   },

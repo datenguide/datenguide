@@ -11,11 +11,11 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight'
 import TextField from '@material-ui/core/TextField'
 import InputAdornment from '@material-ui/core/InputAdornment'
 import SearchIcon from '@material-ui/icons/Search'
-import LocationOnOutlinedIcon from '@material-ui/icons/LocationOnOutlined'
 import ClearIcon from '@material-ui/icons/Clear'
 import AddCircleIcon from '@material-ui/icons/AddCircle'
 import IconButton from '@material-ui/core/IconButton'
 import Tooltip from '@material-ui/core/Tooltip'
+import Chip from '@material-ui/core/Chip'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -75,7 +75,11 @@ const useStyles = makeStyles((theme) => ({
       color: theme.palette.grey[500],
     },
   },
-  searchField: {},
+  chip: {
+    marginRight: '2px',
+    fontWeight: 'normal',
+    fontSize: '12px',
+  },
 }))
 
 const RegionsTreeView = ({ nodes, onSelect }) => {
@@ -144,18 +148,23 @@ const RegionsTreeView = ({ nodes, onSelect }) => {
     onSelect(id)
   }
 
-  const renderLabel = (id, title, showregionIcon) => {
+  const renderLabel = (id, title) => {
     return (
       <div className={classes.itemLabel}>
-        {showregionIcon && <LocationOnOutlinedIcon className={classes.icon} />}
         <div className={classes.itemTitle}>
+          <Chip
+            size="small"
+            label={id}
+            className={classes.chip}
+            color="secondary"
+          />
           <Highlighter searchWords={[searchValue]} textToHighlight={title} />
         </div>
         <Tooltip title="Zur Abfrage hinzufügen">
           <IconButton
             className={classes.addButton}
             variant="contained"
-            color="primary"
+            color="secondary"
             onClick={handleSelectRegion(id)}
           >
             <AddCircleIcon fontSize="small" />
@@ -166,7 +175,7 @@ const RegionsTreeView = ({ nodes, onSelect }) => {
   }
 
   const renderTreeItem = ({ id, name, children }) => (
-    <TreeItem key={id} nodeId={id} label={renderLabel(id, name, true)}>
+    <TreeItem key={id} nodeId={id} label={renderLabel(id, name)}>
       {children &&
         children.length > 0 &&
         children.map((child) => renderTreeItem(child))}

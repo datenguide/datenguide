@@ -6,7 +6,6 @@ import Autocomplete from '@material-ui/lab/Autocomplete'
 import inventory from '../../../../data/inventory.json'
 import schema from '../../../../data/statSchema.json'
 import { makeStyles } from '@material-ui/core/styles'
-import { Typography } from '@material-ui/core' // TODO use API
 
 const statOptions = Object.keys(inventory)
 

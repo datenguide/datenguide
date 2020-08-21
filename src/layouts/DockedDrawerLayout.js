@@ -16,7 +16,7 @@ import Base from '../layouts/Base'
 
 const drawerWidth = {
   mobile: 240,
-  desktop: 400,
+  desktop: 450,
 }
 
 const useStyles = makeStyles((theme) => ({

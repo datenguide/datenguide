@@ -11,6 +11,8 @@ import useSearchManager from '../../lib/useSearchManager'
 import DockedDrawerLayout from '../../layouts/DockedDrawerLayout'
 import RegionSearchParameterCard from '../../components/querytool/RegionSearchParameterCard'
 import MeasureSearchParameterCard from '../../components/querytool/MeasureSearchParameterCard'
+import RegionEmptyState from '../../components/querytool/RegionEmptyState'
+import MeasureEmptyState from '../../components/querytool/MeasureEmptyState'
 
 const useStyles = makeStyles((theme) => ({
   content: {
@@ -53,32 +55,6 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(2),
   },
 }))
-
-// TODO this was for autocomplete field
-// const loadMeasureOptions = async (value = '') => {
-//   // TODO use server API
-//   const result = await fetch(`/api/search/measures?filter=${value}`)
-//   const json = await result.json()
-//   return json.map((statistic) => {
-//     const split = statistic.label.split('-').map((s) => s.trim()) // TODO fetch data in proper format to avoid this
-//     return {
-//       value: statistic.value,
-//       label: split[1],
-//       description: split[0],
-//     }
-//   })
-// }
-//
-// const loadRegionOptions = async (value = '') => {
-//   // TODO use server API
-//   const result = await fetch(`/api/search/regions?filter=${value}`)
-//   const json = await result.json()
-//   return json.map((region) => ({
-//     value: region.value,
-//     label: region.name,
-//     description: region.value, // TODO define description, add nuts level description (Bundesland, Kreis etc)
-//   }))
-// }
 
 const Detail = ({
   initialMeasures,
@@ -132,7 +108,9 @@ const Detail = ({
       <main className={classes.content}>
         <div className={classes.regionssection}>
           <Paper elevation={0} className={classes.sectionPaper}>
-            <h4 className={classes.sectionTitle}>Aktuelle Auswahl</h4>
+            {regions.length === 0 && (
+              <RegionEmptyState dispatch={dispatch} actions={actions} />
+            )}
             {regions.map((region) => (
               <RegionSearchParameterCard
                 key={region.id}
@@ -142,6 +120,9 @@ const Detail = ({
                 onRegionLevelChange={handleRegionLevelChange}
               />
             ))}
+            {measures.length === 0 && (
+              <MeasureEmptyState dispatch={dispatch} actions={actions} />
+            )}
             {measures.map((measure) => (
               <MeasureSearchParameterCard
                 key={measure.id}
@@ -151,21 +132,6 @@ const Detail = ({
                 onDimensionValuesChange={handleDimensionValuesChange}
               />
             ))}
-            {regions.length === 0 && measures.length === 0 && (
-              <div className={classes.emptyState}>
-                Wähle mindestens eine Region und eine Statistik aus.
-              </div>
-            )}
-            {regions.length === 0 && measures.length !== 0 && (
-              <div className={classes.emptyState}>
-                Wähle mindestens eine Region aus.
-              </div>
-            )}
-            {regions.length !== 0 && measures.length === 0 && (
-              <div className={classes.emptyState}>
-                Wähle mindestens eine Statistik aus.
-              </div>
-            )}
           </Paper>
         </div>
         <h4 className={classes.sectionTitle}>Daten</h4>
