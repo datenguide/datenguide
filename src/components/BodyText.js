@@ -2,37 +2,32 @@ import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    hyphens: 'auto',
-    margin: '0 auto',
+    position: 'relative',
     display: 'flex',
     flexDirection: 'column',
-    paddingTop: theme.spacing(3),
+    margin: '0 auto',
+    hyphens: 'auto',
 
-    '& p, ol, ul, iframe, pre': {
-      margin: theme.spacing(0, 0, 2, 0),
-      [theme.breakpoints.up('lg')]: {
-        width: '70%',
-      },
+    [theme.breakpoints.up('md')]: {
+      marginRight: '30%',
     },
 
     '& h1, h2, h3, h4, h5, h6': {
-      margin: theme.spacing(2, 0),
+      marginBottom: theme.spacing(2),
+      marginTop: '1em',
     },
 
-    '& .contentImage': {
-      padding: theme.spacing(5, 0, 2, 0),
-      [theme.breakpoints.up('lg')]: {
-        width: '70%',
-      },
+    '& p, ol, ul, dl, table, iframe, pre, small': {
+      margin: theme.spacing(0, 0, 2, 0),
     },
+
     '& hr': {
       border: `1px solid ${theme.palette.grey[200]}`,
     },
-    '& small': {
-      paddingBottom: theme.spacing(3),
-      [theme.breakpoints.up('lg')]: {
-        width: '70%',
-      },
+
+    '& .contentImage': {
+      margin: theme.spacing(2, 0),
+      width: '100%',
     },
   },
 }))
