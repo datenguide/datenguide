@@ -22,7 +22,6 @@ const DataTableToolbar = ({ labels, layout, dispatch, actions, queryArgs }) => {
   const labelOptions = [
     { label: 'Texte', value: 'name' },
     { label: 'Codes', value: 'id' },
-    { label: 'Codes und Texte', value: 'both' },
   ]
 
   const handleLabelsChange = (value) => {

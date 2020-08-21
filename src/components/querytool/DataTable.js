@@ -66,10 +66,15 @@ const useStyles = makeStyles((theme) => ({
   },
   tableTitle: {
     fontWeight: 'bold',
+    fontSize: '14px',
   },
   heading: {
     marginTop: theme.spacing(2),
     marginBottom: theme.spacing(4),
+    fontSize: '14px',
+  },
+  cell: {
+    fontSize: '14px',
   },
   apiTab: {
     fontSize: theme.typography.body1.fontSize,
@@ -224,7 +229,10 @@ const DataTable = ({
                         return (
                           <TableRow key={index}>
                             {columnDefs.map((def) => (
-                              <TableCell key={def.field}>
+                              <TableCell
+                                key={def.field}
+                                className={classes.cell}
+                              >
                                 {row[def.field]}
                               </TableCell>
                             ))}
