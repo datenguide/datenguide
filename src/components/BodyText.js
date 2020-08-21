@@ -8,6 +8,17 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     paddingTop: theme.spacing(3),
 
+    '& p, ol, ul, iframe, pre': {
+      margin: theme.spacing(0, 0, 2, 0),
+      [theme.breakpoints.up('lg')]: {
+        width: '70%',
+      },
+    },
+
+    '& h1, h2, h3, h4, h5, h6': {
+      margin: theme.spacing(2, 0),
+    },
+
     '& .contentImage': {
       padding: theme.spacing(5, 0, 2, 0),
       [theme.breakpoints.up('lg')]: {
@@ -23,23 +34,12 @@ const useStyles = makeStyles((theme) => ({
         width: '70%',
       },
     },
-    '& p, & ul, & ol': {
-      [theme.breakpoints.up('lg')]: {
-        width: '70%',
-      },
-    },
-    '& pre': {
-      [theme.breakpoints.up('lg')]: {
-        width: '70%',
-      },
-    },
   },
 }))
 
-const DefaultLayout = (props) => {
+const BodyText = (props) => {
   const classes = useStyles()
-
   return <div className={classes.root}>{props.children}</div>
 }
 
-export default DefaultLayout
+export default BodyText
