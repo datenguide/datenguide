@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { makeStyles } from '@material-ui/core/styles'
 import { Typography } from '@material-ui/core'
+import Paper from '@material-ui/core/Paper'
+import ArrowForwardIcon from '@material-ui/icons/ArrowForward'
 
 import schema from '../../../../data/statSchema.json'
 import inventory from '../../../../data/inventory.json'
@@ -17,20 +19,38 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
   },
   measureHeading: {
-    paddingTop: '8px',
     paddingBottom: '16px',
     color: 'grey',
   },
   comboHeading: {
     paddingTop: '8px',
-    paddingBottom: '16px',
   },
   combos: {
     display: 'flex',
     flexDirection: 'row',
     padding: theme.spacing(1, 1),
+    marginBottom: theme.spacing(2),
+    background: '#f5f5f5',
+    height: '60px',
+    alignItems: 'center',
+  },
+  comboLinkWrapper: {
+    flex: '1 0 auto',
+    display: 'flex',
+    justifyContent: 'flex-end',
+  },
+  comboLink: {
+    color: theme.palette.grey[0],
+    textDecoration: 'none',
+  },
+  icon: {
+    marginTop: '2px',
   },
 }))
+
+const getQueryToolLink = (statistic, measure, combo) => {
+  return `/statistiken?data=${statistic.value}:${measure}(${combo})&labels=id&layout=long`
+}
 
 const DimensionExplorable = () => {
   const classes = useStyles()
@@ -38,7 +58,39 @@ const DimensionExplorable = () => {
   const [measure, setMeasure] = useState(null)
   const [level, setLevel] = useState(1)
 
+  useEffect(() => {
+    const randomIndex = Math.floor(Math.random() * 4)
+    const presets = [
+      {
+        statistic: { value: '12111', label: '12111 - Zensus 2011' },
+        measure: 'ERWZ01',
+      },
+      {
+        statistic: { value: '12511', label: '12511 - Einbürgerungsstatistik' },
+        measure: 'BEV008',
+      },
+      {
+        statistic: {
+          value: '41120',
+          label: '41120 - Allgemeine Agrarstrukturerhebung (bis 2007)',
+        },
+        measure: 'FLC017',
+      },
+      {
+        statistic: {
+          value: '12611',
+          label: '12611 - Statistik der Eheschließungen',
+        },
+        measure: 'BEV003',
+      },
+    ]
+    const randomPreset = presets[randomIndex]
+    setStatistic(randomPreset.statistic)
+    setMeasure(randomPreset.measure)
+  }, [])
+
   const handleStatisticSelect = (statistic) => {
+    setMeasure(null)
     setStatistic(statistic)
   }
 
@@ -67,10 +119,14 @@ const DimensionExplorable = () => {
 
   return (
     <div>
-      <StatisticSelect onSelect={handleStatisticSelect} />
-      <MeasureSelect onSelect={handleMeasureSelect} statistic={statistic} />
+      <StatisticSelect onSelect={handleStatisticSelect} statistic={statistic} />
+      <MeasureSelect
+        onSelect={handleMeasureSelect}
+        statistic={statistic}
+        measure={measure}
+      />
       <RegionLevelSelect onSelect={handleRegionLevelSelect} />
-      <Typography variant="h3" className={classes.statisticHeading}>
+      <Typography variant="h4" className={classes.statisticHeading}>
         {statistic && statistic.label}
       </Typography>
       <Typography variant="h5" className={classes.measureHeading}>
@@ -78,14 +134,25 @@ const DimensionExplorable = () => {
           `${measure} - ${schema[statistic.value].measures[measure].title_de}`}
       </Typography>
       {measure && statistic && (
-        <Typography variant="h4" className={classes.comboHeading}>
+        <Typography variant="h5" className={classes.comboHeading}>
           Kombinationsmöglichkeiten der sachlichen Merkmale
         </Typography>
       )}
       {combos.map((combo, index) => (
-        <div key={index} className={classes.combos}>
+        <Paper key={index} className={classes.combos}>
           <MeasureSearchCombo combo={combo} dimensions={dimensions} />
-        </div>
+          <div className={classes.comboLinkWrapper}>
+            <ArrowForwardIcon className={classes.icon} color="secondary" />
+            <a
+              href={getQueryToolLink(statistic, measure, combo)}
+              className={classes.comboLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Im Datenportal abfragen
+            </a>
+          </div>
+        </Paper>
       ))}
     </div>
   )

@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const StatisticSelect = ({ onSelect, className }) => {
+const StatisticSelect = ({ onSelect, className, statistic }) => {
   const classes = useStyles()
   const [options, setOptions] = useState([])
 
@@ -44,6 +44,7 @@ const StatisticSelect = ({ onSelect, className }) => {
       autoHighlight
       getOptionLabel={(option) => option.label}
       options={options}
+      value={statistic}
       renderInput={(params) => (
         <TextField
           {...params}
