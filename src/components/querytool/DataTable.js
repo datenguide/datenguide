@@ -187,14 +187,6 @@ const DataTable = ({
               {loading && <LinearProgress variant="query" />}
             </div>
             <div className={classes.tableSection}>
-              {error && (
-                <div className={classes.error}>
-                  <Alert className={classes.alert} severity="error">
-                    <AlertTitle>{ERROR_MESSAGE}</AlertTitle>
-                    {error}
-                  </Alert>
-                </div>
-              )}
               <DataTableToolbar
                 measures={measures}
                 regions={regions}
@@ -204,6 +196,14 @@ const DataTable = ({
                 actions={actions}
                 queryArgs={queryArgs}
               />
+              {error && (
+                <div className={classes.error}>
+                  <Alert className={classes.alert} severity="error">
+                    <AlertTitle>{ERROR_MESSAGE}</AlertTitle>
+                    {error}
+                  </Alert>
+                </div>
+              )}
               <div className={classes.tableWrapper}>
                 <Table className={classes.table} size="small" stickyHeader>
                   <TableHead>
