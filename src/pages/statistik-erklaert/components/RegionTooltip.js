@@ -78,19 +78,19 @@ export default function RegionTooltip({ title, lonLat }) {
       <div className={classes.root}>
         <h3 className={classes.title}>{title}</h3>
         <p className={classes.hed}>Gemeinde in Nordrhein-Westfalen</p>
-        <img className={classes.image} src="/altena.jpg" width="100%" />
-        <b className={classes.highlight}>16.922</b>
+        <img className={classes.image} src="/augustdorf.jpg" width="100%" />
+        <b className={classes.highlight}>10.032</b>
         <div className={classes.highlightUnit}>
           <b>Einwohner</b>
-          (2018)
+          (2019)
         </div>
         <ul className={classes.facts}>
-          <li>381 Einwohner je km²</li>
-          <li>44,42 km² Fläche</li>
+          <li>238 Einwohner je km²</li>
+          <li>42,18 km² Fläche</li>
         </ul>
-        <a className={classes.link} href="/region/maerkischer-kreis">
+        <a className={classes.link} href="/region/lippe">
           <OpenNewIcon className={classes.icon} />
-          Alle Daten zu Altena
+          Alle Daten zu Augustdorf
         </a>
       </div>
     </MapTooltip>

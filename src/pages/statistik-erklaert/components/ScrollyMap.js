@@ -114,7 +114,7 @@ const layerOptions = {
     },
   ],
   municipalitiesHighlight: {
-    filter: ['==', 'GEN', 'Altena'],
+    filter: ['==', 'GEN', 'Augustdorf'],
     paint: {
       'fill-color': '#004443',
       'fill-opacity': 0.8,
@@ -303,7 +303,7 @@ class ScrollyMap extends PureComponent {
             />
 
             {currentStep === 'lau-local' && (
-              <RegionTooltip lonLat={[7.672, 51.281]} title="Altena" />
+              <RegionTooltip lonLat={[7.672, 51.281]} title="Augustdorf" />
             )}
 
             <ShapeLayer
