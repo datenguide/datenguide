@@ -11,6 +11,10 @@ const useStyles = makeStyles((theme) => ({
     height: theme.spacing(6),
     marginBottom: theme.spacing(2),
   },
+  label: {
+    color: theme.palette.grey[500],
+    fontSize: '14px',
+  },
 }))
 
 const MeasureSelect = ({ onSelect, measure, statistic }) => {
@@ -50,22 +54,25 @@ const MeasureSelect = ({ onSelect, measure, statistic }) => {
   }
 
   return (
-    <Select
-      labelId="measure-select"
-      id="measure-select"
-      onChange={handleChange}
-      className={classes.root}
-      disabled={disabled}
-      variant="outlined"
-      value={measureValue}
-    >
-      {options &&
-        options.map((o) => (
-          <MenuItem value={o} key={o}>
-            {o} - {schema[statisticValue].measures[o].title_de}
-          </MenuItem>
-        ))}
-    </Select>
+    <>
+      <div className={classes.label}>Wertmerkmal</div>
+      <Select
+        labelId="measure-select"
+        id="measure-select"
+        onChange={handleChange}
+        className={classes.root}
+        disabled={disabled}
+        variant="outlined"
+        value={measureValue}
+      >
+        {options &&
+          options.map((o) => (
+            <MenuItem value={o} key={o}>
+              {o} - {schema[statisticValue].measures[o].title_de}
+            </MenuItem>
+          ))}
+      </Select>
+    </>
   )
 }
 

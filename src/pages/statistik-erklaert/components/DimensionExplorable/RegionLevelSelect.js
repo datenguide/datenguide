@@ -10,9 +10,13 @@ const useStyles = makeStyles((theme) => ({
     height: theme.spacing(6),
     marginBottom: theme.spacing(2),
   },
+  label: {
+    color: theme.palette.grey[500],
+    fontSize: '14px',
+  },
 }))
 
-const RegionLevelSelect = ({ onSelect }) => {
+const RegionLevelSelect = ({ onSelect, levels }) => {
   const classes = useStyles()
   const [value, setValue] = useState(1)
 
@@ -21,28 +25,34 @@ const RegionLevelSelect = ({ onSelect }) => {
     onSelect(event.target.value)
   }
 
+  const getMenuItemLabel = (level) =>
+    [
+      'DG - Deutschland',
+      'NUTS 1 - Bundesländer',
+      'NUTS 2 - Regierungsbezirke',
+      'NUTS 3 - Kreise und kreisfreie Städte',
+      'LAU - Gemeinden',
+    ][parseInt(level, 10)]
+
   return (
-    <Select
-      labelId="region-level-select"
-      id="region-level-select"
-      value={value}
-      onChange={handleChange}
-      variant="outlined"
-      className={classes.root}
-    >
-      <MenuItem value={1} key={1}>
-        NUTS 1 - Bundesländer
-      </MenuItem>
-      <MenuItem value={2} key={2}>
-        NUTS 2 - Regierungsbezirke
-      </MenuItem>
-      <MenuItem value={3} key={3}>
-        NUTS 3 - Kreise und kreisfreie Städte
-      </MenuItem>
-      <MenuItem value={4} key={4}>
-        LAU - Gemeinden
-      </MenuItem>
-    </Select>
+    <>
+      <div className={classes.label}>Regionale Tiefe</div>
+      <Select
+        labelId="region-level-select"
+        id="region-level-select"
+        value={value}
+        onChange={handleChange}
+        variant="outlined"
+        className={classes.root}
+        disabled={levels.length === 0}
+      >
+        {levels.map((level) => (
+          <MenuItem value={level} key={level}>
+            {getMenuItemLabel(level)}
+          </MenuItem>
+        ))}
+      </Select>
+    </>
   )
 }
 

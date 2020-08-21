@@ -102,12 +102,15 @@ const DimensionExplorable = () => {
     setLevel(level)
   }
 
+  const currentMeasureInventory =
+    (statistic && measure && inventory[statistic.value].measures[measure]) || {}
+
   const combos =
-    (statistic &&
-      measure &&
-      level &&
-      inventory[statistic.value].measures[measure][level]) ||
-    []
+    (statistic && measure && level && currentMeasureInventory[level]) || []
+
+  const availableLevels = Object.keys(currentMeasureInventory).filter(
+    (key) => currentMeasureInventory[key].length > 0
+  )
 
   const dimensions =
     statistic &&
@@ -125,7 +128,10 @@ const DimensionExplorable = () => {
         statistic={statistic}
         measure={measure}
       />
-      <RegionLevelSelect onSelect={handleRegionLevelSelect} />
+      <RegionLevelSelect
+        onSelect={handleRegionLevelSelect}
+        levels={availableLevels}
+      />
       <Typography variant="h4" className={classes.statisticHeading}>
         {statistic && statistic.label}
       </Typography>
