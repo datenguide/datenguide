@@ -33,7 +33,9 @@ const DataTableDownloadMenu = ({ label, icon, queryArgs }) => {
     setAnchorEl(event.currentTarget)
   }
 
-  const handleClose = () => {}
+  const handleClose = () => {
+    setAnchorEl(null)
+  }
 
   const handleDownload = (type) => () => {
     setAnchorEl(null)
