@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core/styles'
 import Snackbar from '@material-ui/core/Snackbar'
 import Paper from '@material-ui/core/Paper'
+import HelpIcon from '@material-ui/icons/Help'
 
 import DataTable from '../../components/querytool/DataTable'
 import QueryParameterSidebar from '../../components/querytool/QueryParameterSidebar'
@@ -27,6 +28,24 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: theme.spacing(3),
     paddingLeft: theme.spacing(5),
     marginBottom: theme.spacing(0),
+  },
+  helpsection: {
+    display: 'flex',
+    justifyContent: 'flex-end',
+    marginBottom: theme.spacing(1),
+    marginRight: theme.spacing(1),
+  },
+  helpwrapper: {
+    position: 'relative',
+    color: theme.palette.secondary.dark,
+  },
+  helpicon: {
+    position: 'absolute',
+    marginTop: '2px',
+  },
+  helptext: {
+    marginLeft: theme.spacing(3),
+    textDecoration: 'none',
   },
   sidebar: {
     padding: theme.spacing(0, 2),
@@ -107,6 +126,17 @@ const Detail = ({
     >
       <main className={classes.content}>
         <div className={classes.regionssection}>
+          <div className={classes.helpsection}>
+            <div className={classes.helpwrapper}>
+              <HelpIcon className={classes.helpicon} />
+              <a
+                className={classes.helptext}
+                href="/statistik-erklaert/dimensions"
+              >
+                Hilfe
+              </a>
+            </div>
+          </div>
           <Paper elevation={0} className={classes.sectionPaper}>
             {regions.length === 0 && (
               <RegionEmptyState dispatch={dispatch} actions={actions} />

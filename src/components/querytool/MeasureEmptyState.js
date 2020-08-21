@@ -55,7 +55,7 @@ const MeasureEmptyState = ({ dispatch, actions }) => {
       <AutocompleteSearchField
         loadOptions={loadMeasureOptions}
         onSelectionChange={handleSelectionChange}
-        placeholder="Region suchen oder auswählen"
+        placeholder="Merkmal suchen oder auswählen"
       />
     </div>
   )
