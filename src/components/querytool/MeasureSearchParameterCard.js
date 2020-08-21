@@ -23,6 +23,7 @@ const useStyles = makeStyles((theme) => ({
     borderTopRightRadius: 0,
     borderTop: '1px solid #dadada',
     fontSize: '16px',
+    marginBottom: theme.spacing(1),
   },
   header: {
     paddingBottom: 0,
