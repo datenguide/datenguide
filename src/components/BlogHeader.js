@@ -21,6 +21,11 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 
+  container: {
+    position: 'relative',
+    zIndex: 1,
+  },
+
   content: {
     width: '100%',
     padding: theme.spacing(6, 0),
@@ -112,6 +117,16 @@ const useStyles = makeStyles((theme) => ({
       verticalAlign: 'middle',
     },
   },
+
+  visual: {
+    position: 'absolute',
+    right: 0,
+    bottom: 0,
+
+    [theme.breakpoints.down('md')]: {
+      display: 'none',
+    },
+  },
 }))
 
 const renderAuthorSocial = ({ icon, text, href }) => (
@@ -180,13 +195,14 @@ const BlogHeader = ({
   category,
   authors = [],
   authorMeta = {},
+  children,
 }) => {
   const classes = useStyles()
   const fullAuthorData = authors.map((name) => authorMeta[name] || { name })
 
   return (
     <header className={classes.root}>
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" className={classes.container}>
         <div className={classes.content}>
           <h1 className={classes.title}>{title}</h1>
           <p className={classes.description}>{description}</p>
@@ -194,6 +210,7 @@ const BlogHeader = ({
         </div>
         {renderMeta({ category, date })}
       </Container>
+      {children && <div className={classes.visual}>{children}</div>}
     </header>
   )
 }

@@ -3,7 +3,7 @@ title: 'Nüsse? Was für Nüsse?'
 description: 'Die NUTS-Hierarchie erklärt'
 previewImage: '/statistik-erklaert/nuts.png'
 date: 2020-08-23
-layout: BlogPostCustom
+layout: Minimal
 published: true
 lang: de
 category:
@@ -17,12 +17,22 @@ authors:
 import Grid from '@material-ui/core/Grid'
 import Container from '@material-ui/core/Container'
 import { BodyText } from '../../components/BodyText'
+import BlogHeader from '../../components/BlogHeader'
 import DatawrapperChart from '../../components/DatawrapperChart'
 import SimpleMap from './components/SimpleMap'
 import ScrollyMap from './components/ScrollyMap'
 import ScrollyMapStep from './components/ScrollyMapStep'
+import { frontMatter } from './nuts.mdx'
+
+<BlogHeader {...frontMatter}>
+  <img
+    src={require('./nuts/nuts_pyramid.svg')}
+    style={{ position: 'relative', left: '260px', bottom: '-208px' }}
+  />
+</BlogHeader>
 
 <Container maxWidth="lg">
+
 <BodyText>
 
 Bei der Suche nach amtlichen Daten für eine Region begegnen dir oft Begriffe wie _regionale Tiefe_, _NUTS_ oder _LAU_. Dabei geht es um die Einteilung und Vergleichbarkeit von Gebieten. Wo gibt es die meisten Kühe? Wer erzeugt den meisten Müll? Solche Fragen können regionale Statistiken beantworten. Doch um solche Statistiken sinnvoll zu nutzen müssen wir verstehen, wie wir ähnliche und gleichbleibende Gebiete miteinander vergleichen können.
