@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const getQueryToolLink = (statistic, measure, combo) => {
-  return `/statistiken?data=${statistic.value}:${measure}(${combo})&labels=id&layout=long`
+  return `/statistiken?data=${statistic.value}:${measure}(${combo})&labels=name&layout=long`
 }
 
 const DimensionExplorable = () => {
