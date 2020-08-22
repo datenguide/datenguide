@@ -1,11 +1,11 @@
 import { GraphQLClient } from 'graphql-hooks'
 import memCache from 'graphql-hooks-memcache'
 import unfetch from 'isomorphic-unfetch'
-import getConfig from 'next/config';
+import getConfig from 'next/config'
 
 let graphQLClient = null
 
-const { publicRuntimeConfig } = getConfig();
+const { publicRuntimeConfig } = getConfig()
 
 const create = (initialState = {}) => {
   return new GraphQLClient({

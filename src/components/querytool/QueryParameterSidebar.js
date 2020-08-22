@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import useSWR from 'swr'
 import { useState } from 'react'
-import getConfig from 'next/config';
+import getConfig from 'next/config'
 
 import { makeStyles, Tab, Tabs } from '@material-ui/core'
 import Paper from '@material-ui/core/Paper'
@@ -10,8 +10,7 @@ import StatisticsTreeView from './StatisticsTreeView'
 import fetcher from '../../lib/fetcher'
 import RegionsTreeView from './RegionsTreeView'
 
-const { publicRuntimeConfig } = getConfig();
-
+const { publicRuntimeConfig } = getConfig()
 
 const useStyles = makeStyles((theme) => ({
   root: {
