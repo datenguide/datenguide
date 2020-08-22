@@ -13,21 +13,23 @@ const DataTableCheckboxMenu = ({ label, icon, options, onChange, value }) => {
         value={value}
         onChange={onChange}
       >
-        {Object.keys(options).map((option) => (
-          <MenuItem key={option}>
-            <FormControlLabel
-              value={option}
-              control={
-                <Checkbox
-                  checked={options[option]}
-                  onChange={onChange}
-                  name="option.value"
-                />
-              }
-              label={option}
-            />
-          </MenuItem>
-        ))}
+        {Object.keys(options)
+          .reverse()
+          .map((option) => (
+            <MenuItem key={option}>
+              <FormControlLabel
+                value={option}
+                control={
+                  <Checkbox
+                    checked={options[option]}
+                    onChange={onChange}
+                    name="option.value"
+                  />
+                }
+                label={option}
+              />
+            </MenuItem>
+          ))}
       </FormGroup>
     </DataTableMenu>
   )

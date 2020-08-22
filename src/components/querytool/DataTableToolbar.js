@@ -44,6 +44,23 @@ const DataTableToolbar = ({ labels, layout, dispatch, actions, queryArgs }) => {
     2019: true,
     2018: true,
     2017: true,
+    2016: true,
+    2015: true,
+    2014: true,
+    2013: true,
+    2012: true,
+    2011: true,
+    2010: true,
+    2009: true,
+    2008: true,
+    2007: true,
+    2006: true,
+    2005: true,
+    2004: true,
+    2003: true,
+    2002: true,
+    2001: true,
+    2000: true,
   })
 
   const handleYearChange = (event) => {

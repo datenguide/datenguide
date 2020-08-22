@@ -11,7 +11,6 @@ import CloseIcon from '@material-ui/icons/Close'
 import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
 import CardActions from '@material-ui/core/CardActions'
-import Typography from '@material-ui/core/Typography'
 
 const useStyles = makeStyles((theme) => ({
   root: {

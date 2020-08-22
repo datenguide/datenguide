@@ -1,6 +1,6 @@
-import { useContext, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
-import { ClientContext } from 'graphql-hooks'
+// import { ClientContext } from 'graphql-hooks'
 import Highlight from 'react-highlight'
 import querystring from 'query-string'
 
@@ -102,9 +102,10 @@ const DataTable = ({
   queryArgs,
 }) => {
   const classes = useStyles()
-  const client = useContext(ClientContext)
+  // const client = useContext(ClientContext)
 
   const [data, setData] = useState([])
+  // eslint-disable-next-line no-unused-vars
   const [error, setError] = useState(null)
   const [loading, setLoading] = useState(false)
   const [tabValue, setTabValue] = useState(0)
@@ -126,16 +127,16 @@ const DataTable = ({
     const fetchData = async () => {
       setLoading(true)
       // // TODO support more than 1 measure
-      // const measure = Object.values(measures)[0]
-      // const query = getQuery(
-      //   regions,
-      //   measure,
-      //   labels,
-      //   layout,
-      //   page,
-      //   rowsPerPage
-      // )
-      // setGraphqlQuery(query)
+      const measure = Object.values(measures)[0]
+      const query = getQuery(
+        regions,
+        measure,
+        labels,
+        layout,
+        page,
+        rowsPerPage
+      )
+      setGraphqlQuery(query)
       // const response = await client.request({ query })
       // const { data, error } = response
       // if (error) {
