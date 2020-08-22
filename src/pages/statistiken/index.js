@@ -81,6 +81,7 @@ const Detail = ({
   initialRegions,
   initialLabels,
   initialLayout,
+  initialTime,
   initialLevel,
 }) => {
   const classes = useStyles()
@@ -90,6 +91,7 @@ const Detail = ({
     initialRegions,
     initialLabels,
     initialLayout,
+    initialTime,
     initialLevel
   )
 
@@ -214,10 +216,13 @@ Detail.propTypes = {
   initialRegions: PropTypes.array.isRequired,
   initialLabels: PropTypes.string.isRequired,
   initialLayout: PropTypes.string.isRequired,
+  initialTime: PropTypes.string.isRequired,
 }
 
 export async function getServerSideProps({ query }) {
-  const { measures, regions, labels, level, layout } = queryArgsToState(query)
+  const { measures, regions, labels, level, time, layout } = queryArgsToState(
+    query
+  )
 
   // TODO fix server-side data fetching?
   // const { origin } = absoluteUrl(req)
@@ -234,6 +239,7 @@ export async function getServerSideProps({ query }) {
       initialRegions: regions,
       initialLabels: labels || 'id',
       initialLayout: layout || 'long',
+      initialTime: time || '',
       initialLevel: (level && Number(level)) || 1,
     },
   }

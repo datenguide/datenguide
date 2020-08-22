@@ -1,34 +1,34 @@
 import DataTableMenu from './DataTableMenu'
 import MenuItem from '@material-ui/core/MenuItem'
-import RadioGroup from '@material-ui/core/RadioGroup'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import Checkbox from '@material-ui/core/Checkbox'
+import FormGroup from '@material-ui/core/FormGroup'
 
 const DataTableCheckboxMenu = ({ label, icon, options, onChange, value }) => {
   return (
     <DataTableMenu label={label} icon={icon}>
-      <RadioGroup
-        aria-label="gender"
-        name="gender1"
+      <FormGroup
+        aria-label="checkboxes"
+        name="checkbox"
         value={value}
         onChange={onChange}
       >
-        {options.map((option) => (
-          <MenuItem key={option.value}>
+        {Object.keys(options).map((option) => (
+          <MenuItem key={option}>
             <FormControlLabel
-              value={option.value}
+              value={option}
               control={
                 <Checkbox
-                  checked={option.checked}
+                  checked={options[option]}
                   onChange={onChange}
                   name="option.value"
                 />
               }
-              label={option.label}
+              label={option}
             />
           </MenuItem>
         ))}
-      </RadioGroup>
+      </FormGroup>
     </DataTableMenu>
   )
 }

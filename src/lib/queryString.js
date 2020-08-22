@@ -12,7 +12,7 @@ const toArray = (data) => {
 }
 
 export const queryArgsToState = (queryArgs) => {
-  const { data, region, labels, layout, level, parent } = queryArgs
+  const { data, region, labels, layout, level, parent, time } = queryArgs
 
   const measures = toArray(data).map((statistic) => {
     const match = statistic.match(statisticUrlEncoding)
@@ -38,6 +38,7 @@ export const queryArgsToState = (queryArgs) => {
     regions: parent ? [parent] : (region && [region]) || [], // TODO support multiple regions
     labels,
     layout,
+    time,
     level,
   }
 }
@@ -87,6 +88,7 @@ export const stateToQueryArgs = (state) => {
       (m) => `${m.id}${dimensionsQueryString(m)}`
     ),
     labels: state.labels,
+    time: state.time,
     layout: state.layout,
   }
 }

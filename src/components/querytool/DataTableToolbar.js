@@ -8,6 +8,7 @@ import { makeStyles } from '@material-ui/styles'
 import DataTableRadioButtonMenu from './DataTableRadioButtonMenu'
 import DataTableDownloadMenu from './DataTableDownloadMenu'
 import DataTableCheckboxMenu from './DataTableCheckboxMenu'
+import { useState } from 'react'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -38,13 +39,25 @@ const DataTableToolbar = ({ labels, layout, dispatch, actions, queryArgs }) => {
     dispatch(actions.changeLayout({ layout: value.target.value }))
   }
 
-  const yearOptions = [
-    { label: '2018', value: 2018 },
-    { label: '2019', value: 2019 },
-    { label: '2020', value: 2020 },
-  ]
+  const [years, setYears] = useState({
+    2020: true,
+    2019: true,
+    2018: true,
+    2017: true,
+  })
 
-  const handleYearChange = (value) => {}
+  const handleYearChange = (event) => {
+    const changedYear = event.target.value
+    const newState = { ...years, [changedYear]: !years[changedYear] }
+    setYears(newState)
+    dispatch(
+      actions.changeTime({
+        time: Object.keys(newState)
+          .filter((year) => newState[year])
+          .join(','),
+      })
+    )
+  }
 
   return (
     <Toolbar variant="dense" className={classes.root}>
@@ -58,7 +71,7 @@ const DataTableToolbar = ({ labels, layout, dispatch, actions, queryArgs }) => {
       <DataTableCheckboxMenu
         label="Jahre"
         icon={<DateRangeIcon />}
-        options={yearOptions}
+        options={years}
         value={layout}
         onChange={handleYearChange}
       />
