@@ -39,6 +39,11 @@ const useStyles = makeStyles((theme) => ({
   actions: {
     padding: theme.spacing(0, 1, 1, 2),
   },
+  actionWrapper: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+  },
   comboSelection: {
     marginLeft: theme.spacing(4),
   },
@@ -89,6 +94,12 @@ const useStyles = makeStyles((theme) => ({
   },
   expandOpen: {
     transform: 'rotate(180deg)',
+  },
+  helptext: {
+    paddingTop: theme.spacing(2),
+    paddingBottom: theme.spacing(1),
+    fontSize: '14px',
+    color: theme.palette.grey[600],
   },
 }))
 
@@ -146,16 +157,19 @@ const MeasureSearchParameterCard = ({
         }
       />
       <CardActions disableSpacing className={classes.actions}>
-        {inventory && (
-          <MeasureSearchComboSelection
-            statistic={statistic}
-            inventory={inventory}
-            activeCombo={activeCombo}
-            className={classes.comboSelection}
-            onDimensionChange={onDimensionChange}
-            onDimensionValuesChange={onDimensionValuesChange}
-          />
-        )}
+        <div className={classes.actionWrapper}>
+          <div className={classes.helptext}>Wähle hier die Merkmale aus:</div>
+          {inventory && (
+            <MeasureSearchComboSelection
+              statistic={statistic}
+              inventory={inventory}
+              activeCombo={activeCombo}
+              className={classes.comboSelection}
+              onDimensionChange={onDimensionChange}
+              onDimensionValuesChange={onDimensionValuesChange}
+            />
+          )}
+        </div>
         <IconButton
           className={clsx(classes.expand, {
             [classes.expandOpen]: expanded,

@@ -11,6 +11,7 @@ import CloseIcon from '@material-ui/icons/Close'
 import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
 import CardActions from '@material-ui/core/CardActions'
+import Typography from '@material-ui/core/Typography'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -36,6 +37,9 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   actions: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
     padding: theme.spacing(0, 1, 2, 2),
   },
   chip: {
@@ -74,6 +78,11 @@ const useStyles = makeStyles((theme) => ({
     border: 0,
     background: 'transparent',
     cursor: 'pointer',
+  },
+  helptext: {
+    paddingTop: theme.spacing(2),
+    fontSize: '14px',
+    color: theme.palette.grey[600],
   },
 }))
 
@@ -215,6 +224,9 @@ const RegionSearchParameterCard = ({
         subheader={parentLevels.find((l) => l.id === region.nuts).title}
       />
       <CardActions disableSpacing className={classes.actions}>
+        <div className={classes.helptext}>
+          Wähle hier die regionale Tiefe aus:
+        </div>
         {renderMenu()}
       </CardActions>
     </Card>
