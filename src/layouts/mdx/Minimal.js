@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
   content: {},
 }))
 
-const HomePage = (frontMatter) => ({ children }) => {
+const Minimal = (frontMatter) => ({ children }) => {
   const classes = useStyles()
 
   return (
@@ -23,4 +23,4 @@ const HomePage = (frontMatter) => ({ children }) => {
   )
 }
 
-export default HomePage
+export default Minimal
