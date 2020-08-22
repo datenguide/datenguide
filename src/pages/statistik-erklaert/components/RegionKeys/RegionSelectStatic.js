@@ -30,7 +30,13 @@ const RegionSelect = ({ onSelect, className }) => {
   }, [options])
 
   const handleChange = (__, value) => {
+    setValue(value)
     onSelect(value)
+  }
+
+  const clearSelection = () => {
+    setValue(null)
+    onSelect(null)
   }
 
   return (
@@ -48,6 +54,7 @@ const RegionSelect = ({ onSelect, className }) => {
         <TextField
           {...params}
           variant="outlined"
+          onFocus={clearSelection}
           label="Gemeinde auswählen oder suchen"
           InputProps={{
             ...params.InputProps,
