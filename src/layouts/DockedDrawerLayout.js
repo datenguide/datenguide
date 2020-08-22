@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import clsx from 'clsx'
 import PropTypes from 'prop-types'
 
@@ -81,14 +80,15 @@ const DockedDrawerLayout = ({
   children,
   drawerContent,
   meta = { title: null },
+  drawerOpen,
+  onToggleDrawer,
 }) => {
   const classes = useStyles()
   const theme = useTheme()
-  const [open, setOpen] = useState(true)
   const isDesktop = useMediaQuery(theme.breakpoints.up('sm'))
 
   const handleDrawerToggle = () => {
-    setOpen(!open)
+    onToggleDrawer(!drawerOpen)
   }
 
   const drawer = <div className={classes.drawerContent}>{drawerContent}</div>
@@ -115,7 +115,7 @@ const DockedDrawerLayout = ({
           <nav className={classes.drawer} aria-label="mailbox folders">
             <Drawer
               variant={isDesktop ? 'persistent' : 'temporary'}
-              open={open}
+              open={drawerOpen}
               onClose={handleDrawerToggle}
               classes={{
                 paper: classes.drawerPaper,
@@ -129,7 +129,7 @@ const DockedDrawerLayout = ({
           </nav>
           <main
             className={clsx(classes.content, {
-              [classes.contentShift]: open,
+              [classes.contentShift]: drawerOpen,
             })}
           >
             <div className={classes.toolbar} />

@@ -1,6 +1,8 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import AutocompleteSearchField from './AutocompleteSearchField'
+import Button from '@material-ui/core/Button'
+import ArrowForwardIcon from '@material-ui/icons/ArrowForward'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,6 +23,14 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.grey[600],
     marginBottom: theme.spacing(1),
   },
+  treeviewLink: {
+    fontWeight: 'bold',
+    cursor: 'pointer',
+    position: 'relative',
+    textTransform: 'none',
+    marginTop: '-2px',
+    padding: '4px',
+  },
 }))
 
 const loadRegionOptions = async (value = '') => {
@@ -34,11 +44,15 @@ const loadRegionOptions = async (value = '') => {
   }))
 }
 
-const RegionEmptyState = ({ dispatch, actions }) => {
+const RegionEmptyState = ({ dispatch, actions, onToggleDrawer }) => {
   const classes = useStyles()
 
   const handleSelectionChange = (region) => {
     dispatch(actions.loadRegion(region.value))
+  }
+
+  const handleTreeViewClick = () => {
+    onToggleDrawer(true)
   }
 
   return (
@@ -47,8 +61,15 @@ const RegionEmptyState = ({ dispatch, actions }) => {
         1. Wähle eine Region für die Abfrage aus
       </div>
       <div className={classes.subtitle}>
-        Suche eine Region hier im Suchfeld oder nutze die Baumansicht, die
-        gewünschte Region zu finden.
+        Suche eine Region hier im Suchfeld oder nutze die
+        <Button
+          className={classes.treeviewLink}
+          startIcon={<ArrowForwardIcon />}
+          onClick={handleTreeViewClick}
+        >
+          Baumansicht
+        </Button>
+        , um die gewünschte Region zu finden.
       </div>
       <AutocompleteSearchField
         loadOptions={loadRegionOptions}

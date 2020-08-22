@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'
+import { useState } from 'react'
 
 import { makeStyles } from '@material-ui/core/styles'
 import Snackbar from '@material-ui/core/Snackbar'
@@ -96,6 +97,8 @@ const Detail = ({
 
   const queryArgs = stateToQueryArgs(state)
 
+  const [drawerOpen, setDrawerOpen] = useState(false)
+
   const handleRemoveMeasure = (statisticsId) => () => {
     dispatch(actions.closeMeasure(statisticsId))
   }
@@ -116,6 +119,10 @@ const Detail = ({
     dispatch(actions.changeRegionLevel({ level: value }))
   }
 
+  const handleToggleDrawer = (open) => {
+    setDrawerOpen(open)
+  }
+
   return (
     <DockedDrawerLayout
       drawerContent={
@@ -123,6 +130,8 @@ const Detail = ({
           <QueryParameterSidebar dispatch={dispatch} actions={actions} />
         </div>
       }
+      drawerOpen={drawerOpen}
+      onToggleDrawer={handleToggleDrawer}
     >
       <main className={classes.content}>
         <div className={classes.regionssection}>
@@ -139,7 +148,11 @@ const Detail = ({
           </div>
           <Paper elevation={0} className={classes.sectionPaper}>
             {regions.length === 0 && (
-              <RegionEmptyState dispatch={dispatch} actions={actions} />
+              <RegionEmptyState
+                dispatch={dispatch}
+                actions={actions}
+                onToggleDrawer={handleToggleDrawer}
+              />
             )}
             {regions.map((region) => (
               <RegionSearchParameterCard
@@ -151,7 +164,11 @@ const Detail = ({
               />
             ))}
             {measures.length === 0 && (
-              <MeasureEmptyState dispatch={dispatch} actions={actions} />
+              <MeasureEmptyState
+                dispatch={dispatch}
+                actions={actions}
+                onToggleDrawer={handleToggleDrawer}
+              />
             )}
             {measures.map((measure) => (
               <MeasureSearchParameterCard
