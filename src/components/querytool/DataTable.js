@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import { ClientContext } from 'graphql-hooks'
 import Highlight from 'react-highlight'
+import querystring from 'query-string'
 
 import { makeStyles } from '@material-ui/core/styles'
 import {
@@ -25,6 +26,7 @@ import AlertTitle from '@material-ui/lab/AlertTitle'
 import getQuery from '../../lib/queryBuilder'
 import DataTableToolbar from './DataTableToolbar'
 import DataTablePagination from './DataTablePagination'
+import { useRouter } from 'next/router'
 
 // TODO create i8n label
 const ERROR_MESSAGE = 'Die Daten konnten nicht geladen werden.'
@@ -111,6 +113,8 @@ const DataTable = ({
   const [rowsPerPage, setRowsPerPage] = useState(100)
   const [page, setPage] = useState(0)
 
+  const router = useRouter()
+
   const handleChangePage = (event, page) => {
     setPage(page)
   }
@@ -121,33 +125,39 @@ const DataTable = ({
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true)
-      // TODO support more than 1 measure
-      const measure = Object.values(measures)[0]
-      const query = getQuery(
-        regions,
-        measure,
-        labels,
-        layout,
-        page,
-        rowsPerPage
+      // // TODO support more than 1 measure
+      // const measure = Object.values(measures)[0]
+      // const query = getQuery(
+      //   regions,
+      //   measure,
+      //   labels,
+      //   layout,
+      //   page,
+      //   rowsPerPage
+      // )
+      // setGraphqlQuery(query)
+      // const response = await client.request({ query })
+      // const { data, error } = response
+      // if (error) {
+      //   const fetchError = error.fetchError && error.fetchError.statusText
+      //   const httpError = error.httpError && error.httpError.statusText
+      //   const graphQLError =
+      //     error.graphQLErrors &&
+      //     error.graphQLErrors.map((e) => e.message).join('\n')
+      //   setData([])
+      //   setError([fetchError, httpError, graphQLError].join(' ').trim())
+      // } else if (data && data.table) {
+      //   setData(data.table)
+      //   setError(null)
+      // } else {
+      //   setError(ERROR_MESSAGE)
+      // }
+
+      const result = await fetch(
+        `/api/tabular?${querystring.stringify(router.query)}`
       )
-      setGraphqlQuery(query)
-      const response = await client.request({ query })
-      const { data, error } = response
-      if (error) {
-        const fetchError = error.fetchError && error.fetchError.statusText
-        const httpError = error.httpError && error.httpError.statusText
-        const graphQLError =
-          error.graphQLErrors &&
-          error.graphQLErrors.map((e) => e.message).join('\n')
-        setData([])
-        setError([fetchError, httpError, graphQLError].join(' ').trim())
-      } else if (data && data.table) {
-        setData(data.table)
-        setError(null)
-      } else {
-        setError(ERROR_MESSAGE)
-      }
+      const json = await result.json()
+      setData(json)
       setLoading(false)
     }
 
