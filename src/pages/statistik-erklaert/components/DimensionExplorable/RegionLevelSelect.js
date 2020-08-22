@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const RegionLevelSelect = ({ onSelect, levels }) => {
+const RegionLevelSelect = ({ onSelect, levels = [] }) => {
   const classes = useStyles()
   const [value, setValue] = useState(1)
 
