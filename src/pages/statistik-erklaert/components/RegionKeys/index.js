@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import PropTypes from 'prop-types'
 import clsx from 'clsx'
 
 import { makeStyles } from '@material-ui/core/styles'
@@ -157,7 +156,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const RegionKeys = ({ flip }) => {
+const RegionKeys = ({ initial }) => {
   const classes = useStyles()
   const [region, setRegion] = useState(null)
 
@@ -186,6 +185,7 @@ const RegionKeys = ({ flip }) => {
       <RegionSelectStatic
         className={classes.regionSelect}
         onSelect={handleSelect}
+        initial={initial}
       />
       <div className={classes.regionKey}>
         <span
@@ -254,14 +254,6 @@ const RegionKeys = ({ flip }) => {
       </>
     </div>
   )
-}
-
-RegionKeys.propTypes = {
-  flip: PropTypes.bool,
-}
-
-RegionKeys.defaultProps = {
-  flip: false,
 }
 
 export default RegionKeys

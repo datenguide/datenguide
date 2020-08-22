@@ -18,6 +18,8 @@ import Grid from '@material-ui/core/Grid'
 import Container from '@material-ui/core/Container'
 import { BodyText } from '../../components/BodyText'
 import RegionkeysNoSSR from './components/RegionKeys'
+import RegionKeyScreenshot from './components/RegionKeys/RegionKeyScreenshot'
+import ArrowLink from '../../components/ArrowLink'
 
 <Container maxWidth="lg">
   <BodyText>
@@ -39,21 +41,56 @@ Für Datenvisualisierungen oder Analysen auf Basis von amtlichen Statistiken ist
 Die regionale Einteilung ist nicht in allen Bundesländern gleich. NRW ist zum Beispiel eines von vier Bundesländern, das in Regierungsbezirke aufgeteilt ist. In 12 Bundesländern gibt es keine Regierungsbezirke oder sie wurden aufgelöst.
 Dazu gehört zum Beispiel Mecklenburg-Vorpommern. Der AGS lautet in diesen Bundesländern an der 3. Stelle immer 0.
 
-[Moers][altenhagen]
+<RegionKeyScreenshot
+  url1="/statistik-erklaert/ags/moers.png"
+  alt1="Moers"
+  url2="/statistik-erklaert/ags/altenhagen.png"
+  alt2="Altenhagen"
+/>
 
-Kreisfreie Städte stehen auf einer Stufe mit den Landkreisen. Die sechste bis achte Stelle des Gemeindeschlüssels lautet dort 000.
+<br />
+<br />
+<br />
+Kreisfreie Städte stehen auf einer Stufe mit den Landkreisen. Die sechste bis achte
+Stelle des Gemeindeschlüssels lautet dort 000.
 
-[Statische Darstellungen für Köln – evtl. mit Erklärungen]
+<RegionKeyScreenshot url1="/statistik-erklaert/ags/koeln.png" alt1="Koeln" />
 
-Eine weitere Besonderheit stellen die Stadtstaaten Hamburg, Bremen, Berlin dar. Hamburg ist gleichzeitig Bundesland, Regierungsbezirk, Landkreis und Gemeinde. Bremen besteht aus zwei Landkreisen: Bremen und Bremerhaven.
+<br />
+<br />
+<br />
+Eine weitere Besonderheit stellen die Stadtstaaten Hamburg, Bremen, Berlin dar. Hamburg
+ist gleichzeitig Bundesland, Regierungsbezirk, Landkreis und Gemeinde. Bremen besteht
+aus zwei Landkreisen: Bremen und Bremerhaven.
 
-[Hamburg][bremen]
+<RegionKeyScreenshot
+  url1="/statistik-erklaert/ags/hamburg.png"
+  alt1="Hamburg"
+  url2="/statistik-erklaert/ags/bremen.png"
+  alt2="Bremen"
+/>
 
-Berlin ist in zwölf Bezirke aufgeteilt, die zwischen 250.000 und 400.000 Einwohner haben und Landkreisen entsprechen.
+<br />
+<br />
+<br />
+Berlin ist in zwölf Bezirke aufgeteilt, die zwischen 250.000 und 400.000 Einwohner
+haben und Landkreisen entsprechen.
 
-[Berlin]
+<RegionKeyScreenshot
+  url1="/statistik-erklaert/ags/berlin-pankow.png"
+  alt1="Berlin-Pankow"
+/>
 
-Mehr zur Einteilung von statistischen Regionen in Deutschland (NUTS) erfährst Du [hier](/statistik-erklaert/nuts).
+<br />
+<br />
+<br />
+Mehr zur Einteilung von statistischen Regionen in Deutschland (NUTS) erfährst Du
+hier:
+<br />
+<br />
+<ArrowLink href="/statistik-erklaert/nuts">
+  Die NUTS-Hierarchie erklärt
+</ArrowLink>
 
   </BodyText>
 </Container>
