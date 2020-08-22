@@ -230,10 +230,10 @@ const RegionKeys = ({ flip }) => {
             {getNutsHierarchy(region).map((part, index) => (
               <div className={classes.nutsHierarchyRow} key={part.id}>
                 <div className={classes.nutsHierarchyLabel}>
+                  <span> {part.nutsDescription} &middot;&nbsp;</span>
                   <span className={classes.nutsHierarchyLabelName}>
-                    {part.name} &middot;&nbsp;
+                    {part.name}
                   </span>
-                  <span> {part.nutsDescription}</span>
                 </div>
                 <div className={clsx(classes.nutsHierarchyIdWrapper)}>
                   <span
