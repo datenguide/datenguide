@@ -157,7 +157,8 @@ const Detail = ({
           </a>
           .<br />
           Ihr wollt Datenguide verbessern? Helft uns bei unserem
-          Datenportal-Sprint vom 25. bis 27.09.2020! Jetzt anmelden.
+          Datenportal-Sprint vom 25. bis 27.09.2020!{' '}
+          <a href="/blog/2020/community-sprint">Jetzt anmelden.</a>
         </Alert>
         <div className={classes.helpsection}>
           <Button
