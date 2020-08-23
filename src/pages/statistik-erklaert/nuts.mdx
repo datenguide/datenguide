@@ -19,6 +19,7 @@ import Container from '@material-ui/core/Container'
 import { BodyText, BodyTextAside } from '../../components/BodyText'
 import BlogHeader from '../../components/BlogHeader'
 import DatawrapperChart from '../../components/DatawrapperChart'
+import ArrowLink from '../../components/ArrowLink'
 import SimpleMap from './components/SimpleMap'
 import ScrollyMap from './components/ScrollyMap'
 import ScrollyMapStep from './components/ScrollyMapStep'
@@ -202,7 +203,7 @@ NRW, Baden-Württemberg, Bayern und Hessen sind in Regierungsbezirke (NUTS-2) ei
 
 Ein Sonderfall ist Berlin. Die Hauptstadt ist in zwölf Bezirke aufgeteilt, die zwischen 250.000 und 400.000 Einwohner haben und Landkreisen entsprechen.
 
-Solche Informationen über die regionale Einteilung können auch am amtlichen Gemeindeschlüssel (AGS) abgelesen werden. Lerne den amtlichen Gemeindeschlüssel für deine Stadt zu lesen mit unserem [Tool](/statistik-erklaert/nuts)!
+Solche Informationen über die regionale Einteilung können auch am amtlichen Gemeindeschlüssel (AGS) abgelesen werden. Lerne den amtlichen Gemeindeschlüssel für deine Stadt zu lesen mit unserem [Tool](/statistik-erklaert/ags)!
 
 <Grid container direction="row" justify="center" spacing={2}>
   <Grid item xs={12} sm={6}>
@@ -218,6 +219,12 @@ Solche Informationen über die regionale Einteilung können auch am amtlichen Ge
     <SimpleMap src="/geo/bundeslaender.json" width="100%" height="400px" />
   </Grid>
 </Grid>
+
+### Zum Weiterlesen:
+
+<ArrowLink href="/statistik-erklaert/ags">
+  So funktioniert der Amtliche Gemeindeschlüssel
+</ArrowLink>
 
 ### Credits
 
