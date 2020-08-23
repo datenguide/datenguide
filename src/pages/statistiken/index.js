@@ -15,6 +15,8 @@ import RegionSearchParameterCard from '../../components/querytool/RegionSearchPa
 import MeasureSearchParameterCard from '../../components/querytool/MeasureSearchParameterCard'
 import RegionEmptyState from '../../components/querytool/RegionEmptyState'
 import MeasureEmptyState from '../../components/querytool/MeasureEmptyState'
+import Alert from '@material-ui/lab/Alert'
+import Button from '@material-ui/core/Button'
 
 const useStyles = makeStyles((theme) => ({
   content: {
@@ -36,13 +38,13 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(1),
     marginRight: theme.spacing(1),
   },
-  helpwrapper: {
-    position: 'relative',
-    color: theme.palette.secondary.dark,
+  disclaimer: {
+    flex: '1 1 auto',
   },
-  helpicon: {
-    position: 'absolute',
-    marginTop: '2px',
+  helpButton: {
+    marginTop: theme.spacing(1),
+    marginLeft: theme.spacing(2),
+    padding: theme.spacing(1, 2),
   },
   helptext: {
     marginLeft: theme.spacing(3),
@@ -136,18 +138,24 @@ const Detail = ({
       onToggleDrawer={handleToggleDrawer}
     >
       <main className={classes.content}>
+        <Alert severity="warning" className={classes.disclaimer}>
+          Dies ist eine Vorschauversion des Datenguide Datenportals, there be
+          dragons, Daten können inkorrekt sein, proceed at your own risk. Hilf
+          mit, zu testen, schreib Python-Code
+          <br />
+          Sende uns Feedback an&nbsp;
+          <a href="mailto:feedback@datengui.de">feedback@datengui.de</a>
+        </Alert>
+        <div className={classes.helpsection}>
+          <Button
+            color="secondary"
+            className={classes.helpButton}
+            startIcon={<HelpIcon href="/statistik-erklaert/dimensions" />}
+          >
+            Hilfe
+          </Button>
+        </div>
         <div className={classes.regionssection}>
-          <div className={classes.helpsection}>
-            <div className={classes.helpwrapper}>
-              <HelpIcon className={classes.helpicon} />
-              <a
-                className={classes.helptext}
-                href="/statistik-erklaert/dimensions"
-              >
-                Hilfe
-              </a>
-            </div>
-          </div>
           <Paper elevation={0} className={classes.sectionPaper}>
             {regions.length === 0 && (
               <RegionEmptyState
