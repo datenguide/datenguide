@@ -33,13 +33,23 @@ export const queryArgsToState = (queryArgs) => {
     }
   })
 
+  // make sure level is at least at nuts level of selected region
+  let validatedLevel = level
+  if (region) {
+    if (region.length === 3 && (!level || level < 2)) {
+      validatedLevel = 2
+    } else if (region && region.length >= 5 && (!level || level < 3)) {
+      validatedLevel = 3
+    }
+  }
+
   return {
     measures,
     regions: parent ? [parent] : (region && [region]) || [], // TODO support multiple regions
     labels,
     layout,
     time,
-    level,
+    level: validatedLevel,
   }
 }
 

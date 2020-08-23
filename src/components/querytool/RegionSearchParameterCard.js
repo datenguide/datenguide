@@ -149,11 +149,6 @@ const RegionSearchParameterCard = ({
   }
 
   const renderRegionLevel = ({ nuts, showIcon = true, parent = true }) => {
-    console.log('nuts', nuts)
-    console.log('parentLevels', parentLevels)
-    console.log('childLevels', childLevels)
-    console.log('parent', parent)
-
     const { abbr, title } = parent
       ? parentLevels.find(({ id }) => nuts === id)
       : childLevels.find(({ id }) => nuts === id)
