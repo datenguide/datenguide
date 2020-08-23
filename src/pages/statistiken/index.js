@@ -258,7 +258,7 @@ export async function getServerSideProps({ query }) {
         dimensions: m.dimensions !== undefined ? m.dimensions : null, // undefined not allowed here TODO avoid earlier
       })),
       initialRegions: regions,
-      initialLabels: labels || 'id',
+      initialLabels: labels || 'name',
       initialLayout: layout || 'long',
       initialTime: time || '',
       initialLevel: (level && Number(level)) || 1,
