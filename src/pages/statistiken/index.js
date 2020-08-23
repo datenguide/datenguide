@@ -139,12 +139,25 @@ const Detail = ({
     >
       <main className={classes.content}>
         <Alert severity="warning" className={classes.disclaimer}>
-          Dies ist eine Vorschauversion des Datenguide Datenportals, there be
-          dragons, Daten können inkorrekt sein, proceed at your own risk. Hilf
-          mit, zu testen, schreib Python-Code
+          Das Datenguide Datenportal steht als Beta-Version zur Verfügung. Wir
+          übernehmen keine Gewähr für die Richtigkeit und Vollständigkeit der
+          abgerufenen Daten. Vor Veröffentlichung bitte mit regionalstatistik.de
+          abgleichen.
           <br />
-          Sende uns Feedback an&nbsp;
+          <br />
+          Bei Bugs und Abstürzen schreibt bitte eine E-Mail an&nbsp;
           <a href="mailto:feedback@datengui.de">feedback@datengui.de</a>
+          &nbsp;oder macht ein Issue auf bei&nbsp;
+          <a
+            href="https://github.com/datenguide/datenguide"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Github
+          </a>
+          .<br />
+          Ihr wollt Datenguide verbessern? Helft uns bei unserem
+          Datenportal-Sprint vom 25. bis 27.09.2020! Jetzt anmelden.
         </Alert>
         <div className={classes.helpsection}>
           <Button
