@@ -126,15 +126,13 @@ Auf dieser kleinsten Ebene zeigt sich beim Altersdurchschnitt die größte Spann
 <Container maxWidth="lg">
 <BodyText>
 
-## NUTS: Wichtig für die EU-Förderung
+### NUTS: Wichtig für die EU-Förderung
 
 NUTS steht für "Nomenclatur of Territorial Units for Statistics". (Einteilung von Gebieten für statistische Zwecke.) Für die Regionen in der EU ist die Gebiets-Einteilung wichtig, weil sie Vergleiche und Rankings möglich macht. Welche Regionen liegen unter oder über dem EU-Durchschnitt? Welche Region liegt vorn oder hängt hinterher? Und: NUTS-Level spielen für die Regionalpolitik eine wichtige Rolle: Denn EU-Fördermittel werden konkreten NUTS-Regionen (vor allem NUTS-3-Regionen) zugewiesen.
 
-## Unterschiede und Sonderfälle
+### Unterschiede und Sonderfälle
 
 Trotz des Ziels auf einer NUTS-Ebene Regionen vergleichbarer Größe zu schaffen, können sich diese deutlich in Bezug auf ihre Fläche, Bevölkerungszahl und ihrer wirtschaftlichen oder verwaltungstechnischen Bedeutung unterscheiden.
-
-// NRW und MV im Vergleich als small multiples - Nuts 3 und LAU nebeneinander ?
 
 <BodyTextAside>
 
@@ -195,35 +193,75 @@ nur 8 Landkreise und Kreisfreie Städte und keine Regierungsbezirke.
 
 ### Regierungsbezirke (NUTS-2) nur in vier Bundesländern
 
-NRW, Baden-Württemberg, Bayern und Hessen sind in Regierungsbezirke (NUTS-2) eingeteilt. In Rheinland-Pfalz, Niedersachsen und Sachen wurden diese Regierungsbezirke aufgelöst. 9 weitere Länder sind gleichzeitig NUTS-1- und NUTS-2-Regionen: Die „Stadtstaaten“ Berlin, Hamburg und Bremen, sowie die „Flächenländer“ Brandenburg, Mecklenburg-Vorpommern, Schleswig-Holstein, Sachsen-Anhalt, Saarland und Thüringen.
+Nur NRW, Baden-Württemberg, Bayern und Hessen sind in Regierungsbezirke (NUTS-2) eingeteilt.
 
-// Deutschlandkarte - Nuts 1 und Nuts 2 nebeneinander
+<BodyTextAside>
 
-## Berlin (anders als Bremen, Hamburg)
+#### Bundesländer ohne Regierungsbezirke
 
-Ein Sonderfall ist Berlin. Die Hauptstadt ist in zwölf Bezirke aufgeteilt, die zwischen 250.000 und 400.000 Einwohner haben und Landkreisen entsprechen.
+In Rheinland-Pfalz, Niedersachsen und Sachen wurden die Regierungsbezirke
+aufgelöst. 9 weitere Länder sind gleichzeitig NUTS-1- und NUTS-2-Regionen: Die
+„Stadtstaaten“ Berlin, Hamburg und Bremen, sowie die „Flächenländer“
+Brandenburg, Mecklenburg-Vorpommern, Schleswig-Holstein, Sachsen-Anhalt,
+Saarland und Thüringen.
 
-Solche Informationen über die regionale Einteilung können auch am amtlichen Gemeindeschlüssel (AGS) abgelesen werden. Lerne den amtlichen Gemeindeschlüssel für deine Stadt zu lesen mit unserem [Tool](/statistik-erklaert/ags)!
+</BodyTextAside>
 
 <Grid container direction="row" justify="center" spacing={2}>
   <Grid item xs={12} sm={6}>
     <SimpleMap
-      latitude={51.427}
-      longitude={7.664}
-      src="/geo/nrw_gemeinden.json"
+      latitude={50.41058}
+      longitude={10.55145}
+      src="/geo/bundeslaender.json"
+      zoom={6}
       width="100%"
       height="400px"
     />
+    <small>Bundesländer</small>
   </Grid>
   <Grid item xs={12} sm={6}>
-    <SimpleMap src="/geo/bundeslaender.json" width="100%" height="400px" />
+    <SimpleMap
+      latitude={50.41058}
+      longitude={10.55145}
+      src="/geo/nuts_2.json"
+      width="100%"
+      height="400px"
+    />
+    <small>Regierungsbezirke</small>
   </Grid>
 </Grid>
+
+### Sonderfall Berlin
+
+Ein Sonderfall ist Berlin. Die Hauptstadt ist in zwölf Bezirke aufgeteilt, die zwischen 250.000 und 400.000 Einwohner:innen haben. Damit entsprechen sie Landkreisen.
+
+<Grid container direction="row" justify="left" spacing={2}>
+  <Grid item xs={12} sm={6}>
+    <SimpleMap
+      latitude={52.5192}
+      longitude={13.3993}
+      src="/geo/berlin_bezirke.json"
+      width="100%"
+      height="400px"
+    />
+    <small>Berliner Bezirke</small>
+  </Grid>
+</Grid>
+
+### Regionale Einteilung lässt sich am Gemeindeschlüssel ablesen
+
+Um Gemeinden eindeutig zu identifizieren und um die regionale Einteilung zu zeigen, gibt es den amtlichen Gemeindeschlüssel (AGS). Mit unserm [Tool](/statistik-erklaert/ags)! lernst du den amtlichen Gemeindeschlüssel für deine Stadt zu lesen.
 
 ### Zum Weiterlesen:
 
 <ArrowLink href="/statistik-erklaert/ags">
-  So funktioniert der Amtliche Gemeindeschlüssel
+  So funktioniert der amtliche Gemeindeschlüssel
+</ArrowLink>
+<ArrowLink href="/statistik-erklaert/dimensions">
+  Erfahre, wie du Daten für deine Region abrufst
+</ArrowLink>
+<ArrowLink href="/statistik-erklaert/tables">
+  In zwei Schritten zu deiner ersten Daten-Visualisierung
 </ArrowLink>
 
 ### Credits
