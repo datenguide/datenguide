@@ -10,6 +10,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: '#c3e5f1',
     color: theme.palette.secondary.main,
     fontSize: theme.typography.body2.fontSize,
+    margin: theme.spacing(4, 0),
 
     '&::before': {
       [theme.breakpoints.up('md')]: {

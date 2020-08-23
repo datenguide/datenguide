@@ -1,7 +1,7 @@
 ---
 title: 'Was ist der Datenguide?'
 description: Der Datenguide macht die amtliche Statistik zugänglicher für alle. Wir arbeiten an einer digitalen Plattform, die regionale Statistiken klar und prägnant darstellt, vergleichbar macht und erklärt.
-layout: ContentPage
+layout: Minimal
 events:
   upcoming:
     - title: Open Knowledge Lab Berlin
@@ -87,26 +87,29 @@ team:
 ---
 
 import ResponsiveEmbed from 'react-responsive-embed'
-import Grid from '@material-ui/core/Grid'
+import Container from '@material-ui/core/Container'
+import Box from '@material-ui/core/Box'
 import Typography from '@material-ui/core/Typography'
 
+import { BodyText, BodyTextAside } from '../../components/BodyText'
 import Events from '../../components/Events'
 import Team from '../../components/Team'
 import Funders from '../../components/Funders'
 import { frontMatter } from './index.mdx'
 
+<Container>
+
 # Über Datenguide
 
-<Grid container>
-  <Grid item>
-    <Typography variant="subtitle1" component="p">
-      Der Datenguide macht die amtliche Statistik zugänglicher für alle. Wir
-      arbeiten an einer digitalen Plattform, die regionale Statistiken klar und
-      prägnant darstellt und es einfacher macht, die Daten weiterzuverwenden.
-    </Typography>
-  </Grid>
-</Grid>
+<Box pb={4}>
+  <Typography variant="subtitle1" component="p" m={4}>
+    Der Datenguide macht die amtliche Statistik zugänglicher für alle. Wir
+    arbeiten an einer digitalen Plattform, die regionale Statistiken klar und
+    prägnant darstellt und es einfacher macht, die Daten weiterzuverwenden.
+  </Typography>
+</Box>
 
+<BodyText>
 Die Statistischen Ämter sammeln kontinuierlich Daten und erstellen Statistiken zu allen Bereichen unserer Gesellschaft, Umwelt und Wirtschaft. Das reicht von Zahlen zu Arbeitslosigkeit und Sozialleistungen bis zur Tierhaltung in der Landwirtschaft. Diese _amtliche Statistik_ ist nicht nur eine wichtige Entscheidungsgrundlage für Politik, Verwaltung und Wirtschaft, sondern auch ein wertvolles Werkzeug für Journalist:innen und zivilgesellschaftliche Initiativen. Statistische Daten helfen bei investigativen Recherchen zu systemischen Problemen aber auch beim Fact-checking oder im Lokaljournalismus.
 
 Im Redaktionsalltag ist die Nutzung von amtlichen Statistiken jedoch oft schwierig. Denn obwohl die amtliche Statistik theoretisch der Öffentlichkeit zur Verfügung steht und offizielle Statistikportale Daten zum Download anbieten, stellt die Bedienung dieser Portale und die weitere Analyse der Daten die meisten Menschen vor große Hindernisse. Die offiziellen Portale richten sich an Experten und bieten kaum Informationen für Laien oder einfache Möglichkeiten zum Finden und Darstellen von Datensätzen. Auch für Fachleute ist die Arbeit mit der offziellen Veröffentlichung der amtlichen Statistik zeitraubend und frustrierend, da viele Datensätze einzeln angefordert und aufbereitet werden müssen.
@@ -114,6 +117,9 @@ Im Redaktionsalltag ist die Nutzung von amtlichen Statistiken jedoch oft schwier
 ## Statistiken für alle!
 
 Mit dem Datenguide helfen wir Journalist:innen dabei, die amtliche Statistik sinnvoll zu nutzen. Mit modernen Web-Technologien entwickeln wir eine digitale Plattform, die statistische Daten klar und prägnant darstellt, vergleichbar macht, in Kontext setzt und erklärt. Der Datenguide strukturiert die Daten regional (Landkreise, Städte und Gemeinden) und nach Themen (z.B. Umwelt oder Soziales). Die Aufbereitung der Daten, beispielsweise durch interaktive Grafiken und zusätzliche Erklärungen, erfolgt teilweise automatisiert und teilweise redaktionell durch ein kleines Team von erfahrenen Datenjournalist:innen.
+
+</BodyText>
+</Container>
 
 <Events dates={frontMatter.events}>
 
@@ -136,9 +142,9 @@ Foto: [Workshop bei der OpenNews Unconference](https://www.flickr.com/photos/moz
 
 </Events>
 
-## Kernteam
+<Container>
 
-<Team members={frontMatter.team} />
+<BodyText>
 
 ## Mehr als eine Online-Plattform
 
@@ -152,4 +158,12 @@ Unsere Plattform befindet sich noch in der Entwicklung aber einige technische Ko
 
 Die Datengrundlage für unsere Arbeit bildet die offizielle Veröffentlichung der Regionalstatistik der Statistischen Ämter, die wir automatisiert herunterladen und aufbereiten. Diese technische Basis haben wir 2018 im Rahmen einer Förderung durch den [Prototype Fund](https://prototypefund.de) erarbeitet. Momentan arbeiten wir mit einer Förderung des [MIZ Babelsberg](https://miz-babelsberg.de) an der Entwicklung der Online-Plattform und an Fallstudien, die wir zusammen mit Medienpartnern umsetzen. 2018 wurden wir außerdem durch ein [Grow-Stipendium](https://netzwerkrecherche.org/ziele/gemeinnuetziger-journalismus/grow-stipendien/) von Netzwerk Recherche und der Schöpflin Stiftung gefördert.
 
+</BodyText>
+
+### Kernteam
+
+<Team members={frontMatter.team} />
+
 <Funders />
+
+</Container>
