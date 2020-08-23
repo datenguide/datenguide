@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   main: {
-    ...theme.typography.body2,
+    ...theme.typography.body1,
     paddingBottom: theme.spacing(6),
 
     [theme.breakpoints.up('md')]: {
@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
     },
 
     [theme.breakpoints.up('lg')]: {
-      fontSize: theme.typography.body1.fontSize,
+      fontSize: theme.typography.subtitle2.fontSize,
     },
 
     '& h2': {
@@ -38,12 +38,16 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 
+  cta: {
+    marginTop: theme.spacing(2),
+    fontSize: theme.typography.body2.fontSize,
+  },
+
   features: {
     padding: 0,
     listStyle: 'none',
 
     [theme.breakpoints.up('lg')]: {
-      marginLeft: theme.spacing(6),
       marginBottom: theme.spacing(3),
     },
 
@@ -84,15 +88,20 @@ export default function Intro({ children, features }) {
   return (
     <Container className={classes.root}>
       <Grid container direction="row" justify="center" alignItems="center">
-        <Grid item md={6} className={classes.main}>
+        <Grid item md={6} lg={7} className={classes.main}>
           {children}
           <Link href="/info">
-            <Button variant="outlined" color="primary">
+            <Button
+              variant="outlined"
+              color="secondary"
+              size="large"
+              className={classes.cta}
+            >
               Mehr über Datenguide
             </Button>
           </Link>
         </Grid>
-        <Grid item md={6}>
+        <Grid item md={6} lg={5}>
           <ul className={classes.features}>
             {features.map(({ text, title, slug }) => (
               <li className={classes[slug]} key={slug}>
