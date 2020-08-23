@@ -21,12 +21,10 @@ const useStyles = makeStyles((theme) => ({
 const ArrowLink = ({ href, children }) => {
   const classes = useStyles()
   return (
-    <Link href={href}>
-      <a className={classes.link}>
-        <ArrowForwardIcon className={classes.icon} color="secondary" />
-        <span className={classes.text}>{children}</span>
-      </a>
-    </Link>
+    <a className={classes.link} href={href}>
+      <ArrowForwardIcon className={classes.icon} color="secondary" />
+      <span className={classes.text}>{children}</span>
+    </a>
   )
 }
 
