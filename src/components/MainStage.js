@@ -1,11 +1,12 @@
 import { makeStyles } from '@material-ui/core/styles'
 import Container from '@material-ui/core/Container'
+import Button from '@material-ui/core/Button'
 
 import background from '../assets/hero_city.svg'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    height: '600px',
+    minHeight: '500px',
     fontSize: theme.typography.subtitle2.fontSize,
     backgroundColor: '#c3e5f1',
     paddingTop: theme.spacing(3),
@@ -17,16 +18,19 @@ const useStyles = makeStyles((theme) => ({
       backgroundRepeat: 'no-repeat',
       backgroundSize: '560px auto',
       backgroundPosition: '110% bottom',
-      paddingBottom: theme.spacing(9),
+      paddingBottom: theme.spacing(36),
     },
 
-    [theme.breakpoints.up('lg')]: {
+    [theme.breakpoints.up('md')]: {
+      fontSize: theme.typography.subtitle1.fontSize,
       paddingBottom: theme.spacing(4),
     },
 
+    [theme.breakpoints.up('lg')]: {},
+
     [theme.breakpoints.up('xl')]: {
       backgroundSize: '560px auto',
-      backgroundPosition: '85% bottom',
+      backgroundPosition: '82% bottom',
     },
   },
 
@@ -41,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
       color: theme.palette.secondary.dark,
 
       [theme.breakpoints.up('md')]: {
-        fontSize: theme.typography.h2.fontSize,
+        fontSize: theme.typography.h1.fontSize,
       },
     },
 
@@ -49,13 +53,18 @@ const useStyles = makeStyles((theme) => ({
       color: theme.palette.secondary.dark,
     },
 
-    [theme.breakpoints.up('sm')]: {
+    [theme.breakpoints.up('md')]: {
       maxWidth: '620px',
     },
 
     [theme.breakpoints.up('md')]: {
-      maxWidth: '740px',
+      maxWidth: '780px',
     },
+  },
+
+  cta: {
+    margin: theme.spacing(2, 2, 0, 0),
+    fontSize: theme.typography.body2.fontSize,
   },
 }))
 
@@ -65,6 +74,25 @@ const MainStage = ({ children }) => {
     <section className={classes.root}>
       <Container>
         <div className={classes.content}>{children}</div>
+        <Button
+          variant="contained"
+          size="large"
+          color="secondary"
+          className={classes.cta}
+          disableElevation
+          href="/statistiken"
+        >
+          Datenportal
+        </Button>
+        <Button
+          variant="outlined"
+          size="large"
+          color="secondary"
+          className={classes.cta}
+          href="/statistik-erklaert"
+        >
+          Statistik erklärt
+        </Button>
       </Container>
     </section>
   )
