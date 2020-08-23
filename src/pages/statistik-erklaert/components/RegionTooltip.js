@@ -86,11 +86,14 @@ export default function RegionTooltip({ title, lonLat }) {
         </div>
         <ul className={classes.facts}>
           <li>238 Einwohner je km²</li>
-          <li>42,18 km² Fläche</li>
+          <li>Altersschnitt: 38,7 Jahre</li>
         </ul>
-        <a className={classes.link} href="/region/lippe">
+        <a
+          className={classes.link}
+          href="statistiken?region=05766&&labels=id&time=&layout=long"
+        >
           <OpenNewIcon className={classes.icon} />
-          Alle Daten zu Augustdorf
+          Alle Daten zum Kreis Lippe
         </a>
       </div>
     </MapTooltip>
