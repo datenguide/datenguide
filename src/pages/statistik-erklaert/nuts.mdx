@@ -210,10 +210,10 @@ Saarland und Thüringen.
 <Grid container direction="row" justify="center" spacing={2}>
   <Grid item xs={12} sm={6}>
     <SimpleMap
-      latitude={50.41058}
+      latitude={51.41058}
       longitude={10.55145}
       src="/geo/bundeslaender.json"
-      zoom={6}
+      zoom={4.3}
       width="100%"
       height="400px"
     />
@@ -221,9 +221,10 @@ Saarland und Thüringen.
   </Grid>
   <Grid item xs={12} sm={6}>
     <SimpleMap
-      latitude={50.41058}
+      latitude={51.41058}
       longitude={10.55145}
       src="/geo/nuts_2.json"
+      zoom={4.3}
       width="100%"
       height="400px"
     />
@@ -240,6 +241,7 @@ Ein Sonderfall ist Berlin. Die Hauptstadt ist in zwölf Bezirke aufgeteilt, die 
     <SimpleMap
       latitude={52.5192}
       longitude={13.3993}
+      zoom={8.5}
       src="/geo/berlin_bezirke.json"
       width="100%"
       height="400px"
