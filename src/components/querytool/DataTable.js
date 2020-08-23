@@ -83,6 +83,12 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(3),
     marginLeft: theme.spacing(2),
   },
+  apiHeading: {
+    marginBottom: theme.spacing(3),
+  },
+  apiUrl: {
+    margin: theme.spacing(2, 0),
+  },
   exportButton: {
     marginTop: '0.3rem',
     height: '3rem',
@@ -121,6 +127,10 @@ const DataTable = ({
   }
   const handleChangeRowsPerPage = (value) => {
     setRowsPerPage(value.target.value)
+  }
+
+  const getTabularApiUrl = () => {
+    return `https://tabular.genesapi.org?${querystring.stringify(router.query)}`
   }
 
   useEffect(() => {
@@ -269,9 +279,15 @@ const DataTable = ({
         )}
         {tabValue === 1 && measures && (
           <div className={classes.apiTab}>
-            <Typography variant="h5">
-              GraphQL Abfrage zu aktueller Statistik:
+            <Typography variant="h4" className={classes.apiHeading}>
+              Mit der Datenguide API kannst du direkt auf die Daten der
+              aktuellen Statistik zugreifen:
             </Typography>
+            <Typography variant="h5">REST</Typography>
+            <div className={classes.apiUrl}>
+              <a href={getTabularApiUrl()}>{getTabularApiUrl()}</a>
+            </div>
+            <Typography variant="h5">GraphQL</Typography>
             <Highlight className="graphql">{graphqlQuery}</Highlight>
             <Button
               color="secondary"
