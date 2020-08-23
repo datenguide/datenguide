@@ -190,8 +190,14 @@ const DataTable = ({
     setTabValue(newValue)
   }
 
-  const rows = (data && data.data) || []
-  const count = (data && data.pagination && data.pagination.total) || 0
+  const count = (data && data.data && data.data.length) || 0
+
+  // TODO implement proper server-side pagination
+  const currentPageRowData =
+    (data &&
+      data.data &&
+      data.data.slice(page * rowsPerPage, (page + 1) * rowsPerPage)) ||
+    []
 
   return (
     <div className={classes.root}>
@@ -246,7 +252,7 @@ const DataTable = ({
                   </TableHead>
                   <TableBody className={classes.tableBody}>
                     {!error &&
-                      rows.map((row, index) => {
+                      currentPageRowData.map((row, index) => {
                         return (
                           <TableRow key={index}>
                             {columnDefs.map((def) => (

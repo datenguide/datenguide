@@ -139,10 +139,10 @@ const Detail = ({
     >
       <main className={classes.content}>
         <Alert severity="warning" className={classes.disclaimer}>
-          Das Datenguide Datenportal steht als Beta-Version zur Verfügung. Wir
-          übernehmen keine Gewähr für die Richtigkeit und Vollständigkeit der
-          abgerufenen Daten. Vor Veröffentlichung bitte mit regionalstatistik.de
-          abgleichen.
+          Das Datenguide Datenportal steht als Vorschau-Version zur Verfügung.
+          Wir übernehmen keine Gewähr für die Richtigkeit und Vollständigkeit
+          der abgerufenen Daten. Vor Veröffentlichung bitte mit
+          regionalstatistik.de abgleichen.
           <br />
           <br />
           Bei Bugs und Abstürzen schreibt bitte eine E-Mail an&nbsp;
