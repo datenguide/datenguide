@@ -5,6 +5,8 @@ import { makeStyles } from '@material-ui/core/styles'
 import Snackbar from '@material-ui/core/Snackbar'
 import Paper from '@material-ui/core/Paper'
 import HelpIcon from '@material-ui/icons/Help'
+import Alert from '@material-ui/lab/Alert'
+import Button from '@material-ui/core/Button'
 
 import DataTable from '../../components/querytool/DataTable'
 import QueryParameterSidebar from '../../components/querytool/QueryParameterSidebar'
@@ -15,8 +17,6 @@ import RegionSearchParameterCard from '../../components/querytool/RegionSearchPa
 import MeasureSearchParameterCard from '../../components/querytool/MeasureSearchParameterCard'
 import RegionEmptyState from '../../components/querytool/RegionEmptyState'
 import MeasureEmptyState from '../../components/querytool/MeasureEmptyState'
-import Alert from '@material-ui/lab/Alert'
-import Button from '@material-ui/core/Button'
 
 const useStyles = makeStyles((theme) => ({
   content: {
@@ -245,14 +245,8 @@ export async function getServerSideProps({ query }) {
     query
   )
 
-  // TODO fix server-side data fetching?
-  // const { origin } = absoluteUrl(req)
-  // const fetchStatistics = await fetch(`${origin}/api/statistics`)
-  // const statistics = await fetchStatistics.json()
-
   return {
     props: {
-      // statistics: statistics,
       initialMeasures: measures.map((m) => ({
         ...m,
         dimensions: m.dimensions !== undefined ? m.dimensions : null, // undefined not allowed here TODO avoid earlier
