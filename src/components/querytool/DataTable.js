@@ -216,123 +216,114 @@ const DataTable = ({
 
   return (
     <div className={classes.root}>
-      {currentPageRowData && currentPageRowData.length > 0 && !loading && (
+      {((currentPageRowData && currentPageRowData.length > 0) || error) && (
         <Paper className={classes.paper} elevation={1}>
-          {error && (
-            <div className={classes.error}>
-              <Alert className={classes.alert} severity="error">
-                <AlertTitle>{ERROR_MESSAGE}</AlertTitle>
-                {error}
-              </Alert>
-            </div>
-          )}
-          {!error && (
-            <div>
-              <>
-                <Tabs
-                  value={tabValue}
-                  indicatorColor="primary"
-                  textColor="primary"
-                  onChange={handleTabChange}
-                >
-                  <Tab label="Tabelle" />
-                  <Tab label="API" />
-                </Tabs>
-              </>
+          <>
+            <Tabs
+              value={tabValue}
+              indicatorColor="primary"
+              textColor="primary"
+              onChange={handleTabChange}
+            >
+              <Tab label="Tabelle" />
+              <Tab label="API" />
+            </Tabs>
+          </>
+          {tabValue === 0 && (
+            <>
+              <div className={classes.loadingIndicator}>
+                {loading && <LinearProgress variant="query" />}
+              </div>
+              <div className={classes.tableSection}>
+                <DataTableToolbar
+                  measures={measures}
+                  regions={regions}
+                  labels={labels}
+                  layout={layout}
+                  dispatch={dispatch}
+                  actions={actions}
+                  queryArgs={queryArgs}
+                  filename={getDownloadFilename()}
+                />
+                {error && (
+                  <div className={classes.error}>
+                    <Alert className={classes.alert} severity="error">
+                      <AlertTitle>{ERROR_MESSAGE}</AlertTitle>
+                      {error}
+                    </Alert>
+                  </div>
+                )}
 
-              {tabValue === 0 && (
-                <>
-                  <div className={classes.loadingIndicator}>
-                    {loading && <LinearProgress variant="query" />}
-                  </div>
-                  <div className={classes.tableSection}>
-                    <DataTableToolbar
-                      measures={measures}
-                      regions={regions}
-                      labels={labels}
-                      layout={layout}
-                      dispatch={dispatch}
-                      actions={actions}
-                      queryArgs={queryArgs}
-                      filename={getDownloadFilename()}
-                    />
-
-                    <div className={classes.tableWrapper}>
-                      <Table
-                        className={classes.table}
-                        size="small"
-                        stickyHeader
-                      >
-                        <TableHead>
-                          <TableRow>
-                            {columnDefs.map((def) => (
-                              <TableCell
-                                className={classes.tableTitle}
-                                key={def.headerName}
-                              >
-                                {def.headerName}
-                              </TableCell>
-                            ))}
-                          </TableRow>
-                        </TableHead>
-                        <TableBody className={classes.tableBody}>
-                          {!error &&
-                            currentPageRowData.map((row, index) => {
-                              return (
-                                <TableRow key={index}>
-                                  {columnDefs.map((def) => (
-                                    <TableCell
-                                      key={def.field}
-                                      className={classes.cell}
-                                    >
-                                      {row[def.field]}
-                                    </TableCell>
-                                  ))}
-                                </TableRow>
-                              )
-                            })}
-                        </TableBody>
-                        <TableFooter>
-                          <TableRow>
-                            <DataTablePagination
-                              rowsPerPage={rowsPerPage}
-                              page={page}
-                              count={count}
-                              onChangePage={handleChangePage}
-                              onChangeRowsPerPage={handleChangeRowsPerPage}
-                            />
-                          </TableRow>
-                        </TableFooter>
-                      </Table>
-                    </div>
-                  </div>
-                </>
-              )}
-              {tabValue === 1 && measures && (
-                <div className={classes.apiTab}>
-                  <Typography variant="h4" className={classes.apiHeading}>
-                    Mit der Datenguide API kannst du direkt auf die Daten der
-                    aktuellen Statistik zugreifen:
-                  </Typography>
-                  <Typography variant="h5">REST</Typography>
-                  <div className={classes.apiUrl}>
-                    <a href={getTabularApiUrl()}>{getTabularApiUrl()}</a>
-                  </div>
-                  <Typography variant="h5">GraphQL</Typography>
-                  <Highlight className="graphql">{graphqlQuery}</Highlight>
-                  <Button
-                    color="secondary"
-                    className={classes.exportButton}
-                    target="_blank"
-                    href={`http://api.datengui.de/graphql?query=${encodeURI(
-                      graphqlQuery
-                    )}`}
-                    startIcon={<CallMadeIcon />}
-                  >
-                    GraphQL Playground öffnen
-                  </Button>
+                <div className={classes.tableWrapper}>
+                  <Table className={classes.table} size="small" stickyHeader>
+                    <TableHead>
+                      <TableRow>
+                        {columnDefs.map((def) => (
+                          <TableCell
+                            className={classes.tableTitle}
+                            key={def.headerName}
+                          >
+                            {def.headerName}
+                          </TableCell>
+                        ))}
+                      </TableRow>
+                    </TableHead>
+                    <TableBody className={classes.tableBody}>
+                      {!error &&
+                        currentPageRowData.map((row, index) => {
+                          return (
+                            <TableRow key={index}>
+                              {columnDefs.map((def) => (
+                                <TableCell
+                                  key={def.field}
+                                  className={classes.cell}
+                                >
+                                  {row[def.field]}
+                                </TableCell>
+                              ))}
+                            </TableRow>
+                          )
+                        })}
+                    </TableBody>
+                    <TableFooter>
+                      <TableRow>
+                        <DataTablePagination
+                          rowsPerPage={rowsPerPage}
+                          page={page}
+                          count={count}
+                          onChangePage={handleChangePage}
+                          onChangeRowsPerPage={handleChangeRowsPerPage}
+                        />
+                      </TableRow>
+                    </TableFooter>
+                  </Table>
                 </div>
-              )}
+              </div>
+            </>
+          )}
+          {tabValue === 1 && measures && (
+            <div className={classes.apiTab}>
+              <Typography variant="h4" className={classes.apiHeading}>
+                Mit der Datenguide API kannst du direkt auf die Daten der
+                aktuellen Statistik zugreifen:
+              </Typography>
+              <Typography variant="h5">REST</Typography>
+              <div className={classes.apiUrl}>
+                <a href={getTabularApiUrl()}>{getTabularApiUrl()}</a>
+              </div>
+              <Typography variant="h5">GraphQL</Typography>
+              <Highlight className="graphql">{graphqlQuery}</Highlight>
+              <Button
+                color="secondary"
+                className={classes.exportButton}
+                target="_blank"
+                href={`http://api.datengui.de/graphql?query=${encodeURI(
+                  graphqlQuery
+                )}`}
+                startIcon={<CallMadeIcon />}
+              >
+                GraphQL Playground öffnen
+              </Button>
             </div>
           )}
         </Paper>
