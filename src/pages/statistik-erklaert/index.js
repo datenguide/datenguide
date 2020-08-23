@@ -11,13 +11,27 @@ import traverseDirectory from '../../lib/traverseDirectory'
 import Funders from '../../components/Funders'
 
 const useStyles = makeStyles((theme) => ({
+  root: {
+    background: theme.palette.grey[100],
+  },
+
   title: {
     ...theme.typography.h1,
-    margin: theme.spacing(10, 0, 6, 0),
+    margin: theme.spacing(10, 0, 0, 0),
+    color: theme.palette.secondary.main,
+  },
+
+  subtitle: {
+    ...theme.typography.subtitle1,
+    margin: theme.spacing(2, 0, 6, 0),
+
+    [theme.breakpoints.up('md')]: {
+      width: '70%',
+    },
   },
 
   container: {
-    marginBottom: theme.spacing(4),
+    marginBottom: theme.spacing(7),
   },
 }))
 
@@ -27,24 +41,33 @@ const Blog = ({ meta, blogPosts = [] }) => {
   const [primaryFeature, secondaryFeature, ...posts] = blogPosts
   return (
     <DefaultLayout meta={meta}>
-      <Container>
-        <h1 className={classes.title}>Statistik erklärt</h1>
-        <Grid className={classes.container} container spacing={3}>
-          <Grid item xs={8}>
-            <BlogPostFeaturedItem {...primaryFeature} />
-          </Grid>
-          <Grid item xs={4}>
-            <BlogPostFeaturedItem
-              {...secondaryFeature}
-              background={theme.palette.info.main}
-            />
-          </Grid>
-          {posts.map((post) => (
-            <Grid key={post.href} item xs={4}>
-              <BlogPostFeaturedItem {...post} />
+      <div className={classes.root}>
+        <Container>
+          <h1 className={classes.title}>Statistik erklärt</h1>
+          <p className={classes.subtitle}>
+            Wir erklären Hintergründe amtlicher Statistik so, dass mehr Menschen
+            sich trauen, damit zu arbeiten.
+          </p>
+          <Grid className={classes.container} container spacing={3}>
+            <Grid item xs={12} md={8}>
+              <BlogPostFeaturedItem {...primaryFeature} />
             </Grid>
-          ))}
-        </Grid>
+            <Grid item xs={12} md={4}>
+              <BlogPostFeaturedItem
+                {...secondaryFeature}
+                background={theme.palette.info.main}
+              />
+            </Grid>
+            {posts.map((post) => (
+              <Grid key={post.href} item xs={12} md={4}>
+                <BlogPostFeaturedItem {...post} />
+              </Grid>
+            ))}
+          </Grid>
+        </Container>
+      </div>
+
+      <Container>
         <Funders />
       </Container>
     </DefaultLayout>
