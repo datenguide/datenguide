@@ -12,71 +12,6 @@ intro:
   - title: Data Literacy
     text: Wir bauen Wissen über die amtliche Statistik auf und geben es weiter. Wir organisieren Workshops und Hackathons bei denen wir gemeinsam mit statistischen Daten arbeiten.
     slug: literacy
-events:
-  upcoming:
-    - title: Open Knowledge Lab Berlin
-      date: 9. März 2020
-      url: https://www.meetup.com/de-DE/OK-Lab-Berlin/events/cnrqbqybcfbmb/
-      attachments:
-        - type: Anmeldung
-          url: https://www.meetup.com/de-DE/OK-Lab-Berlin/events/cnrqbqybcfbmb/
-  past:
-    - title: CorrelAid Meetup
-      date: 29. November 2019
-      url: https://correlaid.org/meetup/
-      attachments:
-        - type: Slides
-          url: https://downloads.datengui.de/slides/correlaid2019.pdf
-    - title: Berlin Open Data Day
-      date: 5. November 2019
-      url: https://app.mateforevents.com/r/boddy19
-      attachments:
-        - type: Slides
-          url: https://downloads.datengui.de/slides/boddy19.pdf
-    - title: SciCAR
-      date: 9. September 2019
-      url: https://sched.co/SZWi
-      attachments:
-        - type: Slides
-          url: https://docs.google.com/presentation/d/10s1H0iyYy7cGOyaI9jXfANGV3__0mkroz9Ot1MZgD9c/edit
-        - type: Code-Beispiele
-          url: https://mybinder.org/v2/gh/P3nny/datenguide_scicar/master
-    - title: Netzwerk Recherche Jahreskonferenz
-      date: 15. Juni 2019
-      url: https://sched.co/Lx3p
-      attachments:
-        - type: Slides
-          url: https://downloads.datengui.de/slides/nr19.pdf
-    - title: Wahlsalon
-      date: 6. April 2019
-      url: https://blog.datengui.de/wahlsalon/
-      attachments:
-        - type: Slides
-          url: https://downloads.datengui.de/slides/wahlsalon2019.pdf
-        - type: Blog-Post
-          url: https://blog.datengui.de/posts/2019/wahlsalon/
-    - title: 35c3 / Chaos Communication Congress
-      date: 30. Dezember 2018
-      url: https://media.ccc.de/v/35c3-32-datenguide-projektvorstellung-workshop
-      attachments:
-        - type: Slides (de)
-          url: https://downloads.datengui.de/slides/35c3.pdf
-        - type: Slides (en)
-          url: https://downloads.datengui.de/slides/35c3-chaoszone.pdf
-        - type: Video
-          url: https://media.ccc.de/v/35c3-32-datenguide-projektvorstellung-workshop
-    - title: OpenNews Unconference
-      date: 25. Oktober 2018
-      url: https://opennews.org/what/conferences/mozfest/
-      attachments:
-        - type: Notizen
-          url: https://etherpad.opennews.org/p/opendata
-    - title: re:publica
-      date: 4. März 2018
-      url: https://18.re-publica.com/de/session/statistik-alle-wir-hacken-statistische-bundesamt
-      attachments:
-        - type: Slides
-          url: https://downloads.datengui.de/slides/rp18.pdf
 tools:
   - slug: graphql
     title: GraphQL API
@@ -104,11 +39,9 @@ tools:
     url: https://github.com/CorrelAid/datenguide-python
 ---
 
-import ResponsiveEmbed from 'react-responsive-embed'
 import MainStage from '../components/MainStage'
 import Subscribe from '../components/Subscribe'
 import Intro from '../components/Intro'
-import Events from '../components/Events'
 import Tools from '../components/Tools'
 import { frontMatter } from './index.mdx'
 
@@ -131,27 +64,6 @@ Die **Statistischen Ämter** Deutschlands sammeln kontinuierlich Daten und erste
 Unser neues **[Datenportal](/statistiken)** steht in einer Beta-Version zur Verfügung. Profis können auch direkt auf unsere experimentelle **[Datenschnittstelle](https://github.com/datenguide/genesapi-tabular)** zugreifen.
 
 </Intro>
-
-<Events dates={frontMatter.events}>
-
-## Datenguide beim 35C3
-
-Patricia und Simon präsentieren den Datenguide beim 35. Chaos Communication Congress. Hier erfahrt ihr alles über das Projekt und die Hintergründe. Von A wie Amtliche Statistik bis Z wie Zensus.
-
-<ResponsiveEmbed
-  src="https://media.ccc.de/v/35c3-32-datenguide-projektvorstellung-workshop/oembed"
-  allowFullScreen
-/>
-
-<small>
-
-Video: [Talk in der Wikipaka WG, 35C3](https://media.ccc.de/c/35c3-wikipakawg) von [media.ccc.de](https://media.ccc.de).
-
-Foto: [Workshop bei der OpenNews Unconference](https://www.flickr.com/photos/mozfest/30709616947/in/album-72157702889161984/) von [Erik Westra](https://www.westraco.com/) (bearbeitet). Original unter [CC BY-NC 2.0](https://creativecommons.org/licenses/by-nc/2.0/).
-
-</small>
-
-</Events>
 
 <Tools features={frontMatter.tools}>
 
