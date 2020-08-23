@@ -16,9 +16,10 @@ authors:
 
 import Grid from '@material-ui/core/Grid'
 import Container from '@material-ui/core/Container'
-import { BodyText } from '../../components/BodyText'
+import { BodyText, BodyTextAside } from '../../components/BodyText'
 import BlogHeader from '../../components/BlogHeader'
 import DatawrapperChart from '../../components/DatawrapperChart'
+import ArrowLink from '../../components/ArrowLink'
 import SimpleMap from './components/SimpleMap'
 import ScrollyMap from './components/ScrollyMap'
 import ScrollyMapStep from './components/ScrollyMapStep'
@@ -132,33 +133,33 @@ NUTS steht für "Nomenclatur of Territorial Units for Statistics". (Einteilung v
 ## Unterschiede und Sonderfälle
 
 Trotz des Ziels auf einer NUTS-Ebene Regionen vergleichbarer Größe zu schaffen, können sich diese deutlich in Bezug auf ihre Fläche, Bevölkerungszahl und ihrer wirtschaftlichen oder verwaltungstechnischen Bedeutung unterscheiden.
-So hat Nordrhein-Westfalen 17.364.000 Einwohner:innen aufgeteilt in 396 politisch selbstständige Gemeinden, 53 Landkreise und kreisfreie Städte und 5 Regierungsbezirke. Im Vergleich dazu hat Mecklenburg-Vorpommern nur 1.609.675 Einwohner:innen in 726 politisch selbstständigen Gemeinden. Es gibt dort aber nur 8 Landkreise und Kreisfreie Städte und keine Regierungsbezirke.
 
 // NRW und MV im Vergleich als small multiples - Nuts 3 und LAU nebeneinander ?
 
-### Regierungsbezirke (NUTS-2) nur in vier Bundesländern
+<BodyTextAside>
 
-NRW, Baden-Württemberg, Bayern und Hessen sind in Regierungsbezirke (NUTS-2) eingeteilt. In Rheinland-Pfalz, Niedersachsen und Sachen wurden diese Regierungsbezirke aufgelöst. 9 weitere Länder sind gleichzeitig NUTS-1- und NUTS-2-Regionen: Die „Stadtstaaten“ Berlin, Hamburg und Bremen, sowie die „Flächenländer“ Brandenburg, Mecklenburg-Vorpommern, Schleswig-Holstein, Sachsen-Anhalt, Saarland und Thüringen.
+#### Nordrhein-Westfalen und Mecklenburg-Vorpommern im Vergleich
 
-// Deutschlandkarte - Nuts 1 und Nuts 2 nebeneinander
+Nordrhein-Westfalen 17.364.000 Einwohner:innen aufgeteilt in 396 politisch
+selbstständige Gemeinden, 53 Landkreise und kreisfreie Städte und 5
+Regierungsbezirke. Im Vergleich dazu hat Mecklenburg-Vorpommern nur 1.609.675
+Einwohner:innen in 726 politisch selbstständigen Gemeinden. Es gibt dort aber
+nur 8 Landkreise und Kreisfreie Städte und keine Regierungsbezirke.
+
+</BodyTextAside>
 
 <Grid container direction="row" justify="center" spacing={2}>
   <Grid item xs={12} sm={6}>
     <SimpleMap
-      latitude={51.427}
-      longitude={7.664}
-      src="/geo/bundeslaender.json"
+      latitude={53.945}
+      longitude={12.451}
+      src="/geo/mvp_landkreise.json"
+      zoom={6}
       width="100%"
       height="400px"
     />
+    <small>Landkreise in Mecklenburg-Vorpommern</small>
   </Grid>
-
-## Berlin (anders als Bremen, Hamburg)
-
-Ein Sonderfall ist Berlin. Die Hauptstadt ist in zwölf Bezirke aufgeteilt, die zwischen 250.000 und 400.000 Einwohner haben und Landkreisen entsprechen.
-
-Solche Informationen über die regionale Einteilung können auch am amtlichen Gemeindeschlüssel (AGS) abgelesen werden. Lerne den amtlichen Gemeindeschlüssel für deine Stadt zu lesen mit unserem [Tool](/statistik-erklaert/nuts)!
-
   <Grid item xs={12} sm={6}>
     <SimpleMap
       latitude={51.427}
@@ -167,8 +168,42 @@ Solche Informationen über die regionale Einteilung können auch am amtlichen Ge
       width="100%"
       height="400px"
     />
+    <small>Landkreise in Nordrhein-Westfalen</small>
+  </Grid>
+  <Grid item xs={12} sm={6}>
+    <SimpleMap
+      latitude={53.945}
+      longitude={12.451}
+      src="/geo/mvp_gemeinden.json"
+      zoom={6}
+      width="100%"
+      height="400px"
+    />
+    <small>Gemeinden in Mecklenburg-Vorpommern</small>
+  </Grid>
+  <Grid item xs={12} sm={6}>
+    <SimpleMap
+      latitude={51.427}
+      longitude={7.664}
+      src="/geo/nrw_gemeinden.json"
+      width="100%"
+      height="400px"
+    />
+    <small>Gemeinden in Nordrhein-Westfalen</small>
   </Grid>
 </Grid>
+
+### Regierungsbezirke (NUTS-2) nur in vier Bundesländern
+
+NRW, Baden-Württemberg, Bayern und Hessen sind in Regierungsbezirke (NUTS-2) eingeteilt. In Rheinland-Pfalz, Niedersachsen und Sachen wurden diese Regierungsbezirke aufgelöst. 9 weitere Länder sind gleichzeitig NUTS-1- und NUTS-2-Regionen: Die „Stadtstaaten“ Berlin, Hamburg und Bremen, sowie die „Flächenländer“ Brandenburg, Mecklenburg-Vorpommern, Schleswig-Holstein, Sachsen-Anhalt, Saarland und Thüringen.
+
+// Deutschlandkarte - Nuts 1 und Nuts 2 nebeneinander
+
+## Berlin (anders als Bremen, Hamburg)
+
+Ein Sonderfall ist Berlin. Die Hauptstadt ist in zwölf Bezirke aufgeteilt, die zwischen 250.000 und 400.000 Einwohner haben und Landkreisen entsprechen.
+
+Solche Informationen über die regionale Einteilung können auch am amtlichen Gemeindeschlüssel (AGS) abgelesen werden. Lerne den amtlichen Gemeindeschlüssel für deine Stadt zu lesen mit unserem [Tool](/statistik-erklaert/ags)!
 
 <Grid container direction="row" justify="center" spacing={2}>
   <Grid item xs={12} sm={6}>
@@ -184,6 +219,12 @@ Solche Informationen über die regionale Einteilung können auch am amtlichen Ge
     <SimpleMap src="/geo/bundeslaender.json" width="100%" height="400px" />
   </Grid>
 </Grid>
+
+### Zum Weiterlesen:
+
+<ArrowLink href="/statistik-erklaert/ags">
+  So funktioniert der Amtliche Gemeindeschlüssel
+</ArrowLink>
 
 ### Credits
 
