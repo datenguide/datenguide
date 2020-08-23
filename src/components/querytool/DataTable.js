@@ -204,6 +204,16 @@ const DataTable = ({
       data.data.slice(page * rowsPerPage, (page + 1) * rowsPerPage)) ||
     []
 
+  const getDownloadFilename = () =>
+    `${measures
+      .map((m) => m.statisticTitleDe)
+      .join('-')
+      .replace(/\s/g, '-')}-${regions
+      .map((r) => r.name)
+      .join('-')
+      .replace(/\s/g, '-')
+      .replace(/,/g, '')}`
+
   return (
     <div className={classes.root}>
       {currentPageRowData && currentPageRowData.length > 0 && !loading && (
@@ -244,6 +254,7 @@ const DataTable = ({
                       dispatch={dispatch}
                       actions={actions}
                       queryArgs={queryArgs}
+                      filename={getDownloadFilename()}
                     />
 
                     <div className={classes.tableWrapper}>

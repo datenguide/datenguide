@@ -17,7 +17,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const DataTableToolbar = ({ labels, layout, dispatch, actions, queryArgs }) => {
+const DataTableToolbar = ({
+  labels,
+  layout,
+  dispatch,
+  actions,
+  queryArgs,
+  filename,
+}) => {
   const classes = useStyles()
 
   const labelOptions = [
@@ -103,6 +110,7 @@ const DataTableToolbar = ({ labels, layout, dispatch, actions, queryArgs }) => {
         label="Download"
         icon={<SaveAltIcon />}
         queryArgs={queryArgs}
+        filename={filename}
       />
     </Toolbar>
   )

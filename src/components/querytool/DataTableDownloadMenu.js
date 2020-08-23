@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const DataTableDownloadMenu = ({ label, icon, queryArgs }) => {
+const DataTableDownloadMenu = ({ label, icon, queryArgs, filename }) => {
   const classes = useStyles()
 
   const [anchorEl, setAnchorEl] = useState(null)
@@ -87,7 +87,7 @@ const DataTableDownloadMenu = ({ label, icon, queryArgs }) => {
           ref={downloadLinkRef}
           target="_blank"
           href={data}
-          download={`datenguide-export.${type}`}
+          download={`datenguide-export-${filename}.${type}`}
           rel="noopener noreferrer"
           style={{
             height: 0,
