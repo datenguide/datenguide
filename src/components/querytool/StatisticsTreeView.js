@@ -69,7 +69,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   chip: {
-    marginRight: '2px',
+    marginRight: '4px',
     fontWeight: 'normal',
     fontSize: '12px',
   },
@@ -138,12 +138,7 @@ const StatisticsTreeView = ({ nodes, onSelect }) => {
         <span
           className={clsx(classes.itemTitle, { [classes.boldTitle]: bold })}
         >
-          <Chip
-            size="small"
-            label={id}
-            className={classes.chip}
-            color={bold ? 'secondary' : 'grey'}
-          />
+          <Chip size="small" label={id} className={classes.chip} color="grey" />
           <Highlighter searchWords={[searchValue]} textToHighlight={title} />
         </span>
       </div>

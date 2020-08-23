@@ -76,7 +76,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   chip: {
-    marginRight: '2px',
+    marginRight: '4px',
     fontWeight: 'normal',
     fontSize: '12px',
   },
@@ -152,12 +152,7 @@ const RegionsTreeView = ({ nodes, onSelect }) => {
     return (
       <div className={classes.itemLabel}>
         <div className={classes.itemTitle}>
-          <Chip
-            size="small"
-            label={id}
-            className={classes.chip}
-            color="secondary"
-          />
+          <Chip size="small" label={id} className={classes.chip} color="grey" />
           <Highlighter searchWords={[searchValue]} textToHighlight={title} />
         </div>
         <Tooltip title="Zur Abfrage hinzufügen">
