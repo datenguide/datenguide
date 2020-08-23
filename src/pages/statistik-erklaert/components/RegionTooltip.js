@@ -90,7 +90,7 @@ export default function RegionTooltip({ title, lonLat }) {
         </ul>
         <a
           className={classes.link}
-          href="preview.datengui.de/statistiken?region=all&parent=05766&level=4&data=12411%3ABEV519&labels=id&time=&layout=long"
+          href="/statistiken?region=all&parent=05766&level=4&data=12411%3ABEV519&labels=id&time=&layout=long"
         >
           <OpenNewIcon className={classes.icon} />
           Alle Daten zum Kreis Lippe
