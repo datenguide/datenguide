@@ -204,7 +204,6 @@ const Detail = ({
             ))}
           </Paper>
         </div>
-        <h4 className={classes.sectionTitle}>Daten</h4>
         <div className={classes.datasection}>
           <DataTable
             regions={regions}
