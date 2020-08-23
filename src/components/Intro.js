@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: theme.spacing(6),
 
     [theme.breakpoints.up('md')]: {
-      paddingRight: theme.spacing(6),
+      paddingRight: theme.spacing(9),
     },
 
     [theme.breakpoints.up('lg')]: {
@@ -58,8 +58,9 @@ const useStyles = makeStyles((theme) => ({
     '& li': {
       position: 'relative',
       backgroundRepeat: 'no-repeat',
-      backgroundSize: 'auto 7em',
-      paddingLeft: '8em',
+      backgroundPosition: '0 22px',
+      backgroundSize: 'auto 95px',
+      paddingLeft: '105px',
       paddingBottom: theme.spacing(4),
       fontSize: theme.typography.body2.fontSize,
     },

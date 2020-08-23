@@ -17,20 +17,19 @@ const useStyles = makeStyles((theme) => ({
       backgroundImage: `url(${background})`,
       backgroundRepeat: 'no-repeat',
       backgroundSize: '560px auto',
-      backgroundPosition: '110% bottom',
-      paddingBottom: theme.spacing(36),
+      backgroundPosition: '100% bottom',
+      paddingBottom: theme.spacing(38),
     },
 
     [theme.breakpoints.up('md')]: {
       fontSize: theme.typography.subtitle1.fontSize,
       paddingBottom: theme.spacing(4),
+      backgroundPosition: '105% bottom',
     },
-
-    [theme.breakpoints.up('lg')]: {},
 
     [theme.breakpoints.up('xl')]: {
       backgroundSize: '560px auto',
-      backgroundPosition: '82% bottom',
+      backgroundPosition: '80% bottom',
     },
   },
 
