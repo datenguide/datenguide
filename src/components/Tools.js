@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
       },
 
       '& p': {
-        width: 'calc(50% - 2rem)',
+        width: 'calc(50% - 1.5rem)',
       },
     },
   },
