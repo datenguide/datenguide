@@ -46,7 +46,7 @@ const Blog = ({ meta, blogPosts = [] }) => {
           <h1 className={classes.title}>Statistik erklärt</h1>
           <p className={classes.subtitle}>
             Wir erklären Hintergründe amtlicher Statistik so, dass mehr Menschen
-            sich trauen, damit zu arbeiten.
+            sich trauen, damit zu arbeiten
           </p>
           <Grid className={classes.container} container spacing={3}>
             <Grid item xs={12} md={8}>
