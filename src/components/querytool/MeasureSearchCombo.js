@@ -70,6 +70,17 @@ const MeasureSearchCombo = ({ dimensions, combo, onFilterChange }) => {
     .mode('lch')
     .colors(dimensions.length)
 
+  const renderGesamtChip = () => (
+    <button
+      className={classes.chip}
+      style={{
+        backgroundColor: '#38a861',
+      }}
+    >
+      Gesamt (ohne Unterteilung)
+    </button>
+  )
+
   const renderChip = (dimensionName, withTitle = true) => {
     const dimensionIndex = findDimensionIndex(dimensionName)
     const label = withTitle ? dimensions[dimensionIndex].titleDe : dimensionName
@@ -122,7 +133,7 @@ const MeasureSearchCombo = ({ dimensions, combo, onFilterChange }) => {
   }
 
   if (combo.length === 0) {
-    return <div className={classes.emptyCombo}>Ohne Ausprägungen</div>
+    return <div className={classes.emptyCombo}>{renderGesamtChip()}</div>
   }
   const result = [renderChip(combo[0])]
   combo.slice(1).forEach((dimension) => {

@@ -97,7 +97,6 @@ const useStyles = makeStyles((theme) => ({
   },
   helptext: {
     paddingTop: theme.spacing(2),
-    paddingBottom: theme.spacing(1),
     fontSize: '14px',
     color: theme.palette.grey[600],
   },
@@ -158,7 +157,9 @@ const MeasureSearchParameterCard = ({
       />
       <CardActions disableSpacing className={classes.actions}>
         <div className={classes.actionWrapper}>
-          <div className={classes.helptext}>Wähle hier die Merkmale aus:</div>
+          <div className={classes.helptext}>
+            Wähle hier eine weitere Unterteilung der Daten aus:
+          </div>
           {inventory && (
             <MeasureSearchComboSelection
               statistic={statistic}
