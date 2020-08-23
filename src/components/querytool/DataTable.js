@@ -164,11 +164,15 @@ const DataTable = ({
       //   setError(ERROR_MESSAGE)
       // }
 
-      const result = await fetch(
-        `/api/tabular?${querystring.stringify(router.query)}`
-      )
-      const json = await result.json()
-      setData(json)
+      try {
+        const result = await fetch(
+          `/api/tabular?${querystring.stringify(router.query)}`
+        )
+        const json = await result.json()
+        setData(json)
+      } catch (e) {
+        setError((e && e.toString()) || 'API-Abfrage fehlgeschlagen.')
+      }
       setLoading(false)
     }
 
