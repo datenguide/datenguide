@@ -1,5 +1,5 @@
 ---
-title: 'Lerne die Tabellen des Grauens zu zähmen'
+title: 'In zwei Schritten zur ersten Visualisierung'
 description: 'Wir zeigen dir, wie man Daten aus der amtlichen Statistik auf eine Karte bringt'
 metaImage: '/images/explorable_explanations.jpg'
 previewImage: '/statistik-erklaert/nuts.png'
@@ -23,56 +23,95 @@ import DatawrapperChart from '../../components/DatawrapperChart.js'
 <Container maxWidth="lg">
   <BodyText>
 
-## Regionalstatistik visualisieren, aber wie?
+## Zähme die Tabellen des Grauens mit Datenguide
 
 Auf dem Weg zur ersten Datenvisualisierung liegen einige Hürden: Amtliche Daten müssen oft bearbeitet werden, damit du sie in Visualisierungstools wie zum Beispiel Datawrapper benutzen kannst. Wir zeigen dir, wie man Daten aus der amtlichen Statistik auf eine Karte bringt. Diese Technik kannst du auch für jede andere Visualisierung verwenden, in der verschiedene Regionen verglichen werden.
 
 Amtliche Daten können journalistischen Berichten mehr Tiefe geben. Statt Einzelfälle und Zitate aneinanderzureihen, bieten Daten die Möglichkeit, ein größeres Bild sichtbar zu machen.
 
-Auf dieser Karte ist zum Beispiel zu sehen, wie teuer Bauland in Nordrhein-Westfalen im Jahr 2018 war:
+<BodyTextAside>
 
-<DatawrapperChart
-  alt="Alt-Text"
-  title=""
-  src="https://datawrapper.dwcdn.net/IJwst/1/"
-/>
+#### Beispiel Bauland
 
-### Welche Schritte sind nötig, um zu dieser Karte zu kommen?
+Auf dieser interaktiven Karte ist zum Beispiel zu sehen, wie teuer Bauland in Nordrhein-Westfalen im Jahr 2018 war.
 
-### Passgenaue Daten mit Datenguide
+Baureifes Land in Düsseldorf wurde im Schnitt für rund 960 Euro pro qm verkauft. Im Märkischen Kreis kostete der Quadratmeter nur rund 48 Euro.
+
+</BodyTextAside>
+
+<Grid container direction="row" justify="left" spacing={2}>
+  <Grid item xs={12} sm={6}>
+    <DatawrapperChart
+      alt="Alt-Text"
+      title=""
+      src="https://datawrapper.dwcdn.net/IJwst/1/"
+    />
+  </Grid>
+</Grid>
+
+### Mit Datenguide in zwei Schritten zur Karte
 
 #### 1. Daten auswählen und herunterladen
 
 Für die Karte brauchst Du möglichst aktuelle Daten für alle 53 Landkreise in NRW.
 
+<BodyTextAside>
+
+#### So funktioniert das Datenportal
+
 - Wähle als Region 'Nordrhein-Westfalen'
-  ![Suche Region](./tables/d_01_region.png)
-
-* Wähle dann die regionale Tiefe Nuts-3 aus, das gibt Dir Daten für alle Landkreise und kreisfreien Städte in NRW. Wie die Einteilung dieser Gebiete in Deutschland funktioniert, erklären wir dir hier: [NUTS erklärt](https://preview.datengui.de/statistik-erklaert/nuts)
-
-![Auswahl regionale
-    Tiefe](./tables/d_02_nuts.png)
-
+- Wähle dann die regionale Tiefe Nuts-3 aus, das gibt Dir Daten für alle Landkreise und kreisfreien Städte in NRW. Wie die Einteilung dieser Gebiete in Deutschland funktioniert, erklären wir dir hier: [NUTS erklärt](https://preview.datengui.de/statistik-erklaert/nuts)
 - Gib 'Bau' in die Suche nach Wertmerkmalen ein. Nimm 'BAU004 - Durchschnittlicher Kaufwert je qm' und ändere die Auswahl der Merkmale auf 'Baulandverkäufe'.
-
-![Merkmal wählen](./tables/d_03_merkmal.png)
-
 - Wähle an der Tabelle das Jahr '2018' aus
-
-![Jahr wählen](./tables/d_04_jahr.png)
-
 - Lade die Daten herunter
 
-![Download](./tables/d_05_download.png)
+</BodyTextAside>
+
+Hier zeigen wir dir den Prozess in Bildern Schritt für Schritt:
+
+<Grid container direction="row" justify="center" spacing={2}>
+  <Grid item xs={12} sm={6}>
+    ![Suche Region](./tables/d_01.png)
+    <small>Region auswählen</small>
+  </Grid>
+  <Grid item xs={12} sm={6}>
+    ![Auswahl regionale Tiefe](./tables/d_02.png)
+    <small>Ebene festlegen</small>
+  </Grid>
+  <Grid item xs={12} sm={6}>
+    ![Merkmal suchen](./tables/d_02_01.png)
+    <small>Merkmal suchen</small>
+  </Grid>
+  <Grid item xs={12} sm={6}>
+    ![Merkmal wählen](./tables/d_03.png)
+    <small>Merkmal auswählen</small>
+  </Grid>
+  <Grid item xs={12} sm={6}>
+    ![Jahr wählen](./tables/d_04.png)
+    <small>Jahr wählen</small>
+  </Grid>
+  <Grid item xs={12} sm={6}>
+    ![Download](./tables/d_05.png)
+    <small>Herunterladen</small>
+  </Grid>
+</Grid>
 
 #### 2. Daten visualisieren
+
+Die Daten sind jetzt bereit, um in einem Visualisierungstool deiner Wahl dargestellt zu werden. Wir machen das am Beispiel Datawrapper.
+
+<BodyTextAside>
+
+#### Baue deine Karte
 
 - In Datawrapper wählst Du NRW Landkreise als neue Karte aus
 - fügst dann die Daten ein und wählst die entsprechenden Spalten aus (AGS und Wert). AGS steht für 'amtlicher Gemeindeschlüssel'. Datawrapper nutzt diese Gemeindekennziffer, um Daten und Gebiete eindeutig zuzuordnen. Hier findest Du eine interaktive Erklärung dazu: [AGS erklärt](preview.datenguide.de/statistik-erklaert/ags).
 - Danach kannst Du die Karte beschriften und deine Datenquelle angeben. Datenguide bietet dir dafür einen festen Api-Link. und die Karte und Tooltips, Legende etc. nach deinen Wünschen gestalten.
 - Am Schluss auf 'Veröffentlichen' klicken.
 
-![Import](./tables/07_datawrapper.png)
+</BodyTextAside>
+
+![Import](./tables/d_06.png)
 
 ### Deutlich mehr Zwischenschritte mit Regionalstatistik.de
 
@@ -82,17 +121,29 @@ Um zu zeigen, wie Datenguide die Schritte zur ersten Datenvisualisierung verbess
 
 Suche auf regionalstatistik.de nach ‘Bauland’ oder direkt nach der Nummer der Tabelle: 61511-01-03-4. Lade die Daten als .csv herunter.
 
-![Suchergebnis Themen](./tables/01_suche.png)
-![Download](./tables/01_download.png)
+<Grid container direction="row" justify="center" spacing={2}>
+  <Grid item xs={12} sm={6}>
+    ![Suchergebnis Themen](./tables/01_suche.png)
+  </Grid>
+  <Grid item xs={12} sm={6}>
+    ![Download](./tables/01_download.png)
+  </Grid>
+</Grid>
 
 #### 2. Kopf- und Fußzeilen löschen, Kopfzeile neu beschriften
 
 Importiere die .csv in der Tabellenkalkulation deiner Wahl (Excel, LibreOffice, GoogleSheets). Wir zeigen den Prozess am Beispiel von GoogleSheets.
-Achtung beim Import: Die .csv verwendet ‘;’ als Trennzeichen. Das musst du beim Import angeben. Lösche dann händisch die Zeilen über den Daten ( Header) und unter den Daten (Footer).
 
-![Import](./tables/02_Einstellungen_beim_Import.png)
+<BodyTextAside>
 
-Danach beschriftest Du die erste Zeile neu und legst sie als Kopfzeile fest.
+- Achtung beim Import: Die .csv verwendet ‘;’ als Trennzeichen. Das musst du
+  beim Import angeben.
+- Lösche dann händisch die Zeilen über den Daten ( Header)
+  und unter den Daten (Footer).
+- Danach beschriftest Du die erste Zeile neu und
+  legst sie als Kopfzeile fest.
+
+</BodyTextAside>
 
 ![Import](./tables/02_header.png)
 
@@ -106,14 +157,17 @@ Vor Dir siehst du eine recht verschachtelte Tabelle. Sie ist gut geeignet, um au
 #### 4. Datentypen bereinigen
 
 Um mit Zahlenwerten arbeiten zu können, müssen sie von der Tabellenkalkulation als ‘Nummer’ erkannt werden. Stelle dazu in Google Sheets die Verortung (locale) auf ‘Germany’ um.
-
-![Import](./tables/04_settings.png)
-
-Denn deutsche und amerikanische Schreibweise von Zahlen unterscheiden sich:
-
-![Import](./tables/04_number_format.png)
-
+Denn deutsche und amerikanische Schreibweise von Zahlen unterscheiden sich.
 Dann wählst du für die Spalten ‘Insgesamt’ und ‘baureifes Land’ als Nummernformat 0.00 aus. Dadurch bekommst Du Werte ohne Tausendertrennzeichen, mit zwei Stellen nach dem Komma, wie für Euro-Beträge üblich. (Das Format ist nicht für alle Verkaufsarten optimal, aber für den Kaufpreis pro qm gut geeignet.)
+
+<Grid container direction="row" justify="center" spacing={2}>
+  <Grid item xs={12} sm={6}>
+    ![Import](./tables/04_settings.png)
+  </Grid>
+  <Grid item xs={12} sm={6}>
+    ![Import](./tables/04_number_format.png)
+  </Grid>
+</Grid>
 
 ![Import](./tables/04_number.png)
 
@@ -130,9 +184,13 @@ Schaut man sich die Tabelle an, dann sieht man, dass unsere Tabelle noch nicht g
 Diese Form nennt man ‘long’. Solche langen Tabellen eignen sich, um viele Variablen auf engem Raum darzustellen.
 Die Karte im Datawrapper stellt jedoch nur zwei Dinge dar: Flächen (Orte) werden anhand eines Wertes (Kaufpreis je qm) eingefärbt. Deshalb müssen wir dafür sorgen, dass es für ‘Kaufpreis je qm’ eine eigene Spalte gibt.
 
-Dazu klickst Du unter ‘Data’ auf ‘Pivot Table’. Und wählst dann als Rows ‘Ort’ und ‘AGS’ aus, als Columns ‘Verkauf’ und als Values ‘baureifes Land’.
+<BodyTextAside>
 
-Die Daten werden entsprechend umsortiert:
+- Dazu klickst Du unter ‘Data’ auf ‘Pivot Table’.
+- Wählst dann als Rows ‘Ort’ und ‘AGS’ aus, als Columns ‘Verkauf’ und als Values ‘baureifes Land’.
+- Die Daten werden entsprechend umsortiert.
+
+</BodyTextAside>
 
 ![Import](./tables/06_pivot.png)
 
