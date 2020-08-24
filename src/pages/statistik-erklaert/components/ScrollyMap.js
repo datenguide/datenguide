@@ -115,9 +115,11 @@ const layerOptions = {
   ],
   municipalitiesHighlight: {
     filter: ['==', 'GEN', 'Augustdorf'],
+    type: 'line',
     paint: {
-      'fill-color': '#004443',
-      'fill-opacity': 0.8,
+      'line-color': '#ffffff',
+      'line-opacity': 1,
+      'line-width': 2,
     },
   },
 }
@@ -161,6 +163,7 @@ const styles = (theme) => ({
     color: 'white',
     lineHeight: 1.2,
     textShadow: '1px 1px 15px #4D7D7E',
+    textAlign: 'center',
 
     [theme.breakpoints.down('xs')]: {
       fontSize: 12,
@@ -180,16 +183,16 @@ const styles = (theme) => ({
 })
 
 const districts = [
-  { name: 'Regierungsbezirk\nDüsseldorf', lonLat: [6.6, 51.5], value: '44,5' },
-  { name: 'Regierungsbezirk\nKöln', lonLat: [6.65, 50.67], value: '43,5' },
-  { name: 'Regierungsbezirk\nMünster', lonLat: [7.45, 52.04], value: '43,9' },
-  { name: 'Regierungsbezirk\nDetmold', lonLat: [8.77, 51.92], value: '43,8' },
-  { name: 'Regierungsbezirk\nArnsberg', lonLat: [8.02, 51.31], value: '44,6' },
+  { name: 'Regierungsbezirk\nDüsseldorf', lonLat: [6.25, 51.4], value: '44,5' },
+  { name: 'Regierungsbezirk\nKöln', lonLat: [6.35, 50.8], value: '43,5' },
+  { name: 'Regierungsbezirk\nMünster', lonLat: [7.1, 52.04], value: '43,9' },
+  { name: 'Regierungsbezirk\nDetmold', lonLat: [8.45, 51.92], value: '43,8' },
+  { name: 'Regierungsbezirk\nArnsberg', lonLat: [7.72, 51.33], value: '44,6' },
 ]
 
 function getOffset(width, { values }) {
-  if (width > values.md) return width / 2
   if (width > values.lg) return width / 3
+  if (width > values.md) return width / 2
   return 0
 }
 
@@ -202,10 +205,10 @@ function computeViewport(bounds, breakpoints) {
     height: clientHeight,
   }).fitBounds(bounds, {
     padding: {
-      top: 20,
+      top: -40,
       left: offset,
       right: -offset,
-      bottom: 20,
+      bottom: 0,
     },
   })
 }
@@ -260,7 +263,7 @@ class ScrollyMap extends PureComponent {
 
             {currentStep === 'nuts1' && (
               <Fade>
-                <TextMarker className={classes.mapText} lonLat={[7.65, 51.61]}>
+                <TextMarker className={classes.mapText} lonLat={[7, 51.61]}>
                   <b>Nordrhein-Westfalen</b>
                   <span className={classes.mapTextValue}>44,1 Jahre</span>
                   Durchschnittsalter (2018)
@@ -299,11 +302,18 @@ class ScrollyMap extends PureComponent {
             <ShapeLayer
               src="/geo/nrw_gemeinden.json"
               options={layerOptions.choroplethMunicipalities}
-              hidden={currentStep !== 'lau'}
+              hidden={!(currentStep === 'lau' || currentStep === 'lau-local')}
             />
 
             {currentStep === 'lau-local' && (
-              <RegionTooltip lonLat={[7.672, 51.281]} title="Augustdorf" />
+              <RegionTooltip
+                lonLat={[8.751, 51.8964]}
+                title="Augustdorf"
+                options={{
+                  anchor: 'top-right',
+                  offsetTop: 15,
+                }}
+              />
             )}
 
             <ShapeLayer

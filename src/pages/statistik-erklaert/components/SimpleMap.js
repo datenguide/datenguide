@@ -12,5 +12,6 @@ export default (props) => (
   <SimpleMap
     {...props}
     mapboxApiAccessToken={publicRuntimeConfig.mapboxToken}
+    mapStyle="mapbox://styles/datenguide/cka2hksel3jxf1iobq6rxka0l"
   />
 )
