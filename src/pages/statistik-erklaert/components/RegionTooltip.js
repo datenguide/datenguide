@@ -39,23 +39,6 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 
-  highlight: {
-    fontSize: '2.4em',
-    fontWeight: 'normal',
-    display: 'inline-block',
-    letterSpacing: '-10',
-  },
-
-  highlightUnit: {
-    display: 'inline-block',
-    lineHeight: 1,
-    paddingLeft: 5,
-
-    '& b': {
-      display: 'block',
-    },
-  },
-
   link: {
     display: 'block',
     lineHeight: 1,
@@ -70,23 +53,25 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-export default function RegionTooltip({ title, lonLat }) {
+export default function RegionTooltip({ title, lonLat, options }) {
   const classes = useStyles()
 
   return (
-    <MapTooltip lonLat={lonLat} offsetTop={-15}>
+    <MapTooltip lonLat={lonLat} {...options}>
       <div className={classes.root}>
         <h3 className={classes.title}>{title}</h3>
         <p className={classes.hed}>Gemeinde in Nordrhein-Westfalen</p>
-        <img className={classes.image} src="/augustdorf.jpg" width="100%" />
-        <b className={classes.highlight}>10.032</b>
-        <div className={classes.highlightUnit}>
-          <b>Einwohner</b>
-          (2019)
-        </div>
+        <img
+          className={classes.image}
+          src={require('../nuts/augustdorf.jpg')}
+          width="100%"
+        />
         <ul className={classes.facts}>
+          <li>
+            <b>Altersschnitt: 38,7 Jahre</b>
+          </li>
+          <li>10.032 Einwohner</li>
           <li>238 Einwohner je km²</li>
-          <li>Altersschnitt: 38,7 Jahre</li>
         </ul>
         <a
           className={classes.link}
