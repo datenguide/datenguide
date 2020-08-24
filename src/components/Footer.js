@@ -64,19 +64,10 @@ const useStyles = makeStyles((theme) => ({
     fontSize: theme.typography.body2.fontSize,
 
     [theme.breakpoints.up('md')]: {
-      position: 'relative',
-
-      '&::after': {
-        content: '""',
-        backgroundImage: `url(${background})`,
-        backgroundRepeat: 'no-repeat',
-        position: 'absolute',
-        width: '500px',
-        height: '212px',
-        bottom: 0,
-        transform: 'translateX(-170px)',
-        backgroundSize: '500px auto',
-      },
+      backgroundImage: `url(${background})`,
+      backgroundRepeat: 'no-repeat',
+      backgroundSize: '500px auto',
+      backgroundPosition: '-170px bottom',
     },
   },
 
@@ -125,7 +116,7 @@ export default function Footer() {
   const classes = useStyles()
   return (
     <div className={classes.root}>
-      <Container className={classes.container} fixed>
+      <Container fixed>
         <nav className={classes.nav}>
           <Grid container direction="row" justify="center">
             <Grid item xs={12} sm={6}>
