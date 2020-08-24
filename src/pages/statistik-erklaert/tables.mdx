@@ -59,14 +59,14 @@ Baureifes Land in Düsseldorf wurde im Schnitt für rund 960 Euro pro qm verkauf
 
 #### 1. Daten auswählen und herunterladen
 
-Für die Karte brauchst Du möglichst aktuelle Daten für alle 53 Landkreise in NRW.
+Für die Karte brauchst du möglichst aktuelle Daten für alle 53 Landkreise in NRW.
 
 <BodyTextAside>
 
 #### So funktioniert das Datenportal
 
 - Wähle als Region 'Nordrhein-Westfalen'
-- Wähle dann die regionale Tiefe Nuts-3 aus, das gibt Dir Daten für alle Landkreise und kreisfreien Städte in NRW. Wie die Einteilung dieser Gebiete in Deutschland funktioniert, erklären wir dir hier: [NUTS erklärt](statistik-erklaert/nuts)
+- Wähle dann die regionale Tiefe NUTS-3 aus, das gibt Dir Daten für alle Landkreise und kreisfreien Städte in NRW. Wie die Einteilung dieser Gebiete in Deutschland funktioniert, erklären wir dir hier: [NUTS erklärt](statistik-erklaert/nuts)
 - Gib 'Bau' in die Suche nach Wertmerkmalen ein. Nimm 'BAU004 - Durchschnittlicher Kaufwert je qm' und ändere die Auswahl der Merkmale auf 'Baulandverkäufe'.
 - Wähle an der Tabelle das Jahr '2018' aus
 - Lade die Daten herunter
@@ -110,9 +110,9 @@ Die Daten sind jetzt bereit, um in einem Visualisierungstool deiner Wahl dargest
 
 #### Baue deine Karte
 
-- In Datawrapper wählst Du NRW Landkreise als neue Karte aus
-- fügst dann die Daten ein und wählst die entsprechenden Spalten aus (AGS und Wert). AGS steht für 'amtlicher Gemeindeschlüssel'. Datawrapper nutzt diese Gemeindekennziffer, um Daten und Gebiete eindeutig zuzuordnen. Hier findest Du eine interaktive Erklärung dazu: [AGS erklärt](/statistik-erklaert/ags).
-- Danach kannst Du die Karte beschriften und deine Datenquelle angeben. Datenguide bietet dir dafür einen festen Api-Link. und die Karte und Tooltips, Legende etc. nach deinen Wünschen gestalten.
+- In Datawrapper wählst du NRW Landkreise als neue Karte aus
+- fügst dann die Daten ein und wählst die entsprechenden Spalten aus (AGS und Wert). AGS steht für 'amtlicher Gemeindeschlüssel'. Datawrapper nutzt diese Gemeindekennziffer, um Daten und Gebiete eindeutig zuzuordnen. Hier findest du eine interaktive Erklärung dazu: [AGS erklärt](/statistik-erklaert/ags).
+- Danach kannst du die Karte beschriften und deine Datenquelle angeben. Datenguide bietet dir dafür einen festen Api-Link. und die Karte und Tooltips, Legende etc. nach deinen Wünschen gestalten.
 - Am Schluss auf 'Veröffentlichen' klicken.
 
 </BodyTextAside>
@@ -146,7 +146,7 @@ Importiere die .csv in der Tabellenkalkulation deiner Wahl (Excel, LibreOffice, 
   beim Import angeben.
 - Lösche dann händisch die Zeilen über den Daten ( Header)
   und unter den Daten (Footer).
-- Danach beschriftest Du die erste Zeile neu und
+- Danach beschriftest du die erste Zeile neu und
   legst sie als Kopfzeile fest.
 
 </BodyTextAside>
@@ -155,7 +155,7 @@ Importiere die .csv in der Tabellenkalkulation deiner Wahl (Excel, LibreOffice, 
 
 #### 3. Entscheiden, was visualisiert werden soll
 
-Vor Dir siehst du eine recht verschachtelte Tabelle. Sie ist gut geeignet, um auf DIN-A4-Seiten ausgedruckt zu werden, ein Visualisierungstool wie Datawrapper ist damit jedoch überfordert. Um eine Flächenwert-Stufen-Karte (Choroplethenkarte) zu erstellen, musst Du zwei Entscheidungen treffen:
+Vor Dir siehst du eine recht verschachtelte Tabelle. Sie ist gut geeignet, um auf DIN-A4-Seiten ausgedruckt zu werden, ein Visualisierungstool wie Datawrapper ist damit jedoch überfordert. Um eine Flächenwert-Stufen-Karte (Choroplethenkarte) zu erstellen, musst du zwei Entscheidungen treffen:
 
 1. Welche regionale Ebene möchtest du darstellen? In diesem Fall möchten wir Kreise in Nordrhein-Westfalen zeigen.
 2. Nach welchem Merkmal soll die Karte eingefärbt werden? Um Vergleichbarkeit herzustellen, möchten wir die Kreise anhand des durchschnittlichen Kaufwert je qm einfärben.
@@ -164,7 +164,7 @@ Vor Dir siehst du eine recht verschachtelte Tabelle. Sie ist gut geeignet, um au
 
 Um mit Zahlenwerten arbeiten zu können, müssen sie von der Tabellenkalkulation als ‘Nummer’ erkannt werden. Stelle dazu in Google Sheets die Verortung (locale) auf ‘Germany’ um.
 Denn deutsche und amerikanische Schreibweise von Zahlen unterscheiden sich.
-Dann wählst du für die Spalten ‘Insgesamt’ und ‘baureifes Land’ als Nummernformat 0.00 aus. Dadurch bekommst Du Werte ohne Tausendertrennzeichen, mit zwei Stellen nach dem Komma, wie für Euro-Beträge üblich. (Das Format ist nicht für alle Verkaufsarten optimal, aber für den Kaufpreis pro qm gut geeignet.)
+Dann wählst du für die Spalten ‘Insgesamt’ und ‘baureifes Land’ als Nummernformat 0.00 aus. Dadurch bekommst du Werte ohne Tausendertrennzeichen, mit zwei Stellen nach dem Komma, wie für Euro-Beträge üblich. (Das Format ist nicht für alle Verkaufsarten optimal, aber für den Kaufpreis pro qm gut geeignet.)
 
 <Grid container direction="row" justify="center" spacing={2}>
   <Grid item xs={12} sm={6}>
@@ -192,7 +192,7 @@ Die Karte im Datawrapper stellt jedoch nur zwei Dinge dar: Flächen (Orte) werde
 
 <BodyTextAside>
 
-- Dazu klickst Du unter ‘Data’ auf ‘Pivot Table’.
+- Dazu klickst du unter ‘Data’ auf ‘Pivot Table’.
 - Wählst dann als Rows ‘Ort’ und ‘AGS’ aus, als Columns ‘Verkauf’ und als Values ‘baureifes Land’.
 - Die Daten werden entsprechend umsortiert.
 
@@ -202,8 +202,8 @@ Die Karte im Datawrapper stellt jedoch nur zwei Dinge dar: Flächen (Orte) werde
 
 #### 7. Karte in Datawrapper bauen
 
-In Datawrapper wählst Du NRW Landkreise als neue Karte aus, fügst dann die Daten ein und wählst die entsprechenden Spalten aus (AGS und Durchschnittlicher Kaufwert je qm).
-Danach kannst Du die Karte beschriften, deine Datenquelle angeben und die Karte und Tooltips, Legende etc. nach deinen Wünschen gestalten. Am Schluss auf 'Veröffentlichen' klicken.
+In Datawrapper wählst du NRW Landkreise als neue Karte aus, fügst dann die Daten ein und wählst die entsprechenden Spalten aus (AGS und Durchschnittlicher Kaufwert je qm).
+Danach kannst du die Karte beschriften, deine Datenquelle angeben und die Karte und Tooltips, Legende etc. nach deinen Wünschen gestalten. Am Schluss auf 'Veröffentlichen' klicken.
 
 ![Import](./tables/07_datawrapper.png)
 
