@@ -5,7 +5,6 @@ import { makeStyles } from '@material-ui/core/styles'
 import Snackbar from '@material-ui/core/Snackbar'
 import Paper from '@material-ui/core/Paper'
 import HelpIcon from '@material-ui/icons/Help'
-import Alert from '@material-ui/lab/Alert'
 import Button from '@material-ui/core/Button'
 
 import DataTable from '../../components/querytool/DataTable'
@@ -17,6 +16,7 @@ import RegionSearchParameterCard from '../../components/querytool/RegionSearchPa
 import MeasureSearchParameterCard from '../../components/querytool/MeasureSearchParameterCard'
 import RegionEmptyState from '../../components/querytool/RegionEmptyState'
 import MeasureEmptyState from '../../components/querytool/MeasureEmptyState'
+import Disclaimer from '../../components/querytool/Disclaimer'
 
 const useStyles = makeStyles((theme) => ({
   content: {
@@ -137,29 +137,9 @@ const Detail = ({
       drawerOpen={drawerOpen}
       onToggleDrawer={handleToggleDrawer}
     >
+      <Disclaimer />
+
       <main className={classes.content}>
-        <Alert severity="warning" className={classes.disclaimer}>
-          Das Datenguide Datenportal steht als Vorschau-Version zur Verfügung.
-          Wir übernehmen keine Gewähr für die Richtigkeit und Vollständigkeit
-          der abgerufenen Daten. Vor Veröffentlichung bitte mit
-          regionalstatistik.de abgleichen.
-          <br />
-          <br />
-          Bei Bugs und Abstürzen schreibt bitte eine E-Mail an&nbsp;
-          <a href="mailto:feedback@datengui.de">feedback@datengui.de</a>
-          &nbsp;oder macht ein Issue auf bei&nbsp;
-          <a
-            href="https://github.com/datenguide/datenguide"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Github
-          </a>
-          .<br />
-          Ihr wollt Datenguide verbessern? Helft uns bei unserem
-          Datenportal-Sprint vom 25. bis 27.09.2020!{' '}
-          <a href="/blog/2020/community-sprint">Jetzt anmelden.</a>
-        </Alert>
         <div className={classes.helpsection}>
           <Button
             color="secondary"
