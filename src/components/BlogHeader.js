@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(6, 0),
 
     [theme.breakpoints.up('md')]: {
-      width: '80%',
+      width: '70%',
     },
   },
 
@@ -122,8 +122,15 @@ const useStyles = makeStyles((theme) => ({
     position: 'absolute',
     right: 0,
     bottom: 0,
+    left: '58%',
 
-    [theme.breakpoints.down('md')]: {
+    '& img': {
+      display: 'block',
+    },
+
+    [theme.breakpoints.down('md')]: {},
+
+    [theme.breakpoints.down('sm')]: {
       display: 'none',
     },
   },
