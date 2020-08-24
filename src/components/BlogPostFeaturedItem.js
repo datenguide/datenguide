@@ -6,7 +6,7 @@ const useStyles = makeStyles((theme) => ({
     position: 'relative',
     overflow: 'hidden',
     padding: theme.spacing(2),
-    minHeight: theme.spacing(48),
+    minHeight: theme.spacing(56),
     textDecoration: 'none',
 
     [theme.breakpoints.down('md')]: {
@@ -17,13 +17,13 @@ const useStyles = makeStyles((theme) => ({
     position: 'absolute',
     bottom: 0,
     right: 0,
-    width: '100%',
+    maxHeight: 320,
     minWidth: 400,
   },
   title: {
     ...theme.typography.h3,
     position: 'relative',
-    margin: 0,
+    margin: theme.spacing(0, 0, 1, 0),
   },
   description: {
     position: 'relative',
