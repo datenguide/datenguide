@@ -1,24 +1,30 @@
 ---
 title: 'In zwei Schritten zur ersten Visualisierung'
-description: 'Wir zeigen dir, wie man Daten aus der amtlichen Statistik auf eine Karte bringt'
-metaImage: '/images/explorable_explanations.jpg'
-previewImage: '/statistik-erklaert/nuts.png'
+description: 'Wir zeigen dir, wie man Daten aus der amtlichen Statistik auf eine Karte bringt.'
+metaImage: '/statistik-erklaert/tables.png'
+previewImage: '/statistik-erklaert/tables.png'
 date: 2020-08-21
-layout: BlogPostCustom
+layout: Minimal
 published: true
 lang: de
 category:
   name: 'Statistik erklärt'
   href: '/statistik-erklaert'
-author:
+authors:
   - p3nny
   - crijke
 ---
 
 import Grid from '@material-ui/core/Grid'
 import Container from '@material-ui/core/Container'
+import BlogHeader from '../../components/BlogHeader'
 import { BodyText, BodyTextAside } from '../../components/BodyText'
 import DatawrapperChart from '../../components/DatawrapperChart.js'
+import { frontMatter } from './tables.mdx'
+
+<BlogHeader {...frontMatter}>
+  <img src={require('./tables/header.svg')} />
+</BlogHeader>
 
 <Container maxWidth="lg">
   <BodyText>
