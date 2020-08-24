@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'flex-end',
-    marginBottom: theme.spacing(10),
+    marginBottom: theme.spacing(12),
 
     [theme.breakpoints.up('sm')]: {
       minHeight: theme.spacing(32),
@@ -120,19 +120,21 @@ const useStyles = makeStyles((theme) => ({
 
   visual: {
     position: 'absolute',
-    right: 0,
-    bottom: 0,
+    width: '42%',
     left: '58%',
+    bottom: 0,
 
     '& img': {
       display: 'block',
     },
 
-    [theme.breakpoints.down('md')]: {},
-
     [theme.breakpoints.down('sm')]: {
       display: 'none',
     },
+
+    // Make space to allow for the children to overlap the bottom boundaries of the header component
+    clip: 'rect(auto, auto, 1200px, auto)', // old browsers, deprecated
+    clipPath: 'inset(0 0 -1200px 0)', // modern browsers
   },
 }))
 
@@ -209,15 +211,17 @@ const BlogHeader = ({
 
   return (
     <header className={classes.root}>
-      <Container maxWidth="lg" className={classes.container}>
-        <div className={classes.content}>
-          <h1 className={classes.title}>{title}</h1>
-          <p className={classes.description}>{description}</p>
-          {authors.length > 0 && renderAuthors(fullAuthorData)}
-        </div>
-        {renderMeta({ category, date })}
-      </Container>
-      {children && <div className={classes.visual}>{children}</div>}
+      <div className={classes.wrapper}>
+        <Container maxWidth="lg" className={classes.container}>
+          <div className={classes.content}>
+            <h1 className={classes.title}>{title}</h1>
+            <p className={classes.description}>{description}</p>
+            {authors.length > 0 && renderAuthors(fullAuthorData)}
+          </div>
+          {renderMeta({ category, date })}
+        </Container>
+        {children && <div className={classes.visual}>{children}</div>}
+      </div>
     </header>
   )
 }
