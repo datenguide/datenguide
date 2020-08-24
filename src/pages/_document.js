@@ -1,3 +1,4 @@
+import React from 'react'
 import Document, { Head, Main, NextScript } from 'next/document'
 import postcss from 'postcss'
 import cssnano from 'cssnano'
@@ -5,7 +6,6 @@ import cssnano from 'cssnano'
 import { ServerStyleSheets } from '@material-ui/styles'
 
 import theme from '../theme'
-import { Fragment } from 'react'
 
 const minifier = postcss([cssnano])
 
@@ -71,23 +71,26 @@ MyDocument.getInitialProps = async (ctx) => {
 
   let css = sheets.toString()
 
+  let styles
   if (process.env.NODE_ENV === 'production') {
     css = await minifier.process(css)
+    styles = (
+      <style
+        id="materialui"
+        dangerouslySetInnerHTML={{ __html: css.toString() }}
+      />
+    )
+  } else {
+    styles = [
+      ...React.Children.toArray(initialProps.styles),
+      sheets.getStyleElement(),
+    ]
   }
 
   return {
     ...initialProps,
     // Styles fragment is rendered after the app and page rendering finish.
-    styles: [
-      <Fragment key="styles">
-        {initialProps.styles}
-        <style
-          id="jss-server-side"
-          // eslint-disable-next-line react/no-danger
-          dangerouslySetInnerHTML={{ __html: css }}
-        />
-      </Fragment>,
-    ],
+    styles,
   }
 }
 
