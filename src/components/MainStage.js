@@ -6,29 +6,33 @@ import background from '../assets/hero_city.svg'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    minHeight: '500px',
-    fontSize: theme.typography.subtitle2.fontSize,
+    minHeight: '480px',
     backgroundColor: '#c3e5f1',
     paddingTop: theme.spacing(3),
     paddingBottom: theme.spacing(6),
     borderBottom: '1px solid',
+    fontSize: theme.typography.body1.fontSize,
 
     [theme.breakpoints.up('sm')]: {
+      fontSize: theme.typography.subtitle2.fontSize,
       backgroundImage: `url(${background})`,
       backgroundRepeat: 'no-repeat',
-      backgroundSize: '560px auto',
-      backgroundPosition: '100% bottom',
-      paddingBottom: theme.spacing(38),
+      backgroundSize: '480px auto',
+      backgroundPosition: '120% bottom',
+      paddingBottom: theme.spacing(20),
     },
 
     [theme.breakpoints.up('md')]: {
       fontSize: theme.typography.subtitle1.fontSize,
-      paddingBottom: theme.spacing(4),
-      backgroundPosition: '105% bottom',
+      backgroundPosition: '110% bottom',
+    },
+
+    [theme.breakpoints.up('lg')]: {
+      backgroundSize: '560px auto',
+      backgroundPosition: '95% bottom',
     },
 
     [theme.breakpoints.up('xl')]: {
-      backgroundSize: '560px auto',
       backgroundPosition: '80% bottom',
     },
   },
