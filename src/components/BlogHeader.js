@@ -10,14 +10,15 @@ const useStyles = makeStyles((theme) => ({
   root: {
     position: 'relative',
     backgroundColor: '#c3e5f1',
-    minHeight: '200px',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'flex-end',
     marginBottom: theme.spacing(12),
+    hyphens: 'auto',
 
     [theme.breakpoints.up('sm')]: {
       minHeight: theme.spacing(32),
+      hyphens: 'initial',
     },
   },
 
@@ -36,8 +37,8 @@ const useStyles = makeStyles((theme) => ({
   },
 
   title: {
-    ...theme.typography.h2,
     margin: 0,
+    ...theme.typography.h3,
     color: theme.palette.secondary.dark,
 
     [theme.breakpoints.up('md')]: {
@@ -47,9 +48,13 @@ const useStyles = makeStyles((theme) => ({
   },
 
   description: {
-    fontSize: theme.typography.subtitle1.fontSize,
-    fontWeight: 'regular',
+    fontSize: theme.typography.subtitle2.fontSize,
+    fontWeight: 'normal',
     margin: theme.spacing(2, 0),
+
+    [theme.breakpoints.up('md')]: {
+      fontSize: theme.typography.subtitle1.fontSize,
+    },
   },
 
   meta: {

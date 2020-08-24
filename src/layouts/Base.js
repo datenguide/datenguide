@@ -8,6 +8,10 @@ const useStyles = makeStyles((theme) => ({
     minHeight: '100vh',
     flexDirection: 'column',
     fontSize: theme.typography.body1.fontSize,
+
+    [theme.breakpoints.down('sm')]: {
+      fontSize: theme.typography.body2.fontSize,
+    },
   },
   toolbarSpacing: theme.mixins.toolbar,
 }))
