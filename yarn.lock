@@ -1861,11 +1861,6 @@
   resolved "https://registry.yarnpkg.com/@nodelib/fs.stat/-/fs.stat-1.1.3.tgz#2b5a3ab3f918cca48a8c754c08168e3f03eba61b"
   integrity sha512-shAmDyaQC4H92APFoIaVDHCx5bStIocgvbwQyxPRrbUY20V1EYTbSDchWbuwlMG3V17cprZhA6+78JfB+3DTPw==
 
-"@sindresorhus/fnv1a@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@sindresorhus/fnv1a/-/fnv1a-2.0.0.tgz#2c8c77f887eeb9762dc5fa6614215671085a7a3b"
-  integrity sha512-HAK3TQvR1AbJ4uMFBp9K0V+jlujsHkCokWJRebQK1mlXBG+i7Q5/Y7AKRmqVPt4T78Uqp2U5fFHgK3gxi4OUqw==
-
 "@sindresorhus/is@^0.14.0":
   version "0.14.0"
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.14.0.tgz#9fb3a3cf3132328151f353de4632e01e52102bea"
@@ -5711,12 +5706,11 @@ graceful-fs@^4.1.10, graceful-fs@^4.1.11, graceful-fs@^4.1.15, graceful-fs@^4.1.
   resolved "https://registry.yarnpkg.com/graceful-readlink/-/graceful-readlink-1.0.1.tgz#4cafad76bc62f02fa039b2f94e9a3dd3a391a725"
   integrity sha1-TK+tdrxi8C+gObL5Tpo906ORpyU=
 
-graphql-hooks-memcache@^1.3.2:
-  version "1.3.2"
-  resolved "https://registry.yarnpkg.com/graphql-hooks-memcache/-/graphql-hooks-memcache-1.3.2.tgz#342e430d25e4957fdd127f168d79ff5453dff5fe"
-  integrity sha512-otlZHXUq0QWNV6Lwf2Ijp3Z+HwAHS/sGyYAGD+x8tLanLiqlB4WOMjkp/0oTohx8rPOdGRa5E0+RnSxJRRGWQw==
+graphql-hooks-memcache@^1.3.3:
+  version "1.3.3"
+  resolved "https://registry.yarnpkg.com/graphql-hooks-memcache/-/graphql-hooks-memcache-1.3.3.tgz#de1dcbf5cf1dd8882d89944b7b348781d8b1ba17"
+  integrity sha512-gCnzHvlh+txgSzaqyrzGD4vcxXlsRL+b8iOSBbRzzwguI/8PIR1FuoCtvzsnSAuIHW6F4fIugLeRrjKKSEnn1w==
   dependencies:
-    "@sindresorhus/fnv1a" "^2.0.0"
     tiny-lru "^7.0.0"
 
 graphql-hooks-ssr@^1.1.5:
@@ -5724,10 +5718,10 @@ graphql-hooks-ssr@^1.1.5:
   resolved "https://registry.yarnpkg.com/graphql-hooks-ssr/-/graphql-hooks-ssr-1.1.5.tgz#f833a413809a9d258ab2df65f26ac15fe224e146"
   integrity sha512-cCVLvjTYMZ9+4rJ4pbpBgcVUu9AC+9Lb28RO8cUGW87iy1jA46BMqX/OFYQDBea1SOJARcBQa/fiupZPuB1dMQ==
 
-graphql-hooks@^4.4.4:
-  version "4.4.4"
-  resolved "https://registry.yarnpkg.com/graphql-hooks/-/graphql-hooks-4.4.4.tgz#ce0f57967f5f3a9cfd3f881acccb56370f8c7098"
-  integrity sha512-heCGWN0VRGvOTPrgCcXwvrCxTQAQJO/Pw3kjarbe22KcOlVl6AVhdgQOf9E/9wXgBBcX8CXPNoxzyXVg55PUnw==
+graphql-hooks@^4.5.0:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/graphql-hooks/-/graphql-hooks-4.5.0.tgz#dbabbf996671321e703d9ed29374a1ee2c38ed43"
+  integrity sha512-xwOHJssNrcS9RWQz8nTEY2SBXzMWE6GcoAgN8A1tPwQI0VBFKcRtpK2XAm7+g34bF6uJuJl5QP9bSZy0F9BN6w==
   dependencies:
     dequal "^1.0.0"
     extract-files "^8.0.0"
