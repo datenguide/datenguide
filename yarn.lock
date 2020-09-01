@@ -9488,10 +9488,10 @@ react-simple-animate@3.0.2:
   resolved "https://registry.yarnpkg.com/react-simple-animate/-/react-simple-animate-3.0.2.tgz#67f29b0c64155d2dfd540c1c74f634ef521536a8"
   integrity sha512-GDpznDMpIHHdH6L6AZo9nNry6Xsq7forKmd6rwigMSuxe4FS9ihK0HSC1odB4WWKbA87S8VL7EVR9JeTRVkbQA==
 
-react-simple-maps@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/react-simple-maps/-/react-simple-maps-2.0.0.tgz#877e27b15a95ef1602b7e3e24185bb7f095ac4a2"
-  integrity sha512-xi1y3citL7g9aB1LWddx2/XSmnsvXEyoN8zBf4BKxq+BPyjwC1sn7HJkFW5BYr70Ltrw2dhOfJvyi1EThejGNQ==
+react-simple-maps@^2.1.2:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/react-simple-maps/-/react-simple-maps-2.1.2.tgz#4c6531733b9eeb0003c10ddcd822a9414a86acab"
+  integrity sha512-CuwuOomMmf/3zMtMqG9w8IKxpPUDhXHuF1p/8/8G6EMiRdYUJDysmDFGUIxD30CfkR4+9ItE0NV1pI/fZC/1cw==
   dependencies:
     d3-geo "^1.11.9"
     d3-selection "^1.4.1"
