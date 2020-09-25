@@ -4,11 +4,21 @@
 
 Datenguide is your guide to understanding and using German official statistics. We work on an easy-to-use data portal and on learning materials around data published by the German statistics offices.
 
-### Mission statement (draft)
+### Mission statement
 
 > We are working with journalists and public administrators in Germany to make official statistics more accessible to citizens so that they can use publicly available statistical data to gain an informed understanding of social, economic, and environmental issues in their region.
 >
 > We are working in the open to make our activities transparent and enable others to contribute. We use open licenses to make it easy to build upon and reuse our work.
+
+### Contribute
+
+Find our ticket board here:
+[Board](https://github.com/orgs/datenguide/projects/1)
+
+- Clone this repo
+- You'll need node and yarn installed
+- You'll find a sample .env file in this repo, ask owner for credentials
+- Use `yarn dev` to start datenguide locally
 
 ### Where's the code?
 
