@@ -43,16 +43,28 @@ This is where Datenguide comes in. We are working on a modern, easy-to-use data 
 
 ### Contributing
 
-We are actively seeking contributors for this project – civic technologists, designers, developers, researchers, and data journalists. If you want to help making official statistics more usable, get in touch! ([email](mailto:sj@datengui.de) / [twitter](https://twitter.de/datenguide))
+We are actively seeking contributors for this project – civic technologists, designers, developers, researchers, and data journalists. If you want to help making official statistics more usable, get in touch! ([email](mailto:community@datengui.de) / [twitter](https://twitter.de/datenguide))
 
-Ways to support the Datenguide project:
+**How you can help:**
 
-- Contribute to the [datengui.de web application](https://github.com/datenguide/datenguide) and [GraphQL API](https://github.com/datenguide/datenguide) (JavaScript)
-- Help us improve our [data import pipeline](https://github.com/datenguide/genesapi-cli) and [data export API](https://github.com/datenguide/genesapi-tabular) (Python)
+- Contribute to the [datengui.de](https://datengui.de) web application, which lives in this very repo, and the [GraphQL API](https://github.com/datenguide/datenguide-api) (JavaScript)
+- Help us improve our [data import CLI](https://github.com/datenguide/genesapi-cli) and [data export API](https://github.com/datenguide/genesapi-tabular) (Python)
 - Help with organizing a workshop or hackathon around open data and official statistics
 - Write documentation, tutorials, or blog posts
 
-Datenguide is still in early stages and is bound to change heavily over the next couple of weeks. For bugs and feature requests, please [create an issue](https://github.com/datenguide/datenguide/issues/new). When contributing to the Datenguide project, please observe our [code of conduct](https://github.com/datenguide/datenguide/blob/master/CODE_OF_CONDUCT).
+For bugs and feature requests, please [create an issue](https://github.com/datenguide/datenguide/issues/new). We follow the Datenguide [code of conduct](https://github.com/datenguide/datenguide/blob/master/CODE_OF_CONDUCT).
+
+### Installing and running Datenguide
+
+The [datengui.de](https://datengui.de) web application is built on top of [NextJS](https://nextjs.org/docs) and [React](https://reactjs.org/). It uses Yarn [Yarn](https://yarnpkg.com/) for mamaging dependencies.
+
+**Getting started:**
+
+- Make sure you have [NodeJS](https://nodejs.org/) and [Yarn](https://yarnpkg.com/getting-started) installed on your machine.
+- Clone this repo
+- Create a .env file in the root of the project directory. Duplicating .env.sample is sufficient for most use cases: `cp .env.sample .env`
+- Install dependencies: `yarn install`
+- Run in development mode: `yarn dev`
 
 ### License
 
