@@ -37,7 +37,10 @@ const Disclaimer = () => {
               übernehmen keine Gewähr für die Richtigkeit und Vollständigkeit
               der abgerufenen Daten. Wenn ihr diese Daten weiterverwendet oder
               veröffentlicht, gleicht sie bitte mit{' '}
-              <a href="https://www.regionalstatistik.de/">regionalstatistik.de</a> ab.
+              <a href="https://www.regionalstatistik.de/">
+                regionalstatistik.de
+              </a>{' '}
+              ab.
             </p>
           </Grid>
           <Grid item md={6}>
