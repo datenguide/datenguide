@@ -1,9 +1,14 @@
+import copy from 'copy-to-clipboard'
+import querystring from 'query-string'
+
 import Toolbar from '@material-ui/core/Toolbar'
 import TextFormatIcon from '@material-ui/icons/TextFormat'
 import SaveAltIcon from '@material-ui/icons/SaveAlt'
 import AppsIcon from '@material-ui/icons/Apps'
 import DateRangeIcon from '@material-ui/icons/DateRange'
 import { makeStyles } from '@material-ui/styles'
+import IconButton from '@material-ui/core/IconButton'
+import FileCopyIcon from '@material-ui/icons/FileCopy'
 
 import DataTableRadioButtonMenu from './DataTableRadioButtonMenu'
 import DataTableDownloadMenu from './DataTableDownloadMenu'
@@ -70,6 +75,8 @@ const DataTableToolbar = ({
     2000: true,
   })
 
+  const [copied, setCopied] = useState(false)
+
   const handleYearChange = (event) => {
     const changedYear = event.target.value
     const newState = { ...years, [changedYear]: !years[changedYear] }
@@ -81,6 +88,26 @@ const DataTableToolbar = ({
           .join(','),
       })
     )
+  }
+
+  const handleCopyToClipboard = () => {
+    fetch(
+      `https://tabular.genesapi.org?${querystring.stringify(
+        queryArgs
+      )}&format=csv`
+    )
+      .then((response) => {
+        return response.text()
+      })
+      .then((data) => {
+        copy(data, { debug: true })
+      })
+      .then(() => {
+        setCopied(true)
+        setTimeout(() => {
+          setCopied(false)
+        }, 5000)
+      })
   }
 
   return (
@@ -112,6 +139,9 @@ const DataTableToolbar = ({
         queryArgs={queryArgs}
         filename={filename}
       />
+      <IconButton onClick={handleCopyToClipboard}>
+        <FileCopyIcon style={{ color: copied ? '#38a861' : '#000' }} />
+      </IconButton>
     </Toolbar>
   )
 }
