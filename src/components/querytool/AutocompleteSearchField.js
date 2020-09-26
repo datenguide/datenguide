@@ -122,7 +122,7 @@ const Control = ({
       InputProps={{
         inputComponent,
         inputProps: {
-          autocomplete: 'off',
+          autoComplete: 'off',
           className: input,
           ref: innerRef,
           children,
