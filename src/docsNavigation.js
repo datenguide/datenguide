@@ -1,37 +1,42 @@
 const docsNavigation = [
   {
-    title: 'Getting Started',
+    title: 'Erste Schritte',
     children: [
       {
-        title: 'What is Datenguide?',
-        href: '/docs/gettingstarted/intro',
+        title: 'Was ist Datenguide?',
+        href: '/docs/erste-schritte/intro',
       },
     ],
   },
   {
-    title: 'Tree API',
+    title: 'REST-Schnittstelle',
     children: [
       {
-        title: 'Bugs',
-        href: '/docs/treeapi/bugs',
+        title: 'Daten herunterladen',
+        href: '/docs/rest-schnittstelle/daten-herunterladen',
+      },
+      {
+        title: 'Dauerhafte Links',
+        href: '/docs/rest-schnittstelle/dauerhafte-links',
+      },
+      {
+        title: 'Verwendung mit Python',
+        href: '/docs/rest-schnittstelle/verwendung-mit-python',
+      },
+    ],
+  },
+
+  {
+    title: 'GraphQL',
+    children: [
+      {
+        title: 'Daten abfragen',
+        href: '/docs/graphql/daten-abfragen',
       },
     ],
   },
   {
-    title: 'Tabular API',
-    children: [
-      {
-        title: 'Subcategory 1',
-        href: '/docs/tabularapi/subcategory1',
-      },
-      {
-        title: 'Subcategory 2',
-        href: '/docs/tabularapi/subcategory2',
-      },
-    ],
-  },
-  {
-    title: 'Contributors',
+    title: 'Mitwirkende',
   },
   {
     title: 'Community',
