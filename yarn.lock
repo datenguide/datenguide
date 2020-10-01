@@ -7417,10 +7417,10 @@ mdast-util-toc@^5.0.0, mdast-util-toc@^5.0.3:
     unist-util-is "^4.0.0"
     unist-util-visit "^2.0.0"
 
-mdi-material-ui@^6.13.2:
-  version "6.14.0"
-  resolved "https://registry.yarnpkg.com/mdi-material-ui/-/mdi-material-ui-6.14.0.tgz#509da75c0ea5c37d1bc3d3d89e98092f575544c9"
-  integrity sha512-S6Q0lk4BhPM5bi6TwTSktC1Gw3Pe3GsVSnQNrlIYokX4eQ8JNJISq2d1Y2O02R5fcBnK8j3+GZyJjbwP0VQxFw==
+mdi-material-ui@^6.19.0:
+  version "6.19.0"
+  resolved "https://registry.yarnpkg.com/mdi-material-ui/-/mdi-material-ui-6.19.0.tgz#49a2e2b84e51ae55afe735127647a7c340dfa4f2"
+  integrity sha512-yqYlQP6R5YCYvECOyhIZwPM1yRjzYUQ+69PBwI0UWcW10iB3nrcLtCkaAX45UGmPnQ2XiDxKWrRKy/zwmO9vsg==
 
 mdn-data@2.0.4:
   version "2.0.4"
