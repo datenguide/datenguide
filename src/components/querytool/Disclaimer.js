@@ -57,13 +57,6 @@ const Disclaimer = () => {
               </a>
               .
             </p>
-            <p>
-              <b>Ihr wollt Datenguide verbessern?</b> Helft mit bei unserem
-              Community-Sprint vom 25. bis 27.09.2020.{' '}
-              <a href="/blog/2020/community-sprint">
-                Mehr über den Community-Sprint
-              </a>
-            </p>
           </Grid>
         </Grid>
       </Container>
