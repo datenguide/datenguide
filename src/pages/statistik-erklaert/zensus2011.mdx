@@ -1,0 +1,77 @@
+---
+title: 'Das Jahr in dem 1.5 Millionen Menschen verschwanden'
+description: 'Die Zensuslücke von 2011'
+metaImage: '/images/explorable_explanations.jpg'
+date: 2020-11-28
+layout: BlogPost
+published: true
+lang: de
+category:
+  name: 'Statistik erklärt'
+  href: '/statistik-erklaert'
+authors:
+  - sjockers
+---
+
+import Grid from '@material-ui/core/Grid'
+import Container from '@material-ui/core/Container'
+import DatawrapperChart from '../../components/DatawrapperChart.js'
+import { BodyText } from '../../components/BodyText'
+import RegionkeysNoSSR from './components/RegionKeys'
+import RegionKeyScreenshot from './components/RegionKeys/RegionKeyScreenshot'
+import ArrowLink from '../../components/ArrowLink'
+
+2003 begann Deutschland zu schrumpfen. Ein Blick in die Statistik für diese Zeit zeigt, wie die Bevölkerungszahl über mehrere Jahre langsam zurückging. Bis 2011 etwas sehr merkwürdiges passierte: **Fast 1,5 Millionen Menschen verschwanden.**
+
+<DatawrapperChart
+  title="Die Zensus-Lücke"
+  src="https://datawrapper.dwcdn.net/zWzI9/"
+/>
+
+Deutschland hat seit vielen Jahren eine niedrige Geburtenrate, weshalb die Bevölkerung in den 2000ern langsam abnahm. Seit 2012 wächst die Bevölkerung wieder, vor allem durch Zuwanderung[^1]. Doch was war 2011 los?
+
+## Die Zensuslücke
+
+Den Effekt, der hier sichtbar wird, nenne ich die **Zensuslücke**. Die Lücke entsteht so: Die Statistischen Ämter führen alle paar Jahre eine Volkszählung durch – den Zensus. In den Jahren dazwischen werden dann andere statistische Verfahren genutzt, um die Bevölkerungszahlen zu berechnen. Das nennen Statistiker:innen Bevölkerungsfortschreibung. Und als die Statistischen Ämter 2011 einen [Zensus](https://www.zensus2011.de/EN/) durchführten, war das Ergebnis völlig anders als das, was sie in den Jahren vor 2011 mit der Bevölkerungsfortschreibung prognostiziert hatten – diese Abweichung ist die Zensuslücke.
+
+Ein Grund für den großen Unterschied war die lange Zeit, die seit der letzten Volkszählung vergangen war. Der letzte richtige Bevölkerungszensus in Westdeutschland hatte 1987 stattgefunden und die letzte Volkszählung in der damaligen DDR im Jahr 1981 – also volle 30 Jahre vor dem Zensus von 2011. Mit der Wiedervereinigung und ihren massiven sozioökonomischen Umbrüchen hatte das Land außerdem eine große Veränderung durchgemacht, die in der Bevölkerungsfortschreibung scheinbar nicht gut abgebildet war.
+
+Um besser zu verstehen, wie sich die Zensuslücke auswirkt, habe ich die Differenz zwischen der Bevölkerungsfortschreibung 2010 und den Bevölkerungszahlen des Zensus 2011 für alle Landkreise und kreisfreien Städte visualisiert:
+
+<DatawrapperChart
+  title="Die Gewinner und Verlierer des Zensus 2011"
+  src="https://datawrapper.dwcdn.net/PORrr/"
+/>
+
+Hier ist zu sehen, dass die meisten der Kreise und Städte im Jahr 2011 eine deutlich niedrigere Bevölkerung hatten, als vor dem Zensus angenommen. Während es in den alten Bundesländern auch einige »Gewinner« gab, verzeichneten fast alle Kreise und Städte in den neuen Ländern einen deutlichen Bevölkerungsverlust.
+
+Die abweichenden Zahlen waren für viele Regionen ein ernstes Problem, da ein Großteil der Finanzmittel, die sie vom Bund erhalten, direkt von der Bevölkerungszahl abhängig ist. Allein Berlin »verlor« mehr als 150.000 Menschen, was den Verlust von Bundesmitteln in Höhe von bis zu einer halben Milliarde Euro pro Jahr bedeutet. Die größten Verlierer waren aber die Städte Mannheim und Flensburg, die beide einen Bevölkerungsverlust von mehr als 7% hinnehmen mussten.
+
+## Streit um den Zensus
+
+Da seit der letzten Volkszählung so viel Zeit vergangen war, basierten die Projektionen vor 2011 auf Daten aus Bevölkerungsregistern und statistischen Methoden, die augenscheinlich nicht sehr genau waren. Aber auch die Durchführung des Zensus von 2011 wurde immer wieder kritisiert. Es war das erste Mal, dass in Deutschland ein [Registerzensus](https://ec.europa.eu/eurostat/cros/content/register-based-census_en) durchgeführt wurde, eine Methodik, die von einigen als unzuverlässig kritisiert wurde[^2]. Mehrere hundert Kommunen reichten Beschwerden gegen die Ergebnisse der Volkszählung ein – wenngleich ohne Erfolg. Aber auch heute, fast zehn Jahre später, ist der Streit nicht abgeschlossen: Die Stadt Flensburg, die große Verliererin des Zensus von 2011, [will weiter vor Gericht um ihre alten Bevölkerungszahlen kämpfen](https://www.sueddeutsche.de/panorama/justiz-schleswig-streit-um-zensus-2011-flensburg-will-in-naechste-instanz-dpa.urn-newsml-dpa-com-20090101-200114-99-472458).
+
+## Daten sind nie ein perfektes Abbild der Realität
+
+In dem hier beschriebenen Fall lag die Bevölkerungsfortschreibung ziemlich daneben. Aber auch die Ergebnisse der Volkszählung von 2011 sind wahrscheinlich nicht perfekt. Aber es sind es die besten Daten, die wir haben.
+
+Diese Geschichte macht deutlich, dass Daten nie eine perfekte Beschreibung der Realität sind. Wenn du einen bestimmten Datensatz in deiner Arbeit verwendest, ist es wichtig, dass du verstehst, wie, warum und von wem diese Daten zusammengestellt wurden. Das gilt auch für amtliche Statistiken, die zwar in der Regel sehr zuverlässig sind, aber auch sehr spezifische Probleme und Einschränkungen haben können. Wie erfährst du von solchen Besonderheiten? Die einfache Antwort ist: **Fußnoten**. Wenn ein Datensatz mit Fußnoten oder anderen Metadaten kommt, solltest du diese auf jeden Fall lesen. Außerdem kann es vorkommen, dass Zahlen nicht zusammenpassen, oder dass sie Lücken oder nicht erklärbare Ausreißer aufweisen. Ist das der Fall, dann solltest du weiter recherchieren und sicherstellen, dass du den Kontext und die Methodik hinter den Daten verstehst.
+
+_Lizenziert unter [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)._
+
+_Dieser Artikel erschien zuerst auf Englisch in [Chartable](https://blog.datawrapper.de/weekly-chart-census-gap/), dem Blog von [Datawrapper](https://www.datawrapper.de/)._
+
+[^1]: Die Zahl der Deutschen (Menschen mit deutschem Pass) geht aufgrund des demographischen Wandels immer noch zurück, aber die Gesamtbevölkerung Deutschlands steigt seit Anfang der 2010er Jahre wieder – vor allem durch Migration. Weitere Informationen über Migration und demografischen Wandel in Deutschland und Europa findest du in diesem [Kurzdossier von Frank Swiaczny](https://www.bpb.de/gesellschaft/migration/kurzdossiers/177957/introduction).
+[^2]: Der Zensus 2011 basierte hauptsächlich auf Daten aus verschiedenen behördlichen Quellen, zum Beispiel aus Bevölkerungsregistern und von der Bundesagentur für Arbeit. Außerdem wurde eine Stichprobe der Bevölkerung persönlich befragt, um die Daten zu verifizieren. Der Großteil der Kritik am Zensus 2011 betrifft die Größe dieser Bevölkerungsstichprobe. [Björn Schwentker hat das ausführlich für den Spiegel beschrieben](https://www.spiegel.de/politik/deutschland/zensus-2011-mehr-als-800-gemeinden-haben-widerspruch-eingelegt-a-914463.html).
+
+### Zum Weiterlesen
+
+<ArrowLink href="/statistik-erklaert/nuts">
+  Wie sind statistische Regionen eingeteilt?
+</ArrowLink>
+<ArrowLink href="/statistik-erklaert/ags">
+  Der amtliche Gemeindeschlüssel – interaktiv erklärt
+</ArrowLink>
+<ArrowLink href="/statistik-erklaert/dimensions">
+  Was steckt in der Regionalstatistik?
+</ArrowLink>
