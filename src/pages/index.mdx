@@ -12,6 +12,19 @@ intro:
   - title: Data Literacy
     text: Wir bauen Wissen über die amtliche Statistik auf und geben es weiter. Wir organisieren Workshops und Hackathons bei denen wir gemeinsam mit statistischen Daten arbeiten.
     slug: literacy
+featuredPosts:
+  - href: '/statistik-erklaert/zensus2011'
+    title: Die Zensuslücke
+    description: Wie einmal 1.5 Millionen Menschen verschwanden und was das für unser Verständnis von statistischen Daten bedeutet.
+    image: '/statistik-erklaert/zensus2011.png'
+  - href: '/statistik-erklaert/tables'
+    title: In zwei Schritten zur ersten Visualisierung
+    description: Wir zeigen dir, wie man Daten aus der amtlichen Statistik auf eine Karte bringt.
+    image: '/statistik-erklaert/tables.png'
+  - href: '/statistik-erklaert/nuts'
+    title: Wie sind statistische Regionen eingeteilt?
+    description: Keine Angst vor NUTS und LAU! Wir erklären dir die regionale Tiefe.
+    image: '/statistik-erklaert/nuts.png'
 tools:
   - slug: graphql
     title: GraphQL API
@@ -41,6 +54,7 @@ tools:
 
 import MainStage from '../components/MainStage'
 import Subscribe from '../components/Subscribe'
+import BlogPostTeasers from '../components/BlogPostTeasers'
 import Intro from '../components/Intro'
 import Tools from '../components/Tools'
 import { frontMatter } from './index.mdx'
@@ -54,6 +68,12 @@ Datenguide macht die amtliche Statistik zugänglich für alle.
 Wir arbeiten an digitalen Tools, die euch helfen, regionale Statistiken zu verstehen und sinnvoll einzusetzen.
 
 </MainStage>
+
+<BlogPostTeasers posts={frontMatter.featuredPosts}>
+
+# Amtliche Statistik erklärt
+
+</BlogPostTeasers>
 
 <Intro features={frontMatter.intro}>
 
