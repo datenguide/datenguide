@@ -5,9 +5,11 @@ layout: DocsPage
 
 # Verwendung mit Python
 
-Die REST-Schnittstelle eigent sich auch hervorragend, um den Download zu automatisieren. Wir zeigen hier am Beispiel von Python die ersten Schritte.
+Im folgenden findest du den Code, um die REST-Schnittstelle mit Python abzufragen. Eine Schritt-für-Schritt
+Anleitung wie die URL für die Abfrage der Schnittstelle aufgebaut sein muss, findest du auf [INTERNERT_LINK].
+##Abfrage der REST-Schnittstelle##
 
-Dazu verwenden wir die Bibliothek Pandas.
+Um die Daten zu verarbeiten, nutzen wir die Pandas-Bibliothek.
 
 ## Daten in einen Dataframe laden
 
@@ -18,7 +20,6 @@ from io import StringIO
 
 BASE_URL = 'localhost:5000' # 'https://tabular.genesapi.org'
 
-# for nice DataFrame display in this notebook:
 def get_df(query):
     url = '%s/%s' % (BASE_URL, query)
     print(url)
@@ -31,181 +32,6 @@ def get_df(query):
     df.index = df[df.columns[0]]
     del df[df.columns[0]]
     return df.fillna('')
-```
-
-generelle Angaben:
-Layout
-layout=time - Eine Zeile pro Jahr/Datum
-layout=region - Eine Zeile pro Region
-layout=long - Eine Zeile pro Wert (default)
-Beschriftungen
-labels=id (default) - Nur Kürzel/ids bei Statistiken
-labels=name - ausgeschriebene Namen bei Statistiken
-Format
-format=csv (default)
-format=tsv - Tabulator-getrennt
-format=json - json, 1 objekt pro Tabellenzeile + Tabellen-Metadaten (Beispiel siehe unten)
-delimiter=, (default) stattdessen ginge auch delimiter=;
-Datumsformat
-dformat=year - Datumsformat: Jahre (default)
-dformat=date - Datumsformat: Tage
-
-### Beispiel: Einfache Tabelle mit 1 Messwert
-
-?data=11111:FLC006
-
-Messwert: FLC006 (Fläche)
-
-Statistik: 11111 (Feststellung des Gebietstandes)
-
-```python
-get_df('?data=11111:FLC006')
-```
-
-### Regionen
-
-Filter nach Level und/oder nach Eltern-Region
-
-Parameter:
-
-level
-
-0 - Deutschland gesamt
-1 - Bundesländer
-2 - Regierungsbezirke / stat. Regionen
-3 - Bundesländer
-4 - Gemeinden
-parent
-
-Id der Eltern-Region. Technisch ist das lediglich ein Prefix-Filter, es wäre also z.B. auch parent=123 erlaubt (auch wenn es keine Region mit der id 123 gibt), um alle Regionen, deren Id mit 123 beginnt, abzufragen.
-
-default: level=1&region=all (alle Bundesländer)
-
-#### Beispiel: alle landkreise in brandenburg
-
-```python
-get_df('?data=11111:FLC006&level=3&parent=12&layout=region')
-```
-
-#### Beispiel: Mehrere Regionen
-
-kann man mit Komma getrennt angeben: region=10,12,13
-
-```python
-get_df('?data=11111:FLC006&region=10,12,13&layout=time')
-```
-
-#### Alle Kreise
-
-level=3
-
-```python
-get_df('?data=11111:FLC006&level=3&layout=region')
-```
-
-Zeitraum
-wird mit dem Parameter ?time in Jahren angegeben.
-
-?time=2018 - Daten für 2018
-?time=2010:2018 - Daten von 2010 bis 2018
-?time=2015: - Daten seit 2015
-?time=:2016 - Daten bis einschließlich 2016
-?time=2002,2012 - Daten für 2002 und 2012
-?time=last - Daten des aktuellsten vorhandenen Jahres
-default: ?time=all - alle verfügbaren Daten
-
-Bevölkerungsentwicklung in den Bundesländern seit 2015
-Messwert: BEVSTD Bevölkerungsstand
-
-Statistik: 12411 Fortschreibung des Bevölkerungsstandes
-
-```python
-get_df('?data=12411:BEVSTD&time=2015:&level=1&layout=region&sort=region')
-```
-
-```python
-get_df('?data=12411:BEVSTD&time=2015:&level=1&layout=time&sort=region')
-```
-
-```python
-get_df('?data=82111:BWS005(WZ08SE:INSGESAMT)&layout=region&level=1')
-```
-
-```python
-get_df('?data=82111:BWS005(WZ08SE:INSGESAMT)&layout=region&level=3&sort=region')
-```
-
-```python
-get_df('?data=82111:BWS005(WZ08SE)&level=3&sort=region')
-```
-
-Mehrere Werte
-Mehrere Werte, entweder aus der gleichen Statistik oder aus verschiedenen, können gemeinsam abgefragt werden. Dazu einfach einen weiteren &data=... - parameter anhängen:
-
-Landtagswahlen Sachsen: Wahlberechtigte, Gültige Stimmen, Wahlbeteiligung
-Statistik: 14344
-
-Merkmale:
-
-WAHL01 - Wahlberechtigte
-WAHL04 - Gültige Stimmen
-WAHLSR - Wahlbeteiligung
-
-```python
-get_df('?data=14344:WAHL01&data=14344:WAHL04&data=14344:WAHLSR&dformat=date')
-```
-
-#### Aufgeschlüsselt nach Parteien:
-
-```python
-get_df('?data=14344:WAHL01&data=14344:WAHL04(PART03)&data=14344:WAHLSR&sort=time&dformat=date')
-```
-
-#### Wahlergebnisse in Sachsen und Einbürgerung von Ausländern nach Aufenthaltsdauer und deren Altersgruppen¶
-
-```python
-get_df('?region=14&data=14344:WAHL04(PART03)&data=12511:BEV008(AUFDA1,ALTX04)&time=2009,2011,2014&sort=time')
-```
-
-```python
-get_df('?region=14&data=14344:WAHL04(PART03)&data=12511:BEV008(AUFDA1,ALTX04)&time=2009,2011,2014&sort=time&layout=region')
-```
-
-```python
-get_df('?region=14&data=14344:WAHL04(PART03)&data=12511:BEV008(AUFDA1,ALTX04)&time=2009,2011,2014&sort=time&layout=time')
-```
-
-#### kombinierte Dimensionen
-
-```python
-get_df('?data=12613:BEV002(NAT,GES)&time=2017&region=01')
-```
-
-```python
-get_df('?data=12613:BEV002(NAT,GES)&time=2017&level=3&layout=region')
-```
-
-Labels
-Standardmäßig werden Regionen mit IDs und Name angegeben. Merkmale samt ihrer Ausprägungen werden mit ihren jeweiligen IDs angegeben. Mit labels=name werden diese Ids durch ihren ausgeschriebeneen Namen / Bezeichung ersetzt.
-
-```python
-get_df('?data=12613:BEV002(NAT,GES)&time=2017&region=01&labels=name')
-```
-
-```python
-get_df('?region=14&data=14344:WAHL04(PART03)&data=12511:BEV008(AUFDA1,ALTX04)&time=2009,2011,2014&sort=time&labels=name')
-```
-
-```python
-get_df('?data=12613:BEV002(NAT,GES)&time=2017&level=1&layout=region&labels=name')
-```
-
-```python
-get_df('?data=12613:BEV002(NAT,GES)&time=2017&level=1&layout=time&labels=name')
-```
-
-```python
-get_df('?data=12511:BEV008(AUFDA1:AUFDA00B08|AUFDA15B20)&labels=name&sort=time')
 ```
 
 JSON
