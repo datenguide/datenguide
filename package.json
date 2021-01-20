@@ -60,7 +60,7 @@
     "imagemin-mozjpeg": "^8.0.0",
     "imagemin-optipng": "^7.1.0",
     "imagemin-svgo": "^7.1.0",
-    "immer": "^6.0.3",
+    "immer": "^8.0.1",
     "isomorphic-unfetch": "^3.0.0",
     "jimp": "^0.10.2",
     "loader-utils": "^2.0.0",
