@@ -3,8 +3,8 @@ const docsNavigation = [
     title: 'Erste Schritte',
     children: [
       {
-        title: 'Was ist Datenguide?',
-        href: '/docs/erste-schritte/intro',
+        title: 'Übersicht',
+        href: '/docs/erste-schritte',
       },
     ],
   },
@@ -25,7 +25,6 @@ const docsNavigation = [
       },
     ],
   },
-
   {
     title: 'GraphQL',
     children: [
@@ -34,12 +33,6 @@ const docsNavigation = [
         href: '/docs/graphql/daten-abfragen',
       },
     ],
-  },
-  {
-    title: 'Mitwirkende',
-  },
-  {
-    title: 'Community',
   },
 ]
 
