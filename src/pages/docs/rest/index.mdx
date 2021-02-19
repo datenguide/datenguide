@@ -3,189 +3,162 @@ title: 'Datenguide | REST-Schnittstelle | Abfrage der REST-Schnittstelle'
 layout: DocsPage
 ---
 
-# Datenabfrage über die REST
+# Datenabfrage über REST
 
-Wer Daten nicht händisch über unser [Datenportal](https://datengui.de/statistiken) herunterladen möchte, kann die Datensätze mit Hilfe unserer
-experimentellen REST-Schnittstelle abfragen. Dafür kannst du die Adresszeile deines Browsers oder eine beliebige Programmiersprache verwendet werden.
+Wer Daten nicht händisch über unser [Datenportal](https://datengui.de/statistiken) herunterladen möchte, kann die Datensätze mit Hilfe unserer [experimentellen REST-Schnittstelle](https://tabular.genesapi.org) abfragen. Dafür kannst du die Adresszeile deines Browsers oder eine beliebige Programmiersprache verwenden.
 
-## Die URL-Struktur für die Abfrage REST-Schnittstelle
+## So funktionieren REST-Abfragen
 
 Wenn du bereits Erfahrung mit dem Abfragen von APIs hat, kannst du diesen Abschnitt überspringen und direkt bei der [URL-Struktur der Abfragen](#url-struktur) weiterlesen.
 
-Hier sind einige Beispiele für die Anfrage per REST-URL:
+Hier sind einige Beispiele für die Datenabfrage über REST:
 
 - https://tabular.genesapi.org/?data=12612:BEV001
-- https://tabular.genesapi.org/?data=12612:BEV001&level=2
-- https://tabular.genesapi.org/?data=12612:BEV001&level=2&time=2008:
+- https://tabular.genesapi.org/?data=12612:BEV001&amp;level=2
+- https://tabular.genesapi.org/?data=12612:BEV001&amp;level=2&amp;time=2008:
 
 Für die Abfrage der REST-Schnittstelle sind keine Programmierkenntnisse notwendig. Jede dieser Adressen
-(URLs) ist anklickbar und stellt bereits eine Anfrage an die REST-Schnittstelle von Datenguide dar.
-Der Browser genügt als "Werkzeug", um mit der Schnittstelle zu kommunizieren und Daten abzufragen.
+(URLs) kann einfach im Browser geöffnet werden und stellt bereits eine Anfrage an die REST-Schnittstelle von Datenguide dar. Der Browser genügt als „Werkzeug“, um mit der Schnittstelle zu kommunizieren und Daten abzufragen.
 
-Die unterschiedliche Länge der Anfragen sich durch das Anfügen unterschiedlicher Anhänge, sogenannter Parameter.
-Damit die Anfrage funktioniert, müssen also alle notwendigen Informationen in die URL untergebracht werden.
-Dabei sind einige Bestandteile notwendig für die Abfrage, andere optional.
+Was genau du abfragst, bestimmst du durch durch das Anfügen unterschiedlicher Anhänge an die Adressen, sogenannter Parameter. Damit die Anfrage funktioniert, müssen also alle notwendigen Informationen in die URL untergebracht werden. Dabei sind einige Bestandteile notwendig für die Abfrage, andere optional.
 
-Man kann sich die URL-Abfrage wie einen Güterzug vorstellen.
+Man kann sich die URL-Abfrage wie einen Güterzug vorstellen:
 
 🚂
 
-Die URL selbst stellt den Triebwagen dar, die Parameter, die daran angehängt werden, die Waggons. Wie der Zug
-Güter, liefert die URL der REST-Schnittstelle Informationen über die Art der Anfrage.
-Je länger der "Zug", bzw. die URL, desto mehr Anhaltspunkte werden der
-der Schnittstelle geliefert und desto spezifischer ist das Ergebnis, der Datensatz.
+Die URL selbst stellt den Triebwagen dar. Die Parameter, die daran angehängt werden, sind die Waggons. Wie der Zug Güter, liefert die URL der REST-Schnittstelle Informationen über die Art der Anfrage. Je länger der „Zug“, bzw. die URL, desto mehr Anhaltspunkte werden der Schnittstelle geliefert und desto spezifischer ist das Ergebnis – der Datensatz.
 
 🚂🚃🚃🚃
 
-Wie man die Parameter aneinander fügt, bzw. die einzelnen Waggons aneinander
-hängt, spielt keine Rolle für das Funktionieren der Abfrage.
-Wichtig ist allerdings wie bei den Waggons eines Güterzugs, die Parameter miteinander zu verknüpfen.
-Zwischen den einzelnen URL-Parametern sorgt das `&`-Symbol dafür, dass die REST-Schnittstelle die Anfrage als
-zusammengehörigen Zeichenstrang interpretiert.
+Wie man die Parameter aneinander fügt, bzw. die einzelnen Waggons aneinander hängt, spielt keine Rolle. Wichtig ist allerdings, wie bei den Waggons eines Güterzugs, die Parameter miteinander zu verknüpfen. Vor den Parametern steht ein Fragezeichen. Zwischen den einzelnen URL-Parametern sorgt das `&`-Symbol dafür, dass die REST-Schnittstelle die Anfrage als zusammengehörigen Zeichenstrang interpretiert.
 
-`?data=12612:BEV001&level=2&time=2008:`
+<p>
+  <code>
+    https://tabular.genesapi.org
+    <span style={{ color: 'red' }}>?</span>data=12612:BEV001
+    <span style={{ color: 'red' }}>&amp;</span>level=2
+    <span style={{ color: 'red' }}>&amp;</span>time=2008:
+  </code>
+</p>
 
-Der Übersicht wegen werden wir im Folgenden trotzdem eine bestimmte Reihenfolge der
-Parameter einhalten, die dem schnellstmöglichen Verständnis des Abfrage-Aufbaus dient.
+Obwohl die Reihenfolge der Parameter keine Rolle für die API spielt, halten wir im Folgenden trotzdem eine bestimmte Reihenfolge ein. Das macht die Abfragen übersichtlicher und besser lesbar.
 
 ## URL-Struktur
 
 Die URL-Struktur jeder Abfrage setzt sich aus unterschiedlichen Bestandteilen zusammen, von denen die meisten optional sind:
 
-##### [HIER EINGEFÄRBTE URL MIT ALLEN PARAMETERN??
+<p>
+  <code>
+    <span style={{ color: 'red' }}>https://tabular.genesapi.org</span>?
+    <span style={{ color: 'red' }}>data=12612:BEV001</span>&amp;
+    <span style={{ color: 'red' }}>level=2</span>&amp;
+    <span style={{ color: 'red' }}>time=2008:</span>
+  </code>
+</p>
 
-1. Die Basis-URL https://tabular.genesapi.org (notwendig)
-2. Die Angabe des gesuchten Datensatzes mit `data=` (notwendig)
-3. Die Abfrage des gewünschten Gebiets mit `level=` und `region=` (optional)
-4. Die Abfrage des Zeitraums mit `time=` (optional)
-5. Weiteren möglichen Parametern wie Layout, Beschriftungen und Download-Format (optional)
+1. Die Basis-URL https://tabular.genesapi.org _(notwendig)_
+2. Die Angabe des gesuchten Datensatzes mit `data=` _(notwendig)_
+3. Die Abfrage des gewünschten Gebiets mit `level=` und `region=` _(optional)_
+4. Die Abfrage des Zeitraums mit `time=` _(optional)_
+5. Weitere Einstellungen wie Layout, Beschriftungen und Download-Format _(optional)_
 
 Sämtliche an die REST-Schnittstelle gesendeten Abfragen folgen diesem Aufbau. Sehen wir uns weiter die
 Bestandteile der URL einmal genauer an.
 
-### 1. Die Basis-URL (notwendig)
+### 1. Die Basis-URL _(notwendig)_
 
 https://tabular.genesapi.org/
 
 Die Anfrage an die REST-Schnittstelle geschieht über die URL-Anfrage an die Adresse https://tabular.genesapi.org/.
 Ohne das Hinzufügen weiterer Parameter wird die Seite zwar aufgerufen, liefert aber keinen Datensatz zurück.
 
-### 2. Die Angabe des gesuchten Datensatzes `?data=` (notwendig)
+### 2. Die Angabe des gesuchten Datensatzes `?data=` _(notwendig)_
 
-Die Angabe des Datensatzes `?data=` ist der wichtigste Parameter der Abfrage, denn nur durch die Angabe des
-Datensatzes "weiß" die REST-Schnittstelle, welche spezifischen Daten abgefragt werden sollen. Leicht zu übersehen
-und dennoch notwendig für die Abfrage ist das hinter die Basis-URL gesetzte Fragezeichen `?`, das die REST-Schnittstelle
-wissen lässt, dass nun ein Datenabfrage (ein sogenannter request) erfolgen soll:
+Die Angabe des Datensatzes `data=` ist der wichtigste Parameter der Abfrage, denn nur durch die Angabe des
+Datensatzes „weiß“ die REST-Schnittstelle, welche spezifischen Daten abgefragt werden sollen.
 
 https://tabular.genesapi.org/?data=12612:BEV001
 
-Wie in diesem Beispiel zu sehen, fügen wir den Namen des Datensatzes gleich hinter dem `data=`-Parameter an. Wie
-in vielen Programmiersprachen steht das Gleichheitszeichen nicht für eine Gleichsetzung, sondern für eine
-Zuweisung. Anders gesagt, um der Schnittzustelle mitzuteilen, welcher Datensatz aufgerufen werden soll, weisen
-wir dem Parameter `?data` den Beispiel-Datensatz `11111:FLC006` über das Gleichheitzeichen zu: `data=11111:FLC006`.
+Wie in diesem Beispiel zu sehen, fügen wir den Namen eines Datensatzes (zum Beispiel `12612:BEV001`) gleich hinter dem `data=`-Parameter an. Wie in vielen Programmiersprachen steht das Gleichheitszeichen nicht für eine Gleichsetzung, sondern für eine Zuweisung. Anders gesagt, um der Schnittstelle mitzuteilen, welcher Datensatz aufgerufen werden soll, weisen wir dem Parameter `?data` den Beispiel-Datensatz `12612:BEV001` über das Gleichheitzeichen zu: `data=12612:BEV001`.
 
-In der Datenbank steht `12612:BEV001` beispielsweise für den Datensatz "Lebend Geborene", der wiederum zur Oberkategorie
-"12612" (Statistik der Geburten) gehört. Die "Codes" der zur Verfügung stehenden Datensätze und Kategorien mit ihren leider nicht
-so eingängig wie erhofft, lassen sich jedoch einfach über unser Tool https://datengui.de/statistik-erklaert/dimensions
-über eine Suchmaske einfach nachschlagen.
+In der Datenbank steht `12612:BEV001` beispielsweise für das Merkmal „Lebend Geborene“ (`BEV001`), das wiederum zur „Statistik der Geburten“ (`12612`) gehört. Diese „Codes“ sind nicht sehr intuitiv, lassen sich jedoch [einfach über eine Suchmaske nachschlagen](https://datengui.de/statistik-erklaert/dimensions).
 
-### 3. Die Abfrage des gewünschten Gebiets `region=` (optional)
+### 3. Die Abfrage des gewünschten Gebiets `region=` _(optional)_
 
 Mit der reinen Angabe des Datensatzes ist die Anfrage bereits erfolgreich, alle weiteren Angaben sind
-optional, erweitern oder verfeinern aber das Datensatz-Ergebnis. Der Parameter `region=` legt fest, über welches
+optional, erweitern oder verfeinern aber das Datensatz-Ergebnis. Der Parameter `level=` legt fest, über welches
 Gebiet wir Daten abfragen möchten. Ausgewählt werden können folgende Gebiete:
 
-- 0 - Deutschland gesamt
-- 1 - Bundesländer
-- 2 - Regierungsbezirke / stat. Regionen
-- 3 - Landkreise und kreisfreie Städte
-- 4 - Gemeinden
+- 0 — Deutschland gesamt
+- 1 — Bundesländer
+- 2 — Regierungsbezirke / statistische Regionen
+- 3 — Landkreise und kreisfreie Städte
+- 4 — Gemeinden
 
 Um regionale Statistiken über Grenzen hinweg vergleichbar zu machen, wird in Europa bei der Gebietseinteilung
-ein System namens NUTS "(Nomenclature des unités territoriales statistiques") verwendet. Mehr Informationen über
-einschlägige Begriffe wie regionale Tiefe, NUTS oder LAU gibt es auf der Seite https://datengui.de/statistik-erklaert/nuts.
+ein System namens NUTS („Nomenclature des unités territoriales statistiques“) verwendet. Mehr Informationen über
+einschlägige Begriffe wie regionale Tiefe, NUTS oder LAU findest du in unserem Artikel über [regionale Einteilung](https://datengui.de/statistik-erklaert/nuts).
 
-Am bereits vorgestellten Beispiel der Lebend Geborenen Kinder können wir die Region einschränken, wenn wir
+Am bereits vorgestellten Beispiel der Geburtenzahlen können wir die Region einschränken, wenn wir
 hinter den `data=` ein Fragezeichen `?` als Trenner zwischen Daten und Region setzen und dann den Parameter
-`level=` mit der entsprechende Zahl anfügen, zum Beispiel `1` für Deutschland gesamt.:
+`level=` mit der entsprechende Zahl anfügen, zum Beispiel `1` für Deutschland (gesamt):
 
-https://tabular.genesapi.org/?data=12612:BEV001&level=0
+https://tabular.genesapi.org/?data=12612:BEV001&amp;level=0
 
-#### Unterschiedliche Parameter für die Abfrage von Landkreisen und kreisfreien Städten
+#### Einzelne Regionen
 
-Fragen wir, wie in oberen Beispiel, die Zahlen der Lebend Geborenden für ganz Deutschland mit `0` oder aber die
-Bundesländer mit `1` ab, ist die URL noch relativ kurz und übersichtlich. Ein wenig komplizierter wird es,
-wenn man den Landkreis mit abfragen möchte. Hier unterscheidet man zwischen dem Filter vom Landkreisen mit
-`level=3&parent=` und der Auswahl eines einzigen Landkreis mit `region=`. Welcher
-Kreisschlüssel welcher Region zugeordnet ist, kann über https://de.wikipedia.org/wiki/Liste_der_Landkreise_in_Deutschland
-recherchiert werden.
+Daten für eine bestimmte Region können mit dem Parameter `region=` abgefragt werden. Der Parameter `level=` kann dann weggelassen werden:
 
-#### Das Filtern von Landkreisen und kreisfreien Städte
+https://tabular.genesapi.org/?data=12612:BEV001&amp;region=01051
 
-Möchte man nicht nur einzelne Regionen auswählen, sondern nach den ersten drei Stellen des Kreisschlüssels eine
-größere Auswahl von Regionen filtern, nutzt man am besten den Parameter `level=3&parent=` und fügt mindestens
-die ersten zwei Ziffern des Kreisschüssels des Filters hinzu. In diesem Beispiel werden alle Regionen abgerufen,
-deren Kreisschlüssel mit den Ziffern `01` beginnt:
+Die Nummer, die verwendet wird um die Regionen zu identifizieren, ist der Amtliche Gemeindeschlüssel (AGS). Weitere Infos und ein Tool, mit dem du den Schlüssel für jede mögliche Region herausfinden kannst, findest du in unserem [Artikel über AGS](/statistik-erklaert/ags).
 
-https://tabular.genesapi.org/?data=12612:BEV001&level=3&parent=01
+#### Gruppen von Regionen
 
-#### Einzelne Regionen direkt auswählen
+Möchtest du nicht nur Daten für eine einzelne Regionen auswählen, sondern für Gruppen von Regionen, beispielsweise für alle Gemeinden in einem Landkreis, kannst den Parameter `parent=` verwenden. Dieses Beispiel zeigt alle Gemeinden (`level=4`) im Landkreis Dithmarschen (`parent=01051`):
 
-Möchte man Daten über einen einzelne Region abrufen, gelingt das mit dem Parameter
-`region=` und dem Anfügen des sogenannten Kreisschlüssels für den entsprechenden Landkreis oder die Stadt. Da für den
-Datenabruf nur die Landkreise entscheidend sind, kann der Parameter `level=` in der URL weggelassen werden:
+https://tabular.genesapi.org/?data=12612:BEV001&amp;level=4&amp;parent=01051
 
-https://tabular.genesapi.org/?data=12612:BEV001&region=01051
-
-### 4. Die Abfrage des Zeitraums mit `time=` (optional)
+### 4. Die Abfrage des Zeitraums mit `time=` _(optional)_
 
 Neben den Daten über bestimmte Gebiete interessiert uns natürlich auch der Zeitraum, wann die Daten erhoben
 wurden. Mithilfe des Parameters `time=` lassen sich Abfrage-Zeiträume bestimmen, eingrenzen und auswählen.
 Wird keine Zeitangabe gemacht, geht die REST-Schnittstelle davon aus, dass wir den gesamten Abfragezeitraum
-abrufen möchten. Wie beim Anhängen aller vorherigen Parameter darf auch hier das `&` nicht vergessen werden.
+abrufen möchten.
 
-`time=YEAR:YEAR` ruft einen Zeitraum zwischen Start und Endjahr auf. Ein Beispiel:
+- `time=YEAR:YEAR` ruft einen Zeitraum zwischen Start und Endjahr auf:<br/>https://tabular.genesapi.org/?data=12612:BEV001&amp;region=01051&amp;time=2000:2010
 
-https://tabular.genesapi.org/?data=12612:BEV001&region=01051&time=2000:2010
+- `time=:YEAR` ruft sämtliche Jahre bis inklusive des ausgewählten Jahres auf:<br/>https://tabular.genesapi.org/?data=12612:BEV001&amp;region=01051&amp;time=:2010
 
-`time=:YEAR` ruft sämtliche Jahre bis inklusive des ausgewählten Jahres auf:
+- `time=YEAR:` ruft sämtliche Jahre ab dem ausgewählten Jahre auf:<br/>https://tabular.genesapi.org/?data=12612:BEV001&amp;region=01051&amp;time=2010:
 
-https://tabular.genesapi.org/?data=12612:BEV001&region=01051&time=:2010
+- `time=YEAR,YEAR` ruft mehrere Jahre auf:<br/>https://tabular.genesapi.org/?data=12612:BEV001&amp;region=01051&amp;time=2000,2005,2010,2015
 
-`time=YEAR:` ruft sämtliche Jahre ab dem ausgewählten Jahre auf (inklusive des Startjahres):
+### 5. Weitere Einstellungen _(optional)_
 
-https://tabular.genesapi.org/?data=12612:BEV001&region=01051&time=2010:
+Weitere Einstellungen wie Layout, Beschriftungen und Download-Format können dazu verwendet werden, die Daten in das Format zu bringen, das du für die Weiterverarbeitung brauchst.
 
-`time=YEAR,YEAR` ruft mehrere Jahre auf:
+#### Layout:
 
-https://tabular.genesapi.org/?data=12612:BEV001&region=01051&time=2000,2005,2010,2015
+- `layout=long` — Es wird eine Zeile pro Wert dargestellt (default)
+- `layout=time` — Es wird eine Zeile pro Jahr/Datum angezeigt
+- `layout=region` — Es wird Eine Zeile pro Region dargestellt
 
-5. Weiteren möglichen URL-Bestandteilen wie spezifische Datenauswahl, Layout, Beschriftungen,
-   und Download-Format (optional)
+#### Beschriftungen:
 
-Layout:
+- `labels=id` — Statt der vollen Bezeichnung werden nur Kürzel („id“) angezeigt (default)
+- `labels=name` — Ausgeschriebene Bezeichnungen bei der Ausgabe anzeigen
 
-- `layout=long` Es wird eine Zeile pro Wert dargestellt (default)
-- `layout=time` Es wird eine Zeile pro Jahr/Datum angezeigt
-- `layout=region` Es wird Eine Zeile pro Region dargestellt
+#### Format:
 
-Beschriftungen:
+- `format=csv` — Datensatz im CSV-Format ausgeben (default)
+- `format=tsv` — Daten im TSV-Format ausgeben (getrennt durch Tabs)
+- `delimiter=,` — Trennzeichen manuell festlegen (zum Beispiel `;`)
+- `format=json` — Daten im JSON-Format ausgeben (ein Objekt pro Tabellenzeile plus Tabellen-Metadaten)
 
-- `labels=id` Statt der vollen Bezeichnung werden nur Kürzel ("ids") angezeigt (default)
-- `labels=name` Ausgeschriebene Bezeichnungen bei der Ausgabe anzeigen
+#### Datumsformat:
 
-Format:
+- `dformat=year` — Datum wird in Jahren dargestellt (default)
+- `dformat=date` — Datum wird in Tagen dargestellt
 
-- `format=csv` Datensatz im CSV-Format ausgeben (default)
-- `format=tsv` Daten im TSV-Format ausgeben (tabulatorgetrennt)
-- `format=json` Daten im JSON-Format ausgeben (Ein Objekt pro Tabellenzeile plus Tabellen-Metadaten)
-- `delimiter=,` Als erwartetes Trennzeichen wird ein Komma `,` vernwedet (default), alternativ wäre ein Semikolon `;`
-
-Datumsformat:
-
-- `dformat=year` - Das Datumsformat wird in Jahren dargestellt (default)
-- `dformat=date` - Das Datumsformat wird in Tagen dargestellt
-
-Viele Beispiele für mögliche Abfragen findet ihr auf [INTERNER_LINK]. Wenn du dauerhaft erreichbare Links
-erstellen willst, haben wir auf dieser Seite [INTERNER_LINK] ein Anleitung verfasst. Wir haben außerdem
-[Beispiele für Python](verwendung-mit-python) und [JavaScript](verwendung-mit-javascript) zusammengestellt.
+Viele Beispiele für mögliche Abfragen findet ihr [auf Github](https://github.com/datenguide/genesapi-tabular/blob/master/examples.ipynb). Wir haben außerdem [Beispiele für Python](verwendung-mit-python) und [JavaScript](verwendung-mit-javascript) zusammengestellt.
