@@ -4,7 +4,7 @@ const docsNavigation = [
     children: [
       {
         title: 'Übersicht',
-        href: '/docs/erste-schritte',
+        href: '/docs',
       },
     ],
   },
@@ -12,25 +12,24 @@ const docsNavigation = [
     title: 'REST-Schnittstelle',
     children: [
       {
-        title: 'Daten herunterladen',
-        href: '/docs/rest-schnittstelle/daten-herunterladen',
+        title: 'Einführung',
+        href: '/docs/rest',
+      },
+      {
+        title: 'Aufbau der Abfragen',
+        href: '/docs/rest/abfragen',
       },
       {
         title: 'Dauerhafte Links',
-        href: '/docs/rest-schnittstelle/dauerhafte-links',
+        href: '/docs/rest/dauerhafte-links',
       },
       {
         title: 'Verwendung mit Python',
-        href: '/docs/rest-schnittstelle/verwendung-mit-python',
+        href: '/docs/rest/verwendung-mit-python',
       },
-    ],
-  },
-  {
-    title: 'GraphQL',
-    children: [
       {
-        title: 'Daten abfragen',
-        href: '/docs/graphql/daten-abfragen',
+        title: 'Verwendung mit JavaScript',
+        href: '/docs/rest/verwendung-mit-javascript',
       },
     ],
   },
