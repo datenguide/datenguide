@@ -25,6 +25,12 @@ const useStyles = makeStyles((theme) => ({
       border: `1px solid ${theme.palette.grey[200]}`,
     },
 
+    '& :not(pre) code': {
+      background: theme.palette.grey[200],
+      padding: theme.spacing(0.25, 0.75),
+      borderRadius: 5,
+    },
+
     '& .contentImage': {
       margin: theme.spacing(2, 0),
       width: '100%',
