@@ -11,16 +11,18 @@ Wir stellen deshalb mit https://static.tabular.genesapi.org eine statische API z
 
 ## Abfragen über die "normale" REST-Schnittstelle
 
-Alle Einbürgerungen von Ausländern mit Aufenthaltsdauer von unter 8 Jahren in allen brandenburgischen Landkreisen ausgeben, im Zeitraum seit 2000:
+Das Folgende Beispiel liefert Zahlen zur Einbürgerung von Ausländern mit einer Aufenthaltsdauer von unter 8 Jahren in allen brandenburgischen Landkreisen, im Zeitraum seit 2000:
 
 ```js
-https://tabular.genesapi.org/?region=all&level=3&parent=12?time=2000:?data=12511:BEV008(AUFDA1:AUFDA00B08)
+https://tabular.genesapi.org/?region=all&level=3&parent=12&time=2000:&data=12511:BEV008(AUFDA1:AUFDA00B08)
 ```
 
 ## Statische Abfrage-Links erstellen
 
-Damit diese Abfrage dauerhaft und verlässlich das selbe Ergebnisse liefert, kann sie über die Subdomain _static_ gestellt werden:
+Damit diese Abfrage dauerhaft und verlässlich das selbe Ergebnisse liefert, kannst du die Subdomain `static` verwenden. Alle Parameter bleiben dabei gleich.
 
 ```js
-https://static.genesapi.org/?region=all&level=3&parent=12?time=2000:?data=12511:BEV008(AUFDA1:AUFDA00B08)
+https://static.tabular.genesapi.org/?region=all&level=3&parent=12&time=2000:&data=12511:BEV008(AUFDA1:AUFDA00B08)
 ```
+
+Wenn du diese URL aufrufst wird eine statische Version der Abfrage generiert und abgelegt. Du wirst an eine neue URL weitergeleitet, die dann dauerhaft genau das Ergebnis zurückliefert, das du zu diesem Zeitpunkt abgerufen hast.
