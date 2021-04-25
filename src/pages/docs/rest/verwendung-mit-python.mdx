@@ -1,15 +1,13 @@
 ---
-title: 'Datenguide | REST-Schnittstelle | Verwendung mit Python'
+title: 'Datenguide | REST | Verwendung mit Python'
 layout: DocsPage
 ---
 
 # Verwendung mit Python
 
-Im folgenden findest du den Code, um die REST-Schnittstelle mit Python abzufragen. Eine Schritt-für-Schritt
-Anleitung wie die URL für die Abfrage der Schnittstelle aufgebaut sein muss, findest du auf [INTERNERT_LINK].
-##Abfrage der REST-Schnittstelle##
+Im Folgenden findest du Beispiel-Code, um die REST-Schnittstelle mit Python abzufragen. Eine Schritt-für-Schritt-Anleitung wie die URL für die Abfrage der Schnittstelle aufgebaut sein muss, findest du unter [Aufbau einer REST-Abfrage](abfragen).
 
-Um die Daten zu verarbeiten, nutzen wir die Pandas-Bibliothek.
+Um die Daten zu verarbeiten, nutzen wir die Bibliothek [Pandas](https://pandas.pydata.org/).
 
 ## Daten in einen Dataframe laden
 
@@ -18,8 +16,11 @@ import pandas as pd
 import requests
 from io import StringIO
 
-BASE_URL = 'localhost:5000' # 'https://tabular.genesapi.org'
+# Basis-URL der Datenguide API:
+BASE_URL = 'https://tabular.genesapi.org'
 
+# Einfache Funktion zur Herunterladen und Anzeigen
+# von Tabellen in einem DataFrame:
 def get_df(query):
     url = '%s/%s' % (BASE_URL, query)
     print(url)
@@ -32,17 +33,14 @@ def get_df(query):
     df.index = df[df.columns[0]]
     del df[df.columns[0]]
     return df.fillna('')
+
+# Beispielhafter Funktionsaufruf für:
+# - eine Statistik ('11111' / Gebietsstand)
+# - ein Wertmerkmal ('FLC006' / Fläche)
+# - eine Region ('11' / Berlin)
+get_df('?data=11111:FLC006&region=11')
 ```
 
-JSON
-format=json
+---
 
-Gibt die Daten (key: data) als json (response mimetype: application/json) zurück samt metadaten (key: schema) zur Tabellenstruktur.
-
-```python
-import json  # for pretty printing
-url = BASE_URL + '?data=11111:FLC006&time=2017&layout=region&format=json'
-print(url)
-data = requests.get(url)
-print(json.dumps(data.json(), indent=2))
-```
+Viele Beispiele für mögliche Abfragen findet ihr [in diesem Jupyter Notebook](https://github.com/datenguide/genesapi-tabular/blob/master/examples.ipynb). Wir haben außerdem ein Beispiel für die [Verwendung mit JavaScript](verwendung-mit-javascript) zusammengestellt.
