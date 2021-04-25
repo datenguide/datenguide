@@ -1,6 +1,9 @@
 ---
-title: 'Datenguide | REST-Schnittstelle | Statische Daten'
+title: 'Datenguide | REST | Statische Daten'
 layout: DocsPage
+nextPage:
+  text: Aufbau einer Abfrage
+  href: abfragen
 ---
 
 # Statische Daten
@@ -9,7 +12,7 @@ Wir gleichen unsere Daten regelmäßig mit denen der statistischen Ämter ab und
 
 Wir stellen deshalb mit https://static.tabular.genesapi.org eine statische API zur Verfügung, die genauso funktioniert wie https://tabular.genesapi.org – nur, dass die hier generierten Tabellen nicht aktualisiert werden und deshalb immer genau die Daten zurückgeben, die du ursprünglich abgerufen hast.
 
-## Abfragen über die "normale" REST-Schnittstelle
+## Abfragen über die „normale“ REST-Schnittstelle
 
 Das Folgende Beispiel liefert Zahlen zur Einbürgerung von Ausländern mit einer Aufenthaltsdauer von unter 8 Jahren in allen brandenburgischen Landkreisen, im Zeitraum seit 2000:
 
@@ -26,3 +29,5 @@ https://static.tabular.genesapi.org/?region=all&level=3&parent=12&time=2000:&dat
 ```
 
 Wenn du diese URL aufrufst wird eine statische Version der Abfrage generiert und abgelegt. Du wirst an eine neue URL weitergeleitet, die dann dauerhaft genau das Ergebnis zurückliefert, das du zu diesem Zeitpunkt abgerufen hast.
+
+Eine Schritt-für-Schritt-Anleitung wie die URL für die Abfrage der Schnittstelle aufgebaut sein muss, findest du unter [Aufbau einer REST-Abfrage](abfragen).

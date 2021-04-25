@@ -2,6 +2,7 @@ import PropTypes from 'prop-types'
 import { useState } from 'react'
 
 import AppBar from '@material-ui/core/AppBar'
+import Button from '@material-ui/core/Button'
 import IconButton from '@material-ui/core/IconButton'
 import MenuIcon from '@material-ui/icons/Menu'
 import { makeStyles } from '@material-ui/core/styles'
@@ -58,13 +59,17 @@ const useStyles = makeStyles((theme) => ({
       marginLeft: drawerWidth.desktop + theme.spacing(4),
     },
   },
+  nextPageButton: {
+    margin: theme.spacing(2, 0),
+  },
 }))
 
-const DocsPage = (frontMatter) => ({ children, tableOfContents }) => {
+const DocsPage = (frontMatter) => ({ children }) => {
   const classes = useStyles()
   const theme = useTheme()
   const [open, setOpen] = useState(false)
   const isDesktop = useMediaQuery(theme.breakpoints.up('sm'))
+  const { nextPage } = frontMatter
 
   const handleDrawerToggle = () => {
     setOpen(!open)
@@ -95,6 +100,17 @@ const DocsPage = (frontMatter) => ({ children, tableOfContents }) => {
           </nav>
           <main className={classes.content}>
             <BodyText>{children}</BodyText>
+            {nextPage && (
+              <Button
+                className={classes.nextPageButton}
+                href={nextPage.href}
+                variant="outlined"
+                color="primary"
+                size="large"
+              >
+                {nextPage.text} →
+              </Button>
+            )}
           </main>
         </div>
         <Footer />
