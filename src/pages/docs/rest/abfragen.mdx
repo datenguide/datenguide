@@ -1,11 +1,14 @@
 ---
-title: 'Datenguide | REST-Schnittstelle | Abfrage der REST-Schnittstelle'
+title: 'Datenguide | REST | Aufbau einer API-Abfrage'
 layout: DocsPage
+nextPage:
+  text: Verwendung mit Python
+  href: verwendung-mit-python
 ---
 
 # Aufbau einer API-Abfrage
 
-Die URL-Struktur jeder Abfrage setzt sich aus unterschiedlichen Bestandteilen zusammen, von denen die meisten optional sind:
+Die URL-Struktur jeder Abfrage an die Datenguide API setzt sich aus unterschiedlichen Bestandteilen zusammen, von denen die meisten optional sind:
 
 ```js
 https://tabular.genesapi.org?data=12612:BEV001&level=2&time=2008:
@@ -19,8 +22,9 @@ Obwohl die Reihenfolge der Parameter keine Rolle für die API spielt, halten wir
 4. Die Abfrage des Zeitraums mit `time=` _(optional)_
 5. Weitere Einstellungen wie Layout, Beschriftungen und Download-Format _(optional)_
 
-Sämtliche an die REST-Schnittstelle gesendeten Abfragen folgen diesem Aufbau. Sehen wir uns weiter die
-Bestandteile der URL einmal genauer an.
+Sämtliche an die REST-Schnittstelle gesendeten Abfragen folgen diesem Aufbau.
+
+**Diese API ist experimentell.** _Datenguide ist ein nicht-kommerzielles Open-Source-Projekt. Wir übernehmen keine Gewähr für die Zuverlässigkeit der Tools sowie die Richtigkeit und Vollständigkeit der abgerufenen Daten._
 
 ### 1. Die Basis-URL _(notwendig)_
 
@@ -118,4 +122,6 @@ Weitere Einstellungen wie Layout, Beschriftungen und Download-Format können daz
 - `dformat=year` — Datum wird in Jahren dargestellt (default)
 - `dformat=date` — Datum wird in Tagen dargestellt
 
-Viele Beispiele für mögliche Abfragen findet ihr [auf Github](https://github.com/datenguide/genesapi-tabular/blob/master/examples.ipynb). Wir haben außerdem [Beispiele für Python](rest/verwendung-mit-python) und [JavaScript](rest/verwendung-mit-javascript) zusammengestellt.
+---
+
+Viele Beispiele für mögliche Abfragen findet ihr [auf Github](https://github.com/datenguide/genesapi-tabular/blob/master/examples.ipynb). Wir haben außerdem Beispiele für die [Verwendung mit Python](verwendung-mit-python) und [JavaScript](verwendung-mit-javascript) zusammengestellt.
