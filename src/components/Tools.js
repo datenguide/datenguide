@@ -1,4 +1,4 @@
-import GithubIcon from 'mdi-material-ui/Github'
+import GithubIcon from 'mdi-material-ui/ArrowRightBold'
 
 import { makeStyles } from '@material-ui/core/styles'
 import Container from '@material-ui/core/Container'
@@ -10,12 +10,12 @@ import CardHeader from '@material-ui/core/CardHeader'
 import Button from '@material-ui/core/Button'
 
 import logoPython from '../assets/python.svg'
-import logoGraphQL from '../assets/graphql.svg'
+import logoDatenguide from '../assets/logo.svg'
 import logoRlang from '../assets/rlang.svg'
 
 const logos = {
+  datenguide: logoDatenguide,
   python: logoPython,
-  graphql: logoGraphQL,
   rlang: logoRlang,
 }
 
@@ -126,7 +126,6 @@ export default function Tools({ children, features }) {
                 <CardContent>{desc}</CardContent>
 
                 <CardActions className={classes.cardActions}>
-                  <small className={classes.beta}>beta</small>
                   <Button
                     color="secondary"
                     size="small"

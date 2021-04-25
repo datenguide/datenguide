@@ -3,16 +3,28 @@ title: 'Datenguide | Dokumentation'
 layout: DocsPage
 ---
 
-# Erste Schritte – Was ist Datenguide?
+# Erste Schritte
 
-Die Statistischen Ämter in Deutschland sammeln kontinuierlich Daten und erstellen Statistiken zu allen Bereichen der Gesellschaft. Datenguide stellt verschiedenene experimentelle Tools bereit, mit denen der Zugang zur amtlichen Statistik einfacher wird.
+Die Statistischen Ämter in Deutschland sammeln kontinuierlich Daten und erstellen Statistiken zu allen Bereichen der Gesellschaft. Datenguide stellt verschiedenene Tools bereit, mit denen der Zugang zur amtlichen Statistik einfacher wird. Mehr Informationen zum Hintergrund der Statistik findest du hier: [Statistik erklärt](/statistik-erklaert)
 
 Mit Datenguide kannst du:
 
-- **Daten im Browser abrufen.** Die schnellste und einfachste Möglichkeit, um Daten abzufragen. Vorwissen ist dazu keines nötig, die Oberfläche des Datenportals erklärt selbst die einzelnen Schritte und lädt zum Ausprobieren ein. [Hier geht es direkt zum Datenportal](/statistiken).
+- **Daten im Browser abrufen.** Die schnellste und einfachste Möglichkeit, um Daten abzufragen. Vorwissen ist dazu keines nötig, die Oberfläche des Datenportals erklärt selbst die einzelnen Schritte und lädt zum Ausprobieren ein.
 
-- **CSV oder JSON herunterladen.** Wer Daten nicht per Hand über das Datenportal herunterladen möchte, kann ganze Datensätze mit der REST-Schnittstelle abfragen – auch automatisiert und in einem maschinenlesbaren Format. [Wie genau das funktioniert, wird hier erklärt](/docs/rest-schnittstelle/daten-herunterladen).
+  [Datenportal](/statistiken)
 
-- **Daten über GraphQL abrufen.** Mit der Abfragesprache GraphQL kann man ganz gezielt Datensätze abrufen. Bis man damit sicher umgehen kann, braucht es etwas Übung – oder [gute Beispiele, wie wir sie hier aufgeschrieben haben](/docs/graphql/daten-bekommen). Sobald man aber die Grundlagen verstanden hat, bietet dieses Tool enorm viele Möglichkeiten.
+  ***
 
-Diese Dokumentation erklärt Schritt für Schritt, wie die einzelnen Tools funktionieren. Mehr [Informationen zum Hintergrund der Statistik finden sich hier](/statistik-erklaert).
+- **CSV oder JSON herunterladen.** Wer Daten nicht per Hand über das Datenportal herunterladen möchte, kann ganze Datensätze mit der REST-Schnittstelle abfragen – auch automatisiert und in einem maschinenlesbaren Format.
+
+  [Dokumentation der REST-Schnittstelle](/docs/rest)
+
+  ***
+
+- **Daten und Metadaten über GraphQL abrufen.** Die GraphQL-Schnittstelle von Datenguide ermöglicht es, sowohl statistische Daten als auch Metadaten über Statistiken abzurufen. Diese Datenschnittstelle ist für die Entwicklung komplexerer Tools gedacht und wird intern von der Datenguide-Webanwendung verwendet.
+
+  [Repository der GraphQL-Schnittstelle](https://github.com/datenguide/api)
+
+  ***
+
+Datenguide ist ein **nicht-kommerzielles Open-Source-Projekt** und alle hier präsentierten Tools sind experimentell. Wir übernehmen keine Gewähr für die Zuverlässigkeit der Tools sowie die Richtigkeit und Vollständigkeit der abgerufenen Daten.

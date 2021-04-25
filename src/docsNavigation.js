@@ -20,16 +20,16 @@ const docsNavigation = [
         href: '/docs/rest/abfragen',
       },
       {
-        title: 'Dauerhafte Links',
-        href: '/docs/rest/dauerhafte-links',
-      },
-      {
         title: 'Verwendung mit Python',
         href: '/docs/rest/verwendung-mit-python',
       },
       {
         title: 'Verwendung mit JavaScript',
         href: '/docs/rest/verwendung-mit-javascript',
+      },
+      {
+        title: 'Dauerhafte Links',
+        href: '/docs/rest/dauerhafte-links',
       },
     ],
   },

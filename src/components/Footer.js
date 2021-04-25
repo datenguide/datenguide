@@ -20,7 +20,7 @@ const navItems = [
   },
   {
     title: 'Dokumentation',
-    path: 'https://preview.datengui.de/dokumentation',
+    path: '/docs',
     external: true,
   },
   {
