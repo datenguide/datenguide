@@ -14,11 +14,6 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up('md')]: {
       flexDirection: 'row',
     },
-
-    [theme.breakpoints.up('xl')]: {
-      paddingTop: theme.spacing(9),
-      paddingBottom: theme.spacing(9),
-    },
   },
 
   avatar: {

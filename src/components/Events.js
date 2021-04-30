@@ -151,10 +151,10 @@ export default function Events({ children, dates: { past, upcoming } }) {
         <Grid container direction="row" alignItems="flex-start">
           <Grid item md={6}>
             <section className={classes.content}>
-              <h2>Termine</h2>
+              {upcoming && <h2>Termine</h2>}
               {upcoming && <Dates items={upcoming} />}
 
-              <h2>Vergangene Termine</h2>
+              {past && <h2>Vergangene Termine</h2>}
               {past && <Dates items={past} />}
             </section>
           </Grid>
