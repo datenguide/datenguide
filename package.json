@@ -102,7 +102,7 @@
     "remark-toc": "^7.0.0",
     "responsive-loader": "^1.2.0",
     "stringify-object": "^3.3.0",
-    "swr": "^0.2.3",
+    "swr": "^0.5.6",
     "typeface-ibm-plex-sans": "^0.0.75",
     "unified": "^9.0.0",
     "url-parse": "^1.4.7",
