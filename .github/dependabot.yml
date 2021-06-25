@@ -1,0 +1,28 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: monthly
+  open-pull-requests-limit: 10
+  target-branch: preview
+  ignore:
+  - dependency-name: swr
+    versions:
+    - 0.3.11
+    - 0.4.1
+  - dependency-name: "@material-ui/styles"
+    versions:
+    - 4.11.2
+  - dependency-name: mdi-material-ui
+    versions:
+    - 6.21.0
+  - dependency-name: "@mdi/js"
+    versions:
+    - 5.8.55
+  - dependency-name: lodash
+    versions:
+    - 4.17.20
+  - dependency-name: elliptic
+    versions:
+    - 6.5.3
