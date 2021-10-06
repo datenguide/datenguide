@@ -105,7 +105,7 @@
     "swr": "^0.2.3",
     "typeface-ibm-plex-sans": "^0.0.75",
     "unified": "^9.0.0",
-    "url-parse": "^1.4.7",
+    "url-parse": "^1.5.2",
     "use-reducer-thunk": "^1.0.4",
     "victory": "^34.1.3"
   },
