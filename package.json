@@ -63,7 +63,7 @@
     "immer": "^6.0.3",
     "isomorphic-unfetch": "^3.0.0",
     "jimp": "^0.10.2",
-    "loader-utils": "^2.0.0",
+    "loader-utils": "^2.0.3",
     "lodash": "^4.17.15",
     "mdast-util-toc": "^5.0.3",
     "mdi-material-ui": "^6.13.2",
