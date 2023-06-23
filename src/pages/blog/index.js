@@ -4,10 +4,10 @@ import moment from 'moment'
 import Container from '@mui/material/Container'
 
 import DefaultLayout from '../../layouts/DefaultLayout'
-import SecondaryStage from '../../components/SecondaryStage'
-import BlogPostListItem from '../../components/BlogPostListItem'
+import SecondaryStage from '@/components/SecondaryStage'
+import BlogPostListItem from '@/components/BlogPostListItem'
 import traverseDirectory from '../../lib/traverseDirectory'
-import { BodyText } from '../../components/BodyText'
+import { BodyText } from '@/components/BodyText'
 
 const Blog = ({ meta, blogPosts = [] }) => {
   return (

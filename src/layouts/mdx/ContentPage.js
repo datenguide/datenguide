@@ -1,7 +1,7 @@
 import Container from '@mui/material/Container'
 
 import DefaultLayout from '../DefaultLayout'
-import { BodyText } from '../../components/BodyText'
+import { BodyText } from '@/components/BodyText'
 
 const ContentPage = (frontMatter) => ({ children }) => {
   return (

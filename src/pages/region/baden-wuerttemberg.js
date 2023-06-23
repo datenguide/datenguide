@@ -3,8 +3,8 @@ import { makeStyles } from '@mui/styles'
 import { Container, Grid } from '@mui/material'
 import { useQuery } from 'graphql-hooks'
 import DefaultLayout from '../../layouts/DefaultLayout'
-import FigureHighlight from '../../components/regions/FigureHighlight'
-import MapCities from '../../components/regions/MapCities'
+import FigureHighlight from '@/components/regions/FigureHighlight'
+import MapCities from '@/components/regions/MapCities'
 
 export const query = `
   query region($id: String!) {

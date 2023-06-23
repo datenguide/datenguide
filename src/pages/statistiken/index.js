@@ -7,16 +7,16 @@ import Paper from '@mui/material/Paper'
 import HelpIcon from '@mui/icons-material/Help'
 import Button from '@mui/material/Button'
 
-import DataTable from '../../components/querytool/DataTable'
-import QueryParameterSidebar from '../../components/querytool/QueryParameterSidebar'
+import DataTable from '@/components/querytool/DataTable'
+import QueryParameterSidebar from '@/components/querytool/QueryParameterSidebar'
 import { queryArgsToState, stateToQueryArgs } from '../../lib/queryString'
 import useSearchManager from '../../lib/useSearchManager'
 import DockedDrawerLayout from '../../layouts/DockedDrawerLayout'
-import RegionSearchParameterCard from '../../components/querytool/RegionSearchParameterCard'
-import MeasureSearchParameterCard from '../../components/querytool/MeasureSearchParameterCard'
-import RegionEmptyState from '../../components/querytool/RegionEmptyState'
-import MeasureEmptyState from '../../components/querytool/MeasureEmptyState'
-import Disclaimer from '../../components/querytool/Disclaimer'
+import RegionSearchParameterCard from '@/components/querytool/RegionSearchParameterCard'
+import MeasureSearchParameterCard from '@/components/querytool/MeasureSearchParameterCard'
+import RegionEmptyState from '@/components/querytool/RegionEmptyState'
+import MeasureEmptyState from '@/components/querytool/MeasureEmptyState'
+import Disclaimer from '@/components/querytool/Disclaimer'
 
 const useStyles = makeStyles((theme) => ({
   content: {

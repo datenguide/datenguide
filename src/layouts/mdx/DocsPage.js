@@ -9,12 +9,12 @@ import { makeStyles } from '@mui/styles'
 import useMediaQuery from '@mui/material/useMediaQuery'
 import useTheme from '@mui/styles/useTheme'
 
-import HeaderToolbar from '../../components/HeaderToolbar'
-import Footer from '../../components/Footer'
-import DocsNavigation from '../../components/DocsNavigation'
+import HeaderToolbar from '@/components/HeaderToolbar'
+import Footer from '@/components/Footer'
+import DocsNavigation from '@/components/DocsNavigation'
 import Base from '../Base'
 import docsNavigation from '../../docsNavigation'
-import { BodyText } from '../../components/BodyText'
+import { BodyText } from '@/components/BodyText'
 
 const drawerWidth = {
   mobile: 240,

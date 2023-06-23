@@ -2,9 +2,9 @@ import { makeStyles } from '@mui/styles'
 import AppBar from '@mui/material/AppBar'
 
 import Base from '../Base'
-import HeaderToolbar from '../../components/HeaderToolbar'
-import Footer from '../../components/Footer'
-import BlogHeader from '../../components/BlogHeader'
+import HeaderToolbar from '@/components/HeaderToolbar'
+import Footer from '@/components/Footer'
+import BlogHeader from '@/components/BlogHeader'
 
 const useStyles = makeStyles((theme) => ({
   content: {

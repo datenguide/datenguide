@@ -6,9 +6,9 @@ import Container from '@mui/material/Container'
 import Grid from '@mui/material/Grid'
 
 import DefaultLayout from '../../layouts/DefaultLayout'
-import BlogPostFeaturedItem from '../../components/BlogPostFeaturedItem'
+import BlogPostFeaturedItem from '@/components/BlogPostFeaturedItem'
 import traverseDirectory from '../../lib/traverseDirectory'
-import Funders from '../../components/Funders'
+import Funders from '@/components/Funders'
 
 const useStyles = makeStyles((theme) => ({
   root: {

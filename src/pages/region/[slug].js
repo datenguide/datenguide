@@ -2,7 +2,7 @@ import fetch from 'isomorphic-unfetch'
 import absoluteUrl from 'next-absolute-url'
 
 import DefaultLayout from '../../layouts/DefaultLayout'
-import StatisticsList from '../../components/StatisticsList'
+import StatisticsList from '@/components/StatisticsList'
 import { Container } from '@mui/material'
 
 const RegionDetails = ({ region, statistics }) => {
