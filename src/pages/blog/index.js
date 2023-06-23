@@ -1,7 +1,7 @@
 import _ from 'lodash'
 import moment from 'moment'
 
-import Container from '@material-ui/core/Container'
+import Container from '@mui/material/Container'
 
 import DefaultLayout from '../../layouts/DefaultLayout'
 import SecondaryStage from '../../components/SecondaryStage'

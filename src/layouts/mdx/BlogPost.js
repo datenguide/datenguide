@@ -1,6 +1,6 @@
-import Container from '@material-ui/core/Container'
-import { makeStyles } from '@material-ui/core/styles'
-import AppBar from '@material-ui/core/AppBar'
+import Container from '@mui/material/Container'
+import { makeStyles } from '@mui/styles'
+import AppBar from '@mui/material/AppBar'
 
 import Base from '../Base'
 import HeaderToolbar from '../../components/HeaderToolbar'

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 
-import TextField from '@material-ui/core/TextField'
-import Autocomplete from '@material-ui/lab/Autocomplete'
+import TextField from '@mui/material/TextField'
+import Autocomplete from '@mui/lab/Autocomplete'
 
 import inventory from '../../../../data/inventory.json'
 import schema from '../../../../data/statSchema.json'
-import { makeStyles } from '@material-ui/core/styles'
+import { makeStyles } from '@mui/styles'
 
 const statOptions = Object.keys(inventory)
 

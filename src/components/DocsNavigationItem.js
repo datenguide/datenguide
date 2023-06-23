@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import clsx from 'clsx'
 
-import { makeStyles } from '@material-ui/core/styles'
-import List from '@material-ui/core/List'
-import ListItem from '@material-ui/core/ListItem'
-import Collapse from '@material-ui/core/Collapse'
-import Button from '@material-ui/core/Button'
+import { makeStyles } from '@mui/styles'
+import List from '@mui/material/List'
+import ListItem from '@mui/material/ListItem'
+import Collapse from '@mui/material/Collapse'
+import Button from '@mui/material/Button'
 
 const useStyles = makeStyles((theme) => ({
   root: {

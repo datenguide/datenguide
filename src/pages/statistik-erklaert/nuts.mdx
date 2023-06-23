@@ -14,8 +14,10 @@ authors:
   - sjockers
 ---
 
-import Grid from '@material-ui/core/Grid'
-import Container from '@material-ui/core/Container'
+import Grid from '@mui/material/Grid'
+import Container from '@mui/material/Container'
+import Image from 'next/image'
+
 import { BodyText, BodyTextAside } from '../../components/BodyText'
 import BlogHeader from '../../components/BlogHeader'
 import DatawrapperChart from '../../components/DatawrapperChart'
@@ -23,10 +25,10 @@ import ArrowLink from '../../components/ArrowLink'
 import SimpleMap from './components/SimpleMap'
 import ScrollyMap from './components/ScrollyMap'
 import ScrollyMapStep from './components/ScrollyMapStep'
-import { frontMatter } from './nuts.mdx'
+import { frontmatter } from './nuts.mdx'
 
-<BlogHeader {...frontMatter}>
-  <img
+<BlogHeader {...frontmatter}>
+  <Image
     src={require('./nuts/nuts_pyramid.svg')}
     style={{ marginBottom: '-200px' }}
   />

@@ -1,8 +1,8 @@
-import { makeStyles } from '@material-ui/core/styles'
-import Container from '@material-ui/core/Container'
-import Grid from '@material-ui/core/Grid'
-import TextField from '@material-ui/core/TextField'
-import Button from '@material-ui/core/Button'
+import { makeStyles } from '@mui/styles'
+import Container from '@mui/material/Container'
+import Grid from '@mui/material/Grid'
+import TextField from '@mui/material/TextField'
+import Button from '@mui/material/Button'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -65,7 +65,7 @@ const Subscribe = ({ children }) => {
   return (
     <div className={classes.root}>
       <Container>
-        <Grid container direction="row" justify="center" spacing={2}>
+        <Grid container direction="row" justifyContent="center" spacing={2}>
           <Grid item sm={12} md={6} lg={7}>
             <div className={classes.content}>{children}</div>
 
@@ -127,7 +127,7 @@ const Subscribe = ({ children }) => {
         </Grid>
       </Container>
     </div>
-  )
+  );
 }
 
 export default Subscribe

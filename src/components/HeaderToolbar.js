@@ -1,9 +1,9 @@
 import Link from 'next/link'
 
-import { makeStyles } from '@material-ui/core/styles'
-import Typography from '@material-ui/core/Typography'
-import Toolbar from '@material-ui/core/Toolbar'
-import Button from '@material-ui/core/Button'
+import { makeStyles } from '@mui/styles'
+import Typography from '@mui/material/Typography'
+import Toolbar from '@mui/material/Toolbar'
+import Button from '@mui/material/Button'
 
 import logo from '../assets/logo.svg'
 import { useRouter } from 'next/router'
@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
   nav: {
     display: 'flex',
 
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       display: 'none',
     },
   },
@@ -60,7 +60,7 @@ export default function HeaderToolbar({ menuButton }) {
     <Toolbar className={classes.toolbar}>
       <div className={classes.controls}>
         {menuButton}
-        <Link href="/">
+        <Link legacyBehavior href="/">
           <a className={classes.homeLink}>
             <Typography className={classes.logo} component="h2">
               Datenguide
@@ -77,14 +77,14 @@ export default function HeaderToolbar({ menuButton }) {
         {/*    Docs */}
         {/*  </a> */}
         {/* ) : ( */}
-        {/*  <Link href="/docs/gettingstarted/intro" passHref> */}
+        {/*  <Link legacyBehavior href="/docs/gettingstarted/intro" passHref> */}
         {/*    <Button component="a" color="inherit"> */}
         {/*      Docs */}
         {/*    </Button> */}
         {/*  </Link> */}
         {/* )} */}
         <div className={classes.nav}>
-          <Link href="/statistiken">
+          <Link legacyBehavior href="/statistiken">
             <Button
               component="a"
               color={
@@ -96,12 +96,12 @@ export default function HeaderToolbar({ menuButton }) {
               Datenportal
             </Button>
           </Link>
-          {/* <Link href="/regionen"> */}
+          {/* <Link legacyBehavior href="/regionen"> */}
           {/*  <Button component="a" color="inherit"> */}
           {/*    Regions */}
           {/*  </Button> */}
           {/* </Link> */}
-          <Link href="/statistik-erklaert">
+          <Link legacyBehavior href="/statistik-erklaert">
             <Button
               component="a"
               color={
@@ -113,7 +113,7 @@ export default function HeaderToolbar({ menuButton }) {
               Statistik erklärt
             </Button>
           </Link>
-          <Link href="/blog">
+          <Link legacyBehavior href="/blog">
             <Button
               component="a"
               color={
@@ -123,7 +123,7 @@ export default function HeaderToolbar({ menuButton }) {
               Blog
             </Button>
           </Link>
-          <Link href="/info">
+          <Link legacyBehavior href="/info">
             <Button
               component="a"
               color={

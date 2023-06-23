@@ -1,14 +1,14 @@
 import copy from 'copy-to-clipboard'
 import querystring from 'query-string'
 
-import Toolbar from '@material-ui/core/Toolbar'
-import TextFormatIcon from '@material-ui/icons/TextFormat'
-import SaveAltIcon from '@material-ui/icons/SaveAlt'
-import AppsIcon from '@material-ui/icons/Apps'
-import DateRangeIcon from '@material-ui/icons/DateRange'
-import { makeStyles } from '@material-ui/styles'
-import IconButton from '@material-ui/core/IconButton'
-import FileCopyIcon from '@material-ui/icons/FileCopy'
+import Toolbar from '@mui/material/Toolbar'
+import TextFormatIcon from '@mui/icons-material/TextFormat'
+import SaveAltIcon from '@mui/icons-material/SaveAlt'
+import AppsIcon from '@mui/icons-material/Apps'
+import DateRangeIcon from '@mui/icons-material/DateRange'
+import { makeStyles } from '@mui/styles'
+import IconButton from '@mui/material/IconButton'
+import FileCopyIcon from '@mui/icons-material/FileCopy'
 
 import DataTableRadioButtonMenu from './DataTableRadioButtonMenu'
 import DataTableDownloadMenu from './DataTableDownloadMenu'
@@ -139,11 +139,11 @@ const DataTableToolbar = ({
         queryArgs={queryArgs}
         filename={filename}
       />
-      <IconButton onClick={handleCopyToClipboard}>
+      <IconButton onClick={handleCopyToClipboard} size="large">
         <FileCopyIcon style={{ color: copied ? '#38a861' : '#000' }} />
       </IconButton>
     </Toolbar>
-  )
+  );
 }
 
 export default DataTableToolbar

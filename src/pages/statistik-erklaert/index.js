@@ -1,9 +1,9 @@
 import _ from 'lodash'
 import moment from 'moment'
 
-import { makeStyles, useTheme } from '@material-ui/styles'
-import Container from '@material-ui/core/Container'
-import Grid from '@material-ui/core/Grid'
+import { makeStyles, useTheme } from '@mui/styles'
+import Container from '@mui/material/Container'
+import Grid from '@mui/material/Grid'
 
 import DefaultLayout from '../../layouts/DefaultLayout'
 import BlogPostFeaturedItem from '../../components/BlogPostFeaturedItem'

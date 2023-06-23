@@ -1,7 +1,7 @@
-import { makeStyles } from '@material-ui/core/styles'
-import { Button } from '@material-ui/core'
-import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown'
-import Menu from '@material-ui/core/Menu'
+import { makeStyles } from '@mui/styles'
+import { Button } from '@mui/material'
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown'
+import Menu from '@mui/material/Menu'
 import { useState } from 'react'
 
 const useStyles = makeStyles((theme) => ({

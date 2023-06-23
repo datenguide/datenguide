@@ -3,12 +3,12 @@ import PropTypes from 'prop-types'
 import chroma from 'chroma-js'
 import _ from 'lodash'
 
-import { makeStyles } from '@material-ui/core/styles'
-import DropDownCircleIcon from '@material-ui/icons/ArrowDropDownCircle'
-import FormControlLabel from '@material-ui/core/FormControlLabel'
-import Menu from '@material-ui/core/Menu'
-import MenuItem from '@material-ui/core/MenuItem'
-import Checkbox from '@material-ui/core/Checkbox'
+import { makeStyles } from '@mui/styles'
+import DropDownCircleIcon from '@mui/icons-material/ArrowDropDownCircle'
+import FormControlLabel from '@mui/material/FormControlLabel'
+import Menu from '@mui/material/Menu'
+import MenuItem from '@mui/material/MenuItem'
+import Checkbox from '@mui/material/Checkbox'
 
 const useStyles = makeStyles((theme) => ({
   codeDimensionChip: {

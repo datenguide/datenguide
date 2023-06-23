@@ -1,7 +1,7 @@
-import { makeStyles } from '@material-ui/core/styles'
+import { makeStyles } from '@mui/styles'
 import DataTableMenu from './DataTableMenu'
-import MenuItem from '@material-ui/core/MenuItem'
-import Switch from '@material-ui/core/Switch'
+import MenuItem from '@mui/material/MenuItem'
+import Switch from '@mui/material/Switch'
 
 const useStyles = makeStyles((theme) => ({
   root: {

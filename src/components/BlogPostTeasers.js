@@ -1,7 +1,7 @@
-import { makeStyles } from '@material-ui/styles'
-import Container from '@material-ui/core/Container'
-import Grid from '@material-ui/core/Grid'
-import Button from '@material-ui/core/Button'
+import { makeStyles } from '@mui/styles'
+import Container from '@mui/material/Container'
+import Grid from '@mui/material/Grid'
+import Button from '@mui/material/Button'
 
 import BlogPostFeaturedItem from './BlogPostFeaturedItem'
 

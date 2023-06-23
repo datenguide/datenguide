@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import TextField from '@material-ui/core/TextField'
-import Autocomplete from '@material-ui/lab/Autocomplete'
-import CircularProgress from '@material-ui/core/CircularProgress'
+import TextField from '@mui/material/TextField'
+import Autocomplete from '@mui/lab/Autocomplete'
+import CircularProgress from '@mui/material/CircularProgress'
 import searchRegion from '../../../../data/regions'
 
 const RegionSelect = ({ onSelect, className }) => {
@@ -64,7 +64,7 @@ const RegionSelect = ({ onSelect, className }) => {
       className={className}
       onChange={handleChange}
       onInputChange={handleInputChange}
-      getOptionSelected={(option, value) => option.name === value.name}
+      isOptionEqualToValue={(option, value) => option.name === value.name}
       getOptionLabel={(option) => option.name}
       options={options}
       loading={loading}
@@ -86,7 +86,7 @@ const RegionSelect = ({ onSelect, className }) => {
         />
       )}
     />
-  )
+  );
 }
 
 export default RegionSelect

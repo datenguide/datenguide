@@ -3,8 +3,9 @@ import useSWR from 'swr'
 import { useState } from 'react'
 import getConfig from 'next/config'
 
-import { makeStyles, Tab, Tabs } from '@material-ui/core'
-import Paper from '@material-ui/core/Paper'
+import { Tab, Tabs } from '@mui/material'
+import { makeStyles } from '@mui/styles'
+import Paper from '@mui/material/Paper'
 
 import StatisticsTreeView from './StatisticsTreeView'
 import fetcher from '../../lib/fetcher'

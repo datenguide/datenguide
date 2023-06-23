@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import Highlight from 'react-highlight'
 import querystring from 'query-string'
 
-import { makeStyles } from '@material-ui/core/styles'
+import { makeStyles } from '@mui/styles'
 import {
   Paper,
   Table,
@@ -18,10 +18,10 @@ import {
   Tabs,
   Tab,
   Button,
-} from '@material-ui/core'
-import CallMadeIcon from '@material-ui/icons/CallMade'
-import Alert from '@material-ui/lab/Alert'
-import AlertTitle from '@material-ui/lab/AlertTitle'
+} from '@mui/material'
+import CallMadeIcon from '@mui/icons-material/CallMade'
+import Alert from '@mui/lab/Alert'
+import AlertTitle from '@mui/lab/AlertTitle'
 
 import getQuery from '../../lib/queryBuilder'
 import DataTableToolbar from './DataTableToolbar'

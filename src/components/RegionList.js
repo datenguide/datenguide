@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import { makeStyles } from '@material-ui/core/styles'
+import { makeStyles } from '@mui/styles'
 import CityIcon from 'mdi-material-ui/HomeCityOutline'
 
 const useStyles = makeStyles((theme) => ({
@@ -85,7 +85,7 @@ export default function RegionList({ regions }) {
     <ul className={classes.root}>
       {regions.map(({ slug, displayName, type }) => (
         <li className={classes.item} key={slug}>
-          <Link href={`/region/${slug}`}>
+          <Link legacyBehavior href={`/region/${slug}`}>
             <a className={classes.link}>
               <div className={classes.iconBackground}>
                 <CityIcon className={classes.icon} />

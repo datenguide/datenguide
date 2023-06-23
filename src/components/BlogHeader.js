@@ -1,7 +1,7 @@
 import moment from 'moment'
-import { makeStyles } from '@material-ui/core/styles'
-import Container from '@material-ui/core/Container'
-import Avatar from '@material-ui/core/Avatar'
+import { makeStyles } from '@mui/styles'
+import Container from '@mui/material/Container'
+import Avatar from '@mui/material/Avatar'
 import MastodonIcon from 'mdi-material-ui/Mastodon'
 import GithubIcon from 'mdi-material-ui/Github'
 import TwitterIcon from 'mdi-material-ui/Twitter'
@@ -133,7 +133,7 @@ const useStyles = makeStyles((theme) => ({
       display: 'block',
     },
 
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       display: 'none',
     },
 

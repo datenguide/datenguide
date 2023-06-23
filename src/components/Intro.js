@@ -1,9 +1,9 @@
 import Link from 'next/link'
 
-import { makeStyles } from '@material-ui/core/styles'
-import Container from '@material-ui/core/Container'
-import Grid from '@material-ui/core/Grid'
-import Button from '@material-ui/core/Button'
+import { makeStyles } from '@mui/styles'
+import Container from '@mui/material/Container'
+import Grid from '@mui/material/Grid'
+import Button from '@mui/material/Button'
 
 import chartIcon from '../assets/openmoji/chart.svg'
 import codeIcon from '../assets/openmoji/code.svg'
@@ -88,10 +88,10 @@ export default function Intro({ children, features }) {
   const classes = useStyles()
   return (
     <Container className={classes.root}>
-      <Grid container direction="row" justify="center" alignItems="center">
+      <Grid container direction="row" justifyContent="center" alignItems="center">
         <Grid item md={6} lg={7} className={classes.main}>
           {children}
-          <Link href="/info">
+          <Link legacyBehavior href="/info">
             <Button
               variant="outlined"
               color="secondary"
@@ -114,5 +114,5 @@ export default function Intro({ children, features }) {
         </Grid>
       </Grid>
     </Container>
-  )
+  );
 }

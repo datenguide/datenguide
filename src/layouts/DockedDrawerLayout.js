@@ -1,13 +1,13 @@
 import clsx from 'clsx'
 import PropTypes from 'prop-types'
 
-import AppBar from '@material-ui/core/AppBar'
-import Drawer from '@material-ui/core/Drawer'
-import IconButton from '@material-ui/core/IconButton'
-import MenuIcon from '@material-ui/icons/Menu'
-import { makeStyles } from '@material-ui/core/styles'
-import useMediaQuery from '@material-ui/core/useMediaQuery'
-import useTheme from '@material-ui/styles/useTheme'
+import AppBar from '@mui/material/AppBar'
+import Drawer from '@mui/material/Drawer'
+import IconButton from '@mui/material/IconButton'
+import MenuIcon from '@mui/icons-material/Menu'
+import { makeStyles } from '@mui/styles'
+import useMediaQuery from '@mui/material/useMediaQuery'
+import useTheme from '@mui/styles/useTheme'
 
 import HeaderToolbar from '../components/HeaderToolbar'
 import Footer from '../components/Footer'
@@ -106,7 +106,7 @@ const DockedDrawerLayout = ({
                   edge="start"
                   onClick={handleDrawerToggle}
                   className={classes.menuButton}
-                >
+                  size="large">
                   <MenuIcon />
                 </IconButton>
               }
@@ -139,7 +139,7 @@ const DockedDrawerLayout = ({
         <Footer />
       </div>
     </Base>
-  )
+  );
 }
 
 DockedDrawerLayout.propTypes = {

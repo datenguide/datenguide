@@ -1,4 +1,5 @@
-import { makeStyles } from '@material-ui/core/styles'
+import { makeStyles } from '@mui/styles'
+import Image from 'next/image'
 
 import LOGO_BMBF from '../assets/funders/bmbf.svg'
 import LOGO_PROTOTYPEFUND from '../assets/funders/prototypefund.svg'
@@ -40,21 +41,21 @@ const Funders = () => {
   return (
     <div className={classes.root}>
       <a href="https://www.bmbf.de/de/software-sprint-freie-programmierer-unterstuetzen-3512.html">
-        <img
+        <Image
           className={classes.bmbf}
           src={LOGO_BMBF}
           alt="Bundesministerium für Bildung und Forschung"
         />
       </a>
       <a href="https://prototypefund.de/">
-        <img
+        <Image
           className={classes.prototypefund}
           src={LOGO_PROTOTYPEFUND}
           alt="Prototype Fund"
         />
       </a>
       <a href="https://miz-babelsberg.de">
-        <img className={classes.miz} src={LOGO_MIZ} alt="MIZ Babelsberg" />
+        <Image className={classes.miz} src={LOGO_MIZ} alt="MIZ Babelsberg" />
       </a>
     </div>
   )

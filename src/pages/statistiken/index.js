@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types'
 import { useState } from 'react'
 
-import { makeStyles } from '@material-ui/core/styles'
-import Snackbar from '@material-ui/core/Snackbar'
-import Paper from '@material-ui/core/Paper'
-import HelpIcon from '@material-ui/icons/Help'
-import Button from '@material-ui/core/Button'
+import { makeStyles } from '@mui/styles'
+import Snackbar from '@mui/material/Snackbar'
+import Paper from '@mui/material/Paper'
+import HelpIcon from '@mui/icons-material/Help'
+import Button from '@mui/material/Button'
 
 import DataTable from '../../components/querytool/DataTable'
 import QueryParameterSidebar from '../../components/querytool/QueryParameterSidebar'

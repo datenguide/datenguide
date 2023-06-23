@@ -1,5 +1,5 @@
-import AppBar from '@material-ui/core/AppBar'
-import { makeStyles } from '@material-ui/styles'
+import AppBar from '@mui/material/AppBar'
+import { makeStyles } from '@mui/styles'
 
 import Base from '../layouts/Base'
 import HeaderToolbar from '../components/HeaderToolbar'

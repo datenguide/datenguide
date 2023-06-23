@@ -1,8 +1,8 @@
 import DataTableMenu from './DataTableMenu'
-import MenuItem from '@material-ui/core/MenuItem'
-import RadioGroup from '@material-ui/core/RadioGroup'
-import FormControlLabel from '@material-ui/core/FormControlLabel'
-import Radio from '@material-ui/core/Radio'
+import MenuItem from '@mui/material/MenuItem'
+import RadioGroup from '@mui/material/RadioGroup'
+import FormControlLabel from '@mui/material/FormControlLabel'
+import Radio from '@mui/material/Radio'
 
 const DataTableRadioButtonMenu = ({
   label,

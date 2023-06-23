@@ -1,7 +1,7 @@
 import fetch from 'isomorphic-unfetch'
 import Link from 'next/link'
 import absoluteUrl from 'next-absolute-url'
-import { Container } from '@material-ui/core'
+import { Container } from '@mui/material'
 
 import DefaultLayout from '../layouts/DefaultLayout'
 import RegionList from '../components/RegionList'
@@ -14,7 +14,7 @@ const Home = ({ regions }) => {
         {regions.map(({ name, id, slug, districts }) => (
           <section key={id}>
             <h2>
-              <Link href={`/region/${slug}`}>
+              <Link legacyBehavior href={`/region/${slug}`}>
                 <a>{name}</a>
               </Link>
             </h2>

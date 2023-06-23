@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types'
 
-import { makeStyles } from '@material-ui/core/styles'
-import IconButton from '@material-ui/core/IconButton'
+import { makeStyles } from '@mui/styles'
+import IconButton from '@mui/material/IconButton'
 import {
   FirstPage,
   LastPage,
   KeyboardArrowLeft,
   KeyboardArrowRight,
-} from '@material-ui/icons'
+} from '@mui/icons-material'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -41,32 +41,32 @@ const TablePaginationActions = ({ count, page, rowsPerPage, onChangePage }) => {
         onClick={handleFirstPageButtonClick}
         disabled={page === 0}
         aria-label="first page"
-      >
+        size="large">
         <FirstPage />
       </IconButton>
       <IconButton
         onClick={handleBackButtonClick}
         disabled={page === 0}
         aria-label="previous page"
-      >
+        size="large">
         <KeyboardArrowLeft />
       </IconButton>
       <IconButton
         onClick={handleNextButtonClick}
         disabled={page >= Math.ceil(count / rowsPerPage) - 1}
         aria-label="next page"
-      >
+        size="large">
         <KeyboardArrowRight />
       </IconButton>
       <IconButton
         onClick={handleLastPageButtonClick}
         disabled={page >= Math.ceil(count / rowsPerPage) - 1}
         aria-label="last page"
-      >
+        size="large">
         <LastPage />
       </IconButton>
     </div>
-  )
+  );
 }
 
 TablePaginationActions.propTypes = {

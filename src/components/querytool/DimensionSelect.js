@@ -1,15 +1,15 @@
 import PropTypes from 'prop-types'
 
-import { makeStyles } from '@material-ui/core/styles'
-import Input from '@material-ui/core/Input'
-import MenuItem from '@material-ui/core/MenuItem'
-import FormControl from '@material-ui/core/FormControl'
-import ListItemText from '@material-ui/core/ListItemText'
-import Select from '@material-ui/core/Select'
-import Checkbox from '@material-ui/core/Checkbox'
-import Switch from '@material-ui/core/Switch'
-import FormControlLabel from '@material-ui/core/FormControlLabel'
-import FormGroup from '@material-ui/core/FormGroup'
+import { makeStyles } from '@mui/styles'
+import Input from '@mui/material/Input'
+import MenuItem from '@mui/material/MenuItem'
+import FormControl from '@mui/material/FormControl'
+import ListItemText from '@mui/material/ListItemText'
+import Select from '@mui/material/Select'
+import Checkbox from '@mui/material/Checkbox'
+import Switch from '@mui/material/Switch'
+import FormControlLabel from '@mui/material/FormControlLabel'
+import FormGroup from '@mui/material/FormGroup'
 
 const useStyles = makeStyles((theme) => ({
   root: {

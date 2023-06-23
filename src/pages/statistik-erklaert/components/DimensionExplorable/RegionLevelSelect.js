@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 
-import MenuItem from '@material-ui/core/MenuItem'
-import Select from '@material-ui/core/Select'
-import { makeStyles } from '@material-ui/core/styles'
+import MenuItem from '@mui/material/MenuItem'
+import Select from '@mui/material/Select'
+import { makeStyles } from '@mui/styles'
 
 const useStyles = makeStyles((theme) => ({
   root: {

@@ -1,5 +1,5 @@
 import DataTablePaginationActions from './DataTablePaginationActions'
-import { TablePagination } from '@material-ui/core'
+import { TablePagination } from '@mui/material'
 
 const labelDisplayedRows = ({ from, to, count }) => `${from}-${to} von ${count}`
 
@@ -21,8 +21,8 @@ const DataTablePagination = ({
     }}
     labelDisplayedRows={labelDisplayedRows}
     labelRowsPerPage="Datensätze pro Seite: "
-    onChangePage={onChangePage}
-    onChangeRowsPerPage={onChangeRowsPerPage}
+    onPageChange={onChangePage}
+    onRowsPerPageChange={onChangeRowsPerPage}
     ActionsComponent={DataTablePaginationActions}
   />
 )

@@ -1,5 +1,5 @@
 import React from 'react'
-import { withStyles } from '@material-ui/core/styles'
+import { withStyles } from '@mui/styles'
 
 const styles = (theme) => ({
   main: {
@@ -10,7 +10,7 @@ const styles = (theme) => ({
       width: '100%',
     },
 
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       fontSize: '0.8em',
     },
   },

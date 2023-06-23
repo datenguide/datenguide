@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import TextField from '@material-ui/core/TextField'
-import Autocomplete from '@material-ui/lab/Autocomplete'
+import TextField from '@mui/material/TextField'
+import Autocomplete from '@mui/lab/Autocomplete'
 import { getAllCommunities } from '../../../../data/regions'
 
 const RegionSelect = ({ onSelect, className }) => {

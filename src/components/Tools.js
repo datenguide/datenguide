@@ -1,13 +1,14 @@
 import GithubIcon from 'mdi-material-ui/ArrowRightBold'
 
-import { makeStyles } from '@material-ui/core/styles'
-import Container from '@material-ui/core/Container'
-import Grid from '@material-ui/core/Grid'
-import Card from '@material-ui/core/Card'
-import CardActions from '@material-ui/core/CardActions'
-import CardContent from '@material-ui/core/CardContent'
-import CardHeader from '@material-ui/core/CardHeader'
-import Button from '@material-ui/core/Button'
+import { makeStyles } from '@mui/styles'
+import Container from '@mui/material/Container'
+import Grid from '@mui/material/Grid'
+import Card from '@mui/material/Card'
+import CardActions from '@mui/material/CardActions'
+import CardContent from '@mui/material/CardContent'
+import CardHeader from '@mui/material/CardHeader'
+import Button from '@mui/material/Button'
+import Image from 'next/image'
 
 import logoPython from '../assets/python.svg'
 import logoDatenguide from '../assets/logo.svg'
@@ -104,13 +105,13 @@ export default function Tools({ children, features }) {
       <Container>
         <div className={classes.content}>{children}</div>
 
-        <Grid container justify="center" spacing={3}>
+        <Grid container justifyContent="center" spacing={3}>
           {features.map(({ slug, title, desc, url, author, action }) => (
             <Grid key={slug} item md={4}>
               <Card className={classes.card}>
                 <CardHeader
                   className={classes.cardHeader}
-                  avatar={<img className={classes.avatar} src={logos[slug]} />}
+                  avatar={<Image className={classes.avatar} src={logos[slug]} />}
                   title={<h3 className={classes.title}>{title}</h3>}
                   subheader={
                     <a
@@ -143,5 +144,5 @@ export default function Tools({ children, features }) {
         </Grid>
       </Container>
     </div>
-  )
+  );
 }

@@ -1,6 +1,6 @@
 import React from 'react'
-import { makeStyles } from '@material-ui/core/styles'
-import { Container, Grid } from '@material-ui/core'
+import { makeStyles } from '@mui/styles'
+import { Container, Grid } from '@mui/material'
 import { useQuery } from 'graphql-hooks'
 import DefaultLayout from '../../layouts/DefaultLayout'
 import FigureHighlight from '../../components/regions/FigureHighlight'

@@ -57,7 +57,6 @@ import Subscribe from '../components/Subscribe'
 import BlogPostTeasers from '../components/BlogPostTeasers'
 import Intro from '../components/Intro'
 import Tools from '../components/Tools'
-import { frontMatter } from './index.mdx'
 
 <MainStage>
 
@@ -69,13 +68,13 @@ Wir arbeiten an digitalen Tools, die euch helfen, regionale Statistiken zu verst
 
 </MainStage>
 
-<BlogPostTeasers posts={frontMatter.featuredPosts}>
+<BlogPostTeasers posts={frontmatter.featuredPosts}>
 
 # Amtliche Statistik erklärt
 
 </BlogPostTeasers>
 
-<Intro features={frontMatter.intro}>
+<Intro features={frontmatter.intro}>
 
 ## Über Datenguide
 
@@ -93,7 +92,7 @@ Wenn du kein Update verpassen willst, melde dich für den Datenguide-Newsletter 
 
 </Subscribe>
 
-<Tools features={frontMatter.tools}>
+<Tools features={frontmatter.tools}>
 
 ## Open Data und Open Source
 

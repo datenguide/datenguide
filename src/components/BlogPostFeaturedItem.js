@@ -1,36 +1,36 @@
-import { makeStyles } from '@material-ui/styles'
+import { makeStyles } from '@mui/styles'
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    display: 'block',
-    position: 'relative',
-    overflow: 'hidden',
-    padding: theme.spacing(2),
-    minHeight: theme.spacing(56),
-    textDecoration: 'none',
+const useStyles = makeStyles((theme) =>  ({
+    root: {
+      display: 'block',
+      position: 'relative',
+      overflow: 'hidden',
+      padding: theme.spacing(2),
+      minHeight: theme.spacing(56),
+      textDecoration: 'none',
 
-    [theme.breakpoints.down('md')]: {
-      hyphens: 'auto',
+      [theme.breakpoints.down('lg')]: {
+        hyphens: 'auto'
+      }
     },
-  },
-  image: {
-    position: 'absolute',
-    bottom: 0,
-    right: 0,
-    maxHeight: 320,
-    minWidth: 400,
-  },
-  title: {
-    ...theme.typography.h3,
-    position: 'relative',
-    margin: theme.spacing(0, 0, 1, 0),
-  },
-  description: {
-    position: 'relative',
-    fontSize: theme.typography.body1.fontSize,
-    color: 'black',
-  },
-}))
+    image: {
+      position: 'absolute',
+      bottom: 0,
+      right: 0,
+      maxHeight: 320,
+      minWidth: 400
+    },
+    title: {
+      ...theme.typography.h3,
+      position: 'relative',
+      margin: theme.spacing(0, 0, 1, 0)
+    },
+    description: {
+      position: 'relative',
+      fontSize: theme.typography.body1.fontSize,
+      color: 'black'
+    }
+  }))
 
 const BlogPostListItem = ({
   href,

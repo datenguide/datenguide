@@ -1,6 +1,7 @@
 import dynamic from 'next/dynamic'
-import { makeStyles } from '@material-ui/core/styles'
-import OpenNewIcon from '@material-ui/icons/OpenInNew'
+import { makeStyles } from '@mui/styles'
+import OpenNewIcon from '@mui/icons-material/OpenInNew'
+import Image from 'next/image'
 
 const MapTooltip = dynamic(
   () => import('@datenguide/explorables').then(({ MapTooltip }) => MapTooltip),
@@ -61,7 +62,7 @@ export default function RegionTooltip({ title, lonLat, options }) {
       <div className={classes.root}>
         <h3 className={classes.title}>{title}</h3>
         <p className={classes.hed}>Gemeinde in Nordrhein-Westfalen</p>
-        <img
+        <Image
           className={classes.image}
           src={require('../nuts/augustdorf.jpg')}
           width="100%"

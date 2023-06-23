@@ -1,5 +1,5 @@
-import { makeStyles } from '@material-ui/core/styles'
-import Avatar from '@material-ui/core/Avatar'
+import { makeStyles } from '@mui/styles'
+import Avatar from '@mui/material/Avatar'
 
 const useStyles = makeStyles((theme) => ({
   root: {

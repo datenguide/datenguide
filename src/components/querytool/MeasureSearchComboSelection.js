@@ -2,11 +2,11 @@ import React, { useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 import _ from 'lodash'
 
-import { makeStyles } from '@material-ui/core/styles'
-import Button from '@material-ui/core/Button'
-import DropDownCircleIcon from '@material-ui/icons/ArrowDropDownCircle'
-import Menu from '@material-ui/core/Menu'
-import MenuItem from '@material-ui/core/MenuItem'
+import { makeStyles } from '@mui/styles'
+import Button from '@mui/material/Button'
+import DropDownCircleIcon from '@mui/icons-material/ArrowDropDownCircle'
+import Menu from '@mui/material/Menu'
+import MenuItem from '@mui/material/MenuItem'
 
 import MeasureSearchCombo from './MeasureSearchCombo'
 

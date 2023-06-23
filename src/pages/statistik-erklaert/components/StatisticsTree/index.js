@@ -1,6 +1,6 @@
 import useSWR from 'swr'
 
-import { makeStyles } from '@material-ui/core/styles'
+import { makeStyles } from '@mui/styles'
 
 import StatisticsTreeView from '../../../../components/querytool/StatisticsTreeView'
 import fetcher from '../../../../lib/fetcher'

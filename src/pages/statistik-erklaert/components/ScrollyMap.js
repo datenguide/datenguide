@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
-import Fade from '@material-ui/core/Fade'
-import { withStyles, withTheme } from '@material-ui/core/styles'
+import Fade from '@mui/material/Fade'
+import { withStyles, withTheme } from '@mui/styles'
 import { Scrollama, Step } from 'react-scrollama'
 import dynamic from 'next/dynamic'
 import { WebMercatorViewport } from 'react-map-gl'
@@ -165,7 +165,7 @@ const styles = (theme) => ({
     textShadow: '1px 1px 15px #4D7D7E',
     textAlign: 'center',
 
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('sm')]: {
       fontSize: 12,
     },
   },

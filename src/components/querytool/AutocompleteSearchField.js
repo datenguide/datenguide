@@ -2,12 +2,12 @@ import PropTypes from 'prop-types'
 import AsyncSelect from 'react-select/async'
 import Highlighter from 'react-highlight-words'
 
-import { emphasize, makeStyles, useTheme } from '@material-ui/core/styles'
-import Typography from '@material-ui/core/Typography'
-import NoSsr from '@material-ui/core/NoSsr'
-import TextField from '@material-ui/core/TextField'
-import Paper from '@material-ui/core/Paper'
-import MenuItem from '@material-ui/core/MenuItem'
+import { emphasize, makeStyles, useTheme } from '@mui/styles'
+import Typography from '@mui/material/Typography'
+import NoSsr from '@mui/material/NoSsr'
+import TextField from '@mui/material/TextField'
+import Paper from '@mui/material/Paper'
+import MenuItem from '@mui/material/MenuItem'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -29,12 +29,11 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(0.5, 0.25),
   },
   chipFocused: {
-    backgroundColor: emphasize(
-      theme.palette.type === 'light'
+      // TODO migrate emphasize
+    backgroundColor:
+      theme.palette.mode === 'light'
         ? theme.palette.grey[300]
         : theme.palette.grey[700],
-      0.08
-    ),
   },
   noOptionsMessage: {
     padding: theme.spacing(1, 2),

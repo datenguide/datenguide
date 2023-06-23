@@ -1,5 +1,5 @@
 import React from 'react'
-import { makeStyles } from '@material-ui/core/styles'
+import { makeStyles } from '@mui/styles'
 import PopulationIcon from 'mdi-material-ui/AccountMultiple'
 import DataIcon from 'mdi-material-ui/TableLarge'
 

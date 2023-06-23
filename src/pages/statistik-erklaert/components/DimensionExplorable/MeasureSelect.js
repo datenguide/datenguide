@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 
 import schema from '../../../../data/statSchema.json' // TODO use API
-import MenuItem from '@material-ui/core/MenuItem'
-import Select from '@material-ui/core/Select'
-import { makeStyles } from '@material-ui/core/styles'
+import MenuItem from '@mui/material/MenuItem'
+import Select from '@mui/material/Select'
+import { makeStyles } from '@mui/styles'
 
 const useStyles = makeStyles((theme) => ({
   root: {

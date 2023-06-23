@@ -1,4 +1,4 @@
-import Container from '@material-ui/core/Container'
+import Container from '@mui/material/Container'
 
 import DefaultLayout from '../DefaultLayout'
 import { BodyText } from '../../components/BodyText'

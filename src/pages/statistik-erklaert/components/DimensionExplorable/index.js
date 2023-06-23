@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 
-import { makeStyles } from '@material-ui/core/styles'
-import { Typography } from '@material-ui/core'
-import Paper from '@material-ui/core/Paper'
-import ArrowForwardIcon from '@material-ui/icons/ArrowForward'
+import { makeStyles } from '@mui/styles'
+import { Typography } from '@mui/material'
+import Paper from '@mui/material/Paper'
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 
 import schema from '../../../../data/statSchema.json'
 import inventory from '../../../../data/inventory.json'

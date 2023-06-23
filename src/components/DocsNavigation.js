@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 
-import { makeStyles } from '@material-ui/core/styles'
-import List from '@material-ui/core/List'
+import { makeStyles } from '@mui/styles'
+import List from '@mui/material/List'
 
 import DocsNavigationItem from './DocsNavigationItem'
 import docsNavigation from '../docsNavigation'

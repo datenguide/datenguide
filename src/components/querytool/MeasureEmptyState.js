@@ -1,8 +1,8 @@
 import React from 'react'
-import { makeStyles } from '@material-ui/core/styles'
+import { makeStyles } from '@mui/styles'
 import AutocompleteSearchField from './AutocompleteSearchField'
-import ArrowForwardIcon from '@material-ui/icons/ArrowForward'
-import Button from '@material-ui/core/Button'
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
+import Button from '@mui/material/Button'
 
 const useStyles = makeStyles((theme) => ({
   root: {

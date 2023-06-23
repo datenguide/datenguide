@@ -2,11 +2,11 @@ import { useState } from 'react'
 import PropTypes from 'prop-types'
 import Link from 'next/link'
 
-import { makeStyles } from '@material-ui/core/styles'
-import TreeView from '@material-ui/lab/TreeView'
-import TreeItem from '@material-ui/lab/TreeItem'
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
-import ChevronRightIcon from '@material-ui/icons/ChevronRight'
+import { makeStyles } from '@mui/styles'
+import TreeView from '@mui/lab/TreeView'
+import TreeItem from '@mui/lab/TreeItem'
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
+import ChevronRightIcon from '@mui/icons-material/ChevronRight'
 
 const DEFAULT_REGION = 'DG'
 
@@ -57,7 +57,7 @@ const StatisticsList = ({ statistics, regions }) => {
                   <p key={index}>{paragraph}</p>
                 ))}
                 <p>
-                  <Link href={getTableLink({ id, measure, regions })}>
+                  <Link legacyBehavior href={getTableLink({ id, measure, regions })}>
                     <a>Datensatz anzeigen</a>
                   </Link>
                 </p>

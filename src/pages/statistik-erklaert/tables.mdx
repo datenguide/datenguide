@@ -15,16 +15,17 @@ authors:
   - crijke
 ---
 
-import Grid from '@material-ui/core/Grid'
-import Container from '@material-ui/core/Container'
+import Grid from '@mui/material/Grid'
+import Container from '@mui/material/Container'
+import Image from 'next/image'
 import BlogHeader from '../../components/BlogHeader'
 import { BodyText, BodyTextAside } from '../../components/BodyText'
 import DatawrapperChart from '../../components/DatawrapperChart.js'
-import { frontMatter } from './tables.mdx'
+import { frontmatter } from './tables.mdx'
 import ArrowLink from '../../components/ArrowLink'
 
-<BlogHeader {...frontMatter}>
-  <img src={require('./tables/header.svg')} />
+<BlogHeader {...frontmatter}>
+  <Image src={require('./tables/header.svg')} />
 </BlogHeader>
 
 <Container maxWidth="lg">

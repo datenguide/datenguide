@@ -1,8 +1,8 @@
 import Link from 'next/link'
 
-import { makeStyles } from '@material-ui/core/styles'
-import Container from '@material-ui/core/Container'
-import Grid from '@material-ui/core/Grid'
+import { makeStyles } from '@mui/styles'
+import Container from '@mui/material/Container'
+import Grid from '@mui/material/Grid'
 import MastodonIcon from 'mdi-material-ui/Mastodon'
 import GithubIcon from 'mdi-material-ui/Github'
 import TwitterIcon from 'mdi-material-ui/Twitter'
@@ -118,7 +118,7 @@ export default function Footer() {
     <div className={classes.root}>
       <Container fixed>
         <nav className={classes.nav}>
-          <Grid container direction="row" justify="center">
+          <Grid container direction="row" justifyContent="center">
             <Grid item xs={12} sm={6}>
               <ul className={classes.social}>
                 {socialItems.map(({ title, path, Icon }) => (
@@ -139,7 +139,7 @@ export default function Footer() {
                         {title}
                       </a>
                     ) : (
-                      <Link href={path}>
+                      <Link legacyBehavior href={path}>
                         <a className={classes.link}>{title}</a>
                       </Link>
                     )}
@@ -151,5 +151,5 @@ export default function Footer() {
         </nav>
       </Container>
     </div>
-  )
+  );
 }

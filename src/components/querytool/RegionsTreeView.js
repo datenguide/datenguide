@@ -3,19 +3,19 @@ import PropTypes from 'prop-types'
 import Highlighter from 'react-highlight-words'
 import _ from 'lodash'
 
-import { makeStyles } from '@material-ui/core/styles'
-import TreeView from '@material-ui/lab/TreeView'
-import TreeItem from '@material-ui/lab/TreeItem'
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
-import ChevronRightIcon from '@material-ui/icons/ChevronRight'
-import TextField from '@material-ui/core/TextField'
-import InputAdornment from '@material-ui/core/InputAdornment'
-import SearchIcon from '@material-ui/icons/Search'
-import ClearIcon from '@material-ui/icons/Clear'
-import AddCircleIcon from '@material-ui/icons/AddCircle'
-import IconButton from '@material-ui/core/IconButton'
-import Tooltip from '@material-ui/core/Tooltip'
-import Chip from '@material-ui/core/Chip'
+import { makeStyles } from '@mui/styles'
+import TreeView from '@mui/lab/TreeView'
+import TreeItem from '@mui/lab/TreeItem'
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
+import ChevronRightIcon from '@mui/icons-material/ChevronRight'
+import TextField from '@mui/material/TextField'
+import InputAdornment from '@mui/material/InputAdornment'
+import SearchIcon from '@mui/icons-material/Search'
+import ClearIcon from '@mui/icons-material/Clear'
+import AddCircleIcon from '@mui/icons-material/AddCircle'
+import IconButton from '@mui/material/IconButton'
+import Tooltip from '@mui/material/Tooltip'
+import Chip from '@mui/material/Chip'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -161,12 +161,12 @@ const RegionsTreeView = ({ nodes, onSelect }) => {
             variant="contained"
             color="secondary"
             onClick={handleSelectRegion(id)}
-          >
+            size="large">
             <AddCircleIcon fontSize="small" />
           </IconButton>
         </Tooltip>
       </div>
-    )
+    );
   }
 
   const renderTreeItem = ({ id, name, children }) => (

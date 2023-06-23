@@ -100,15 +100,14 @@ team:
 ---
 
 import ResponsiveEmbed from 'react-responsive-embed'
-import Container from '@material-ui/core/Container'
-import Box from '@material-ui/core/Box'
-import Typography from '@material-ui/core/Typography'
+import Container from '@mui/material/Container'
+import Box from '@mui/material/Box'
+import Typography from '@mui/material/Typography'
 
 import { BodyText, BodyTextAside } from '../../components/BodyText'
 import Events from '../../components/Events'
 import Team from '../../components/Team'
 import Funders from '../../components/Funders'
-import { frontMatter } from './index.mdx'
 
 <Container>
 
@@ -135,7 +134,7 @@ Im Alltag ist die Nutzung von amtlichen Statistiken jedoch oft schwierig. Denn o
 </BodyText>
 </Container>
 
-<Events dates={frontMatter.events}>
+<Events dates={frontmatter.events}>
 
 ## Datenguide: Statistiken für alle!
 
@@ -172,7 +171,7 @@ Die Datengrundlage für unsere Arbeit bildet die offizielle Veröffentlichung de
 
 ### Kernteam
 
-<Team members={frontMatter.team} />
+<Team members={frontmatter.team} />
 
 <Funders />
 
