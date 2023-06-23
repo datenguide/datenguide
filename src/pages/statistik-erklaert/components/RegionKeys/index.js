@@ -6,7 +6,7 @@ import { makeStyles } from '@mui/styles'
 import {
   getNutsHierarchy,
   getNutsComponents,
-} from '../../../../lib/nutsFormatting'
+} from '@/lib/nutsFormatting'
 
 import RegionSelectStatic from './RegionSelectStatic'
 

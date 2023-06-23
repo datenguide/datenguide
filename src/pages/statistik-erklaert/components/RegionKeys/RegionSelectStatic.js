@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import TextField from '@mui/material/TextField'
 import Autocomplete from '@mui/lab/Autocomplete'
-import { getAllCommunities } from '../../../../data/regions'
+import { getAllCommunities } from '@/data/regions'
 
 const RegionSelect = ({ onSelect, className }) => {
   const [options, setOptions] = useState([])
   const [value, setValue] = useState(null)
 
-  useEffect(async () => {
+  useEffect( () => {
     const loadRegions = async () => {
       const result = getAllCommunities()
       setOptions(result)
     }
-    await loadRegions()
+    loadRegions()
   }, [])
 
   useEffect(() => {
