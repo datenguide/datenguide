@@ -74,27 +74,27 @@ Hier zeigen wir dir den Prozess in Bildern Schritt für Schritt:
 
 <Grid container direction="row" justify="center" spacing={2}>
   <Grid item xs={12} sm={6}>
-    ![Suche Region](./tables/d_01.png)
+    <Image className="contentImage" src={require('./tables/d_01.png')} alt="Suche Region" />
     <small>Region auswählen</small>
   </Grid>
   <Grid item xs={12} sm={6}>
-    ![Auswahl regionale Tiefe](./tables/d_02.png)
+    <Image className="contentImage" src={require('./tables/d_02.png')} alt="Auswahl regionale Tiefe" />
     <small>Ebene festlegen</small>
   </Grid>
   <Grid item xs={12} sm={6}>
-    ![Merkmal suchen](./tables/d_02_01.png)
+    <Image className="contentImage" src={require('./tables/d_02_01.png')} alt="Merkmal suchen" />
     <small>Merkmal suchen</small>
   </Grid>
   <Grid item xs={12} sm={6}>
-    ![Merkmal wählen](./tables/d_03.png)
+    <Image className="contentImage" src={require('./tables/d_03.png')} alt="Merkmal wählen" />
     <small>Merkmal auswählen</small>
   </Grid>
   <Grid item xs={12} sm={6}>
-    ![Jahr wählen](./tables/d_04.png)
+    <Image className="contentImage" src={require('./tables/d_04.png')} alt="Jahr wählen" />
     <small>Jahr wählen</small>
   </Grid>
   <Grid item xs={12} sm={6}>
-    ![Download](./tables/d_05.png)
+    <Image className="contentImage" src={require('./tables/d_05.png')} alt="Download" />
     <small>Herunterladen</small>
   </Grid>
 </Grid>
@@ -114,7 +114,7 @@ Die Daten sind jetzt bereit, um in einem Visualisierungstool deiner Wahl dargest
 
 </BodyTextAside>
 
-![Import](./tables/d_06.png)
+<Image className="contentImage" src={require('./tables/d_06.png')} alt="Import" />
 
 ### Deutlich mehr Zwischenschritte mit Regionalstatistik.de
 
@@ -126,10 +126,10 @@ Suche auf regionalstatistik.de nach ‘Bauland’ oder direkt nach der Nummer de
 
 <Grid container direction="row" justify="center" spacing={2}>
   <Grid item xs={12} sm={6}>
-    ![Suchergebnis Themen](./tables/01_suche.png)
+    <Image className="contentImage"  src={require('./tables/01_suche.png')} alt="Suchergebnis Themen" />
   </Grid>
   <Grid item xs={12} sm={6}>
-    ![Download](./tables/01_download.png)
+    <Image className="contentImage"  src={require('./tables/01_download.png')} alt="Download" />
   </Grid>
 </Grid>
 
@@ -148,7 +148,7 @@ Importiere die .csv in der Tabellenkalkulation deiner Wahl (Excel, LibreOffice, 
 
 </BodyTextAside>
 
-![Import](./tables/02_header.png)
+<Image className="contentImage"  src={require('./tables/02_header.png')}/>
 
 #### 3. Entscheiden, was visualisiert werden soll
 
@@ -165,14 +165,14 @@ Dann wählst du für die Spalten ‘Insgesamt’ und ‘baureifes Land’ als Nu
 
 <Grid container direction="row" justify="center" spacing={2}>
   <Grid item xs={12} sm={6}>
-    ![Import](./tables/04_settings.png)
+    <Image className="contentImage"  src={require('./tables/04_settings.png')} alt="Import"/>
   </Grid>
   <Grid item xs={12} sm={6}>
-    ![Import](./tables/04_number_format.png)
+    <Image className="contentImage"  src={require('./tables/04_number_format.png')} alt="Import"/>
   </Grid>
 </Grid>
 
-![Import](./tables/04_number.png)
+<Image className="contentImage"  src={require('./tables/04_number.png')} alt="Import"/>
 
 #### 5. Regionale Ebene auswählen
 
@@ -182,7 +182,7 @@ Da amtliche Gemeindeschlüssel (AGS) mit einer führenden 0 beginnen, erfordert 
 
 Schaut man sich die Tabelle an, dann sieht man, dass unsere Tabelle noch nicht ganz für ein Visualisierungstool bereit ist . Denn unter ‘Verkäufe’ sind verschiedene Typen zusammengefasst, so dass es für jeden Ort vier Spalten in den Daten gibt:
 
-![Import](./tables/06_vor_pivot.png)
+<Image className="contentImage"  src={require('./tables/06_vor_pivot.png')} alt="Import"/>
 
 Diese Form nennt man ‘long’. Solche langen Tabellen eignen sich, um viele Variablen auf engem Raum darzustellen.
 Die Karte im Datawrapper stellt jedoch nur zwei Dinge dar: Flächen (Orte) werden anhand eines Wertes (Kaufpreis je qm) eingefärbt. Deshalb müssen wir dafür sorgen, dass es für ‘Kaufpreis je qm’ eine eigene Spalte gibt.
@@ -195,14 +195,14 @@ Die Karte im Datawrapper stellt jedoch nur zwei Dinge dar: Flächen (Orte) werde
 
 </BodyTextAside>
 
-![Import](./tables/06_pivot.png)
+<Image className="contentImage"  src={require('./tables/06_pivot.png')} alt="Import"/>
 
 #### 7. Karte in Datawrapper bauen
 
 In Datawrapper wählst du NRW Landkreise als neue Karte aus, fügst dann die Daten ein und wählst die entsprechenden Spalten aus (AGS und Durchschnittlicher Kaufwert je qm).
 Danach kannst du die Karte beschriften, deine Datenquelle angeben und die Karte und Tooltips, Legende etc. nach deinen Wünschen gestalten. Am Schluss auf 'Veröffentlichen' klicken.
 
-![Import](./tables/07_datawrapper.png)
+<Image className="contentImage"  src={require('./tables/07_datawrapper.png')} alt="Import"/>
 
 ### Zum Weiterlesen
 

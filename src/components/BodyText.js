@@ -34,6 +34,7 @@ const useStyles = makeStyles((theme) => ({
     '& .contentImage': {
       margin: theme.spacing(2, 0),
       width: '100%',
+      height: 'auto'
     },
   },
   aside: {
