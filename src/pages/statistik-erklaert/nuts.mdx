@@ -3,7 +3,6 @@ title: 'Wie sind statistische Regionen eingeteilt?'
 description: 'Keine Angst vor NUTS und LAU! Wir erklären dir die Einteilung von Regierungsbezirken, Landkreisen und Gemeinden'
 previewImage: '/statistik-erklaert/nuts.png'
 date: 2020-08-23
-layout: Minimal
 published: true
 lang: de
 category:
@@ -25,7 +24,9 @@ import ArrowLink from '@/components/ArrowLink'
 import SimpleMap from './components/SimpleMap'
 import ScrollyMap from './components/ScrollyMap'
 import ScrollyMapStep from './components/ScrollyMapStep'
+import Minimal from '@/layouts/mdx/Minimal'
 
+<Minimal>
 <BlogHeader {...frontmatter}>
   <Image
     src={require('./nuts/nuts_pyramid.svg')}
@@ -280,3 +281,4 @@ Um Gemeinden eindeutig zu identifizieren und um die regionale Einteilung zu zeig
 
 </BodyText>
 </Container>
+</Minimal>

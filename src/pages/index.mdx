@@ -1,7 +1,6 @@
 ---
 title: Datenguide | Amtliche Statistiken für alle
 description: Der Datenguide macht die amtliche Statistik zugänglicher für alle. Wir arbeiten an einer digitalen Plattform, die regionale Statistiken klar und prägnant darstellt, vergleichbar macht und erklärt.
-layout: Minimal
 intro:
   - title: Statistiken für alle
     text: Wir entwickeln eine einfach zu bedienende Website, die amtliche Statistiken durchsuchbar macht, visualisiert und erklärt.
@@ -52,12 +51,14 @@ tools:
     url: https://datenguidepy.readthedocs.io/en/latest/
 ---
 
-import MainStage from '../components/MainStage'
-import Subscribe from '../components/Subscribe'
-import BlogPostTeasers from '../components/BlogPostTeasers'
-import Intro from '../components/Intro'
-import Tools from '../components/Tools'
+import MainStage from '@/components/MainStage'
+import Subscribe from '@/components/Subscribe'
+import BlogPostTeasers from '@/components/BlogPostTeasers'
+import Intro from '@/components/Intro'
+import Tools from '@/components/Tools'
+import Minimal from '@/layouts/mdx/Minimal'
 
+<Minimal>
 <MainStage>
 
 # Statistiken für alle!
@@ -101,3 +102,4 @@ Datenguide bietet direkten Zugriff auf Daten der amtlichen Statistik Deutschland
 Die Datensätze, die über Datenguide zur Verfügung stehen, stammen aus der [Regionaldatenbank Deutschland](https://www.regionalstatistik.de/genesis/online/), einer Veröffentlichung der Statistischen Ämter des Bundes und der Länder. Sie können unter den Bedingungen der Datenlizenz Deutschland ([dl‑de/by‑2-0](https://www.govdata.de/en/dl-de/by-2-0)) frei verwendet werden.
 
 </Tools>
+</Minimal>

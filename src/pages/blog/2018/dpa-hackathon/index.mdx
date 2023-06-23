@@ -2,14 +2,16 @@
 title: 'Projekt „Regio Reports“ gewinnt API-Preis beim dpa-Hackathon'
 description: 'Regio Reports nutzt die Technologie von Datenguide, um datengetriebenen Journalismus in Lokalredaktionen zu bringen'
 date: 2018-12-06
-layout: BlogPost
 published: true
 lang: de
 authors:
   - Anna Behrend
 ---
 
-import ArrowLink from '../../../../components/ArrowLink'
+import ArrowLink from '@/components/ArrowLink'
+import BlogPost from '@/layouts/mdx/BlogPost'
+
+<BlogPost frontMatter={frontmatter}>
 
 Das Projekt _Regio Reports_ ist beim [#DataDeepDive-Hackathon](https://www.dpa.com/de/unternehmen/dpa-zeichnet-aus/picturepunk/#data-deep-dive) der dpa ausgezeichnet worden. Ziel von Regio Reports ist es, mehr datengetriebenen Journalismus in Lokal- und Regionalredaktionen zu bringen. Dafür nutzt es die Datenschnittstelle von Datenguide.
 
@@ -43,3 +45,5 @@ Im Rahmen des #DataDeepDive-Hackathons haben Journalistinnen von NOZ und mh:n Me
 <ArrowLink href="https://www.presseportal.de/pm/8218/4131855">
   Mehr über den Hackathon und die Preisträger-Projekte
 </ArrowLink>
+
+</BlogPost>

@@ -1,7 +1,6 @@
 ---
 title: 'Was ist Datenguide?'
 description: Datenguide macht amtliche Statistik zugänglicher für alle. Unsere digitale Plattform spart Zeit, weil sie regionale Statistiken zu Bundesländern, Landkreisen und Gemeinden schnell nutzbar macht. Und wir erklären Hintergründe amtlicher Statistik so, dass mehr Menschen sich trauen, damit zu arbeiten.
-layout: Minimal
 events:
   past:
     - title: Datenguide beim rC3
@@ -104,17 +103,19 @@ import Container from '@mui/material/Container'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 
-import { BodyText, BodyTextAside } from '@/components/BodyText'
+import { BodyText } from '@/components/BodyText'
 import Events from '@/components/Events'
 import Team from '@/components/Team'
 import Funders from '@/components/Funders'
+import Minimal from '@/layouts/mdx/Minimal'
 
+<Minimal>
 <Container>
 
 # Über Datenguide
 
 <Box pb={4}>
-  <Typography variant="subtitle1" component="p" m={4}>
+  <Typography variant="subtitle1" my={4}>
     Datenguide macht amtliche Statistik zugänglicher für alle. Unsere digitale
     Plattform spart Zeit, weil sie regionale Statistiken zu Bundesländern,
     Landkreisen und Gemeinden schnell nutzbar macht. Und wir erklären
@@ -176,3 +177,4 @@ Die Datengrundlage für unsere Arbeit bildet die offizielle Veröffentlichung de
 <Funders />
 
 </Container>
+</Minimal>

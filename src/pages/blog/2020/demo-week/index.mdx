@@ -3,7 +3,6 @@ title: 'Prototype-Fund Demo-Week'
 description: 'Wir präsentieren: Datenportal beta und Statistik erklärt'
 metaImage: '/images/explorable_explanations.jpg'
 date: 2020-08-24
-layout: BlogPost
 published: true
 lang: de
 authors:
@@ -11,7 +10,9 @@ authors:
 ---
 
 import ArrowLink from '../../../../components/ArrowLink'
+import BlogPost from '@/layouts/mdx/BlogPost'
 
+<BlogPost frontMatter={frontmatter}>
 Die siebte Runde des Prototype Fund brachte uns, das Team hinter **[Datenguide](https://datengui.de)**, zurück zu unserer ursprünglichen Mission: **Statistiken für alle!** Wir wollen die amtliche Statistik erklären und nutzbar machen - auch für Menschen ohne besondere Vorkenntnisse. Unser großes Vorbild waren dabei [„Explorable Explanations“](https://explorabl.es/): interaktive, ins Auge fallende Visualisierungen komplexer Zusammenhänge.
 
 Leider kann der Demo Day des Prototype Fund nicht vor Ort stattfinden, deshalb gibt es stattdessen vom 24.08 bis 27.08.2020 eine **Demo-Week** online!
@@ -52,3 +53,4 @@ Der Prototype Fund ist ein Förderprogramm, das Open-Source-Initiativen für ein
 <ArrowLink href="https://prototypefund.de/demo-day/">Zur Demo-Week</ArrowLink>
 
 <ArrowLink href="https://explorabl.es/">Über Explorable Explanations</ArrowLink>
+</BlogPost>

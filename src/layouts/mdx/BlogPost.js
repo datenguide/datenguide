@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const BlogPost = (frontMatter) => ({ children }) => {
+const BlogPost = ({ frontMatter, children }) => {
   const classes = useStyles()
 
   return (

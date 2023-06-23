@@ -2,7 +2,6 @@
 title: 'Die Regionalstatistik-Umfrage'
 description: 'Wir wollen wissen, wie ihr die Regionalstatistik nutzt!'
 date: 2018-11-22
-layout: BlogPost
 published: true
 lang: de
 authors:
@@ -10,6 +9,9 @@ authors:
 ---
 
 import Button from '@mui/material/Button'
+import BlogPost from '@/layouts/mdx/BlogPost'
+
+<BlogPost frontMatter={frontmatter}>
 
 Hallo Welt,
 es gibt heute gleich 2 News vom Datenguide:
@@ -32,3 +34,5 @@ es gibt heute gleich 2 News vom Datenguide:
   dort gespeichert. Wer Google Forms nicht nutzen möchte, kann uns die Antworten
   auch gerne per Email an pen(AT)datengui.de schicken.
 </small>
+
+</BlogPost>

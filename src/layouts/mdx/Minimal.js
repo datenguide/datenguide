@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
   content: {},
 }))
 
-const Minimal = (frontMatter) => ({ children }) => {
+const Minimal = ({ frontMatter, children }) => {
   const classes = useStyles()
 
   return (
