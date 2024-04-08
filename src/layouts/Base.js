@@ -51,7 +51,9 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 
-  toolbarSpacing: theme.mixins.toolbar,
+  toolbarSpacing: {
+    marginTop: 95,
+  },
 }))
 
 export default function BaseLayout({ children, meta = {} }) {

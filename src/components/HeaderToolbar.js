@@ -46,6 +46,23 @@ const useStyles = makeStyles((theme) => ({
     backgroundSize: '1.3em auto',
     backgroundPosition: 'left center',
   },
+
+  message: {
+    color: theme.palette.common.black,
+    backgroundColor: theme.palette.info.main,
+    padding: '0.5em 1em',
+    fontSize: '0.8em',
+    fontWeight: '600',
+    textAlign: 'center',
+  },
+
+  link: {
+    color: theme.palette.common.black,
+    fontWeight: 'normal',
+    textDecoration: 'underline',
+    margin: '0 0.5em',
+    display: 'inline-block',
+  },
 }))
 
 // TODO Link to docs page doesn't work in dev mode after initial page load,
@@ -57,84 +74,73 @@ export default function HeaderToolbar({ menuButton }) {
   const router = useRouter()
 
   return (
-    <Toolbar className={classes.toolbar}>
-      <div className={classes.controls}>
-        {menuButton}
-        <Link href="/">
-          <a className={classes.homeLink}>
-            <Typography className={classes.logo} component="h2">
-              Datenguide
-            </Typography>
-          </a>
+    <div className={classes.header}>
+      <div className={classes.message}>
+        Wir schalten die Datenguide-API und das Datenportal ab!
+        <Link href="/blog/2024/bye-bye/">
+          <a className={classes.link}>Alles zur Abschaltung</a>
         </Link>
       </div>
-      <div className={classes.controls}>
-        {/* {process.env.NODE_ENV !== 'production' ? ( */}
-        {/*  <a */}
-        {/*    className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-colorInherit" */}
-        {/*    href="/docs/gettingstarted/intro" */}
-        {/*  > */}
-        {/*    Docs */}
-        {/*  </a> */}
-        {/* ) : ( */}
-        {/*  <Link href="/docs/gettingstarted/intro" passHref> */}
-        {/*    <Button component="a" color="inherit"> */}
-        {/*      Docs */}
-        {/*    </Button> */}
-        {/*  </Link> */}
-        {/* )} */}
-        <div className={classes.nav}>
-          <Link href="/statistiken">
-            <Button
-              component="a"
-              color={
-                router.pathname.startsWith('/statistiken')
-                  ? 'primary'
-                  : 'inherit'
-              }
-            >
-              Datenportal
-            </Button>
-          </Link>
-          {/* <Link href="/regionen"> */}
-          {/*  <Button component="a" color="inherit"> */}
-          {/*    Regions */}
-          {/*  </Button> */}
-          {/* </Link> */}
-          <Link href="/statistik-erklaert">
-            <Button
-              component="a"
-              color={
-                router.pathname.startsWith('/statistik-erklaert')
-                  ? 'primary'
-                  : 'inherit'
-              }
-            >
-              Statistik erklärt
-            </Button>
-          </Link>
-          <Link href="/blog">
-            <Button
-              component="a"
-              color={
-                router.pathname.startsWith('/blog') ? 'primary' : 'inherit'
-              }
-            >
-              Blog
-            </Button>
-          </Link>
-          <Link href="/info">
-            <Button
-              component="a"
-              color={
-                router.pathname.startsWith('/info') ? 'primary' : 'inherit'
-              }
-            >
-              Über Datenguide
-            </Button>
+      <Toolbar className={classes.toolbar}>
+        <div className={classes.controls}>
+          {menuButton}
+          <Link href="/">
+            <a className={classes.homeLink}>
+              <Typography className={classes.logo} component="h2">
+                Datenguide
+              </Typography>
+            </a>
           </Link>
         </div>
-      </div>
-    </Toolbar>
+        <div className={classes.controls}>
+          <div className={classes.nav}>
+            <Link href="/statistiken">
+              <Button
+                component="a"
+                color={
+                  router.pathname.startsWith('/statistiken')
+                    ? 'primary'
+                    : 'inherit'
+                }
+              >
+                Datenportal
+              </Button>
+            </Link>
+            <Link href="/statistik-erklaert">
+              <Button
+                component="a"
+                color={
+                  router.pathname.startsWith('/statistik-erklaert')
+                    ? 'primary'
+                    : 'inherit'
+                }
+              >
+                Statistik erklärt
+              </Button>
+            </Link>
+            <Link href="/blog">
+              <Button
+                component="a"
+                color={
+                  router.pathname.startsWith('/blog') ? 'primary' : 'inherit'
+                }
+              >
+                Blog
+              </Button>
+            </Link>
+            <Link href="/info">
+              <Button
+                component="a"
+                color={
+                  router.pathname.startsWith('/info') ? 'primary' : 'inherit'
+                }
+              >
+                Über Datenguide
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </Toolbar>
+    </div>
   )
 }
