@@ -27,29 +27,29 @@ featuredPosts:
     image: '/statistik-erklaert/nuts.png'
 tools:
   - slug: datenguide
-    title: Die Datenguide API
+    title: Datenguide API
     author:
       name: Datenguide
-      url: https://datengui.de
-    desc: Die Datenguide API ist eine alternative Datenschnittstelle für die amtliche Statistiken der Regionaldatenbank Deutschland
-    action: Zur Dokumentation
-    url: docs
+      url: https://github.com/datenguide/
+    desc: Die Datenguide API war eine alternative Datenschnittstelle für die amtlichen Statistiken der Regionaldatenbank.
+    action: Github-Repository (Archiv)
+    url: https://github.com/datenguide/datenguide-api
   - slug: rlang
     author:
       name: CorrelAid
       url: https://correlaid.org
     title: Datenguide für R
-    desc: Mit dem DatenguideR-Package kannst du direkt aus R auf die Daten der Datenguide-API zugreifen.
-    action: Zum Repository
+    desc: Mit dem DatenguideR-Package konntest du direkt aus R auf die Daten der Datenguide-API zugreifen.
+    action: Github-Repository (Archiv)
     url: https://github.com/CorrelAid/datenguideR
   - slug: python
     author:
       name: CorrelAid
       url: https://correlaid.org
     title: Datenguide für Python
-    desc: Dieses Python-Package stellt Daten aus der Datenguide-API als Pandas DataFrames zur Verfügung.
-    action: Zur Dokumentation
-    url: https://datenguidepy.readthedocs.io/en/latest/
+    desc: Dieses Python-Package stellte Daten aus der Datenguide-API als Pandas DataFrames zur Verfügung.
+    action: Github-Repository (Archiv)
+    url: https://github.com/CorrelAid/datenguide-python
 ---
 
 import MainStage from '../components/MainStage'
@@ -95,10 +95,10 @@ Wenn du kein Update verpassen willst, melde dich für den Datenguide-Newsletter 
 
 <Tools features={frontMatter.tools}>
 
-## Open Data und Open Source
+## Open-Source-Tools (archiviert)
 
-Datenguide bietet direkten Zugriff auf Daten der amtlichen Statistik Deutschlands. Auf die Datenschnittstelle könnt ihr über REST und GraphQL zugreifen oder über Bibliotheken für Python und R, die von der [CorrelAid-Community](https://correlaid.org/) entwickelt werden. Die Software hinter Datenguide ist [open source](https://github.com/datenguide/datenguide).
+Datenguide bot über eine Datenschnittstelle (API) direkten Zugriff auf Daten der deutschen Regionalstatistik. **Diese API ist seit Juni 2024 abgeschaltet**. Die Daten können über die [Regionaldatenbank Deutschland](https://www.regionalstatistik.de/genesis/online/) abgerufen werden, die inzwischen eine offizielle API anbietet.
 
-Die Datensätze, die über Datenguide zur Verfügung stehen, stammen aus der [Regionaldatenbank Deutschland](https://www.regionalstatistik.de/genesis/online/), einer Veröffentlichung der Statistischen Ämter des Bundes und der Länder. Sie können unter den Bedingungen der Datenlizenz Deutschland ([dl‑de/by‑2-0](https://www.govdata.de/en/dl-de/by-2-0)) frei verwendet werden.
+Auf die API von Datenguide konntet ihr über [REST](https://github.com/datenguide/genesapi-tabular) und [GraphQL](https://github.com/datenguide/datenguide-api) zugreifen, sowie über Bibliotheken für Python und R, die von der [CorrelAid-Community](https://correlaid.org/) entwickelt wurden. **Diese Tools werden nicht mehr weiterentwickelt.** Der Quellcode ist auf GitHub archiviert.
 
 </Tools>
