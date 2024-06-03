@@ -77,7 +77,7 @@ export default function HeaderToolbar({ menuButton }) {
     <div className={classes.header}>
       <div className={classes.message}>
         Wir schalten die Datenguide-API und das Datenportal ab!
-        <Link href="/blog/2024/bye-bye/">
+        <Link href="/blog/2024/bye-bye">
           <a className={classes.link}>Alles zur Abschaltung</a>
         </Link>
       </div>

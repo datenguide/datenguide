@@ -1,71 +1,80 @@
 ---
-title: 'Goodbye Datenguide API'
-description: 'Wir verabschieden uns von der Datenguide API.'
+title: 'Goodbye Datenguide-API'
+description: Warum wir die Datenguide-API abschalten und wie ihr in Zukunft auf die Daten der Regionalstatistik zugreifen könnt
 previewImage: ''
-date: 2024-04-26
+date: 2024-07-04
 layout: BlogPost
 published: true
 lang: de
 authors:
-  - Simon Jockers
-  - Christian Rijke
+  - sjockers
+  - crijke
 ---
 
-**Tl;dr: Wir werden die Datenguide-API am 31. Mai 2024 abschalten. Die Datenguide-Website wird online bleiben, um das Projekt zu dokumentieren.**
+import ArrowLink from '../../../../components/ArrowLink'
 
-Seit 2018 beschäftigen wir uns damit, die Regionalstatistik zugänglicher zu machen. Dafür haben wir verschiedene Open-Source-Komponenten entwickelt, die dabei helfen, statistische Daten aus den offiziellen Datenportalen der statistischen Ämter herunterzuladen und weiterzuverwenden. Diese Tools haben wir unter anderem dafür eingesetzt, eine alternative Datenschnittstelle (API) für die Daten aus der Regionaldatenbank Deutschland\* zur Verfügung zu stellen. Über unsere Datenschnittstelle konntet ihr bisher per [GraphQL](https://graphql.org/) und [REST](https://de.wikipedia.org/wiki/Representational_State_Transfer) auf die Daten der Regionaldatenbank zugreifen. Diese Datenschnittstelle werden wir zum 31. Mai 2024 abschalten.
+Im Rahmen des Projekts [Datenguide](/) haben wir uns seit 2017 damit beschäftigt, den Zugang zu amtlichen Statistiken zu verbessern. In dieser Zeit sind verschiedene Open-Source-Tools entstanden, die dabei helfen, statistische Daten aus den offiziellen Datenportalen der statistischen Ämter herunterzuladen und weiterzuverwenden. Diese Tools haben wir dafür eingesetzt, eine alternative Datenschnittstelle (API) für die [Regionaldatenbank Deutschland](https://www.regionalstatistik.de/genesis/online/) zur Verfügung zu stellen – die Datenguide-API.
+
+Über die Datenguide-API konntet ihr bisher per [GraphQL](https://github.com/datenguide/api) und [REST](https://datengui.de/docs/rest) auf die Inhalte der Regionaldatenbank zugreifen. **Diese Schnittstellen werden wir zum 15. Juni 2024 abschalten.** Auch Tools, die auf diese Schnittstellen zugreifen, werden nach dem 15. Juni nicht mehr verwendbar sein. Dazu zählt unser [experimentelles Datenportal](/statistiken) aber auch die [Python-](https://datenguidepy.readthedocs.io/en/latest/) und [R-Bibliotheken](https://github.com/CorrelAid/datenguideR), die auf der Datenguide-API aufbauen.
 
 ## Das Problem, das wir lösen wollten
 
-Die statistischen Ämter des Bundes und der Länder betreiben verschiedene Datenportale, auf denen sie statistische Daten veröffentlichen. Eines dieser Portale ist die bereits genannte [Regionaldatenbank Deutschland](https://www.regionalstatistik.de/genesis/online/). Dort veröffentlichen die Statistischen Ämter ihre “tief gegliederten” Daten, also Statistiken zu Bundesländern, Landkreisen und Gemeinden. Die Regionaldatenbank basiert wie einige andere deutsche Datenportale auf der GENESIS-Plattform, einem Software-Produkt, das die Statistischen Ämter selbst entwickeln.
+Die statistischen Ämter des Bundes und der Länder betreiben verschiedene offizielle Datenportale, über die sie ihre Statistiken veröffentlichen. Eines dieser Portale ist die bereits genannte _Regionaldatenbank Deutschland_. Dort findest du „tief gegliederte“ Statistiken, also Daten zu Bundesländern, Landkreisen, Städten und Gemeinden. Diese statistischen Daten sind wichtige Quellen für Politik, Verwaltung und Wissenschaft, aber auch für Journalist:innen und zivilgesellschaftliche Initiativen.
 
-[Infobox GENESIS]
+Leider kostet die Nutzung dieser Datenportale einiges an Nerven. Hier eine Auswahl von Problemen, mit der Nutzer:innen in der Vergangenheit zu kämpfen hatten (und teilweise weiterhin haben):
 
-Die Nutzer:innen dieser Datenportale sind Politik, Verwaltung und Wissenschaft, aber auch Journalist:innen und zivilgesellschaftliche Initiativen. Allerdings erforderte die Nutzung der Datenportale in der Vergangenheit einiges an Nerven. Hier eine Auswahl von Problemen, mit der Nutzer:innen zu kämpfen hatten oder haben:
+- Tabellen-Downloads als CSV-Dateien waren für die Darstellung in Tools wie Microsoft Excel optimiert. Deshalb mussten sie manuell bereinigt werden, um sie mit gängigen Tools wie R oder Python weiterverarbeiten zu können.
+- Es existierte lange keine moderne Schnittstelle, über die Daten z.B. im JSON-Format oder als (brauchbare) CSV-Dateien abgefragt werden könnten. Die vorhandene Datenschnittstelle auf Basis von SOAP war für viele Nutzer:innen nicht praktikabel.
+- Der Zugriff auf die SOAP-Schnittstelle war zumindest teilweise kostenpflichtig.
+- Der Abruf umfangreicherer Datensätze erfordert einen Login und eine Bestellung der Daten, bevor der Download möglich gemacht wird.
+- Session-basierte URLs verhindern, dass Links zu konkreten Datensätze gespeichert oder weitergegeben werden können.
 
-- Datensätze hatten teilweise sehr lange Ladezeiten
-- Größere Datensätze erfordern einen Login und eine Bestellung der Datensätze, was für Nutzer\*innen, die an moderne Websites gewöhnt sind, schwer nachvollziehbar ist
-  – Session-basierte URLs verhinderten, dass Links auf Unterseiten gesetzt werden können.
-  – Tabellen-Downloads als CSV-Dateien waren für die Darstellung in Tools wie Microsoft Excel optimiert. Sie verwenden verschachtelte Header sowie deutsch lokalisierte Zeichenkodierung und Zahlenformate und mussten bereinigt werden, bevor sie mit mit gängigen Tools wie R oder Python weiterverarbeitet werden konnten.
-  – Es existierte lange keine moderne API, über die Daten z.B. im JSON-Format oder als (brauchbare) CSV-Dateien abgefragt werden könnten. Die vorhandene Datenschnittstelle auf Basis von SOAP war für viele Nutzer:innen zu komplex, um sie in der Praxis anzuwenden.
-- Der Zugriff auf die bestehende SOAP-API war zumindest teilweise kostenpflichtig.
+All diese Probleme beschränkten den Zugang auf Informationen, die eigentlich der Allgemeinheit zur Verfügung stehen sollten. Ziel des Datenguide-Projekts war es, diese Hürden abzubauen. Dafür haben wir mit alternativen Datenzugängen experimentiert und Prototypen entwickeln.
+
+<div style={{ borderRadius: '5px', background: '#f5f5f5', padding: '0.5em 1.5em', margin: '1em 0' }}>
+
+### Hintergrund: GENESIS und die Datenguide-API
+
+Datenguide baut auf [GENESIS](<https://de.wikipedia.org/wiki/GENESIS_(Statistik)>) auf, einer technischen Plattform, mit der die statistischen Ämter verschiedene Datenportale betreiben. Dazu zählen die [Regionaldatenbank](https://www.regionalstatistik.de/), die [Datenbank des Statistischen Bundesamts](https://www-genesis.destatis.de/), und die statistischen Datenportale mehrerer Bundesländer. Auch die [ZensusDatenbank](https://ergebnisse2011.zensus2022.de/datenbank/online/), über die in diesem Jahr die Ergebnisse des Zensus 2022 veröffentlicht werden, basiert auf GENESIS.
+
+Die Datenguide-API, die wir seit 2018 öffentlich zur Verfügung gestellt haben, spiegelte die Daten aus der oben genannten Regionaldatenbank, aber die zugrundeliegenden Tools und Techniken könnten grundsätzlich auch auf andere GENESIS-Datenbanken angewendet werden. Die Datenguide-API war der Prototyp einer modernen Datenschnittstelle für den Zugriff auf amtliche Statistiken, als Alternative zu den offiziellen Schnittstellen der statistischen Ämter.
+
+</div>
+
+---
 
 ## Die Zeiten ändern sich
 
-In den vergangenen Jahren hat sich bei der Datenveröffentlichung der Statistischen Ämtern einiges getan – nicht zuletzt durch den Dialog mit Akteur:innen aus der Datenjournalismus- und Open-Data-Community. Eine positive Veränderung ist die laufende Neugestaltung der Regionaldatenbank und der anderen GENESIS-Portale. Eine aktuelle Beta-Version des Datenportals des Statistischen Bundesamts zeigt deutliche Verbesserungen bei der Benutzerführung und der Darstellung der Daten.
+In den vergangenen Jahren hat sich bei den Datenportalen der statistischen Ämter einiges getan – nicht zuletzt durch den Dialog mit Akteur:innen aus der Datenjournalismus- und Open-Data-Community. So ist die Nutzung der offiziellen Datenschnittstellen schon seit Längerem kostenlos und es gibt inzwischen bessere Möglichkeiten für die technische Weiternutzung der Daten. Ein überarbeitetes Datenformat (_„Flat File CSV“_) und eine API (_„Webservice-Schnittstelle“_), ermöglichen das Abrufen von Statistiken über REST/JSON – direkt aus den offiziellen Datenportalen.
 
-[aktuelles bei GENESIS und/oder Regionaldatenbank – evtl. aus #rc3 Vortrag]
+Positiv hervorzuheben ist außerdem die laufende Neugestaltung von GENESIS. Eine aktuelle [Beta-Version des Statistischen Bundesamts](https://www-genesis.destatis.de/datenbank/beta/) zeigt deutliche Verbesserungen bei der Benutzerführung und der Darstellung der Daten. Wir hoffen dass diese Entwicklungen dazu beitragen, dass die Nutzung amtlicher Statistiken in Zukunft einfacher wird.
 
-[Screenshot neu]
+![Screenshot der GENESIS-Beta-Version, mit einem Liniendiagramm das die Entwicklung der Anzahl der Schwangeschaftsabbrüche zeigt](./genesis-beta.png)
 
-Außerdem existieren bessere Möglichkeiten für den direkten Zugriff auf die Daten aus den GENESIS-Portalen. Ein überarbeitetes Datenformat ("Flat File CSV") und eine API (im offiziellen Sprachgebrauch "Webservice-Schnittstelle), sollen es einfacher machen, die Daten zu weiterzuverwenden.
+_Diese [Beta-Version von GENESIS](https://www-genesis.destatis.de/datenbank/beta/statistic/23311/table/23311-0002/chart/line) zeigt, wie die Daten des Statistischen Bundesamts in Zukunft präsentiert werden sollen._
 
-Regionalstatistik.de
+### Ist die Datenguide-API noch notwendig?
 
-## Ist die Datenguide API noch notwenidg?
+Nein. Zwar lösen die aktuellen Schnittstellen der GENESIS-Plattform noch nicht alle Probleme, die wir mit der Datenguide-API addressieren wollten, dennoch empfehlen wir inzwischen die Nutzung dieser offiziellen Schnittstellen. Das überarbeitete CSV-Format der statistischen Ämter („Flat File CSV“) ermöglicht die Weiterverwendung der Daten ohne manuelle Bereinigung und über die offizielle REST-Schnittstelle („Webservice“) können Statistiken mit gängigen Programmiersprachen abgerufen werden. Auch wenn sich ihr Design noch stärker an den Bedarfen der User orientieren könnte, stellen die GENESIS-Portale durchaus brauchbare Werkzeuge dar – [vorausgesetzt man weiß, wie man sie am besten einsetzt](../genesis).
 
-Nein. Zwar lösen die die offiziellen Datenschnittstellen der GENESIS-Plattform nicht alle Probleme, die wir mit der Datenguide-API lösen wollten, sie sind aber brauchbare Werkzeuge für alle, die diese Daten nutzen möchten.
+Außerdem existieren inzwischen [inoffizielle GENESIS-Bibliotheken für R](https://github.com/CorrelAid/restatis) und [für Python](https://github.com/CorrelAid/pystatis), die bei der Arbeit mit den Schnittstellen der GENESIS-Portale helfen können. Der Vorteil dieser Tools gegenüber der Datenguide-API ist, dass sie den direkten Zugriff auf amtliche Statistiken aus den offiziellen Quellen ermöglichen. Für die Datenguide-API mussten wir die Daten in der aufwendig spiegeln und auf unserem eigenen Server bereitstellen. Dieser Umweg ist nun nicht mehr notwendig.
 
-[… Zusammenfassung anderer Artikel, Verweis auf anderen Artikel]
+<ArrowLink href="../genesis">
+  So nutzt du die Datenschnittstellen der statistischen Ämter
+</ArrowLink>
 
-Ein Hauptkritikpunkt ist, dass die offizielle GENESIS-API weiterhin keine Möglichkeit bietet, _direkt_ auf statistische Daten zuzugreifen, sondern nur den Download von CSV-Dateien ermöglicht, die dann separat verarbeitet werden müssen. Die nächste Entwicklungsstufe der GENESIS-API sieht außerdem vor, dass diese Daten nur noch als ZIP-Archiv ausgeliefert werden, was eine zusätzliche Hürde für die Verarbeitung schafft. Uns ist bewusst, dass es nicht trivial ist, eine Datenschnittstelle zu entwickeln, über die potentiell große Datenmengen heruntergeladen werden. Trotzdem halten wir es für sinnvoll, sich an existierenden Standards zu orientieren.
+### Prototyp oder öffentliche Infrastruktur?
 
-Es ist weiterhin nicht möglich, die URL eines im Dialog in der Regionaldatenbank Deutschland gefundenen Inhalts zu kopieren und weiterzuverwenden, da diese URL eine sogenannte Session-ID mit begrenzter Gültigkeit enthält. Möchte man dauerhaft auf einen Inhalt der Regionaldatenbank Deutschland verweisen, müssen sogenannte “Deep Links” verwendet werden. Das Zusammenbauen dieser Deep Links ist allerdings eher etwas für Kenner [Link zum Handbuch]. In der aktuellen Beta-Version von GENESIS scheint dieses Problem gelöst worden zu sein.
+Die Datenguide-API war von Beginn nur als Prototyp angelegt. Die Arbeit an dem Projekt wurde zeitweise durch den [Prototype Fund](https://prototypefund.de/) und das [MIZ Babelsberg](https://www.miz-babelsberg.de/) unterstützt, aber diese Förderungen sind bereits 2020 ausgelaufen und wir betreiben die Datenguide-API seitdem auf eigene Kosten.
 
-Auch das API-Design von GENESIS ist immer wieder für Überraschungen gut.
+Grundsätzlich besteht bei Projekten dieser Art das Problem, dass ehrenamtlich Software entwickelt und betrieben wird, die eigentlich öffentliche Infrastruktur darstellt und von der öffentlichen Hand, mit öffentlichen Mitteln, bereitgestellt werden müsste. Dazu zählt auch, dass diese Infrastruktur so gestaltet sein muss, dass sie wirklich von Bürger:innen genutzt werden kann. Mit dem aktuellen Stand der GENESIS-Datenportale kommen die statistischen Ämter dieser Aufgabe besser nach als in der Vergangenheit. Deshalb haben wir beschlossen, die Datenguide-API abzuschalten.
 
-Auch die Auswahl von regionalen Tiefen (Bestimmten Bundesländern oder einzelnen Gemeinden) und die Zusammenstellung und Verknüpfung von Merkmalen könnte aus unserer Sicht nutzerfreundlicher gestaltet sein.
+### Wie geht es weiter?
 
-## Unsere Probleme
+Wir werden die Datenguide-API am 15. Juni 2024 deaktivieren. Die Datenguide-Website bleibt online zugänglich, um das Projekt zu dokumentieren. Erhalten bleibt insbesondere der Bereich „Statistik erklärt“, der Grundlagen für die Nutzung der amtlichen Statistik vermittelt und unabhängig von der Datenguide-API funktioniert. Der Quellcode für die Open-Source-Tools, die der Datenguie-API zugrunde liegen, ist auf GitHub archiviert.
 
-Zunächst ist Datenguide ein ehrenamtliches Projekt. Die frühere Förderung ist ausgelaufen, der Weiterbetrieb der Schnittstelle findet in der Freizeit statt. Gleichzeitig fallen für den Betrieb von Datenguide Infrastrukturkosten an und wir haben bisher derzeit kein tragbares Konzept für die dauerhafte Finanzierung. Zudem gibt es einige hartnäckige Bugs, die wir derzeit nicht mit vertretbarem Aufwand in unserer Freizeit lösen können und wollen. Daneben bleibt das grundsätzliche Problem bestehen, dass wir es nur für begrenzt sinnvoll halten, ehrenamtlich Software zu betreiben, die eigentlich öffentliche Infrastruktur darstellt und von den entsprechenden Stellen mit öffentlichen Mitteln so betrieben werden sollte – dafür zahlen wir schließlich Steuern.
+### Danke an alle!
 
-## Wie geht es weiter
+Das Kernteam von Datenguide bestand aus Christian Rijke, Patricia Ennenbach, Simon Jockers und Simon Wörpel. Danke außerdem an alle, die an der Datenschnittstelle und ihrer Dokumentation mitgearbeitet oder die Entwicklung durch Feedback oder eigene Prototypen unterztützt haben. Das waren unter anderem Tim Fangmeyer, Julia Barthel, Gregor Aisch und Christine Gotthardt. Ein besonderer Dank geht auch an Alexandra Kapp, Fabio Votta, Konrad Wölms, Kristian Stoye, Lisa Hehnke, Veronika Grupp und allen anderen, die bei [CorrelAid](https://www.correlaid.org/) an den Python- und R-Bibiotheken für die Datenguide-API gearbeitet haben.
 
-Erhalten bleibt das Blog und der Bereich “Statistik erklärt”, der Grundlagen der amtlichen Statistik für Menschen zugänglicher macht. Indem grundlegende Konzepte wie regionale Gliederung oder der Amtliche Gemeindeschlüssel (AGS) interaktiv erklärt werden. Und damit die Data Literacy allgemein fördert.
-
-## Danke an alle!
-
-Danke an alle, die an der Datenschnittstelle und ihrer Dokumentation mitgearbeitet haben oder die eigene Prototypen auf Basis der Datenschnittstelle entwickelt haben; Tim Fangmeyer, [Julia, wer noch?]. Ein besonderer Dank auch an Lisa Hehnke, Veronika Grupp, Fabio Votta, Kristian Stoye, Alexandra Kapp, Konrad Wölms und allen anderen die bei CorrelAid an den Python- und R-Bibiotheken für Datenguide gearbeitet haben.
-
-Danke an den Prototype Fund, das MIZ Babelsberg und Netzwerk Recherche, die uns zu verschiedenen Zeitpunkten des Projekts finanziell unterstützt haben. Ohne eure Unterstützung wäre dieses Projekt nicht möglich gewesen.
+Wir möchten uns außerdem beim Prototype Fund, dem MIZ Babelsberg und bei Netzwerk Recherche bedanken, die uns zu verschiedenen Zeitpunkten des Projekts unterstützt haben. Ohne eure Hilfe wäre diese Arbeit nicht möglich gewesen. 💛

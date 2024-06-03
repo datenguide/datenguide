@@ -37,7 +37,6 @@ const useStyles = makeStyles((theme) => ({
 
 const Blog = ({ meta, blogPosts = [] }) => {
   const classes = useStyles()
-  const theme = useTheme()
   const [primaryFeature, secondaryFeature, ...posts] = blogPosts
   return (
     <DefaultLayout meta={meta}>

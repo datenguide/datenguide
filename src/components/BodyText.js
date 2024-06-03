@@ -7,6 +7,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     margin: '0 auto',
     hyphens: 'auto',
+    hyphenateLimitChars: '9 4 4',
 
     [theme.breakpoints.up('md')]: {
       marginRight: '30%',
