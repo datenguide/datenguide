@@ -1,7 +1,7 @@
 import _ from 'lodash'
 import moment from 'moment'
 
-import { makeStyles, useTheme } from '@material-ui/styles'
+import { makeStyles } from '@material-ui/styles'
 import Container from '@material-ui/core/Container'
 import Grid from '@material-ui/core/Grid'
 
