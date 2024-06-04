@@ -27,15 +27,15 @@ Leider kostet die Nutzung dieser Datenportale einiges an Nerven. Hier eine Auswa
 - Es existierte lange keine moderne Schnittstelle, über die Daten z.B. im JSON-Format oder als (brauchbare) CSV-Dateien abgefragt werden könnten. Die vorhandene Datenschnittstelle auf Basis von SOAP war für viele Nutzer:innen nicht praktikabel.
 - Der Zugriff auf die SOAP-Schnittstelle war zumindest teilweise kostenpflichtig.
 - Der Abruf umfangreicherer Datensätze erfordert einen Login und eine Bestellung der Daten, bevor der Download möglich gemacht wird.
-- Session-basierte URLs verhindern, dass Links zu konkreten Datensätze gespeichert oder weitergegeben werden können.
+- Session-basierte URLs verhindern, dass Links zu konkreten Datensätzen gespeichert oder weitergegeben werden können.
 
-All diese Probleme beschränkten den Zugang auf Informationen, die eigentlich der Allgemeinheit zur Verfügung stehen sollten. Ziel des Datenguide-Projekts war es, diese Hürden abzubauen. Dafür haben wir mit alternativen Datenzugängen experimentiert und Prototypen entwickeln.
+All diese Probleme beschränkten den Zugang auf Informationen, die eigentlich der Allgemeinheit zur Verfügung stehen sollten. Ziel des Datenguide-Projekts war es, diese Hürden abzubauen. Dafür haben wir mit alternativen Datenzugängen experimentiert und Prototypen entwickelt.
 
 <div style={{ borderRadius: '5px', background: '#f5f5f5', padding: '0.5em 1.5em', margin: '1em 0' }}>
 
 ### Hintergrund: GENESIS und die Datenguide-API
 
-Datenguide baut auf [GENESIS](<https://de.wikipedia.org/wiki/GENESIS_(Statistik)>) auf, einer technischen Plattform, mit der die statistischen Ämter verschiedene Datenportale betreiben. Dazu zählen die [Regionaldatenbank](https://www.regionalstatistik.de/), die [Datenbank des Statistischen Bundesamts](https://www-genesis.destatis.de/), und die statistischen Datenportale mehrerer Bundesländer. Auch die [ZensusDatenbank](https://ergebnisse2011.zensus2022.de/datenbank/online/), über die in diesem Jahr die Ergebnisse des Zensus 2022 veröffentlicht werden, basiert auf GENESIS.
+Datenguide baut auf [GENESIS](<https://de.wikipedia.org/wiki/GENESIS_(Statistik)>) auf. Das ist eine technische Plattform, mit der die statistischen Ämter verschiedene Datenportale betreiben. Dazu zählen die [Regionaldatenbank](https://www.regionalstatistik.de/), die [Datenbank des Statistischen Bundesamts](https://www-genesis.destatis.de/), und die statistischen Datenportale mehrerer Bundesländer. Auch die [ZensusDatenbank](https://ergebnisse2011.zensus2022.de/datenbank/online/), über die in diesem Jahr die Ergebnisse des Zensus 2022 veröffentlicht werden, basiert auf GENESIS.
 
 Die Datenguide-API, die wir seit 2018 öffentlich zur Verfügung gestellt haben, spiegelte die Daten aus der oben genannten Regionaldatenbank, aber die zugrundeliegenden Tools und Techniken könnten grundsätzlich auch auf andere GENESIS-Datenbanken angewendet werden. Die Datenguide-API war der Prototyp einer modernen Datenschnittstelle für den Zugriff auf amtliche Statistiken, als Alternative zu den offiziellen Schnittstellen der statistischen Ämter.
 
@@ -47,17 +47,17 @@ Die Datenguide-API, die wir seit 2018 öffentlich zur Verfügung gestellt haben,
 
 In den vergangenen Jahren hat sich bei den Datenportalen der statistischen Ämter einiges getan – nicht zuletzt durch den Dialog mit Akteur:innen aus der Datenjournalismus- und Open-Data-Community. So ist die Nutzung der offiziellen Datenschnittstellen schon seit Längerem kostenlos und es gibt inzwischen bessere Möglichkeiten für die technische Weiternutzung der Daten. Ein überarbeitetes Datenformat (_„Flat File CSV“_) und eine API (_„Webservice-Schnittstelle“_), ermöglichen das Abrufen von Statistiken über REST/JSON – direkt aus den offiziellen Datenportalen.
 
-Positiv hervorzuheben ist außerdem die laufende Neugestaltung von GENESIS. Eine aktuelle [Beta-Version des Statistischen Bundesamts](https://www-genesis.destatis.de/datenbank/beta/) zeigt deutliche Verbesserungen bei der Benutzerführung und der Darstellung der Daten. Wir hoffen dass diese Entwicklungen dazu beitragen, dass die Nutzung amtlicher Statistiken in Zukunft einfacher wird.
+Positiv hervorzuheben ist außerdem die laufende Neugestaltung von GENESIS. Eine aktuelle [Beta-Version des Statistischen Bundesamts](https://www-genesis.destatis.de/datenbank/beta/) zeigt deutliche Verbesserungen bei der Benutzerführung und der Darstellung der Daten. Wir hoffen, dass diese Entwicklungen dazu beitragen, die Nutzung amtlicher Statistiken in Zukunft einfacher zu machen.
 
-![Screenshot der GENESIS-Beta-Version, mit einem Liniendiagramm das die Entwicklung der Anzahl der Schwangeschaftsabbrüche zeigt](./genesis-beta.png)
+![Screenshot der GENESIS-Beta-Version, mit einem Liniendiagramm das die Entwicklung der Anzahl der Schwangerschaftsabbrüche zeigt](./genesis-beta.png)
 
 _Diese [Beta-Version von GENESIS](https://www-genesis.destatis.de/datenbank/beta/statistic/23311/table/23311-0002/chart/line) zeigt, wie die Daten des Statistischen Bundesamts in Zukunft präsentiert werden sollen._
 
 ### Ist die Datenguide-API noch notwendig?
 
-Nein. Zwar lösen die aktuellen Schnittstellen der GENESIS-Plattform noch nicht alle Probleme, die wir mit der Datenguide-API addressieren wollten, dennoch empfehlen wir inzwischen die Nutzung dieser offiziellen Schnittstellen. Das überarbeitete CSV-Format der statistischen Ämter („Flat File CSV“) ermöglicht die Weiterverwendung der Daten ohne manuelle Bereinigung und über die offizielle REST-Schnittstelle („Webservice“) können Statistiken mit gängigen Programmiersprachen abgerufen werden. Auch wenn sich ihr Design noch stärker an den Bedarfen der User orientieren könnte, stellen die GENESIS-Portale durchaus brauchbare Werkzeuge dar – [vorausgesetzt man weiß, wie man sie am besten einsetzt](../genesis).
+Nein. Zwar lösen die aktuellen Schnittstellen der GENESIS-Plattform noch nicht alle Probleme, die wir mit der Datenguide-API adressieren wollten, dennoch empfehlen wir inzwischen die Nutzung dieser offiziellen Schnittstellen. Das überarbeitete CSV-Format der statistischen Ämter („Flat File CSV“) ermöglicht die Weiterverwendung der Daten ohne manuelle Bereinigung und über die offizielle REST-Schnittstelle („Webservice“) können Statistiken mit gängigen Programmiersprachen abgerufen werden. Auch wenn sich ihr Design noch stärker an den Bedarfen der User orientieren könnte, stellen die GENESIS-Portale durchaus brauchbare Werkzeuge dar – [vorausgesetzt man weiß, wie man sie am besten einsetzt](../genesis).
 
-Außerdem existieren inzwischen [inoffizielle GENESIS-Bibliotheken für R](https://github.com/CorrelAid/restatis) und [für Python](https://github.com/CorrelAid/pystatis), die bei der Arbeit mit den Schnittstellen der GENESIS-Portale helfen können. Der Vorteil dieser Tools gegenüber der Datenguide-API ist, dass sie den direkten Zugriff auf amtliche Statistiken aus den offiziellen Quellen ermöglichen. Für die Datenguide-API mussten wir die Daten in der aufwendig spiegeln und auf unserem eigenen Server bereitstellen. Dieser Umweg ist nun nicht mehr notwendig.
+Außerdem existieren inzwischen [inoffizielle GENESIS-Bibliotheken für R](https://github.com/CorrelAid/restatis) und [für Python](https://github.com/CorrelAid/pystatis), die bei der Arbeit mit den Schnittstellen der GENESIS-Portale helfen können. Der Vorteil dieser Tools gegenüber der Datenguide-API ist, dass sie den direkten Zugriff auf amtliche Statistiken aus den offiziellen Quellen ermöglichen. Für die Datenguide-API mussten wir die Daten aufwendig spiegeln und auf unserem eigenen Server bereitstellen. Dieser Umweg ist nun nicht mehr notwendig.
 
 <ArrowLink href="../genesis">
   So nutzt du die Datenschnittstellen der statistischen Ämter
@@ -75,6 +75,6 @@ Wir werden die Datenguide-API am 15. Juni 2024 deaktivieren. Die Datenguide-Webs
 
 ### Danke an alle!
 
-Das Kernteam von Datenguide bestand aus Christian Rijke, Patricia Ennenbach, Simon Jockers und Simon Wörpel. Danke außerdem an alle, die an der Datenschnittstelle und ihrer Dokumentation mitgearbeitet oder die Entwicklung durch Feedback oder eigene Prototypen unterztützt haben. Das waren unter anderem Tim Fangmeyer, Julia Barthel, Gregor Aisch und Christine Gotthardt. Ein besonderer Dank geht auch an Alexandra Kapp, Fabio Votta, Konrad Wölms, Kristian Stoye, Lisa Hehnke, Veronika Grupp und allen anderen, die bei [CorrelAid](https://www.correlaid.org/) an den Python- und R-Bibiotheken für die Datenguide-API gearbeitet haben.
+Das Kernteam von Datenguide bestand aus Christian Rijke, Patricia Ennenbach, Simon Jockers und Simon Wörpel. Danke außerdem an alle, die an der Datenschnittstelle und ihrer Dokumentation mitgearbeitet oder die Entwicklung durch Feedback oder eigene Prototypen unterstützt haben. Das waren unter anderem Tim Fangmeyer, Julia Barthel, Gregor Aisch, Marcus Weiner, Christine Gotthardt und Natalie Sablowski. Ein besonderer Dank geht auch an Alexandra Kapp, Fabio Votta, Konrad Wölms, Kristian Stoye, Lisa Hehnke, Veronika Grupp und allen anderen, die bei [CorrelAid](https://www.correlaid.org/) an den Python- und R-Bibiotheken für die Datenguide-API gearbeitet haben.
 
 Wir möchten uns außerdem beim Prototype Fund, dem MIZ Babelsberg und bei Netzwerk Recherche bedanken, die uns zu verschiedenen Zeitpunkten des Projekts unterstützt haben. Ohne eure Hilfe wäre diese Arbeit nicht möglich gewesen. 💛
