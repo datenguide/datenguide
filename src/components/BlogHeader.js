@@ -15,6 +15,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'flex-end',
     marginBottom: theme.spacing(12),
     hyphens: 'auto',
+    hyphenateLimitChars: '9 4 4',
 
     [theme.breakpoints.up('sm')]: {
       minHeight: theme.spacing(32),
