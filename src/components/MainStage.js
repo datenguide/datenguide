@@ -83,18 +83,18 @@ const MainStage = ({ children }) => {
           color="secondary"
           className={classes.cta}
           disableElevation
-          href="/statistiken"
+          href="/blog/2024/bye-bye"
         >
-          Datenportal
+          Rückblick
         </Button>
         <Button
           variant="outlined"
           size="large"
           color="secondary"
           className={classes.cta}
-          href="/statistik-erklaert"
+          href="/info"
         >
-          Statistik erklärt
+          Mehr über Datenguide
         </Button>
       </Container>
     </section>

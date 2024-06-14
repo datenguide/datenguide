@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(2, 0, 6, 0),
 
     [theme.breakpoints.up('md')]: {
-      width: '70%',
+      width: '60%',
     },
   },
 
@@ -42,16 +42,16 @@ const Blog = ({ meta, blogPosts = [] }) => {
     <DefaultLayout meta={meta}>
       <div className={classes.root}>
         <Container>
-          <h1 className={classes.title}>Statistik erklärt</h1>
+          <h1 className={classes.title}>Amtliche Statistik erklärt</h1>
           <p className={classes.subtitle}>
-            Wir erklären Hintergründe amtlicher Statistik so, dass mehr Menschen
-            sich trauen, damit zu arbeiten
+            Hintergründe und Grundlagen für die Arbeit mit den Daten der
+            Regionalstatistik
           </p>
           <Grid className={classes.container} container spacing={3}>
-            <Grid item xs={12} md={5}>
+            <Grid item xs={12} md={6}>
               <BlogPostFeaturedItem {...primaryFeature} />
             </Grid>
-            <Grid item xs={12} md={7}>
+            <Grid item xs={12} md={6}>
               <BlogPostFeaturedItem {...secondaryFeature} />
             </Grid>
             {posts.map((post) => (

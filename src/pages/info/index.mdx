@@ -114,23 +114,26 @@ import { frontMatter } from './index.mdx'
 
 # Über Datenguide
 
-<Box pb={4}>
+<BodyText>
+
+<Box pb={2}>
   <Typography variant="subtitle1" component="p" m={4}>
-    Datenguide macht amtliche Statistik zugänglicher für alle. Unsere digitale
-    Plattform spart Zeit, weil sie regionale Statistiken zu Bundesländern,
-    Landkreisen und Gemeinden schnell nutzbar macht. Und wir erklären
-    Hintergründe amtlicher Statistik so, dass mehr Menschen sich trauen, damit
-    zu arbeiten.
+    Von 2018 bis 2024 haben wir bei Datenguide an digitalen Tools gearbeitet, um
+    den Zugang zu den Daten der amtlichen Statistik zu verbessern.
   </Typography>
 </Box>
 
-<BodyText>
+Die Statistischen Ämter sammeln kontinuierlich Daten und erstellen Statistiken zu allen Bereichen unserer Gesellschaft, Umwelt und Wirtschaft. Das reicht von Zahlen zu Arbeitslosigkeit und Sozialleistungen bis zur Tierhaltung in der Landwirtschaft. Diese **amtliche Statistik** ist nicht nur eine wichtige Entscheidungsgrundlage für Politik, Verwaltung und Wirtschaft, sondern auch ein wertvolles Werkzeug für Journalist\*innen und zivilgesellschaftliche Initiativen.
 
-Unser neues **[Datenportal](/statistiken)** steht jetzt in einer Beta-Version zur Verfügung. Profis können auch direkt auf unsere experimentelle **[Datenschnittstelle](/docs)** zugreifen.
+## Amtliche Statistik für alle!
 
-Die Statistischen Ämter sammeln kontinuierlich Daten und erstellen Statistiken zu allen Bereichen unserer Gesellschaft, Umwelt und Wirtschaft. Das reicht von Zahlen zu Arbeitslosigkeit und Sozialleistungen bis zur Tierhaltung in der Landwirtschaft. Diese _amtliche Statistik_ ist nicht nur eine wichtige Entscheidungsgrundlage für Politik, Verwaltung und Wirtschaft, sondern auch ein wertvolles Werkzeug für Journalist:innen und zivilgesellschaftliche Initiativen. Statistische Daten helfen bei investigativen Recherchen zu systemischen Problemen, aber auch beim Fact-checking oder im Lokaljournalismus.
+Das Ziel von Datenguide war es, den Zugang auf Daten der statistischen Ämter zu vereinfachen – insbesondere für Jounalist\*innen und andere zivilgesellschaftliche Akteure. Denn in der Praxis ist die Nutzung von amtlichen Statistiken oft schwierig. Obwohl die amtliche Statistik theoretisch der Öffentlichkeit zur Verfügung steht und offizielle Statistikportale Daten zum Download anbieten, stellen die Bedienung dieser Portale und die weitere Analyse der Daten ein großes Hindernis dar.
 
-Im Alltag ist die Nutzung von amtlichen Statistiken jedoch oft schwierig. Denn obwohl die amtliche Statistik theoretisch der Öffentlichkeit zur Verfügung steht und offizielle Statistikportale Daten zum Download anbieten, stellt die Bedienung dieser Portale und die weitere Analyse der Daten die meisten Menschen vor große Hindernisse. Die offiziellen Portale richten sich an Experten und bieten kaum Informationen für Laien oder einfache Möglichkeiten zum Finden und Darstellen von Datensätzen. Auch für Fachleute ist die Arbeit mit der offziellen Veröffentlichung der amtlichen Statistik zeitraubend und frustrierend, da viele Datensätze einzeln angefordert und aufbereitet werden müssen.
+Die offiziellen Portale richten sich an Expert\*innen und boten zum Beginn des Projekts kaum Informationen für Laien oder brauchbare Werkzeuge zum Finden und Darstellen von Datensätzen. Aber auch für Fachleute ist die Arbeit mit der offziellen Veröffentlichung der amtlichen Statistik bis heute zeitraubend und frustrierend, da viele Datensätze einzeln angefordert und aufbereitet werden müssen.
+
+Das Projekt Datenguide sollte dazu beitragen, diese Hürden abzubauen. Wir haben an Open-Source-Tools gearbeitet, die helfen sollten, die Daten der amtlichen Statistik zu verstehen und sinnvoll einzusetzen. Dazu gehörte ein **experimentelles Datenportal** und eine **Datenschnittstelle (API)**, die den Zugriff auf die Daten der Regionalstatistik ermöglichten. _[Beide Angebote haben wir im Juni 2024 abgeschaltet](/blog/2024/bye-bye)._
+
+## Mehr als eine Online-Plattform
 
 </BodyText>
 </Container>
@@ -161,8 +164,6 @@ Foto: [Workshop bei der OpenNews Unconference](https://www.flickr.com/photos/moz
 <BodyText>
 
 ## Mehr als eine Online-Plattform
-
-Datenguide ist dabei mehr als eine Online-Plattform. Wir verstehen uns als Initiative von Journalist:innen, die Wissen über die Nutzung der amtlichen Statistik aufbauen und weiterverbreiten. Seit 2018 halten wir Vorträge und Workshops zum Thema, beispielsweise bei der re:publica, der SciCAR und der Netzwerk Recherche Jahreskonferenz. Wir haben außerdem einen Hackathon zum Thema Wahldaten veranstaltet – den [Wahlsalon 2019](https://blog.datengui.de/wahlsalon/) mit über 30 Teilnehmer:innen aus Journalismus, Zivilgesellschaft und statistischen Ämtern.
 
 Datenguide soll nicht nur Daten-Einsteiger ansprechen, sondern auch Profis. Wir arbeiten an Open-Source-Tools, mit denen Datenjournalist:innen, Entwickler:innen und Wissenschaftler:innen auf die Daten der amtlichen Statistik zugreifen können. Wir stellen eine **[Datenschnittstelle](https://github.com/datenguide/genesapi-tabular)** zur Verfügung und arbeiten gemeinsam mit unseren Kolleg:innen von [CorrelAid](https://correlaid.org) daran, statistische Daten mit den Programmiersprachen Python und R nutzbar zu machen. Damit ermöglichen wir komplexe Recherchen und die Entwicklung von neuen Tools auf Basis von amtlichen Statistiken. Anwendungen, die unsere Technologie verwenden, wurden bereits ausgezeichnet: Der Prototyp [„Regio-Reports“](https://datengui.de/blog/2018/dpa-hackathon/) gewann den API-Award beim [Hackathon der dpa](https://www.dpa.com/de/unternehmen/dpa-zeichnet-aus/picturepunk/#data-deep-dive) und [Revierderby](https://www.journalismuslab.de/2019/07/15/hacking-local_media-das-war-der-journalismus-hackathon-2019/) den ersten Preis beim [„hacking://local_media“ Hackathon](https://www.journalismuslab.de/2019/07/15/hacking-local_media-das-war-der-journalismus-hackathon-2019/) der LfM NRW.
 
