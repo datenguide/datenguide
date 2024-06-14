@@ -1,7 +1,7 @@
 import _ from 'lodash'
 import moment from 'moment'
 
-import { makeStyles, useTheme } from '@material-ui/styles'
+import { makeStyles } from '@material-ui/styles'
 import Container from '@material-ui/core/Container'
 import Grid from '@material-ui/core/Grid'
 
@@ -37,7 +37,6 @@ const useStyles = makeStyles((theme) => ({
 
 const Blog = ({ meta, blogPosts = [] }) => {
   const classes = useStyles()
-  const theme = useTheme()
   const [primaryFeature, secondaryFeature, ...posts] = blogPosts
   return (
     <DefaultLayout meta={meta}>
@@ -49,14 +48,11 @@ const Blog = ({ meta, blogPosts = [] }) => {
             sich trauen, damit zu arbeiten
           </p>
           <Grid className={classes.container} container spacing={3}>
-            <Grid item xs={12} md={8}>
+            <Grid item xs={12} md={5}>
               <BlogPostFeaturedItem {...primaryFeature} />
             </Grid>
-            <Grid item xs={12} md={4}>
-              <BlogPostFeaturedItem
-                {...secondaryFeature}
-                background={theme.palette.info.main}
-              />
+            <Grid item xs={12} md={7}>
+              <BlogPostFeaturedItem {...secondaryFeature} />
             </Grid>
             {posts.map((post) => (
               <Grid key={post.href} item xs={12} md={4}>
