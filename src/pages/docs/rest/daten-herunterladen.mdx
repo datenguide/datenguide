@@ -1,0 +1,134 @@
+---
+title: 'Datenguide | REST | Daten abfragen'
+layout: DocsPage
+---
+
+# Daten herunterladen über die REST-Schnittstelle
+
+Wer Daten nicht per Hand über das Datenportal herunterladen möchte, kann ganze Datensätze mit der REST-Schnittstelle abfragen – auch automatisiert und natürlich iin einem maschinenlesbaren Format.
+
+### Abfragen von CSVs über URL-Ergänzungen
+
+Alle Landkreise in Brandenburg ausgeben:
+
+```js
+?region=all&level=3&parent=12
+```
+
+liste von regionen
+
+```js
+?region=10,12,13
+```
+
+alle bundesländer (default)
+
+```js
+?region=all&level=1
+```
+
+Zeitraum festlegen
+
+alle jahre (default)
+
+```js
+?time=all
+```
+
+zeitraum von-bis
+
+```js
+?time=2000:2010
+```
+
+zeitraum von anfang bis:
+
+```js
+?time=:2010
+```
+
+zeitraum seit:
+
+```js
+?time=2000:
+```
+
+einzelne jahre
+
+```js
+?time=2000,2004,2012
+```
+
+Daten auswählen
+
+```js
+?data=<id>:<attr>(<dim>:<value>,<dim2>:<value2>|<value3>, ...)
+```
+
+Bsp.: einbürgerungstatistik > einbürgerung von ausländern
+
+```js
+?data=12511:BEV008
+```
+
+einbürgerung von ausländern mit aufenthaltsdauer von unter 8 jahren
+
+```js
+?data=12511:BEV008(AUFDA1:AUFDA00B08)
+```
+
+einbürgerung von ausländern mit aufenthaltsdauer von unter 8 jahren oder von 15 bis unter 20 jahren. mehrere argument-werte werden mit | voneinander getrennt.
+
+```js
+?data=12511:BEV008(AUFDA1:AUFDA00B08|AUFDA15B20)
+```
+
+zweite statistik hinzufügen. einfach einen weiteren ?data parameter übergeben:
+
+```js
+?data=...&data=12612:BEV001
+```
+
+CSV Export Parameter
+
+csv format einstellen: eine zeile pro wert (default)
+
+```js
+?layout=long
+```
+
+csv format einstellen: eine zeile pro region
+
+```js
+?layout=region
+```
+
+csv format einstellen: eine zeile pro jahr
+
+```js
+?layout=time
+```
+
+csv beschriftung einstellen: nur statistik kürzel (default)
+
+```js
+?labels=id
+```
+
+csv beschriftung einstellen: ausgeschriebene statistik namen
+
+```js
+?labels=name
+```
+
+format:
+
+```js
+?format=csv
+
+?format=tsv
+
+?format=json  // array of rows
+
+?delimiter=,
+```

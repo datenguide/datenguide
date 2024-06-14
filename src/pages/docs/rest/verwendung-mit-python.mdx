@@ -1,0 +1,49 @@
+---
+title: 'Datenguide | REST | Verwendung mit Python'
+layout: DocsPage
+nextPage:
+  href: verwendung-mit-javascript
+  text: Verwendung mit JavaScript
+---
+
+# Verwendung mit Python
+
+Im Folgenden findest du Beispiel-Code, um die REST-Schnittstelle mit Python abzufragen. Eine Schritt-für-Schritt-Anleitung wie die URL für die Abfrage der Schnittstelle aufgebaut sein muss, findest du unter [Aufbau einer REST-Abfrage](abfragen).
+
+Um die Daten zu verarbeiten, nutzen wir die Bibliothek [Pandas](https://pandas.pydata.org/).
+
+## Daten in einen Dataframe laden
+
+```python
+import pandas as pd
+import requests
+from io import StringIO
+
+# Basis-URL der Datenguide API:
+BASE_URL = 'https://tabular.genesapi.org'
+
+# Einfache Funktion zur Herunterladen und Anzeigen
+# von Tabellen in einem DataFrame:
+def get_df(query):
+    url = '%s/%s' % (BASE_URL, query)
+    print(url)
+    res = requests.get(url)
+    csv = StringIO(res.text)
+    df = pd.read_csv(csv, dtype={
+        'region_id': str,
+        'year': str
+    })
+    df.index = df[df.columns[0]]
+    del df[df.columns[0]]
+    return df.fillna('')
+
+# Beispielhafter Funktionsaufruf für:
+# - eine Statistik ('11111' / Gebietsstand)
+# - ein Wertmerkmal ('FLC006' / Fläche)
+# - eine Region ('11' / Berlin)
+get_df('?data=11111:FLC006&region=11')
+```
+
+---
+
+Viele Beispiele für mögliche Abfragen findet ihr [in diesem Jupyter Notebook](https://github.com/datenguide/genesapi-tabular/blob/master/examples.ipynb). Wir haben außerdem ein Beispiel für die [Verwendung mit JavaScript](verwendung-mit-javascript) zusammengestellt.

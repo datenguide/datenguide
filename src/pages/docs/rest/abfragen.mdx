@@ -1,0 +1,127 @@
+---
+title: 'Datenguide | REST | Aufbau einer API-Abfrage'
+layout: DocsPage
+nextPage:
+  text: Verwendung mit Python
+  href: verwendung-mit-python
+---
+
+# Aufbau einer API-Abfrage
+
+Die URL-Struktur jeder Abfrage an die Datenguide API setzt sich aus unterschiedlichen Bestandteilen zusammen, von denen die meisten optional sind:
+
+```js
+https://tabular.genesapi.org?data=12612:BEV001&level=2&time=2008:
+```
+
+Obwohl die Reihenfolge der Parameter keine Rolle für die API spielt, halten wir im Folgenden trotzdem eine bestimmte Reihenfolge ein. Das macht die Abfragen übersichtlicher und besser lesbar.
+
+1. Die Basis-URL `https://tabular.genesapi.org` _(notwendig)_
+2. Die Angabe des gesuchten Datensatzes mit `data=` _(notwendig)_
+3. Die Abfrage des gewünschten Gebiets mit `level=` und `region=` _(optional)_
+4. Die Abfrage des Zeitraums mit `time=` _(optional)_
+5. Weitere Einstellungen wie Layout, Beschriftungen und Download-Format _(optional)_
+
+Sämtliche an die REST-Schnittstelle gesendeten Abfragen folgen diesem Aufbau.
+
+**Diese API ist experimentell.** _Datenguide ist ein nicht-kommerzielles Open-Source-Projekt. Wir übernehmen keine Gewähr für die Zuverlässigkeit der Tools sowie die Richtigkeit und Vollständigkeit der abgerufenen Daten._
+
+### 1. Die Basis-URL _(notwendig)_
+
+https://tabular.genesapi.org/
+
+Die Anfrage an die REST-Schnittstelle geschieht über die URL-Anfrage an die Adresse https://tabular.genesapi.org/.
+Ohne das Hinzufügen weiterer Parameter wird die Seite zwar aufgerufen, liefert aber keinen Datensatz zurück.
+
+### 2. Die Angabe des gesuchten Datensatzes `?data=` _(notwendig)_
+
+Die Angabe des Datensatzes `data=` ist der wichtigste Parameter der Abfrage, denn nur durch die Angabe des
+Datensatzes „weiß“ die REST-Schnittstelle, welche spezifischen Daten abgefragt werden sollen.
+
+https://tabular.genesapi.org/?data=12612:BEV001
+
+Wie in diesem Beispiel zu sehen, fügen wir den Namen eines Datensatzes (zum Beispiel `12612:BEV001`) gleich hinter dem `data=`-Parameter an. Wie in vielen Programmiersprachen steht das Gleichheitszeichen nicht für eine Gleichsetzung, sondern für eine Zuweisung. Anders gesagt, um der Schnittstelle mitzuteilen, welcher Datensatz aufgerufen werden soll, weisen wir dem Parameter `?data` den Beispiel-Datensatz `12612:BEV001` über das Gleichheitzeichen zu: `data=12612:BEV001`.
+
+In der Datenbank steht `12612:BEV001` beispielsweise für das Merkmal „Lebend Geborene“ (`BEV001`), das wiederum zur „Statistik der Geburten“ (`12612`) gehört. Diese „Codes“ sind nicht sehr intuitiv, lassen sich jedoch [einfach über eine Suchmaske nachschlagen](https://datengui.de/statistik-erklaert/dimensions).
+
+### 3. Die Abfrage des gewünschten Gebiets `region=` _(optional)_
+
+Mit der reinen Angabe des Datensatzes ist die Anfrage bereits erfolgreich, alle weiteren Angaben sind
+optional, erweitern oder verfeinern aber das Datensatz-Ergebnis. Der Parameter `level=` legt fest, über welches
+Gebiet wir Daten abfragen möchten. Ausgewählt werden können folgende Gebiete:
+
+- 0 — Deutschland gesamt
+- 1 — Bundesländer
+- 2 — Regierungsbezirke / statistische Regionen
+- 3 — Landkreise und kreisfreie Städte
+- 4 — Gemeinden
+
+Um regionale Statistiken über Grenzen hinweg vergleichbar zu machen, wird in Europa bei der Gebietseinteilung
+ein System namens NUTS („Nomenclature des unités territoriales statistiques“) verwendet. Mehr Informationen über
+einschlägige Begriffe wie regionale Tiefe, NUTS oder LAU findest du in unserem Artikel über [regionale Einteilung](https://datengui.de/statistik-erklaert/nuts).
+
+Am bereits vorgestellten Beispiel der Geburtenzahlen können wir die Region einschränken, wenn wir
+hinter den `data=` ein Fragezeichen `?` als Trenner zwischen Daten und Region setzen und dann den Parameter
+`level=` mit der entsprechende Zahl anfügen, zum Beispiel `1` für Deutschland (gesamt):
+
+https://tabular.genesapi.org/?data=12612:BEV001&amp;level=0
+
+#### Einzelne Regionen
+
+Daten für eine bestimmte Region können mit dem Parameter `region=` abgefragt werden. Der Parameter `level=` kann dann weggelassen werden:
+
+https://tabular.genesapi.org/?data=12612:BEV001&amp;region=01051
+
+Die Nummer, die verwendet wird um die Regionen zu identifizieren, ist der Amtliche Gemeindeschlüssel (AGS). Weitere Infos und ein Tool, mit dem du den Schlüssel für jede mögliche Region herausfinden kannst, findest du in unserem [Artikel über AGS](/statistik-erklaert/ags).
+
+#### Gruppen von Regionen
+
+Möchtest du nicht nur Daten für eine einzelne Regionen auswählen, sondern für Gruppen von Regionen, beispielsweise für alle Gemeinden in einem Landkreis, kannst den Parameter `parent=` verwenden. Dieses Beispiel zeigt alle Gemeinden (`level=4`) im Landkreis Dithmarschen (`parent=01051`):
+
+https://tabular.genesapi.org/?data=12612:BEV001&amp;level=4&amp;parent=01051
+
+### 4. Die Abfrage des Zeitraums mit `time=` _(optional)_
+
+Neben den Daten über bestimmte Gebiete interessiert uns natürlich auch der Zeitraum, wann die Daten erhoben
+wurden. Mithilfe des Parameters `time=` lassen sich Abfrage-Zeiträume bestimmen, eingrenzen und auswählen.
+Wird keine Zeitangabe gemacht, geht die REST-Schnittstelle davon aus, dass wir den gesamten Abfragezeitraum
+abrufen möchten.
+
+- `time=YEAR:YEAR` ruft einen Zeitraum zwischen Start und Endjahr auf:<br/>https://tabular.genesapi.org/?data=12612:BEV001&amp;region=01051&amp;time=2000:2010
+
+- `time=:YEAR` ruft sämtliche Jahre bis inklusive des ausgewählten Jahres auf:<br/>https://tabular.genesapi.org/?data=12612:BEV001&amp;region=01051&amp;time=:2010
+
+- `time=YEAR:` ruft sämtliche Jahre ab dem ausgewählten Jahre auf:<br/>https://tabular.genesapi.org/?data=12612:BEV001&amp;region=01051&amp;time=2010:
+
+- `time=YEAR,YEAR` ruft mehrere Jahre auf:<br/>https://tabular.genesapi.org/?data=12612:BEV001&amp;region=01051&amp;time=2000,2005,2010,2015
+
+### 5. Weitere Einstellungen _(optional)_
+
+Weitere Einstellungen wie Layout, Beschriftungen und Download-Format können dazu verwendet werden, die Daten in das Format zu bringen, das du für die Weiterverarbeitung brauchst.
+
+#### Layout:
+
+- `layout=long` — Es wird eine Zeile pro Wert dargestellt (default)
+- `layout=time` — Es wird eine Zeile pro Jahr/Datum angezeigt
+- `layout=region` — Es wird Eine Zeile pro Region dargestellt
+
+#### Beschriftungen:
+
+- `labels=id` — Statt der vollen Bezeichnung werden nur Kürzel („id“) angezeigt (default)
+- `labels=name` — Ausgeschriebene Bezeichnungen bei der Ausgabe anzeigen
+
+#### Format:
+
+- `format=csv` — Datensatz im CSV-Format ausgeben (default)
+- `format=tsv` — Daten im TSV-Format ausgeben (getrennt durch Tabs)
+- `delimiter=,` — Trennzeichen manuell festlegen (zum Beispiel `;`)
+- `format=json` — Daten im JSON-Format ausgeben (ein Objekt pro Tabellenzeile plus Tabellen-Metadaten)
+
+#### Datumsformat:
+
+- `dformat=year` — Datum wird in Jahren dargestellt (default)
+- `dformat=date` — Datum wird in Tagen dargestellt
+
+---
+
+Viele Beispiele für mögliche Abfragen findet ihr [auf Github](https://github.com/datenguide/genesapi-tabular/blob/master/examples.ipynb). Wir haben außerdem Beispiele für die [Verwendung mit Python](verwendung-mit-python) und [JavaScript](verwendung-mit-javascript) zusammengestellt.
