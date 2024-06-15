@@ -8,8 +8,8 @@ const useStyles = makeStyles((theme) => ({
   root: {
     minHeight: '480px',
     backgroundColor: '#c3e5f1',
-    paddingTop: theme.spacing(3),
-    paddingBottom: theme.spacing(6),
+    paddingTop: theme.spacing(5),
+    paddingBottom: theme.spacing(5),
     borderBottom: '1px solid',
     fontSize: theme.typography.body1.fontSize,
 

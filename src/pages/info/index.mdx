@@ -1,9 +1,17 @@
 ---
-title: 'Was ist Datenguide?'
-description: Datenguide macht amtliche Statistik zugänglicher für alle. Unsere digitale Plattform spart Zeit, weil sie regionale Statistiken zu Bundesländern, Landkreisen und Gemeinden schnell nutzbar macht. Und wir erklären Hintergründe amtlicher Statistik so, dass mehr Menschen sich trauen, damit zu arbeiten.
+title: Über Datenguide
+description: Von 2018 bis 2023 haben wir bei Datenguide an Open-Source-Tools gearbeitet, die helfen, die Daten der amtlichen Statistik zu verstehen und sinnvoll einzusetzen.
 layout: Minimal
 events:
   past:
+    - title: SciCAR 2023
+      date: 29. September 2023
+      url: https://23.scicar.de/scicar23/talk/FYGT8Y/
+      attachments:
+        - type: Slides
+          url: https://downloads.datengui.de/slides/scicar2023.pdf
+        - type: Code-Beispiele
+          url: https://github.com/sjockers/genesis-api-example
     - title: Datenguide beim rC3
       date: 29. Dezember 2020
       url: blog/2020/rc3
@@ -36,7 +44,7 @@ events:
       attachments:
         - type: Slides
           url: https://downloads.datengui.de/slides/boddy19.pdf
-    - title: SciCAR
+    - title: SciCAR 2019
       date: 9. September 2019
       url: https://sched.co/SZWi
       attachments:
@@ -76,26 +84,26 @@ events:
           url: https://etherpad.opennews.org/p/opendata
     - title: re:publica
       date: 4. März 2018
-      url: https://18.re-publica.com/de/session/statistik-alle-wir-hacken-statistische-bundesamt
+      url: https://web.archive.org/web/20211025072508/https://18.re-publica.com/de/session/statistik-alle-wir-hacken-statistische-bundesamt
       attachments:
         - type: Slides
           url: https://downloads.datengui.de/slides/rp18.pdf
 team:
   - name: Simon Jockers
     role: Projektleitung
-    url: https://twitter.com/sjockers
+    url: https://simonjockers.de/
     image: /team/jockers.jpg
   - name: Simon Wörpel
     role: Datenjournalist
-    url: https://twitter.com/simonwoerpel
+    url: https://simonwoerpel.github.io/
     image: /team/woerpel.jpg
   - name: Patricia Ennenbach
     role: Datenjournalistin
-    url: https://twitter.com/pen1710
+    url: https://de.linkedin.com/in/patricia-ennenbach
     image: /team/ennenbach.jpg
   - name: Christian Rijke
     role: Software Engineer
-    url: https://twitter.com/crijke
+    url: https://christianrijke.de/
     image: /team/rijke.jpg
 ---
 
@@ -105,6 +113,7 @@ import Box from '@material-ui/core/Box'
 import Typography from '@material-ui/core/Typography'
 
 import { BodyText, BodyTextAside } from '../../components/BodyText'
+import ArrowLink from '../../components/ArrowLink'
 import Events from '../../components/Events'
 import Team from '../../components/Team'
 import Funders from '../../components/Funders'
@@ -112,28 +121,34 @@ import { frontMatter } from './index.mdx'
 
 <Container>
 
-# Über Datenguide
+<Box pt={3}>
+
+# Über das Projekt Datenguide
+
+</Box>
 
 <BodyText>
 
 <Box pb={2}>
   <Typography variant="subtitle1" component="p" m={4}>
-    Von 2018 bis 2024 haben wir bei Datenguide an digitalen Tools gearbeitet, um
-    den Zugang zu den Daten der amtlichen Statistik zu verbessern.
+    Von 2018 bis 2023 haben wir daran gearbeitet, den Zugang zu den Daten der
+    amtlichen Statistik zu verbessern.
   </Typography>
 </Box>
 
-Die Statistischen Ämter sammeln kontinuierlich Daten und erstellen Statistiken zu allen Bereichen unserer Gesellschaft, Umwelt und Wirtschaft. Das reicht von Zahlen zu Arbeitslosigkeit und Sozialleistungen bis zur Tierhaltung in der Landwirtschaft. Diese **amtliche Statistik** ist nicht nur eine wichtige Entscheidungsgrundlage für Politik, Verwaltung und Wirtschaft, sondern auch ein wertvolles Werkzeug für Journalist\*innen und zivilgesellschaftliche Initiativen.
+Die Statistischen Ämter sammeln kontinuierlich Daten und erstellen Statistiken zu allen Bereichen unserer Gesellschaft, Umwelt und Wirtschaft. Das reicht von Zahlen zu Arbeitslosigkeit und Sozialleistungen bis zur Tierhaltung in der Landwirtschaft. Diese **amtliche Statistik** ist nicht nur eine wichtige Entscheidungsgrundlage für Politik und Verwaltung, sondern auch ein wertvolles Werkzeug für Journalist\*innen und zivilgesellschaftliche Initiativen.
 
 ## Amtliche Statistik für alle!
 
-Das Ziel von Datenguide war es, den Zugang auf Daten der statistischen Ämter zu vereinfachen – insbesondere für Jounalist\*innen und andere zivilgesellschaftliche Akteure. Denn in der Praxis ist die Nutzung von amtlichen Statistiken oft schwierig. Obwohl die amtliche Statistik theoretisch der Öffentlichkeit zur Verfügung steht und offizielle Statistikportale Daten zum Download anbieten, stellen die Bedienung dieser Portale und die weitere Analyse der Daten ein großes Hindernis dar.
+Das Ziel von Datenguide war es, den Zugang zu Daten der statistischen Ämter zu verbessern – insbesondere für Jounalist\*innen und andere zivilgesellschaftliche Akteur\*innen. Denn in der Praxis ist die Nutzung von amtlichen Statistiken oft schwierig. Obwohl die amtliche Statistik theoretisch der Öffentlichkeit zur Verfügung steht und die offiziellen Statistikportale Daten zum Download anbieten, stellen die Bedienung dieser Portale und die Weiternutzung der Daten ein großes Hindernis dar.
 
-Die offiziellen Portale richten sich an Expert\*innen und boten zum Beginn des Projekts kaum Informationen für Laien oder brauchbare Werkzeuge zum Finden und Darstellen von Datensätzen. Aber auch für Fachleute ist die Arbeit mit der offziellen Veröffentlichung der amtlichen Statistik bis heute zeitraubend und frustrierend, da viele Datensätze einzeln angefordert und aufbereitet werden müssen.
+Die offiziellen Portale richten sich an Expert\*innen und boten, zumindest zum Beginn des Projekts Datenguide, kaum Informationen für Laien oder brauchbare Werkzeuge zum Durchsuchen und Darstellen von Datensätzen. Aber auch für Fachleute ist die Arbeit mit offziellen Veröffentlichungen der Statistischen Ämter bis heute zeitraubend und frustrierend, da viele Datensätze einzeln angefordert und aufbereitet werden müssen.
 
-Das Projekt Datenguide sollte dazu beitragen, diese Hürden abzubauen. Wir haben an Open-Source-Tools gearbeitet, die helfen sollten, die Daten der amtlichen Statistik zu verstehen und sinnvoll einzusetzen. Dazu gehörte ein **experimentelles Datenportal** und eine **Datenschnittstelle (API)**, die den Zugriff auf die Daten der Regionalstatistik ermöglichten. _[Beide Angebote haben wir im Juni 2024 abgeschaltet](/blog/2024/bye-bye)._
+Mit Datenguide wollten wir dazu beitragen, diese Hürden abzubauen. Wir haben an Open-Source-Tools gearbeitet, die helfen, die Daten der amtlichen Statistik sinnvoll einzusetzen. Dazu gehörte ein **experimentelles Datenportal** und eine **Datenschnittstelle** (API), die den Zugriff auf die Daten der Regionalstatistik ermöglichten. Die API und das damit verbundene Datenportal [haben wir im Juni 2024 abgeschaltet](/blog/2024/bye-bye), da die statistischen Ämter inzwischen offizielle Datenschnittstellen anbieten.
 
 ## Mehr als eine Online-Plattform
+
+Datenguide war mehr als eine Online-Plattform. Wir haben mit verschiedenen Wegen der Nutzung und Bereitstellung von Daten experimentiert, Wissen über amtliche Statistik aufgebaut und uns für offene Daten eingesetzt. Wir haben einen [Hackday zu Wahldaten](https://blog.datengui.de/wahlsalon) organisiert und unser Wissen in Workshops und Vorträgen weitergegeben, zum Beispiel bei der [re:publica](https://web.archive.org/web/20211025072508/https://18.re-publica.com/de/session/statistik-alle-wir-hacken-statistische-bundesamt), der [SciCAR](https://scicar2019.sched.com/event/SZWi) und beim [Chaos Communication Congress](https://media.ccc.de/v/rc3-2020-158-datenguide-statistiken-fr-alle-). Gemeinsam mit der Community von [CorrelAid](https://correlaid.org/) haben wir nicht nur an [Tools](https://codes.correlaid.org/opensource/) sondern auch an [Beispielen](https://www.correlaid.org/en/blog/correlaidx-challenge/) für die zivilgesellschaftliche Nutzung von amtlichen Statistiken gearbeitet.
 
 </BodyText>
 </Container>
@@ -163,17 +178,40 @@ Foto: [Workshop bei der OpenNews Unconference](https://www.flickr.com/photos/moz
 
 <BodyText>
 
-## Mehr als eine Online-Plattform
+## Projektergebnisse
 
-Datenguide soll nicht nur Daten-Einsteiger ansprechen, sondern auch Profis. Wir arbeiten an Open-Source-Tools, mit denen Datenjournalist:innen, Entwickler:innen und Wissenschaftler:innen auf die Daten der amtlichen Statistik zugreifen können. Wir stellen eine **[Datenschnittstelle](https://github.com/datenguide/genesapi-tabular)** zur Verfügung und arbeiten gemeinsam mit unseren Kolleg:innen von [CorrelAid](https://correlaid.org) daran, statistische Daten mit den Programmiersprachen Python und R nutzbar zu machen. Damit ermöglichen wir komplexe Recherchen und die Entwicklung von neuen Tools auf Basis von amtlichen Statistiken. Anwendungen, die unsere Technologie verwenden, wurden bereits ausgezeichnet: Der Prototyp [„Regio-Reports“](https://datengui.de/blog/2018/dpa-hackathon/) gewann den API-Award beim [Hackathon der dpa](https://www.dpa.com/de/unternehmen/dpa-zeichnet-aus/picturepunk/#data-deep-dive) und [Revierderby](https://www.journalismuslab.de/2019/07/15/hacking-local_media-das-war-der-journalismus-hackathon-2019/) den ersten Preis beim [„hacking://local_media“ Hackathon](https://www.journalismuslab.de/2019/07/15/hacking-local_media-das-war-der-journalismus-hackathon-2019/) der LfM NRW.
+Den Ausgangspunkt für die Arbeit von Datenguide bildeten die Daten der deutschen [Regionalstatistik](https://www.regionalstatistik.de/genesis/online/), für deren Download und Weiterverarbeitung wir verschiedene **Open-Source-Komponenten** entwickelten. Die technischen Grundlagen dafür entstanden 2018 im Rahmen einer Förderung durch den [Prototype Fund](https://prototypefund.de). Darauf aufbauend haben wir, unter anderem mit finanzieller Unterstützung des [MIZ Babelsberg](https://miz-babelsberg.de), eine Online-Plattform entwickelt und Fallstudien umgesetzt. Der Source-Code, der im Rahmen dieser Arbeit entstanden ist, ist [auf GitHub archiviert](https://github.com/datenguide/datenguide).
 
-Die Datengrundlage für unsere Arbeit bildet die offizielle Veröffentlichung der **[Regionalstatistik]('https://www.regionalstatistik.de/genesis/online/')** der Statistischen Ämter, die wir automatisiert herunterladen und aufbereiten. Diese technische Basis haben wir 2018 im Rahmen einer Förderung durch den [Prototype Fund](https://prototypefund.de) erarbeitet. Danach haben wir mit einer Förderung des [MIZ Babelsberg](https://miz-babelsberg.de) an der Entwicklung der Online-Plattform gearbeitet und erste Fallstudien mit Medienpartnern umgesetzt. 2018 wurden wir außerdem durch ein [Grow-Stipendium](https://netzwerkrecherche.org/ziele/gemeinnuetziger-journalismus/grow-stipendien/) von Netzwerk Recherche und der Schöpflin Stiftung gefördert.
+2020 konnten wir, dank einer erneuten Förderung durch den Prototype Fund, verschiedene **interaktive Visualisierungen und Tools** entwickeln, die Hintergründe und Grundlagen für die Nutzung von amtlichen Statistiken erklären. Diese Inhalte sind, soweit technisch möglich, auch nach dem Ende des Projekts [online verfügbar](/statistik-erklaert).
+
+Die Arbeit an Datenguide floss auch zurück in die Weiterentwicklung der offiziellen Angebote der statistischen Ämter, unter anderem durch gemeinsame Workshops und einen Katalog mit Empfehlungen, den wir bereits 2018 im Rahmen einer Beratung für das Statistische Bundesamt entwickelt haben. Wir hoffen, dass wir durch unsere Arbeit auch Impulse für die zukünftige Verbesserung der offiziellen Statistikportale geben konnten.
+
+<ArrowLink href="https://github.com/datenguide/datenguide">
+  Source Code für Datenguide auf GitHub
+</ArrowLink>
+
+<ArrowLink href="/statistik-erklaert">
+  Statistik erklärt: Grundlagen für die Arbeit mit den Daten der
+  Regionalstatistik
+</ArrowLink>
+
+<ArrowLink href="/statistik-erklaert/genesis">
+  So nutzt du die offiziellen Datenschnittstellen der statistischen Ämter
+</ArrowLink>
+
+## Beteiligte und Unterstützer
+
+Das Kernteam von Datenguide bestand aus [Simon Jockers](https://simonjockers.de/), [Simon Wörpel](https://simonwoerpel.github.io/), [Patricia Ennenbach](https://de.linkedin.com/in/patricia-ennenbach) und [Christian Rijke](https://christianrijke.de/). Wir wurden unterstützt von vielen anderen, die an unseren Veranstaltungen teilgenommen, eigene Prototypen entwickelt und teilweise auch am Code und der Dokumentation von Datenguide mitgearbeitet haben. Wir danken allen, die zu diesem Projekt beigetragen haben!
 
 </BodyText>
 
-### Kernteam
-
 <Team members={frontMatter.team} />
+
+<BodyText>
+
+Das Projekt Datenguide wurde unterstützt durch das [MIZ Babelsberg](https://miz-babelsberg.de/) (2018-2019) und den [Prototype Fund](https://prototypefund.de/) (2018, 2020), einem Projekt der [Open Knowledge Foundation](https://okfn.de/), gefördert durch das [Bundesministerium für Bildung und Forschung](https://www.bmbf.de/). 2018 erhielten wir außerdem ein [Grow-Stipendium](https://netzwerkrecherche.org/ziele/gemeinnuetziger-journalismus/grow-stipendien/) von [Netzwerk Recherche](https://netzwerkrecherche.org/) und der [Schöpflin Stiftung](https://www.schoepflin-stiftung.de/).
+
+</BodyText>
 
 <Funders />
 
