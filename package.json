@@ -81,7 +81,7 @@
     "react-dom": "^16.13.1",
     "react-highlight": "^0.12.0",
     "react-highlight-words": "^0.16.0",
-    "react-hook-thunk-reducer": "^0.2.4",
+    "react-hook-thunk-reducer": "^0.3.0",
     "react-map-gl": "^5.2.5",
     "react-responsive-embed": "^2.1.0",
     "react-scrollama": "2.2.1",
