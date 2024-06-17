@@ -65,7 +65,7 @@
     "mdx-constant": "^0.1.0",
     "mdx-table-of-contents": "^0.1.0",
     "moment": "^2.24.0",
-    "next": "^9.3.5",
+    "next": "^14.1.1",
     "next-absolute-url": "^1.2.2",
     "next-compose-plugins": "^2.2.0",
     "next-fonts": "^1.0.3",
