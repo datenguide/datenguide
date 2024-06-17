@@ -74,7 +74,7 @@
     "next-optimized-images": "^2.5.8",
     "postcss": "^7.0.27",
     "prettier": "^2.0.4",
-    "prop-types": "^15.7.2",
+    "prop-types": "^15.8.1",
     "query-string": "^6.12.1",
     "react": "^16.13.1",
     "react-datawrapper-chart": "^1.0.3",
