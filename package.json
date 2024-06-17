@@ -61,7 +61,7 @@
     "loader-utils": "^2.0.0",
     "lodash": "^4.17.21",
     "mdast-util-toc": "^5.0.3",
-    "mdi-material-ui": "^6.13.2",
+    "mdi-material-ui": "^6.30.0",
     "mdx-constant": "^0.1.0",
     "mdx-table-of-contents": "^0.1.0",
     "moment": "^2.24.0",
