@@ -35,7 +35,7 @@
     "@material-ui/styles": "^4.9.10",
     "@mdi/js": "^5.1.45",
     "@mdx-js/loader": "^1.5.8",
-    "@mdx-js/mdx": "^1.5.8",
+    "@mdx-js/mdx": "^3.0.1",
     "@mdx-js/react": "^1.5.8",
     "@sindresorhus/slugify": "^0.11.0",
     "@svgr/webpack": "^5.3.1",
