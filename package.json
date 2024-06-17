@@ -44,7 +44,7 @@
     "chroma-js": "^2.1.0",
     "clsx": "^1.1.0",
     "copy-to-clipboard": "^3.3.1",
-    "cssnano": "^4.1.10",
+    "cssnano": "^4.1.11",
     "dotenv": "^8.2.0",
     "dotenv-webpack": "^1.7.0",
     "flexsearch": "^0.6.32",
