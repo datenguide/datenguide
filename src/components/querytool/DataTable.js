@@ -138,6 +138,16 @@ const DataTable = ({
       setLoading(true)
       // // TODO support more than 1 measure
       const measure = Object.values(measures)[0]
+
+      // Fixes the rare case, that "data" key was not present
+      if (
+        Object.keys(router.query).includes('') &&
+        !Object.keys(router.query).includes('data')
+      ) {
+        router.query.data = measure.id
+        delete router.query['']
+      }
+
       const query = getQuery(
         regions,
         measure,
@@ -146,6 +156,7 @@ const DataTable = ({
         page,
         rowsPerPage
       )
+
       setGraphqlQuery(query)
       // const response = await client.request({ query })
       // const { data, error } = response
