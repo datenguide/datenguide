@@ -62,6 +62,12 @@ const useStyles = makeStyles((theme) => ({
   nextPageButton: {
     margin: theme.spacing(2, 0),
   },
+  warning: {
+    borderRadius: 10,
+    background: theme.palette.info.main,
+    margin: theme.spacing(5, 0, 0, 0),
+    padding: theme.spacing(3),
+  },
 }))
 
 const DocsPage = (frontMatter) => ({ children }) => {
@@ -99,7 +105,18 @@ const DocsPage = (frontMatter) => ({ children }) => {
             <DocsNavigation docsNavigation={docsNavigation} />
           </nav>
           <main className={classes.content}>
-            <BodyText>{children}</BodyText>
+            <BodyText>
+              <div className={classes.warning}>
+                <strong>Achtung: </strong>
+                Diese Dokumentation bezieht sich auf Software, die nicht mehr
+                zur Verfügung steht. Du solltest stattdessen die offizielle
+                Datenschnittstelle der Regionaldatenbank verwenden.{' '}
+                <a href="/statistik-erklaert/genesis">
+                  Hier erfährst du wie du wie!
+                </a>
+              </div>
+              {children}
+            </BodyText>
             {nextPage && (
               <Button
                 className={classes.nextPageButton}

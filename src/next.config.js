@@ -41,8 +41,6 @@ module.exports = withPlugins(
     pageExtensions: ['js', 'jsx', 'mdx', 'md'],
     // make env variables available at runtime
     publicRuntimeConfig: {
-      datenguideApiUrl: process.env.NEXT_PUBLIC_DATENGUIDE_API,
-      tabularApiUrl: process.env.NEXT_PUBLIC_TABULAR_API,
       mapboxToken: process.env.NEXT_PUBLIC_MAPBOX_TOKEN,
     },
     webpack(config) {

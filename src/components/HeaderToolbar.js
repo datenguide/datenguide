@@ -76,7 +76,7 @@ export default function HeaderToolbar({ menuButton }) {
   return (
     <div className={classes.header}>
       <div className={classes.message}>
-        Wir schalten die Datenguide-API und das Datenportal ab!
+        Die Datenguide-API wurde im Juni 2024 abgeschaltet.
         <Link href="/blog/2024/bye-bye">
           <a className={classes.link}>Alles zur Abschaltung</a>
         </Link>
@@ -94,18 +94,6 @@ export default function HeaderToolbar({ menuButton }) {
         </div>
         <div className={classes.controls}>
           <div className={classes.nav}>
-            <Link href="/statistiken">
-              <Button
-                component="a"
-                color={
-                  router.pathname.startsWith('/statistiken')
-                    ? 'primary'
-                    : 'inherit'
-                }
-              >
-                Datenportal
-              </Button>
-            </Link>
             <Link href="/statistik-erklaert">
               <Button
                 component="a"

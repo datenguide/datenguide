@@ -1,13 +1,13 @@
 ---
 title: Datenguide | Amtliche Statistiken für alle
-description: Der Datenguide macht die amtliche Statistik zugänglicher für alle. Wir arbeiten an einer digitalen Plattform, die regionale Statistiken klar und prägnant darstellt, vergleichbar macht und erklärt.
+description: Von 2018 bis 2023 haben wir bei Datenguide an Open-Source-Tools gearbeitet, die helfen, die Daten der amtlichen Statistik zu verstehen und sinnvoll einzusetzen.
 layout: Minimal
 intro:
   - title: Statistiken für alle
-    text: Wir entwickeln eine einfach zu bedienende Website, die amtliche Statistiken durchsuchbar macht, visualisiert und erklärt.
+    text: Wir entwickeln digitale Tools, die Daten der amtlichen Statistiken durchsuchbar machen, visualisieren und erklären.
     slug: statistics
   - title: Daten für Profis
-    text: Wir stellen eine Datenschnittstelle (API) und zur Verfügung, über die Datenjournalist:innen und Programmierer:innen direkt auf die Daten der Regionalstatistik zugreifen können.
+    text: Wir stellen eine Datenschnittstelle und zur Verfügung, über die Datenjournalist:innen und Programmierer:innen direkt auf die Daten der Regionalstatistik zugreifen können.
     slug: api
   - title: Data Literacy
     text: Wir bauen Wissen über die amtliche Statistik auf und geben es weiter. Wir organisieren Workshops und Hackathons bei denen wir gemeinsam mit statistischen Daten arbeiten.
@@ -19,7 +19,7 @@ featuredPosts:
     image: '/statistik-erklaert/genesis.png'
   - href: '/statistik-erklaert/zensus2011'
     title: Die Zensuslücke
-    description: Wie einmal 1.5 Millionen Menschen verschwanden und was das für unser Verständnis von statistischen Daten bedeutet.
+    description: Wie 1,5 Millionen Menschen verschwanden und was das für unser Verständnis von statistischen Daten bedeutet.
     image: '/statistik-erklaert/zensus2011.png'
   - href: '/statistik-erklaert/nuts'
     title: Wie sind statistische Regionen eingeteilt?
@@ -27,29 +27,29 @@ featuredPosts:
     image: '/statistik-erklaert/nuts.png'
 tools:
   - slug: datenguide
-    title: Die Datenguide API
+    title: Datenguide-API
     author:
       name: Datenguide
-      url: https://datengui.de
-    desc: Die Datenguide API ist eine alternative Datenschnittstelle für die amtliche Statistiken der Regionaldatenbank Deutschland
-    action: Zur Dokumentation
-    url: docs
+      url: https://github.com/datenguide/
+    desc: Die Datenguide API war eine alternative Datenschnittstelle für die amtlichen Statistiken der Regionaldatenbank.
+    action: Github-Repository (Archiv)
+    url: https://github.com/datenguide/datenguide-api
   - slug: rlang
     author:
       name: CorrelAid
       url: https://correlaid.org
     title: Datenguide für R
-    desc: Mit dem DatenguideR-Package kannst du direkt aus R auf die Daten der Datenguide-API zugreifen.
-    action: Zum Repository
+    desc: Mit dem DatenguideR-Package konntest du direkt aus R auf die Daten der Datenguide-API zugreifen.
+    action: Github-Repository (Archiv)
     url: https://github.com/CorrelAid/datenguideR
   - slug: python
     author:
       name: CorrelAid
       url: https://correlaid.org
     title: Datenguide für Python
-    desc: Dieses Python-Package stellt Daten aus der Datenguide-API als Pandas DataFrames zur Verfügung.
-    action: Zur Dokumentation
-    url: https://datenguidepy.readthedocs.io/en/latest/
+    desc: Dieses Python-Package stellte Daten aus der Datenguide-API als Pandas DataFrames zur Verfügung.
+    action: Github-Repository (Archiv)
+    url: https://github.com/CorrelAid/datenguide-python
 ---
 
 import MainStage from '../components/MainStage'
@@ -61,11 +61,9 @@ import { frontMatter } from './index.mdx'
 
 <MainStage>
 
-# Statistiken für alle!
+# Tschüß Datenguide! 👋
 
-Datenguide macht die amtliche Statistik zugänglich für alle.
-
-Wir arbeiten an digitalen Tools, die euch helfen, regionale Statistiken zu verstehen und sinnvoll einzusetzen.
+Von 2018 bis 2023 haben wir daran gearbeitet, den Zugang zu den Daten der amtlichen Statistik zu verbessern. Alles, was ihr über das Ende des Projekts **Datenguide** wissen müsst, erfahrt ihr in unserem [Rückblick](https://datengui.de/blog/2024/bye-bye).
 
 </MainStage>
 
@@ -79,9 +77,9 @@ Wir arbeiten an digitalen Tools, die euch helfen, regionale Statistiken zu verst
 
 ## Über Datenguide
 
-Die **Statistischen Ämter** Deutschlands sammeln kontinuierlich Daten und erstellen Statistiken zu allen Bereichen der Gesellschaft. Datenguide macht diese **amtliche Statistik** leichter zugänglich. Wir stellen digitale Tools bereit, die euch helfen, die amtliche Statistik zu verstehen und sinnvoll einzusetzen.
+Die **Statistischen Ämter** sammeln kontinuierlich Daten und erstellen Statistiken zu allen Bereichen unserer Gesellschaft. Das Ziel von Datenguide war es, diese **amtliche Statistik** zugänglicher zu machen.
 
-Unser neues **[Datenportal](/statistiken)** steht als Prototyp zur Verfügung. Profis können auch direkt auf unsere experimentelle **[Datenschnittstelle](/docs/rest)** zugreifen.
+Von **2018 bis 2023** haben wir bei Datenguide an Open&#8209;Source&#8209;Tools gearbeitet, die halfen, die Daten der amtlichen Statistik zu verstehen und sinnvoll einzu&shy;setzen. Wir betrieben unter anderem eine **[API](/docs)** und ein experimentelles **[Datenportal](/statistiken)** für regionale Statistiken. Diese Angebote sind inzwischen eingestellt.
 
 </Intro>
 
@@ -95,10 +93,10 @@ Wenn du kein Update verpassen willst, melde dich für den Datenguide-Newsletter 
 
 <Tools features={frontMatter.tools}>
 
-## Open Data und Open Source
+## Open Source (archiviert)
 
-Datenguide bietet direkten Zugriff auf Daten der amtlichen Statistik Deutschlands. Auf die Datenschnittstelle könnt ihr über REST und GraphQL zugreifen oder über Bibliotheken für Python und R, die von der [CorrelAid-Community](https://correlaid.org/) entwickelt werden. Die Software hinter Datenguide ist [open source](https://github.com/datenguide/datenguide).
+Datenguide bot über eine Datenschnittstelle (API) direkten Zugriff auf Daten der deutschen Regionalstatistik. **Diese API ist seit Juni 2024 abgeschaltet**. Die Daten können über die [Regionaldatenbank Deutschland](https://www.regionalstatistik.de/genesis/online/) abgerufen werden, die inzwischen eine offizielle API anbietet.
 
-Die Datensätze, die über Datenguide zur Verfügung stehen, stammen aus der [Regionaldatenbank Deutschland](https://www.regionalstatistik.de/genesis/online/), einer Veröffentlichung der Statistischen Ämter des Bundes und der Länder. Sie können unter den Bedingungen der Datenlizenz Deutschland ([dl‑de/by‑2-0](https://www.govdata.de/en/dl-de/by-2-0)) frei verwendet werden.
+Auf die API von Datenguide konntet ihr über [REST](https://github.com/datenguide/genesapi-tabular) und [GraphQL](https://github.com/datenguide/datenguide-api) zugreifen, sowie über Bibliotheken für Python und R, die von der [CorrelAid-Community](https://correlaid.org/) entwickelt wurden. **Diese Tools werden nicht mehr weiterentwickelt.** Der Quellcode ist auf GitHub archiviert.
 
 </Tools>

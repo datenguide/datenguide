@@ -8,8 +8,8 @@ const useStyles = makeStyles((theme) => ({
   root: {
     minHeight: '480px',
     backgroundColor: '#c3e5f1',
-    paddingTop: theme.spacing(3),
-    paddingBottom: theme.spacing(6),
+    paddingTop: theme.spacing(5),
+    paddingBottom: theme.spacing(5),
     borderBottom: '1px solid',
     fontSize: theme.typography.body1.fontSize,
 
@@ -83,18 +83,18 @@ const MainStage = ({ children }) => {
           color="secondary"
           className={classes.cta}
           disableElevation
-          href="/statistiken"
+          href="/blog/2024/bye-bye"
         >
-          Datenportal
+          Rückblick
         </Button>
         <Button
           variant="outlined"
           size="large"
           color="secondary"
           className={classes.cta}
-          href="/statistik-erklaert"
+          href="/info"
         >
-          Statistik erklärt
+          Mehr über Datenguide
         </Button>
       </Container>
     </section>
