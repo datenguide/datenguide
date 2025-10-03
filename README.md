@@ -1,6 +1,6 @@
 # Datenguide
 
-[![Build Status](https://travis-ci.com/datenguide/datenguide.svg?branch=master)](https://travis-ci.com/datenguide/datenguide)
+[![Build Status](https://travis-ci.com/datenguide/datenguide.svg?branch=main)](https://travis-ci.com/datenguide/datenguide)
 
 Datenguide is your guide to understanding and using German official statistics. We work on an easy-to-use data portal and on learning materials around data published by the German statistics offices.
 
@@ -44,7 +44,9 @@ We are actively seeking contributors for this project – civic technologists, d
 
 Have a look at our [project board](https://github.com/orgs/datenguide/projects/1) to learn about the tasks we currently work on.
 
-For bugs and feature requests, please [create an issue](https://github.com/datenguide/datenguide/issues/new). We follow the Datenguide [code of conduct](https://github.com/datenguide/datenguide/blob/master/CODE_OF_CONDUCT).
+## Contributing
+
+For bugs and feature requests, please [create an issue](https://github.com/datenguide/datenguide/issues/new). We follow the Datenguide [code of conduct](https://github.com/datenguide/datenguide/blob/main/CODE_OF_CONDUCT).
 
 ## Installing and running Datenguide
 
@@ -60,7 +62,7 @@ The [datengui.de](https://datengui.de) web application is built on top of [NextJ
 
 ## License
 
-Datenguide is an open data project built on open source software. The Datenguide source code is published under a [MIT License](https://github.com/datenguide/datenguide/blob/master/LICENSE). The documentation in this repository is published under a [Creative Commons Attribution 4.0 International License (CC By 4.0)](https://creativecommons.org/licenses/by/4.0/). The official statistics used in the Datenguide project are licensed under [Data Licence Germany – Attribution – Version 2.0 (dl-de/by-2-0)](https://www.govdata.de/en/dl-de/by-2-0), the official German open data license, by the [statistical offices of Germany](https://www.regionalstatistik.de/). The image assets that are contained in this repository are courtesy of their respective rights holders and not covered by open licenses.
+Datenguide is an open data project built on open source software. The Datenguide source code is published under a [MIT License](https://github.com/datenguide/datenguide/blob/main/LICENSE). The documentation in this repository is published under a [Creative Commons Attribution 4.0 International License (CC By 4.0)](https://creativecommons.org/licenses/by/4.0/). The official statistics used in the Datenguide project are licensed under [Data Licence Germany – Attribution – Version 2.0 (dl-de/by-2-0)](https://www.govdata.de/en/dl-de/by-2-0), the official German open data license, by the [statistical offices of Germany](https://www.regionalstatistik.de/). The image assets that are contained in this repository are courtesy of their respective rights holders and not covered by open licenses.
 
 ## Supporters & funders
 
