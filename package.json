@@ -120,6 +120,10 @@
     "standard": "^14.3.3",
     "webpack": "^4.42.1"
   },
+  "engines": {
+    "node": "=16.20.2",
+    "npm": "=8.19.4"
+  },
   "eslintConfig": {
     "parser": "babel-eslint",
     "rules": {
